@@ -1,10 +1,12 @@
 .layui-m-layerchild { border-radius: 10px; }
 
-.layui-m-layer0 .layui-m-layerchild { width: auto; }
+.layui-m-layer0 .layui-m-layerchild { width: 70%; }
 
 .layui-m-layercont { color: #484848; padding: 0; }
 
-.layui-m-layercont .title { color: #52ACD3; font-size: 1.071rem; }
+.layui-m-layercont .title { color: #52ACD3; font-size: 1.071rem; margin-top: 2rem; }
+
+.layui-m-layercont .title:before { content: ''; display: block; background-image: url("../../images/lottery/icon_tip_d.svg"); background-repeat: no-repeat; width: 3rem; height: 3rem; position: absolute; top: -2rem; left: 50%; margin-left: -2rem; background-color: #fff; border-radius: 60px; border: 6px solid #fff; }
 
 .layui-m-layercont .title p { color: #484848; font-size: 0.8571rem; }
 
@@ -22,11 +24,11 @@
 
 .periods { color: #FCB008; }
 
-.timeout { color: #fff; padding: .5rem 1.5rem; font-size: 0.875rem; }
+.timeout { color: #fff; font-size: 0.875rem; }
 
 .timeout img { width: 2.2rem; margin-right: .5rem; }
 
-.totleNum { color: #484848; font-weight: 500; font-size: 0.8571rem; }
+.totleNum { color: #484848; font-weight: 500; font-size: 0.8571rem; padding: .5rem 0; }
 
 .totleNum .numlabel { font-size: 0.8571rem; }
 

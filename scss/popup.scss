@@ -3,29 +3,30 @@
     border-radius: 10px;
 }
 .layui-m-layer0 .layui-m-layerchild{
-    width: auto;
+    width: 70%;
 }
 .layui-m-layercont{
     color: #484848;
     padding: 0;
-    &:before{
-        // content: '';
-        // display: block;
-        // background-image: url('../../images/lottery/icon_tip_d.svg');
-        // background-repeat: no-repeat;
-        // width: 4rem;
-        // height: 4rem;
-        // position: absolute;
-        // top: -2.5rem;
-        // left: 50%;
-        // margin-left: -2.5rem;
-        // background-color: #fff;
-        // border-radius: 60px;
-        // border: 8px solid #fff;
-    }
     .title{
         color: #52ACD3;
         font-size: 1.071rem;
+        margin-top: 2rem;
+        &:before{
+            content: '';
+            display: block;
+            background-image: url('../../images/lottery/icon_tip_d.svg');
+            background-repeat: no-repeat;
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            margin-left: -2rem;
+            background-color: #fff;
+            border-radius: 60px;
+            border: 6px solid #fff;
+        }
         p{
             color: #484848;
             font-size: 0.8571rem;
@@ -86,7 +87,7 @@
 // 風控提示類型樣式
 .timeout{
    color: #fff;
-   padding: .5rem 1.5rem;
+//    padding: .5rem 1.5rem;
    font-size: 0.875rem;
     img{
         width: 2.2rem;
@@ -97,6 +98,7 @@
     color: #484848;
     font-weight: 500;
     font-size: 0.8571rem;
+    padding: .5rem 0;
     .numlabel{
         font-size: 0.8571rem;
     }

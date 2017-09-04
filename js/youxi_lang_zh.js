@@ -61,7 +61,7 @@ var lot_lang = {
     am_s12: '<strong>同倍追号</strong>:&nbsp;&nbsp;[times] 倍\n\n',
     am_s13: '<strong>翻倍追号: </strong>\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相隔 [step] 期  x [times] 倍\n\n',
     am_s14: '确定要追号 [count] 期？',
-    am_s15: '非常抱歉，本彩种暂停销售。请前往其他游戏。', //'当期销售已截止，请进入下一期购买。'
+    am_s15: '<div class="title"><p>非常抱歉，本彩种暂停销售。请前往其他游戏。<p></div>', //'当期销售已截止，请进入下一期购买。'
     am_s15_2: '该彩种目前已过销售时间，\r\n请在销售周期时间内投注。',
     am_s16: '获取数据失败,请刷新页面',
     am_s17: '登录超时，或者账户在其他地方登录，请重新登录',
@@ -75,7 +75,7 @@ var lot_lang = {
     am_s25: '成功投注：<font class="red">[success]</font>单，失败：<font class="red">[fail]</font>单。以下内容投注失败：',
     am_s26: '是否需要清空所有投注项？',
     am_s27: '数据出错',
-    am_s28: '<div class="timeout"><img src="../images/lottery/icon_tip_d.svg" alt=""> 确认区有相同的投注内容</div>',
+    am_s28: '<div class="timeout"><img src="../images/lottery/icon_tip_d.svg" alt=""> 购物区内已有相同注单。</div>',
     am_s29: '号码输入有误，请重新输入',
     am_s30: '利润率错误',
     am_s31: '多玩法不支持利润率追号，请选择单一玩法进行投注',
