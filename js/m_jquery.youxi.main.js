@@ -25,7 +25,6 @@ var is_select=0;
             $('#lt_small_label .cWay').eq(i).find("dt").height(cc);
         }
     }
-    TextHtml();
 
     $.gameInit = function(opts){//整个购彩界面的初始化
         var ps = {//整个JS的初试化默认参数
@@ -1011,6 +1010,7 @@ var is_select=0;
 					if($($.lt_id_data.id_cur_issue).html()>''){
 
                         layer.open({
+                            title: '温馨提示',
                             className:'time_ontimeout',
                             content:lot_lang.am_s15,
                             btn:'确定',
@@ -1111,6 +1111,7 @@ var is_select=0;
                 $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                 if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({
+                        title: '温馨提示',
                         content:lot_lang.am_s15,
                         btn:'确定'
                     })
