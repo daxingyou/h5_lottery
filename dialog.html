@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 14.0625px;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>彩票</title>
+    <meta name="keywords" content="">
+    <meta nam="description" content="">
+    <link rel="stylesheet" href="css/res.css">
+    <link href="css/m-reset.css" rel="stylesheet" type="text/css">
+    <link href="css/m-warp.css" rel="stylesheet" type="text/css">
+    <link href="css/m-lottery.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/dialogUI.css">
+    <script type="text/javascript" async="" src="js/ga.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <!--消息框代码开始-->
+    <!-- <script type="text/javascript" src="js/jquery.dialogUI.js"></script> -->
+    <script type="text/javascript" src="js/jquery.dragdrop.js"></script>
+    <!--消息框代码结束-->
+    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/velocity.min.js"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <!--时时彩js-->
+    <script type="text/javascript" src="js/ssc_lottery.js"></script>
+            <!-- 彈窗css 覆蓋layer.css用 -->
+            <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <style>
+        .m_vico_title_timeLHC .lhc {text-align:right;}
+        .lhc_num_box {margin:0 0 0.5rem 0!important;}
+        .lhc_num_box .lhc {margin-top: 0!important;}
+    </style>
+</head>
+<body>
+<div id="body">
+    <a href="javascript:;" class="button01">购物区内已有相同注单。</a>
+    <br/><br/>
+
+
+</div>
+<div id="bet_cart" class="bet_cart">
+    <!-- <header class="bet_header">test</header>
+    <div class="m_fx_footer">
+        footer
+    </div> -->
+</div>
+
+<script type="text/javascript" src="js/youxi_lang_zh.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.main.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.selectarea.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
+<script type="text/javascript" src="js/pushstream.js"></script>
+
+<script type="text/javascript" src="js/coreDesign.js"></script>
+<script type="text/javascript" src="js/res.js"></script>
+<!-- 声音控件-->
+<!-- <div id="soundBox" style="width:1px; height:1px; position:absolute;">
+<embed id="boardcastBox" src="/fl/source/soundBox.swf" loop="false" menu="false" quality="best" width="1" height="1" name="boardcastBox" style="position:absolute; top:-10px;" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="#" flashvars="Ctext=1a3f677c" wmode="window">
+</div> -->
+<!-- <script type="text/javascript" src="/js/nsc/soundBox.js?v=1.17.8.13"></script> -->
+<script type="text/javascript">
+    var pushServiceObj = {
+        pushServerHost : "P.888sincai.com",
+        pubChannelId  : "2e4fd8df45f5d9312a557d0102245813",
+        pubToken  : "de7f1f9b78136bfad0c2d8244dc84f41",
+        userChannelId : "e5c44c62a1b30ad927d80bb95de2e726",
+        pushStatus : "1",
+        pushModule : "{\"push_issuetime\":\"1\",\"push_issuecode\":\"1\",\"push_notice\":\"1\",\"push_usermessage\":\"1\",\"push_userbalance\":\"1\",\"push_userwonprize\":\"1\"}",
+        pushServerStatus : "good",     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
+        pushDelayNum : 0,              //推送重启次数
+        pushDelayMaxNum : 3,           //推送重启最大次数
+        pushDelayTime : "60,120,180"   //每次重启的间隔时间
+    };
+
+  var lottery_key = "L-1";
+  var sidebar_hover = "cq_ssc";
+
+  function m_loginout(){
+      layer.open({
+          content:'您需要退出账号吗？',
+          btn:['退出','取消'],
+          yes:function(){
+              window.location.href='/user/logout'
+          }
+      })
+  }
+
+  $(function(){
+      var riable=0;
+      $(".nfdprize_text").click(function(){
+          if(riable==0){
+              riable=1;
+              $(".m-lott-methodBox .nfdprize_text b").addClass('cur')
+          }else{
+              riable =0;
+              $(".m-lott-methodBox .nfdprize_text b").removeClass('cur')
+          }
+          $(".m-lott-methodBox-list").toggle();
+      });
+
+
+  }())
+
+</script>
+<script>
+$(".button01").click(function () {
+    layer.open({
+        // title: '标题',
+        content: '<div class="timeout">' + '<img src="../images/lottery/icon_tip_d.svg" alt=""> 购物区内已有相同注单。' + '</div>',
+         style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
+        shade: false, //不显示遮罩
+         time: 3
+    });
+});
+
+</script>
+
+<script type="text/javascript" src="js/pushservice.js"></script>
+
+</body>
+</html>
