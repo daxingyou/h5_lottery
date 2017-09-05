@@ -41,8 +41,8 @@
     <br/><br/>
     <a href="javascript:;" class="button02">前往其他彩种将清空已选号码。您确定切换吗？</a>
     <br/><br/>
-
-
+    <a href="javascript:;" class="button03">号码统计</a>
+    <br/><br/>
 </div>
 
 
@@ -71,8 +71,13 @@ $(".button02").click(function () {
         btn: ['确定', '取消']
     });
 });
+$(".button03").click(function () {
+    layer.open({
+        content: '<div class="title">' + '号码统计 <p class="space">选择在下方显示对应的数据：' + ' <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p>'+'</p>'+'</div>',
+        btn: ['确定', '取消']
+    });
+});
 </script>
-
 <script type="text/javascript" src="js/pushservice.js"></script>
 
 </body>

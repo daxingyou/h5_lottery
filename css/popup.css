@@ -30,6 +30,8 @@
 
 .timeout img { width: 2.2rem; margin-right: .5rem; }
 
+.timeout span { color: #FCB008; }
+
 .totleNum { color: #484848; font-weight: 500; font-size: 0.8571rem; padding: 0 2rem 1.15rem; margin-left: 0; }
 
 .totleNum .numlabel { font-size: inherit; color: inherit; }
@@ -45,5 +47,17 @@
 .floatarea .totle span:first-child { text-align: left; }
 
 .floatarea .totle span:last-child { color: #FCB008; padding: 0 0.3rem 0 0.5rem; }
+
+[type="radio"]:checked, [type="radio"]:not(:checked) { position: absolute; left: -9999px; }
+
+[type="radio"]:checked + label, [type="radio"]:not(:checked) + label { position: relative; padding-left: 28px; cursor: pointer; line-height: 20px; display: inline-block; color: #666; }
+
+[type="radio"]:checked + label:before, [type="radio"]:not(:checked) + label:before { content: ''; position: absolute; left: 0; top: 0; width: 18px; height: 18px; border: 1px solid #ddd; border-radius: 100%; background: #fff; }
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after { content: ''; width: 12px; height: 12px; background: #52ACD3; position: absolute; top: 4px; left: 4px; border-radius: 100%; -webkit-transition: all 0.2s ease; -o-transition: all 0.2s ease; transition: all 0.2s ease; }
+
+[type="radio"]:not(:checked) + label:after { opacity: 0; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); }
+
+[type="radio"]:checked + label:after { opacity: 1; -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
 
 /*# sourceMappingURL=popup.css.map */
