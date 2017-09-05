@@ -26,7 +26,7 @@
 
 .periods { color: #FCB008; }
 
-.timeout { color: #fff; font-size: 0.875rem; }
+.timeout { color: #fff; padding: .5rem 1.5rem; font-size: 0.875rem; }
 
 .timeout img { width: 2.2rem; margin-right: .5rem; }
 

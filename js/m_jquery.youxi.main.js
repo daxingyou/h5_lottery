@@ -1576,11 +1576,11 @@ var is_select=0;
                             $.lt_reset(false);
                             $.lt_ontimeout();
                             layer.close(index)
-                        },
-                        no:function(){
-                            $.lt_reset(true);
-                            $.lt_ontimeout();
-                        }
+                        }//,
+                        // no:function(){
+                        //     $.lt_reset(true);
+                        //     $.lt_ontimeout();
+                        // }
                     })
 					// $.confirm(lot_lang.am_s15,function(){//确定
 					// 	$.lt_reset(false);

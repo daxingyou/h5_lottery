@@ -91,13 +91,14 @@
 // 風控提示類型樣式
 .timeout{
    color: #fff;
-//    padding: .5rem 1.5rem;
+   padding: .5rem 1.5rem;
    font-size: 0.875rem;
     img{
         width: 2.2rem;
         margin-right: .5rem;
     }
 }
+// 總金額 原css layer.css,need/layer.css
 .totleNum {
     color: #484848;
     font-weight: 500;
@@ -107,7 +108,7 @@
         font-size: 0.8571rem;
     }
 }
-
+// 確認取消鈕區域 原css dialogUI.css
 .floatarea p b {
     font-weight: normal;
     word-break: break-all;
