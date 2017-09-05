@@ -8,6 +8,7 @@
 .layui-m-layercont{
     color: #484848;
     padding: 0;
+    line-height: 1.8rem;
     .title{
         color: #52ACD3;
         font-size: 1.071rem;
@@ -30,6 +31,9 @@
         p{
             color: #484848;
             font-size: 0.8571rem;
+            &.space{
+                padding: 1rem 2rem;
+            }
         }
     }
 }

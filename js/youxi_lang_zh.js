@@ -61,7 +61,7 @@ var lot_lang = {
     am_s12: '<strong>同倍追号</strong>:&nbsp;&nbsp;[times] 倍\n\n',
     am_s13: '<strong>翻倍追号: </strong>\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相隔 [step] 期  x [times] 倍\n\n',
     am_s14: '确定要追号 [count] 期？',
-    am_s15: '<div class="title"><p>非常抱歉，本彩种暂停销售。请前往其他游戏。<p></div>', //'当期销售已截止，请进入下一期购买。'
+    am_s15: '<div class="title">温馨提示<p class="space">非常抱歉，本彩种暂停销售。请前往其他游戏。</p></div>', //'当期销售已截止，请进入下一期购买。'
     am_s15_2: '该彩种目前已过销售时间，\r\n请在销售周期时间内投注。',
     am_s16: '获取数据失败,请刷新页面',
     am_s17: '登录超时，或者账户在其他地方登录，请重新登录',

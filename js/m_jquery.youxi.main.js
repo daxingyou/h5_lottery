@@ -1010,7 +1010,7 @@ var is_select=0;
 					if($($.lt_id_data.id_cur_issue).html()>''){
 
                         layer.open({
-                            title: '温馨提示',
+                            // title: '温馨提示',
                             className:'time_ontimeout',
                             content:lot_lang.am_s15,
                             btn:'确定',
@@ -1111,7 +1111,7 @@ var is_select=0;
                 $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                 if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({
-                        title: '温馨提示',
+                        // title: '温馨提示',
                         content:lot_lang.am_s15,
                         btn:'确定'
                     })
@@ -1569,8 +1569,9 @@ var is_select=0;
             if( $.lt_time_leave <= 0 ){//结束
 				if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({ // 确定
+                        // title: '温馨提示',
                         content:lot_lang.am_s15,
-                        btn:['确定','取消'],
+                        btn:['确定'],
                         yes:function(index){
                             $.lt_reset(false);
                             $.lt_ontimeout();

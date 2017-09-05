@@ -2,13 +2,15 @@
 
 .layui-m-layer0 .layui-m-layerchild { width: 70%; }
 
-.layui-m-layercont { color: #484848; padding: 0; }
+.layui-m-layercont { color: #484848; padding: 0; line-height: 1.8rem; }
 
 .layui-m-layercont .title { color: #52ACD3; font-size: 1.071rem; margin-top: 2rem; }
 
 .layui-m-layercont .title:before { content: ''; display: block; background-image: url("../../images/lottery/icon_tip_d.svg"); background-repeat: no-repeat; width: 3rem; height: 3rem; position: absolute; top: -2rem; left: 50%; margin-left: -2rem; background-color: #fff; border-radius: 60px; border: 6px solid #fff; }
 
 .layui-m-layercont .title p { color: #484848; font-size: 0.8571rem; }
+
+.layui-m-layercont .title p.space { padding: 1rem 2rem; }
 
 .layui-m-layerbtn { background-color: #fff; height: 2.5rem; line-height: 2.5rem; border-top: 0; padding: 0 0 1.5rem; border-radius: 0 0 10px 10px; font-size: 0.8571rem; }
 
