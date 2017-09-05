@@ -10,7 +10,11 @@
 
 .layui-m-layercont .title p { color: #484848; font-size: 0.8571rem; }
 
-.layui-m-layercont .title p.space { padding: 1rem 2rem; }
+.layui-m-layercont .title p.space { padding: 1rem 2rem; text-align: center; }
+
+.layui-m-layercont .title .radio { padding: 0rem 6rem; }
+
+.layui-m-layercont .title .radio p { text-align: left; }
 
 .layui-m-layerbtn { background-color: #fff; height: 2rem; line-height: 1.8rem; border-top: 0; padding: 0 0 1.5rem; border-radius: 0 0 10px 10px; font-size: 0.8571rem; }
 

@@ -1011,7 +1011,7 @@ var is_select=0;
 
                         layer.open({
                             className:'time_ontimeout',
-                            content:lot_lang.am_s15_3,
+                            content:'lot_lang.am_s15_3'+'<span>20170712101</span>'+'  期 。'+'</div>',
                             style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
                             shade: false, //不显示遮罩
                             // btn:'确定',
@@ -1533,8 +1533,8 @@ var is_select=0;
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     $.each(n,function(index,value){
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_sel_nums+'</span>'+lot_lang.dec_s2+'</div>';//倍數 //fixme 找不到倍數的代號
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注數
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號 //fixme 錯誤的追號
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注數 //fixme 錯誤的注數
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
                         // 原本會在確認投注出現的玩法和選擇號碼
                     })

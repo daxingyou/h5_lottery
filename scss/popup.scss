@@ -34,7 +34,14 @@
             font-size: 0.8571rem;
             &.space{
                 padding: 1rem 2rem;
+                text-align: center;
             }
+        }
+        .radio{
+            padding: 0rem 6rem;
+            p{
+                text-align: left;
+            } 
         }
     }
 }
