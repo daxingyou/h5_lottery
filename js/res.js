@@ -27,7 +27,7 @@
                     if(width > 540)width = 540;
                     rem = width*initialFontSize/initialWidth;
                 }
-                docEl.style.fontSize = rem + 'px';
+                docEl.style.fontSize = Math.floor(rem) + 'px';
             }
 
 })(window);

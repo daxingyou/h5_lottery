@@ -19,11 +19,11 @@ var is_select=0;
         var cc =  $("#lotteryType .hover").html();
         $("#m-lott-listContent").html(cc+' '+bb+'<b></b>');
 
-        var laBox = $("#lt_small_label .cWay");
-        for(var i=0;i<laBox.length;i++){
-            var cc = $('#lt_small_label .cWay').eq(i).height();
-            $('#lt_small_label .cWay').eq(i).find("dt").height(cc);
-        }
+        // var laBox = $("#lt_small_label .cWay");
+        // for(var i=0;i<laBox.length;i++){
+        //     var cc = $('#lt_small_label .cWay').eq(i).height();
+        //     $('#lt_small_label .cWay').eq(i).find("dt").height(cc);
+        // }
     }
 
     $.gameInit = function(opts){//整个购彩界面的初始化

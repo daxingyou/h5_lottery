@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 14.0625px;">
+<html lang="en" style="font-size: 14.px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
@@ -75,19 +75,19 @@
             </div>
             <div class="lotteryMember" id="lt_small_label">
                 <dl class="cWay">
-                    <dt style="height: 30px;">后三直选</dt>
+                    <dt>后三直选</dt>
                     <dd class="hover" id="smalllabel_0_0" name="smalllabel" v="0-0">复式</dd>
                     <dd id="smalllabel_0_1" name="smalllabel" v="0-1">单式</dd>
                     <dd id="smalllabel_0_2" name="smalllabel" v="0-2">直选和值</dd>
                 </dl>
                 <dl class="cWay">
-                    <dt style="height: 60px;">后三组选</dt>
+                    <dt>后三组选</dt>
                     <dd id="smalllabel_1_0" name="smalllabel" v="1-0">组三</dd>
                     <dd id="smalllabel_1_1" name="smalllabel" v="1-1">组六</dd>
                     <dd id="smalllabel_1_2" name="smalllabel" v="1-2">混合组选</dd>
                     <dd id="smalllabel_1_3" name="smalllabel" v="1-3">组选和值</dd>
                 </dl>
-                <dl id="poschoose"></dl>
+                <!-- <dl id="poschoose"></dl> -->
             
                 <div class="fandian ab" id="nfdprize">
 
@@ -128,7 +128,16 @@
             </div> 
         </div>
         <!--end ui_近期開獎-->
-        <a href="javascript:;" class="ui_help"><span class="icon_help"></span>助手</a>
+        <div href="javascript:;" class="ui_help">
+            <a class="ui_btn_help" href="javascript:;"><span class="icon_help"></span>助手</a>
+            <ul style="display:none;">
+                <li><a href="javascript:;"><span class="icon_bet-history"></span>投注记录</a></li>
+                <li><a href="javascript:;"><span class="icon_trend"></span>走势图</a></li>
+                <li><a href="javascript:;"><span class="icon_lottery"></span>近期开奖</a></li>
+                <li><a href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
+                <li><a href="javascript:;"><span class="icon_info"></span>玩法说明</a></li>
+            </ul>
+        </div>
     </header>
     <!--侧导航 -->
     <section class="slide-bar">
@@ -400,7 +409,6 @@
                                     </div>
                                     <span class="bei">倍</span>
                                 </div>
-                                <input type="button" class="addBtn addBtnDisabled" id="lt_sel_insert" value="添加">
                             </div>
                             
                         </div>
@@ -480,9 +488,13 @@
                 </div> -->
             </div>
             <div class="ui_cart">
-                <span class="icon_cart"></span>
+                <span class="icon_car"></span>
                 <span id="lt_cf_count" class="num">0</span>
             </div>
+                                <a href="javascript:;" class="addBtn addBtnDisabled" id="lt_sel_insert">
+                                    <span class="icon_addcar"></span>
+                                    添 加
+                                </a>
         </div>
 
     </section>
@@ -600,12 +612,29 @@
 
     }())
 
+    // 购物车动画
     $(function(){
         $('.ui_cart').on('click',function(){
             $('#ui_bet').stop().animate({left: 0});
         })
         $('.bet_back').on('click',function(){
             $('#ui_bet').stop().animate({left: '100%'});
+        });
+    })
+
+    // 助手选单
+    $(function(){
+        $('.ui_help').on('click','.ui_btn_help',function(){
+            $(this).parent('.ui_help').find('ul').stop().fadeIn(200);
+            $(this).append('<div class="ui_cover"></div>');
+            $('.ui_help').find('ul').on('click',function(){
+                $('.ui_cover').remove();
+                $(this).hide();
+            });
+            $('.ui_cover').on('click',function(){
+                $('.ui_cover').remove();
+                $('.ui_help').find('ul').hide();
+            })
         });
     })
 
