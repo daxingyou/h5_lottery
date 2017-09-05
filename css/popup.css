@@ -2,17 +2,17 @@
 
 .layui-m-layer0 .layui-m-layerchild { width: 70%; }
 
-.layui-m-layercont { color: #484848; padding: 0; line-height: 1.8rem; }
+.layui-m-layercont { color: #484848; padding: 0; line-height: 1.8rem; font-size: 1.4rem; }
 
-.layui-m-layercont .title { color: #52ACD3; font-size: 1.071rem; margin-top: 2rem; }
+.layui-m-layercont .title { color: #52ACD3; font-size: 1.072rem; margin: 2.5rem 0 .5rem 0; }
 
-.layui-m-layercont .title:before { content: ''; display: block; background-image: url("../../images/lottery/icon_tip_d.svg"); background-repeat: no-repeat; width: 3rem; height: 3rem; position: absolute; top: -2rem; left: 50%; margin-left: -2rem; background-color: #fff; border-radius: 60px; border: 6px solid #fff; }
+.layui-m-layercont .title:before { content: ''; display: block; background-image: url("../../images/lottery/icon_tip_d.svg"); background-repeat: no-repeat; width: 3.5rem; height: 3.5rem; position: absolute; top: -2rem; left: 50%; margin-left: -1.75rem; background-color: #fff; border-radius: 60px; border: 6px solid #fff; }
 
 .layui-m-layercont .title p { color: #484848; font-size: 0.8571rem; }
 
 .layui-m-layercont .title p.space { padding: 1rem 2rem; }
 
-.layui-m-layerbtn { background-color: #fff; height: 2.5rem; line-height: 2.5rem; border-top: 0; padding: 0 0 1.5rem; border-radius: 0 0 10px 10px; font-size: 0.8571rem; }
+.layui-m-layerbtn { background-color: #fff; height: 2rem; line-height: 1.8rem; border-top: 0; padding: 0 0 1.5rem; border-radius: 0 0 10px 10px; font-size: 0.8571rem; }
 
 .layui-m-layerbtn span { border-radius: 60px; color: #000; margin: auto 1.3rem; }
 
@@ -20,7 +20,7 @@
 
 .layui-m-layerbtn span[yes] { background-color: #52ACD3; border: 1px solid #fff; -webkit-box-shadow: 0px 0px 0px 1px #EFEFEF; box-shadow: 0px 0px 0px 1px #EFEFEF; font-size: 0.8571rem; }
 
-.layui-m-layerbtn span[yes]:after { content: ''; display: block; position: absolute; background: url("../../images/lottery/btn_light@2x.png") no-repeat; background-size: 100%; width: 60%; height: 100%; overflow: hidden; max-height: 137px; top: 0; left: 0; overflow: hidden; }
+.layui-m-layerbtn span[yes]:after { content: ''; display: block; position: absolute; background: url("../../images/lottery/btn_light@2x.png") no-repeat; background-size: 100% 100%; width: 60%; height: 100%; max-height: 137px; top: 0; left: 0; overflow: hidden; }
 
 .floatarea { border-top: none; border-bottom: none; font-size: 0.8571rem; }
 
@@ -30,9 +30,9 @@
 
 .timeout img { width: 2.2rem; margin-right: .5rem; }
 
-.totleNum { color: #484848; font-weight: 500; font-size: 0.8571rem; padding: .5rem 2rem; }
+.totleNum { color: #484848; font-weight: 500; font-size: 0.8571rem; padding: 0 2rem 1.15rem; margin-left: 0; }
 
-.totleNum .numlabel { font-size: 0.8571rem; }
+.totleNum .numlabel { font-size: inherit; color: inherit; }
 
 .totleNum span:nth-child(2) { color: #FCB008; padding: 0 0.3rem 0 0.5rem; }
 
@@ -40,6 +40,10 @@
 
 .floatarea p b { font-weight: normal; word-break: break-all; width: 80%; display: inline-block; margin: 0 auto; vertical-align: top; }
 
-.floatarea .totle span { color: #FCB008; padding: 0 0.3rem 0 0.5rem; }
+.floatarea .totle span { display: inline-block; }
+
+.floatarea .totle span:first-child { text-align: left; }
+
+.floatarea .totle span:last-child { color: #FCB008; padding: 0 0.3rem 0 0.5rem; }
 
 /*# sourceMappingURL=popup.css.map */

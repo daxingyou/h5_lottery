@@ -1010,10 +1010,11 @@ var is_select=0;
 					if($($.lt_id_data.id_cur_issue).html()>''){
 
                         layer.open({
-                            // title: '温馨提示',
                             className:'time_ontimeout',
-                            content:lot_lang.am_s15,
-                            btn:'确定',
+                            content:lot_lang.am_s15_3,
+                            style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
+                            shade: false, //不显示遮罩
+                            // btn:'确定',
                             time:5
                         });
                         // $.alert(lot_lang.am_s15);
@@ -1531,9 +1532,9 @@ var is_select=0;
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     $.each(n,function(index,value){
-                        msg += '<div class="totle">'+lot_lang.dec_s1_1+'<span>'+$.id_sel_num+'</span>'+lot_lang.dec_s1+'</div>';//倍數
-                        msg += '<div class="totle">'+lot_lang.dec_s15_1+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號
-                        msg += '<div class="totle">'+lot_lang.dec_s2_1+'<span>'+$.id_sel_times+'</span>'+lot_lang.dec_s2+'</div>'; //注數
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_sel_nums+'</span>'+lot_lang.dec_s2+'</div>';//倍數 //fixme 找不到倍數的代號
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注數
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
                         // 原本會在確認投注出現的玩法和選擇號碼
                     })
@@ -1541,7 +1542,7 @@ var is_select=0;
             });
             msg += '</div>';
             $.lt_trace_money = Math.round($.lt_trace_money*1000)/1000;
-            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + ':</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
+            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
             msg=msg.replace("[关闭]","");
             layer.open({
                 content:msg,
