@@ -378,3 +378,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .icon_info{display: inline-block; background: url(../images/icon_info.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
 .icon_car{ display: inline-block; background-image: url(../images/icon_car.svg); background-repeat: no-repeat; background-size:2.485rem auto; width: 2.485rem; height: 2.485rem;}
 .icon_addcar{ display: block; background-image: url(../images/icon_add.svg);background-repeat: no-repeat; background-size:2.919285rem auto; width: 2.919285rem; height: 2.919285rem; margin: 0.7rem auto 0.2rem;}
+
+/* btn */
+.btn_default{ border: 1px solid #efefef; height: 1.714285rem; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46);}
+.btn_default.active{ background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 1.714285rem; }
