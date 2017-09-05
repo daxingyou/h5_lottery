@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 14.0625px;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>彩票</title>
+    <meta name="keywords" content="">
+    <meta nam="description" content="">
+    <link rel="stylesheet" href="css/res.css">
+    <link href="css/m-reset.css" rel="stylesheet" type="text/css">
+    <link href="css/m-warp.css" rel="stylesheet" type="text/css">
+    <link href="css/m-lottery.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/dialogUI.css">
+    <script type="text/javascript" async="" src="js/ga.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <!--消息框代码开始-->
+    <!-- <script type="text/javascript" src="js/jquery.dialogUI.js"></script> -->
+    <script type="text/javascript" src="js/jquery.dragdrop.js"></script>
+    <!--消息框代码结束-->
+    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/velocity.min.js"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <!--时时彩js-->
+    <script type="text/javascript" src="js/ssc_lottery.js"></script>
+            <!-- 彈窗css 覆蓋layer.css用 -->
+            <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <style>
+        .m_vico_title_timeLHC .lhc {text-align:right;}
+        .lhc_num_box {margin:0 0 0.5rem 0!important;}
+        .lhc_num_box .lhc {margin-top: 0!important;}
+    </style>
+</head>
+<body>
+<div id="body">
+    <a href="javascript:;" class="button01">购物区内已有相同注单。</a>
+    <br/><br/>
+    <a href="javascript:;" class="button02">前往其他彩种将清空已选号码。您确定切换吗？</a>
+    <br/><br/>
+
+
+</div>
+
+
+<script type="text/javascript" src="js/youxi_lang_zh.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.main.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.selectarea.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
+<script type="text/javascript" src="js/pushstream.js"></script>
+
+<script type="text/javascript" src="js/coreDesign.js"></script>
+<script type="text/javascript" src="js/res.js"></script>
+
+<script>
+$(".button01").click(function () {
+    layer.open({
+        // title: '标题',
+        content: '<div class="timeout">' + '<img src="../images/lottery/icon_tip_d.svg" alt=""> 购物区内已有相同注单。' + '</div>',
+        style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
+        shade: false, //不显示遮罩
+        time: 3
+    });
+});
+$(".button02").click(function () {
+    layer.open({
+        content: '<div class="title">' + '温馨提示 <p class="space">前往其他彩种将清空已选号码。您确定切换吗？</p>' + '</div>',
+        btn: ['确定', '取消']
+    });
+});
+</script>
+
+<script type="text/javascript" src="js/pushservice.js"></script>
+
+</body>
+</html>

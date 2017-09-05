@@ -1,0 +1,140 @@
+// 彈窗樣式
+.layui-m-layerchild{
+    border-radius: 10px;
+}
+.layui-m-layer0 .layui-m-layerchild{
+    width: 70%;
+}
+.layui-m-layercont{
+    color: #484848;
+    padding: 0;
+    line-height: 1.8rem;
+    .title{
+        color: #52ACD3;
+        font-size: 1.071rem;
+        margin-top: 2rem;
+        &:before{
+            content: '';
+            display: block;
+            background-image: url('../../images/lottery/icon_tip_d.svg');
+            background-repeat: no-repeat;
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            margin-left: -2rem;
+            background-color: #fff;
+            border-radius: 60px;
+            border: 6px solid #fff;
+        }
+        p{
+            color: #484848;
+            font-size: 0.8571rem;
+            &.space{
+                padding: 1rem 2rem;
+            }
+        }
+    }
+}
+
+.layui-m-layerbtn{
+    background-color: #fff;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-top: 0;
+    padding: 0 0 1.5rem;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.8571rem;
+    span{
+        border-radius: 60px;
+        color: #000;
+        // width: 40%;
+        margin: auto 1.3rem;
+    }
+    span[no]{
+        border-radius: 60px;
+        border-right: none;
+        border: 1px solid #EFEFEF;
+        background-color: #fff;
+        font-size: 0.8571rem;
+    }
+    span[yes]{
+        background-color: #52ACD3;
+        border: 1px solid #fff;
+        box-shadow: 0px 0px 0px 1px #EFEFEF;
+        font-size: 0.8571rem;
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            background: url('../../images/lottery/btn_light@2x.png') no-repeat;
+            background-size: 100%;
+            width: 60%;
+            height: 100%;
+            overflow: hidden;
+            max-height: 137px;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+    }
+}
+.floatarea{
+    border-top: none;
+    border-bottom:none;
+    font-size: 0.8571rem;
+}
+.periods{
+    color: #FCB008;
+}
+// 風控提示類型樣式
+.timeout{
+   color: #fff;
+   padding: .5rem 1.5rem;
+   font-size: 0.875rem;
+    img{
+        width: 2.2rem;
+        margin-right: .5rem;
+    }
+}
+// 總金額 原css layer.css,need/layer.css
+.totleNum {
+    color: #484848;
+    font-weight: 500;
+    font-size: 0.8571rem;
+    padding: .5rem 2rem;
+    .numlabel{
+        font-size: 0.8571rem;
+    }
+    span{
+        &:nth-child(2){
+            color: #FCB008;
+            padding:0 0.3rem 0 0.5rem;
+        }
+    }
+}
+// 確認取消鈕區域 原css dialogUI.css
+.floatarea{
+    padding: 0 2rem;
+    margin: 0;
+    color: #484848;
+    text-align: center;
+    p b {
+        font-weight: normal;
+        word-break: break-all;
+        width: 80%;
+        display: inline-block;
+        margin: 0 auto;
+        vertical-align: top;
+    }
+    .totle{
+        span{
+            color: #FCB008;
+            padding:0 0.3rem 0 0.5rem;
+        }
+        // &:not(span){
+        //     text-align: left;
+        // }
+    }
+}

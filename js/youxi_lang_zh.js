@@ -17,13 +17,15 @@ var lot_lang = {
     
     /* ----------- description  ------------ */
     dec_s1: '注',
+    dec_s1_1: '注数 :',
     dec_s2: '倍',
+    dec_s2_1: '倍数 :',
     dec_s3: '元',//游戏币
     dec_s4: '<div class="inputdesc" >每注号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开</div>',
     dec_s5: '详情',
     dec_s6: '关闭',
     dec_s7: '(当前期)',
-    dec_s8: '<div class="title">你确定加入 [issue] 期？</div>',
+    dec_s8: '<div class="title">确认付款<p>第<span class="periods"> [issue] </span>期</p></div>',
     dec_s9 : '总金额',
     dec_s10: '同倍追号',
     dec_s11: '翻倍追号',
@@ -31,6 +33,7 @@ var lot_lang = {
     dec_s13: '利润率追号',
     dec_s14: '起始倍数',
     dec_s15: '追号期数',
+    dec_s15_1: '追号 :',
     dec_s16: '追号总金额',
     dec_s17: '隔',
     dec_s18: '期',
@@ -51,7 +54,7 @@ var lot_lang = {
     /* ---------- alert message  ----------- */
     am_s3 : '已删除以下重复号码:',
     am_s4 : '没有重复号码',
-    am_s5 : ' 是否清空确认区中所有投注内容？',
+    am_s5 : '是否清空确认区中所有投注内容？',
     am_s6 : '请先添加投注内容',
     am_s7 : '请先添加投注内容',
     am_s8 : '请填写追号期数',
@@ -61,7 +64,7 @@ var lot_lang = {
     am_s12: '<strong>同倍追号</strong>:&nbsp;&nbsp;[times] 倍\n\n',
     am_s13: '<strong>翻倍追号: </strong>\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相隔 [step] 期  x [times] 倍\n\n',
     am_s14: '确定要追号 [count] 期？',
-    am_s15: '当期销售已截止，请进入下一期购买。',
+    am_s15: '<div class="title">温馨提示<p class="space">非常抱歉，本彩种暂停销售。请前往其他游戏。</p></div>', //'当期销售已截止，请进入下一期购买。'
     am_s15_2: '该彩种目前已过销售时间，\r\n请在销售周期时间内投注。',
     am_s16: '获取数据失败,请刷新页面',
     am_s17: '登录超时，或者账户在其他地方登录，请重新登录',
@@ -75,7 +78,7 @@ var lot_lang = {
     am_s25: '成功投注：<font class="red">[success]</font>单，失败：<font class="red">[fail]</font>单。以下内容投注失败：',
     am_s26: '是否需要清空所有投注项？',
     am_s27: '数据出错',
-    am_s28: '确认区有相同的投注内容',
+    am_s28: '<div class="timeout"><img src="../images/lottery/icon_tip_d.svg" alt=""> 购物区内已有相同注单。</div>',
     am_s29: '号码输入有误，请重新输入',
     am_s30: '利润率错误',
     am_s31: '多玩法不支持利润率追号，请选择单一玩法进行投注',

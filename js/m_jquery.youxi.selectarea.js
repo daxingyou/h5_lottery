@@ -2291,7 +2291,10 @@
 						checkNum();
 						layer.open({
 							content:lot_lang.am_s28,
-							btn:'确定'
+                            // btn:'确定',
+                            style: 'background-color: rgba(52, 65, 70, 0.85);border-radius: 60px;padding:0;',
+                            shade: false,
+                            // time: 3
 						})
                         // $.alert(lot_lang.am_s28);
                         return false;
