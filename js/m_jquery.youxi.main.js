@@ -1531,13 +1531,17 @@ var is_select=0;
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     $.each(n,function(index,value){
-                        msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
+                        msg += '<div class="totle">'+lot_lang.dec_s1_1+'<span>'+$.id_sel_num+'</span>'+lot_lang.dec_s1+'</div>';//倍數
+                        msg += '<div class="totle">'+lot_lang.dec_s15_1+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號
+                        msg += '<div class="totle">'+lot_lang.dec_s2_1+'<span>'+$.id_sel_times+'</span>'+lot_lang.dec_s2+'</div>'; //注數
+                        // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
+                        // 原本會在確認投注出現的玩法和選擇號碼
                     })
                 }
             });
             msg += '</div>';
             $.lt_trace_money = Math.round($.lt_trace_money*1000)/1000;
-            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + ':</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+' '+lot_lang.dec_s3 + '</span></div>';
+            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + ':</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
             msg=msg.replace("[关闭]","");
             layer.open({
                 content:msg,
