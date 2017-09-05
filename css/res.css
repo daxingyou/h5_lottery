@@ -1,5 +1,5 @@
 html { font-family: "微软雅黑","microsoft yahei", Helvetica, Arial, sans-serif; max-width: 800px; margin: 0 auto; overflow-x: hidden; }
-body { margin: 0; font-size: 1.4rem; line-height: 1.5; color: #333333; height: 100%; background-color: white; width: 100%; height: 100%; -webkit-overflow-scrolling: touch; overflow-x: auto; }
+body { margin: 0; font-size: 1.4rem; line-height: 1.5; color: #333333; height: 100%;  background-color: #f1f1f1; width: 100%; height: 100%; -webkit-overflow-scrolling: touch; overflow-x: auto; }
 html, body {padding:0; font-size:12px; font-family: "microsoft yahei", Helvetica, Arial, sans-serif; margin:0 auto;height: 100%; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -moz-tap-highlight-color: rgba(0, 0, 0, 0); -ms-tap-highlight-color: rgba(0, 0, 0, 0); -o-tap-highlight-color: rgba(0, 0, 0, 0); tap-highlight-color: rgba(0, 0, 0, 0); }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
 audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
@@ -67,9 +67,9 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .m-return-home { color: #959595; font-size: 0.8rem; width: 5rem; display: inline-block; text-align: center; height: 2.9rem; line-height: 2.9rem; background-image: url(../images/m_home.png); background-repeat: no-repeat; background-position: -0.1rem center; background-size: 114%; padding-left: 0.4rem; margin-left: .4rem; position: relative; height: 100%; z-index: 2; }
 .header { background-color: #52acd3; /*background: url(../images/top_bg.png) no-repeat; background-size: 100% 3rem;*/ height: 3.4285rem; position: fixed; width: 100%; top: 0; z-index: 100; left: 0; box-shadow: 0px 0px  }
 .footer { border-top: 0.066667rem solid #e73068; bottom: 0; }
-.header .btn-slide-bar { position: absolute; overflow: hidden; z-index: 104; width:3.4285rem; height: 3.4285rem; cursor: pointer; background-image: url(../images/lottery/logo_cqssc.svg); background-position: center;background-repeat: no-repeat;background-size: 100%; margin-left: 0.5714rem; }
+.header .btn-slide-bar { position: absolute; overflow: hidden; z-index: 99; width:3.4285rem; height: 3.4285rem; cursor: pointer; background-image: url(../images/lottery/logo_cqssc.svg); background-position: center;background-repeat: no-repeat;background-size: 100%; margin-left: 0.5714rem; }
 /*.header .btn-slide-bar::before { content: ""; text-align: center; width: 1.333333rem; position: relative; top: 1.5rem; height: 0.133333rem; background-color: #fff; display: inline-block; box-shadow: 0 0.466667rem 0 #fff, 0 -7px 0 #fff; }*/
-.wraper-page { padding-top: 5.7rem; background-color: #f1f1f1; }
+.wraper-page { padding-top: 5.7rem; }
 .slide-bar { position: absolute; overflow-x: scroll; display: none; top: 0px; bottom: 0px; background-color: #fff; width: 21.0rem; left: 0; z-index: 2; transform: translate3d(-21.0rem, 0, 0); -webkit-transform: translate3d(-21.0rem, 0, 0); -moz-transform: translate3d(-21.0rem, 0, 0); -ms-transform: translate3d(-21.0rem, 0, 0); -o-transform: translate3d(-21.0rem, 0, 0); transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; }
 /* .m_nav_line { height: 0px; width: 100%; border-top: 1px solid #000; border-bottom: 1px solid #423e49; }
 .slide-bar .tree_list { font-size: 1rem; line-height: 2.666667rem; text-align: left; color: #e2e2e2;   }
@@ -354,12 +354,27 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .ui_btn_history{ position: absolute; height: 0.45rem; bottom:-0.35rem; left: 50%; width: 1.8rem; margin-left:-0.9rem; background: url(../images/history_btn.svg) center top no-repeat #344146; background-size: 1rem auto; border-radius: 0px 0px 3px 3px;}
 .lotteryMember .fandian{ display: none;}
 .ui_help{ position: absolute; right:0.571428rem; top: 0px; color: #fff; line-height: 3.4285rem; display: inline-block; font-size: 0.857143rem; }
-.ui_help .icon_help{ display: inline-block; background: url(../images/icon_help.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem; vertical-align: middle; margin-right: 5px; margin-top: -3px;}
+.ui_help a {display: inline-block; color: #fff;}
+.ui_help ul{ position: absolute; top: auto; right: 0; z-index: 101; background-color: #fff; border-radius: 5px; overflow: visible !important; margin-top: -0.357142rem; padding: 0px 1rem; }
+.ui_help ul li{ border-bottom:1px solid #efefef; padding: 0px 0.5rem; line-height: 2.571428rem; white-space: nowrap;}
+.ui_help ul li span{ vertical-align: middle; margin-right: 5px;}
+.ui_help ul:after{ content: ''; position: absolute; top: -6px; right: 1.142857rem; display: block;width: 0;height: 0;border-style: solid;border-width: 0 5px 6px 5px;border-color: transparent transparent #fff transparent; }
+.ui_help ul a{ color: #484848; }
+.ui_cover{ background:#000; position:fixed; top:0px; left:0px; right:0px; bottom:0px; z-index: 100; opacity: 0.4; }
 .ui_cart{position: absolute; right: 1rem; top: 0.5rem;}
-.ui_cart .icon_cart{ display: inline-block; background-image: url(../images/icon_cart.svg); background-repeat: no-repeat; background-size:2.485rem auto; width: 2.485rem; height: 2.485rem;}
 .ui_cart .num{ display: block; position: absolute; top: -0.2rem; right: -0.5rem; background-color: #e8252b; color: #fff; font-size: 0.857143rem; border-radius: 10px; min-width: 1.118rem; height: 1.118rem; line-height: 1.2rem; padding: 0px 0.2rem; vertical-align: middle;}
 .ui_bet{ position: fixed; top: 0px; left: 100%; width: 100%; height: 100%; background-color: #fff; z-index: 101;}
 .ui_color_strong{ color: #ffcf06;}
 
 /* 左側選單 */
 .ui_info{ background: url(../images/left_bg@2x.png) center center #52acd3; background-size: 100%; height: 5.7085rem; }
+
+/* icon */
+.icon_help{ display: inline-block; background: url(../images/icon_help.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem; vertical-align: middle; margin-right: 5px; margin-top: -3px;}
+.icon_bet-history{display: inline-block; background: url(../images/icon_bet-history.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
+.icon_trend{display: inline-block; background: url(../images/icon_trend.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
+.icon_lottery{display: inline-block; background: url(../images/icon_lottery.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
+.icon_conut{display: inline-block; background: url(../images/icon_conut.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
+.icon_info{display: inline-block; background: url(../images/icon_info.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
+.icon_car{ display: inline-block; background-image: url(../images/icon_car.svg); background-repeat: no-repeat; background-size:2.485rem auto; width: 2.485rem; height: 2.485rem;}
+.icon_addcar{ display: block; background-image: url(../images/icon_add.svg);background-repeat: no-repeat; background-size:2.919285rem auto; width: 2.919285rem; height: 2.919285rem; margin: 0.7rem auto 0.2rem;}

@@ -50,7 +50,7 @@ body { }
 .lotteryMember .fandian { color: #52acd3; font-size: 0.857143rem; top: 0.857143rem; right: 0.571428rem; }
 .lotteryMember select { font-size: 0.857143rem; border: 1px solid #BFBABA; padding: 0.214286rem 0.142857rem; color: #666; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 .wfsm { width: 1.571429rem; height: 1.571429rem; background: url(../images/lottery/bangzhu.png) no-repeat center; text-indent: -9999px; display: inline-block; background-size: 1.142857rem }
-.help_con { color: #c5afa7; font-size: 0.857143rem; }
+.help_con { color: #898989; font-size: 0.857143rem; }
 .help_exp,
 .help_help { float: right; color: #8d8d8d; font-size: 1.0rem; margin-right: 0.2rem; padding: 0px 0.571429rem; background-color: #eaeaea; border-radius: 0.357143rem }
 .help_help { float: right; }
@@ -77,7 +77,8 @@ body { }
 .lotteryView_k3 ul { width: 100% }
 /* .lotteryView h3.noname { height: 1.071429rem; } */
 .lotteryView ul li { cursor: pointer; }
-.lotteryView h3 { position: absolute; top:0px; bottom: 0px; left: -10%; width: 10%; overflow: hidden; padding: 0.5rem; /*height: 2.857143rem;*/ line-height: 1.2rem; text-align: center; background-color: #52acd3; color: #fff; font-size: 1rem;  border-radius: 4px; }
+.lotteryView h3 { position: absolute; top:0px; bottom: 0px; left: -10%; width: 10%; padding: 0.5rem; /*height: 2.857143rem;*/ line-height: 1.2rem; text-align: center; background-color: #52acd3; color: #fff; font-size: 1rem;  border-radius: 4px; box-shadow: -4px 0 4px -2px #4599c2 inset; }
+.lotteryView h3:before { content: ''; position: absolute; top: -5px; right: -5px; border-radius: 4px; width: 8px; height: 8px; border-bottom: 1px solid #dde2e6; background-color:#f1f1f1; }
 .lotteryView .nList { padding: 0.5rem 0px 0px;}
 .lotteryView .nList li { margin: 0 0.43rem 0.5rem 0.43rem; display: inline-block; width: 2.8rem; height: 2.8rem; line-height: 2.8rem; background-color: rgba(239,239,239,0.46); font-size: 1.1292rem; text-align: center; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46); border-radius: 1.4rem; color: #b8b8b8; }
 
@@ -308,12 +309,12 @@ body { }
 .fandianlist li.hover { color: #52acd3; }
 .switchBtn { background: url(../images/lottery/wfd_bg.png) no-repeat; width: 4.214286rem; height: 2.071429rem; margin-left: 0.571428rem; }
 .switchBtn span { background: url(../images/lottery/wfd_yuan.png) no-repeat; left: 0px; top: 1px; width: 1.785714rem; height: 1.785714rem; cursor: pointer; }
-.chooseMsg { font-size: 1.0rem;  }
+.chooseMsg { font-size: 1.0rem; margin-top: 0.5rem;  }
 .chooseMsg p { display: inline-block; margin-left: 0.357143rem; }
 /* .chooseMsg p span { color: #52acd3; }
 #lt_sel_money { color: #ff0000; font-weight: bold; } */
-.addOrderBox .addBtn { background: url(../images/btn_bg_add.svg) no-repeat right top #52acd3; background-size: 100% auto; border-radius: 3rem 3rem 0px 0px; width: 4.285rem; height: 5.2228rem; border: none; cursor: pointer; text-align: center; font-size: 1.142857rem; color: #fff; font-family: 'Microsoft Yahei'; position: fixed; bottom:0px; right: 6.0714rem;  }
-.addOrderBox .addBtnDisabled { background: #C7C7C7; cursor: default; color: #fff; font-family: 'Microsoft Yahei'; }
+.addBtn { background: url(../images/btn_bg_add.svg) no-repeat right top #52acd3; background-size: 100% auto; border-radius: 3rem 3rem 0px 0px; width: 4.285rem; height: 5.2228rem; border: none; cursor: pointer; text-align: center;  font-size:0.857143rem; color: #fff; font-family: 'Microsoft Yahei'; position: fixed; z-index: 12; bottom:0px; right: 6.0714rem;   }
+.addBtnDisabled { background: url(../images/btn_bg_add.svg) no-repeat right top #C7C7C7; background-size: 100% auto; cursor: default; color: #fff; font-family: 'Microsoft Yahei'; width: 4.285rem; height: 5.2228rem; }
 
 /*正常高度与625高度*/
 .addOrderLeft { }
@@ -572,7 +573,7 @@ body { }
 	#lotteryType li em { background: url(../images/home/ico-new.png) no-repeat; width: 13px; height: 13px; position: absolute; top: 2px; right: 2px; }
 
 	/*固定下面余额*/
-	.m_fx_footer { width: 100%; height: 3.4285rem; background: #344146; position: fixed; bottom: 0px;left:0; color: #fff; }
+	.m_fx_footer { width: 100%; height: 3.4285rem; background: #344146; position: fixed; bottom: 0px;left:0; z-index: 11; color: #fff; line-height: 1.2em; }
 	.m_fx_footer p span { color: #ffcf06; }
 	/* .m_fx_footer .v-moeny .you-money .show-money,
 	.m_fx_footer .v-moeny .you-money .hide-money { float: left; } */

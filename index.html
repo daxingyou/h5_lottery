@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 14.0625px;">
+<html lang="en" style="font-size: 14.px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
@@ -126,7 +126,16 @@
             </div> 
         </div>
         <!--end ui_近期開獎-->
-        <a href="javascript:;" class="ui_help"><span class="icon_help"></span>助手</a>
+        <div href="javascript:;" class="ui_help">
+            <a class="ui_btn_help" href="javascript:;"><span class="icon_help"></span>助手</a>
+            <ul style="display:none;">
+                <li><a href="javascript:;"><span class="icon_bet-history"></span>投注记录</a></li>
+                <li><a href="javascript:;"><span class="icon_trend"></span>走势图</a></li>
+                <li><a href="javascript:;"><span class="icon_lottery"></span>近期开奖</a></li>
+                <li><a href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
+                <li><a href="javascript:;"><span class="icon_info"></span>玩法说明</a></li>
+            </ul>
+        </div>
     </header>
     <!--侧导航 -->
     <section class="slide-bar">
@@ -398,7 +407,6 @@
                                     </div>
                                     <span class="bei">倍</span>
                                 </div>
-                                <input type="button" class="addBtn addBtnDisabled" id="lt_sel_insert" value="添加">
                             </div>
                             
                         </div>
@@ -478,9 +486,13 @@
                 </div> -->
             </div>
             <div class="ui_cart">
-                <span class="icon_cart"></span>
+                <span class="icon_car"></span>
                 <span id="lt_cf_count" class="num">0</span>
             </div>
+                                <a href="javascript:;" class="addBtn addBtnDisabled" id="lt_sel_insert">
+                                    <span class="icon_addcar"></span>
+                                    添 加
+                                </a>
         </div>
 
     </section>
@@ -596,12 +608,29 @@
 
     }())
 
+    // 购物车动画
     $(function(){
         $('.ui_cart').on('click',function(){
             $('#ui_bet').stop().animate({left: 0});
         })
         $('.bet_back').on('click',function(){
             $('#ui_bet').stop().animate({left: '100%'});
+        });
+    })
+
+    // 助手选单
+    $(function(){
+        $('.ui_help').on('click','.ui_btn_help',function(){
+            $(this).parent('.ui_help').find('ul').stop().fadeIn(200);
+            $(this).append('<div class="ui_cover"></div>');
+            $('.ui_help').find('ul').on('click',function(){
+                $('.ui_cover').remove();
+                $(this).hide();
+            });
+            $('.ui_cover').on('click',function(){
+                $('.ui_cover').remove();
+                $('.ui_help').find('ul').hide();
+            })
         });
     })
 
