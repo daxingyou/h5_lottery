@@ -233,7 +233,115 @@
 
         </ul> -->
         <div class="ui_info">
-            icon
+            <div class="pic_user"><img src="images/pic_user.svg"></div>
+            <div class="user_info">
+                <p>Elsa001EDKoes2</p>
+                <p class="user_money"><span class="icon_wallet"></span>350,000.00</p>
+            </div>
+        </div>
+        <div class="left_menu">
+            <dl class="ui_block-list">
+                <dt>大家都在玩</dt>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_cqssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>重庆时时彩</h2>
+                            <span>免费分钱 速来玩</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_tjssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>天津时时彩</h2>
+                            <span>免费分钱 速来玩</span>
+                        </div>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_jxk3.svg"></div>
+                        <div class="menu_name">
+                            <h2>江苏快3</h2>
+                            <span>骰子游戏速玩</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_jc11x5.svg"></div>
+                        <div class="menu_name">
+                            <h2>江西11选5</h2>
+                            <span>最受欢迎11选5</span>
+                        </div>
+                    </a>
+                </dd>
+            </dl>
+            <dl class="ui_block-list">
+                <dt>更多好玩彩种</dt>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_cqssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>重庆时时彩</h2>
+                            <span>时时中奖更好玩</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_hljssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>黑龙江时时彩</h2>
+                            <span>好玩易中奖</span>
+                        </div>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_xjssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>新疆时时彩</h2>
+                            <span>3位赢千元</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_tjssc.svg"></div>
+                        <div class="menu_name">
+                            <h2>天津时时彩</h2>
+                            <span>2元可中1000万</span>
+                        </div>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_jc11x5.svg"></div>
+                        <div class="menu_name">
+                            <h2>江西11选5</h2>
+                            <span>5位赢更多</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_sd11x5.svg"></div>
+                        <div class="menu_name">
+                            <h2>山东11选5</h2>
+                            <span>10分钟开一次奖</span>
+                        </div>
+                    </a>
+                </dd>
+                <dd>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_gd11x5.svg"></div>
+                        <div class="menu_name">
+                            <h2>广东11选5</h2>
+                            <span>高频多种玩法</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;">
+                        <div class="menu_logo"><img src="images/lottery/menu_jxk3.svg"></div>
+                        <div class="menu_name">
+                            <h2>江苏快3</h2>
+                            <span>2元可中1000万</span>
+                        </div>
+                    </a>
+                </dd>
+            </dl>
         </div>
     </section>
     <!-- <div class="home_b">
@@ -396,21 +504,28 @@
                             
                             <div class="m_funding_box">
                                 <div class="funding" id="lt_funding">
-                                    <a href="javascript:void(0);">
-                                        <span class="hover" data="yuan">元</span><span data="jiao">角</span><span data="fen">分</span>
+                                    <span class="onSelect" id="funding_text">元</span>
+                                    <a href="javascript:void(0);" style="display:none;">
+                                        <span class="hover" data="yuan">元</span><span data="jiao">角</span><!--<span data="fen">分</span>-->
                                     </a>
                                     <input type="radio" name="lt_project_modes" class="radio_yuan" value="1" checked="checked" style="display:none;"><!--元-->
                                     <input type="radio" name="lt_project_modes" class="radio_jiao" value="2" style="display:none;"><!--角-->
-                                    <input type="radio" name="lt_project_modes" class="radio_fen" value="3" style="display:none;"><!--分-->
+                                    <!-- <input type="radio" name="lt_project_modes" class="radio_fen" value="3" style="display:none;">分 -->
                                 </div>
                                 <div class="multipleBox">
+                                    <span class="bei">投</span>
                                     <div class="multipleCon re">
+                                        <a href="javascript:;" id="less_bei">-</a>
                                         <input type="text" id="lt_sel_times" value="1">
+                                        <a href="javascript:;" id="add_bei">+</a>
                                     </div>
                                     <span class="bei">倍</span>
                                 </div>
                             </div>
-                            
+                        </div>
+                        <div class="bet_random">
+                            <span class="icon_random"></span>
+                            随选
                         </div>
                         <div class="addOrderRight">
                             
@@ -487,21 +602,21 @@
                     余额不足?<a class="rech" id="chongzhi_rec" href="#">充值</a>
                 </div> -->
             </div>
-            <div class="ui_cart">
+            <div class="ui_cart" id="ui_cart">
                 <span class="icon_car"></span>
                 <span id="lt_cf_count" class="num">0</span>
             </div>
-                                <a href="javascript:;" class="addBtn addBtnDisabled" id="lt_sel_insert">
-                                    <span class="icon_addcar"></span>
-                                    添 加
-                                </a>
+            <a href="javascript:;" class="addBtn addBtnDisabled" id="lt_sel_insert">
+                <span class="icon_addcar"></span>
+                添 加
+            </a>
         </div>
 
     </section>
 </div>
 <div id="ui_bet" class="ui_bet">
     <header class="bet_header">
-        <a href="javascript:;" class="bet_back">back</a>
+        <a href="javascript:;" class="bet_back" id="bet_back"></a>
         test
     </header>
     <div class="ui_bet_main">
@@ -550,9 +665,6 @@
                 <!-- <a class="m_see_more" href="#">查看投注记录</a> -->
             </div>
         </div>
-    </div>
-    <div class="bet_footer">
-        footer
     </div>
 </div>
 
@@ -614,11 +726,24 @@
 
     // 购物车动画
     $(function(){
-        $('.ui_cart').on('click',function(){
-            $('#ui_bet').stop().animate({left: 0});
+        $('#ui_cart').on('click',function(){
+            $('#ui_bet').stop().animate({left: 0},300,function(){
+                $('.m_fx_footer').css({'z-index':110});
+                $('.addOrderBox').css({'z-index':102});
+                $('#lt_sel_insert').css({'display':'none'});
+                $('#ui_cart').css({'display':'none'});
+                $('.bet_random').css({'display':'none'});
+                $('#lt_funding').css({'display':'none'});
+            });
         })
-        $('.bet_back').on('click',function(){
-            $('#ui_bet').stop().animate({left: '100%'});
+        $('#bet_back').on('click',function(){
+            $('.m_fx_footer').css({'z-index':11});
+            $('.addOrderBox').css({'z-index':10});
+            $('#lt_sel_insert').css({'display':'block'});
+            $('#ui_cart').css({'display':'block'});
+            $('.bet_random').css({'display':'block'});
+            $('#lt_funding').css({'display':'inline'});
+            $('#ui_bet').stop().animate({left: '100%'},300);
         });
     })
 
@@ -635,6 +760,29 @@
                 $('.ui_cover').remove();
                 $('.ui_help').find('ul').hide();
             })
+        });
+    })
+
+    // 元角选单
+    $(function(){
+        $('#lt_funding').on('click',function(){
+            $(this).find('a').toggle();
+        })
+    })
+
+    // 倍投加减号按钮
+    $(function(){
+        $('#less_bei').on('click',function(){
+            var times =  parseInt($('#lt_sel_times').val());
+            if ( $('#lt_sel_times').val() > 1){
+                $('#lt_sel_times').val( times - 1 )
+            }
+        });
+        $('#add_bei').on('click',function(){
+            var times =  parseInt($('#lt_sel_times').val());
+            if ( $('#lt_sel_times').val() < 99999){
+                $('#lt_sel_times').val( times + 1 )
+            }
         });
     })
 

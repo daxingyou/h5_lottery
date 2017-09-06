@@ -19,7 +19,7 @@ body { }
 .m-lott-methodBox .fandian { color: #494949; display: inline-block; float: right; padding-top: 0.1rem; }
 .m-lott-methodBox .fandian select { border: 1px solid #bbb; padding: 0.2rem 0.1rem; border-radius: 0.3rem; font-size: 0.8rem; color: #624982; }
 .m-lott-methodBox-list {	/*display: none;*/background: #f1f1f1; width: 100%; height: 0px; overflow: hidden;overflow-y: scroll; position: absolute; z-index: 2; max-height: 20.714285rem; }
-.m-lott-methodBox-list:before { content: ''; height: 2.8rem; width: 1.4rem; text-align: left; color: #fff; z-index: 2; position: absolute; right: 0; background-image: -webkit-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgb(55, 47, 80) 100%); background-image: -moz-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: -o-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); }
+/* .m-lott-methodBox-list:before { content: ''; height: 2.8rem; width: 1.4rem; text-align: left; color: #fff; z-index: 2; position: absolute; right: 0; background-image: -webkit-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgb(55, 47, 80) 100%); background-image: -moz-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: -o-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); } */
 .lotteryGroup { height: 3.0rem; overflow: scroll; position: relative; }
 .lotteryGroup ul { display: block; overflow-y: scroll; height: 3.0rem;    /*width: 657px; */  white-space: nowrap;}
 .lotteryGroup ul li { cursor: pointer; font-size: 1.1rem; color: #b5aac8; display: inline-block; float: left; height: 2.857143rem; line-height: 2.857143rem; padding: 0px 0.928571rem; position: relative; }
@@ -287,24 +287,33 @@ body { }
 
 /*单式*/
 .grayContent { overflow: hidden; margin: 0 auto; }
-.textareaLong { height: 5.714286rem; width: 100%; font-family: 'microsoft yahei'; padding: 0.357143rem; border: 1px solid #d8d8d8; resize: vertical; }
+.textareaLong { height: 16rem; width: 100%; font-size: 1rem; font-family: 'microsoft yahei'; padding: 0.5rem; border: 1px solid #d8d8d8; resize: vertical; border-radius: 4px; box-shadow: 0px 0px 5px #dddddd inset; }
+.textareaLong::-webkit-input-placeholder{ background: url(../images/icon_pencil.svg) no-repeat 0.3rem; background-size: 1.286rem 1.286rem; padding-left: 1.5rem;}
 .m-mixing input:last-child { margin-right: 0px; }
 .grayContent .formWord { width: 6.428571rem; height: 1.857143rem; margin: 0.428571rem 3.1rem 0.428571rem 0px; border: 1px solid #D8D8D8; background: #fff; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; cursor: pointer }
 .grayContent .formWord:last-child { margin-right: 0; float: right; }
-.inputdesc { text-align: center; color: #666; }
-.addOrderBox { padding: 0.142rem 0.571428rem; overflow: hidden; font-family: 'Microsoft Yahei'; position: fixed; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6;}
-.m_funding_box { overflow: hidden; }
-.addOrderBox .funding { margin-top: 2px; display: inline; float: left; }
-.addOrderBox .funding span { font-size: 0.857143rem; color: #737373; display: inline-block; width: 1.785714rem; height: 1.785714rem; line-height: 1.785714rem; border-radius: 5px; text-align: center; background-color: #E2E1E1; margin-right: 0.428571rem; cursor: pointer; }
-.addOrderBox .funding span.hover { color: #fff; background-color: #52acd3; }
-.addOrderBox .multipleBox { width: 7.857143rem; margin-left: 0.357143rem; display: inline; float: left; }
-.multipleCon {  height: 2.1rem; display: inline; }
-.multipleCon input { width: 5.0rem; height: 2rem; line-height: 2rem; color: #000; font-weight: bold; text-align: center; font-size: 1.0rem; border-radius: 5px; border: 1px solid #ccc; }
+.inputdesc { text-align: center; color: #acacac; font-size: 1rem; text-align: left; }
+.inputdesc p{}
+.inputdesc p.strong{ color: #e03a5d; font-size: 0.8571rem;}
+.addOrderBox { padding: 0.142rem 0.571428rem; /*overflow: hidden;*/ font-family: 'Microsoft Yahei'; position: fixed; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6;}
+.addOrderBox:after{ content: ''; display: table; clear: both;}
+/* .m_funding_box { overflow: hidden; } */
+.addOrderBox .funding { margin-top: 2px; display: inline; float: left; position: relative;}
+.addOrderBox .funding a{ display: block; position: absolute; bottom: calc( 1.714rem - 1px ); left: 0px; background-color: #fff; border-radius: 5px; border: 1px solid #efefef; width: 100%; text-align: center;}
+.addOrderBox .funding a span:first-child{ border-radius: 4px 4px 0px 0px;}
+.addOrderBox .funding a span:last-child{ border-radius: 0px 0px 4px 4px;}
+.addOrderBox .funding a:after{ content: ''; display: block; position: absolute; bottom: -5px; left: 50%; margin-left: -4px; background-color: #fff; width: 9px ;height: 5px; background: url(../images/icon_arrow-line.svg) no-repeat;}
+.addOrderBox .funding .onSelect{ display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; background: url(../images/icon_arrow-b.svg) no-repeat right 0.5rem center;padding: 0px 2rem 0px 1rem; color: #52acd3; }
+.addOrderBox .funding a span { font-size: 0.857143rem; color: #52acd3; display: block; height: 1.785714rem; line-height: 1.785714rem; text-align: center;  cursor: pointer; }
+.addOrderBox .funding a span.hover { color: #fff; background-color: #344146; }
+.addOrderBox .multipleBox { margin-left: 1rem; display: inline; float: left; margin-top: 0.15rem;}
+.multipleCon {  height: 2.1rem; display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; color: #c9c9c9; }
+.multipleCon input { width: 3.571rem; height: calc( 1.714rem - 2px ); line-height: 1.714rem; color: #52acd3; font-weight: bold; text-align: center; font-size: 1.0rem; }
 .multipleCon .reduce { width: 2.428571rem; height: 1.0rem; line-height: 1.0rem; position: absolute; right: 0px; bottom: 0px; background: url(../images/lottery/bei.png) no-repeat; }
 .multipleCon .add { width: 34px; height: 1.071429rem; line-height: 1.071429rem; position: absolute; right: 0px; top: 0px; background: url(../images/lottery/bei.png) no-repeat; }
 .multipleCon .reduce,
 .multipleCon .add { color: #989898; font-size: 1.142857rem; text-align: center; cursor: pointer; }
-.multipleBox .bei { font-size: 1.0rem; color: #52acd3; }
+/* .multipleBox .bei { font-size: 1.0rem; color: #52acd3; } */
 .addOrderBox .fandian { width: 13.214286rem; overflow: hidden; margin-left: 1.428571rem; }
 .addOrderBox .fandian select { display: none; }
 .fandianlist li { font-size: 0.857143rem; color: #504a5f; font-weight: bold; }
