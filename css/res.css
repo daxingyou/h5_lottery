@@ -321,7 +321,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
       .btn_android i {background:url("../images/index/sch5_i_bbin-icon_android.png") no-repeat; background-size: 90%; width:1.8rem; height: 1.8rem; display: inline-block; margin-right: 0.1rem;}
       .btn_iphone { float: right; color: #888; border: 1px solid #888;}
       .btn_iphone i {background:url("../images/index/sch5_i_bbin-icon_iphone.png") no-repeat; background-size: 80%; width:1.8rem; height: 1.8rem; display: inline-block; margin-right: 0.1rem;}
-.prize-winning{position:fixed;top:0;left:0;width:100%;font-size:0.9rem;line-height:1.6rem;padding:0.8rem;background:url(../images/prize_msg_bg.png) no-repeat -0.09rem -1rem;background-size:100%;color:#666;transition:all .5s;-webkit-transition:all .5s;z-index:999;}
+.prize-winning{position:fixed;top:0;left:0;width:100%;font-size:0.9rem;line-height:1.6rem;padding:0.8rem;/*background:url(../images/prize_msg_bg.png) no-repeat -0.09rem -1rem;*/background-size:100%;color:#666;transition:all .5s;-webkit-transition:all .5s;z-index:999;}
 .prize-winning a{color:#52acd3;}
 .prize-winning h2{height:2.2rem;line-height:2.2rem;}
 .prize-winning .pw-left{float:left;}
