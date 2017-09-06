@@ -1,1 +1,102 @@
 // 重慶時時彩玩法
+.play_area{
+    padding: 1.5rem 1rem;
+    line-height: 1.8;
+    color: #898989;
+    font-size: 1rem;
+    >div{
+        &:first-child{
+            margin: 1rem 0;
+            background-color: #fff;
+            padding: .5rem;
+            border: 1px solid #DDE2E6;
+            strong{
+                color: #52ACD3;
+                display: block;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            p{
+                font-size: 0.8571rem;
+                padding: .5rem 0;
+                margin: 0 2rem;
+                &:first-child{
+                    border-bottom:1px solid #DDE2E6;
+                }
+            }
+            // hr{
+            //     border-top:1px solid #DDE2E6;
+            // }
+        }
+        &:last-child{
+            >div{
+                margin: 1rem 0;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                dl{
+                    margin: 0 2.5rem;
+                    padding: .5rem 0;
+                    color: #898989;
+                    font-size: 0.8571rem;
+                    border-bottom:1px solid #DDE2E6;
+                    &:last-child{
+                        border-bottom:none;
+                    }
+                    >*{
+                        display: inline-block;
+                        &:nth-child(odd){
+                            vertical-align: top;
+                            min-width: 4rem;
+                        }
+                        &:nth-child(even){
+                            width: calc(100% - 5rem);
+                            text-align: justify;
+                            // margin-left: 1rem;
+                        }
+                    }
+                    dt{
+                        color: #52ACD3;
+                    }
+                }
+            }
+        }
+    }
+    h3{
+        color: #484848;
+        font-size: 1.071rem;
+    }
+}
+/* 展開收合效果 */
+.slide_toggle {
+    text-align: left;
+    cursor: pointer;
+    padding: 1rem 0;
+    color: #52ACD3;
+    
+
+    // line-height: 170%;
+    // background-color: #eed;
+    // border-radius: 7px;
+    span{
+        background-image: url('../images/icon_plus.svg');
+        display: inline-block;
+        width: 6px;
+        height: 9px;
+        position: relative;
+        left: 0.357143rem;
+        background-position: 0px 0;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        left:1.2rem;
+        top: 0;
+        transition: all .2s;
+        margin-right: 2rem;
+        &.cur{
+            background-image: url('../images/icon_minus.svg');
+        }
+    }
+}
+.panel {
+    display: none;
+    border-top:1px solid #DDE2E6;
+}

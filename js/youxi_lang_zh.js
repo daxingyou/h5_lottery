@@ -67,7 +67,7 @@ var lot_lang = {
     am_s15: '<div class="title">温馨提示<p class="space">非常抱歉，本彩种暂停销售。\r\n请前往其他游戏。</p></div>', //'当期销售已截止，请进入下一期购买。'
     am_s15_2: '该彩种目前已过销售时间，\r\n请在销售周期时间内投注。',
     am_s15_3: '<div class="timeout"><img src="../images/lottery/icon_tip_d.svg" alt=""> 投注时间已经结束，<br/>投注内容将进到 第',
-    am_s16: '获取数据失败,请刷新页面',
+    am_s16: '<div class="title">温馨提示<p class="space">获取数据失败,请刷新页面</p></div>',
     am_s17: '登录超时，或者账户在其他地方登录，请重新登录',
     am_s18: '未到销售时间',
     am_s19: '号码选择不完整，请重新选择',
