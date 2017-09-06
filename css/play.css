@@ -79,22 +79,23 @@ header {
   .slide_toggle > div strong {
     font-weight: 500; }
   .slide_toggle > div span {
-    background-image: url("../images/icon_plus.svg");
-    display: inline-block;
-    width: 6px;
-    height: 9px;
+    background-image: url("../images/icon_arrow_down.svg");
+    width: 10px;
+    height: 10px;
     position: relative;
     background-position: 0px 0;
     background-repeat: no-repeat;
     background-size: 100%;
-    left: 1.2rem;
-    top: 0;
+    top: .5rem;
     -webkit-transition: all .2s;
     -o-transition: all .2s;
     transition: all .2s;
-    margin-right: 2rem; }
-  .slide_toggle > div.cur span {
-    background-image: url("../images/icon_minus.svg"); }
+    margin-right: .5rem;
+    float: right; }
+  .slide_toggle > div.cur {
+    color: #52ACD3; }
+    .slide_toggle > div.cur span {
+      background-image: url("../images/icon_arrow_up.svg"); }
 
 .panel {
   display: none;

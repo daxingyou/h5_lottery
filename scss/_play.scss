@@ -1,33 +1,4 @@
-// 變數
-$l_gray:#DDE2E6;
-$l_blue:#52ACD3;
-// 暫時的header
-header{
-    text-align: left;
-    padding: 1rem 0;
-    font-size: 1rem;
-    background-color: $l_blue;
-    color: #fff;
-    line-height: 2rem;
-    height: 4rem;
-    >*{
-        display: inline-block;
-    }
-    div{
-        width: calc(100% - 5rem);
-        text-align: center;
-        vertical-align: top;
-    }
-    a{
-        padding-left: 2rem;
-        margin-left: 1rem;
-        &.btn_back{
-            background-image: url('../images/btn_back.svg');
-            width: 2rem;
-            height: 2rem;
-        }
-    }
-}
+@import "var";
 // 重慶時時彩玩法
 .play_area{
     padding: 1rem 1rem;
@@ -95,42 +66,4 @@ header{
         padding: 1rem 0 0 1rem;
         margin-top: 1.5rem;
     }
-}
-//  展開收合效果
-.slide_toggle {
-    text-align: left;
-    cursor: pointer;
-    color: $l_blue;
-    > div{
-        &:first-child{
-            padding: 1rem 0;
-        }
-        strong{
-            font-weight: 500;
-        }
-        span{
-            background-image: url('../images/icon_plus.svg');
-            display: inline-block;
-            width: 6px;
-            height: 9px;
-            position: relative;
-            background-position: 0px 0;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            left:1.2rem;
-            top: 0;
-            transition: all .2s;
-            margin-right: 2rem;
-        }
-        &.cur{
-            span{
-                background-image: url('../images/icon_minus.svg');
-            }
-        }
-    }
-
-}
-.panel {
-    display: none;
-    border-top:1px solid $l_gray;
 }
