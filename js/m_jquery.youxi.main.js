@@ -512,6 +512,7 @@ var is_select=0;
             lt_ontimeout  : opts.ontimeout,
             lt_onfinishbuy: opts.onfinishbuy,
             lt_trace_base : 0,//追号的基本金额.
+            lt_total_time : 0,//总投注倍数
             lt_submiting  : false,//是否正在提交表单
             lt_prizes   : [] //投注内容的奖金情况
         });
@@ -667,6 +668,7 @@ var is_select=0;
                     $.lt_total_nums  = 0;//总注数清零
                     $.lt_total_money = 0;//总金额清零
                     $.lt_trace_base  = 0;//追号金额基数清零
+                    lt_total_time = 0, //总投注倍数清零
                     $.lt_same_code   = [];//已在确认区的数据
                     $($.lt_id_data.id_cf_num).html(0);//显示数据清零
                     $($.lt_id_data.id_cf_money).html(0);//显示数据清零
@@ -1170,6 +1172,7 @@ var is_select=0;
                 $.lt_total_nums  = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base  = 0;//追号基础数据
+                $.lt_total_time = 0 ;//总投注倍数
                 $.lt_same_code   = [];//已在确认区的数据
                 $($.lt_id_data.id_cf_num).html(0);//显示数据清零
                 $($.lt_id_data.id_cf_money).html(0);//显示数据清零
@@ -1319,6 +1322,7 @@ var is_select=0;
                 $.lt_total_nums  = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base  = 0;//追号基数
+                $.lt_total_time = 0 ;//总投注倍数
                 $.lt_same_code   = [];//已在确认区的数据
                 $($.lt_id_data.id_cf_num).html(0);//显示数据清零
                 $($.lt_id_data.id_cf_money).html(0);//显示数据清零
@@ -1350,6 +1354,7 @@ var is_select=0;
                 $.lt_total_nums  = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base  = 0;//追号基础数据
+                $.lt_total_time = 0; //总投注倍数
                 $.lt_same_code   = [];//已在确认区的数据
                 $($.lt_id_data.id_cf_num).html(0);//显示数据清零
                 $($.lt_id_data.id_cf_money).html(0);//显示数据清零
@@ -1441,6 +1446,7 @@ var is_select=0;
                 $.lt_total_nums  = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base  = 0;//追号基数
+                $.lt_total_time = 0 ;//总投注倍数
                 $.lt_same_code   = [];//已在确认区的数据
                 $($.lt_id_data.id_cf_num).html(0);//显示数据清零
                 $($.lt_id_data.id_cf_money).html(0);//显示数据清零
@@ -1532,7 +1538,7 @@ var is_select=0;
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     $.each(n,function(index,value){
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_sel_nums+'</span>'+lot_lang.dec_s2+'</div>';//倍數 //fixme 找不到倍數的代號
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍數 //fixme 找不到倍數的代號
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_base+'</span>'+lot_lang.dec_s18+'</div>'; //追號 //fixme 錯誤的追號
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注數 //fixme 錯誤的注數
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
@@ -1834,6 +1840,7 @@ var is_select=0;
 
     $.gameBtn = function(){
         var id_sel_num = $($.lt_id_data.id_sel_num).html(),//添加投注 已选注数
+            id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(),10), //投注倍数取整
             id_sel_insert = $($.lt_id_data.id_sel_insert),//添加投注 添加按钮
             id_cf_count = $($.lt_id_data.id_cf_count).html(),//立即投注 已选单
             id_sendok = $($.lt_id_data.id_sendok);//立即投注 立即按钮

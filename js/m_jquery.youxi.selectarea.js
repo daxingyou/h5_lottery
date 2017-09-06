@@ -2338,7 +2338,7 @@
                                  '<tr>'+
                                     '<td align="left">['+$.lt_method_data.modes[modes].name+'] 模式</td>'+
                                     '<td>'+nums+lot_lang.dec_s1+'</td>'+
-                                    '<td>'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
+                                    '<td class="beitou">'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
                                     '<td align="right">'+stemp+'</td>'+
                                 '</tr>'+
 			 				'</table>'+
@@ -2369,6 +2369,7 @@
             $.lt_total_money  = Math.round($.lt_total_money*1000)/1000;
             basemoney         = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//注数*单价 * 模式
             $.lt_trace_base   = Math.round(($.lt_trace_base+basemoney)*1000)/1000;
+            $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
             $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
             $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
             $($.lt_id_data.id_cf_count).html(parseInt($($.lt_id_data.id_cf_count).html(),10)+1);//总投注项加1
@@ -2427,6 +2428,7 @@
                 $.lt_total_money -= m;//总金额减少
                 $.lt_total_money = Math.round($.lt_total_money*1000)/1000;
                 $.lt_trace_base  = Math.round(($.lt_trace_base-b)*1000)/1000;
+                $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
                 $(this).parents(".lotteryList").remove();
                 $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
                 $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
