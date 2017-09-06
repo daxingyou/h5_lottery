@@ -118,7 +118,7 @@
 				}
 
 				html += '<div class="grayTop"></div><div class="grayContent clearfix">';
-				html += '<textarea id="lt_write_box" class="textareaLong floatL"></textarea>';
+				html += '<textarea id="lt_write_box" class="textareaLong floatL" placeholder="请输入号码..."></textarea>';
 				html += '<div class="m-mixing">';
 				// <input id="lt_write_import" type="button" value="导入文件" class="formWord" />
 				html += '<input id="lt_write_del" type="button" value="删除重复号" class="formWord" /><input id="lt_write_empty" type="button" value="清空" class="formWord" />';
@@ -1954,10 +1954,11 @@
 		});
 		
 		//直接点击元角分控制span
-		$($.lt_id_data.id_funding + " span").unbind("click").click(function(){
+		$($.lt_id_data.id_funding + " a span").unbind("click").click(function(){
 			var data = $(this).attr("data");
-			$($.lt_id_data.id_funding + " span").removeClass("hover");
-			$(this).addClass("hover");
+			$($.lt_id_data.id_funding + " a span").removeClass("hover");
+            $(this).addClass("hover");
+            $("#funding_text").text($(this).text());
 			$("input[name='lt_project_modes']").prop("checked", false);
 			$("input.radio_" + data).prop("checked", true);
 			
@@ -2338,7 +2339,7 @@
                                  '<tr>'+
                                     '<td align="left">['+$.lt_method_data.modes[modes].name+'] 模式</td>'+
                                     '<td>'+nums+lot_lang.dec_s1+'</td>'+
-                                    '<td>'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
+                                    '<td class="beitou">'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
                                     '<td align="right">'+stemp+'</td>'+
                                 '</tr>'+
 			 				'</table>'+
@@ -2369,6 +2370,7 @@
             $.lt_total_money  = Math.round($.lt_total_money*1000)/1000;
             basemoney         = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//注数*单价 * 模式
             $.lt_trace_base   = Math.round(($.lt_trace_base+basemoney)*1000)/1000;
+            $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
             $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
             $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
             $($.lt_id_data.id_cf_count).html(parseInt($($.lt_id_data.id_cf_count).html(),10)+1);//总投注项加1
@@ -2427,6 +2429,7 @@
                 $.lt_total_money -= m;//总金额减少
                 $.lt_total_money = Math.round($.lt_total_money*1000)/1000;
                 $.lt_trace_base  = Math.round(($.lt_trace_base-b)*1000)/1000;
+                $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
                 $(this).parents(".lotteryList").remove();
                 $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
                 $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
