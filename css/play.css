@@ -1,11 +1,32 @@
-@charset "UTF-8";
+header {
+  text-align: left;
+  padding: 1rem 0;
+  font-size: 1rem;
+  background-color: #52ACD3;
+  color: #fff;
+  line-height: 2rem;
+  height: 4rem; }
+  header > * {
+    display: inline-block; }
+  header div {
+    width: calc(100% - 5rem);
+    text-align: center;
+    vertical-align: top; }
+  header a {
+    padding-left: 2rem;
+    margin-left: 1rem; }
+    header a.btn_back {
+      background-image: url("../images/btn_back.svg");
+      width: 2rem;
+      height: 2rem; }
+
 .play_area {
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   line-height: 1.8;
   color: #898989;
   font-size: 1rem; }
   .play_area > div:first-child {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
     background-color: #fff;
     padding: .5rem;
     border: 1px solid #DDE2E6; }
@@ -44,9 +65,11 @@
         color: #52ACD3; }
   .play_area h3 {
     color: #484848;
-    font-size: 1.071rem; }
+    font-size: 1.071rem;
+    border-top: 1px dashed #DDE2E6;
+    padding: 1rem 0 0 1rem;
+    margin-top: 1.5rem; }
 
-/* 展開收合效果 */
 .slide_toggle {
   text-align: left;
   cursor: pointer;

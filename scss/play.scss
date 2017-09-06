@@ -1,17 +1,47 @@
+// 變數
+$l_gray:#DDE2E6;
+$l_blue:#52ACD3;
+// 暫時的header
+header{
+    text-align: left;
+    padding: 1rem 0;
+    font-size: 1rem;
+    background-color: $l_blue;
+    color: #fff;
+    line-height: 2rem;
+    height: 4rem;
+    >*{
+        display: inline-block;
+    }
+    div{
+        width: calc(100% - 5rem);
+        text-align: center;
+        vertical-align: top;
+    }
+    a{
+        padding-left: 2rem;
+        margin-left: 1rem;
+        &.btn_back{
+            background-image: url('../images/btn_back.svg');
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}
 // 重慶時時彩玩法
 .play_area{
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     line-height: 1.8;
     color: #898989;
     font-size: 1rem;
     >div{
         &:first-child{
-            margin: 1rem 0;
+            margin-bottom: 1rem;
             background-color: #fff;
             padding: .5rem;
-            border: 1px solid #DDE2E6;
+            border: 1px solid $l_gray;
             strong{
-                color: #52ACD3;
+                color: $l_blue;
                 display: block;
                 font-size: 1rem;
                 font-weight: 500;
@@ -21,12 +51,9 @@
                 padding: .5rem 0;
                 margin: 0 2rem;
                 &:first-child{
-                    border-bottom:1px solid #DDE2E6;
+                    border-bottom:1px solid $l_gray;
                 }
             }
-            // hr{
-            //     border-top:1px solid #DDE2E6;
-            // }
         }
         &:last-child{
             >div{
@@ -38,7 +65,7 @@
                     padding: .5rem 0;
                     color: #898989;
                     font-size: 0.8571rem;
-                    border-bottom:1px solid #DDE2E6;
+                    border-bottom:1px solid $l_gray;
                     &:last-child{
                         border-bottom:none;
                     }
@@ -55,7 +82,7 @@
                         }
                     }
                     dt{
-                        color: #52ACD3;
+                        color: $l_blue;
                     }
                 }
             }
@@ -64,19 +91,17 @@
     h3{
         color: #484848;
         font-size: 1.071rem;
+        border-top:1px dashed $l_gray;
+        padding: 1rem 0 0 1rem;
+        margin-top: 1.5rem;
     }
 }
-/* 展開收合效果 */
+//  展開收合效果
 .slide_toggle {
     text-align: left;
     cursor: pointer;
     padding: 1rem 0;
-    color: #52ACD3;
-    
-
-    // line-height: 170%;
-    // background-color: #eed;
-    // border-radius: 7px;
+    color: $l_blue;
     span{
         background-image: url('../images/icon_plus.svg');
         display: inline-block;
@@ -98,5 +123,5 @@
 }
 .panel {
     display: none;
-    border-top:1px solid #DDE2E6;
+    border-top:1px solid $l_gray;
 }
