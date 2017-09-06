@@ -48,27 +48,27 @@
                     <i class="icon i_wallet"></i><span>350,000.00</span>
                 </div>
             </div>
-            <div class="tab tab_up">
-                <div class="item active">
-                    <a href="betting_record.html">
-                    <i class="icon i_coin"></i>
-                    <p>
-                        <span>投注记录</span>
-                        <small>查看近期投注记录</small>
-                    </p>
-                </a>
+            <div id="tabs" class="tab tab_up">
+                <div class="item">
+                    <a href="#betting_record">
+                        <i class="icon i_coin"></i>
+                        <p>
+                            <span>投注记录</span>
+                            <small>查看近期投注记录</small>
+                        </p>
+                    </a>
                 </div>
                 <div class="item">
-                    <a href="trace_record.html">
-                    <i class="icon i_trace"></i>
-                    <p>
-                        <span>追号记录</span>
-                        <small>查看近期追号注记录</small>
-                    </p>
-                </a>
+                    <a href="#trace_record">
+                        <i class="icon i_trace"></i>
+                        <p>
+                            <span>追号记录</span>
+                            <small>查看近期追号注记录</small>
+                        </p>
+                    </a>
                 </div>
             </div>
-            <div class="tab_container">
+            <div id="betting_record" class="tab_container" style="display:block;">
                 <ul class="tab tab_mid">
                     <li class="active"><a href="javascript:;">全部</a></li>
                     <li><a href="javascript:;">未开奖</a></li>
@@ -383,6 +383,96 @@
                     </div>
                 </div>
             </div>
+            <div id="trace_record" class="tab_container" style="display:none;">
+                <ul class="tab tab_mid">
+                    <li class="active"><a href="javascript:;">全部</a></li>
+                    <li><a href="javascript:;">未开奖</a></li>
+                    <li><a href="javascript:;">已中奖</a></li>
+                    <li><a href="javascript:;">未中奖</a></li>
+                </ul>
+                <div class="tab_content">
+                    <div class="list">
+                        <div class="slide_toggle trace_day">
+                            <div>
+                                <strong>07月14日</strong><span></span>
+                            </div>
+                            <ul class="panel">
+                                <li class="bet_data">
+                                    <a href="trace_record_dt.html">
+                                        <div class="badge ssc_badge"></div>
+                                        <div class="lottery_t">
+                                            <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                                            <strong>2,000.00</strong>
+                                        </div>
+                                        <div class="status status02">
+                                            <span>进行中</span>
+                                            <div>追号 1/5</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="bet_data">
+                                    <a href="trace_record_dt.html">
+                                        <div class="badge ssc_badge">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="lottery_t">
+                                            <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                                            <strong>2,000.00</strong>
+                                        </div>
+                                        <div class="status status03">
+                                            <span>已终止</span>
+                                            <div>追号 1/5</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="bet_data">
+                                    <a href="trace_record_dt.html">
+                                        <div class="badge ssc_badge">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="lottery_t">
+                                            <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                                            <strong>2,000.00</strong>
+                                        </div>
+                                        <div class="status status01">
+                                            <span>已结束</span>
+                                            <div>追号 1/5</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="bet_data">
+                                    <a href="trace_record_dt.html">
+                                        <div class="badge ssc_badge">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="lottery_t">
+                                            <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                                            <strong>2,000.00</strong>
+                                        </div>
+                                        <div class="status status03">
+                                            <span>已终止</span>
+                                            <div>追号 1/5</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="bet_data">
+                                    <a href="trace_record_dt.html">
+                                        <div class="badge ssc_badge"></div>
+                                        <div class="lottery_t">
+                                            <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                                            <strong>2,000.00</strong>
+                                        </div>
+                                        <div class="status status03">
+                                            <span>已终止</span>
+                                            <div>追号 1/5</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -391,28 +481,46 @@
 
     </div>
 
-    <!-- <script
-src="https://code.jquery.com/jquery-2.2.4.min.js"
-integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-crossorigin="anonymous"></script> -->
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="js/youxi_lang_zh.js"></script>
+    <!-- <script type="text/javascript" src="js/youxi_lang_zh.js"></script>
     <script type="text/javascript" src="js/m_jquery.youxi.main.js"></script>
     <script type="text/javascript" src="js/m_jquery.youxi.selectarea.js"></script>
     <script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
-    <script type="text/javascript" src="js/pushstream.js"></script>
+    <script type="text/javascript" src="js/pushstream.js"></script> -->
 
     <script type="text/javascript" src="js/coreDesign.js"></script>
-    <script type="text/javascript" src="js/res.js"></script>
+    <!-- <script type="text/javascript" src="js/res.js"></script>
 
+    <script type="text/javascript" src="js/pushservice.js"></script> -->
     <script>
-
+        // $(".slide_toggle").click(function () { //點擊收合
+        //     $(this).children('div').toggleClass("cur"); //01找他的下一層切換加減符號
+        //     $(this).children(".panel").slideToggle("1000"); //02展開被隱藏要出現的東西
+        // });
     </script>
-    <script type="text/javascript" src="js/pushservice.js"></script>
     <script>
-        $(".slide_toggle").click(function () { //點擊收合
-            $(this).children('div').toggleClass("cur"); //01找他的下一層切換加減符號
-            $(this).children(".panel").slideToggle("1000"); //02展開被隱藏要出現的東西
+        $(function(){
+            // 預設顯示第一個 Tab
+            var _showTab = 0;
+            var $defaultLi = $('#tabs .item').eq(_showTab).addClass('active');
+            $($defaultLi.find('a').attr('href')).siblings().hide();
+        console.log(123);
+            // 當 li 頁籤被點擊時...
+            // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+            $('#tabs .item ').click(function() {
+                // 找出 li 中的超連結 href(#id)
+                var $this = $(this),
+                    _clickTab = $this.find('a').attr('href');
+                // 把目前點擊到的 li 頁籤加上 .active
+                // 並把兄弟元素中有 .active 的都移除 class
+                $this.addClass('active').siblings('.active').removeClass('active');
+                // 淡入相對應的內容並隱藏兄弟元素
+                $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+        
+                return false;
+            }).find('a').focus(function(){
+                this.blur();
+            });
         });
     </script>
 
