@@ -60,36 +60,91 @@
         <div class="play_content">
             <h3>时时彩玩法整理</h3>
             <div>
-                <div class="slide_toggle"><span></span>五星直选</div>
-            </div>
-            <div>
-                <div class="slide_toggle"><span></span>五星组选</div>
-                <div class="panel">
-                    <dl>
-                        <dt>组选120</dt>
-                        <dd>从 0-9 中选择5个号码组成一注。</dd>
-                    </dl>
-                    <dl>
-                        <dt>组选60</dt>
-                        <dd>从“二重号”选择一个号码，“单号”中选择三个号码组成一注。</dd>
-                    </dl>
-                    <dl>
-                        <dt>组选20</dt>
-                        <dd>从“三重号”选择一个号码，“单号”中选择两个号码组成一注。</dd>
-                    </dl>
-                    <dl>
-                        <dt>组选10</dt>
-                        <dd>从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。</dd>
-                    </dl>
-                    <dl>
-                        <dt>组选5</dt>
-                        <dd>从“四重号”选择一个号码，“单号”中选择一个号码组成一注。</dd>
-                    </dl>
+                <div class="slide_toggle">
+                    <div>
+                        <span></span><strong>五星直选</strong>
+                    </div>
+                    <div class="panel">
+                        <dl>
+                            <dt>组选120</dt>
+                            <dd>从 0-9 中选择5个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选60</dt>
+                            <dd>从“二重号”选择一个号码，“单号”中选择三个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选20</dt>
+                            <dd>从“三重号”选择一个号码，“单号”中选择两个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选10</dt>
+                            <dd>从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选5</dt>
+                            <dd>从“四重号”选择一个号码，“单号”中选择一个号码组成一注。</dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
             <div>
-                <div class="slide_toggle"><span></span>四星直选</div>
-                <p></p>
+                <div class="slide_toggle">
+                    <div>
+                        <span></span><strong>五星组选</strong>
+                    </div>
+                    <div class="panel">
+                        <dl>
+                            <dt>组选120</dt>
+                            <dd>从 0-9 中选择5个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选60</dt>
+                            <dd>从“二重号”选择一个号码，“单号”中选择三个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选20</dt>
+                            <dd>从“三重号”选择一个号码，“单号”中选择两个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选10</dt>
+                            <dd>从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选5</dt>
+                            <dd>从“四重号”选择一个号码，“单号”中选择一个号码组成一注。</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="slide_toggle">
+                    <div>
+                        <span></span><strong>四星直选</strong>
+                    </div>
+                    <div class="panel">
+                        <dl>
+                            <dt>组选120</dt>
+                            <dd>从 0-9 中选择5个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选60</dt>
+                            <dd>从“二重号”选择一个号码，“单号”中选择三个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选20</dt>
+                            <dd>从“三重号”选择一个号码，“单号”中选择两个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选10</dt>
+                            <dd>从“三重号”选择一个号码，“二重号”中选择一个号码组成一注。</dd>
+                        </dl>
+                        <dl>
+                            <dt>组选5</dt>
+                            <dd>从“四重号”选择一个号码，“单号”中选择一个号码组成一注。</dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -116,8 +171,8 @@ crossorigin="anonymous"></script> -->
 <script type="text/javascript" src="js/pushservice.js"></script>
 <script>
     $(".slide_toggle").click(function () { //點擊收合
-        $(this).children().toggleClass("cur"); //01找他的下一層切換加減符號
-        $(".panel").slideToggle("1000"); //02展開被隱藏要出現的東西
+        $(this).children('div').toggleClass("cur"); //01找他的下一層切換加減符號
+        $(this).children(".panel").slideToggle("1000"); //02展開被隱藏要出現的東西
     });
 </script>
 

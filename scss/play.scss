@@ -100,26 +100,35 @@ header{
 .slide_toggle {
     text-align: left;
     cursor: pointer;
-    padding: 1rem 0;
     color: $l_blue;
-    span{
-        background-image: url('../images/icon_plus.svg');
-        display: inline-block;
-        width: 6px;
-        height: 9px;
-        position: relative;
-        left: 0.357143rem;
-        background-position: 0px 0;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        left:1.2rem;
-        top: 0;
-        transition: all .2s;
-        margin-right: 2rem;
+    > div{
+        &:first-child{
+            padding: 1rem 0;
+        }
+        strong{
+            font-weight: 500;
+        }
+        span{
+            background-image: url('../images/icon_plus.svg');
+            display: inline-block;
+            width: 6px;
+            height: 9px;
+            position: relative;
+            background-position: 0px 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            left:1.2rem;
+            top: 0;
+            transition: all .2s;
+            margin-right: 2rem;
+        }
         &.cur{
-            background-image: url('../images/icon_minus.svg');
+            span{
+                background-image: url('../images/icon_minus.svg');
+            }
         }
     }
+
 }
 .panel {
     display: none;
