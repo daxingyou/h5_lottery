@@ -118,7 +118,7 @@
 				}
 
 				html += '<div class="grayTop"></div><div class="grayContent clearfix">';
-				html += '<textarea id="lt_write_box" class="textareaLong floatL"></textarea>';
+				html += '<textarea id="lt_write_box" class="textareaLong floatL" placeholder="请输入号码..."></textarea>';
 				html += '<div class="m-mixing">';
 				// <input id="lt_write_import" type="button" value="导入文件" class="formWord" />
 				html += '<input id="lt_write_del" type="button" value="删除重复号" class="formWord" /><input id="lt_write_empty" type="button" value="清空" class="formWord" />';
@@ -1954,10 +1954,11 @@
 		});
 		
 		//直接点击元角分控制span
-		$($.lt_id_data.id_funding + " span").unbind("click").click(function(){
+		$($.lt_id_data.id_funding + " a span").unbind("click").click(function(){
 			var data = $(this).attr("data");
-			$($.lt_id_data.id_funding + " span").removeClass("hover");
-			$(this).addClass("hover");
+			$($.lt_id_data.id_funding + " a span").removeClass("hover");
+            $(this).addClass("hover");
+            $("#funding_text").text($(this).text());
 			$("input[name='lt_project_modes']").prop("checked", false);
 			$("input.radio_" + data).prop("checked", true);
 			
