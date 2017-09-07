@@ -44,6 +44,10 @@ h1, h2, h3 { font-weight: normal; }
 input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
+input, textarea {font-family: "微软雅黑","microsoft yahei", Helvetica, Arial, sans-serif; font-weight: normal;}
+textarea,input[type="text"] {
+  -webkit-appearance: none;
+}
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 #body { transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; height: 100%; }
 .active { transform: translate3d(22rem, 0, 0); -webkit-transform: translate3d(22rem, 0, 0); -moz-transform: translate3d(22rem, 0, 0); -ms-transform: translate3d(22rem, 0, 0); -o-transform: translate3d(22rem, 0, 0); transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; }
@@ -265,7 +269,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
       .m-nav-lott-date { font-size: 0.928571rem; color: #fff; line-height: 2.28rem; height: 2.28rem; margin: 0px 0.571428rem; }
       .m-nav-lott-date:after{ content: ''; display: table; clear: both; }
       .m-nav-lott-date .m-n-data { padding-right: 20px; float: left; height: 2.28rem; }
-      .m-nav-lott-date .m-n-countdown { float: right; display: inline-block; padding-left: 1.5rem; background: url(../images/icon_clock.svg) no-repeat left center; background-size: auto 1.1rem; }
+      .m-nav-lott-date .m-n-countdown { float: right; display: inline-block; padding-left: 1.5rem; background: url(../images/icon_clock.svg) no-repeat left center; background-size: 1.1rem 1.1rem; }
       .m-nav-lott-date .m-n-countdown div { display: inline-block; }
 
       /*返回顶部*/
@@ -350,6 +354,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .ui_history strong{margin: 0px 3px; font-weight: normal;}
 .ui_history .recentBox ul li { font-size: 0.928571rem; }
 .ui_history .recentCon .num { color:#ffcf06 }
+.ui_history .recentCon .num i { font-style: normal; display: inline-block; width: 1.429rem; height: 1.429rem; line-height: 1.429rem; border-radius: 20px; background-color: rgba(0, 0, 0, 0.2); text-align: center; font-size: 0.8571rem; margin-left: 0.1rem; }
 .ui_history:after{ content: ''; display: table; clear: both; }
 .ui_btn_history{ position: absolute; height: 0.45rem; bottom:-0.35rem; left: 50%; width: 1.8rem; margin-left:-0.9rem; background: url(../images/history_btn.svg) center top no-repeat #344146; background-size: 1rem auto; border-radius: 0px 0px 3px 3px;}
 .lotteryMember .fandian{ display: none;}
@@ -361,15 +366,19 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .ui_help ul li:last-child{ border:none;}
 .ui_help ul:after{ content: ''; position: absolute; top: -6px; right: 1.142857rem; display: block;width: 0;height: 0;border-style: solid;border-width: 0 5px 6px 5px;border-color: transparent transparent #fff transparent; }
 .ui_help ul a{ color: #484848; }
+.ui_btn_help { line-height: 2rem; margin-top: 0.4rem; }
 .ui_cover{ background:#000; position:fixed; top:0px; left:0px; right:0px; bottom:0px; z-index: 100; opacity: 0.4; }
+.ui_playlist_cover{ background:#000; position:fixed; top:3.4285rem; left:0px; right:0px; bottom:0px; z-index: 1; opacity: 0.4; }
 .ui_cart{position: absolute; right: 1rem; top: 0.5rem;}
 .ui_cart .num{ display: block; position: absolute; top: -0.2rem; right: -0.5rem; background-color: #e8252b; color: #fff; font-size: 0.857143rem; border-radius: 10px; min-width: 1.118rem; height: 1.118rem; line-height: 1.2rem; padding: 0px 0.2rem; vertical-align: middle;}
 .ui_color_strong{ color: #ffcf06;}
 .addOrderLeft{ float: left;}
-.bet_random { float: right; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.5rem; margin-top: 0.13rem; color: #52acd3;}
+.bet_random { float: right; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.5rem; margin-top: 0.1rem; color: #52acd3;}
 .multipleBox{ color: #c9c9c9;}
 .multipleBox .multipleCon{font-size: 0px;}
-.multipleBox #less_bei, .multipleBox #add_bei{ font-size: 1rem; display: inline-block; vertical-align: top; height: calc( 1.714rem - 2px );width: 1.714rem; text-align: center; margin-top: -0.1rem; color: #c9c9c9;}
+.multipleBox .less_bei, .multipleBox .add_bei{ font-size: 1rem; display: inline-block; vertical-align: top; height: 1.714rem; width: 1.6rem; text-align: center; margin-top: -0.1rem; color: #c9c9c9;}
+.multipleBox .add_bei{ background: url(../images/icon_bei_add.svg) no-repeat center center; background-size: 1.571rem 1.643rem; }
+.multipleBox .less_bei{ background : url(../images/icon_bei_less.svg) no-repeat center center;  background-size: 1.571rem 1.643rem;}
 
 /* 左側選單 */
 .ui_info{ background: url(../images/left_bg@2x.png) center center #52acd3; background-size: 100%; height: 5.7085rem; }
@@ -395,12 +404,20 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 
 /* 购物车 */
 .ui_bet{ position: fixed; top: 0px; left: 100%; width: 100%; height: 100%; background-color: #fff; z-index: 101;}
+.ui_bet_wrap{ padding: 1.286rem; }
 .bet_header{background-color: #52acd3;height: 3.4285rem;position: absolute;width: 100%;top: 0;z-index: 100;left: 0;}
+.bet_header h2{ text-align: center; color: #fff; font-size: 1rem; margin-top: 1rem; height: 2.4285rem;}
 .bet_back{ position: absolute; left: 1.286rem; top: 0.8571rem; display: block; background: url(../images/icon_back.svg) no-repeat center center; background-size: 1.714rem 1.714rem; width: 1.714rem; height: 1.714rem;}
-.ui_bet_main{ padding: 3.4285rem 1.286rem 5.714214rem 1.286rem; height: 100%; overflow-y: scroll;}
+.ui_bet_main{ padding: 5.7rem 0rem 5.714214rem 0rem; height: 100%; overflow-y: scroll; background-color: #f1f1f1;}
+.ui_bet_tool{ margin-bottom: 1rem; font-size: 0px; }
+.ui_bet_tool a{ display: inline-block;border-radius: 3px; width: 30%; height: 2.143rem; line-height: 2.143rem; margin-right: 5%; ; text-align: center; font-size: 0.8571rem; border: 1px solid #52acd3;}
+.ui_bet_tool a:last-child{ margin-right: 0px;}
+#all_addOrderBox{ z-index: 103;}
+.btn_addstop{ float: left; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.8rem; margin-top: 0.15rem;}
+.btn_addstop.disable{ color: #c9c9c9;}
 
 /* icon */
-.icon_help{ display: inline-block; background: url(../images/icon_help.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem; vertical-align: middle; margin-right: 5px; margin-top: -3px;}
+.icon_help{ display: inline-block; background: url(../images/icon_help.svg) no-repeat center center; background-size: 1.286rem 1.429rem;height: 1.429rem; width: 1.286rem; vertical-align: middle; margin-right: 5px; margin-top: -3px;}
 .icon_bet-history{display: inline-block; background: url(../images/icon_bet-history.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
 .icon_trend{display: inline-block; background: url(../images/icon_trend.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
 .icon_lottery{display: inline-block; background: url(../images/icon_lottery.svg) no-repeat center center; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem;}
@@ -410,7 +427,9 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .icon_addcar{ display: block; background-image: url(../images/icon_add.svg);background-repeat: no-repeat; background-size:2.919285rem auto; width: 2.919285rem; height: 2.919285rem; margin: 0.7rem auto 0.2rem;}
 .icon_wallet{ display: inline-block; background-image: url(../images/icon_wallet.svg); background-repeat: no-repeat; background-size: auto 1.4285rem;height: 1.4285rem; width: 1.4285rem; vertical-align: text-bottom; margin-right: 5px;}
 .icon_random {display: inline-block; background-image: url(../images/icon_random.svg); background-repeat: no-repeat; background-size: auto 1.429rem;height: 1.429rem; width: 1.429rem; vertical-align: text-bottom; margin-right: 0.1rem;margin-top: -0.2rem; vertical-align: middle;}
+.icon_add2{display: inline-block; background: url(../images/icon_add2.svg) no-repeat center center; background-size: auto 1rem;height: 1rem; width: 1rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.2rem;}
+.icon_trash{display: inline-block; background: url(../images/icon_trash.svg) no-repeat center center; background-size: auto 1rem;height: 1rem; width: 1rem; vertical-align: middle; margin-top: -0.2rem; margin-right: 0.2rem;}
+.icon_bet{display: inline-block; background: url(../images/icon_bet.svg) no-repeat center center; background-size: auto 1rem;height: 1rem; width: 1.143rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.2rem; }
 
 /* btn */
-.btn_default{ border: 1px solid #efefef; height: 1.714285rem; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46);}
-.btn_default.active{ background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 1.714285rem; }
+.btn_default{ display: inline-block;  height: 1.714285rem; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46);background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 1.714285rem; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; color: #fff;}
