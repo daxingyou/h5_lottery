@@ -118,10 +118,11 @@
 				}
 
 				html += '<div class="grayTop"></div><div class="grayContent clearfix">';
-				html += '<textarea id="lt_write_box" class="textareaLong floatL" placeholder="请输入号码..."></textarea>';
+				html += '<textarea id="lt_write_box" class="textareaLong" placeholder="请输入号码..."></textarea>';
 				html += '<div class="m-mixing">';
 				// <input id="lt_write_import" type="button" value="导入文件" class="formWord" />
-				html += '<input id="lt_write_del" type="button" value="删除重复号" class="formWord" /><input id="lt_write_empty" type="button" value="清空" class="formWord" />';
+                // html += '<input id="lt_write_del" type="button" value="删除重复号" class="formWord" /><input id="lt_write_empty" type="button" value="清空" class="formWord" />';
+                html += '<input id="lt_write_empty" type="button" value="清空" class="formWord" />';
 				html += '</div>';
 				html += '</div>';
 				html += '<div class="yellow">'+tempdes+'</div><div class="grayBottom"></div>';
@@ -294,8 +295,8 @@
 		//隐藏多余的线
 		var opt_title = opts.layout[0].title;
             if(opt_title == '组选和值' || opt_title == '直选和值' || opt_title =='前三和值' || opt_title == '后三和值' || opt_title == '和值'){
-        		$('.each').eq(0).css('border','0');
-        		$('.each').eq(1).css('padding','0');
+        		// $('.each').eq(0).css('border','0');
+        		// $('.each').eq(1).css('padding','0');
         		$('.noname').hide();
             }
 
@@ -2247,11 +2248,13 @@
             nos = nos_temp.join();
             /*修改定位胆在玩法与投注号码处空号没有显示"-"的问题*/
             if( nos.length > 10 ){
-				var rand=~~(Math.random()*89999999+10000000).toString();
-                var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
+                var rand=~~(Math.random()*89999999+10000000).toString();
+                // var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
+                var nohtml = '<p class="ui_bet_num">' + nos+'...'+'</p><p class="ui_bet_title">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
 				// nohtml+='<div id="div_slow_id_'+rand+'" class="more" style="display:none;"><a class="close" href="#" onclick="div_slow_hide('+rand+');return(false);">['+lot_lang.dec_s6+']</a><textarea class="code" readonly="readonly">'+nos+'</textarea></div>';
             }else{
-                var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
+                // var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
+                var nohtml =  '<p class="ui_bet_num">' + nos + '</p><p class="ui_bet_title">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
             }
 			var pmodel = $("#pmode").val();//投注奖金模式
 		
@@ -2327,28 +2330,42 @@
 						 // '</tr>';
 			
 
-			 var cfhtml ='<div class="lottery lotteryList">'+
-                            '<table width="100%" border="0" cellspacing="0" cellpadding="0" >'+
-			 	 		'<tr class="lotteryBg">'+
-			 				'<td width="95%">'+
-			 				'<table width="99%">'+
-			 					'<tr>'+
-                                    '<td colspan="3" align="left">'+nohtml+'</td>'+
-                                    '<td  class="orange" align="right">'+money+lot_lang.dec_s3+'</td>'+
-                                '</tr>'+
-                                 '<tr>'+
-                                    '<td align="left">['+$.lt_method_data.modes[modes].name+'] 模式</td>'+
-                                    '<td>'+nums+lot_lang.dec_s1+'</td>'+
-                                    '<td class="beitou">'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
-                                    '<td align="right">'+stemp+'</td>'+
-                                '</tr>'+
-			 				'</table>'+
-			 				'</td>'+
-			 				'<td class="del">'+
-			 					'<a href="javascript:void(0);" class="del"></a><input type="hidden" name="lt_project[]" value="'+serverdata+'" />'+
-			 				'<td>'+
-			 			'</tr>'	+
-			 			'</table></div>';					 
+			// var cfhtml ='<div class="lottery lotteryList">'+
+            //                 '<table width="100%" border="0" cellspacing="0" cellpadding="0" >'+
+            //                     '<tr class="lotteryBg">'+
+            //                         '<td width="95%">'+
+            //                         '<table width="99%">'+
+            //                             '<tr>'+
+            //                                 '<td colspan="3" align="left">'+nohtml+'</td>'+
+            //                                 '<td  class="orange" align="right">'+money+lot_lang.dec_s3+'</td>'+
+            //                             '</tr>'+
+            //                             '<tr>'+
+            //                                 '<td align="left">['+$.lt_method_data.modes[modes].name+'] 模式</td>'+
+            //                                 '<td>'+nums+lot_lang.dec_s1+'</td>'+
+            //                                 '<td>'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
+            //                                 '<td align="right">'+stemp+'</td>'+
+            //                             '</tr>'+
+            //                         '</table>'+
+            //                         '</td>'+
+            //                         '<td class="del">'+
+            //                             '<a href="javascript:void(0);" class="del"></a><input type="hidden" name="lt_project[]" value="'+serverdata+'" />'+
+            //                         '<td>'+
+            //                     '</tr>'	+
+            //              '</table></div>';
+            var cfhtml ='<div class="lottery lotteryList">'+
+                            nohtml+
+                            '<p class="ui_bet_count">'+
+                                // '<span class="ui_bet_mode">['+$.lt_method_data.modes[modes].name+'] 模式</span>'+
+                                nums+lot_lang.dec_s1+
+                                times+lot_lang.dec_s2+
+                                '1期'+
+                                ' 共'+money+lot_lang.dec_s3+
+                                // stemp+
+                            '</p>'+
+                            '<span class="del">'+
+                                '<a href="javascript:void(0);" class="del"></a><input type="hidden" name="lt_project[]" value="'+serverdata+'" />'+
+                            '</span>'+
+			 			'</div>';
             var $cfhtml = $(cfhtml);
 			$($.lt_id_data.id_cf_content + " div.cleanall").after($cfhtml);
 			$($.lt_id_data.id_cf_content + " tr.lottery:first").fadeIn(100,function(){
@@ -2398,7 +2415,7 @@
                 $.lt_same_code[mid][modes][cur_position] = []
             }
             $.lt_same_code[mid][modes][cur_position].push(temp.join("|"));
-            $('td',$cfhtml).filter(".del").find("a.del").click(function(){
+            $('span',$cfhtml).filter(".del").find("a.del").click(function(){
                 var n = $cfhtml.data('data').nums;
                 var m = $cfhtml.data('data').money;
                 var b = $cfhtml.data('data').basemoney;
@@ -2494,9 +2511,9 @@
 		if(numtotal > 0){
 			//$(".lotteryList tr.cleanall").show();
 			$(".lotteryList a.cleanall").click(function(){
-				var num = $($.lt_id_data.id_cf_content + " tr.lottery a.del").length;
+				var num = $($.lt_id_data.id_cf_content + " .lottery a.del").length;
 				if(num > 0){
-					$.each($($.lt_id_data.id_cf_content + " tr.lottery a.del"),function(i,v){
+					$.each($($.lt_id_data.id_cf_content + " .lottery a.del"),function(i,v){
 						$(v).trigger('click');
 					});
 				}
