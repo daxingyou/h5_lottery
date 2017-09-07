@@ -1,0 +1,258 @@
+@import "var";
+.betting_area{
+    >div{
+        &:first-child{
+            background-image: url('../images/record_bg.png');
+            background-size: 100%;
+            width: 100%;
+            height: 8rem;
+            text-align: center;
+            padding: 1.5rem 0;
+            color: #fff;
+            >div{
+                display: inline-block;
+                vertical-align: -webkit-baseline-middle;
+                vertical-align: -moz-baseline-middle;
+                text-align: left;
+                margin-left: 1rem;
+            }
+            img{
+                width: 5rem;
+                height: 5rem;
+            }
+            span{
+                font-size: 1.429rem;
+            }
+        }
+    }
+
+}
+// tab
+.tab{
+    font-size: 0;
+    .item{
+        display: inline-block;
+        text-align: left;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        font-size: 1rem;
+        &:first-child{
+            border-right: 1px solid #F1F1F1;
+        }
+        a{
+            color: #808080;
+            display: block;
+            padding: 1rem 1rem 1rem 1.5rem;
+            >*{
+                display: inline-block;
+            }
+            small{
+                color: #ACACAC;
+                display: block;
+                // margin-left: 2.5rem;
+            }
+            span{
+                font-size: 1.071rem;
+            }
+            // p{ width: calc(100% - 2.5rem);}
+        }
+        &.active,&:hover,&:focus{
+            transform:none;
+            a{
+                color: $l_blue;
+                .i_coin{
+                    background-image: url('../images/icon_coin_b.svg');
+                }
+                .i_trace{
+                    background-image: url('../images/icon_trace_b.svg');
+                }
+            }
+        }
+    }
+}
+.tab_container{
+    >*{
+        background-color: #fff;
+    }
+}
+.tab_mid{
+    margin: .8rem 0;
+    color: #898989;
+    li{
+        display: inline-block;
+        padding: .5rem;
+        width: 25%;
+        text-align: center;
+        vertical-align: middle;
+        a{
+            display: block;
+            color: #898989;
+            font-size: 0.8571rem;
+            height: 2rem;
+            line-height: 2rem;
+        }
+        &.active{
+            transform:none;
+            border-bottom: 2px solid $l_blue;
+            a{
+                color: $l_blue;
+            }
+        }
+    }
+}
+.tab_content{
+    margin: 0 .8rem;
+}
+.bet_day{
+     border: 1px solid #DDE2E6;
+     border-bottom: none;
+     &:last-child{
+        border-bottom:1px solid #DDE2E6;
+     }
+    >div{
+        &:first-child{
+            font-size: 1rem;
+            // color: #ACACAC;
+            padding:.5rem 1rem;
+        }
+    }
+    .panel {
+        display: none;
+        // padding: 0 1rem;
+        // border-top: none;
+    }
+}
+.bet_data{
+    border-bottom: 1px solid #DDE2E6;
+    padding:.5rem 1rem;
+    &:last-child{
+        border-bottom:none;
+     }
+     > a{
+         display: block;
+     }
+    > a > *{
+        display: inline-block;
+        vertical-align: top;
+        // height: 4rem;
+        line-height: 2rem;
+        margin: 0 .5rem;
+        color:#898989;
+    }
+    .badge{
+        background-color: $l_blue;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 100px;
+        padding: .5rem;
+        margin: .2rem .5rem;
+        border: 3px solid $l_blue;
+        &.ssc_badge{
+            background-image: url('../images/lottery/logo_cqssc.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            // width: 3.5rem;
+            // height: 3.5rem;
+        }
+    }
+    .lottery_t{
+        width: calc(100% - 11rem);
+        margin-right: 1.5rem;
+        @include respond-to(ss){
+            margin-right: 1rem;
+        }
+    }
+    strong{
+        color: $l_blue;
+        font-size: 1rem;
+    }
+    .status{
+        margin: 0 auto;
+    }
+    .status00{
+        margin: auto .5rem;
+    }
+    .status01{
+
+    }
+    .status02{
+        color: #71C341;
+        margin: auto .5rem;
+    }
+    .status03{
+        color: #ACACAC;
+        padding-top: 2.3rem;
+        position: relative;
+        &:before{
+            content: '';
+            display: block;
+            background-image: url('../images/icon_notwin.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top:.3rem;
+            left: 50%;
+            margin-left: -1rem;
+        }
+    }
+    .status04{
+        color: #E03A5D;
+        padding-top: 2.3rem;
+        position: relative;
+        &:before{
+            content: '';
+            display: block;
+            background-image: url('../images/icon_exclam.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top:.3rem;
+            left: 50%;
+            margin-left: -1rem;
+        }
+    }
+
+}
+
+// 追號紀錄
+.trace_day{
+    @extend .bet_day;
+    .bet_data{
+        .status{
+            text-align: center;
+        }
+        .status01{
+            color: #D3D3D3;
+            div{
+                color: #fff;
+            }
+        }
+        .status02{
+            margin: 0;
+            color: $l_blue;
+            div{
+                color: $l_yellow;
+            }
+        }
+        .status03{
+            padding-top: 0;
+            color: #D3D3D3;
+            &:before{
+                display: none;
+            }
+            div{
+                color: $l_yellow;
+            }
+        }
+    }
+}
+
+
