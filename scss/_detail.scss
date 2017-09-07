@@ -1,0 +1,206 @@
+@import "var";
+.bet_dt_area{
+    font-size: 1rem;
+    margin: 1.5rem 1.2rem;
+    .period{
+        margin: 1.5rem 0;
+        line-height: 1.5rem;
+        height: 1.5rem;
+        &:after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+        >*{
+            line-height: 1.5rem;
+            height: 1.5rem;
+            padding:.1rem;
+        }
+        span{
+            &:first-child{
+                float: left;
+            }
+        }
+        .bet_status{
+            float: right;
+            @include border-radius(.6rem);
+            padding:0 .3rem;
+            display: block;
+            &.status01{
+                border: 1px solid #E2E2E2;
+                color: #ACACAC;
+            }
+            &.status02{
+                border: 1px solid $l_red;
+                color: $l_red;
+            }
+            &.status03{
+                border: 1px solid $l_green;
+                color: $l_green;
+            }
+        }
+    }
+}
+.bet_nlist{
+    margin: 1rem 0;
+    ul{
+        text-align: center;
+        li{
+            margin: 0 0.49rem 0.5rem;
+            display: inline-block;
+            width: 2.8rem;
+            height: 2.8rem;
+            line-height: 2.8rem;
+            background-color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(239,239,239,0.46);
+            box-shadow: 0px 0px 0px 1px #fff;
+            border-radius: 1.4rem;
+            color: #b8b8b8;
+            font-family: sans-serif;
+            font-weight: 500;
+            &:hover,&:focus,&.hover{
+                background: url(../images/lottery/ball_active.svg) no-repeat center;
+                color: #666;
+                background-size: 100%;
+                font-size: 1.071rem;
+            }
+        }
+    }
+}
+.print_data{
+    @include border-radius(.3rem);
+    background-color: #fff;
+    border: 1px solid #E2E2E2;
+    padding: 1rem;
+    table{
+        width: 100%;
+    }
+    tr{
+        border-bottom: 1px solid #F6F6F6;
+        padding: 1rem 0;
+        display: block;
+        th{
+            color: #898989;
+            padding: 0 1rem;
+            font-weight: 500;
+        }
+        &:nth-last-of-type(3){
+            color: $l_yellow;
+        }
+        &:last-child{
+            border-bottom:none;
+            th{
+                color: #fff;
+            }
+            td{
+                color: $l_yellow;
+            }
+        }
+    }
+    small{
+        color: #ACACAC;
+    }
+}
+.goto_bet{
+    text-align: center;
+    margin: 1rem 0;
+}
+.tra_dt_area{
+    color: #484848;
+    font-size: 1rem;
+    margin: 1.5rem 1.2rem;
+    .tra_period{
+        margin: 1rem 0;
+        >*{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 2rem;
+            margin: 0 .5rem;
+        }
+        .badge{
+            margin-top: .2rem;
+        }
+        .lottery_t{
+            strong{
+                color: #898989;
+                span{
+                    margin-right: .5rem;
+                }
+            }
+            b{
+                color: $l_yellow;
+                margin: 0 .2rem;
+            }
+        }
+        .tr_status{
+            font-size: 0.8571rem;
+            @include border-radius(.3rem);
+            padding:0 .3rem;
+            line-height: 1.5rem;
+            margin-top: .2rem;
+            &.status01{
+                border: 1px solid #E2E2E2;
+                color: #ACACAC;
+            }
+            &.status02, &.status03{
+                border: 1px solid $l_red;
+                color: $l_red;
+            } 
+        }
+    }
+    .print_data{
+        margin: 1rem 0;
+        tr{
+            &:nth-last-of-type(3){
+                color: inherit;
+            }
+            &:last-child{
+                th{
+                    color: #898989;
+                }
+            }
+        }
+    }
+}
+.tra_list{
+    li{
+        background-color: #fff;
+        margin: .5rem 0;
+        padding: 1rem;
+        @include border-radius(.3rem);
+        border: 1px solid #E2E2E2;
+        &:hover,&:focus{
+            border: 1px solid $l_blue;
+        }
+    }
+    a{
+        color: #898989;
+        display: block;
+        >div{
+            display: inline-block;
+            vertical-align: top;
+            &:first-child{
+                >span{
+                    color: $l_yellow;
+                }
+            }
+            &:last-child{
+                float: right;
+            }
+        }
+    }
+    .t_l_sta01{
+        color: #D3D3D3;
+    }
+    .t_l_sta02{
+        color: $l_blue;
+    }
+    .t_l_sta03{
+        color: #D3D3D3;
+    }
+}
+
+
+

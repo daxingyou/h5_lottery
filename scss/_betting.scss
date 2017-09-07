@@ -1,5 +1,6 @@
 @import "var";
 .betting_area{
+    line-height: 1.8;
     >div{
         &:first-child{
             background-image: url('../images/record_bg.png');
@@ -85,6 +86,7 @@
         width: 25%;
         text-align: center;
         vertical-align: middle;
+        border-bottom: 2px solid #fff;
         a{
             display: block;
             color: #898989;
@@ -114,7 +116,7 @@
         &:first-child{
             font-size: 1rem;
             // color: #ACACAC;
-            padding:.5rem 1rem;
+            // padding:.5rem 1rem;
         }
     }
     .panel {
@@ -140,30 +142,6 @@
         margin: 0 .5rem;
         color:#898989;
     }
-    .badge{
-        background-color: $l_blue;
-        width: 3.5rem;
-        height: 3.5rem;
-        border-radius: 100px;
-        padding: .5rem;
-        margin: .2rem .5rem;
-        border: 3px solid $l_blue;
-        &.ssc_badge{
-            background-image: url('../images/lottery/logo_cqssc.svg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            // width: 3.5rem;
-            // height: 3.5rem;
-        }
-    }
-    .lottery_t{
-        width: calc(100% - 11rem);
-        margin-right: 1.5rem;
-        @include respond-to(ss){
-            margin-right: 1rem;
-        }
-    }
     strong{
         color: $l_blue;
         font-size: 1rem;
@@ -178,7 +156,7 @@
 
     }
     .status02{
-        color: #71C341;
+        color: $l_green;
         margin: auto .5rem;
     }
     .status03{
@@ -201,7 +179,7 @@
         }
     }
     .status04{
-        color: #E03A5D;
+        color: $l_red;
         padding-top: 2.3rem;
         position: relative;
         &:before{
@@ -219,7 +197,30 @@
             margin-left: -1rem;
         }
     }
-
+}
+.badge{
+    background-color: $l_blue;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100px;
+    padding: .5rem;
+    margin: .2rem .5rem;
+    border: 3px solid $l_blue;
+    &.ssc_badge{
+        background-image: url('../images/lottery/logo_cqssc.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        // width: 3.5rem;
+        // height: 3.5rem;
+    }
+}
+.lottery_t{
+    width: calc(100% - 11rem);
+    margin-right: 1.3rem;
+    @include respond-to(ss){
+        margin-right: 1rem;
+    }
 }
 
 // 追號紀錄
