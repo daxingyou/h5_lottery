@@ -17,6 +17,7 @@ header.inner{
      width: 100%;
      left: 0;
      top: 0;
+     z-index: 1;
     >*{
         display: inline-block;
         vertical-align: middle;
@@ -137,7 +138,166 @@ i.icon{
     &.lbtn_info{
         background-color: $l_blue;
     }
+    &.lbtn_sm{
+        padding: .3rem 2rem;
+    }
     &.lbtn_md{
         padding: .6rem 3rem;
+    }
+}
+// radio樣式
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: $l_blue;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+// checkbox
+
+label {
+    display: inline-block; // to make it easier to click
+    color: #484848;
+    cursor: pointer;
+    position: relative; // important
+    // Now we'll create the checkbox object
+    span {
+        display: inline-block;
+        position: relative;
+        background-color: transparent;
+        width: 1.2rem;
+        height: 1.2rem;
+        transform-origin: center;
+        border: 2px solid #E2E2E2;
+        background-color: #fff;
+        @include border-radius(.1rem);
+        vertical-align: -.3rem;
+        margin-right: .8rem;
+        // transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89); // custom ease effect for bouncy animation
+        // Now we'll create the "tick" using pseudo elements - those will be basically two lines that will be rotated to form the "tick"
+        &:before {
+            content: "";
+            width: 0px;
+            height: .1rem;
+            border-radius: 2px; // so that the tick has nice rounded look
+            background: #fff;
+            position: absolute;
+            transform: rotate(45deg);
+            top: .5rem;
+            left: .2rem;
+            transition: width 50ms ease 50ms;
+            transform-origin: 0% 0%;
+        }
+        &:after {
+            content: "";
+            width: 0;
+            height: .1rem;
+            border-radius: 2px; // so that the tick has nice rounded look
+            background: #fff;
+            position: absolute;
+            transform: rotate(305deg);
+            top: .7rem;
+            left: .35rem;
+            transition: width 50ms ease;
+            transform-origin: 0% 0%;
+        }
+    }
+    // Time to add some life to it
+    &:hover {
+        span {
+            &:before {
+                width: .3rem;
+                transition: width 100ms ease;
+            }
+            &:after {
+                width: .7rem;
+                transition: width 150ms ease 100ms;
+            }
+        }
+    }
+}
+
+input[type="checkbox"] {
+    display: none; // hide the system checkbox
+// Let's add some effects after the checkbox is checked
+    &:checked {
+        + label {
+            span {
+                    background-color: $l_blue;
+                    // transform: scale(1.25); // enlarge the box
+                    border: 2px solid $l_blue;
+                &:after {
+                    width: .7rem;
+                    background: #fff;
+                    transition: width 150ms ease 100ms; // enlarge the tick
+                }
+                &:before {
+                    width: .3rem;
+                    background: #fff;
+                    transition: width 150ms ease 100ms; // enlarge the tick
+                }
+            }
+            &:hover { // copy the states for onMouseOver to avoid flickering
+                span {
+                    background-color: $l_blue;
+                    // transform: scale(1.25); // enlarge the box
+                    border: 2px solid $l_blue;
+                    &:after {
+                        width: .7rem;
+                        background: #fff;
+                        transition: width 150ms ease 100ms; // enlarge the tick
+                    }
+                    &:before {
+                        width: .3rem;
+                        background: #fff;
+                        transition: width 150ms ease 100ms; // enlarge the tick
+                    }
+                }
+            }
+        }
     }
 }

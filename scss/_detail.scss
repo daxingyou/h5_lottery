@@ -172,23 +172,22 @@
         @include border-radius(.3rem);
         border: 1px solid #E2E2E2;
         &:hover,&:focus{
-            border: 1px solid $l_blue;
+            border-color: $l_blue;
+            transition: border-color .3s ease-in;
         }
     }
     a{
         color: #898989;
         display: block;
-        >div{
-            display: inline-block;
-            vertical-align: top;
-            &:first-child{
-                >span{
-                    color: $l_yellow;
-                }
-            }
-            &:last-child{
-                float: right;
-            }
+    }
+    div{
+        display: inline-block;
+        vertical-align: top;
+        >span{
+             color: $l_yellow;
+        }
+        &:last-child{
+            float: right;
         }
     }
     .t_l_sta01{
@@ -199,6 +198,25 @@
     }
     .t_l_sta03{
         color: #D3D3D3;
+    }
+}
+.cancel_area{
+    padding: .5rem 0 .5rem 1rem;
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    >*{
+        display: inline-block;
+        &:last-child{
+            float: right;
+        }
+    }
+    label{
+        span{
+            vertical-align: -.2rem;
+        }
     }
 }
 
