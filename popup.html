@@ -101,7 +101,7 @@ $(".button02-4").click(function () {
 });
 $(".button03").click(function () {
     layer.open({
-        content: '<div class="title">' + '号码统计 <p class="space">选择在下方显示对应的数据：</p>' + '<div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>'+'</div>',
+        content: '<div class="title count">' + '号码统计 <p class="space">选择在下方显示对应的数据：</p>' + '<div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>'+'</div>',
         btn: ['确定', '取消']
     });
 });
@@ -120,6 +120,12 @@ $(".button03-13").click(function () {
 $(".button03-14").click(function () {
     layer.open({
         content: '<div class="title">' + '温馨提示 <p class="space"> 部分期号已开奖，无法进行撤单。</p>' + '</div>',
+        btn: ['确定']
+    });
+});
+$(".button03-9-4").click(function () {
+    layer.open({
+        content: '<div class="title">' + '温馨提示 <p class="space"> 期号已开奖，无法进行撤单。</p>' + '</div>',
         btn: ['确定']
     });
 });

@@ -2,7 +2,16 @@
 $l_gray:#DDE2E6;
 $l_blue:#52ACD3;
 $l_yellow:#FEA305;
-// 用法 @include respond-to('尺寸(ex:sm,xs..)') {}
+$l_green:#71C341;
+$l_red:#E03A5D;
+// 圓角  用法 @include border-radius(數值);
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+// media query 用法 @include respond-to('尺寸(ex:sm,xs..)') {}
 $breakpoints: (
     'ss': ( max-width: 359px),
     'xs': ( max-width: 480px),

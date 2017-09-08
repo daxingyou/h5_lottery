@@ -28,7 +28,7 @@
     <!--时时彩js-->
     <script type="text/javascript" src="js/ssc_lottery.js"></script>
         <!-- 彈窗css 覆蓋layer.css用 -->
-        <link href="css/popup.css" rel="stylesheet" type="text/css">
+        <link href="css/page.css" rel="stylesheet" type="text/css">
     <style>
         .m_vico_title_timeLHC .lhc {text-align:right;}
         .lhc_num_box {margin:0 0 0.5rem 0!important;}
@@ -132,10 +132,10 @@
         <div href="javascript:;" class="ui_help">
             <a class="ui_btn_help" href="javascript:;"><span class="icon_help"></span>助手</a>
             <ul style="display:none;">
-                <li><a href="javascript:;"><span class="icon_bet-history"></span>投注记录</a></li>
+                <li><a href="betting_record.html"><span class="icon_bet-history"></span>投注记录</a></li>
                 <li><a href="javascript:;"><span class="icon_trend"></span>走势图</a></li>
                 <li><a href="javascript:;"><span class="icon_lottery"></span>近期开奖</a></li>
-                <li><a href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
+                <li><a class="button03" href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
                 <li><a href="play.html"><span class="icon_info"></span>玩法说明</a></li>
             </ul>
         </div>
@@ -845,6 +845,13 @@
             });
         });
     })
+    //叫出號碼統計視窗 popup.html也有同樣的
+    $(".button03").click(function () {
+        layer.open({
+            content: '<div class="title count">' + '号码统计 <p class="space">选择在下方显示对应的数据：</p>' + '<div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>'+'</div>',
+            btn: ['确定', '取消']
+        });
+    });
 
 </script>
 <script type="text/javascript" src="js/pushservice.js"></script>
