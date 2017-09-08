@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="54.3px" height="24px" viewBox="0 0 54.3 24" style="enable-background:new 0 0 54.3 24;" xml:space="preserve">
+	 width="248px" height="66.5px" viewBox="0 0 248 66.5" style="enable-background:new 0 0 248 66.5;" xml:space="preserve">
 <style type="text/css">
 	.st0{opacity:0.2;fill:#FFFFFF;enable-background:new    ;}
 </style>
-<title>btn_bg</title>
-<g id="图层_2">
-	<g id="玩法選單">
-		<path class="st0" d="M11.7,0C5.2,0,0,5.2,0,11.7v0.6C0,18.8,5.3,24,11.7,24h24.5L54.3,0H11.7z"/>
-	</g>
-</g>
+<path class="st0" d="M0,0.1v66.4h100.2l50.1-66.4H0z"/>
 </svg>

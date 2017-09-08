@@ -39,7 +39,7 @@ body { }
 .lotteryMember dl dt { line-height: 1.714286rem; font-size: 0.928571rem; color: #969696; margin-bottom: 0.571428rem; border-bottom: 1px solid rgba(221,226,230,0.4); }
 .lotteryMember dl dd:nth-of-type(3n){ margin-right: 0.357143rem;}
 .lotteryMember dl dd { border:1px solid #efefef; background-color: #fff; display: inline-block; margin: 0px 1.9rem 1rem 0.357143rem ; border-radius: 30px;  line-height: 1.785714rem; width: 6.785714rem; font-size: 0.928571rem; color: #52acd3; padding: 0 0.357143rem; text-align: center; }
-.lotteryMember dl dd.hover { background-color: #52acd3;background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 100%; color: #fff;}
+.lotteryMember dl dd.hover { background-color: #52acd3;background: url(../images/btn_bg.svg) no-repeat center center #52acd3; color: #fff;}
 .playf_dl { line-height: 1.571429rem; padding: 0.571428rem 0; border-bottom: 1px solid #f3f3f3; overflow: hidden; width: 96%; margin: 0 auto; }
 .playf_dl span {	/*display: inline; float: left;*/ }
 .playf_dl .m_playf_dl_box { float: left; width: 72%; }
@@ -291,7 +291,7 @@ body { }
 .textareaLong::-webkit-input-placeholder{ background: url(../images/icon_pencil.svg) no-repeat 0.3rem; background-size: 1.286rem 1.286rem; padding-left: 1.5rem;}
 .m-mixing input:last-child { margin-right: 0px; }
 .m-mixing {margin-top: 0.5rem;}
-.grayContent .formWord { display: inline-block; border: none; height: 1.714285rem; background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 1.714285rem; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; color: #fff; float: right; }
+.grayContent .formWord { display: inline-block; border: none; height: 1.714285rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; color: #fff; float: right; }
 /* .grayContent .formWord:last-child { margin-right: 0; float: right; } */
 .inputdesc { text-align: center; color: #acacac; font-size: 1rem; text-align: left; }
 .inputdesc p{ margin-bottom: 0.6rem;}
@@ -504,7 +504,7 @@ body { }
 	.chooseAllMsg .orange { color: #52acd3; }
 	.chooseAllMsg p { display: inline-block; margin-right: 1.071429rem; }
 	.sendChoose {  position: absolute; bottom: 0.8rem; right: 1rem; z-index: 120; display: none; }
-	.sendChoose a { background: #52acd3; margin: 0 auto; border-radius: 20px; display: block; width: 100%; height: 1.785714rem; line-height: 1.785714rem; text-align: center; color: #fff; font-size: 0.8571rem; background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 100%; padding: 0px 2rem;}
+	.sendChoose a { background: #52acd3; margin: 0 auto; border-radius: 20px; display: block; width: 100%; height: 1.785714rem; line-height: 1.785714rem; text-align: center; color: #fff; font-size: 0.8571rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; padding: 0px 2rem;}
 	.sendChoose a.sendBtnDisabled { background-color: #C7C7C7; }
 	.checkZhui { color: #52acd3; font-size: 0.928571rem; }
 	.fqzhBox,
