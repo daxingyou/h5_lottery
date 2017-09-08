@@ -69,7 +69,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 /*提示*/
 .m-return,.m-chongzi-return,
 .m-return-home { color: #959595; font-size: 0.8rem; width: 5rem; display: inline-block; text-align: center; height: 2.9rem; line-height: 2.9rem; background-image: url(../images/m_home.png); background-repeat: no-repeat; background-position: -0.1rem center; background-size: 114%; padding-left: 0.4rem; margin-left: .4rem; position: relative; height: 100%; z-index: 2; }
-.header { background-color: #52acd3; /*background: url(../images/top_bg.png) no-repeat; background-size: 100% 3rem;*/ height: 3.4285rem; position: fixed; width: 100%; top: 0; z-index: 100; left: 0; box-shadow: 0px 0px  }
+.header { background-color: #52acd3; /*background: url(../images/top_bg.png) no-repeat; background-size: 100% 3rem;*/ height: 3.4285rem; position: fixed; width: 100%; top: 0; z-index: 100; left: 0; box-shadow: 0 -3px 2px -1px #4599c2 inset; }
 .footer { border-top: 0.066667rem solid #e73068; bottom: 0; }
 .header .btn-slide-bar { position: absolute; overflow: hidden; z-index: 99; width:3.4285rem; height: 3.4285rem; cursor: pointer; background-image: url(../images/lottery/logo_cqssc.svg); background-position: center;background-repeat: no-repeat;background-size: 100%; margin-left: 0.5714rem; }
 /*.header .btn-slide-bar::before { content: ""; text-align: center; width: 1.333333rem; position: relative; top: 1.5rem; height: 0.133333rem; background-color: #fff; display: inline-block; box-shadow: 0 0.466667rem 0 #fff, 0 -7px 0 #fff; }*/
@@ -405,7 +405,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 /* 购物车 */
 .ui_bet{ position: fixed; top: 0px; left: 100%; width: 100%; height: 100%; background-color: #fff; z-index: 101;}
 .ui_bet_wrap{ padding: 1.286rem; }
-.bet_header{background-color: #52acd3;height: 3.4285rem;position: absolute;width: 100%;top: 0;z-index: 100;left: 0;}
+.bet_header{background-color: #52acd3;height: 3.4285rem;position: absolute;width: 100%;top: 0;z-index: 100;left: 0;box-shadow: 0 -3px 2px -1px #4599c2 inset;}
 .bet_header h2{ text-align: center; color: #fff; font-size: 1rem; margin-top: 1rem; height: 2.4285rem;}
 .bet_back{ position: absolute; left: 1.286rem; top: 0.8571rem; display: block; background: url(../images/icon_back.svg) no-repeat center center; background-size: 1.714rem 1.714rem; width: 1.714rem; height: 1.714rem;}
 .ui_bet_main{ padding: 5.7rem 0rem 5.714214rem 0rem; height: 100%; overflow-y: scroll; background-color: #f1f1f1;}
@@ -432,4 +432,6 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .icon_bet{display: inline-block; background: url(../images/icon_bet.svg) no-repeat center center; background-size: auto 1rem;height: 1rem; width: 1.143rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.2rem; }
 
 /* btn */
-.btn_default{ display: inline-block;  height: 1.714285rem; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46);background: url(../images/btn_bg.svg) no-repeat left center #52acd3; background-size: auto 1.714285rem; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; color: #fff;}
+.btn_default{ display: inline-block;  height: 1.714285rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; color: #fff; text-align: center;}
+.btn_normal{ display: inline-block;  height: 1.714285rem; border: 1px solid #52acd3; color: #52acd3; border-radius: 20px;line-height: 1.785714rem;width: 6.785714rem;font-size: 0.928571rem; text-align: center; }
+

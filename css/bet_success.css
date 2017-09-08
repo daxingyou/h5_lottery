@@ -1,0 +1,86 @@
+.page_header{
+    position: fixed;
+}
+.success_main{
+    padding-top: 3.4285rem;
+    background: url(../images/bg_bet_success.svg) no-repeat;
+    background-size: 100%;
+    min-height: 25.71rem;
+}
+.success_info{
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin: 14.29rem 1.286rem 1.357rem 1.286rem;
+    padding: 0.4286rem 1rem;
+}
+.success_info li{
+    border-bottom: 1px solid #f6f6f6;
+    padding: 0.7143rem 1rem;
+    line-height: 0.7143rem;
+    font-size: 1rem;
+}
+.success_info li:last-child{
+    border-bottom: 0px;
+}
+.success_info .tag{
+    display: inline-block;
+    width: 7.786rem;
+}
+.success_btns{
+    text-align: center;
+}
+.success_btns a{
+    height: 2.5rem;
+    line-height: 2.5rem;
+    min-width: 9.786rem;
+    margin: 0 0.5rem;
+}
+.icon_ticket{display: inline-block; background: url(../images/icon_ticket.svg) no-repeat center center; background-size: 1.714rem 1.714rem;height: 1.714rem; width: 1.714rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.7143rem;}
+.icon_hourglass{display: inline-block; background: url(../images/icon_hourglass.svg) no-repeat center center; background-size: 1.714rem 1.714rem;height: 1.714rem; width: 1.714rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.7143rem;}
+.icon_money{display: inline-block; background: url(../images/icon_money.svg) no-repeat center center; background-size: 1.714rem 1.714rem;height: 1.714rem; width: 1.714rem; vertical-align: middle; margin-top: -0.05rem; margin-right: 0.7143rem; }
+.success_recommend{
+    margin-top: 2rem;
+    background: url(../images/bg_cloud.svg) no-repeat center top ; background-size: 100%;
+    padding-top: 2rem;
+}
+.success_recommend dt{
+    margin: 0.5rem 1.286rem;
+    border-bottom: 1px solid #f6f6f6;
+    padding-bottom: 0.5rem;
+    color: #898989;
+}
+.success_recommend dd{
+    padding: 0.5rem 0;
+    background-color: #fff;
+    position: relative;
+}
+.success_recommend dd ul{
+    white-space: nowrap;
+    font-size: 0px;
+    /* overflow-x: scroll; */
+    padding-left: 1.286rem;
+    /* position: absolute; */
+}
+.success_recommend dd ul li{
+    display: inline-block;
+    font-size: 0.8571rem;
+    width: 5rem;
+    margin-right: 1.143rem;
+}
+.success_recommend dd ul li .img{
+    width: 5rem;
+    height: 5rem;
+}
+.success_recommend dd ul li .img img{
+    width: 100%;
+}
+.success_recommend dd ul li a{
+    text-align: center;
+    color: #484848;
+    display: inline-block;
+}
+.success_recommend dd ul li p{
+    margin-top: 0.5rem;
+}
+
