@@ -25,7 +25,7 @@ var lot_lang = {
     dec_s5: '详情',
     dec_s6: '关闭',
     dec_s7: '(当前期)',
-    dec_s8: '<div class="title check">确认付款<p>第<span class="periods"> [issue] </span>期</p></div>',
+    dec_s8: '<div class="title check">确认付款<p>第<span class="periods"> [issue] </span>期</p></div>', //投注付款出現視窗
     dec_s9 : '总额 :', //总金额
     dec_s10: '同倍追号',
     dec_s11: '翻倍追号',
