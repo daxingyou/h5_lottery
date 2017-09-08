@@ -377,5 +377,3 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 .cancel_area > *:last-child { float: right; }
 
 .cancel_area label span { vertical-align: -.2rem; }
-
-/*# sourceMappingURL=page.css.map */
