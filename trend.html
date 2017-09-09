@@ -41,8 +41,22 @@
 <div id="body">
     <header class="bet_header page_header">
         <a href="index.html" class="bet_back"></a>
-        <div id="nfdprize-text" class="m-lott-methodBox">
-            <span class="nfdprize_text" id="m-lott-listContent">五星走势图<b></b></span>
+        <div class="m-lott-methodBox">
+            <span class="nfdprize_text" id="trendMenu">五星走势图<b></b></span>
+        </div>
+        <div class="m-lott-methodBox-list" id="trendList" style="display:none;">
+            <div class="lotteryMember">
+                <dl class="cWay">
+                    <dt>走势图</dt>
+                    <dd class="hover">五星走势图</dd>
+                    <dd>四星走势图</dd>
+                    <dd>前三走势图</dd>
+                    <dd>中三走势图</dd>
+                    <dd>后三走势图</dd>
+                    <dd>前二走势图</dd>
+                    <dd>后二走势图</dd>
+                </dl>
+            </div>
         </div>
     </header>
     <div class="trend_main">
@@ -468,7 +482,9 @@
                     </tr>
                 </tbody>
             </table>
-            <div id="trend_canvas" class="trend_canvas">
+            <div class="trend_data">
+                <div id="trend_Million" class="trend_canvas">
+                </div>
             </div>
         </div>
     </div>
@@ -481,13 +497,19 @@
 <!-- <script type="text/javascript" src="js/pushstream.js"></script> -->
 
 <!-- <script type="text/javascript" src="js/coreDesign.js"></script> -->
-<!-- <script type="text/javascript" src="js/res.js"></script> -->
+ <script type="text/javascript" src="js/res.js"></script> 
 <!-- 声音控件-->
 <!-- <div id="soundBox" style="width:1px; height:1px; position:absolute;">
 <embed id="boardcastBox" src="/fl/source/soundBox.swf" loop="false" menu="false" quality="best" width="1" height="1" name="boardcastBox" style="position:absolute; top:-10px;" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="#" flashvars="Ctext=1a3f677c" wmode="window">
 </div> -->
 <!-- <script type="text/javascript" src="/js/nsc/soundBox.js?v=1.17.8.13"></script> -->
 <script type="text/javascript">
+
+    $(function(){
+        $('#trendMenu').on('click',function(){
+            $('#trendList').toggle();
+        })
+    });
     $(function(){
         $(window).on('resize',function(){
             var pos = '';
@@ -495,14 +517,14 @@
             var itemW = $('.trend_canvas').width() / 10;
             var itemH = $('.trend_content td').outerHeight();
             var row = 30;
-            var num = [3,5,9,7,4,1,3,5,9,7,4,2,3,5,9,7,6,3,5,9,7,4,1,3,5,0,7,4,2,3]; //萬位開獎號碼
+            var numMillion = [3,5,9,7,4,1,3,5,9,7,4,2,3,5,9,7,6,3,5,9,7,4,1,3,5,0,7,4,2,3]; //萬位開獎號碼
             console.log(itemW);
             for( i = 0; i < row ; i++ ){
-                pos += (itemW * num[i] + itemW / 2) + ',' + (i * row + itemH / 2) + ' ';
-                text += '<div style="left:' + (itemW * num[i] + itemW / 2) + 'px; top: ' + (i * row + itemH / 2) + 'px">' + num[i] + '</div>';
+                posMillion += (itemW * numMillion[i] + itemW / 2) + ',' + (i * row + itemH / 2) + ' ';
+                textMillion += '<div style="left:' + (itemW * numMillion[i] + itemW / 2) + 'px; top: ' + (i * row + itemH / 2) + 'px">' + numMillion[i] + '</div>';
             }
-            $('#trend_canvas').html('<svg width="'+$('.trend_canvas').width()+' "height="'+row*itemH+'"><polyline points="'+pos+'" style="fill:none;stroke:#52acd3;stroke-width:2" /></svg>');
-            $('#trend_canvas').append(text);
+            $('#trend_Million').html('<svg width="'+$('.trend_canvas').width()+' "height="'+row*itemH+'"><polyline points="'+posMillion+'" style="fill:none;stroke:#52acd3;stroke-width:2" /></svg>');
+            $('#trend_Million').append(textMillion);
         }).resize();
     })
 </script>

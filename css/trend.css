@@ -1,5 +1,5 @@
 .trend_main{
-    padding-top: calc( 3.4285rem + 2.5rem + 2.5rem );
+    padding-top: calc( 3.4285rem + 2.5rem + 2.143rem );
 }
 .trend_tab_1{
     background-color: #344146;
@@ -29,8 +29,8 @@
 }
 .trend_tab_2 li{
     float: left;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    height: 2.143rem;
+    line-height: 2.143rem;
     width: 20%;
     text-align: center;
     color: #898989;
@@ -61,7 +61,7 @@
     border: 1px solid #f1f1f1;
     background-color: #fdfdfd;
     width: 8%; 
-    height: 2.5rem;
+    height: 2.143rem;
 }
 .trend_table th:first-child, .trend_table td:first-child{
     width: 20%;
@@ -109,7 +109,7 @@
 .trend_canvas{
     position: absolute;
     right: 0px;
-    top: 2.5rem;
+    top: 2.143rem;
     width: calc( 80% - 1px ); 
     /* width: 80%; */
 }
