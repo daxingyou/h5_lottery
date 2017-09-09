@@ -1,9 +1,13 @@
 .trend_main{
-    padding-top: 3.4285rem;
+    padding-top: calc( 3.4285rem + 2.5rem + 2.5rem );
 }
 .trend_tab_1{
     background-color: #344146;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 3.4285rem;
+    z-index: 1;
 }
 .trend_tab_1 li{
     float: left;
@@ -18,11 +22,15 @@
 }
 .trend_tab_2{
     background-color: #fff;
+    position: fixed;
+    width: 100%;
+    top: calc( 3.4285rem + 2.5rem );
+    z-index: 1;
 }
 .trend_tab_2 li{
     float: left;
-    height: 2rem;
-    line-height: 2rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
     width: 20%;
     text-align: center;
     color: #898989;
@@ -52,12 +60,13 @@
     text-align: center;
     border: 1px solid #f1f1f1;
     background-color: #fdfdfd;
-    width: 8%;
+    width: 8%; 
     height: 2.5rem;
 }
 .trend_table th:first-child, .trend_table td:first-child{
-    width: auto;
+    width: 20%;
     color: #52acd3;
+    border-left: none;
 }
 .trend_table td{
     position: relative;
@@ -71,11 +80,7 @@
 .trend_table tbody{
     position: relative;
 }
-.trend_table tbody tr:first-child td{
-    background-color: #fff;
-    width: auto;
-}
-.trend_table tbody td .on{
+/* .trend_table tbody td .on{
     display: block;
     position: absolute;
     left: 50%;
@@ -100,11 +105,36 @@
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     transform: translate(-0.4rem, -0.8rem);
-}
+} */
 .trend_canvas{
     position: absolute;
     right: 0px;
-    top: 5rem;
-    width: calc( 80% - 10px )
+    top: 2.5rem;
+    width: calc( 80% - 1px ); 
+    /* width: 80%; */
+}
+.trend_canvas > div{
+    position: absolute;
+    width:  2rem;
+    height:  2rem;
+    line-height: 2rem;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    background-color: #52acd3;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.trend_canvas > div:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-0.4rem, -0.8rem);
 }
 
