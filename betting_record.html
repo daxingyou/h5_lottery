@@ -25,7 +25,7 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/velocity.min.js"></script>
     <script type="text/javascript" src="js/layer.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
+    <!-- <script type="text/javascript" src="js/common.js"></script> -->
     <!--时时彩js-->
     <!-- <script type="text/javascript" src="js/ssc_lottery.js"></script> -->
     <!-- 弹窗css 覆盖layer.css用 -->
@@ -37,14 +37,15 @@
         <header class="inner">
             <a class="btn_back" href="index.html" title="返回"></a>
             <div>投注纪录</div>
+            <a class="right" href="javascript:;"></a>
         </header>
         <section class="wraper-page-inner">
             <div class="betting_area">
-                <div>
-                    <div>
+                <div class="info">
+                    <div class="mark">
                         <img src="images/b_mark.svg" alt="">
                     </div>
-                    <div>
+                    <div class="info_data">
                         <h2>Elsa001EDKoes2</h2>
                         <i class="icon i_wallet"></i><span>350,000.00</span>
                     </div>
@@ -69,21 +70,24 @@
                         </a>
                     </div>
                 </div>
-                <div>
-                    <div id="betting_record" class="tab_container" style="display:block;">
-                        <ul class="tab tab_mid">
-                            <li class="active"><a href="javascript:;" data-filter="">全部</a></li>
-                            <li><a href="javascript:;" data-filter="not_open">未开奖</a></li>
-                            <li><a href="javascript:;" data-filter="winning">已中奖</a></li>
-                            <li><a href="javascript:;" data-filter="not_win">未中奖</a></li>
-                        </ul>
-                        <div class="tab_content">
-                            <div class="list">
-                                <div class="slide_toggle bet_day">
-                                    <div> <strong>07月14日</strong><span></span> </div>
+                <div class="record">
+                    <!-- id="betting_record" -->
+                    <div id="betting_record" class="tab_container tabBox"> 
+                        <div class="hd">
+                            <ul class="tab tab_mid">
+                                <li class="active"><a href="javascript:;" data-filter="">全部</a></li>
+                                <li><a href="javascript:;" data-filter="not_open">未开奖</a></li>
+                                <li><a href="javascript:;" data-filter="winning">已中奖</a></li>
+                                <li><a href="javascript:;" data-filter="not_win">未中奖</a></li>
+                            </ul>
+                        </div>
+                        <div class="bd">
+                            <ul class="tab_content">
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="not_open">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -94,7 +98,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -105,7 +109,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -114,7 +118,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -123,7 +127,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -132,7 +136,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -141,7 +145,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -150,12 +154,12 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="slide_toggle bet_day">
-                                    <div> <strong>07月13日</strong><span></span> </div>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="not_open">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -166,7 +170,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -177,7 +181,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -186,7 +190,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -195,7 +199,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -204,7 +208,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -213,7 +217,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -222,12 +226,12 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="slide_toggle bet_day">
-                                    <div> <strong>07月12日</strong><span></span> </div>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="not_open">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -238,7 +242,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -249,7 +253,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -258,7 +262,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> <img src="" alt=""> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -267,7 +271,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -276,7 +280,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="not_win">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"></div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -285,7 +289,7 @@
                                             </a>
                                         </li>
                                         <li class="bet_data" data-status="winning">
-                                            <a href="betting_record_dt.html">
+                                            <a href="betting_record_dt01.html">
                                                 <div class="badge ssc_badge"> </div>
                                                 <div class="lottery_t ssc">
                                                     <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
@@ -294,21 +298,677 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle bet_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="not_open">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>等待开奖</span>
+                                                    <div></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>已中奖</span>
+                                                    <div>245.00</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status00">
+                                                    <span>未中奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>会员撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>暂缓派奖</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="not_win">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status04">
+                                                    <span>系统撤单</span> </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="winning">
+                                            <a href="betting_record_dt01.html">
+                                                <div class="badge ssc_badge"> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>中奖停追</span> </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="trace_record" class="tab_container" style="display:none;">
-                        <ul class="tab tab_mid">
-                            <li class="active"><a href="javascript:;" data-filter="">全部</a></li>
-                            <li><a href="javascript:;" data-filter="processing">进行中</a></li>
-                            <li><a href="javascript:;" data-filter="over">已结束</a></li>
-                            <li><a href="javascript:;" data-filter="end">已终止</a></li>
-                        </ul>
-                        <div class="tab_content">
-                            <div class="list">
-                                <div class="slide_toggle trace_day">
-                                    <div> <strong>07月14日</strong><span></span> </div>
+                    <div id="trace_record" class="tab_container">
+                        <div class="hd">
+                            <ul class="tab tab_mid">
+                                <li class="active"><a href="javascript:;" data-filter="">全部</a></li>
+                                <li class=""><a href="javascript:;" data-filter="processing">进行中</a></li>
+                                <li class=""><a href="javascript:;" data-filter="over">已结束</a></li>
+                                <li class=""><a href="javascript:;" data-filter="end">已终止</a></li>
+                            </ul>
+                        </div>
+                        <div class="bd">
+                            <ul class="tab_content">
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="processing">
                                             <a href="trace_record_dt.html">
@@ -366,9 +1026,9 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="slide_toggle trace_day">
-                                    <div> <strong>07月13日</strong><span></span> </div>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="processing">
                                             <a href="trace_record_dt.html">
@@ -426,9 +1086,9 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="slide_toggle trace_day">
-                                    <div> <strong>07月12日</strong><span></span> </div>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
                                     <ul class="panel">
                                         <li class="bet_data" data-status="processing">
                                             <a href="trace_record_dt.html">
@@ -486,8 +1146,554 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="tab_content">
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月14日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月13日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="slide_toggle trace_day">
+                                    <div class="date"> <strong>07月12日</strong><span></span> </div>
+                                    <ul class="panel">
+                                        <li class="bet_data" data-status="processing">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status02">
+                                                    <span>进行中</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="over">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status01">
+                                                    <span>已结束</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"> <img src="" alt=""> </div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="bet_data" data-status="end">
+                                            <a href="trace_record_dt.html">
+                                                <div class="badge ssc_badge"></div>
+                                                <div class="lottery_t ssc">
+                                                    <p>重庆时时彩 - <span>五星直选_复式</span></p> <strong>2,000.00</strong> </div>
+                                                <div class="status status03">
+                                                    <span>已终止</span>
+                                                    <div>追号 1/5</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -505,35 +1711,25 @@
     <script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
     <script type="text/javascript" src="js/pushstream.js"></script>
 
+    <script type="text/javascript" src="js/TouchSlide.1.1.js"></script>
+
     <!-- <script type="text/javascript" src="js/coreDesign.js"></script>
     <script type="text/javascript" src="js/res.js"></script> -->
 
     <!-- <script type="text/javascript" src="js/pushservice.js"></script> -->
-    <script>
-        $(".slide_toggle").click(function () { //点击收合
-            $(this).children('div').toggleClass("cur"); //01找他的下一层切换加减符号
-            $(this).children(".panel").slideToggle("1000"); //02展开被隐藏要出现的东西
-        });
-    </script>
+
     <script>
         $(function () {
-            // 默认显示第一个 Tab
             var _showTab = 0;
             var $defaultLi = $('#tabs .item').eq(_showTab).addClass('active');
             $($defaultLi.find('a').attr('href')).siblings().hide();
-            console.log(123);
-            // 当 li 页签被点击时...
-            // 若要改成鼠标移到 li 页签就切换时, 把 click 改成 mouseover
             $('#tabs .item ').click(function () {
-                // 找出 li 中的超链接 href(#id)
                 var $this = $(this),
                     _clickTab = $this.find('a').attr('href');
-                // 把目前点击到的 li 页签加上 .active
-                // 并把兄弟元素中有 .active 的都移除 class
-                $this.addClass('active').siblings('.active').removeClass('active');
-                // 淡入相对应的内容并隐藏兄弟元素
-                $(_clickTab).stop(false, true).fadeIn().siblings().hide();
 
+                $this.addClass('active').siblings('.active').removeClass('active');
+
+                $(_clickTab).stop(false, true).fadeIn().siblings().hide();
                 return false;
             }).find('a').focus(function () {
                 this.blur();
@@ -541,11 +1737,21 @@
         });
     </script>
     <script>
+            TouchSlide({
+                slideCell: "#betting_record",
+                effect: "leftLoop"
+            });
+            TouchSlide({
+                slideCell: "#trace_record",
+                effect: "leftLoop"
+            });
+    </script>
+    <script>
         // 切换下方4个筛选 全部,未开奖,已中奖,未中奖
+        // 在click事件里 把stauts的状态显示出来 其他的隐藏 在上面4个按钮里要带过滤的status
         $(".tab_mid li a").click(function () {
             $(this).parent().addClass("active").siblings().removeClass('active');
-            $('.slide_toggle').children('div').toggleClass("cur");
-            $('.slide_toggle').children(".panel").show("1000");
+            // $('.slide_toggle').children('div').addClass("cur").siblings().removeClass('cur');
             var filter = $(this).data('filter');
             console.log(filter);
             if (filter === '') {
@@ -554,9 +1760,17 @@
             }
             $('.bet_data[data-status=' + filter + ']').show();//.siblings().hide()
             $('.bet_data:not([data-status=' + filter + '])').hide();
+            // $('.slide_toggle > :first').children(".panel").show("1000");
         });
     </script>
-    <!-- 在click事件里 把stauts的状态显示出来 其他的隐藏 在上面4个按钮里要带过滤的status -->
+    <script>
+        $(".slide_toggle").click(function () { //点击收合
+            $(this).children('div').toggleClass("cur"); //01找他的下一层切换箭頭符号
+            $(this).children(".panel").slideToggle("1000"); //02展开被隐藏要出现的东西
+        });
+    </script>
+
+
 </body>
 
 </html>

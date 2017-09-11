@@ -136,7 +136,7 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .layui-m-layercont .title p.space { padding: 1rem 2rem; text-align: center; }
 
-.layui-m-layercont .title .radio { padding: 0rem 6rem; }
+.layui-m-layercont .title .radio { padding: 0rem 6rem; margin-top: -.5rem; margin-bottom: 1rem; }
 
 .layui-m-layercont .title .radio p { text-align: left; }
 
@@ -194,6 +194,8 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .tab .item a { color: #808080; display: block; padding: 1rem 1rem 1rem 1.5rem; }
 
+@media (max-width: 359px) { .tab .item a { padding: 1rem .5rem; } }
+
 .tab .item a > * { display: inline-block; }
 
 .tab .item a small { color: #ACACAC; display: block; }
@@ -208,11 +210,9 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .tab .item.active a .i_trace, .tab .item:hover a .i_trace, .tab .item:focus a .i_trace { background-image: url("../images/icon_trace_b.svg"); }
 
-.tab_container > * { background-color: #fff; }
+.tab_mid { margin: .8rem 0; color: #898989; background-color: #fff; }
 
-.tab_mid { margin: .8rem 0; color: #898989; }
-
-.tab_mid li { display: inline-block; padding: .5rem; width: 25%; text-align: center; vertical-align: middle; border-bottom: 2px solid #fff; }
+.tab_mid li { display: inline-block; padding: .5rem; width: 25% !important; text-align: center; vertical-align: middle; border-bottom: 2px solid #fff; }
 
 .tab_mid li a { display: block; color: #898989; font-size: 0.8571rem; height: 2rem; line-height: 2rem; }
 
@@ -220,13 +220,11 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .tab_mid li.active a { color: #52ACD3; }
 
-.tab_content { margin: 0 .8rem; }
-
-.bet_day, .trace_day { border: 1px solid #DDE2E6; border-bottom: none; }
+.bet_day, .trace_day { border: 1px solid #DDE2E6; border-bottom: none; background-color: #fff; }
 
 .bet_day:last-child, .trace_day:last-child { border-bottom: 1px solid #DDE2E6; }
 
-.bet_day > div:first-child, .trace_day > div:first-child { font-size: 1rem; }
+.bet_day .date, .trace_day .date { font-size: 1rem; }
 
 .bet_day .panel, .trace_day .panel { display: none; }
 
@@ -278,6 +276,7 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .trace_day .bet_data .status03 div { color: #FEA305; }
 
+/* Slider */
 .bet_dt_area { font-size: 1rem; margin: 1.5rem 1.2rem; }
 
 .bet_dt_area .period { margin: 1.5rem 0; line-height: 1.5rem; height: 1.5rem; }
@@ -377,3 +376,5 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 .cancel_area > *:last-child { float: right; }
 
 .cancel_area label span { vertical-align: -.2rem; }
+
+/*# sourceMappingURL=page.css.map */

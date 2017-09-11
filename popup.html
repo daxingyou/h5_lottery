@@ -27,17 +27,17 @@
     <script type="text/javascript" src="js/common.js"></script>
     <!--时时彩js-->
     <script type="text/javascript" src="js/ssc_lottery.js"></script>
-            <!-- 彈窗css 覆蓋layer.css用 -->
-            <link href="css/page.css" rel="stylesheet" type="text/css">
+        <!-- 彈窗css 覆蓋layer.css用 -->
+        <link href="css/page.css" rel="stylesheet" type="text/css">
     <style>
-        .m_vico_title_timeLHC .lhc {text-align:right;}
-        .lhc_num_box {margin:0 0 0.5rem 0!important;}
-        .lhc_num_box .lhc {margin-top: 0!important;}
+            .layui-m-layercont .title.check .totle{color: #484848;}
     </style>
 </head>
 <body>
 <div id="body">
     <a href="javascript:;" class="button01">购物区内已有相同注单。</a>
+    <br/><br/>
+    <a href="javascript:;" class="button01-14">确认付款</a>
     <br/><br/>
     <a href="javascript:;" class="button02-2">前往其他彩种将清空已选号码。您确定切换吗？</a>
     <br/><br/>
@@ -45,6 +45,7 @@
     <br/><br/>
     <a href="javascript:;" class="button03">号码统计</a>
     <br/><br/>
+
 </div>
 
 
@@ -84,6 +85,12 @@ $(".button01-12").click(function () {
 $(".button01-13-1").click(function () {
     layer.open({
         content: '<div class="title">' + '温馨提示 <p class="space">注单超出奖金限额，请重新选择。</p>' + '</div>',
+        btn: ['确定', '取消']
+    });
+});
+$(".button01-14").click(function () {
+    layer.open({
+        content: '<div class="title check">' + '确认付款<p>第<span class="periods"> 20170713021 </span>期</p><div class"totle" style="color: #484848;font-size: 0.8571rem;">倍数：9,999 倍</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">追号：9,999 期</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">注数：1000 注</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">总额：<span class="periods">2,000,000.00 </span>元</div>'+ '</div>',
         btn: ['确定', '取消']
     });
 });
@@ -131,6 +138,7 @@ $(".button03-9-4").click(function () {
 });
 </script>
 <script type="text/javascript" src="js/pushservice.js"></script>
+
 
 </body>
 </html>
