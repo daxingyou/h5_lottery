@@ -87,19 +87,20 @@
         border: 1px solid #fff;
         box-shadow: 0px 0px 0px 1px #EFEFEF;
         font-size: 0.8571rem;
-        &:after{
-            content: '';
-            display: block;
-            position: absolute;
-            background: url('../../images/lottery/btn_light@2x.png') no-repeat;
-            background-size: 100% 100%;
-            width: 60%;
-            height: 100%;
-            max-height: 137px;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-        }
+        background: url(../images/btn_bg.svg) no-repeat center center #52acd3;
+        // &:after{
+        //     content: '';
+        //     display: block;
+        //     position: absolute;
+        //     background: url('../../images/lottery/btn_light@2x.png') no-repeat;
+        //     background-size: 100% 100%;
+        //     width: 60%;
+        //     height: 100%;
+        //     max-height: 137px;
+        //     top: 0;
+        //     left: 0;
+        //     overflow: hidden;
+        // }
     }
 }
 .floatarea{

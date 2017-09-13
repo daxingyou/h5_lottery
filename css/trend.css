@@ -90,32 +90,6 @@
 .trend_table tbody{
     position: relative;
 }
-/* .trend_table tbody td .on{
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width:  2rem;
-    height:  2rem;
-    line-height: 2rem;
-    margin-left: -1rem;
-    margin-top: -1rem;
-    background-color: #52acd3;
-    color: #fff;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.trend_table tbody td .on:after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-0.4rem, -0.8rem);
-} */
 .trend_canvas{
     position: absolute;
     right: 0px;
@@ -148,3 +122,25 @@
     transform: translate(-0.4rem, -0.8rem);
 }
 
+/* recent lottery */
+.recent_main{
+    padding-top: calc( 3.4285rem + 2.5rem );
+}
+.recent_main .trend_table td, .recent_main .trend_table th{
+    width: auto;
+    font-size: 0.8571rem;
+}
+.recent_main .trend_table td:first-child, .recent_main .trend_table th:first-child{
+    width: 20%;
+}
+.recent_main .trend_table td:nth-child(2), .recent_main .trend_table th:nth-child(2){
+    width: 40%;
+}
+.trend_table td i{
+    font-style: normal;
+    margin: 0 6px;
+}
+.trend_table td i:last-child{
+    color: #f67280;
+    text-decoration: underline;
+}

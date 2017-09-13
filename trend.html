@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 14.px;">
+<html lang="en" style="font-size: 14px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
@@ -39,8 +39,8 @@
 <body>
 
 <div id="body">
-    <header class="bet_header page_header">
-        <a href="index.html" class="bet_back"></a>
+    <header class="page_header">
+        <a href="index.html" class="btn_back"></a>
         <div class="m-lott-methodBox">
             <span class="nfdprize_text" id="trendMenu">五星走势图<b></b></span>
         </div>
@@ -2161,12 +2161,14 @@
         $('#trendMenu').on('click',function(e){
             e.stopPropagation();
             $('#trendList').toggle();
+            $(this).find('b').toggleClass('cur');
             $(document).on('click',function(){
                 $('#trendList').hide();
             })
         })
         $('#trendList dd').on('click',function(){
             $('#trendMenu').html($(this).text()+'<b></b>');
+            $(this).addClass('hover').siblings().removeClass('hover');
         })
     });
 

@@ -1,18 +1,6 @@
 strong, b { font-weight: 500; }
 
-header.inner { text-align: left; padding: 1rem 0; font-size: 1rem; background-color: #52ACD3; color: #fff; line-height: 2rem; height: 4rem; border-bottom: 1px solid #ccc; position: fixed; width: 100%; left: 0; top: 0; z-index: 1; }
-
-header.inner > * { display: inline-block; vertical-align: middle; }
-
-header.inner div { width: calc(100% - 8.3rem); text-align: center; vertical-align: top; line-height: 2rem; height: 2rem; }
-
-header.inner a { color: #fff; line-height: 2rem; width: 2rem; height: 2rem; text-align: center; }
-
-header.inner a.btn_back { background-image: url("../images/btn_back.svg"); padding-left: 2rem; margin-left: 1rem; width: 2rem; }
-
-header.inner a.right { margin-right: 1rem; width: 4rem; }
-
-.wraper-page-inner { padding-top: 4rem; }
+.wraper-page-inner { padding-top: 3.4285rem; }
 
 .slide_toggle { text-align: left; cursor: pointer; }
 
@@ -30,15 +18,13 @@ header.inner a.right { margin-right: 1rem; width: 4rem; }
 
 i.icon { display: inline-block; width: 1.5rem; height: 1.5rem; background-repeat: no-repeat; }
 
-i.icon.i_wallet { background-image: url("../images/icon_wallet.svg"); width: 2rem; height: 2rem; background-size: 100%; margin-right: .5rem; }
+i.icon.i_wallet { background-image: url("../images/icon_wallet.svg"); width: 1.4285rem; height: 1.4285rem; background-size: 100%; margin-right: 5px; }
 
 i.icon.i_coin { background-image: url("../images/icon_coin.svg"); background-size: 100%; width: 2.7rem; height: 2.8rem; vertical-align: bottom; }
 
 i.icon.i_trace { background-image: url("../images/icon_trace.svg"); background-size: 100%; width: 2.3rem; height: 2.5rem; background-position-y: .8rem; }
 
-.lbtn { padding: .5rem 1rem; text-align: center; color: #fff; -webkit-border-radius: 5rem; -moz-border-radius: 5rem; -ms-border-radius: 5rem; border-radius: 5rem; position: relative; display: inline-block; }
-
-.lbtn:before { content: ''; display: block; position: absolute; background-image: url("../../images/lottery/btn_light@2x.png"); background-size: 100% 100%; width: 60%; height: 100%; max-height: 137px; top: 0; left: 0; overflow: hidden; }
+.lbtn { padding: .5rem 1rem; text-align: center; color: #fff; -webkit-border-radius: 5rem; -moz-border-radius: 5rem; -ms-border-radius: 5rem; border-radius: 5rem; position: relative; display: inline-block; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; }
 
 .lbtn.lbtn_info { background-color: #52ACD3; }
 
@@ -146,9 +132,7 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .layui-m-layerbtn span[no] { border-radius: 60px; border-right: none; border: 1px solid #EFEFEF; background-color: #fff; font-size: 0.8571rem; }
 
-.layui-m-layerbtn span[yes] { background-color: #52ACD3; border: 1px solid #fff; -webkit-box-shadow: 0px 0px 0px 1px #EFEFEF; box-shadow: 0px 0px 0px 1px #EFEFEF; font-size: 0.8571rem; }
-
-.layui-m-layerbtn span[yes]:after { content: ''; display: block; position: absolute; background: url("../../images/lottery/btn_light@2x.png") no-repeat; background-size: 100% 100%; width: 60%; height: 100%; max-height: 137px; top: 0; left: 0; overflow: hidden; }
+.layui-m-layerbtn span[yes] { background-color: #52ACD3; border: 1px solid #fff; -webkit-box-shadow: 0px 0px 0px 1px #EFEFEF; box-shadow: 0px 0px 0px 1px #EFEFEF; font-size: 0.8571rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; }
 
 .floatarea { border-top: none; border-bottom: none; font-size: 0.8571rem; }
 
@@ -178,13 +162,19 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 
 .betting_area { line-height: 1.8; }
 
-.betting_area > div:first-child { background-image: url("../images/record_bg.png"); background-size: 100%; width: 100%; height: 8rem; text-align: center; padding: 1.5rem 0; color: #fff; }
+.betting_area > div:first-child { background-image: url("../images/left_bg@2x.png"); background-color: #52ACD3; background-size: 100%; width: 100%; height: 8rem; text-align: center; padding: 1.5rem 0; color: #fff; }
 
-.betting_area > div:first-child > div { display: inline-block; vertical-align: -webkit-baseline-middle; vertical-align: -moz-baseline-middle; text-align: left; margin-left: 1rem; }
+.betting_area > div:first-child > div { display: inline-block; vertical-align: -webkit-baseline-middle; vertical-align: -moz-baseline-middle; text-align: left; }
+
+.betting_area > div:first-child .info_data { margin-left: 1rem; }
 
 .betting_area > div:first-child img { width: 5rem; height: 5rem; }
 
-.betting_area > div:first-child span { font-size: 1.429rem; }
+.betting_area > div:first-child h2 { font-size: 1rem; }
+
+.betting_area > div:first-child i { vertical-align: middle; margin-top: 0.1rem; }
+
+.betting_area > div:first-child span { font-size: 1.143rem; vertical-align: top; }
 
 .tab { font-size: 0; }
 
@@ -376,5 +366,3 @@ input[type="checkbox"]:checked + label:hover span:before { width: .3rem; backgro
 .cancel_area > *:last-child { float: right; }
 
 .cancel_area label span { vertical-align: -.2rem; }
-
-/*# sourceMappingURL=page.css.map */
