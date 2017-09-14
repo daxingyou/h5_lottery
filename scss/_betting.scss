@@ -125,18 +125,10 @@
      border: 1px solid #DDE2E6;
      border-bottom: none;
      background-color: #fff;
-     &:last-child{
-        border-bottom:1px solid #DDE2E6;
-     }
     .date{
         font-size: 1rem;
         // color: #ACACAC;
         // padding:.5rem 1rem;
-    }
-    .panel {
-        display: none;
-        // padding: 0 1rem;
-        // border-top: none;
     }
 }
 .bet_data{

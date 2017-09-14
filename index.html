@@ -440,17 +440,17 @@
                                 <li name="even">偶</li>
                                 <li name="clean">清</li>
                             </ul>
-                            <ul class="nList">
-                                <li name="lt_place_0">0</li>
-                                <li name="lt_place_0">1</li>
-                                <li name="lt_place_0">2</li>
-                                <li name="lt_place_0">3</li>
-                                <li name="lt_place_0">4</li>
-                                <li name="lt_place_0">5</li>
-                                <li name="lt_place_0">6</li>
-                                <li name="lt_place_0">7</li>
-                                <li name="lt_place_0">8</li>
-                                <li name="lt_place_0">9</li>
+                            <ul class="nList active">
+                                <li name="lt_place_0">0<i>11</i></li>
+                                <li name="lt_place_0">1<i>999</i></li>
+                                <li name="lt_place_0">2<i>120</i></li>
+                                <li name="lt_place_0">3<i>20</i></li>
+                                <li name="lt_place_0">4<i>120</i></li>
+                                <li name="lt_place_0">5<i>0</i></li>
+                                <li name="lt_place_0">6<i>21</i></li>
+                                <li name="lt_place_0">7<i>11</i></li>
+                                <li name="lt_place_0">8<i>999</i></li>
+                                <li name="lt_place_0">9<i>120</i></li>
                             </ul>
                         </div>
                         <div class="each">
@@ -583,7 +583,7 @@
                 <p>已选 <span id="lt_sel_nums">0</span> 注 </p>
                 <p>共 <span id="lt_sel_money">0</span> 元</p>
             </div>
-            <div class="chooseMsg" id="ui_car_info" style="display:none;">
+            <div class="chooseMsg" id="ui_car_info">
                 <p><span>0</span> 注</p>
                 <p><span>1</span> 期</p>
                 <p>共 <span>0</span> 元</p>
@@ -780,23 +780,25 @@
     $(function(){
         $('#ui_cart').on('click',function(){
             $('#ui_bet').stop().animate({left: 0},300,function(){
-                $('.m_fx_footer').css({'z-index':110});
-                $('#lt_sel_insert').css({'display':'none'});
-                $('#ui_cart').css({'display':'none'});
-                $('#all_addOrderBox').css({'display':'block'});
-                $('.sendChoose').css({'display':'block'});
-                $('#ui_bet_info').css({'display':'none'});
-                $('#ui_car_info').css({'display':'block'});
+                $('#body').addClass('bet_cart');
+                // $('.m_fx_footer').css({'z-index':110});
+                // $('#lt_sel_insert').css({'display':'none'});
+                // $('#ui_cart').css({'display':'none'});
+                // $('#all_addOrderBox').css({'display':'block'});
+                // $('.sendChoose').css({'display':'block'});
+                // $('#ui_bet_info').css({'display':'none'});
+                // $('#ui_car_info').css({'display':'block'});
             });
         })
         $('#bet_back').on('click',function(){
-            $('.m_fx_footer').css({'z-index':11});
-            $('#lt_sel_insert').css({'display':'block'});
-            $('#ui_cart').css({'display':'block'});
-            $('#all_addOrderBox').css({'display':'none'});
-            $('.sendChoose').css({'display':'none'});
-            $('#ui_bet_info').css({'display':'block'});
-            $('#ui_car_info').css({'display':'none'});
+            $('#body').removeClass('bet_cart');
+            // $('.m_fx_footer').css({'z-index':11});
+            // $('#lt_sel_insert').css({'display':'block'});
+            // $('#ui_cart').css({'display':'block'});
+            // $('#all_addOrderBox').css({'display':'none'});
+            // $('.sendChoose').css({'display':'none'});
+            // $('#ui_bet_info').css({'display':'block'});
+            // $('#ui_car_info').css({'display':'none'});
             $('#ui_bet').stop().animate({left: '100%'},300);
         });
     })

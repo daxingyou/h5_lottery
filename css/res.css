@@ -414,6 +414,10 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 #all_addOrderBox{ z-index: 103;}
 .btn_addstop{ float: left; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.8rem; margin-top: 0.15rem;}
 .btn_addstop.disable{ color: #c9c9c9;}
+#ui_car_info{display: none;}
+.bet_cart .m_fx_footer{ z-index: 110;}
+.bet_cart #lt_sel_insert, .bet_cart #ui_cart, .bet_cart #ui_bet_info{ display: none;}
+.bet_cart #all_addOrderBox, .bet_cart .sendChoose, .bet_cart #ui_car_info{ display: block;}
 
 /* icon */
 .icon_help{ display: inline-block; background: url(../images/icon_help.svg) no-repeat center center; background-size: 1.286rem 1.429rem;height: 1.429rem; width: 1.286rem; vertical-align: middle; margin-right: 5px; margin-top: -3px;}

@@ -2,82 +2,77 @@
 // 重慶時時彩玩法
 .play_area{
     // padding: 1rem 0;
-    margin: 0 .8rem;
-    line-height: 1.8;
+    margin: 0 .5rem;
     color: #898989;
     font-size: 1rem;
-    >div{
-        &:first-child{
-            >div{
-                margin-bottom: 1rem;
-                background-color: #fff;
-                padding: .5rem;
-                border: 1px solid $l_gray;
-                strong{
-                    color: $l_blue;
-                    display: block;
-                    font-size: 1rem;
-                    font-weight: 500;
-                }
-                p{
-                    font-size: 0.8571rem;
-                    padding: .5rem 0;
-                    margin: 0 .5rem;
-                    &:first-child{
-                        border-bottom:1px solid $l_gray;
-                    }
-                }
+    .play_top{
+        >div{
+            margin-bottom: 1rem;
+            background-color: #fff;
+            padding: .5rem;
+            border: 1px solid $l_gray;
+            strong{
+                color: $l_blue;
+                display: block;
+                font-size: 1rem;
+                font-weight: 500;
             }
-
-        }
-        &:last-child{
-            >div{
-                margin: 1rem 0;
-                background-color: #fff;
-                border: 1px solid #ccc;
-                dl{
-                    margin: 0 1rem;
-                    padding: .5rem 1rem;
-                    color: #898989;
-                    font-size: 0.8571rem;
+            p{
+                font-size: 0.8571rem;
+                padding: .5rem 0;
+                margin: 0 .5rem;
+                &:first-child{
                     border-bottom:1px solid $l_gray;
-                    &:last-child{
-                        border-bottom:none;
-                    }
-                    >*{
-                        display: inline-block;
-                        &:nth-child(odd){
-                            vertical-align: top;
-                            min-width: 4rem;
-                        }
-                        &:nth-child(even){
-                            width: calc(100% - 5rem);
-                            text-align: justify;
-                            // margin-left: 1rem;
-                        }
-                    }
-                    dt{
-                        color: $l_blue;
-                        position: relative;
-                        &:before{
-                            content: '';
-                            display: block;
-                            background-image: url('../images/icon_liststyle.svg');
-                            width: 6px;
-                            height: 6px;
-                            position: absolute;
-                            left: -1rem;
-                            top: .6rem;
-                        }
-                    }
                 }
             }
         }
+
     }
     .play_content{
         border-top:1px dashed $l_gray;
         // padding: 1rem 0 0 1rem;
         margin-top: 1.5rem;
+        .slide_toggle {
+            margin:0 0 0.5714rem 0;
+            background-color: #fff;
+            border: 1px solid #DDE2E6;
+            dl{
+                margin: 0 1rem;
+                padding: .5rem 1rem;
+                color: #898989;
+                font-size: 0.8571rem;
+                border-bottom:1px solid $l_gray;
+                &:last-child{
+                    border-bottom:none;
+                }
+                >*{
+                    display: inline-block;
+                    &:nth-child(odd){
+                        vertical-align: top;
+                        min-width: 4rem;
+                    }
+                    &:nth-child(even){
+                        width: calc(100% - 5rem);
+                        text-align: justify;
+                        // margin-left: 1rem;
+                    }
+                }
+                dt{
+                    color: $l_blue;
+                    position: relative;
+                    &:before{
+                        content: '';
+                        display: block;
+                        background-image: url('../images/icon_liststyle.svg');
+                        width: 6px;
+                        height: 6px;
+                        position: absolute;
+                        left: -1rem;
+                        top: .6rem;
+                    }
+                }
+            }
+        }
     }
     h3{
         color: #484848;

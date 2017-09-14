@@ -53,17 +53,16 @@ strong,b{
 //  展開收合效果
 .slide_toggle {
     text-align: left;
+    color: #ACACAC;
     cursor: pointer;
-    > div{
-        color: #ACACAC;
-        &:first-child{
-            padding: .3rem 1rem;
-        }
+    .panel_title{
+        padding: .5rem 0.7143rem;
         span{
             background-image: url('../images/icon_arrow_down.svg');
+            background-size:0.7143rem 0.7143rem;
             // display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 0.7143rem;
+            height: 0.7143rem;
             position: relative;
             background-position: 0px 0;
             background-repeat: no-repeat;
@@ -71,20 +70,20 @@ strong,b{
             // left:1.2rem;
             top: .7rem;
             transition: all .2s;
-            margin-right: .5rem;
+            margin-top: -0.2rem;
             float: right;
         }
-        &.cur{
-            color: $l_blue;
-            span{
-                background-image: url('../images/icon_arrow_up.svg');
-            }
+    }
+    .panel {
+        display: none;
+        border-top:1px solid $l_gray;
+    }
+    &.active{
+        color: $l_blue;
+        .panel_title span{
+            background-image: url('../images/icon_arrow_up.svg');
         }
     }
-}
-.panel {
-    display: none;
-    border-top:1px solid $l_gray;
 }
 // icon集散地
 i.icon{
