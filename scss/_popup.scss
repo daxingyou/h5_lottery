@@ -66,14 +66,16 @@
     height: 2rem;
     line-height: 1.8rem;
     border-top: 0;
-    padding: 0 0 1.5rem;
+    padding: 0 1rem 1.5rem;
     border-radius: 0 0 10px 10px;
     font-size: 0.8571rem;
+    text-align: center;
+    width: auto;
     span{
         border-radius: 60px;
         color: #000;
         // width: 40%;
-        margin: auto 1.3rem;
+        margin: auto 0.5714rem;
     }
     span[no]{
         border-radius: 60px;

@@ -372,6 +372,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
 .ui_cart{position: absolute; right: 1rem; top: 0.5rem;}
 .ui_cart .num{ display: block; position: absolute; top: -0.2rem; right: -0.5rem; background-color: #e8252b; color: #fff; font-size: 0.857143rem; border-radius: 10px; min-width: 1.118rem; height: 1.118rem; line-height: 1.2rem; padding: 0px 0.2rem; vertical-align: middle;}
 .ui_color_strong{ color: #ffcf06;}
+.ui_color_yellow{ color: #fcb008;}
 .addOrderLeft{ float: left;}
 .bet_random { float: right; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.5rem; margin-top: 0.1rem; color: #52acd3;}
 .multipleBox{ color: #c9c9c9;}

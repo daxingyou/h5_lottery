@@ -49,6 +49,7 @@ strong,b{
 // }
 .wraper-page-inner{
     padding-top: 3.4285rem;
+    padding-bottom: 1rem;
 }
 //  展開收合效果
 .slide_toggle {
@@ -101,16 +102,19 @@ i.icon{
     &.i_coin{
         background-image: url('../images/icon_coin.svg');
         background-size: 100%;
-        width: 2.7rem;
-        height: 2.8rem;
-        vertical-align: bottom;
+        width: 2.286rem;
+        height: 2.286rem;
+        vertical-align: top;
+        margin-top: 0.2rem;
     }
     &.i_trace{
         background-image: url('../images/icon_trace.svg');
         background-size: 100%;
-        width: 2.3rem;
-        height: 2.5rem;
-        background-position-y: .8rem;
+        width: 2.286rem;
+        height: 2.286rem;
+        vertical-align: top;
+        margin-top: 0.2rem;
+        // background-position-y: .8rem;
     }
 }
 // 按鈕集散地
@@ -142,7 +146,7 @@ i.icon{
         padding: .3rem 2rem;
     }
     &.lbtn_md{
-        padding: .6rem 3rem;
+        padding: .5rem 3rem;
     }
 }
 // radio樣式
@@ -212,7 +216,7 @@ label {
         width: 1.2rem;
         height: 1.2rem;
         transform-origin: center;
-        border: 2px solid #E2E2E2;
+        border: 1px solid #E2E2E2;
         background-color: #fff;
         @include border-radius(.1rem);
         vertical-align: -.3rem;
