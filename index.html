@@ -135,7 +135,7 @@
                 <li><a href="betting_record.html"><span class="icon_bet-history"></span>投注记录</a></li>
                 <li><a href="trend.html"><span class="icon_trend"></span>走势图</a></li>
                 <li><a href="recent_lottery.html"><span class="icon_lottery"></span>近期开奖</a></li>
-                <li><a class="button03" href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
+                <li><a id="number_count" href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
                 <li><a href="play.html"><span class="icon_info"></span>玩法说明</a></li>
             </ul>
         </div>
@@ -782,7 +782,7 @@
     // 购物车动画
     $(function(){
         $('#ui_cart').on('click',function(){
-            $('#ui_bet').stop().animate({left: 0},300,function(){
+            $('#ui_bet').stop(true,true).animate({left: 0},300,function(){
                 $('#body').addClass('bet_cart');
                 // $('.m_fx_footer').css({'z-index':110});
                 // $('#lt_sel_insert').css({'display':'none'});
@@ -802,7 +802,7 @@
             // $('.sendChoose').css({'display':'none'});
             // $('#ui_bet_info').css({'display':'block'});
             // $('#ui_car_info').css({'display':'none'});
-            $('#ui_bet').stop().animate({left: '100%'},300);
+            $('#ui_bet').stop(true,true).animate({left: '100%'},300);
         });
     })
 
@@ -850,10 +850,13 @@
             });
         });
     })
-    //叫出號碼統計視窗 popup.html也有同樣的
-    $(".button03").click(function () {
+
+    //彈窗_號碼統計
+    $("#number_count").click(function () {
         layer.open({
-            content: '<div class="title count">' + '号码统计 <p class="space">选择在下方显示对应的数据：</p>' + '<div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>'+'</div>',
+            title: '号码统计',
+            className: 'layer_count',
+            content: '选择在下方显示对应的数据：<br /><div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>',
             btn: ['确定', '取消']
         });
     });

@@ -29,22 +29,38 @@
     <script type="text/javascript" src="js/ssc_lottery.js"></script>
         <!-- 彈窗css 覆蓋layer.css用 -->
         <link href="css/page.css" rel="stylesheet" type="text/css">
-    <style>
+    <!--<style>
             .layui-m-layercont .title.check .totle{color: #484848;}
-    </style>
+    </style>-->
 </head>
 <body>
 <div id="body">
-    <a href="javascript:;" class="button01">购物区内已有相同注单。</a>
-    <br/><br/>
-    <a href="javascript:;" class="button01-14">确认付款</a>
-    <br/><br/>
-    <a href="javascript:;" class="button02-2">前往其他彩种将清空已选号码。您确定切换吗？</a>
-    <br/><br/>
-    <a href="javascript:;" class="button02-4">切换玩法后，当前的选号将被清空。确定要切换吗？</a>
-    <br/><br/>
-    <a href="javascript:;" class="button03">号码统计</a>
-    <br/><br/>
+    <dl style="padding: 1rem; line-height:2rem;">
+        <dt>msg</dt>
+        <dd>
+            <a href="javascript:;" class="msg01">购物区内已有相同注单。</a><br/>
+            <a href="javascript:;" class="msg02">请输入符合规范的注单。</a><br/>
+        </dd>
+        <dt>check</dt>
+        <dd>
+            <a href="javascript:;" class="check">确认付款</a><br/>
+        </dd>
+        <dt>tip</dt>
+        <dd>
+            <a href="javascript:;" class="tip01">可用的馀额不足，请前往充值。</a><br/>
+            <a href="javascript:;" class="tip02">注单超出奖金限额，请重新选择。</a><br/>
+            <a href="javascript:;" class="tip03">前往其他彩种将清空已选号码。您确定切换吗？</a><br/>
+            <a href="javascript:;" class="tip04">切换玩法后，当前的选号将被清空。确定要切换吗？</a><br/>
+            <a href="javascript:;" id="btn_bet_cancel">确定要进行撤单吗？撤单手续费需收 1000.00 元</a><br/>
+            <a href="javascript:;" id="btn_trace_cancel">确定要撤消追号吗？撤消手续费需收 1000.00 元</a><br/>
+            <a href="javascript:;" class="tip05">部分期号已开奖，无法进行撤单。</a><br/>
+            <a href="javascript:;" class="tip06">期号已开奖，无法进行撤单。</a><br/>
+        </dd>
+        <dt>conut</dt>
+        <dd>
+            <a href="javascript:;" class="number_count">号码统计</a><br/>
+        </dd>
+    </dl>
 
 </div>
 
@@ -59,80 +75,104 @@
 <script type="text/javascript" src="js/res.js"></script>
 
 <script>
-$(".button01").click(function () {
+$(".msg01").click(function () {
     layer.open({
-        // title: '标题',
-        content: '<div class="timeout">' + '<img src="../images/lottery/icon_tip_d.svg" alt=""> 购物区内已有相同注单。' + '</div>',
-        style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
-        shade: false, //不显示遮罩
+        content: '<div class="timeout"><img src="../images/icon_tip_d.svg" alt="">购物区内已有相同注单。</div>',
+        skin: 'msg',
         time: 3
     });
 });
-$(".button01-9").click(function () {
+$(".msg02").click(function () {
     layer.open({
-        content: '<div class="timeout">' + '<img src="../images/lottery/icon_tip_d.svg" alt=""> 请输入符合规范的注单。' + '</div>',
-        style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
-        shade: false,
+        content: '<div class="timeout"><img src="../images/icon_tip_d.svg" alt="">请输入符合规范的注单。</div>',
+        skin: 'msg',
         time: 3
     });
 });
-$(".button01-12").click(function () {
+$(".msg03").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space">可用的馀额不足，请前往充值。</p>' + '</div>',
+        content: '当前期已结束，将进到第<span class="ui_color_yellow">20170712101</span>期。',
+        skin: 'msg',
+        time: 5
+    });
+});
+$(".check").click(function () {
+    layer.open({
+        title: '确认付款',
+        className: 'layer_check',
+        content: '第<span class="ui_color_yellow">20170713021</span>期<br />倍数：9,999 倍<br />追号：9,999 期<br />注数：1000 注<br />总额：<span class="ui_color_yellow">2,000,000.00</span>元',
+        btn: ['确定', '取消']
+    });
+});
+$(".number_count").click(function () {
+    layer.open({
+        title: '号码统计',
+        className: 'layer_count',
+        content: '选择在下方显示对应的数据：<br /><div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>',
+        btn: ['确定', '取消']
+    });
+});
+$(".tip01").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '可用的馀额不足，请前往充值。',
         btn: ['确定']
     });
 });
-$(".button01-13-1").click(function () {
+$(".tip02").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space">注单超出奖金限额，请重新选择。</p>' + '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '注单超出奖金限额，请重新选择。',
         btn: ['确定', '取消']
     });
 });
-$(".button01-14").click(function () {
+$(".tip03").click(function () {
     layer.open({
-        content: '<div class="title check">' + '确认付款<p>第<span class="periods"> 20170713021 </span>期</p><div class"totle" style="color: #484848;font-size: 0.8571rem;">倍数：9,999 倍</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">追号：9,999 期</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">注数：1000 注</div><div class"totle" style="color: #484848;font-size: 0.8571rem;">总额：<span class="periods">2,000,000.00 </span>元</div>'+ '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '前往其他彩种将清空已选号码。<br/>您确定切换吗？',
         btn: ['确定', '取消']
     });
 });
-$(".button02-2").click(function () {
+$(".tip04").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space">前往其他彩种将清空已选号码。<br/>您确定切换吗？</p>' + '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '切换玩法后，当前的选号将被清空。<br/>确定要切换吗？',
         btn: ['确定', '取消']
     });
 });
-$(".button02-4").click(function () {
+$("#btn_bet_cancel").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space"> 切换玩法后，当前的选号将被清空。<br/>确定要切换吗？ </p>' + '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">1000.00</span>元',
         btn: ['确定', '取消']
     });
 });
-$(".button03").click(function () {
+$("#btn_trace_cancel").click(function () {
     layer.open({
-        content: '<div class="title count">' + '号码统计 <p class="space">选择在下方显示对应的数据：</p>' + '<div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>'+'</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '确定要撤消追号吗？<br />撤消手续费需收<span class="ui_color_yellow">1000.00</span>元',
         btn: ['确定', '取消']
     });
 });
-$(".button03-8").click(function () {
+$(".tip05").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space"> 确定要进行撤单吗？撤单手续费需收 1000.00 元</p>' + '</div>',
-        btn: ['确定', '取消']
-    });
-});
-$(".button03-13").click(function () {
-    layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space"> 确定要撤消追号吗？撤消手续费需收 1000.00 元</p>' + '</div>',
-        btn: ['确定', '取消']
-    });
-});
-$(".button03-14").click(function () {
-    layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space"> 部分期号已开奖，无法进行撤单。</p>' + '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '部分期号已开奖，无法进行撤单。',
         btn: ['确定']
     });
 });
-$(".button03-9-4").click(function () {
+$(".tip06").click(function () {
     layer.open({
-        content: '<div class="title">' + '温馨提示 <p class="space"> 期号已开奖，无法进行撤单。</p>' + '</div>',
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '期号已开奖，无法进行撤单。',
         btn: ['确定']
     });
 });

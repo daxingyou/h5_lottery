@@ -37,7 +37,7 @@
         <header class="page_header">
             <a class="btn_back" href="betting_record.html" title="返回"></a>
             <h2>注单详情</h2>
-            <a class="right" id="bet_cancel" href="javascript:;">撤单</a>
+            <a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>
         </header>
         <section class="wraper-page-inner">
             <div class="bet_dt_area">
@@ -48,7 +48,7 @@
                         <strong class="periods">20170715086</strong>
                         期
                     </span>
-                    <span class="bet_status status01">等待开奖 </span>
+                    <span class="bet_status status_gray">等待开奖 </span>
 
                 </div>
                 <div class="bet_nlist">
@@ -103,18 +103,22 @@
     <script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
     <script type="text/javascript" src="js/pushstream.js"></script>
 
-    <script type="text/javascript" src="js/coreDesign.js"></script>
+    <!--<script type="text/javascript" src="js/coreDesign.js"></script>-->
     <script type="text/javascript" src="js/res.js"></script>
 
     <script>
-            $('#bet_cancel').click(function() {
+        $(function(){
+            $('#btn_bet_cancel').click(function() {
                 layer.open({
-                    content: '<div class="title">温馨提示 <p class="space"> 确定要进行撤单吗？<br/>撤单手续费需收 <span class="ui_color_yellow">1000.00</span> 元 </p></div>',
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: '确定要进行撤单吗？撤单手续费需收 1000.00 元',
                     btn: ['确定', '取消']
                 });
             });
+        })
     </script>
-    <script type="text/javascript" src="js/pushservice.js"></script>
+    <!--<script type="text/javascript" src="js/pushservice.js"></script>-->
 
 </body>
 

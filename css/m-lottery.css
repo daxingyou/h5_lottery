@@ -13,8 +13,8 @@ body { }
 
 /*彩种导航*/
 .m-lott-methodBox { padding: 0.571429rem 0.357143rem; /*background: #eaeaea;*/ text-align: center; height: 3.4285rem;}
-.m-lott-methodBox .nfdprize_text { display: inline-block; padding: 0.1rem 0.8rem; color: #fff; border-radius: 3px; font-size: 1rem; background-color: #52acd3; /*max-width:12rem;*/ white-space:nowrap; overflow:hidden; border: 1px solid #fff; border-radius: 20px; margin-top: 3px;}
-.m-lott-methodBox .nfdprize_text b { display: inline-block; width: 12px; height: 16px; position: relative; left: 0.357143rem; background-image: url(../images/lottery/arrow-down1.png); background-position: 0px 2px; background-repeat: no-repeat; background-size: 100%; top: 0.2rem; transition: all .2s; }
+.m-lott-methodBox .nfdprize_text { display: inline-block; padding: 0.1rem 0.8rem; color: #fff; border-radius: 3px; font-size: 1rem; background-color: #52acd3; /*max-width:12rem;*/ white-space:nowrap; overflow:hidden; border: 1px solid #fff; border-radius: 20px; margin-top: 0.2rem; vertical-align: top;}
+.m-lott-methodBox .nfdprize_text b { display: inline-block; width: 0.8571rem; height: 1.143rem; position: relative; left: 0.357143rem; background-image: url(../images/icon_arrow_w.svg); background-position: center center; background-repeat: no-repeat; background-size: 100%; top: 0.1rem; transition: all .2s; vertical-align: top;}
 .m-lott-methodBox .nfdprize_text b.cur { transform: rotate(180deg); }
 .m-lott-methodBox .fandian { color: #494949; display: inline-block; float: right; padding-top: 0.1rem; }
 .m-lott-methodBox .fandian select { border: 1px solid #bbb; padding: 0.2rem 0.1rem; border-radius: 0.3rem; font-size: 0.8rem; color: #624982; }
@@ -38,7 +38,7 @@ body { }
 .lotteryMember dl .posChoose { position: relative; top: 2px; left: -2px;}
 .lotteryMember dl dt { line-height: 1.714286rem; font-size: 0.928571rem; color: #969696; margin-bottom: 0.571428rem; border-bottom: 1px solid rgba(221,226,230,0.4); }
 .lotteryMember dl dd:nth-of-type(3n){ margin-right: 0.357143rem;}
-.lotteryMember dl dd { border:1px solid #efefef; background-color: #fff; /*display: inline-block;*/ float: left; margin: 0px 1.9rem 1rem 0.357143rem ; border-radius: 30px;  line-height: 1.785714rem; width: 6.785714rem; font-size: 0.928571rem; color: #52acd3; padding: 0 0.357143rem; text-align: center; }
+.lotteryMember dl dd { border:1px solid #efefef; background-color: #fff; /*display: inline-block;*/ float: left; /*margin: 0px 1.9rem 1rem 0.357143rem ;*/ margin: 0px 2% 1rem; border-radius: 30px;  line-height: 1.785714rem; /*width: 6.785714rem;*/ width: 29.3333%; font-size: 0.928571rem; color: #52acd3; padding: 0 0.357143rem; text-align: center; }
 .lotteryMember dl dd.hover { background-color: #52acd3;background: url(../images/btn_bg.svg) no-repeat center center #52acd3; color: #fff;}
 .playf_dl { line-height: 1.571429rem; padding: 0.571428rem 0; border-bottom: 1px solid #f3f3f3; overflow: hidden; width: 96%; margin: 0 auto; }
 .playf_dl span {	/*display: inline; float: left;*/ }
@@ -82,7 +82,7 @@ body { }
 .lotteryView h3:before { content: ''; position: absolute; top: -1px; right: -5px; border-radius: 0px 0px 4px 4px; width: 8px; height: 4px; border: 1px solid #dde2e6; border-top:none; background-color:#f1f1f1; }
 .lotteryView h3:after { content: ''; position: absolute; bottom: -1px; right: -5px; border-radius: 4px 4px 0px 0px; width: 8px; height: 4px; border: 1px solid #dde2e6; border-bottom:none; background-color:#f1f1f1; }
 .lotteryView .nList { padding: 0.5rem 0px 0px;}
-.lotteryView .nList li { margin: 0 0.49rem 0.5rem; display: inline-block; width: 2.8rem; height: 2.8rem; line-height: 2.8rem; background-color: rgba(239,239,239,0.46); font-size: 1.1292rem; text-align: center; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46); border-radius: 1.4rem; color: #b8b8b8; position: relative;}
+.lotteryView .nList li { margin: 0 1.8% 0.5rem; display: inline-block; width: 2.8rem; height: 2.8rem; line-height: 2.8rem; background-color: rgba(239,239,239,0.46); font-size: 1.1292rem; text-align: center; border: 1px solid #fff; box-shadow: 0px 0px 0px 1px rgba(239,239,239,0.46); border-radius: 1.4rem; color: #b8b8b8; position: relative;}
 .lotteryView .nList li i{ position: absolute; bottom: -1rem; font-size: 0.7143rem; line-height: 0.7143rem; font-style: normal; left: 0; width: 100%;}
 .lotteryView .nList.active li {margin-bottom: 1.714rem;}
 
@@ -99,7 +99,7 @@ body { }
 /*.lotteryView .quwei li:hover { border: 2px solid #52acd3; background:none;}*/
 .lotteryView .quwei li.hover { background: #52acd3; width: auto; color: #fff; border: 2px solid #52acd3; }
 .lotteryView .cList {text-align: right; border-bottom: 1px dashed #dde2e6;}
-.lotteryView .cList li { display: inline-block; width: 2.5714rem; height: 1.326rem; line-height: 1.226rem; color: #52acd3; font-size:0.85rem; text-align: center; margin: 0.5rem 0.5rem 0.5rem 0; border:1px solid #efefef; border-radius: 20px;  }
+.lotteryView .cList li { display: inline-block; width: 2.5714rem; height: 1.326rem; line-height: 1.326rem; color: #52acd3; font-size:0.85rem; text-align: center; margin: 0.5rem 0.5rem 0.5rem 0; border:1px solid #efefef; border-radius: 20px;  }
 .lotteryView .cList li:last-child {  margin-right: 0px }
 .lotteryView .cList li.hover { color: #fff; border-color: #52acd3; background-color: #52acd3; }
 
@@ -299,7 +299,7 @@ body { }
 .inputdesc p{ margin-bottom: 0.6rem;}
 .inputdesc p.strong{ color: #e03a5d; font-size: 0.8571rem;}
 .inputdesc p.inputdesc_title { color: #898989; background: url(../images/icon_intro.svg) no-repeat left top 0.2rem; background-size: 1rem 1rem; padding-left: 1.2rem; }
-.addOrderBox { padding: 0.142rem 0.571428rem; /*overflow: hidden;*/ position: fixed; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6;}
+.addOrderBox { padding: 0.142rem 0.571428rem; /*overflow: hidden;*/ position: fixed; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6; font-size: 0.8571rem;}
 .addOrderBox:after{ content: ''; display: table; clear: both;}
 /* .m_funding_box { overflow: hidden; } */
 .addOrderBox .funding { margin-top: 0.1rem; display: inline; float: left; position: relative;}
@@ -387,7 +387,7 @@ body { }
 .recentBox h3:before { content: ''; height: 1px; width: 100%; background: #E0E0E0; position: absolute; z-index: 1; left: 0; top: 50%; }
 #m_more_lott_list { color: #8C5A8E; font-size: 1.0rem; display: inline-block; border-radius: 3px; border: 1px solid #8F638E; padding: 3px 1.4rem; margin: 0.57rem 0.43rem; }
 .recentBox h3 span { font-weight: bold; background-color: #F3F3F3; position: relative; z-index: 2; padding: 0 0.7rem; }
-.recentBox ul li { line-height: 32px; font-size: 1.0rem; color: #fff; overflow: hidden; padding-right: 0.571428rem; border-bottom: 1px solid rgba(255, 255, 255, 0.06) }
+.recentBox ul li { line-height: 2.286rem; font-size: 1.0rem; color: #fff; overflow: hidden; padding-right: 0.571428rem; border-bottom: 1px solid rgba(255, 255, 255, 0.06) }
 .recentBox ul li .issue { display: inline; float: left; padding: 0 0 0 0.571428rem; }
 .recentBox ul li .num { display: inline; float: right; text-align: center; max-width: 80%; font-size: 1.0rem; color: #828282; }
 .recentBox ul li .num_k8 {	/*line-height: 1.57rem;*/ }

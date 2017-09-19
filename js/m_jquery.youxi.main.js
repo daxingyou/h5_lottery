@@ -1013,10 +1013,9 @@ var is_select=0;
 
                         layer.open({
                             className:'time_ontimeout',
-                            content:'lot_lang.am_s15_3'+'<span>20170712101</span>'+'  期 。'+'</div>',
-                            style: 'background-color: rgba(52, 65, 70, 0.8);border-radius: 60px;padding:0;', //自定风格
-                            shade: false, //不显示遮罩
+                            content:'lot_lang.am_s15_3'+'<span class="ui_color_yellow">20170712101</span>'+'  期 。'+'</div>',
                             // btn:'确定',
+                            skin: 'msg',
                             time:5
                         });
                         // $.alert(lot_lang.am_s15);
@@ -1114,7 +1113,8 @@ var is_select=0;
                 $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                 if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({
-                        // title: '温馨提示',
+                        title: '温馨提示',
+                        className: 'layer_tip',
                         content:lot_lang.am_s15,
                         btn:'确定'
                     })
@@ -1191,6 +1191,8 @@ var is_select=0;
 
                                 if( data.length <= 0 ){
                                     layer.open({
+                                        title: '温馨提示',
+                                        className: 'layer_tip',
                                         content:lot_lang.am_s16,
                                         btn:'确定'
                                     })
@@ -1300,6 +1302,8 @@ var is_select=0;
                           },
                 error : function(){//失败
                      layer.open({
+                        title: '温馨提示',
+                        className: 'layer_tip',
                         content:lot_lang.am_s16,
                         btn:['确定'],
                         yes:function(index){
@@ -1580,7 +1584,8 @@ var is_select=0;
             if( $.lt_time_leave <= 0 ){//结束
 				if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({ // 确定
-                        // title: '温馨提示',
+                        title: '温馨提示',
+                        className: 'layer_tip',
                         content:lot_lang.am_s15,
                         btn:['确定'],
                         yes:function(index){
@@ -1602,6 +1607,8 @@ var is_select=0;
 					// });
 				}else{
                     layer.open({
+                        title: '温馨提示',
+                        className: 'layer_tip',
                         content:lot_lang.am_s15_2,
                         btn:['确认']
                     })
@@ -1676,6 +1683,8 @@ var is_select=0;
                         $.lt_submiting = false;
                         if( data.length <= 0 ){
                              layer.open({
+                                title: '温馨提示',
+                                className: 'layer_tip',
                                 content:lot_lang.am_s16,
                                 btn:'确定'
                             })
@@ -1794,6 +1803,8 @@ var is_select=0;
                                 msg += '</div>';
                                 msg += lot_lang.am_s26;
                                  layer.open({
+                                    title: '温馨提示',
+                                    className: 'layer_tip',
                                     content:msg,
                                     btn:['确定','取消'],
                                     yes:function(index){

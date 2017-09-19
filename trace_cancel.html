@@ -49,7 +49,7 @@
                         </label>
                     </div>
                     <div>
-                        <a class="lbtn lbtn_info lbtn_sm button03-13" href="javascript:;">撤销</a>
+                        <a class="lbtn lbtn_info lbtn_sm" id="btn_trace_cancel" href="javascript:;">撤销</a>
                     </div>
                 </div>
                 <div class="tra_list">
@@ -199,10 +199,12 @@
             //找到符合的陣列名稱
             $('input[name^="check"]').prop('checked', $(this).prop("checked"));
         });
-        //點了撤消會出現的視窗 popup.html也有同樣的
-        $(".button03-13").click(function () {
+        //彈窗-撤單
+        $("#btn_trace_cancel").click(function () {
             layer.open({
-                content: '<div class="title">' + '温馨提示 <p class="space"> 确定要撤消追号吗？</br>撤消手续费需收 1000.00 元</p>' + '</div>',
+                title: '温馨提示',
+                className: 'layer_tip',
+                content: '确定要撤消追号吗？撤消手续费需收 1000.00 元',
                 btn: ['确定', '取消']
             });
         });

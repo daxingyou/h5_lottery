@@ -29,15 +29,15 @@
             font-size: 0.8571rem;
             line-height: 1.143rem;
             height: 1.286rem;
-            &.status01{
+            &.status_gray{
                 border: 1px solid #E2E2E2;
                 color: #ACACAC;
             }
-            &.status02{
+            &.status_red{
                 border: 1px solid $l_red;
                 color: $l_red;
             }
-            &.status03{
+            &.status_green{
                 border: 1px solid $l_green;
                 color: $l_green;
             }
@@ -63,7 +63,7 @@
             color: #b8b8b8;
             font-family: sans-serif;
             font-weight: 500;
-            &:hover,&:focus,&.hover{
+            &.hover{
                 background: url(../images/lottery/ball_active.svg) no-repeat center;
                 color: #666;
                 background-size: 100%;
@@ -128,9 +128,9 @@
             line-height: 1.5rem;
             // margin: 0 .5rem;
         }
-        .badge{
-            // margin-top: .2rem;
-        }
+        // .badge{
+        //     // margin-top: .2rem;
+        // }
         .lottery_t{
             .tra_info{
                 color: #898989;

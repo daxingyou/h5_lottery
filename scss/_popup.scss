@@ -2,6 +2,52 @@
 // 彈窗樣式 layer.js 產生
 .layui-m-layerchild{
     border-radius: 10px;
+    padding: 2rem 1rem 1.286rem 1rem;
+    h3{
+        font-size: 1.071rem;
+        line-height: 2rem;
+        height: auto;
+        margin-bottom: 0.3rem;
+    }
+    &.layer_tip:before,&.layer_check:before,&.layer_count:before{
+        content: '';
+        display: block;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 3rem 3rem;
+        width: 4rem;
+        height: 4rem;
+        position: absolute;
+        top: -2rem;
+        left: 50%;
+        margin-left: -2rem;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+    &.layer_tip{
+        &:before{
+            background-image: url('../../images/icon_tip_d.svg');
+        }
+        h3{
+            color: $l_yellow;
+        }
+    }
+    &.layer_check{
+        &:before{
+            background-image: url('../../images/icon_check.svg');
+        }
+        h3{
+            color: $l_green;
+        }
+    }
+    &.layer_count{
+        &:before{
+            background-image: url('../../images/icon_count.svg');
+        }
+        h3{
+            color: $l_blue;
+        }
+    }
 }
 .layui-m-layer0 .layui-m-layerchild{
     width: 70%;
@@ -9,64 +55,29 @@
 .layui-m-layercont{
     color: #484848;
     padding: 0;
-    line-height: 1.8rem;
-    font-size: 1.4rem;
-    .title{
-        color: $l_yellow;
-        font-size: 1.072rem;
-        margin: 2.5rem 0 .5rem 0;
-        &:before{
-            content: '';
-            display: block;
-            background-image: url('../../images/lottery/icon_tip_d.svg');
-            background-repeat: no-repeat;
-            width: 3.5rem;
-            height: 3.5rem;
-            position: absolute;
-            top: -2rem;
-            left: 50%;
-            margin-left: -2.1rem;
-            background-color: #fff;
-            border-radius: 60px;
-            border: 6px solid #fff;
-        }
-        &.count{
-            color: $l_blue;
-            &:before{
-                background-image: url('../../images/icon_count.svg');
-            }
-        }
-        &.check{
-            color: $l_green;
-            &:before{
-                background-image: url('../../images/icon_check.svg');
-            }
-        }
+    line-height: 1.286rem;
+    font-size: 0.8571rem;
+    width: auto;
+    span{
+        display: inline-block;
+        padding:0 0.2rem;
+    }
+    .radio{
+        display: inline-block;
+        margin: 0px auto;
         p{
-            color: #484848;
-            font-size: 0.8571rem;
-            &.space{
-                padding: 1rem 2rem;
-                text-align: center;
-            }
-        }
-        .radio{
-            padding: 0rem 6rem;
-            margin-top: -.5rem;
-            margin-bottom: 1rem;
-            p{
-                text-align: left;
-            } 
-        }
+            text-align: left;
+            margin: 0.5rem 0;
+        } 
     }
 }
-
 .layui-m-layerbtn{
     background-color: #fff;
     height: 2rem;
     line-height: 1.8rem;
     border-top: 0;
-    padding: 0 1rem 1.5rem;
+    // padding: 0 1rem 1.5rem;
+    margin-top: 1rem;
     border-radius: 0 0 10px 10px;
     font-size: 0.8571rem;
     text-align: center;
@@ -114,13 +125,30 @@
     color: #FCB008;
 }
 // 風控提示類型樣式
+body .layui-m-layer .layui-m-layer-msg{
+    background-color: rgba(52, 65, 70, 0.8);
+    border-radius: 1.5rem;
+    bottom: auto;
+    padding: 0px;
+    .layui-m-layercont{
+        padding: 0.5rem;
+        padding-right: 1rem;
+    }
+}
 .timeout{
-   color: #fff;
-   padding: .5rem 1.5rem;
-   font-size: 0.875rem;
+    color: #fff;
+    // padding: .5rem 1.5rem;
+    font-size: 0.875rem;
+    position: relative;
+    padding-left: 2.5rem;
+    text-align: left;
+    line-height: 2rem;
     img{
-        width: 2.2rem;
+        width: 2rem;
         margin-right: .5rem;
+        vertical-align: middle;
+        position: absolute;
+        left: 0px;
     }
     span{
         color: #FCB008;
