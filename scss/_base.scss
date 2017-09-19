@@ -223,46 +223,46 @@ label {
         margin-right: .8rem;
         // transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89); // custom ease effect for bouncy animation
         // Now we'll create the "tick" using pseudo elements - those will be basically two lines that will be rotated to form the "tick"
-        &:before {
-            content: "";
-            width: 0px;
-            height: .1rem;
-            border-radius: 2px; // so that the tick has nice rounded look
-            background: #fff;
-            position: absolute;
-            transform: rotate(45deg);
-            top: .5rem;
-            left: .2rem;
-            transition: width 50ms ease 50ms;
-            transform-origin: 0% 0%;
-        }
-        &:after {
-            content: "";
-            width: 0;
-            height: .1rem;
-            border-radius: 2px; // so that the tick has nice rounded look
-            background: #fff;
-            position: absolute;
-            transform: rotate(305deg);
-            top: .7rem;
-            left: .35rem;
-            transition: width 50ms ease;
-            transform-origin: 0% 0%;
-        }
+        // &:before {
+        //     content: "";
+        //     width: 0px;
+        //     height: .1rem;
+        //     border-radius: 2px; // so that the tick has nice rounded look
+        //     background: #fff;
+        //     position: absolute;
+        //     transform: rotate(45deg);
+        //     top: .5rem;
+        //     left: .2rem;
+        //     transition: width 50ms ease 50ms;
+        //     transform-origin: 0% 0%;
+        // }
+        // &:after {
+        //     content: "";
+        //     width: 0;
+        //     height: .1rem;
+        //     border-radius: 2px; // so that the tick has nice rounded look
+        //     background: #fff;
+        //     position: absolute;
+        //     transform: rotate(305deg);
+        //     top: .7rem;
+        //     left: .35rem;
+        //     transition: width 50ms ease;
+        //     transform-origin: 0% 0%;
+        // }
     }
     // Time to add some life to it
-    &:hover {
-        span {
-            &:before {
-                width: .3rem;
-                transition: width 100ms ease;
-            }
-            &:after {
-                width: .7rem;
-                transition: width 150ms ease 100ms;
-            }
-        }
-    }
+    // &:hover {
+    //     span {
+    //         &:before {
+    //             width: .3rem;
+    //             transition: width 100ms ease;
+    //         }
+    //         &:after {
+    //             width: .7rem;
+    //             transition: width 150ms ease 100ms;
+    //         }
+    //     }
+    // }
 }
 
 input[type="checkbox"] {
@@ -271,37 +271,37 @@ input[type="checkbox"] {
     &:checked {
         + label {
             span {
-                    background-color: $l_blue;
                     // transform: scale(1.25); // enlarge the box
-                    border: 2px solid $l_blue;
-                &:after {
-                    width: .7rem;
-                    background: #fff;
-                    transition: width 150ms ease 100ms; // enlarge the tick
-                }
-                &:before {
-                    width: .3rem;
-                    background: #fff;
-                    transition: width 150ms ease 100ms; // enlarge the tick
-                }
+                    border-color: $l_blue;
+                    background: url('../images/icon_check_w.svg') no-repeat center center $l_blue;
+                // &:after {
+                //     width: .7rem;
+                //     background: #fff;
+                //     transition: width 150ms ease 100ms; // enlarge the tick
+                // }
+                // &:before {
+                //     width: .3rem;
+                //     background: #fff;
+                //     transition: width 150ms ease 100ms; // enlarge the tick
+                // }
             }
-            &:hover { // copy the states for onMouseOver to avoid flickering
-                span {
-                    background-color: $l_blue;
-                    // transform: scale(1.25); // enlarge the box
-                    border: 2px solid $l_blue;
-                    &:after {
-                        width: .7rem;
-                        background: #fff;
-                        transition: width 150ms ease 100ms; // enlarge the tick
-                    }
-                    &:before {
-                        width: .3rem;
-                        background: #fff;
-                        transition: width 150ms ease 100ms; // enlarge the tick
-                    }
-                }
-            }
+            // &:hover { // copy the states for onMouseOver to avoid flickering
+            //     span {
+            //         background-color: $l_blue;
+            //         // transform: scale(1.25); // enlarge the box
+            //         border: 2px solid $l_blue;
+            //         &:after {
+            //             width: .7rem;
+            //             background: #fff;
+            //             transition: width 150ms ease 100ms; // enlarge the tick
+            //         }
+            //         &:before {
+            //             width: .3rem;
+            //             background: #fff;
+            //             transition: width 150ms ease 100ms; // enlarge the tick
+            //         }
+            //     }
+            // }
         }
     }
 }
