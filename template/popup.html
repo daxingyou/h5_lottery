@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 14.0625px;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>彩票</title>
+    <meta name="keywords" content="">
+    <meta nam="description" content="">
+    <link rel="stylesheet" href="../css/res.css">
+    <link href="../css/m-reset.css" rel="stylesheet" type="text/css">
+    <link href="../css/m-warp.css" rel="stylesheet" type="text/css">
+    <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
+    <script type="text/javascript" async="" src="../js/ga.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+    <!--消息框代码开始-->
+    <!-- <script type="text/javascript" src="../js/jquery.dialogUI.js"></script> -->
+    <script type="text/javascript" src="../js/jquery.dragdrop.js"></script>
+    <!--消息框代码结束-->
+    <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/velocity.min.js"></script>
+    <script type="text/javascript" src="../js/layer.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <!--时时彩js-->
+    <script type="text/javascript" src="../js/ssc_lottery.js"></script>
+        <!-- 彈窗css 覆蓋layer.css用 -->
+        <link href="../css/page.css" rel="stylesheet" type="text/css">
+    <!--<style>
+            .layui-m-layercont .title.check .totle{color: #484848;}
+    </style>-->
+</head>
+<body>
+<div id="body">
+    <dl style="padding: 1rem; line-height:2rem;">
+        <dt>msg</dt>
+        <dd>
+            <a href="javascript:;" class="msg01">购物区内已有相同注单。</a><br/>
+            <a href="javascript:;" class="msg02">请输入符合规范的注单。</a><br/>
+        </dd>
+        <dt>check</dt>
+        <dd>
+            <a href="javascript:;" class="check">确认付款</a><br/>
+        </dd>
+        <dt>tip</dt>
+        <dd>
+            <a href="javascript:;" class="tip01">可用的馀额不足，请前往充值。</a><br/>
+            <a href="javascript:;" class="tip02">注单超出奖金限额，请重新选择。</a><br/>
+            <a href="javascript:;" class="tip03">前往其他彩种将清空已选号码。您确定切换吗？</a><br/>
+            <a href="javascript:;" class="tip04">切换玩法后，当前的选号将被清空。确定要切换吗？</a><br/>
+            <a href="javascript:;" id="btn_bet_cancel">确定要进行撤单吗？撤单手续费需收 1000.00 元</a><br/>
+            <a href="javascript:;" id="btn_trace_cancel">确定要撤消追号吗？撤消手续费需收 1000.00 元</a><br/>
+            <a href="javascript:;" class="tip05">部分期号已开奖，无法进行撤单。</a><br/>
+            <a href="javascript:;" class="tip06">期号已开奖，无法进行撤单。</a><br/>
+        </dd>
+        <dt>conut</dt>
+        <dd>
+            <a href="javascript:;" class="number_count">号码统计</a><br/>
+        </dd>
+    </dl>
+
+</div>
+
+
+<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>
+<script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>
+<script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>
+<script type="text/javascript" src="../js/m_jquery.youxi.trace.js"></script>
+<script type="text/javascript" src="../js/pushstream.js"></script>
+
+<script type="text/javascript" src="../js/coreDesign.js"></script>
+<script type="text/javascript" src="../js/res.js"></script>
+
+<script>
+$(".msg01").click(function () {
+    layer.open({
+        content: '<div class="timeout"><img src="../images/icon_tip_d.svg" alt="">购物区内已有相同注单。</div>',
+        skin: 'msg',
+        time: 3
+    });
+});
+$(".msg02").click(function () {
+    layer.open({
+        content: '<div class="timeout"><img src="../images/icon_tip_d.svg" alt="">请输入符合规范的注单。</div>',
+        skin: 'msg',
+        time: 3
+    });
+});
+$(".msg03").click(function () {
+    layer.open({
+        content: '当前期已结束，将进到第<span class="ui_color_yellow">20170712101</span>期。',
+        skin: 'msg',
+        time: 5
+    });
+});
+$(".check").click(function () {
+    layer.open({
+        title: '确认付款',
+        className: 'layer_check',
+        content: '第<span class="ui_color_yellow">20170713021</span>期<br />倍数：9,999 倍<br />追号：9,999 期<br />注数：1000 注<br />总额：<span class="ui_color_yellow">2,000,000.00</span>元',
+        btn: ['确定', '取消']
+    });
+});
+$(".number_count").click(function () {
+    layer.open({
+        title: '号码统计',
+        className: 'layer_count',
+        content: '选择在下方显示对应的数据：<br /><div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>',
+        btn: ['确定', '取消']
+    });
+});
+$(".tip01").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '可用的馀额不足，请前往充值。',
+        btn: ['确定']
+    });
+});
+$(".tip02").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '注单超出奖金限额，请重新选择。',
+        btn: ['确定', '取消']
+    });
+});
+$(".tip03").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '前往其他彩种将清空已选号码。<br/>您确定切换吗？',
+        btn: ['确定', '取消']
+    });
+});
+$(".tip04").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '切换玩法后，当前的选号将被清空。<br/>确定要切换吗？',
+        btn: ['确定', '取消']
+    });
+});
+$("#btn_bet_cancel").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">1000.00</span>元',
+        btn: ['确定', '取消']
+    });
+});
+$("#btn_trace_cancel").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '确定要撤消追号吗？<br />撤消手续费需收<span class="ui_color_yellow">1000.00</span>元',
+        btn: ['确定', '取消']
+    });
+});
+$(".tip05").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '部分期号已开奖，无法进行撤单。',
+        btn: ['确定']
+    });
+});
+$(".tip06").click(function () {
+    layer.open({
+        title: '温馨提示',
+        className: 'layer_tip',
+        content: '期号已开奖，无法进行撤单。',
+        btn: ['确定']
+    });
+});
+</script>
+<script type="text/javascript" src="../js/pushservice.js"></script>
+
+
+</body>
+</html>
