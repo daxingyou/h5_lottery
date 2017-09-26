@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c5451e94-cb03-472c-930e-7c8d28d6ba6e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/beifen/play.html" afterPath="$PROJECT_DIR$/beifen/play.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/beifen/popup.html" afterPath="$PROJECT_DIR$/beifen/popup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ssc_lottery.js" afterPath="$PROJECT_DIR$/js/ssc_lottery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/betting_record.html" afterPath="$PROJECT_DIR$/template/betting_record.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/play.html" afterPath="$PROJECT_DIR$/template/play.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/popup.html" afterPath="$PROJECT_DIR$/template/popup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/recent_lottery.html" afterPath="$PROJECT_DIR$/template/recent_lottery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/trend.html" afterPath="$PROJECT_DIR$/template/trend.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/res.js" afterPath="$PROJECT_DIR$/js/res.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="737" column="26" lean-forward="true" selection-start-line="737" selection-start-column="26" selection-end-line="737" selection-end-column="26" />
+            <state relative-caret-position="90">
+              <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -43,19 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="betting_record.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/betting_record.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trend.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trend.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/trend.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="337">
@@ -77,32 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/play.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="res.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/res.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="623" column="0" lean-forward="true" selection-start-line="623" selection-start-column="0" selection-end-line="623" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="coreDesign.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/coreDesign.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="1672">
               <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
               <folding />
             </state>
@@ -112,7 +71,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="23180">
               <caret line="1220" column="0" lean-forward="true" selection-start-line="1220" selection-start-column="0" selection-end-line="1220" selection-end-column="0" />
               <folding />
             </state>
@@ -122,7 +81,7 @@
       <file leaf-file-name="ssc_lottery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ssc_lottery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-790">
+            <state relative-caret-position="8835">
               <caret line="467" column="26" lean-forward="true" selection-start-line="467" selection-start-column="26" selection-end-line="467" selection-end-column="26" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -145,8 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lt_sel_insert</find>
-      <find>id_sel_insert</find>
       <find>lt_cf_content</find>
       <find>id_cf_content</find>
       <find>id_sendok</find>
@@ -175,6 +132,8 @@
       <find>getCookie</find>
       <find>style=&quot;font-size: 14.0625px;&quot;</find>
       <find>res</find>
+      <find>controller=user&amp;action=usercenter</find>
+      <find>elsa</find>
     </findStrings>
     <replaceStrings>
       <replace>js</replace>
@@ -213,13 +172,13 @@
         <option value="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
         <option value="$PROJECT_DIR$/template/bet_success.html" />
         <option value="$PROJECT_DIR$/js/ssc_lottery.js" />
-        <option value="$PROJECT_DIR$/js/res.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/template/betting_record.html" />
         <option value="$PROJECT_DIR$/template/trend.html" />
         <option value="$PROJECT_DIR$/template/recent_lottery.html" />
         <option value="$PROJECT_DIR$/template/play.html" />
         <option value="$PROJECT_DIR$/beifen/play.html" />
+        <option value="$PROJECT_DIR$/js/res.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -251,6 +210,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,24 +224,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="h5_lottery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="h5_lottery" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,15 +307,16 @@
       <workItem from="1502953465680" duration="9449000" />
       <workItem from="1503394154142" duration="889000" />
       <workItem from="1504681680644" duration="2938000" />
-      <workItem from="1506061936965" duration="8594000" />
+      <workItem from="1506061936965" duration="9169000" />
+      <workItem from="1506320710048" duration="2887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21870000" />
+    <option name="totallyTimeSpent" value="25332000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -403,6 +349,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/ssc_lottery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8835">
+          <caret line="467" column="26" lean-forward="true" selection-start-line="467" selection-start-column="26" selection-end-line="467" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1506069672983" expanded="true" signature="16572:16585" ph="..." />
+            <marker date="1506069672983" expanded="true" signature="17492:17507" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2204">
@@ -585,7 +543,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1506069672983" expanded="true" signature="16572:16585" ph="..." />
+            <marker date="1506069672983" expanded="true" signature="17492:17507" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -738,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +723,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/coreDesign.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="1672">
           <caret line="88" column="17" lean-forward="false" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
           <folding />
         </state>
@@ -770,7 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="23180">
           <caret line="1220" column="0" lean-forward="true" selection-start-line="1220" selection-start-column="0" selection-end-line="1220" selection-end-column="0" />
           <folding />
         </state>
@@ -780,13 +741,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="8434" column="0" lean-forward="false" selection-start-line="8434" selection-start-column="0" selection-end-line="8434" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ssc_lottery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-790">
+        <state relative-caret-position="8835">
           <caret line="467" column="26" lean-forward="true" selection-start-line="467" selection-start-column="26" selection-end-line="467" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -796,40 +756,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/beifen/play.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="737" column="26" lean-forward="true" selection-start-line="737" selection-start-column="26" selection-end-line="737" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#3;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1425">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/res.js">
+    <entry file="file://$PROJECT_DIR$/template/recent_lottery.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="623" column="0" lean-forward="true" selection-start-line="623" selection-start-column="0" selection-end-line="623" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="19">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/play.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beifen/play.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="38">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -838,21 +782,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/template/betting_record.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        <state relative-caret-position="228">
+          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/recent_lottery.html">
+    <entry file="file://$PROJECT_DIR$/js/res.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="955">
+          <caret line="200" column="46" lean-forward="true" selection-start-line="200" selection-start-column="46" selection-end-line="200" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,6 +814,18 @@
             <marker date="1506072437800" expanded="true" signature="93300:93339" ph="..." />
             <marker date="1506072437800" expanded="true" signature="93544:93583" ph="..." />
             <marker date="1506072437800" expanded="true" signature="93780:93819" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="233" column="0" lean-forward="true" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#3;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

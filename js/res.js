@@ -186,10 +186,10 @@ function GetVal2(ab){
         setCookie("touzhu",up_url)
         $("#user_back_home").text("返回投注")
     }
-    if(key == "controller=user&action=usercenter"){
+/*    if(key == "controller=user&action=usercenter"){
         var up_url = document.referrer; //获取url中"?"符后的字串
         setCookie("touzhu",up_url)
-    }
+    }*/
 
     if(Request2 == 'controller=gameinfo&action=gamelistbyself'){
     	var ckUrl = PAGTITLE_LISTS_URL2(getCookie("touzhu"));
@@ -197,14 +197,10 @@ function GetVal2(ab){
         if(ckUrl == "nav=mmc&flaglot=xc_mmc" ){
              $("#user_back_home").text("返回投注")
         }
-        if(ckUrl == "controller=user&action=usercenter" ){
+       /* if(ckUrl == "controller=user&action=usercenter" ){
              $("#user_back_home").text("用户中心")
-        }
-        /*
-        if(key != "controller=user&action=usercenter" && key !='controller=gameinfo&action=gamelistbyself' ){
-             $("#user_back_home").text("返回投注")
-        }
-        */
+        }*/
+
     }
 
     if(Request2 == 'controller=gameinfo&action=newgamedetail'){
@@ -504,9 +500,9 @@ function laye_close(){  //关闭弹窗
           $(".withraw").click(function(){
             setCookie("tx_url","/index.php")
           })
-          $(".m_user_tixian").click(function(){
+       /*   $(".m_user_tixian").click(function(){
             setCookie("tx_url","/?controller=user&action=usercenter")
-          })
+          })*/
           $('.m-chongzi-return').click(function(){
 
           if(RequestUrl.action=='main' && RequestUrl.controller =='emaildeposit'){
