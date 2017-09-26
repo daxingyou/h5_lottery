@@ -728,6 +728,10 @@
 
 <script type="text/javascript" src="js/coreDesign.js"></script>
  <script type="text/javascript" src="js/res.js"></script>
+ <script type="text/javascript" src="js/new-add.js"></script>
+
+
+
 <!-- 声音控件-->
 <!-- <div id="soundBox" style="width:1px; height:1px; position:absolute;">
 <embed id="boardcastBox" src="/fl/source/soundBox.swf" loop="false" menu="false" quality="best" width="1" height="1" name="boardcastBox" style="position:absolute; top:-10px;" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="#" flashvars="Ctext=1a3f677c" wmode="window">
@@ -761,67 +765,7 @@
         })
     }
 
-    $(function(){
-        var riable=0;
-        $(".nfdprize_text").click(function(){
-            if(riable==0){
-                riable=1;
-                $(".m-lott-methodBox .nfdprize_text b").addClass('cur')
-            }else{
-                riable =0;
-                $(".m-lott-methodBox .nfdprize_text b").removeClass('cur')
-            }
-            $(".m-lott-methodBox-list").toggle();
-        });
-        $('.ui_playlist_cover').click(function(){
-            $(".nfdprize_text").click();
-        })
 
-
-    }())
-
-    // 购物车动画
-    $(function(){
-        $('#ui_cart').on('click',function(){
-            $('#ui_bet').stop(true,true).animate({left: 0},300,function(){
-                $('#body').addClass('bet_cart');
-                // $('.m_fx_footer').css({'z-index':110});
-                // $('#lt_sel_insert').css({'display':'none'});
-                // $('#ui_cart').css({'display':'none'});
-                // $('#all_addOrderBox').css({'display':'block'});
-                // $('.sendChoose').css({'display':'block'});
-                // $('#ui_bet_info').css({'display':'none'});
-                // $('#ui_car_info').css({'display':'block'});
-            });
-        })
-        $('#bet_back').on('click',function(){
-            $('#body').removeClass('bet_cart');
-            // $('.m_fx_footer').css({'z-index':11});
-            // $('#lt_sel_insert').css({'display':'block'});
-            // $('#ui_cart').css({'display':'block'});
-            // $('#all_addOrderBox').css({'display':'none'});
-            // $('.sendChoose').css({'display':'none'});
-            // $('#ui_bet_info').css({'display':'block'});
-            // $('#ui_car_info').css({'display':'none'});
-            $('#ui_bet').stop(true,true).animate({left: '100%'},300);
-        });
-    })
-
-    // 助手选单
-    $(function(){
-        $('.ui_help').on('click','.ui_btn_help',function(){
-            $(this).parent('.ui_help').find('ul').stop().fadeIn(200);
-            $(this).append('<div class="ui_cover"></div>');
-            $('.ui_help').find('ul').on('click',function(){
-                $('.ui_cover').remove();
-                $(this).hide();
-            });
-            $('.ui_cover').on('click',function(){
-                $('.ui_cover').remove();
-                $('.ui_help').find('ul').hide();
-            })
-        });
-    })
 
     // 元角选单
     $(function(){
