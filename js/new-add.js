@@ -1,14 +1,25 @@
 
+var access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ";
+
+var ajaxurl = {
+    forseti: 'http://192.168.0.225:8088/forseti/' ,
+    uaa: 'http://192.168.0.225:8088/uaa/',
+    // param:'?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ',
+}
+
+var now_pcode  ; // 当前期数
+
+
 /**
  * ajax 全局配置
  */
 
-$.ajaxSetup({
+/*$.ajaxSetup({
     dataType: 'json',
     crossDomain: true,
     headers: {
-     //  Authorization: "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0MzkwODksInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMzUzMzNjNjAtNDQ5Yy00NmRlLWEyM2YtYzlmYzBkODc5N2ZlIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.mM75z-_vv_8G5UvJu6lPHgjZyADEa0djCzsuv"
-        // mauth: "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0MzkwODksInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMzUzMzNjNjAtNDQ5Yy00NmRlLWEyM2YtYzlmYzBkODc5N2ZlIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.mM75z-_vv_8G5UvJu6lPHgjZyADEa0djCzsuv"
+       Authorization: "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0MzkwODksInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMzUzMzNjNjAtNDQ5Yy00NmRlLWEyM2YtYzlmYzBkODc5N2ZlIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.mM75z-_vv_8G5UvJu6lPHgjZyADEa0djCzsuv"
+    // mauth: "bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0MzkwODksInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMzUzMzNjNjAtNDQ5Yy00NmRlLWEyM2YtYzlmYzBkODc5N2ZlIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.mM75z-_vv_8G5UvJu6lPHgjZyADEa0djCzsuv"
     },
     beforeSend: function(xhr, setting){
         console.log(xhr);
@@ -16,22 +27,38 @@ $.ajaxSetup({
     error: function(){
         console.log('错误');
     }
-});
+});*/
 
 
-var ajaxurl = {
-    forseti: 'http://192.168.0.225:8088/forseti/' ,
-    uaa: 'http://192.168.0.225:8088/uaa/' ,
-}
 
 
 $(function(){
+
     gamePlay() ;
     shopCar() ;
     helpChoose() ;
     getLotterys() ; // 获取彩种
-    priodDataNewly() ; // 最近5期开奖
+    getPlayTree(1) ;  // 玩法
+    priodDataNewly(1) ; // 最近5期开奖
 
+   // 最新开奖期数
+    function priodDataNewly(gameid) {
+        $.ajax({
+            type: 'get',
+            headers: {
+                "Authorization": "bearer  "+access_token,
+            },
+            url : ajaxurl.forseti+'api/priodDataNewly' ,
+            data: { lotteryId:gameid ,} ,
+            success: function(res){
+                now_pcode = res.data[1].pcode ;
+
+            },
+            error: function() {
+
+            }
+        });
+    }
     var riable=0;
     // 玩法菜单选择
     function gamePlay() {
@@ -83,10 +110,9 @@ $(function(){
 
     // 获取彩种
     function getLotterys() {
+        /*  $.getJSON( ajaxurl.forseti+'apis/lotterys', function(res) {
 
-      /*  $.getJSON( ajaxurl.forseti+'apis/lotterys', function(res) {
-
-        })*/
+         })*/
         $.ajax({
             type: 'GET',
             url : ajaxurl.forseti+'apis/lotterys',
@@ -122,28 +148,25 @@ $(function(){
 
             }
         });
-}
+    }
 
-// 最新开奖期数
-    function priodDataNewly() {
-        $.getJSON( ajaxurl.forseti+'api/priodDataNewly', function(res) {
-
-        })
-
-       /* $.ajax({
+// 玩法树
+    function getPlayTree(gameid) {
+        $.ajax({
             type: 'get',
-            url : ajaxurl.forseti+'api/priodDataNewly',
-            data: {} ,
+            headers: {
+                "Authorization": "bearer  "+access_token,
+            },
+            url : ajaxurl.forseti+'api/playsTree' ,
+            data: { lotteryId:gameid} ,
             success: function(res){
-
 
             },
             error: function() {
 
             }
-        });*/
+        });
     }
-
 
 
 

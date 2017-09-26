@@ -526,7 +526,8 @@ var is_select=0;
         }
         //开始倒计时
         $($.lt_id_data.id_count_down).lt_timer(opts.servertime,opts.cur_issue.endtime);
-		
+       // $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
+
         //装载模式选择
         //$('<select name="lt_project_modes" id="lt_project_modes"></select>').appendTo($.lt_id_data.id_sel_modes);//此为装载玩sean
 		
@@ -1183,7 +1184,6 @@ var is_select=0;
             }
             //读取新数据刷新必须刷新的内容
             $.ajax({
-
                 type: 'POST',
                 URL : $.lt_ajaxurl,
                 data: "lotteryid="+$.lt_lottid+"&flag=read",
@@ -1205,7 +1205,6 @@ var is_select=0;
                                         content:lot_lang.am_s17,
                                         btn:'确定'
                                     })
-        						//	top.location.href="../?controller=default";
         							top.location.href="#";
         							return false;
                                 }

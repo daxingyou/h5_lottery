@@ -1,13 +1,170 @@
+
 /*
  *  时时彩
  * */
-(function($){
+$(function(){
+
+    var access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ";
+    var ajaxurl = {
+        forseti: 'http://192.168.0.225:8088/forseti/' ,
+        uaa: 'http://192.168.0.225:8088/uaa/',
+        // param:'?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ',
+    }
+
+    var now_pcode  ; // 当前期数
+
+        gamePlay() ;
+        shopCar() ;
+        helpChoose() ;
+        getLotterys() ; // 获取彩种
+        getPlayTree(1) ;  // 玩法
+        priodDataNewly(1) ; // 最近5期开奖
+
+        // 最新开奖期数
+        function priodDataNewly(gameid) {
+            $.ajax({
+                type: 'get',
+                headers: {
+                    "Authorization": "bearer  "+access_token,
+                },
+                url : ajaxurl.forseti+'api/priodDataNewly' ,
+                data: { lotteryId:gameid ,} ,
+                success: function(res){
+                    now_pcode = res.data[1].pcode ;
+                    for(var i=2;i<res.data.length;i++){
+                        processCode(res.data[i].pcode,res.data[i].winNumber);
+                    }
+
+                    initFrame() ;
+                },
+                error: function() {
+
+                }
+            });
+        }
+        var riable=0;
+        // 玩法菜单选择
+        function gamePlay() {
+            $(".nfdprize_text").click(function(){
+                if(riable==0){
+                    riable=1;
+                    $(".m-lott-methodBox .nfdprize_text b").addClass('cur')
+                }else{
+                    riable =0;
+                    $(".m-lott-methodBox .nfdprize_text b").removeClass('cur')
+                }
+                $(".m-lott-methodBox-list").toggle();
+            });
+            $('.ui_playlist_cover').click(function(){
+                $(".nfdprize_text").click();
+            })
+        }
+
+// 购物车动画
+        function shopCar() {
+            $('#ui_cart').on('click',function(){
+                $('#ui_bet').stop(true,true).animate({left: 0},300,function(){
+                    $('#body').addClass('bet_cart');
+
+                });
+            })
+            $('#bet_back').on('click',function(){
+                $('#body').removeClass('bet_cart');
+
+                $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+            });
+
+        }
+// 助手选单
+        function helpChoose() {
+            $('.ui_help').on('click','.ui_btn_help',function(){
+                $(this).parent('.ui_help').find('ul').stop().fadeIn(200);
+                $(this).append('<div class="ui_cover"></div>');
+                $('.ui_help').find('ul').on('click',function(){
+                    $('.ui_cover').remove();
+                    $(this).hide();
+                });
+                $('.ui_cover').on('click',function(){
+                    $('.ui_cover').remove();
+                    $('.ui_help').find('ul').hide();
+                })
+            });
+        }
+
+        // 获取彩种
+        function getLotterys() {
+            /*  $.getJSON( ajaxurl.forseti+'apis/lotterys', function(res) {
+
+             })*/
+            $.ajax({
+                type: 'GET',
+                url : ajaxurl.forseti+'apis/lotterys',
+                data: {} ,
+                dataType:'json',
+                success: function(res){
+                    var allstr ='' ;  // 全部彩种
+                    var hotstr ='' ;  // 热门彩种
+
+                    $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
+                        allstr +='<a href="javascript:;">'+
+                            '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                            ' <div class="menu_name">'+
+                            ' <h2>'+v.name+'</h2>'+
+                            ' <span>'+v.periodDesc+'</span>'+
+                            '</div> </a>' ;
+                        if(v.ifHot == '1'){
+                            hotstr +='<a href="javascript:;">'+
+                                '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                                ' <div class="menu_name">'+
+                                ' <h2>'+v.name+'</h2>'+
+                                ' <span>'+v.periodDesc+'</span>'+
+                                '</div> </a>' ;
+                        }
+
+                    });
+
+                    $('.game-hot').html(hotstr) ;
+                    $('.game-all').html(allstr) ;
+
+                },
+                error: function() {
+
+                }
+            });
+        }
+
+// 玩法树
+        function getPlayTree(gameid) {
+            $.ajax({
+                type: 'get',
+                headers: {
+                    "Authorization": "bearer  "+access_token,
+                },
+                url : ajaxurl.forseti+'api/playsTree' ,
+                data: { lotteryId:gameid} ,
+                success: function(res){
+
+                },
+                error: function() {
+
+                }
+            });
+        }
+
+
+
+
+
+
+
     // 初始化方法
     var initFrame = function(){
 
         $.gameInit({
             data_label: data_label,
-            cur_issue : {issue:'20170817-054',endtime:'2017-08-17 14:59:05'},
+            cur_issue : {issue: now_pcode,endtime:'2017-08-17 14:59:05'},
+            servertime:'2017-08-17 14:50:05'  ,
+            lotteryid : parseInt(1,10),
             issues    : {//所有的可追号期数集合
                 today:[
                     {issue:'20170817-054',endtime:'2017-08-17 14:59:05'},
@@ -202,10 +359,9 @@
                 ]
 
             },
-            servertime: '2017-08-17 14:56:10',
-            lotteryid : parseInt(1,10),
-            ajaxurl   : './?controller=game&action=play',
-            ontimeout : function(){
+
+          //  ajaxurl   : './?controller=game&action=play',
+   /*         ontimeout : function(){
                 $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
@@ -218,7 +374,7 @@
                         processCode(data[0].issue,data[0].code);
                     }
                 });
-            },
+            },*/
             onfinishbuy : function(){
                 $.ajax({
                     type: 'POST',
@@ -261,9 +417,9 @@
             }
         });
         //$.gameInit结束
-        if('18083' != ''){
-            processCode('20170817-053','18083');
-        }
+   /*     if('18083' != ''){
+            processCode(now_pcode,'18083');
+        }*/
         $('span[class="project_more"]',"#history_project").live("click",function(){
             var mme = this;
             var $h = $('<span style="display: block;" id="task_div">号码详情[<span class="close">关闭</span>]<br><textarea readonly="readonly" class="code1">'+$(mme).next().html()+'</textarea></span>');
@@ -2342,9 +2498,11 @@
             desc:'组选120',maxcodecount:0
         }]}]}							];
 
-    $(document).ready(initFrame);
+   // $(document).ready(initFrame);
 
-})(jQuery);
+
+});
+
 
 var lotterytype=0;
 var isInit = true;
@@ -2362,14 +2520,38 @@ var runData = {
     isGroundStopped:false
 }
 showAll();
+
 function processCode(issue,code,iscurent){
-    //issue 20160407-175
-    //code 43389
-    //iscurent 2
+    var code_arr = code.split(',');
+
+    var finishIssueCodeHtml = '<li class="hover"><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    //已开期号节点,开奖号码
+    var recentCon = $(".recentCon ul") ;
+    for(var i=0;i<code_arr.length;i++){
+        finishIssueCodeHtml += '<i>' + code_arr[i] + '</i>';
+    }
+    finishIssueCodeHtml +='</span></li>';
+
+    var str = "";
+    $.each(code_arr,function(i,n){
+        if(i == code_arr.length - 1){
+            str += n;
+        }else{
+            str += n + " ";
+        }
+
+    });
+
+
+    recentCon.find("li").removeClass("hover");
+    recentCon.prepend(finishIssueCodeHtml);
+}
+
+/*function processCode(issue,code,iscurent){
     if(sidebar_hover === "pk10"||sidebar_hover === "jssm"){//如果是pk10
         var code_arr = code.split(' ');
     }else{
-        var code_arr = code.split('');
+        var code_arr = code.split(',');
     }
     var _html = "";
     $('.no_old').html(issue);
@@ -2400,7 +2582,7 @@ function processCode(issue,code,iscurent){
             recentCon.find("li").removeClass("hover");
             recentCon.prepend(finishIssueCodeHtml);
         }
-        /*新号码产生的动画*/
+        /!*新号码产生的动画*!/
         if(sidebar_hover === "pk10" ){//如果是pk10
             setTimeout(function(){
                 $("#num li").each(function(index){
@@ -2459,7 +2641,7 @@ function processCode(issue,code,iscurent){
             })
             $("#num").addClass("pk10_ul").empty().html(_html);
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.removeClass().addClass("car" + code_arr[index]).hide();
@@ -2482,7 +2664,7 @@ function processCode(issue,code,iscurent){
             })
             $("#num").addClass("horse_ul").empty().html(_html);
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.removeClass().addClass("horse" + code_arr[index]).hide();
@@ -2507,7 +2689,7 @@ function processCode(issue,code,iscurent){
             $("#num").empty().html(_html);
             // .css({'width': 50*code_arr.length + "px"});
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.animate({
@@ -2531,7 +2713,7 @@ function processCode(issue,code,iscurent){
             $(".recentCon ul li:last").remove();
         }
     }
-}
+}*/
 
 function showAll(){
     $("span.more").live("click",function(event){
