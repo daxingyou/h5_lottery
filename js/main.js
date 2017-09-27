@@ -1017,6 +1017,58 @@ jQuery.extend( jQuery.easing,  {
     }
 });
 
+
+// 获取当前时间
+
+function setAmerTime(el) {
+    var today = new Date();
+    today.setHours(today.getHours());
+    var y = today.getFullYear();
+    var m = today.getMonth() + 1;
+    var d = today.getDate();
+    var h = today.getHours();
+    var mm = today.getMinutes();
+    var s = today.getSeconds();
+    m =  checkTime(m);
+    d = checkTime(d);
+    h = checkTime(h);
+    mm = checkTime(mm);
+    s = checkTime(s);
+    if(el =='#paydate'){
+        $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm); // 只到分
+    }else{
+        $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm+":"+s);
+    }
+    return ( y+"-"+m+"-"+d+" "+h+":"+mm+":"+s) ;
+
+}
+/**
+ * 1位数补0为2位数
+ * @param i
+ * @returns {*}
+ */
+function checkTime(i) {
+    if (i<10)
+    {i="0" + i}
+    return i
+}
+
+//时间戳转换
+function formatTimeUnlix(v){
+    if(v==null){
+        return '';
+    }
+	 var date=new Date(v);
+	 var year=date.getFullYear();
+	 var month=(date.getMonth()+1<10)?"0"+(date.getMonth()+1):(date.getMonth()+1);
+	 var day=(date.getDate()<10)?"0"+date.getDate():date.getDate();
+	 var hours=(date.getHours()<10)?"0"+date.getHours():date.getHours();
+	 var minutes=(date.getMinutes()<10)?"0"+date.getMinutes():date.getMinutes();
+	 var seconds=(date.getSeconds()<10)?"0"+date.getSeconds():date.getSeconds();
+	 return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+}
+
+// 格式化时间
 function formatTime(date){
 	var year = date.getFullYear(),
 		month = date.getMonth() + 1,
@@ -1029,6 +1081,7 @@ function formatTime(date){
 	minutes = minutes > 9 ? minutes : '0' + minutes;
 	return month + '-' + day + ' ' + hour + ':' + minutes;
 }
+
 
 function xxmPush(show,data,type){
 	var $tip = $('.public-number .tips'),$info = $('.public-number .other-info');
