@@ -193,7 +193,7 @@ $(function(){
 
             },
 
-            ajaxurl   : action.forseti+'api/priodDataNewly' ,   // 获取最近五期的开奖号码
+            ajaxurl : action.forseti+'api/priodDataNewly' ,   // 获取最近五期的开奖号码
    /*         ontimeout : function(){
                 $.ajax({
                     type: 'POST',

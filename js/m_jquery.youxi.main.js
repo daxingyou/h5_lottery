@@ -30,9 +30,11 @@ var is_select=0;
         var ps = {//整个JS的初试化默认参数
             data_label      : [],
             data_id : {
-                        id_cur_issue    : '#current_issue',//装载当前期的ID
+                       // id_cur_issue    : '#current_issue',//装载当前期的ID
+                        id_cur_issue    : '.current_issue',//装载当前期的class，原来是id
                         id_cur_end      : '#current_endtime',//装载当前期结束时间的ID
-                        id_count_down   : '#count_down',//装载倒计时的ID
+                       // id_count_down   : '#count_down',//装载倒计时的ID
+                        id_count_down   : '.count_down',//装载倒计时的class
 						//id_labelbox     : '#lt_big_label', //装载大标签的元素ID
                         id_labelbox     : '#lotteryType', //装载大标签的元素ID(原来的是:lt_big_label)
                         id_smalllabel   : '#lt_small_label',//装载小标签的元素ID
@@ -969,11 +971,13 @@ var is_select=0;
     };
 	
     //倒计时
-    $.fn.lt_timer = function(start,end){//服务器开始时间，服务器结束时间
+    $.fn.lt_timer = function(start,end){ //服务器开始时间，服务器结束时间
         var me = this;
         if( start == "" || end == "" ){
+            console.log('环境') ;
             $.lt_time_leave = 0;
         }else{
+            console.log('进度款') ;
             $.lt_time_leave = (format(end).getTime()-format(start).getTime())/1000;//总秒数
         }
         function fftime(n){
@@ -991,21 +995,33 @@ var is_select=0;
     		} : {day:0,hour:0,minute:0,second:0};
         }
         var timerno = window.setInterval(function(){
-            if($.lt_time_leave > 0 && ($.lt_time_leave % 240 == 0 || $.lt_time_leave == 60 )){//每隔4分钟以及最后一分钟重新读取服务器时间
+            if($.lt_time_leave > 0 && ($.lt_time_leave % 240 == 0 || $.lt_time_leave == 60 )){   //每隔4分钟以及最后一分钟重新读取服务器时间
+
                 $.ajax({
-                        type: 'POST',
-                        URL : $.lt_ajaxurl,
+                        type: 'get',
+                       // url : $.lt_ajaxurl,
+                        url : action.forseti+'apis/serverCurrentTime',
+                        headers: {
+                            "Authorization": "bearer  "+access_token,
+                        },
                         timeout : 30000,
-                        data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
-                        success : function(data){//成功
-                            data = parseInt(data,10);
+                       // data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
+                        data: "lotteryId="+$.lt_lottid ,
+                        success : function(data){ //成功
+                            console.log(data) ;
+                           /* data = parseInt(data,10);
                             data = isNaN(data) ? 0 : data;
-                            data = data <= 0 ? 0 : data;
-                            $.lt_time_leave = data;
+                            data = data <= 0 ? 0 : data;*/
+                          // $.lt_time_leave = data.data ;
+                           $.lt_time_leave = (format(now_time).getTime()-format(formatTimeUnlix(data.data)).getTime())/1000 ;
+
+
                         }
                 });
-            }
 
+
+            }
+console.log($.lt_time_leave+'黑色短裤') ;
             if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
@@ -1014,7 +1030,7 @@ var is_select=0;
 
                         layer.open({  // 当前期数结束，转到下一期
                             className:'time_ontimeout',
-                            content:'lot_lang.am_s15_3'+'<span class="ui_color_yellow">'+next_pcode+'</span>'+'  期 。'+'</div>', // 转到下一期
+                            content:lot_lang.am_s15_3+'<span class="ui_color_yellow">'+next_pcode+'</span>'+'  期 。'+'</div>', // 转到下一期
                             // btn:'确定',
                             skin: 'msg',
                             time:5
@@ -1043,13 +1059,7 @@ var is_select=0;
                         //传说中的5秒自动关闭
                         $.lt_reset(true);
                         $.lt_ontimeout(); 
-					/*	$.confirm(lot_lang.am_s15,function(){//确定
-							$.lt_reset(false);
-							$.lt_ontimeout();
-						},function(){//取消
-							$.lt_reset(true);
-							$.lt_ontimeout();
-						});*/
+
 					}else{  // 销售截止
                         layer.open({
                             content:lot_lang.am_s15_2,
@@ -1058,30 +1068,16 @@ var is_select=0;
 						//}
 					}
                 }
+
+                console.log('停止当前期数') ;
+              //  $($.lt_id_data.id_count_down).lt_timer(setAmerTime() , formatTimeUnlix(data.data[1].endTime));
             }
             var oDate = diff($.lt_time_leave--);
             $(me).html(""+(oDate.day>0 ? oDate.day+(lot_lang.dec_s21)+" " : "")+"<div class=\"hour\">"+fftime(oDate.hour)+":</div><div class=\"min\">"+fftime(oDate.minute)+":</div><div class=\"sec\">"+fftime(oDate.second)+"</div>");
+
         },1000);
     };
 
-	//根据投单完成和本期销售时间结束，进行重新更新整个投注界面
-/*
-	$.finishdofunc = function(){
-
-
-		 $.ajax({
-                        type: 'POST',
-                        URL : $.lt_ajaxurl,
-                        timeout : 30000,
-                        data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=getlatest",
-                        success : function(data){//成功
-						//	var tmpdatas =	eval(data);
-								eval("data="+data);
-					//			$('#availabalances').html(data.availablebalance);
-
-                        }
-                });
-	}*/
      $.fn.lt_timer_1 = function(start,end,info){  //服务器开始时间，服务器结束时间
         var me = this;
         if( start == "" || end == "" ){
@@ -1158,7 +1154,8 @@ var is_select=0;
         }else{
             iskeep = false;
         }
-        if( $.lt_time_leave <= 0 ){//本期结束后的刷新
+        if( $.lt_time_leave <= 0 ){    //本期结束后的刷新
+
             //01:刷新选号区
             if( iskeep == false ){
                 $(":radio:checked",$($.lt_id_data.id_smalllabel)).removeData("ischecked").click();
@@ -1177,12 +1174,18 @@ var is_select=0;
                 $($.lt_id_data.id_cf_count).html(0);
                 $("#times").attr('selected');
             }
+            console.log('刷新在这')
+
             //读取新数据刷新必须刷新的内容
             $.ajax({
-                type: 'POST',
-                URL : $.lt_ajaxurl,
-                data: "lotteryId="+$.lt_lottid+"&flag=read",
-                success : function(data){//成功
+                type: 'get',
+                url : $.lt_ajaxurl,
+                headers: {
+                    "Authorization": "bearer  "+access_token,
+                },
+              //  data: "lotteryId="+$.lt_lottid+"&flag=read",
+                data: "lotteryId="+$.lt_lottid ,
+                success : function(data){  //成功
 
                                 if( data.length <= 0 ){
                                     layer.open({
@@ -1191,12 +1194,10 @@ var is_select=0;
                                         content:lot_lang.am_s16,
                                         btn:'确定'
                                     })
-                                    // $.alert(lot_lang.am_s16);
                                     return false;
                                 }
-                                var partn = /<script.*>.*<\/script>/;
-                         /*       if( partn.test(data) ){  // 帐号在其他地方登录
-                                    alert('合法的进口')
+                    /*   var partn = /<script.*>.*<\/script>/;
+                              if( partn.test(data) ){  // 帐号在其他地方登录
                                     layer.open({
                                         content:lot_lang.am_s17,
                                         btn:'确定'
@@ -1216,8 +1217,11 @@ var is_select=0;
                                     return false;
                                 }
                                 eval("data="+data);
+
                                 //03:刷新当前期的信息
-                                $($.lt_id_data.id_cur_issue).html(data.issue);
+                              //  $($.lt_id_data.id_cur_issue).html(data.issue);
+                                $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
+
                                 if(sidebar_hover == "pk10"){
                                     setTimeout(function(){
                                         $(".lottery_history_issue_pk10").find("span").html(data.issue-1);
@@ -1249,9 +1253,15 @@ var is_select=0;
                                         })();
                                     },10000);
                                 }                     
-                                $($.lt_id_data.id_cur_end).html(data.saleend);
+                              //  $($.lt_id_data.id_cur_end).html(data.saleend);
+                                $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
                                 //04:重新开始计时
-                                $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
+                              //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
+                                $($.lt_id_data.id_count_down).lt_timer(setAmerTime() , formatTimeUnlix(data.data[1].endTime));
+                                console.log(data) ;
+console.log(setAmerTime()+'返回的时刻积分') ;
+console.log(formatTimeUnlix(data.data[1].endTime)+'粉红色打开就') ;
+
                                 var l = $.lt_issues.today.length;
                                 //05:更新起始期
                                 while(true){
@@ -1311,7 +1321,7 @@ var is_select=0;
                     return false;
                 }
             });
-        }else{//提交表单成功后的刷新
+        }else{    //提交表单成功后的刷新
             //01:刷新选号区
             if( iskeep == false ){
                 $(":radio:checked",$($.lt_id_data.id_smalllabel)).removeData("ischecked").click();
@@ -1520,7 +1530,8 @@ var is_select=0;
             if( istrace == true ){
                 var msg = lot_lang.am_s14.replace("[count]",$.lt_trace_issue);
             }else{
-                var msg = lot_lang.dec_s8.replace("[issue]",$("#lt_issue_start").val());
+               // var msg = lot_lang.dec_s8.replace("[issue]",$("#lt_issue_start").val());
+                var msg = lot_lang.dec_s8.replace("[issue]",$(".current_issue ").eq(0).text());
             }
             msg += '<div class="floatarea">';
             var modesmsg = [];
@@ -1623,34 +1634,11 @@ var is_select=0;
                 content:bbH,
                 btn:'确定'
             })
-            // if($($.lt_id_data.id_examplediv).html().length > 2){
-            //     var offset = $(this).position();
-            //     //var _top = $(this).offset().top;
-            //     //var _left = $(this).offset().left;
-            //     var _top = +document.getElementById("lt_example").offsetTop + 15 +"px";
-            //     var _left = document.getElementById("lt_example").offsetLeft;
-            //     //console.log(_top,_left);
-            //     if($($.lt_id_data.id_examplediv).html().length > 30){
-            //         $($.lt_id_data.id_examplediv).css({"width":"300px"});
-            //     }else{
-            //         $($.lt_id_data.id_examplediv).css({"width":($.browser.msie ? "300px" : "auto")});
-            //     }
-            //     if(offset.left < $($.lt_id_data.id_examplediv).width()){
-            //         //$($.lt_id_data.id_examplediv).css({"left":(offset.left + 1)+"px","top":(offset.top + 14)+"px"}).show();
-            //         $($.lt_id_data.id_examplediv).css({"top":_top,"left":_left});
-            //         $($.lt_id_data.id_examplediv).show();
-            //     }else{
-            //         //$($.lt_id_data.id_examplediv).css({"left":(offset.left-$($.lt_id_data.id_examplediv).width() + 100)+"px","top":(offset.top + 14)+"px"}).show();
-            //         $($.lt_id_data.id_examplediv).show();
-            //         $($.lt_id_data.id_examplediv).css({"top":_top,"left":_left});
-            //     }
-        //     }
-        // },function(){
-        //     $($.lt_id_data.id_examplediv).hide();
+
         });    
      
         
-        //ajax提交表单 sean
+        //ajax提交表单 sean ，下注表单提交
         function ajaxSubmit(){
 
             layer.open({
@@ -1663,7 +1651,11 @@ var is_select=0;
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
             $.ajax({
                 type: 'POST',
-                url : $.lt_ajaxurl,
+                headers: {
+                    "Authorization": "bearer  "+access_token,
+                },
+               // url : $.lt_ajaxurl,
+                url : action.forseti+'api/orders/betOrder' ,
                 timeout : 600000,
                 data: $(form).serialize() + "&randomNum=" + randomNum,
                 success: function(data){
@@ -1686,7 +1678,6 @@ var is_select=0;
 
                         var partn = /<script.*>.*<\/script>/;
                         if( partn.test(data) ){
-                            alert('回复打开')
                              layer.open({
                                 content:lot_lang.am_s17,
                                 btn:'确定'
