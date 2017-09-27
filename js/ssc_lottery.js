@@ -23,7 +23,7 @@ $(function(){
         helpChoose() ;
         getLotterys() ; // 获取彩种
         getPlayTree(1) ;  // 玩法
-        priodDataNewly(1) ; // 最近5期开奖
+
 
 
         var riable=0;
@@ -173,6 +173,8 @@ $(function(){
             data: { } ,
             success: function(res){
                 sys_time = formatTimeUnlix(res.data) ;
+
+                priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
             },
             error: function() {
 

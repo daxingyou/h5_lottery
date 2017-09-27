@@ -408,16 +408,16 @@
                                 <li name="clean">清</li>
                             </ul>
                             <ul class="nList active">
-                                <li name="lt_place_0">0<i>11</i></li>
-                                <li name="lt_place_0">1<i>999</i></li>
-                                <li name="lt_place_0">2<i>120</i></li>
-                                <li name="lt_place_0">3<i>20</i></li>
-                                <li name="lt_place_0">4<i>120</i></li>
-                                <li name="lt_place_0">5<i>0</i></li>
-                                <li name="lt_place_0">6<i>21</i></li>
-                                <li name="lt_place_0">7<i>11</i></li>
-                                <li name="lt_place_0">8<i>999</i></li>
-                                <li name="lt_place_0">9<i>120</i></li>
+                                <li name="lt_place_1">0</li>
+                                <li name="lt_place_1">1</li>
+                                <li name="lt_place_1">2</li>
+                                <li name="lt_place_1">3</li>
+                                <li name="lt_place_1">4</li>
+                                <li name="lt_place_1">5</li>
+                                <li name="lt_place_1">6</li>
+                                <li name="lt_place_1">7</li>
+                                <li name="lt_place_1">8</li>
+                                <li name="lt_place_1">9</li>
                             </ul>
                         </div>
                         <div class="each">
@@ -551,9 +551,9 @@
                 <p>共 <span id="lt_sel_money">0</span> 元</p>
             </div>
             <div class="chooseMsg" id="ui_car_info">
-                <p><span>0</span> 注</p>
+                <p><span id="lt_cf_nums"> </span> 注</p>
                 <p><span>1</span> 期</p>
-                <p>共 <span>0</span> 元</p>
+                <p>共 <span id="lt_cf_money"> </span> 元</p>
             </div>
             <div class="v-moeny">
                 <div class="you-money">
@@ -755,24 +755,7 @@
 
     // 倍投加减号按钮
     $(function(){
-        $('.multipleBox').each(function(){
-            var lessBtn = $(this).find('.less_bei');
-            var addBtn = $(this).find('.add_bei');
-            var inputVal = $(this).find('input');
 
-            lessBtn.on('click',function(){
-                var times =  parseInt(inputVal.val());
-                if ( inputVal.val() > 1){
-                    inputVal.val( times - 1 )
-                };
-            });
-            addBtn.on('click',function(){
-                var times =  parseInt(inputVal.val());
-                if ( inputVal.val() < 99999){
-                    inputVal.val( times + 1 )
-                };
-            });
-        });
     })
 
     //彈窗_號碼統計

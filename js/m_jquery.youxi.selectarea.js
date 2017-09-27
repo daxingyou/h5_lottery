@@ -1324,8 +1324,7 @@
             }
             //03:计算金额
             var times = parseInt($($.lt_id_data.id_sel_times).val(),10);
-            if( isNaN(times) )
-            {
+            if( isNaN(times) ) {
                 times = 1;
                 $($.lt_id_data.id_sel_times).val(1);
             }
@@ -1904,6 +1903,31 @@
         $($.lt_id_data.id_sel_times).keyup(function(){
 			checkTimes();
         });
+
+        // 加减倍数按钮点击处理
+        $('.multipleBox').each(function(){
+            var lessBtn = $(this).find('.less_bei');
+            var addBtn = $(this).find('.add_bei');
+            var inputVal = $(this).find('input');
+
+            lessBtn.off().on('click',function(){
+                var timesnum =  parseInt(inputVal.val());
+                if ( inputVal.val() > 1){
+                    inputVal.val( timesnum - 1 )
+                };
+                checkTimes();
+                return false ;
+            });
+            addBtn.off().on('click',function(){
+                var timesnum =  parseInt(inputVal.val());
+                if ( inputVal.val() < 99999){
+                    inputVal.val( timesnum + 1 )
+                };
+                checkTimes();
+                return false ;
+            });
+        });
+
 		
 		//倍数修改以后的计算
 		function checkTimes(){
@@ -1934,7 +1958,7 @@
 		}
 		
 		//倍数加减按钮点击处理
-		$(".multipleBox .reduce").unbind("click").click(function(){
+/*		$(".multipleBox .reduce").unbind("click").click(function(){
 			var input = $(this).parent().find("input");
 			var v = $(input).val();
 			v--;
@@ -1952,7 +1976,7 @@
 			$(input).val(v);
 			checkTimes();
 			return false
-		});
+		});*/
 		
 		//直接点击元角分控制span
 		$($.lt_id_data.id_funding + " a span").unbind("click").click(function(){
@@ -2386,7 +2410,7 @@
             $.lt_total_money += money;//总金额增加
             $.lt_total_money  = Math.round($.lt_total_money*1000)/1000;
             basemoney         = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//注数*单价 * 模式
-            $.lt_trace_base   = Math.round(($.lt_trace_base+basemoney)*1000)/1000;
+            $.lt_trace_base   = Math.round(($.lt_trace_base+basemoney)*1000)/1000; // 追号金额
             $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
             $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
             $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
@@ -2445,7 +2469,7 @@
                 $.lt_total_nums  -= n;//总注数减少
                 $.lt_total_money -= m;//总金额减少
                 $.lt_total_money = Math.round($.lt_total_money*1000)/1000;
-                $.lt_trace_base  = Math.round(($.lt_trace_base-b)*1000)/1000;
+                $.lt_trace_base  = Math.round(($.lt_trace_base-b)*1000)/1000;  // 追号金额
                 $.lt_total_time   = parseInt($($.lt_id_data.id_sel_times).val(),10); //投注倍数取整
                 $(this).parents(".lotteryList").remove();
                 $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
