@@ -9,13 +9,15 @@ var action = {
 var now_pcode  ; // 当前期数
 var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
+var sys_time  ; // 当前系统时间
+
 
 /*
  *  时时彩
  * */
 $(function(){
 
-
+       getSystemTime() ; // 系统时间
         gamePlay() ;
         shopCar() ;
         helpChoose() ;
@@ -160,6 +162,24 @@ $(function(){
         });
     }
 
+    // 获取系统时间
+    function getSystemTime() {
+        $.ajax({
+            type: 'get',
+            headers: {
+                "Authorization": "bearer  "+access_token,
+            },
+            url : action.forseti+'apis/serverCurrentTime' ,
+            data: { } ,
+            success: function(res){
+                sys_time = formatTimeUnlix(res.data) ;
+            },
+            error: function() {
+
+            }
+        });
+    }
+
 
     // 初始化方法
     var initFrame = function(){
@@ -167,7 +187,7 @@ $(function(){
         $.gameInit({
             data_label: data_label,
             cur_issue : {issue: now_pcode,endtime:now_time},
-            servertime:setAmerTime() ,  // 系统时间
+            servertime: sys_time ,  // 系统时间   setAmerTime()
             lotteryId : parseInt(1,10),
             issues    : {//所有的可追号期数集合
                 today:[

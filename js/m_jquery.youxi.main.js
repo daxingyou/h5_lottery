@@ -1013,6 +1013,7 @@ var is_select=0;
                             data = isNaN(data) ? 0 : data;
                             data = data <= 0 ? 0 : data;*/
                           // $.lt_time_leave = data.data ;
+                            sys_time = formatTimeUnlix(data.data) ; // 更新系统时间
                            $.lt_time_leave = (format(now_time).getTime()-format(formatTimeUnlix(data.data)).getTime())/1000 ;
 
 
@@ -1257,7 +1258,7 @@ console.log($.lt_time_leave+'黑色短裤') ;
                                 $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
                                 //04:重新开始计时
                               //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
-                                $($.lt_id_data.id_count_down).lt_timer(setAmerTime() , formatTimeUnlix(data.data[1].endTime));
+                                $($.lt_id_data.id_count_down).lt_timer(sys_time , formatTimeUnlix(data.data[1].endTime));
                                 console.log(data) ;
 console.log(setAmerTime()+'返回的时刻积分') ;
 console.log(formatTimeUnlix(data.data[1].endTime)+'粉红色打开就') ;
