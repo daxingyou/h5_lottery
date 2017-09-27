@@ -85,7 +85,7 @@ $(function(){
 	//初始化方法
 	$.funList = {
 		'initTag' : true,
-		'tzjlfn' : function(){//获取投注记录
+		'tzjlfn' : function(){ //获取投注记录
 			var v = Math.random();
 	        $.getJSON('/gameinfo/gamelistbyself?v=' + v, function(res) {
 	            $('#close_bet-record_tc').html(res);
@@ -269,8 +269,8 @@ $(function(){
 
 	$.globelData = {
 		"bigJson" : { 
-		/*"lottery_12" : {"lotteryid":12,"uType":"ssc","runTime":"1160","issue":"20140928-018","lotteryName":"12天天时时彩","code":"80652","totalTime":"300"},
-		"lottery_23" : {"lotteryid":23,"uType":"ssc","runTime":"862","issue":"20140928-018","lotteryName":"23天天时时彩","code":"80652","totalTime":"300"}*/
+		/*"lottery_12" : {"lotteryId":12,"uType":"ssc","runTime":"1160","issue":"20140928-018","lotteryName":"12天天时时彩","code":"80652","totalTime":"300"},
+		"lottery_23" : {"lotteryId":23,"uType":"ssc","runTime":"862","issue":"20140928-018","lotteryName":"23天天时时彩","code":"80652","totalTime":"300"}*/
 		},
 		//是否已经渲染过页面
 		"reviewStatus" : false,
@@ -363,10 +363,10 @@ $(function(){
 		"timeold" : "000000",
 		"issueold" : "",
 		"init" : function(){
-			//lottery_key = "L-{$iLotteryId},L-{$iLotteryId}"
+			//lottery_key = "L-{$ilotteryId},L-{$ilotteryId}"
 			var _lottery_key = lottery_key,
 				_lottery_list_arr,//彩种序列
-				_lotteryid,
+				_lotteryId,
 				_data,_this;
 			_this = this;
 			_lottery_list_arr = _lottery_key.split(',');
@@ -377,8 +377,8 @@ $(function(){
 			}
 
 			$.each(_lottery_list_arr,function(index,value){
-				_lotteryid = value.split('-')[1];
-				if(_lotteryid === ""){
+				_lotteryId = value.split('-')[1];
+				if(_lotteryId === ""){
 					_this.lottery_arr = [];
 					//$.alert('彩种数据获取失败');
 				}

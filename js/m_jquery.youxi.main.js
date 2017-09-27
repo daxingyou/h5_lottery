@@ -79,7 +79,7 @@ var is_select=0;
                         },
             servertime : '2010-02-10 09:09:40',//服务器时间[与服务器同步]
             ajaxurl    : '',    //提交的URL地址,获取下一期的地址是后面加上flag=read,提交是后面加上flag=save
-            lotteryid  : 1,//彩种ID
+            lotteryId  : 1,//彩种ID
             ontimeout  : function(){},//时间结束后执行的函数
             onfinishbuy: function(){},//购买成功后调用的函数
             test : ''
@@ -504,7 +504,7 @@ var is_select=0;
 		},
             lt_issues : opts.issues,//所有的可追号期的初始集合
             lt_ajaxurl: opts.ajaxurl,
-            lt_lottid : opts.lotteryid,
+            lt_lottid : opts.lotteryId,
             lt_total_nums : 0,//总投注注数
             lt_total_money: 0,//总投注金额[非追号]
             lt_time_leave : 0, //本期剩余时间
@@ -520,7 +520,7 @@ var is_select=0;
         opts.data_id = null;
         opts.issues  = null;
         opts.ajaxurl = null;
-        opts.lotteryid = null;
+        opts.lotteryId = null;
         if( $.browser.msie ){//&& /MSIE 6.0/.test(navigator.userAgent)
             CollectGarbage();//释放内存
         }
@@ -996,7 +996,7 @@ var is_select=0;
                         type: 'POST',
                         URL : $.lt_ajaxurl,
                         timeout : 30000,
-                        data: "lotteryid="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
+                        data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
                         success : function(data){//成功
                             data = parseInt(data,10);
                             data = isNaN(data) ? 0 : data;
@@ -1006,20 +1006,20 @@ var is_select=0;
                 });
             }
 
-            if( $.lt_time_leave <= 0 ){//结束
+            if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
 					if($($.lt_id_data.id_cur_issue).html()>''){
 
-                        layer.open({
+                        layer.open({  // 当前期数结束，转到下一期
                             className:'time_ontimeout',
-                            content:'lot_lang.am_s15_3'+'<span class="ui_color_yellow">20170712101</span>'+'  期 。'+'</div>',
+                            content:'lot_lang.am_s15_3'+'<span class="ui_color_yellow">'+next_pcode+'</span>'+'  期 。'+'</div>', // 转到下一期
                             // btn:'确定',
                             skin: 'msg',
                             time:5
                         });
-                        // $.alert(lot_lang.am_s15);
+
 						// 传说中的5秒自动关闭
                         if(sidebar_hover == "hn1fc" || sidebar_hover == "hn5fc" || sidebar_hover == "pk10" || sidebar_hover == "jssm"){
                             $(".layui-m-layerbtn span").html("(5) 确定");               //
@@ -1050,12 +1050,7 @@ var is_select=0;
 							$.lt_reset(true);
 							$.lt_ontimeout();
 						});*/
-					}else{
-						/*if($.lt_lottid == '4'){
-						$.alert('该彩种已经停止销售！敬请留意网站公告！');
-						return false;
-						}else{*/
-						// $.alert(lot_lang.am_s15_2);
+					}else{  // 销售截止
                         layer.open({
                             content:lot_lang.am_s15_2,
                             btn:'确定'
@@ -1078,7 +1073,7 @@ var is_select=0;
                         type: 'POST',
                         URL : $.lt_ajaxurl,
                         timeout : 30000,
-                        data: "lotteryid="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=getlatest",
+                        data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=getlatest",
                         success : function(data){//成功
 						//	var tmpdatas =	eval(data);
 								eval("data="+data);
@@ -1087,7 +1082,7 @@ var is_select=0;
                         }
                 });
 	}*/
-     $.fn.lt_timer_1 = function(start,end,info){//服务器开始时间，服务器结束时间
+     $.fn.lt_timer_1 = function(start,end,info){  //服务器开始时间，服务器结束时间
         var me = this;
         if( start == "" || end == "" ){
             $.lt_time_leave = 0;
@@ -1109,8 +1104,8 @@ var is_select=0;
             } : {day:0,hour:0,minute:0,second:0};
         }
             
-        if( $.lt_time_leave <= 1 ){//结束
-            if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
+        if( $.lt_time_leave <= 1 ){  //结束
+            if( $.lt_submiting == false ){  //如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
                 $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                 if($($.lt_id_data.id_cur_issue).html()>''){
                     layer.open({
@@ -1150,7 +1145,7 @@ var is_select=0;
                         content:lot_lang.am_s15_2,
                         btn:'确定'
                     })
-                    // $.alert(lot_lang.am_s15_2);
+
                 }
             }
         }
@@ -1186,7 +1181,7 @@ var is_select=0;
             $.ajax({
                 type: 'POST',
                 URL : $.lt_ajaxurl,
-                data: "lotteryid="+$.lt_lottid+"&flag=read",
+                data: "lotteryId="+$.lt_lottid+"&flag=read",
                 success : function(data){//成功
 
                                 if( data.length <= 0 ){
@@ -1200,14 +1195,15 @@ var is_select=0;
                                     return false;
                                 }
                                 var partn = /<script.*>.*<\/script>/;
-                                if( partn.test(data) ){
+                         /*       if( partn.test(data) ){  // 帐号在其他地方登录
+                                    alert('合法的进口')
                                     layer.open({
                                         content:lot_lang.am_s17,
                                         btn:'确定'
                                     })
         							top.location.href="#";
         							return false;
-                                }
+                                }*/
                                 if( data == "empty" ){
 									//未到销售时间
 									//$.alert(lot_lang.am_s15_2);
@@ -1657,10 +1653,6 @@ var is_select=0;
         //ajax提交表单 sean
         function ajaxSubmit(){
 
-            // $.blockUI({
-            // message: lot_lang.am_s22,
-            // overlayCSS: {backgroundColor: '#000',opacity: 0.5,cursor:'wait'}
-            // });
             layer.open({
                 type:2,
                 content:'购买中....',
@@ -1692,14 +1684,14 @@ var is_select=0;
                             return false;
                         }
 
-                        //console.log($(form).serialize());
                         var partn = /<script.*>.*<\/script>/;
                         if( partn.test(data) ){
+                            alert('回复打开')
                              layer.open({
                                 content:lot_lang.am_s17,
                                 btn:'确定'
                             })
-                            // alert(lot_lang.am_s17);
+
 							top.location.href="../?controller=default";
 
                             return false;

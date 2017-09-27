@@ -1,18 +1,20 @@
 
+var access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY1MTgwODYsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMThmMDliMTUtNGI3OC00YTY5LTkwNmItNGVlYzQ2NGNkZjhmIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.phVYqJNOfCCAMclADbwvwo1wejW5qrdAfeMOxPlpHW0d0kIzGfs0mpABnqt9Iw4m4V5YYCswAnMzEUcYFDgSYQCjs2JJKTP__eXRzD29iGvLODQsYpupl5sgtn4b_3rAZ-9a_snkKjqMT1ZObVZNhdIl-1PWyMNQvZzDUXMp65ikvajgFpub4L9ZI3xSdLjZZyRnH-N5tC4qrgF-hexQx0-IyBzE-HQFwXeowSlttyJG12tpFcH16EmyjkgNmAYBcmEBAaloAiiia9rp4fEHUTZ62OxaJw0LVhPu_uxvIQMZ5FSJMRecbYQCxV9UxWr3N_msO-veYnqItMcbCZzBAA";
+var action = {
+    forseti: 'http://192.168.0.225:8088/forseti/' ,
+    uaa: 'http://192.168.0.225:8088/uaa/',
+    // param:'?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ',
+}
+
+var now_pcode  ; // 当前期数
+var now_time  ; // 当前期数销售截止时间
+var next_pcode  ; // 下一期数销售截止时间
+
 /*
  *  时时彩
  * */
 $(function(){
 
-    var access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY1MTgwODYsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMThmMDliMTUtNGI3OC00YTY5LTkwNmItNGVlYzQ2NGNkZjhmIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.phVYqJNOfCCAMclADbwvwo1wejW5qrdAfeMOxPlpHW0d0kIzGfs0mpABnqt9Iw4m4V5YYCswAnMzEUcYFDgSYQCjs2JJKTP__eXRzD29iGvLODQsYpupl5sgtn4b_3rAZ-9a_snkKjqMT1ZObVZNhdIl-1PWyMNQvZzDUXMp65ikvajgFpub4L9ZI3xSdLjZZyRnH-N5tC4qrgF-hexQx0-IyBzE-HQFwXeowSlttyJG12tpFcH16EmyjkgNmAYBcmEBAaloAiiia9rp4fEHUTZ62OxaJw0LVhPu_uxvIQMZ5FSJMRecbYQCxV9UxWr3N_msO-veYnqItMcbCZzBAA";
-    var ajaxurl = {
-        forseti: 'http://192.168.0.225:8088/forseti/' ,
-        uaa: 'http://192.168.0.225:8088/uaa/',
-        // param:'?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ',
-    }
-
-    var now_pcode  ; // 当前期数
-    var now_time  ; // 当前期数销售截止时间
 
         gamePlay() ;
         shopCar() ;
@@ -73,12 +75,12 @@ $(function(){
 
         // 获取彩种
         function getLotterys() {
-            /*  $.getJSON( ajaxurl.forseti+'apis/lotterys', function(res) {
+            /*  $.getJSON( action.forseti+'apis/lotterys', function(res) {
 
              })*/
             $.ajax({
                 type: 'GET',
-                url : ajaxurl.forseti+'apis/lotterys',
+                url : action.forseti+'apis/lotterys',
                 data: {} ,
                 dataType:'json',
                 success: function(res){
@@ -120,7 +122,7 @@ $(function(){
                 headers: {
                     "Authorization": "bearer  "+access_token,
                 },
-                url : ajaxurl.forseti+'api/playsTree' ,
+                url : action.forseti+'api/playsTree' ,
                 data: { lotteryId:gameid} ,
                 success: function(res){
 
@@ -138,9 +140,11 @@ $(function(){
             headers: {
                 "Authorization": "bearer  "+access_token,
             },
-            url : ajaxurl.forseti+'api/priodDataNewly' ,
+            url : action.forseti+'api/priodDataNewly' ,
             data: { lotteryId:gameid ,} ,
             success: function(res){
+
+                next_pcode = res.data[0].pcode ;  // 下一期数
                 now_pcode = res.data[1].pcode ;  // 当前期数
                 now_time = formatTimeUnlix(res.data[1].endTime) ;  // 当前期数
 
@@ -164,7 +168,7 @@ $(function(){
             data_label: data_label,
             cur_issue : {issue: now_pcode,endtime:now_time},
             servertime:setAmerTime() ,  // 系统时间
-            lotteryid : parseInt(1,10),
+            lotteryId : parseInt(1,10),
             issues    : {//所有的可追号期数集合
                 today:[
                     {issue:'20170817-054',endtime:'2017-08-17 14:59:05'},
@@ -189,12 +193,12 @@ $(function(){
 
             },
 
-          //  ajaxurl   : './?controller=game&action=play',
+            ajaxurl   : action.forseti+'api/priodDataNewly' ,   // 获取最近五期的开奖号码
    /*         ontimeout : function(){
                 $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
-                    data: "lotteryid=1&flag=gethistory",
+                    data: "lotteryId=1&flag=gethistory",
                     success: function(data){
                         if( data == 'empty'){
                             return;
@@ -208,7 +212,7 @@ $(function(){
                 $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
-                    data: "lotteryid=1&flag=getprojects",
+                    data: "lotteryId=1&flag=getprojects",
                     success: function(data){
                         var partn = /<script.*>.*<\/script>/;
                         if( data == 'empty' && partn.test(data) ){
@@ -283,7 +287,7 @@ $(function(){
                         $.ajax({
                             type: 'POST',
                             url : './?controller=game&action=play&curmid=50',
-                            data: "lotteryid=1&flag=gethistory&currentissue="+currentissue,
+                            data: "lotteryId=1&flag=gethistory&currentissue="+currentissue,
                             success: function(data){
                                 if( data == 'empty' ){
                                     return;

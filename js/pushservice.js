@@ -264,15 +264,15 @@ function pullFun(module, data) {
 
 			},
 			"user_project" : function(data){//用户投注中奖推送模块
-				var bonus,code,issue,lotteryid,lotteryName,projectid;
+				var bonus,code,issue,lotteryId,lotteryName,projectid;
 				var $pBox = $('.prize-winning'),$pMoney = $('#prize-money'),$pName = $('#prize-lottery'),$pIssue = $('#prize-issue'),$pHref = $('#prize-href');
 				bonus = data["bonus"];
 				code = data["code"];
 				issue = data["issue"];
-				lotteryid = data["lotteryid"];
+				lotteryId = data["lotteryId"];
 				lotteryName = data["lottery"];
 				projectid = data["projectid"];
-				aLink = LOTTERY_URL_INFO['lot_'+lotteryid];
+				aLink = LOTTERY_URL_INFO['lot_'+lotteryId];
 				if($(".C_" + projectid).length === 1){
 					$(".C_" + projectid).html(code).fadeOut().fadeIn().fadeOut().fadeIn().fadeOut().fadeIn();	
 				}
