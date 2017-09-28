@@ -6,6 +6,7 @@
     color: #fff;
     position: fixed;
     width: 100%;
+    max-width: 800px;
     top: 3.4285rem;
     z-index: 1;
 }
@@ -134,7 +135,7 @@
     width: 20%;
 }
 .recent_main .trend_table td:nth-child(2), .recent_main .trend_table th:nth-child(2){
-    width: 40%;
+    width: 30%;
 }
 .trend_table td i{
     font-style: normal;
