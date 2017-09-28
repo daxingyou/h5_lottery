@@ -21,6 +21,13 @@ var LOTTERY_URL_INFO = {
 	'lot_101':'/lottery/cqxy28',
 	'lot_106':'/lottery/xjxy28'
 	};
+/* 全局变量定义 */
+var access_token =" ";
+var action = {
+    forseti: 'http://192.168.0.225:8088/forseti/' ,
+    uaa: 'http://192.168.0.225:8088/uaa/',
+}
+
 /*
 *获取地址栏参数
 */
@@ -1324,3 +1331,8 @@ var DataDeal = {
         return data;
     },
 };
+
+//金额转换,分转成元
+function roundAmt(v) {
+    return isNaN(v) ? "0.00" : (v/100).toFixed(2);
+}

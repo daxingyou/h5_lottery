@@ -1653,9 +1653,7 @@ console.log($.lt_time_leave+'黑色短裤') ;
             //var form = $(me).closest("form");
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
-            var datare ={
 
-            }
             var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
             $.ajax({
                 type: 'POST',

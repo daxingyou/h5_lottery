@@ -2439,6 +2439,8 @@
                 $.lt_same_code[mid][modes][cur_position] = []
             }
             $.lt_same_code[mid][modes][cur_position].push(temp.join("|"));
+
+            // 单独删除表单条数
             $('span',$cfhtml).filter(".del").find("a.del").click(function(){
                 var n = $cfhtml.data('data').nums;
                 var m = $cfhtml.data('data').money;
@@ -2485,6 +2487,12 @@
 				/*全清功能*/
 				showClearAll();
             });
+            // 删除全部注数，清空列表
+			$('.delete-all').off().on('click',function () {
+                $.lt_reset(false);
+
+            }) ;
+
             //把所选模式存入cookie里面
             setCookie('modes',modes,86400);
             //成功添加以后清空选号区数据

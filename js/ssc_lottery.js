@@ -1,11 +1,4 @@
 
-var access_token=" ";
-var action = {
-    forseti: 'http://192.168.0.225:8088/forseti/' ,
-    uaa: 'http://192.168.0.225:8088/uaa/',
-    // param:'?access_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY0NTM5MTUsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMjY5NTVmNzQtYjY0Ni00MDE0LWI2NmMtMDg5OWI1N2NmYWVjIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.IBpquHuVervqlIvFQlPVD5tylhU_MpuNuhJo0LzrXJ7BjOnD5BslVWLBeYVVVv0z2Vbc_fODtP_KXo-gbc8l3WGRxrgC36Xn2ovpZ6Q-nN8rYXIz3lKh_0TpVv2H_fUTRXdiclf3wZ-OrYXRNgQDcZNmO045ug2LgKMCthtRuExdrVNkqCn-NshcacxD_stB7DgFqtdMshg5shNTX2MOeLwoJW8g2CtBs9sIvzFLrnw7HF34BYz7A7AaFdEZFXxSMaOK0ugZbojDxUJuLp4oRGQ7R4jw61SRVXz5ZjCqwSr6D3z9GyOdA4udNhMU-IxNxE9WWDB6ddyy7APqwk2EzQ',
-}
-
 var now_pcode  ; // 当前期数
 var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
@@ -85,7 +78,7 @@ $(function(){
             data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
             success: function(res){
                 access_token = res.access_token ;
-
+                setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
             },
             error: function() {
 
