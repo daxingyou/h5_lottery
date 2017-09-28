@@ -1654,17 +1654,50 @@ console.log($.lt_time_leave+'黑色短裤') ;
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
 
-            var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
+           // var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
+            var resdata ={
+                "amount" : 0 ,  //总金额，此金额=所有注单总金额
+                "chaseCount": 0, //追号期数
+                "chaseWinStop": 0,//是否追中即停
+                "ifChase": 0, //是否追号
+                "list": [
+                    {
+                        "betAmount": 0, //下注金额
+                        "betContent": "string",//下注内容，如1,5,8,3,7
+                        "betCount": 0, //数单数
+                        "betMode": 0, //下注模式(预留)
+                        "chaseCount": 0, //追号期数(含当期)
+                        "chaseWinStop": 0,//是否追中即停
+                        "ifChase": 0, //是否追号
+                        "moneyMode": "string",//付款类型：元y，角j，分f
+                        "multiple": 0, //备注
+                        "payoff": 0, //派彩
+                        "playId": 111, //玩法
+                        "remark": "string"//备注
+                    }
+                ],
+                "lotteryId": $.lt_lottid ,  //彩种id
+                "operType": 0, //下注类型，1下注
+                "pcode": 0, //期次20170925013
+                "pdate": 0, //日期20170925
+                "playId": 0, //玩法id
+                "remark": "string",//备注，可用于测试
+                "source": "string" //来源：h5
+        };
+
             $.ajax({
                 type: 'POST',
                 headers: {
                     "Authorization": "bearer  "+access_token,
                 },
+                dataType:'json',
+                contentType:"application/json; charset=utf-8",
                // url : $.lt_ajaxurl,
                 url : action.forseti+'api/orders/betOrder' ,
                 timeout : 600000,
-               // data:  $(form).serialize() + "&randomNum=" + randomNum ,
-                data: resdata ,
+              //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
+                data: JSON.stringify(resdata) ,
+
                 success: function(data){
                         layer.closeAll()
 						//解决瞬间提交2次的问题

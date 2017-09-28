@@ -1250,14 +1250,14 @@
 
 
             /*  获取投注记录
-            * orderStatus,注单状态，1等待开奖
+            * orderStatus,注单状态，1等待开奖,31未中奖,32已派彩,4用户撤单,5系统撤单,6中奖停追,71存在异常
             * */
             function getBetRecord(page,type,status) {
                 var seadata =  {
                     "page": page ,   //页数，从1开始
                     "pageSize": 200 ,  //每页行数
                     "searchType": type , //查询类型，1为投注记录查询，2为追号查询
-                    "statusType": status ,  //状态：1全部，2未开奖，3已中奖，4未中奖
+                    "statusType": status ,  //状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
                 }
                 $.ajax({
                     type: 'post',
@@ -1265,7 +1265,7 @@
                         "Authorization": "bearer "+access_token  ,
                     },
                     dataType:'json',
-                    contentType:"application/json; charset=utf-8",
+                    contentType:"application/json; charset=utf-8",  // json格式传给后端
                     url : action.forseti+'api/orders/orderList' ,
                     data: JSON.stringify(seadata) ,  // json格式
                     success: function(res){

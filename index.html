@@ -506,7 +506,7 @@
         
             
             <!--追号-->
-            <div class="zhBox" id="lt_trace_box1">
+          <!--  <div class="zhBox" id="lt_trace_box1">
                 <div class="zTab" id="lt_trace_label">
 
                 </div>
@@ -541,7 +541,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>-->
             </form>
         </div>
         <div class="padding_fot_b20 "></div>
@@ -625,35 +625,7 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- <div class="orderNow">
-                    <div class="chooseAllMsg">
-                        <p>已选 <span id="lt_cf_count" class="num">0</span> 单 共计 <span id="lt_cf_nums" class="num">0</span> 注</p>
-                        <div class="checkZhui qxzhBox">取消追号</div>
-                        <div class="checkZhui fqzhBox">
-                            <span class="uncheck"></span><b class="fq">发起追号</b>
-                            <input type="checkbox" name="lt_trace_if" id="lt_trace_if_button" value="no">
-                            <input type="hidden" name="lt_trace_assert" id="lt_trace_assert" value="no">
-                        </div>
-                        <div class="prize-notification">
-                            <span class="check"></span><b class="fq">开启中奖通知</b>
-                        </div>
-                        <div style="display:none;">
-                            <span id="lt_issues">
-                                <select name="lt_issue_start" id="lt_issue_start">
-                                    <option value="20170817-054">20170817-054(当前期)</option>
-                                    <option value="20170817-055">20170817-055</option><option value="20170817-056">20170817-056</option>
-                                    <option value="20170817-057">20170817-057</option><option value="20170817-058">20170817-058</option>
-                                    <option value="20170817-059">20170817-059</option><option value="20170817-060">20170817-060</option>
-                                    <option value="20170817-061">20170817-061</option><option value="20170817-062">20170817-062</option>
-                                </select>
-                                <input type="hidden" name="lt_total_nums" id="lt_total_nums" value="0">
-                                <input type="hidden" name="lt_total_money" id="lt_total_money" value="0">
-                            </span>
-                        </div>
-                    </div>
-                    <p class="m_total_amout">总金额 <span id="lt_cf_money" class="num orange">0</span> 元</p>
-                    <a class="m_see_more" href="#">查看投注记录</a>
-                </div> -->
+
             </div>
         </div>
         <div class="addOrderBox" id="all_addOrderBox">
@@ -702,7 +674,7 @@
 <script type="text/javascript" src="js/youxi_lang_zh.js"></script>
 <script type="text/javascript" src="js/m_jquery.youxi.main.js"></script>
 <script type="text/javascript" src="js/m_jquery.youxi.selectarea.js"></script>
-<script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script> <!-- 追号处理js  -->
 <script type="text/javascript" src="js/pushstream.js"></script>
 
 <script type="text/javascript" src="js/coreDesign.js"></script>
@@ -753,12 +725,7 @@
         })
     })
 
-    // 倍投加减号按钮
-    $(function(){
-
-    })
-
-    //彈窗_號碼統計
+    //弹窗，号码统计
     $("#number_count").click(function () {
         layer.open({
             title: '号码统计',
