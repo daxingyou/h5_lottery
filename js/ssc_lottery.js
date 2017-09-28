@@ -1,5 +1,5 @@
 
-var access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDY1MTgwODYsInVzZXJfbmFtZSI6Im1nYXBwaWQwMXxmcmFuazQ1NiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMThmMDliMTUtNGI3OC00YTY5LTkwNmItNGVlYzQ2NGNkZjhmIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.phVYqJNOfCCAMclADbwvwo1wejW5qrdAfeMOxPlpHW0d0kIzGfs0mpABnqt9Iw4m4V5YYCswAnMzEUcYFDgSYQCjs2JJKTP__eXRzD29iGvLODQsYpupl5sgtn4b_3rAZ-9a_snkKjqMT1ZObVZNhdIl-1PWyMNQvZzDUXMp65ikvajgFpub4L9ZI3xSdLjZZyRnH-N5tC4qrgF-hexQx0-IyBzE-HQFwXeowSlttyJG12tpFcH16EmyjkgNmAYBcmEBAaloAiiia9rp4fEHUTZ62OxaJw0LVhPu_uxvIQMZ5FSJMRecbYQCxV9UxWr3N_msO-veYnqItMcbCZzBAA";
+var access_token=" ";
 var action = {
     forseti: 'http://192.168.0.225:8088/forseti/' ,
     uaa: 'http://192.168.0.225:8088/uaa/',
@@ -16,14 +16,16 @@ var sys_time  ; // 当前系统时间
  *  时时彩
  * */
 $(function(){
+        LoginAction() ;
 
-       getSystemTime() ; // 系统时间
-        gamePlay() ;
-        shopCar() ;
-        helpChoose() ;
-        getLotterys() ; // 获取彩种
-        getPlayTree(1) ;  // 玩法
-
+        setTimeout(function () {
+            getSystemTime() ; // 系统时间
+            gamePlay() ;
+            shopCar() ;
+            helpChoose() ;
+            getLotterys() ; // 获取彩种
+            getPlayTree(1) ;  // 玩法
+        },500)
 
 
         var riable=0;
@@ -74,8 +76,24 @@ $(function(){
                 })
             });
         }
+// 登录接口
+    function LoginAction() {
+        $.ajax({
+            type: 'post',
+            headers:{ Authorization: 'Basic d2ViX2FwcDo=' } ,
+            url : action.uaa+'oauth/token' ,
+            data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+            success: function(res){
+                access_token = res.access_token ;
 
-        // 获取彩种
+            },
+            error: function() {
+
+            }
+        });
+    }
+
+     // 获取彩种
         function getLotterys() {
             /*  $.getJSON( action.forseti+'apis/lotterys', function(res) {
 

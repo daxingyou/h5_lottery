@@ -1295,3 +1295,32 @@ function refreshLotteryHistory(){
 	    });
 	});	
 }
+
+// 序列化表单转成json格式
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name]) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+var DataDeal = {
+//将从form中通过$('#form').serialize()获取的值转成json
+    formToJson: function (data) {
+        data=data.replace(/&/g,"\",\"");
+        data=data.replace(/=/g,"\":\"");
+        data="{\""+data+"\"}";
+        return data;
+    },
+};

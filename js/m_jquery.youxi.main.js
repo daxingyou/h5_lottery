@@ -535,9 +535,9 @@ var is_select=0;
         //$('<select name="lt_project_modes" id="lt_project_modes"></select>').appendTo($.lt_id_data.id_sel_modes);//此为装载玩sean
 		
 		//标识客户端投注来源
-		if(getCookie('isclient') == 1){
+	/*	if(getCookie('isclient') == 1){
 			$("#play_source").val(4);
-		}
+		}*/
         
 		var bhtml = ''; //大标签HTML
         var hasdefault = false;//初始没有设置默认标签
@@ -1653,6 +1653,10 @@ console.log($.lt_time_leave+'黑色短裤') ;
             //var form = $(me).closest("form");
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
+            var datare ={
+
+            }
+            var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
             $.ajax({
                 type: 'POST',
                 headers: {
@@ -1661,7 +1665,8 @@ console.log($.lt_time_leave+'黑色短裤') ;
                // url : $.lt_ajaxurl,
                 url : action.forseti+'api/orders/betOrder' ,
                 timeout : 600000,
-                data: $(form).serialize() + "&randomNum=" + randomNum,
+               // data:  $(form).serialize() + "&randomNum=" + randomNum ,
+                data: resdata ,
                 success: function(data){
                         layer.closeAll()
 						//解决瞬间提交2次的问题
