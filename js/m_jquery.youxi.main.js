@@ -1552,9 +1552,9 @@ console.log($.lt_time_leave+'黑色短裤') ;
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     /*$.each(n,function(index,value){*/  // 不需要遍历
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数 //fixme 找不到倍數的代號
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数 //fixme 錯誤的追號
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数 //fixme 錯誤的注數
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
                   /*  })*/
@@ -1678,7 +1678,7 @@ console.log($.lt_time_leave+'黑色短裤') ;
                 ],
                 "lotteryId": $.lt_lottid ,  //彩种id
                 "operType": 0, //下注类型，1下注
-                "pcode": 20170929050, //期次20170925013
+                "pcode": $(".current_issue ").eq(0).text() , //期次20170925013
                 "pdate": 0, //日期20170925
                 "playId": 0, //玩法id
                 "remark": "无",//备注，可用于测试

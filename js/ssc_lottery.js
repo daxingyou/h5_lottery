@@ -199,13 +199,13 @@ $(function(){
     // 获取用户余额
     function getMemberBalance() {
         $.ajax({
-            type: 'post',
+            type: 'GET',
             headers: {
                 "Authorization": "bearer  "+access_token,
             },
-            dataType:'json',
-            contentType:"application/json; charset=utf-8",  // json格式传给后端
-            url : action.uaa+'/api/data/member/getMemberBalanceJson' ,
+           // dataType:'json',
+           // contentType:"application/json; charset=utf-8",  // json格式传给后端
+            url : action.uaa+'/api/data/member/getMemberBalance' ,
             data: {} ,
             success: function(res){
 
