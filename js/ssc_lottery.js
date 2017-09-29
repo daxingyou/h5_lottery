@@ -77,7 +77,8 @@ $(function(){
             type: 'post',
             headers:{ Authorization: 'Basic d2ViX2FwcDo=' } ,
             url : action.uaa+'oauth/token' ,
-            data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+            // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+            data: { grant_type :'password',username :'mgappid01|admin',password :'admin' } ,
             success: function(res){
                 access_token = res.access_token ;
                 setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
