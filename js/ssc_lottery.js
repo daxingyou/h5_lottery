@@ -210,7 +210,7 @@ $(function(){
             success: function(res){
                 var mom = roundAmt(res.data.amount) ;
                 $('.membalance').text(mom) ;
-
+                setCookie("membalance",mom);  // 把登录余额放在cookie里面
             },
             error: function() {
 

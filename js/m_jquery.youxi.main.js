@@ -1495,10 +1495,7 @@ console.log($.lt_time_leave+'倒计时') ;
             if($(this).hasClass('sendBtnDisabled')){  //没有选注不让操作
                 return false;
             }
-			/*if($.lt_lottid == '4'){
-			$.alert('该彩种已经停止销售！敬请留意网站公告！');
-			return;
-			}*/
+
 	        if( checkTimeOut() == false ){
 	            return;
 	        }
@@ -1551,7 +1548,7 @@ console.log($.lt_time_leave+'倒计时') ;
                 var msg = lot_lang.dec_s8.replace("[issue]",$(".current_issue ").eq(0).text());
             }
             msg += '<div class="floatarea">';
-            var modesmsg = [];
+            var modesmsg = [];  // 选择的注数
             var modes=0;
             $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){
                 modes = $(n).data('data').modes;
@@ -1562,12 +1559,13 @@ console.log($.lt_time_leave+'倒计时') ;
 
                 modesmsg[modes].push($(".m_lotter_list_nub",n).html().replace(lot_lang,""));
             });
+            console.log(modesmsg)
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                     /*$.each(n,function(index,value){*/  // 不需要遍历
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span>'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
                   /*  })*/
@@ -1662,7 +1660,21 @@ console.log($.lt_time_leave+'倒计时') ;
                 type:2,
                 content:'购买中....',
                 shadeClose:false
-            })
+            });
+
+          /*  console.log(modesmsg)
+            $.each(modesmsg,function(i,n){
+                if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
+                    /!*$.each(n,function(index,value){*!/  // 不需要遍历
+                 /!*   msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
+                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
+                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
+                    // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';*!/
+
+                    /!*  })*!/
+                }
+            });*/
+
             //var form = $(me).closest("form");
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
@@ -1674,7 +1686,7 @@ console.log($.lt_time_leave+'倒计时') ;
                 "chaseWinStop": 0,//是否追中即停
                 "ifChase": 0, //是否追号
                 "list": [
-                    {  // 一条数据就是一个方案，一个方案可以有多条下注
+                  /*  {  // 一条数据就是一个方案，一个方案可以有多条下注
                         "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
                         "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
                         "betCount": 1, //数单数
@@ -1701,7 +1713,7 @@ console.log($.lt_time_leave+'倒计时') ;
                         "payoff": 0, //派彩
                         "playId": 111, //玩法
                         "remark": "无"//备注
-                    }
+                    }*/
                 ],
                 "lotteryId": $.lt_lottid ,  //彩种id
                 "operType": 0, //下注类型，1下注
@@ -1711,7 +1723,36 @@ console.log($.lt_time_leave+'倒计时') ;
                 "remark": "无",//备注，可用于测试
                 "source": "h5" //来源：h5
         };
-
+            resdata.list.push(
+                {  // 一条数据就是一个方案，一个方案可以有多条下注
+                    "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                    "betContent": "_,_,8,8,5",//下注内容，如1,5,8,3,7
+                    "betCount": 1, //数单数
+                    "betMode": 0, //下注模式(预留)
+                    "chaseCount": 1, //追号期数(含当期),默认1
+                    "chaseWinStop": 0,//是否追中即停
+                    "ifChase": 0, //是否追号
+                    "moneyMode": "y",//付款类型：元y，角j，分f
+                    "multiple": 1, //倍数最少为1
+                    "payoff": 0, //派彩
+                    "playId": 511, //玩法
+                    "remark": "无"//备注
+                },
+                {
+                    "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                    "betContent": "_,_,8,8,7",//下注内容，如1,5,8,3,7
+                    "betCount": 1, //数单数
+                    "betMode": 0, //下注模式(预留)
+                    "chaseCount": 1, //追号期数(含当期),默认1
+                    "chaseWinStop": 0,//是否追中即停
+                    "ifChase": 0, //是否追号
+                    "moneyMode": "y",//付款类型：元y，角j，分f
+                    "multiple": 4 , //倍数最少为1
+                    "payoff": 0, //派彩
+                    "playId": 511, //玩法
+                    "remark": "无"//备注
+                }
+            )
             $.ajax({
                 type: 'POST',
                 headers: {
