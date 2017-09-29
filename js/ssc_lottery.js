@@ -18,6 +18,8 @@ $(function(){
             helpChoose() ;
             getLotterys() ; // 获取彩种
             getPlayTree(1) ;  // 玩法
+            getMemberBalance() ; // 获取用户余额
+
         },500)
 
 
@@ -181,7 +183,7 @@ $(function(){
                 "Authorization": "bearer  "+access_token,
             },
             url : action.forseti+'apis/serverCurrentTime' ,
-            data: { } ,
+            data: {} ,
             success: function(res){
                 sys_time = formatTimeUnlix(res.data) ;
 
@@ -192,6 +194,28 @@ $(function(){
             }
         });
     }
+
+    // 获取用户余额
+    function getMemberBalance() {
+        $.ajax({
+            type: 'post',
+            headers: {
+                "Authorization": "bearer  "+access_token,
+            },
+            dataType:'json',
+            contentType:"application/json; charset=utf-8",  // json格式传给后端
+            url : action.uaa+'/api/data/member/getMemberBalanceJson' ,
+            data: {} ,
+            success: function(res){
+
+
+            },
+            error: function() {
+
+            }
+        });
+    }
+
 
 
     // 初始化方法

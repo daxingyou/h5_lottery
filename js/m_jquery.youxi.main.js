@@ -1656,33 +1656,33 @@ console.log($.lt_time_leave+'黑色短裤') ;
 
            // var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
             var resdata ={
-                "amount" : 0 ,  //总金额，此金额=所有注单总金额
+                "amount" : 200 ,  //总金额，此金额=所有注单总金额
                 "chaseCount": 0, //追号期数
                 "chaseWinStop": 0,//是否追中即停
                 "ifChase": 0, //是否追号
                 "list": [
                     {
-                        "betAmount": 0, //下注金额
-                        "betContent": "string",//下注内容，如1,5,8,3,7
-                        "betCount": 0, //数单数
+                        "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                        "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
+                        "betCount": 1, //数单数
                         "betMode": 0, //下注模式(预留)
-                        "chaseCount": 0, //追号期数(含当期)
+                        "chaseCount": 1, //追号期数(含当期),默认1
                         "chaseWinStop": 0,//是否追中即停
                         "ifChase": 0, //是否追号
-                        "moneyMode": "string",//付款类型：元y，角j，分f
-                        "multiple": 0, //备注
+                        "moneyMode": "y",//付款类型：元y，角j，分f
+                        "multiple": 1, //倍数最少为1
                         "payoff": 0, //派彩
                         "playId": 111, //玩法
-                        "remark": "string"//备注
+                        "remark": "无"//备注
                     }
                 ],
                 "lotteryId": $.lt_lottid ,  //彩种id
                 "operType": 0, //下注类型，1下注
-                "pcode": 0, //期次20170925013
+                "pcode": 20170929050, //期次20170925013
                 "pdate": 0, //日期20170925
                 "playId": 0, //玩法id
-                "remark": "string",//备注，可用于测试
-                "source": "string" //来源：h5
+                "remark": "无",//备注，可用于测试
+                "source": "h5" //来源：h5
         };
 
             $.ajax({
