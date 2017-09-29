@@ -1561,7 +1561,7 @@ console.log($.lt_time_leave+'黑色短裤') ;
                 }
             });
             msg += '</div>';
-            $.lt_trace_money = Math.round($.lt_trace_money*1000)/1000;
+            $.lt_trace_money = Math.round($.lt_trace_money*1000)/1000 ;
             msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
             msg=msg.replace("[关闭]","");
             layer.open({

@@ -79,9 +79,7 @@ function loginout(){
         }
     })
 }
-function wie(namesg){
-// alert(namesg)
-}
+
 //用户名验证(由0-9,a-z,A-Z组成的6~16个字符组成)增加连续性四位字母检测、排除数字其他johnsonle
 function validateUserName( str ) {
     var partern = /(.)\1{3,}/;
@@ -127,9 +125,6 @@ function getCookie(name) {
     return '';
 }
 
-function chagetheme(){
-	setCookie('skins','sincai');
-}
 
 //密码验证(6－16位数字和字母，不能只是数字，或者只是字母，不能连续三位相同)
 function validateUserPss(str) {
@@ -468,8 +463,7 @@ function changeAddress(obj,trl) {
 	}
 }
 //呢称验证
-function validateNickName( str )
-{
+function validateNickName( str ) {
 	var patrn = /^.{2,10}$/g;
 	if( patrn.exec(str) ) {
 		return true;
@@ -761,21 +755,6 @@ function formatFloat( num ) {
 	return num;
 }
 
-function show_no(id) {
-	$("#code_"+id).show("slow");
-}
-
-function show_nocode(id) {
-	$("#ncode_"+id).show("slow");
-}
-
-function close_no(id) {
-	$("#code_"+id).hide("slow");
-}
-
-function nclose_no(id) {
-	$("#ncode_"+id).hide("slow");
-}
 
 //自动转换数字金额为大小写中文字符,返回大小写中文字符串，最大处理到999兆
 function changeMoneyToChinese( money ) {
@@ -880,10 +859,6 @@ function autoAlertPrize() {//checkgetprize();
 	alt=setTimeout('autoAlertPrize()',20000);
 }
 
-
-function jjtc(){
-	$.alert('即将推出，敬请期待');
-}
 
 function checkgetprize() {
 	$.ajax({
