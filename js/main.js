@@ -477,7 +477,7 @@ function validateNickName( str )
 		return false;
 	}
 }
-function siderbarInit(obj,trl,tag) {//it's menu'list method'
+/*function siderbarInit(obj,trl,tag) {//it's menu'list method'
 	if(trl=='emaildeposit'){
 
 		$("#siderbar .title").html('充值提现');
@@ -631,7 +631,7 @@ function siderbarInit(obj,trl,tag) {//it's menu'list method'
 			$("#address").html('<span class="st">·</span>首页 <span class="st"> > </span> 新手指南 <span class="st"> > </span> 常见问题');
 		}
 	}
-}
+}*/
 
 var temp = getUrlPar("tag");
 function ListClick(obj,trl,tag) {
@@ -639,7 +639,7 @@ function ListClick(obj,trl,tag) {
 	$("#"+tag).parent().addClass("current");
 
 	if(tag!=temp) {
-		siderbarInit(obj,trl,tag);
+		// siderbarInit(obj,trl,tag);
 	} else {
 		changeAddress(obj,trl,tag);
 	}
