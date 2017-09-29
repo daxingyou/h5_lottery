@@ -1491,6 +1491,7 @@ console.log($.lt_time_leave+'倒计时') ;
 	var ajaxSubmitAllow = true;
 	$.fn.lt_ajaxSubmit = function(){
 	    var me = this;
+	    var chooseModesmsg =[] ; // 已选择的号码
 	    $(this).click(function(){
             if($(this).hasClass('sendBtnDisabled')){  //没有选注不让操作
                 return false;
@@ -1559,6 +1560,7 @@ console.log($.lt_time_leave+'倒计时') ;
 
                 modesmsg[modes].push($(".m_lotter_list_nub",n).html().replace(lot_lang,""));
             });
+            chooseModesmsg = modesmsg ;
             console.log(modesmsg)
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
@@ -1661,17 +1663,16 @@ console.log($.lt_time_leave+'倒计时') ;
                 content:'购买中....',
                 shadeClose:false
             });
+       console.log(chooseModesmsg)
 
-          /*  console.log(modesmsg)
-            $.each(modesmsg,function(i,n){
+         /*   $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
-                    /!*$.each(n,function(index,value){*!/  // 不需要遍历
-                 /!*   msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
+                    $.each(n,function(index,value){  // 不需要遍历
+                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
                     msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
                     msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
-                    // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';*!/
 
-                    /!*  })*!/
+                     })
                 }
             });*/
 
@@ -1812,16 +1813,6 @@ console.log($.lt_time_leave+'倒计时') ;
                                 }
                             })
 
-        //                     $.alert(lot_lang.am_s36,lot_lang.dec_s25,function(){
-        //                         if( checkTimeOut() == true ){//时间未结束
-        //                             $.lt_reset();
-        //                         }
-        //                         $.lt_onfinishbuy();
-								// //$.finishdofunc();
-								
-								// /*全清功能*/
-								// showClearAll();
-        //                     });
                             return false;
                         }
                         if( data == "success" ){//购买成功
