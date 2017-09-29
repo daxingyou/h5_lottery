@@ -307,7 +307,7 @@ $('.m_f_top').click(function(){
 //返回上一页
 //隐藏金额
         (function(){
-            var $ref = $("#refff"),$refresh = $(".ic-refresh"),$showMoney = $(".show-money"),$hideMoney = $(".hide-money");
+            var $refresh = $(".ic-refresh"),$showMoney = $(".show-money"),$hideMoney = $(".hide-money");
                 $hide = $(".ic-unlook");
             var cvis = getCookie("hide");
             if(cvis === "true"){

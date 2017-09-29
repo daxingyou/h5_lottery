@@ -208,7 +208,8 @@ $(function(){
             url : action.uaa+'/api/data/member/getMemberBalance' ,
             data: {} ,
             success: function(res){
-
+                var mom = roundAmt(res.data.amount) ;
+                $('.membalance').text(mom) ;
 
             },
             error: function() {
@@ -383,6 +384,9 @@ $(function(){
             },
             "show_str" : "X,X,X,X,X",
             "code_sp" : "",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 5,  // 机选
+            "randomcosvalue" : "1|1|1|1|1",  // 机选
             methodid : 2274,
             name:'复式',
             prize:{1:'180000.00'},
@@ -570,6 +574,9 @@ $(function(){
             },
             "show_str" : "-,X,X,X,X",
             "code_sp" : "",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 4,  // 机选
+            "randomcosvalue" : "1|1|1|1",  // 机选
             methodid : 2265,
             name:'复式',
             prize:{1:'18000.00'},
@@ -712,6 +719,9 @@ $(function(){
             },
             "show_str" : "-,-,X,X,X",
             "code_sp" : "",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
             methodid : 5,
             name:'复式',
             prize:{1:'1800.00'},
@@ -832,6 +842,9 @@ $(function(){
             "selectarea":{"type":"digital","layout":[{"title":"万位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1},{"title":"千位", "no":"0|1|2|3|4|5|6|7|8|9", "place":1, "cols":1},{"title":"百位", "no":"0|1|2|3|4|5|6|7|8|9", "place":2, "cols":1}],"noBigIndex":5,"isButton":true},
             "show_str" : "X,X,X,-,-",
             "code_sp"  : "",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
             methodid : 2,
             name:'复式',
             prize:{1:'1800.00'},
@@ -953,6 +966,9 @@ $(function(){
             "selectarea":{"type":"digital","layout":[{"title":"千位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1},{"title":"百位", "no":"0|1|2|3|4|5|6|7|8|9", "place":1, "cols":1},{"title":"十位", "no":"0|1|2|3|4|5|6|7|8|9", "place":2, "cols":1}],"noBigIndex":5,"isButton":true},
             "show_str" : "-,X,X,X,-",
             "code_sp"  : "",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
             methodid : 2291,
             name:'复式',
             prize:{1:'1800.00'},

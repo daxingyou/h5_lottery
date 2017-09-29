@@ -2036,13 +2036,13 @@
 			return para;
 		}
 		//随机选N注
-			$(".lt_random_bets_10,.lt_random_bets_5,.lt_random_bets_1").unbind("mouseover").mouseover(function(){
+		/*	$(".lt_random_bets_10,.lt_random_bets_5,.lt_random_bets_1").unbind("mouseover").mouseover(function(){
 				random_bets = true;//当前为机选sam
 			});
 			
 			$(".lt_random_bets_10,.lt_random_bets_5,.lt_random_bets_1").unbind("mouseout").mouseout(function(){
 				random_bets = false;//当前不为机选sam
-			});
+			});*/
 		
 			$(".lt_random_bets_10").unbind("click").click(function(){
 				for (var i=0; i<10; i++) {
@@ -2050,6 +2050,7 @@
 				}
 			});
 			$(".lt_random_bets_5").unbind("click").click(function(){
+				console.log('复活的铠甲')
 				for (var i=0; i<5; i++) {
 					$(".lt_random_bets_1").trigger("click"); 
 				}
@@ -2215,7 +2216,9 @@
 		                    play.showErrorNumbers(lt_elem, error_num, repeat_num);
 		                }
                     break;
-                    default     : break;
+                    default :
+
+                    break;
                 }
                 if( error.length > 0 ){//如果存在错误的号码，则提示
                     ermsg += lot_lang.em_s1+'\n'+error.join(", ")+"\n";
@@ -2262,7 +2265,7 @@
             var nos_temp = [];
             $.each(nos.split(","),function(index,value){
             	if(value == ""){
-            		nos_temp.push("-");	
+            		nos_temp.push("-");
             	}else{
             		nos_temp.push(value);		
             	}
@@ -2342,40 +2345,7 @@
             } else {
                 serverdata += temp.join("|")+"','menuid':"+menuid+",'nums':"+nums+",'omodel':"+pmodel+",'times':"+times+",'money':"+money+",'mode':"+modes+",'desc':'"+noshtml+"'}";
             }
-			
-       //      var cfhtml = '<tr class="lottery lotteryBg" style="display:none;">' +
-							// '<th>' + nohtml + '</th>' + 
-							// '<td>'+stemp+'</td>' +
-							// '<td class="orange">['+$.lt_method_data.modes[modes].name+']</td>' +
-							// '<td>'+nums+lot_lang.dec_s1+'</td>' +
-							// '<td>'+times+lot_lang.dec_s2+'</td>' +
-							// '<td class="orange">'+money+lot_lang.dec_s3+'</td>' +
-							// '<td class="del"><a href="javascript:void(0);" class="del"></a><input type="hidden" name="lt_project[]" value="'+serverdata+'" /></td>' +
-						 // '</tr>';
-			
 
-			// var cfhtml ='<div class="lottery lotteryList">'+
-            //                 '<table width="100%" border="0" cellspacing="0" cellpadding="0" >'+
-            //                     '<tr class="lotteryBg">'+
-            //                         '<td width="95%">'+
-            //                         '<table width="99%">'+
-            //                             '<tr>'+
-            //                                 '<td colspan="3" align="left">'+nohtml+'</td>'+
-            //                                 '<td  class="orange" align="right">'+money+lot_lang.dec_s3+'</td>'+
-            //                             '</tr>'+
-            //                             '<tr>'+
-            //                                 '<td align="left">['+$.lt_method_data.modes[modes].name+'] 模式</td>'+
-            //                                 '<td>'+nums+lot_lang.dec_s1+'</td>'+
-            //                                 '<td>'+'倍投: '+times+lot_lang.dec_s2+'</td>'+
-            //                                 '<td align="right">'+stemp+'</td>'+
-            //                             '</tr>'+
-            //                         '</table>'+
-            //                         '</td>'+
-            //                         '<td class="del">'+
-            //                             '<a href="javascript:void(0);" class="del"></a><input type="hidden" name="lt_project[]" value="'+serverdata+'" />'+
-            //                         '<td>'+
-            //                     '</tr>'	+
-            //              '</table></div>';
             var cfhtml ='<div class="lottery lotteryList">'+
                             nohtml+
                             '<p class="ui_bet_count">'+

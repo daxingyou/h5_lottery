@@ -787,15 +787,27 @@ var is_select=0;
 								$($.lt_id_data.id_helpdiv).html("");
 							}                                                     
 
-                            /* //机选功能运营说不用了
-                            if ( nn.ifrandom && nn.ifrandom > 0 ) {
-                                $($.lt_id_data.id_random_area).html('<input class="lt_random_bets_1 jx_button_90x26" title="机选1注" type="button" value="机选1注"  /><input class="lt_random_bets_5 jx_button_90x26" title="机选5注" type="button" value="机选5注"  /><input class="lt_random_bets_10 jx_button_90x26" title="机选10注" type="button" value="机选10注"  /><input type="hidden" id="randomcos" value="'+nn.randomcos+'" ><input type="hidden" id="randomcosvalue" value="'+nn.randomcosvalue+'">');
+                             //机选功能
+
+                            /*var randomStr = '<input class="lt_random_bets_1 jx_button_90x26" title="机选1注" type="button" value="机选1注"  />' +
+                                '<input class="lt_random_bets_5 jx_button_90x26" title="机选5注" type="button" value="机选5注"  />' +
+                                '<input class="lt_random_bets_10 jx_button_90x26" title="机选10注" type="button" value="机选10注"  />' +
+                                '<input type="hidden" id="randomcos" value="'+nn.randomcos+'" >' +
+                                '<input type="hidden" id="randomcosvalue" value="'+nn.randomcosvalue+'">' ;*/
+
+							var randomStr =' <a href="javascript:;" class="lt_random_bets_1" title="机选1注"><span class="icon_add2"></span>机选1注</a>'+
+                                         '<a href="javascript:;" class="lt_random_bets_5"  title="机选5注" ><span class="icon_add2"></span>机选5注</a>'+
+                                        '<input type="hidden" id="randomcos" value="'+nn.randomcos+'" >' +
+                                        '<input type="hidden" id="randomcosvalue" value="'+nn.randomcosvalue+'">' ;
+
+                            $($.lt_id_data.id_random_area).html(randomStr);
+                           /* if ( nn.ifrandom && nn.ifrandom > 0 ) {
+                                $($.lt_id_data.id_random_area).html(randomStr);
 								$($.lt_id_data.id_random_area).show();
                             } else {
                                 $($.lt_id_data.id_random_area).hide();
-                            }
-                            */                        
-                                                        
+                            }*/
+
 							lt_selcountback();//选号区的统计归零
 							$.lt_method_data = {
 												methodid : nn.methodid,
@@ -851,7 +863,7 @@ var is_select=0;
 								$("#wrapshow").css("display",'none');
 								$("#nfdprize").html("");
 							}
-							//*/
+
 						}else{//第一个标签不自动选择结束
 							html += '<dd id="smalllabel_'+i+'_'+ii+'" name="smalllabel" v="'+i+'-'+ii+'">'+nn.desc+'</dd>';
 
@@ -889,6 +901,7 @@ var is_select=0;
 				$($.lt_id_data.id_methodexample).hide();
 				$($.lt_id_data.id_examplediv).html("");
             }
+            console.log(opts.label[index[0]].label[index[1]].ifrandom)
 
             /* //机选功能运营说不用了          
             if( opts.label[index[0]].label[index[1]].ifrandom && opts.label[index[0]].label[index[1]].ifrandom>0 ){
@@ -1024,7 +1037,7 @@ var is_select=0;
 
 
             }
-console.log($.lt_time_leave+'黑色短裤') ;
+console.log($.lt_time_leave+'倒计时') ;
             if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
@@ -1656,12 +1669,12 @@ console.log($.lt_time_leave+'黑色短裤') ;
 
            // var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
             var resdata ={
-                "amount" : 200 ,  //总金额，此金额=所有注单总金额
+                "amount" : monAmt($.lt_total_money) ,  //总金额，此金额=所有注单总金额
                 "chaseCount": 0, //追号期数
                 "chaseWinStop": 0,//是否追中即停
                 "ifChase": 0, //是否追号
                 "list": [
-                    {
+                    {  // 一条数据就是一个方案，一个方案可以有多条下注
                         "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
                         "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
                         "betCount": 1, //数单数
@@ -1671,6 +1684,20 @@ console.log($.lt_time_leave+'黑色短裤') ;
                         "ifChase": 0, //是否追号
                         "moneyMode": "y",//付款类型：元y，角j，分f
                         "multiple": 1, //倍数最少为1
+                        "payoff": 0, //派彩
+                        "playId": 111, //玩法
+                        "remark": "无"//备注
+                    },
+                    {
+                        "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                        "betContent": "1,6,8,8,7",//下注内容，如1,5,8,3,7
+                        "betCount": 1, //数单数
+                        "betMode": 0, //下注模式(预留)
+                        "chaseCount": 1, //追号期数(含当期),默认1
+                        "chaseWinStop": 0,//是否追中即停
+                        "ifChase": 0, //是否追号
+                        "moneyMode": "y",//付款类型：元y，角j，分f
+                        "multiple": 4 , //倍数最少为1
                         "payoff": 0, //派彩
                         "playId": 111, //玩法
                         "remark": "无"//备注

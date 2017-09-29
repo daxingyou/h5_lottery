@@ -434,7 +434,7 @@ function formatFloat( num )
 	return num;
 }
 
-function moneyFormat(num)
+/*function moneyFormat(num)
 {
 	var sign = Number(num) < 0 ? "-" : "";
     num = num.toString();
@@ -453,7 +453,8 @@ function moneyFormat(num)
 	data[0] = newnum.join(",");
 	data[1] = data[1].toString().substr(0,4);
 	return sign+""+data[0] + "." + data[1];
-}
+}*/
+
 //四舍五入到指定精度,支持到整数位,类似PHP的round函数
 function JsRound( num, len, keep )
 {

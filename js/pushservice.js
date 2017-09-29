@@ -218,10 +218,9 @@ function pullFun(module, data) {
 		//用户模块
 
 		var userList = {
-			"user_balance" : function(data) {//用户余额
-
+		/*	"user_balance" : function(data) {//用户余额
 				var availablebalance = +data.availablebalance;
-				var old_money = +$("#refff").text().replace(/,/g,'').replace(/￥/g,''),
+				var old_money = +$(".membalance").text().replace(/,/g,'').replace(/￥/g,''),
 					money_diff = availablebalance - old_money,
 					change_effect_html;
 				money_diff = money_diff < 0 ?(money_diff).toFixed(4):'+'+(money_diff).toFixed(4);
@@ -235,8 +234,8 @@ function pullFun(module, data) {
 					}));
 				}
 
-				$("#refff").html(moneyFormat(availablebalance)).attr("title",moneyFormat(availablebalance));
-			},
+				$(".membalance").html(moneyFormat(availablebalance)).attr("title",moneyFormat(availablebalance));
+			},*/
 			"user_message": function(data){//站内信
 				var count,title,content,link,time,sender,is_show;
 				count = data["count"] - 0;

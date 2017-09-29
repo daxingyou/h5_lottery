@@ -1311,3 +1311,7 @@ var DataDeal = {
 function roundAmt(v) {
     return isNaN(v) ? "0.00" : (v/100).toFixed(2);
 }
+//金额转换，支持实数, 元转成分
+function monAmt(v) {
+    return /^[-+]?\d+(\.\d*)?$/.test(v) ? v*100 : "";
+}
