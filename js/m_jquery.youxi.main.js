@@ -1706,21 +1706,22 @@ var is_select=0;
                 "source": "h5" //来源：h5
         };
             $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){
-                var play_num =[] ;
+
                 var num_each = $(n).find('.num-each').text() ;  // 每单注数
                 var time_each = $(n).find('.time-each').text() ;  // 每单倍数
                 var total_each = $(n).find('.total-each').text() ;  // 每单金额
                 var play_each = $(n).find('.ui_bet_title').data('modid') ;  // 每单玩法
-                var num_play = $(n).find('.m_lotter_list_nub').html().split(',') ;
-               // var new_num = ;
-                play_num.push() ;
+                var play_num = $(n).find('.m_lotter_list_nub').html().split(',') ;
+                var new_num = $.grep(play_num,function(value){
+                    return value >= 0;// 筛选出只是数字
+                }) ;
+              //  console.log(new_num.toString()) ;
 
-                console.log(num_play) ;
          // 下注以对象的形式传递
                 resdata.list.push(
                     {  // 一条数据就是一个方案，一个方案可以有多条下注
                         "betAmount": monAmt(Number(total_each)) , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                        "betContent": "8,8,5",//下注内容，如1,5,8,3,7
+                        "betContent": new_num.toString() ,//下注内容，如1,5,8,3,7
                         "betCount": Number(num_each), //注单数
                         "betMode": 0, //下注模式(预留)
                         "chaseCount": 1, //追号期数(含当期),默认1
@@ -1734,7 +1735,6 @@ var is_select=0;
                     }) ;
 
             });
-
 
        /*     resdata.list.push(
                 {  // 一条数据就是一个方案，一个方案可以有多条下注
