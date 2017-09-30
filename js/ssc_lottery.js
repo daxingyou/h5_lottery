@@ -1,15 +1,138 @@
 
+
+/*
+ *  时时彩
+ * */
+
 var now_pcode  ; // 当前期数
 var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
 var sys_time  ; // 当前系统时间
 var now_day  ; // 当前日期
 
+// 登录接口
+function LoginAction() {
+    $.ajax({
+        type: 'post',
+        headers:{ Authorization: 'Basic d2ViX2FwcDo=' } ,
+        url : action.uaa+'oauth/token' ,
+        // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+        data: { grant_type :'password',username :'mgappid01|admin',password :'admin' } ,
+        success: function(res){
+            access_token = res.access_token ;
+            setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
+        },
+        error: function() {
 
-/*
- *  时时彩
- * */
-$(function(){
+        }
+    });
+}
+
+// 获取彩种
+function getLotterys() {
+    /*  $.getJSON( action.forseti+'apis/lotterys', function(res) {
+
+     })*/
+    $.ajax({
+        type: 'GET',
+        url : action.forseti+'apis/lotterys',
+        data: {} ,
+        dataType:'json',
+        success: function(res){
+            var allstr ='' ;  // 全部彩种
+            var hotstr ='' ;  // 热门彩种
+
+            $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
+                allstr +='<a href="javascript:;">'+
+                    '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                    ' <div class="menu_name">'+
+                    ' <h2>'+v.name+'</h2>'+
+                    ' <span>'+v.periodDesc+'</span>'+
+                    '</div> </a>' ;
+                if(v.ifHot == '1'){
+                    hotstr +='<a href="javascript:;">'+
+                        '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                        ' <div class="menu_name">'+
+                        ' <h2>'+v.name+'</h2>'+
+                        ' <span>'+v.periodDesc+'</span>'+
+                        '</div> </a>' ;
+                }
+
+            });
+
+            $('.game-hot').html(hotstr) ;
+            $('.game-all').html(allstr) ;
+
+        },
+        error: function() {
+
+        }
+    });
+}
+
+// 玩法树
+function getPlayTree(gameid) {
+    $.ajax({
+        type: 'get',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        url : action.forseti+'api/playsTree' ,
+        data: { lotteryId:gameid} ,
+        success: function(res){
+
+        },
+        error: function() {
+
+        }
+    });
+}
+
+
+// 获取系统时间
+function getSystemTime() {
+    $.ajax({
+        type: 'get',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        url : action.forseti+'apis/serverCurrentTime' ,
+        data: {} ,
+        success: function(res){
+            sys_time = formatTimeUnlix(res.data) ;
+
+            priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
+        },
+        error: function() {
+
+        }
+    });
+}
+
+// 获取用户余额
+function getMemberBalance() {
+    $.ajax({
+        type: 'GET',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        // dataType:'json',
+        // contentType:"application/json; charset=utf-8",  // json格式传给后端
+        url : action.uaa+'/api/data/member/getMemberBalance' ,
+        data: {} ,
+        success: function(res){
+            var mom = roundAmt(res.data.amount) ;
+            $('.membalance').text(mom) ;
+            setCookie("membalance",mom);  // 把登录余额放在cookie里面
+        },
+        error: function() {
+
+        }
+    });
+}
+
+
+/*$(function(){*/
         LoginAction() ;
 
         setTimeout(function () {
@@ -72,83 +195,6 @@ $(function(){
                 })
             });
         }
-// 登录接口
-    function LoginAction() {
-        $.ajax({
-            type: 'post',
-            headers:{ Authorization: 'Basic d2ViX2FwcDo=' } ,
-            url : action.uaa+'oauth/token' ,
-            // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
-            data: { grant_type :'password',username :'mgappid01|admin',password :'admin' } ,
-            success: function(res){
-                access_token = res.access_token ;
-                setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
-            },
-            error: function() {
-
-            }
-        });
-    }
-
-     // 获取彩种
-        function getLotterys() {
-            /*  $.getJSON( action.forseti+'apis/lotterys', function(res) {
-
-             })*/
-            $.ajax({
-                type: 'GET',
-                url : action.forseti+'apis/lotterys',
-                data: {} ,
-                dataType:'json',
-                success: function(res){
-                    var allstr ='' ;  // 全部彩种
-                    var hotstr ='' ;  // 热门彩种
-
-                    $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
-                        allstr +='<a href="javascript:;">'+
-                            '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
-                            ' <div class="menu_name">'+
-                            ' <h2>'+v.name+'</h2>'+
-                            ' <span>'+v.periodDesc+'</span>'+
-                            '</div> </a>' ;
-                        if(v.ifHot == '1'){
-                            hotstr +='<a href="javascript:;">'+
-                                '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
-                                ' <div class="menu_name">'+
-                                ' <h2>'+v.name+'</h2>'+
-                                ' <span>'+v.periodDesc+'</span>'+
-                                '</div> </a>' ;
-                        }
-
-                    });
-
-                    $('.game-hot').html(hotstr) ;
-                    $('.game-all').html(allstr) ;
-
-                },
-                error: function() {
-
-                }
-            });
-        }
-
-// 玩法树
-        function getPlayTree(gameid) {
-            $.ajax({
-                type: 'get',
-                headers: {
-                    "Authorization": "bearer  "+access_token,
-                },
-                url : action.forseti+'api/playsTree' ,
-                data: { lotteryId:gameid} ,
-                success: function(res){
-
-                },
-                error: function() {
-
-                }
-            });
-        }
 
     // 最新开奖期数
     function priodDataNewly(gameid) {
@@ -171,48 +217,6 @@ $(function(){
                 }
 
                 initFrame() ;
-            },
-            error: function() {
-
-            }
-        });
-    }
-
-    // 获取系统时间
-    function getSystemTime() {
-        $.ajax({
-            type: 'get',
-            headers: {
-                "Authorization": "bearer  "+access_token,
-            },
-            url : action.forseti+'apis/serverCurrentTime' ,
-            data: {} ,
-            success: function(res){
-                sys_time = formatTimeUnlix(res.data) ;
-
-                priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
-            },
-            error: function() {
-
-            }
-        });
-    }
-
-    // 获取用户余额
-    function getMemberBalance() {
-        $.ajax({
-            type: 'GET',
-            headers: {
-                "Authorization": "bearer  "+access_token,
-            },
-           // dataType:'json',
-           // contentType:"application/json; charset=utf-8",  // json格式传给后端
-            url : action.uaa+'/api/data/member/getMemberBalance' ,
-            data: {} ,
-            success: function(res){
-                var mom = roundAmt(res.data.amount) ;
-                $('.membalance').text(mom) ;
-                setCookie("membalance",mom);  // 把登录余额放在cookie里面
             },
             error: function() {
 
@@ -724,7 +728,7 @@ $(function(){
             "ifrandom" : 1, // 机选
             "randomcos" : 3,  // 机选
             "randomcosvalue" : "1|1|1",  // 机选
-            methodid : 5,
+            methodid : 511,
             name:'复式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -2446,7 +2450,7 @@ $(function(){
    // $(document).ready(initFrame);
 
 
-});
+/*});*/
 
 
 var lotterytype=0;
@@ -2470,7 +2474,7 @@ function processCode(issue,code,iscurent){
     var code_arr = code.split(',');
 
     var finishIssueCodeHtml = '<li class="hover"><span class="issue">第' + issue + '期</span><span class="num"> ' ;
-    //已开期号节点,开奖号码
+    //已开奖期号节点,开奖号码
     var recentCon = $(".recentCon ul") ;
     for(var i=0;i<code_arr.length;i++){
         finishIssueCodeHtml += '<i>' + code_arr[i] + '</i>';
@@ -2487,9 +2491,9 @@ function processCode(issue,code,iscurent){
 
     });
 
-
     recentCon.find("li").removeClass("hover");
-    recentCon.empty().prepend(finishIssueCodeHtml);
+    recentCon.prepend(finishIssueCodeHtml);
+
 }
 
 /*function processCode(issue,code,iscurent){

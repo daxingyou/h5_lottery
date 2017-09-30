@@ -909,7 +909,7 @@ var is_select=0;
 
             lt_selcountback();//选号区的统计归零
             $.lt_method_data = {
-                                methodid : opts.label[index[0]].label[index[1]].methodid,
+                                methodid : opts.label[index[0]].label[index[1]].methodid,  // 玩法id
                                 title: opts.title,
                                 name : opts.label[index[0]].label[index[1]].name,
                                 ifrandom  : opts.label[index[0]].label[index[1]].ifrandom,
@@ -1185,7 +1185,6 @@ var is_select=0;
                 $($.lt_id_data.id_cf_count).html(0);
                 $("#times").attr('selected');
             }
-            console.log('刷新在这')
 
             //读取新数据刷新必须刷新的内容
             $.ajax({
@@ -1201,15 +1200,25 @@ var is_select=0;
                     for(var i=2;i<data.data.length;i++){
                         processCode(data.data[i].pcode,data.data[i].winNumber);
                     }
-                                if( data.length <= 0 ){  // 获取数据失败
-                                    layer.open({
-                                        title: '温馨提示',
-                                        className: 'layer_tip',
-                                        content:lot_lang.am_s16,
-                                        btn:'确定'
-                                    })
-                                    return false;
-                                }
+
+                    //03:刷新当前期的信息
+                    //  $($.lt_id_data.id_cur_issue).html(data.issue);
+                    $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
+
+                    getSystemTime() ;  // 获取当前系统时间
+                    //04:重新开始计时
+                    //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
+                  //  $($.lt_id_data.id_count_down).lt_timer(sys_time , formatTimeUnlix(data.data[1].endTime));
+
+                        if( data.length <= 0 ){  // 获取数据失败
+                            layer.open({
+                                title: '温馨提示',
+                                className: 'layer_tip',
+                                content:lot_lang.am_s16,
+                                btn:'确定'
+                            })
+                            return false;
+                        }
                     /*   var partn = /<script.*>.*<\/script>/;
                               if( partn.test(data) ){  // 帐号在其他地方登录
                                     layer.open({
@@ -1228,10 +1237,6 @@ var is_select=0;
                                 }
                                 eval("data="+data);
 
-                                //03:刷新当前期的信息
-                              //  $($.lt_id_data.id_cur_issue).html(data.issue);
-                                $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
-                        console.log('第三节课')
                               /*  if(sidebar_hover == "pk10"){
                                     setTimeout(function(){
                                         $(".lottery_history_issue_pk10").find("span").html(data.issue-1);
@@ -1263,15 +1268,9 @@ var is_select=0;
                                         })();
                                     },10000);
                                 }              */
-                              //  $($.lt_id_data.id_cur_end).html(data.saleend);
-                                $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
-                                //04:重新开始计时
-                              //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
-                               //  $($.lt_id_data.id_count_down).lt_timer(opts.servertime,opts.cur_issue.endtime);
+                                // 当前期结束时间
+                              //  $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
 
-                                getSystemTime() ;  // 获取当前系统时间
-                                $($.lt_id_data.id_count_down).lt_timer(sys_time , formatTimeUnlix(data.data[1].endTime));
-                                console.log(data+'刷新') ;
 
                                 var l = $.lt_issues.today.length;
                                 //05:更新起始期
@@ -1487,7 +1486,6 @@ var is_select=0;
 	var ajaxSubmitAllow = true;
 	$.fn.lt_ajaxSubmit = function(){
 	    var me = this;
-	    var chooseModesmsg =[] ; // 已选择的号码
 	    $(this).click(function(){
             if($(this).hasClass('sendBtnDisabled')){  //没有选注不让操作
                 return false;
@@ -1556,7 +1554,7 @@ var is_select=0;
 
                 modesmsg[modes].push($(".m_lotter_list_nub",n).html().replace(lot_lang,""));
             });
-            chooseModesmsg = modesmsg ;
+
             console.log(modesmsg)
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
