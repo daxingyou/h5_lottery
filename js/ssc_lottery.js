@@ -2493,7 +2493,10 @@ function processCode(issue,code,iscurent){
 
     recentCon.find("li").removeClass("hover");
     recentCon.prepend(finishIssueCodeHtml);
-
+    if(recentCon.find('li').length>5){
+        recentCon.find('li:nth-last-child(n+6)').remove() ;
+    }
+    console.log(recentCon.find('li').length)
 }
 
 /*function processCode(issue,code,iscurent){
