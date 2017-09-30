@@ -2277,11 +2277,11 @@
             if( nos.length > 10 ){
                 var rand=~~(Math.random()*89999999+10000000).toString();
                 // var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
-                var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
+                var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
 				// nohtml+='<div id="div_slow_id_'+rand+'" class="more" style="display:none;"><a class="close" href="#" onclick="div_slow_hide('+rand+');return(false);">['+lot_lang.dec_s6+']</a><textarea class="code" readonly="readonly">'+nos+'</textarea></div>';
             }else{
                 // var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
-                var nohtml =  '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
+                var nohtml =  '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
             }
 			var pmodel = $("#pmode").val();//投注奖金模式
 		
@@ -2350,10 +2350,10 @@
                             nohtml+
                             '<p class="ui_bet_count">'+
                                 // '<span class="ui_bet_mode">['+$.lt_method_data.modes[modes].name+'] 模式</span>'+
-                                nums+lot_lang.dec_s1+
-                                times+lot_lang.dec_s2+
+                                '<span class="num-each">'+nums+'</span>'+lot_lang.dec_s1+
+                                '<span class="time-each">'+times+'</span>'+lot_lang.dec_s2+
                                 '1期'+
-                                ' 共'+money+lot_lang.dec_s3+
+                                '共<span class="total-each">'+money+'</span>'+lot_lang.dec_s3+
                                 // stemp+
                             '</p>'+
                             '<span class="del">'+

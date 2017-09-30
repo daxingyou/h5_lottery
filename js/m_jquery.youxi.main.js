@@ -533,12 +533,7 @@ var is_select=0;
 
         //装载模式选择
         //$('<select name="lt_project_modes" id="lt_project_modes"></select>').appendTo($.lt_id_data.id_sel_modes);//此为装载玩sean
-		
-		//标识客户端投注来源
-	/*	if(getCookie('isclient') == 1){
-			$("#play_source").val(4);
-		}*/
-        
+
 		var bhtml = ''; //大标签HTML
         var hasdefault = false;//初始没有设置默认标签
         $.each(opts.data_label, function(i,n){  //生成标签
@@ -914,7 +909,7 @@ var is_select=0;
 
             lt_selcountback();//选号区的统计归零
             $.lt_method_data = {
-                                methodid : opts.label[index[0]].label[index[1]].methodid,
+                                methodid : opts.label[index[0]].label[index[1]].methodid,  // 玩法id
                                 title: opts.title,
                                 name : opts.label[index[0]].label[index[1]].name,
                                 ifrandom  : opts.label[index[0]].label[index[1]].ifrandom,
@@ -989,10 +984,8 @@ var is_select=0;
     $.fn.lt_timer = function(start,end){ //服务器开始时间，服务器结束时间
         var me = this;
         if( start == "" || end == "" ){
-            console.log('环境') ;
             $.lt_time_leave = 0;
         }else{
-            console.log('进度款') ;
             $.lt_time_leave = (format(end).getTime()-format(start).getTime())/1000;//总秒数
         }
         function fftime(n){
@@ -1037,7 +1030,7 @@ var is_select=0;
 
 
             }
-console.log($.lt_time_leave+'倒计时') ;
+        console.log($.lt_time_leave+'倒计时') ;
             if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
@@ -1086,7 +1079,7 @@ console.log($.lt_time_leave+'倒计时') ;
                 }
 
                 console.log('停止当前期数') ;
-              //  $($.lt_id_data.id_count_down).lt_timer(setAmerTime() , formatTimeUnlix(data.data[1].endTime));
+
             }
             var oDate = diff($.lt_time_leave--);
             $(me).html(""+(oDate.day>0 ? oDate.day+(lot_lang.dec_s21)+" " : "")+"<div class=\"hour\">"+fftime(oDate.hour)+":</div><div class=\"min\">"+fftime(oDate.minute)+":</div><div class=\"sec\">"+fftime(oDate.second)+"</div>");
@@ -1094,8 +1087,9 @@ console.log($.lt_time_leave+'倒计时') ;
         },1000);
     };
 
-     $.fn.lt_timer_1 = function(start,end,info){  //服务器开始时间，服务器结束时间
+   /*  $.fn.lt_timer_1 = function(start,end,info){  //服务器开始时间，服务器结束时间  ，没有用到
         var me = this;
+        console.log('控制点1')
         if( start == "" || end == "" ){
             $.lt_time_leave = 0;
         }else{
@@ -1163,7 +1157,7 @@ console.log($.lt_time_leave+'倒计时') ;
         }
         var oDate = diff($.lt_time_leave);
         $(me).html(""+(oDate.day>0 ? oDate.day+(lot_lang.dec_s21)+" " : "")+"<div class=\"hour\">"+fftime(oDate.hour)+":</div><div class=\"min\">"+fftime(oDate.minute)+":</div><div class=\"sec\">"+fftime(oDate.second)+"</div>");
-    };
+    };*/
 	$.lt_reset = function(iskeep){
 	    if( iskeep && iskeep === true ){
             iskeep = true;
@@ -1191,7 +1185,6 @@ console.log($.lt_time_leave+'倒计时') ;
                 $($.lt_id_data.id_cf_count).html(0);
                 $("#times").attr('selected');
             }
-            console.log('刷新在这')
 
             //读取新数据刷新必须刷新的内容
             $.ajax({
@@ -1203,16 +1196,29 @@ console.log($.lt_time_leave+'倒计时') ;
               //  data: "lotteryId="+$.lt_lottid+"&flag=read",
                 data: "lotteryId="+$.lt_lottid ,
                 success : function(data){  //成功
+                    console.log('拉取期数成功') ;
+                    for(var i=2;i<data.data.length;i++){
+                        processCode(data.data[i].pcode,data.data[i].winNumber);
+                    }
 
-                                if( data.length <= 0 ){
-                                    layer.open({
-                                        title: '温馨提示',
-                                        className: 'layer_tip',
-                                        content:lot_lang.am_s16,
-                                        btn:'确定'
-                                    })
-                                    return false;
-                                }
+                    //03:刷新当前期的信息
+                    //  $($.lt_id_data.id_cur_issue).html(data.issue);
+                    $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
+
+                    getSystemTime() ;  // 获取当前系统时间
+                    //04:重新开始计时
+                    //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
+                  //  $($.lt_id_data.id_count_down).lt_timer(sys_time , formatTimeUnlix(data.data[1].endTime));
+
+                        if( data.length <= 0 ){  // 获取数据失败
+                            layer.open({
+                                title: '温馨提示',
+                                className: 'layer_tip',
+                                content:lot_lang.am_s16,
+                                btn:'确定'
+                            })
+                            return false;
+                        }
                     /*   var partn = /<script.*>.*<\/script>/;
                               if( partn.test(data) ){  // 帐号在其他地方登录
                                     layer.open({
@@ -1222,24 +1228,16 @@ console.log($.lt_time_leave+'倒计时') ;
         							top.location.href="#";
         							return false;
                                 }*/
-                                if( data == "empty" ){
-									//未到销售时间
-									//$.alert(lot_lang.am_s15_2);
+                                if( data == "empty" ){ 	//未到销售时间
                                     layer.open({
                                         content:lot_lang.am_s18,
                                         btn:'确定'
                                     })
-                                    // $.alert(lot_lang.am_s18);
-                                    //window.location.href="./?controller=default&action=start";
                                     return false;
                                 }
                                 eval("data="+data);
 
-                                //03:刷新当前期的信息
-                              //  $($.lt_id_data.id_cur_issue).html(data.issue);
-                                $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
-
-                                if(sidebar_hover == "pk10"){
+                              /*  if(sidebar_hover == "pk10"){
                                     setTimeout(function(){
                                         $(".lottery_history_issue_pk10").find("span").html(data.issue-1);
                                             var sparkTimes=0;
@@ -1252,8 +1250,8 @@ console.log($.lt_time_leave+'倒计时') ;
                                                 });
                                         })();
                                     },30000);
-                                }
-                                if(sidebar_hover == "jssm"){
+                                }*/
+                              /*  if(sidebar_hover == "jssm"){
                                     var jssmIssue = data.issue.split("-"),newIssue;
                                     jssmIssue[1] = jssmIssue[1]-1;
                                     newIssue = jssmIssue.join("-");
@@ -1269,13 +1267,10 @@ console.log($.lt_time_leave+'倒计时') ;
                                                 });
                                         })();
                                     },10000);
-                                }                     
-                              //  $($.lt_id_data.id_cur_end).html(data.saleend);
-                                $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
-                                //04:重新开始计时
-                              //  $($.lt_id_data.id_count_down).lt_timer(data.nowtime, data.saleend);
-                                $($.lt_id_data.id_count_down).lt_timer(sys_time , formatTimeUnlix(data.data[1].endTime));
-                                console.log(data+'刷新') ;
+                                }              */
+                                // 当前期结束时间
+                              //  $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
+
 
                                 var l = $.lt_issues.today.length;
                                 //05:更新起始期
@@ -1491,7 +1486,6 @@ console.log($.lt_time_leave+'倒计时') ;
 	var ajaxSubmitAllow = true;
 	$.fn.lt_ajaxSubmit = function(){
 	    var me = this;
-	    var chooseModesmsg =[] ; // 已选择的号码
 	    $(this).click(function(){
             if($(this).hasClass('sendBtnDisabled')){  //没有选注不让操作
                 return false;
@@ -1560,17 +1554,17 @@ console.log($.lt_time_leave+'倒计时') ;
 
                 modesmsg[modes].push($(".m_lotter_list_nub",n).html().replace(lot_lang,""));
             });
-            chooseModesmsg = modesmsg ;
+
             console.log(modesmsg)
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
-                    /*$.each(n,function(index,value){*/  // 不需要遍历
+                  /*  $.each(n,function(index,value){*/   // 不需要遍历
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
-                  /*  })*/
+                    /*})*/
                 }
             });
             msg += '</div>';
@@ -1645,7 +1639,6 @@ console.log($.lt_time_leave+'倒计时') ;
         };
         
         $($.lt_id_data.id_methodexample).click(function(){
-            // $($.lt_id_data.id_examplediv).toggle();
             var bbH = $($.lt_id_data.id_examplediv).html()
             layer.open({
                 content:bbH,
@@ -1690,7 +1683,7 @@ console.log($.lt_time_leave+'倒计时') ;
                   /*  {  // 一条数据就是一个方案，一个方案可以有多条下注
                         "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
                         "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
-                        "betCount": 1, //数单数
+                        "betCount": 1, //注单数
                         "betMode": 0, //下注模式(预留)
                         "chaseCount": 1, //追号期数(含当期),默认1
                         "chaseWinStop": 0,//是否追中即停
@@ -1704,7 +1697,7 @@ console.log($.lt_time_leave+'倒计时') ;
                     {
                         "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
                         "betContent": "1,6,8,8,7",//下注内容，如1,5,8,3,7
-                        "betCount": 1, //数单数
+                        "betCount": 1, //注单数
                         "betMode": 0, //下注模式(预留)
                         "chaseCount": 1, //追号期数(含当期),默认1
                         "chaseWinStop": 0,//是否追中即停
@@ -1719,7 +1712,7 @@ console.log($.lt_time_leave+'倒计时') ;
                 "lotteryId": $.lt_lottid ,  //彩种id
                 "operType": 0, //下注类型，1下注
                 "pcode": $(".current_issue ").eq(0).text() , //期次20170925013
-                "pdate": 0, //日期20170925
+                "pdate": now_day, //日期20170925
                 "playId": 0, //玩法id
                 "remark": "无",//备注，可用于测试
                 "source": "h5" //来源：h5
@@ -1727,7 +1720,7 @@ console.log($.lt_time_leave+'倒计时') ;
             resdata.list.push(
                 {  // 一条数据就是一个方案，一个方案可以有多条下注
                     "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    "betContent": "_,_,8,8,5",//下注内容，如1,5,8,3,7
+                    "betContent": "8,8,5",//下注内容，如1,5,8,3,7
                     "betCount": 1, //数单数
                     "betMode": 0, //下注模式(预留)
                     "chaseCount": 1, //追号期数(含当期),默认1
@@ -1741,7 +1734,7 @@ console.log($.lt_time_leave+'倒计时') ;
                 },
                 {
                     "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    "betContent": "_,_,8,8,7",//下注内容，如1,5,8,3,7
+                    "betContent": "1,8,7",//下注内容，如1,5,8,3,7
                     "betCount": 1, //数单数
                     "betMode": 0, //下注模式(预留)
                     "chaseCount": 1, //追号期数(含当期),默认1
