@@ -1650,6 +1650,18 @@ var is_select=0;
 
         //ajax提交表单 sean ，下注表单提交
         function ajaxSubmit(){
+            console.log($.lt_total_money)
+            // 余额不足提示充值
+            if( monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text())) ){
+                layer.open({
+                    title:'温馨提示' ,
+                    content:'可用余额不足，请先充值',
+                    btn:'确定'
+                })
+                return false ;
+            }
+
+
             layer.open({
                 type:2,
                 content:'购买中....',
