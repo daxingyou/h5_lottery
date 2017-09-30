@@ -17,12 +17,12 @@
     <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
     <!--<script type="text/javascript" async="" src="../js/ga.js"></script>-->
-    <!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
+    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
     <!--消息框代码结束-->
 
-    <!--<script type="text/javascript" src="../js/main.js"></script>-->
+    <script type="text/javascript" src="../js/main.js"></script>
     <!--<script type="text/javascript" src="../js/layer.js"></script>-->
-    <!--<script type="text/javascript" src="../js/common.js"></script>-->
+    <script type="text/javascript" src="../js/common.js"></script>
     <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
     <!-- 弹窗css 覆盖layer.css用 -->
     <link href="../css/page.css" rel="stylesheet" type="text/css">
@@ -92,7 +92,7 @@
 
 </div>
 
-<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
 <!--<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>-->
 <!--<script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>-->
 <!--<script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>-->
@@ -115,6 +115,68 @@
 <!--</script>-->
 <!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
 <script>
+    var access_token = getCookie("access_token");  // 取token
+
+    var data = getStrParam("data");
+    data = JSON.parse(data.data)
+    console.log(data)
+    $(".periods").html(data.pcode)
+    $(".bet_status").html(data.orderStatusName)
+    $(".so-betTime").html(data.betTime)
+    $(".so-orderId").html(data.orderId)
+    $(".so-betAmount").html(data.betAmount)
+    $(".so-playName").html(data.playName)
+    $(".so-betContent").html(data.betContent)
+
+    //如果已经开奖
+    if (data.orderStatusName != '等待开奖') {
+        data.winNumber = data.winNumber || '1,2,3,4,5'
+        var openNums = data.winNumber.split(',')
+        $('.bet_nlist ul li').each(function (i, t) {
+            $(t).html(openNums[i])
+            $(t).attr('class', 'b_lt_1 hover')
+        })
+        if (data.orderStatusName == '已派彩') {
+            $(".bet_status").attr('class', 'bet_status status_green')
+            $(".bet_status").html('已中奖')
+        }
+        if (data.orderStatusName == '系统撤单') {
+            $(".bet_status").attr('class', 'bet_status status_red')
+        }
+        if (data.orderStatusName == '暂缓派奖') {
+            $(".bet_status").attr('class', 'bet_status status_red')
+        }
+        if (data.orderStatusName == '会员撤单') {
+            $(".bet_status").attr('class', 'bet_status status_red')
+        }
+    }
+
+    //    //开奖数据查询
+    //    function openNumsFun(lotteryId, pcount) {
+    //        var data = {
+    //            lotteryId: lotteryId,
+    //            pcount: pcount,
+    //        }
+    //        $.ajax({
+    //            type: 'post',
+    //            headers: {
+    //                "Authorization": "bearer " + access_token,
+    //            },
+    //            dataType: 'json',
+    //            contentType: "application/json; charset=utf-8",  // json格式传给后端
+    //            url: action.forseti + 'api/openNums',
+    //            data: JSON.stringify(data),  // json格式
+    //            success: function (res) {
+    //                if (res.code == 200) {
+    //                    return
+    //                }
+    //            },
+    //            error: function (err) {
+    //                console.log(err.responseText)
+    //            }
+    //        });
+    //    }
+
     /**
      * 解析URL参数
      */
@@ -130,23 +192,6 @@
         }
         return param;
     }
-
-    var data = getStrParam("data");
-    data = JSON.parse(data.data)
-    console.log(data)
-    $(".periods").html(data.pcode)
-    $(".bet_status").html(data.orderStatusName)
-    //    var betContent = eval("[" + data.betContent + "]")
-    //    var htmlStr = '<ul>';
-    //    for (var i in betContent) {
-    //        htmlStr += ''
-    //    }
-
-    $(".so-betTime").html(data.betTime)
-    $(".so-orderId").html(data.orderId)
-    $(".so-betAmount").html(data.betAmount)
-    $(".so-playName").html(data.playName)
-    $(".so-betContent").html(data.betContent)
 </script>
 </body>
 
