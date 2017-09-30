@@ -122,7 +122,7 @@
     console.log(data)
     $(".periods").html(data.pcode)
     $(".bet_status").html(data.orderStatusName)
-    $(".so-betTime").html(data.betTime)
+    $(".so-betTime").html(formatTime(data.betTime))
     $(".so-orderId").html(data.orderId)
     $(".so-betAmount").html(data.betAmount)
     $(".so-playName").html(data.playName)

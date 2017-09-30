@@ -17,16 +17,13 @@
     <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
     <script type="text/javascript" async="" src="../js/ga.js"></script>
-    <!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
     <!--消息框代码开始-->
     <!-- <script type="text/javascript" src="../js/jquery.dialogUI.js"></script> -->
     <!--<script type="text/javascript" src="../js/jquery.dragdrop.js"></script>-->
     <!--消息框代码结束-->
     <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
-    <!--<script type="text/javascript" src="../js/main.js"></script>-->
     <!--<script type="text/javascript" src="../js/velocity.min.js"></script>-->
     <!--<script type="text/javascript" src="../js/layer.js"></script>-->
-    <!--<script type="text/javascript" src="../js/common.js"></script>-->
     <!--时时彩js-->
     <!--<script type="text/javascript" src="../js/ssc_lottery.js"></script>-->
     <!-- 弹窗css 覆盖layer.css用 -->
@@ -112,7 +109,7 @@
         </div>
     </section>
 </div>
-<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
 <!--<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>-->
 <!--<script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>-->
 <!--<script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>-->
@@ -121,7 +118,64 @@
 <!--<script type="text/javascript" src="../js/coreDesign.js"></script>-->
 <!--<script type="text/javascript" src="../js/res.js"></script>-->
 <!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
-<script src="../js/soye/betting_record.js"></script>
+<!--<script src="../js/soye/betting_record.js"></script>-->
+<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script>
+    var access_token = getCookie("access_token");  // 取token
+    var data = getStrParam("data");
+    data = JSON.parse(data.data)
+
+
+    console.log(data)
+    chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
+        data.chaseCountAll = list.length;
+
+
+        $(".lottery_t").html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
+            '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
+            '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
+            '</p>')
+        $(".print_data").html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>ZCQWE1707146548dfmr</span></li><li><span>追号条件</span> <span>追中即停</span> </li></ul>')
+        $(".so-betTime").html(data.betTime)
+        $(".so-orderId").html(data.orderId)
+        $(".so-betAmount").html(data.betAmount)
+        $(".so-playName").html(data.playName)
+        $(".so-betContent").html(data.betContent)
+    })
+
+
+    //追号数据查询
+    function chaseOrderDetailFun(lotteryId, parentOrderId, cb) {
+        var data = {
+            lotteryId: lotteryId,
+            parentOrderId: parentOrderId,
+        }
+        $.ajax({
+            type: 'get',
+            headers: {
+                "Authorization": "bearer " + access_token,
+            },
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",  // json格式传给后端
+            url: action.forseti + 'api/orders/chaseOrderDetail',
+            data: data,  // json格式
+            success: function (res) {
+                if (res.err == "SUCCESS") {
+                    var data = res.data;
+                    cb(data);
+
+                }
+            },
+            error: function (err) {
+                console.log(err.responseText)
+            }
+        });
+    }
+
+
+</script>
 </body>
 
 </html>

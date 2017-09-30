@@ -130,8 +130,9 @@ $(function () {
                                 statusStr = '已终止'
                             }
                             if (statusStr == v.chaseStatusName || statusStr == '全部') {
+                                var jsonStr = encodeURI("trace_record_dt01.html?data=" + JSON.stringify(v));
                                 li_html += '<li class="bet_data" data-status="not_open">' +
-                                    '<a href="trace_record_dt01.html">' +
+                                    '<a href="' + jsonStr + '">' +
                                     '<div class="badge ssc_badge"></div>' +
                                     '<div class="lottery_t ssc">' +
                                     '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
