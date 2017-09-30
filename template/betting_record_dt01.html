@@ -3,7 +3,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
@@ -15,106 +16,138 @@
     <link href="../css/m-warp.css" rel="stylesheet" type="text/css">
     <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
-    <script type="text/javascript" async="" src="../js/ga.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+    <!--<script type="text/javascript" async="" src="../js/ga.js"></script>-->
+    <!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
     <!--消息框代码结束-->
 
-    <script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript" src="../js/layer.js"></script>
-    <script type="text/javascript" src="../js/common.js"></script>
+    <!--<script type="text/javascript" src="../js/main.js"></script>-->
+    <!--<script type="text/javascript" src="../js/layer.js"></script>-->
+    <!--<script type="text/javascript" src="../js/common.js"></script>-->
     <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
     <!-- 弹窗css 覆盖layer.css用 -->
     <link href="../css/page.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div id="body">
-        <header class="page_header">
-            <a class="btn_back" href="javascript:;" onclick="history.go(-1)" title="返回"></a>
-            <h2>注单详情</h2>
-            <a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>
-        </header>
-        <section class="wraper-page-inner">
-            <div class="bet_dt_area">
-                <div class="period">
+<div id="body">
+    <header class="page_header">
+        <a class="btn_back" href="javascript:;" onclick="history.go(-1)" title="返回"></a>
+        <h2>注单详情</h2>
+        <!--撤单下一期再做-->
+        <!--<a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>-->
+    </header>
+    <section class="wraper-page-inner">
+        <div class="bet_dt_area">
+            <div class="period">
                     <span>
                         <b class="lt_ty">重庆时时彩</b>
                         第
                         <strong class="periods">20170715086</strong>
                         期
                     </span>
-                    <span class="bet_status status_gray">等待开奖 </span>
-
-                </div>
-                <div class="bet_nlist">
-                    <ul>
-                        <li class="b_lt_1" name="b_lt_1">?</li>
-                        <li class="b_lt_1" name="b_lt_1">?</li>
-                        <li class="b_lt_1" name="b_lt_1">?</li>
-                        <li class="b_lt_1" name="b_lt_1">?</li>
-                        <li class="b_lt_1" name="b_lt_1">?</li>
-                    </ul>
-                </div>
-                <div class="print_data">
-                    <ul>
-                        <li>
-                            <span>投注时间</span>
-                            <span>2017-07-14   15:21:33</span>
-                        </li>
-                        <li>
-                            <span>方案编号</span>
-                            <span>
+                <span class="bet_status status_gray">等待开奖 </span>
+            </div>
+            <div class="bet_nlist">
+                <ul>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                </ul>
+            </div>
+            <div class="print_data">
+                <ul>
+                    <li>
+                        <span>投注时间</span>
+                        <span class="so-betTime">2017-07-14   15:21:33</span>
+                    </li>
+                    <li>
+                        <span>方案编号</span>
+                        <span class="so-orderId">
                                 ZCQWE1707146548
                                 <small>(追号方案)</small>
                             </span>
-                        </li>
-                        <li>
-                            <span>投注金额</span>
-                            <span class="ui_color_yellow">200,002.00</span>
-                        </li>
-                        <li>
-                            <span>我的投注</span>
-                            <span>五星直选_复式</span>
-                        </li>
-                        <li>
-                            <span></span>
-                            <span class="ui_color_yellow">0,1,8,6,3</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="goto_bet">
-                    <a class="lbtn lbtn_info lbtn_md" href="javascript:;">前往投注</a>
-                </div>
+                    </li>
+                    <li>
+                        <span>投注金额</span>
+                        <span class="ui_color_yellow so-betAmount">200,002.00</span>
+                    </li>
+                    <li>
+                        <span>我的投注</span>
+                        <span class="so-playName">五星直选_复式</span>
+                    </li>
+                    <li>
+                        <span></span>
+                        <span class="ui_color_yellow so-betContent">0,1,8,6,3</span>
+                    </li>
+                </ul>
             </div>
-        </section>
+            <div class="goto_bet">
+                <a class="lbtn lbtn_info lbtn_md" href="/">前往投注</a>
+            </div>
+        </div>
+    </section>
 
 
-    </div>
+</div>
 
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="../js/youxi_lang_zh.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.trace.js"></script>
-    <script type="text/javascript" src="../js/pushstream.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<!--<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.trace.js"></script>-->
+<!--<script type="text/javascript" src="../js/pushstream.js"></script>-->
+<!--<script type="text/javascript" src="../js/coreDesign.js"></script>-->
+<!--<script type="text/javascript" src="../js/res.js"></script>-->
 
-    <!--<script type="text/javascript" src="../js/coreDesign.js"></script>-->
-    <script type="text/javascript" src="../js/res.js"></script>
+<!--<script>-->
+<!--$(function(){-->
+<!--$('#btn_bet_cancel').click(function() {-->
+<!--layer.open({-->
+<!--title: '温馨提示',-->
+<!--className: 'layer_tip',-->
+<!--content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">1000.00</span>元',-->
+<!--btn: ['确定', '取消']-->
+<!--});-->
+<!--});-->
+<!--})-->
+<!--</script>-->
+<!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
+<script>
+    /**
+     * 解析URL参数
+     */
+    function getStrParam() {
+        var url = location.search; //获取url中"?"符后的字串
+        var param = {};
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                param[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+            }
+        }
+        return param;
+    }
 
-    <script>
-        $(function(){
-            $('#btn_bet_cancel').click(function() {
-                layer.open({
-                    title: '温馨提示',
-                    className: 'layer_tip',
-                    content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">1000.00</span>元',
-                    btn: ['确定', '取消']
-                });
-            });
-        })
-    </script>
-    <!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
+    var data = getStrParam("data");
+    data = JSON.parse(data.data)
+    console.log(data)
+    $(".periods").html(data.pcode)
+    $(".bet_status").html(data.orderStatusName)
+    //    var betContent = eval("[" + data.betContent + "]")
+    //    var htmlStr = '<ul>';
+    //    for (var i in betContent) {
+    //        htmlStr += ''
+    //    }
 
+    $(".so-betTime").html(data.betTime)
+    $(".so-orderId").html(data.orderId)
+    $(".so-betAmount").html(data.betAmount)
+    $(".so-playName").html(data.playName)
+    $(".so-betContent").html(data.betContent)
+</script>
 </body>
 
 </html>
