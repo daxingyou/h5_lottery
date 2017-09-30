@@ -35,12 +35,8 @@
         <dl class="success_recommend">
             <dt>大家都在玩</dt>
             <dd>
-                <ul>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_cqssc.png"></div><p>重庆时时彩</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_tjssc.png"></div><p>天津时时彩</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_jxk3.png"></div><p>江苏快3</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_jc11x5.png"></div><p>江西11选5</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_xjssc.png"></div><p>新疆时时彩</p></a></li>
+                <ul class="hot-game">
+
                 </ul>
             </dd>
         </dl>
@@ -53,10 +49,41 @@
 
 $(function () {
     var param = getStrParam() ;
-    console.log(param.name) ;
     $('.lottery-name').text(decodeURI(param.name)) ;
     $('.lottery-pcode').text(param.pcode) ;
     $('.lottery-bet').text(roundAmt(param.money)) ;
+
+    getLotterys('.hot-game') ;
+
+    // 获取彩种
+    function getLotterys(hot) {
+        $.ajax({
+            type: 'GET',
+            url : action.forseti+'apis/lotterys',
+            data: {} ,
+            dataType:'json',
+            success: function(res){
+                var hotstr ='' ;  // 热门彩种
+                $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
+                    if(v.ifHot == '1'){
+                        hotstr += '<li><a href="javascript:;">' +
+                        '<div class="img">' +
+                        '<img  src="'+v.imgUrl+'">' +
+                        '</div><p>'+v.name+'</p></a>' +
+                        '</li>';
+                    }
+
+                });
+
+                $(hot).html(hotstr) ;
+
+            },
+            error: function() {
+
+            }
+        });
+    }
+
 })
 
 </script>
