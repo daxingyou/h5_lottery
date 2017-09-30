@@ -46,6 +46,9 @@ var is_select=0;
                         id_sel_num      : '#lt_sel_nums',//装载选号区投注倍数的ID
                         id_sel_money    : '#lt_sel_money',//装载选号区投注金额的ID
                         id_sel_times    : '#lt_sel_times',//选号区倍数输入框ID
+                        lt_cf_date      : '#lt_cf_date',// 选号期数，默认1
+                        id_add_times     : '#id_add_times',// 追号倍数输入框
+                        id_add_date      : '#id_add_date',// 追号期数输入框
                         id_sel_insert   : '#lt_sel_insert',//添加按钮
                         id_sel_modes    : '#lt_sel_modes',//元角模式选择
                         id_cf_count     : '#lt_cf_count', //统计投注单数

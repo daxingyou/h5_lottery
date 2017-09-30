@@ -1931,7 +1931,11 @@
 		
 		//倍数修改以后的计算
 		function checkTimes(){
-            var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g,"").substring(0,5);
+            var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 投注倍数选择
+            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号倍数选择
+            var z_dates = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号期数选择
+
+            console.log(z_times)
             $($.lt_id_data.id_sel_times).val( times );
             // if( times == "" ){
             //     times = 1;
@@ -1956,7 +1960,8 @@
             money = isNaN(money) ? 0 : money;
             $($.lt_id_data.id_sel_money).html(money);
 		}
-		
+
+
 		//倍数加减按钮点击处理
 /*		$(".multipleBox .reduce").unbind("click").click(function(){
 			var input = $(this).parent().find("input");
@@ -2104,6 +2109,7 @@
         $($.lt_id_data.id_sel_insert).unbind("click").click(function(){
             var nums  = parseInt($($.lt_id_data.id_sel_num).html(),10);//投注注数取整
             var times = parseInt($($.lt_id_data.id_sel_times).val(),10);//投注倍数取整
+            var betdates = parseInt($($.lt_id_data.lt_cf_date).html(),10);//投注倍数取整
             //var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
 			var modes = parseInt($("input[name='lt_project_modes']:checked").val(),10);//投注模式
             var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
@@ -2352,7 +2358,7 @@
                                 // '<span class="ui_bet_mode">['+$.lt_method_data.modes[modes].name+'] 模式</span>'+
                                 '<span class="num-each">'+nums+'</span>'+lot_lang.dec_s1+
                                 '<span class="time-each">'+times+'</span>'+lot_lang.dec_s2+
-                                '1期'+
+                                '<span class="date-each">'+betdates+'</span>期'+
                                 '共<span class="total-each">'+money+'</span>'+lot_lang.dec_s3+
                                 // stemp+
                             '</p>'+
@@ -2447,12 +2453,13 @@
                 $($.lt_id_data.id_cf_num).html($.lt_total_nums);//更新总注数显示
                 $($.lt_id_data.id_cf_money).html($.lt_total_money);//更新总金额显示
                 $($.lt_id_data.id_cf_count).html(parseInt($($.lt_id_data.id_cf_count).html(),10)-1);//总投注项减1
-                cleanTraceIssue();//清空追号区数据
+
+              /*  cleanTraceIssue();//清空追号区数据
 				//追号相关
 				$(".fqzhBox span").removeClass().addClass("uncheck");
 				$(".fqzhBox span").siblings("input[type='checkbox']").prop("checked",false);
 				$(".tzzhBox span").removeClass().addClass("uncheck");
-				$(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);
+				$(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);*/
 				
 				/*全清功能*/
 				showClearAll();
@@ -2486,13 +2493,13 @@
             //$($.lt_id_data.id_sel_times).val(1);sean倍数
 			select_init();
             checkNum();
-            //清空追号区数据
+          /*  //清空追号区数据
             cleanTraceIssue();
 			//追号相关
 			$(".fqzhBox span").removeClass().addClass("uncheck");
 			$(".fqzhBox span").siblings("input[type='checkbox']").prop("checked",false);
 			$(".tzzhBox span").removeClass().addClass("uncheck");
-			$(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);
+			$(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);*/
 			
 			/*全清功能*/
 			showClearAll();
