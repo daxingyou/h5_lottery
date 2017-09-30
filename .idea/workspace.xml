@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba17bb7-30dc-4f60-8def-6f315543d668" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/m_jquery.youxi.main.js" afterPath="$PROJECT_DIR$/js/m_jquery.youxi.main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" afterPath="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
     </list>
@@ -32,13 +32,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m_jquery.youxi.main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="m_jquery.youxi.main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="57" column="71" lean-forward="false" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
+            <state relative-caret-position="189">
+              <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youxi_lang_zh.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/youxi_lang_zh.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+              <folding>
+                <marker date="1506390104907" expanded="true" signature="1533:1539" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="1943:1949" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="1949:1955" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2011:2017" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2017:2023" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2023:2029" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2029:2035" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2035:2041" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="2041:2047" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3100:3106" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3106:3112" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3112:3118" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3118:3124" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3124:3130" ph=" " />
+                <marker date="1506390104907" expanded="true" signature="3130:3136" ph=" " />
               </folding>
             </state>
           </provider>
@@ -54,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m_jquery.youxi.selectarea.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="m_jquery.youxi.selectarea.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="1938" column="54" lean-forward="true" selection-start-line="1938" selection-start-column="54" selection-end-line="1938" selection-end-column="54" />
+            <state relative-caret-position="322">
+              <caret line="1978" column="66" lean-forward="false" selection-start-line="1978" selection-start-column="66" selection-end-line="1978" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -89,14 +115,24 @@
       <find>彩种</find>
       <find>getLotterys</find>
       <find>彩票</find>
-      <find>lt_total_money</find>
       <find>total-each</find>
       <find>lt_cf_nums</find>
       <find>lt_sel_times</find>
       <find>id_sel_times</find>
-      <find>id_add_times</find>
       <find>less_bei</find>
+      <find>num_each</find>
       <find>lt_cf_money</find>
+      <find>lt_total_time</find>
+      <find>追号</find>
+      <find>numlabel</find>
+      <find>lt_trace_money</find>
+      <find>nums</find>
+      <find>id_cf_money</find>
+      <find>lt_total_money</find>
+      <find>totle</find>
+      <find>id_add_times</find>
+      <find>console.log</find>
+      <find>lt_cf_date</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,9 +148,9 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/ssc_lottery.js" />
         <option value="$PROJECT_DIR$/template/bet_success.html" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/m_jquery.youxi.main.js" />
         <option value="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
-        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -126,10 +162,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="-12" />
+    <option name="y" value="15" />
+    <option name="width" value="1364" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -207,21 +243,22 @@
       <updated>1506754580962</updated>
       <workItem from="1506754584221" duration="5364000" />
       <workItem from="1506763699719" duration="6223000" />
-      <workItem from="1506773891272" duration="78000" />
+      <workItem from="1506773891272" duration="5167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11665000" />
+    <option name="totallyTimeSpent" value="16754000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-12" y="15" width="1364" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25296736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -234,7 +271,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -395,21 +431,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
+    <entry file="file://$PROJECT_DIR$/js/youxi_lang_zh.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="1938" column="54" lean-forward="true" selection-start-line="1938" selection-start-column="54" selection-end-line="1938" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="199">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <marker date="1506390104907" expanded="true" signature="1533:1539" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="1943:1949" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="1949:1955" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2011:2017" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2017:2023" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2023:2029" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2029:2035" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2035:2041" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="2041:2047" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3100:3106" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3106:3112" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3112:3118" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3118:3124" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3124:3130" ph=" " />
+            <marker date="1506390104907" expanded="true" signature="3130:3136" ph=" " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="57" column="71" lean-forward="false" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
+        <state relative-caret-position="189">
+          <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="1978" column="66" lean-forward="false" selection-start-line="1978" selection-start-column="66" selection-end-line="1978" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
