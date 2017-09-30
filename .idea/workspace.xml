@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba17bb7-30dc-4f60-8def-6f315543d668" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ssc_lottery.js" afterPath="$PROJECT_DIR$/js/ssc_lottery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/bet_success.html" afterPath="$PROJECT_DIR$/template/bet_success.html" />
-    </list>
+    <list default="true" id="0ba17bb7-30dc-4f60-8def-6f315543d668" name="默认的" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -35,26 +31,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m_jquery.youxi.main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="m_jquery.youxi.main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="1667" column="0" lean-forward="true" selection-start-line="1667" selection-start-column="0" selection-end-line="1667" selection-end-column="0" />
+            <state relative-caret-position="62">
+              <caret line="1664" column="34" lean-forward="true" selection-start-line="1664" selection-start-column="34" selection-end-line="1664" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bet_success.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template/bet_success.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-              <folding>
-                <element signature="e#1274#1280#0" expanded="true" />
-                <element signature="e#1286#1292#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,8 +77,8 @@
       <find>lt_total_money</find>
       <find>nth-child</find>
       <find>彩种</find>
-      <find>彩票</find>
       <find>getLotterys</find>
+      <find>彩票</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,12 +200,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506754580962</updated>
       <workItem from="1506754584221" duration="5364000" />
-      <workItem from="1506763699719" duration="3715000" />
+      <workItem from="1506763699719" duration="3774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9079000" />
+    <option name="totallyTimeSpent" value="9138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -340,16 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="1667" column="0" lean-forward="true" selection-start-line="1667" selection-start-column="0" selection-end-line="1667" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -371,11 +344,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/template/bet_success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="209">
+          <caret line="11" column="49" lean-forward="true" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
           <folding>
             <element signature="e#1274#1280#0" expanded="true" />
             <element signature="e#1286#1292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="1664" column="34" lean-forward="true" selection-start-line="1664" selection-start-column="34" selection-end-line="1664" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
