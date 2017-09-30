@@ -1016,7 +1016,7 @@ var is_select=0;
                        // data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
                         data: "lotteryId="+$.lt_lottid ,
                         success : function(data){ //成功
-                            console.log(data) ;
+                           // console.log(data) ;
                            /* data = parseInt(data,10);
                             data = isNaN(data) ? 0 : data;
                             data = data <= 0 ? 0 : data;*/
@@ -1030,7 +1030,7 @@ var is_select=0;
 
 
             }
-        console.log($.lt_time_leave+'倒计时') ;
+       // console.log($.lt_time_leave+'倒计时') ;
             if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
@@ -1649,7 +1649,7 @@ var is_select=0;
         });    
 
         //ajax提交表单 sean ，下注表单提交
-        function ajaxSubmit(){
+     function ajaxSubmit(){
             console.log($.lt_total_money)
             // 余额不足提示充值
             if( monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text())) ){
@@ -1660,7 +1660,6 @@ var is_select=0;
                 })
                 return false ;
             }
-
 
             layer.open({
                 type:2,
