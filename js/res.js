@@ -516,13 +516,7 @@ function laye_close(){  //关闭弹窗
                     document.location.href = getCookie("tx_url");
             }
         });
-   $("#chongzhi_rec").click(function(){
-            if(url == ''){
-                setCookie("url","/")
-           }else{
-                setCookie("url",url)
-           }
-        });
+
     })
 // 近期开奖关闭按钮
 // 移动端从后台切换过来 从新刷新页面
