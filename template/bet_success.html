@@ -24,9 +24,9 @@
     </header>
     <div class="success_main">
         <ul class="success_info">
-            <li><span class="icon_ticket"></span><span class="tag">彩票名称</span><span class="text">重庆时时彩</span></li>
-            <li><span class="icon_hourglass"></span><span class="tag">期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="text">20170714002</span></li>
-            <li><span class="icon_money"></span><span class="tag">投注金额</span><span class="text ui_color_strong">200,000.00</span></li>
+            <li><span class="icon_ticket"></span><span class="tag">彩票名称</span><span class="text lottery-name"> </span></li>
+            <li><span class="icon_hourglass"></span><span class="tag">期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="text lottery-pcode"> </span></li>
+            <li><span class="icon_money"></span><span class="tag">投注金额</span><span class="text ui_color_strong lottery-bet"> </span></li>
         </ul>
         <div class="success_btns">
             <a class="btn_normal" href="betting_record.html">查看投注记录</a>
@@ -49,6 +49,16 @@
 
 <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
+<script>
 
+$(function () {
+    var param = getStrParam() ;
+    console.log(param.name) ;
+    $('.lottery-name').text(decodeURI(param.name)) ;
+    $('.lottery-pcode').text(param.pcode) ;
+    $('.lottery-bet').text(roundAmt(param.money)) ;
+})
+
+</script>
 </body>
 </html>
