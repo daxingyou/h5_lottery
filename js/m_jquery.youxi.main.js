@@ -1859,7 +1859,8 @@ var is_select=0;
                                     
                                      layer.close(index);
                                     $.funList.tzjlfn();//获取投注记录
-                                    
+
+                                    top.location.href = './template/bet_success.html' ; //跳转到投注成功页面
                                 }
                             });
 
