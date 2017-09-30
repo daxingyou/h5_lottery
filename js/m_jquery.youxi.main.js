@@ -1712,7 +1712,7 @@ var is_select=0;
                 var total_each = $(n).find('.total-each').text() ;  // 每单金额
                 var play_each = $(n).find('.ui_bet_title').data('modid') ;  // 每单玩法
                 var num_play = $(n).find('.m_lotter_list_nub').html().split(',') ;
-                var new_num = ;
+               // var new_num = ;
                 play_num.push() ;
 
                 console.log(num_play) ;
