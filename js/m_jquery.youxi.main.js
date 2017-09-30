@@ -1546,6 +1546,7 @@ var is_select=0;
             var modesmsg = [];  // 选择的注数
             var modes=0;
             $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){
+
                 modes = $(n).data('data').modes;
                 if( modesmsg[modes] == undefined ){
                     modesmsg[modes] = [];
@@ -1646,33 +1647,20 @@ var is_select=0;
             })
 
         });    
-     
-        
+
         //ajax提交表单 sean ，下注表单提交
         function ajaxSubmit(){
-
             layer.open({
                 type:2,
                 content:'购买中....',
                 shadeClose:false
             });
-       console.log(chooseModesmsg)
-
-         /*   $.each(modesmsg,function(i,n){
-                if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
-                    $.each(n,function(index,value){  // 不需要遍历
-                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
-                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
-                    msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
-
-                     })
-                }
-            });*/
 
             //var form = $(me).closest("form");
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
 
+           // 提交传递参数
            // var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
             var resdata ={
                 "amount" : monAmt($.lt_total_money) ,  //总金额，此金额=所有注单总金额
@@ -1717,7 +1705,38 @@ var is_select=0;
                 "remark": "无",//备注，可用于测试
                 "source": "h5" //来源：h5
         };
-            resdata.list.push(
+            $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){
+                var play_num =[] ;
+                var num_each = $(n).find('.num-each').text() ;  // 每单注数
+                var time_each = $(n).find('.time-each').text() ;  // 每单倍数
+                var total_each = $(n).find('.total-each').text() ;  // 每单金额
+                var play_each = $(n).find('.ui_bet_title').data('modid') ;  // 每单玩法
+                var num_play = $(n).find('.m_lotter_list_nub').html().split(',') ;
+                var new_num = ;
+                play_num.push() ;
+
+                console.log(num_play) ;
+         // 下注以对象的形式传递
+                resdata.list.push(
+                    {  // 一条数据就是一个方案，一个方案可以有多条下注
+                        "betAmount": monAmt(Number(total_each)) , //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                        "betContent": "8,8,5",//下注内容，如1,5,8,3,7
+                        "betCount": Number(num_each), //注单数
+                        "betMode": 0, //下注模式(预留)
+                        "chaseCount": 1, //追号期数(含当期),默认1
+                        "chaseWinStop": 0,//是否追中即停
+                        "ifChase": 0, //是否追号
+                        "moneyMode": "y",//付款类型：元y，角j，分f
+                        "multiple": Number(time_each) , //倍数最少为1
+                        "payoff": 0 , //派彩
+                        "playId": play_each , //玩法
+                        "remark": "无"//备注
+                    }) ;
+
+            });
+
+
+       /*     resdata.list.push(
                 {  // 一条数据就是一个方案，一个方案可以有多条下注
                     "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
                     "betContent": "8,8,5",//下注内容，如1,5,8,3,7
@@ -1746,7 +1765,7 @@ var is_select=0;
                     "playId": 511, //玩法
                     "remark": "无"//备注
                 }
-            )
+            )*/
             $.ajax({
                 type: 'POST',
                 headers: {
