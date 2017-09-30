@@ -3,6 +3,7 @@ var now_pcode  ; // 当前期数
 var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
 var sys_time  ; // 当前系统时间
+var now_day  ; // 当前日期
 
 
 /*
@@ -163,6 +164,7 @@ $(function(){
                 next_pcode = res.data[0].pcode ;  // 下一期数
                 now_pcode = res.data[1].pcode ;  // 当前期数
                 now_time = formatTimeUnlix(res.data[1].endTime) ;  // 当前期数
+                now_day =( res.data[1].pcode).toString().substr(0,8) ;  // 当天日期
 
                 for(var i=2;i<res.data.length;i++){
                     processCode(res.data[i].pcode,res.data[i].winNumber);
@@ -2487,7 +2489,7 @@ function processCode(issue,code,iscurent){
 
 
     recentCon.find("li").removeClass("hover");
-    recentCon.prepend(finishIssueCodeHtml);
+    recentCon.empty().prepend(finishIssueCodeHtml);
 }
 
 /*function processCode(issue,code,iscurent){
