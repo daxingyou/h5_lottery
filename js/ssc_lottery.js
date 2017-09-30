@@ -29,10 +29,8 @@ function LoginAction() {
 }
 
 // 获取彩种
-function getLotterys() {
-    /*  $.getJSON( action.forseti+'apis/lotterys', function(res) {
+function getLotterys(all,hot) {
 
-     })*/
     $.ajax({
         type: 'GET',
         url : action.forseti+'apis/lotterys',
@@ -60,8 +58,8 @@ function getLotterys() {
 
             });
 
-            $('.game-hot').html(hotstr) ;
-            $('.game-all').html(allstr) ;
+            $(all).html(allstr) ;
+            $(hot).html(hotstr) ;
 
         },
         error: function() {
@@ -140,7 +138,7 @@ function getMemberBalance() {
             gamePlay() ;
             shopCar() ;
             helpChoose() ;
-            getLotterys() ; // 获取彩种
+            getLotterys('.game-all','.game-hot') ; // 获取彩种
             getPlayTree(1) ;  // 玩法
             getMemberBalance() ; // 获取用户余额
 
@@ -2485,10 +2483,11 @@ function processCode(issue,code,iscurent){
 
     recentCon.find("li").removeClass("hover");
     recentCon.prepend(finishIssueCodeHtml);
-   /* if(recentCon.find('li').length>6){
-        recentCon.find('li:nth-last-child(n+7)').remove() ;
-    }*/
-    console.log(recentCon.find('li').length)
+    if(recentCon.find('li').length>5){
+      // recentCon.find('li:nth-last-child(n+7)').remove() ;
+        recentCon.find('li:nth-child(n+6)').remove() ;
+    }
+
 }
 
 /*function processCode(issue,code,iscurent){

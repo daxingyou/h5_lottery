@@ -13,50 +13,79 @@
     <link href="../css/m-reset.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
     <link href="../css/bet_success.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="../js/ga.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
 
 </head>
 <body>
 
 <div id="body">
     <header class="page_header">
-        <a href="index.html" class="btn_back" title="返回"></a>
+        <a href="javascript:;" onclick="history.go(-1)" class="btn_back" title="返回"></a>
         <h2>投注成功</h2>
     </header>
     <div class="success_main">
         <ul class="success_info">
-            <li><span class="icon_ticket"></span><span class="tag">彩票名称</span><span class="text">重庆时时彩</span></li>
-            <li><span class="icon_hourglass"></span><span class="tag">期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="text">20170714002</span></li>
-            <li><span class="icon_money"></span><span class="tag">投注金额</span><span class="text ui_color_strong">200,000.00</span></li>
+            <li><span class="icon_ticket"></span><span class="tag">彩票名称</span><span class="text lottery-name"> </span></li>
+            <li><span class="icon_hourglass"></span><span class="tag">期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span><span class="text lottery-pcode"> </span></li>
+            <li><span class="icon_money"></span><span class="tag">投注金额</span><span class="text ui_color_strong lottery-bet"> </span></li>
         </ul>
         <div class="success_btns">
             <a class="btn_normal" href="betting_record.html">查看投注记录</a>
-            <a class="btn_default" href="index.html">继续投注</a>
+            <a class="btn_default" href="../">继续投注</a>
         </div>
         <dl class="success_recommend">
             <dt>大家都在玩</dt>
             <dd>
-                <ul>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_cqssc.png"></div><p>重庆时时彩</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_tjssc.png"></div><p>天津时时彩</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_jxk3.png"></div><p>江苏快3</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_jc11x5.png"></div><p>江西11选5</p></a></li>
-                    <li><a href="javascript:;"><div class="img"><img src="../images/lottery/pic_xjssc.png"></div><p>新疆时时彩</p></a></li>
+                <ul class="hot-game">
+
                 </ul>
             </dd>
         </dl>
     </div>
 </div>
 
-<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>
-<script type="text/javascript" src="../js/pushstream.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script>
 
-<script type="text/javascript" src="../js/coreDesign.js"></script>
-<script type="text/javascript" src="../js/res.js"></script>
-<script type="text/javascript">
+$(function () {
+    var param = getStrParam() ;
+    $('.lottery-name').text(decodeURI(param.name)) ;
+    $('.lottery-pcode').text(param.pcode) ;
+    $('.lottery-bet').text(roundAmt(param.money)) ;
+
+    getLotterys('.hot-game') ;
+
+    // 获取彩种
+    function getLotterys(hot) {
+        $.ajax({
+            type: 'GET',
+            url : action.forseti+'apis/lotterys',
+            data: {} ,
+            dataType:'json',
+            success: function(res){
+                var hotstr ='' ;  // 热门彩种
+                $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
+                    if(v.ifHot == '1'){
+                        hotstr += '<li><a href="javascript:;">' +
+                        '<div class="img">' +
+                        '<img  src="'+v.imgUrl+'">' +
+                        '</div><p>'+v.name+'</p></a>' +
+                        '</li>';
+                    }
+
+                });
+
+                $(hot).html(hotstr) ;
+
+            },
+            error: function() {
+
+            }
+        });
+    }
+
+})
+
 </script>
-<script type="text/javascript" src="../js/pushservice.js"></script>
-
 </body>
 </html>

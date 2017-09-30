@@ -1669,6 +1669,7 @@ var is_select=0;
             //var form = $(me).closest("form");
             var form = $(".lotteryBox").find("form[name='buyform']");
 			var randomNum = Math.floor((Math.random() * 10000) + 1);
+            var urlmon = monAmt($.lt_total_money) ;
 
            // 提交传递参数
            // var resdata = $(form).serialize() + "&randomNum=" + randomNum ;
@@ -1776,6 +1777,7 @@ var is_select=0;
                     "remark": "无"//备注
                 }
             )*/
+
             $.ajax({
                 type: 'POST',
                 headers: {
@@ -1859,7 +1861,8 @@ var is_select=0;
                                     
                                      layer.close(index);
                                     $.funList.tzjlfn();//获取投注记录
-                                    
+                    console.log(urlmon+'房间打开')
+                                    top.location.href = './template/bet_success.html?name='+encodeURI('重庆时时彩')+'&pcode='+ $(".current_issue ").eq(0).text()+'&money='+ urlmon ; //跳转到投注成功页面
                                 }
                             });
 
