@@ -1791,7 +1791,8 @@ var is_select=0;
                 data: JSON.stringify(resdata) ,
 
                 success: function(data){
-                        layer.closeAll()
+                       getMemberBalance() ; //下注成功后更新余额
+                        layer.closeAll() ;
 						//解决瞬间提交2次的问题
 						ajaxSubmitAllow = true;
                         $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
