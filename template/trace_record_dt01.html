@@ -35,7 +35,7 @@
     <header class="page_header">
         <a class="btn_back" href="javascript:;" onclick="history.go(-1)" title="返回"></a>
         <h2>追号详情</h2>
-        <a class="right" href="trace_cancel.html">撤消追号</a>
+        <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
     </header>
     <section class="wraper-page-inner">
         <div class="tra_dt_area">
@@ -137,12 +137,33 @@
             '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
             '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
             '</p>')
-        $(".print_data").html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>ZCQWE1707146548dfmr</span></li><li><span>追号条件</span> <span>追中即停</span> </li></ul>')
-        $(".so-betTime").html(data.betTime)
-        $(".so-orderId").html(data.orderId)
-        $(".so-betAmount").html(data.betAmount)
-        $(".so-playName").html(data.playName)
-        $(".so-betContent").html(data.betContent)
+        if (data.chaseWinStop == 1) {
+            data.chaseWinStop = '追中即停'
+        } else {
+            data.chaseWinStop = '不停止'
+        }
+
+        $(".print_data").html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>')
+
+
+        $(".tr_status").html(data.chaseStatusName)
+        if (data.chaseStatusName == '进行中') {
+            $(".tr_status").attr('class', 'tr_status status01')
+        } else if (data.chaseStatusName == '已终止') {
+            $(".tr_status").attr('class', 'tr_status status02')
+
+        } else if (data.chaseStatusName == '已结束') {
+            $(".tr_status").attr('class', 'tr_status status03')
+
+        }
+        var li_html = '<ul>'
+        $.each(list, function (i, e) {
+            console.log(list[i])
+            li_html += '<li><a href="betting_record_dt03.html"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount).toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>'
+        })
+        li_html += '</ul>'
+        $(".tra_list").html(li_html)
+
     })
 
 
