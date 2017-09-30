@@ -92,19 +92,19 @@ var is_select=0;
 			lt_id_data : opts.data_id,
 			lt_method_data : {},//当前所选择的玩法数据
 			lt_method : {
-			
-			2:'ZX3',3:'ZXHZ',5:'ZX3',6:'ZXHZ',8:'ZUS',9:'ZUL',10:'HHZX',11:'ZUHZ',13:'ZUS',14:'ZUL',15:'HHZX',16:'ZUHZ',18:'BDW1',20:'BDW2',513:'BDW2',22:'ZX2',26:'ZU2',24:'ZX2',28:'ZU2',30:'DWD',31:'DWD',32:'DWD',33:'DWD',34:'DWD',36:'DXDS',38:'DXDS',
+
+			311:'ZX3',313:'ZXHZ',512:'ZX3',513:'ZXHZ',321:'ZUS',322:'ZUL',323:'HHZX',324:'ZUHZ',522:'ZUS',523:'ZUL',524:'HHZX',525:'ZUHZ',811:'BDW1',812:'BDW2',814:'BDW2',614:'ZX2',624:'ZU2',611:'ZX2',621:'ZU2',711:'DWD',31:'DWD',32:'DWD',33:'DWD',34:'DWD',912:'DXDS',911:'DXDS',
 			89:'ZX3',92:'ZXHZ',102:'ZX3',103:'ZXHZ',104:'ZUS',105:'ZUL',106:'HHZX',107:'ZUHZ',108:'ZUS',109:'ZUL',110:'HHZX',111:'ZUHZ',112:'BDW1',113:'BDW2',114:'ZX2',115:'ZX2',116:'ZU2',117:'ZU2',118:'DWD',119:'DWD',120:'DWD',121:'DWD',122:'DWD',123:'DXDS',124:'DXDS',
 			126:'ZX3',127:'ZXHZ',129:'ZX3',130:'ZXHZ',132:'ZUS',133:'ZUL',134:'HHZX',135:'ZUHZ',137:'ZUS',138:'ZUL',139:'HHZX',140:'ZUHZ',142:'BDW1',144:'BDW2',146:'ZX2',148:'ZX2',150:'ZU2',152:'ZU2',154:'DWD',155:'DWD',156:'DWD',157:'DWD',158:'DWD',160:'DXDS',162:'DXDS',
 			265:'ZX3',266:'ZXHZ',268:'ZX3',269:'ZXHZ',271:'ZUS',272:'ZUL',273:'HHZX',274:'ZUHZ',276:'ZUS',277:'ZUL',278:'HHZX',279:'ZUHZ',281:'BDW1',283:'BDW2',285:'ZX2',287:'ZX2',289:'ZU2',291:'ZU2',293:'DWD',294:'DWD',295:'DWD',296:'DWD',297:'DWD',299:'DXDS',301:'DXDS',
-			189:'ZX3',190:'ZXHZ',192:'ZUS',193:'ZUL',194:'HHZX',195:'ZUHZ',197:'BDW1',199:'ZX2',201:'ZX2',203:'ZU2',205:'ZU2',261:'DWD',262:'DWD',263:'DWD',472:'ZXHZ2',474:'ZXHZ2',476:'ZUHZ2',478:'ZUHZ2',//上海时时乐
+			189:'ZX3',190:'ZXHZ',192:'ZUS',193:'ZUL',194:'HHZX',195:'ZUHZ',197:'BDW1',199:'ZX2',201:'ZX2',203:'ZU2',205:'ZU2',261:'DWD',262:'DWD',263:'DWD',616:'ZXHZ2',613:'ZXHZ2',626:'ZUHZ2',623:'ZUHZ2',
 			220:'SDZX3',222:'SDZU3',224:'SDZX2',226:'SDZU2',228:'SDBDW',230:'SDDWD',231:'SDDWD',232:'SDDWD',234:'SDDDS',236:'SDCZW',238:'SDRX1',240:'SDRX2',243:'SDRX3',246:'SDRX4',249:'SDRX5',252:'SDRX6',255:'SDRX7',258:'SDRX8',
 			303:'SDZX3',305:'SDZU3',307:'SDZX2',309:'SDZU2',311:'SDBDW',313:'SDDWD',314:'SDDWD',315:'SDDWD',317:'SDDDS',319:'SDCZW',321:'SDRX1',323:'SDRX2',325:'SDRX3',327:'SDRX4',329:'SDRX5',331:'SDRX6',333:'SDRX7',335:'SDRX8',
 			337:'SDZX3',339:'SDZU3',341:'SDZX2',343:'SDZU2',345:'SDBDW',347:'SDDWD',348:'SDDWD',349:'SDDWD',351:'SDDDS',353:'SDCZW',355:'SDRX1',357:'SDRX2',359:'SDRX3',361:'SDRX4',363:'SDRX5',365:'SDRX6',367:'SDRX7',369:'SDRX8',
 			393:'SDZX3',395:'SDZU3',397:'SDZX2',399:'SDZU2',401:'SDBDW',403:'SDDWD',404:'SDDWD',405:'SDDWD',407:'SDDDS',409:'SDCZW',411:'SDRX1',413:'SDRX2',415:'SDRX3',417:'SDRX4',419:'SDRX5',421:'SDRX6',423:'SDRX7',425:'SDRX8',
 			2304:'BJRX1',2305:'BJRX2',2306:'BJRX3',2307:'BJRX4',2308:'BJRX5',2309:'BJRX6',2310:'BJRX7',385:'BJHZDS',387:'BJHZDX',389:'BJSXP',391:'BJJOP',427:'BJDXDS',//北京快乐8
-			2274:'ZX5',2267:'ZH4',2265:'ZX4',2269:'SXZU24',2270:'SXZU12',2271:'SXZU6',2272:'SXZU4',2276:'ZH5',
-                        2278:'WXZU120',2279:'WXZU60',  2280:'WXZU30',2281:'WXZU20',2282:'WXZU10',2283:'WXZU5',2285:'BDW1',2286:'HSCS',2287:'SXBX',2288:'SJFC',2291:'ZX3',2292:'ZXHZ',2293:'ZUS',2294:'ZUL',2295:'HHZX',2296:'ZUHZ',
+            111:'ZX5',213:'ZH4',211:'ZX4',212:'ZXd4',221:'SXZU24',222:'SXZU12',223:'SXZU6',224:'SXZU4',113:'ZH5',
+            121:'WXZU120',122:'WXZU60',  123:'WXZU30',124:'WXZU20',125:'WXZU10',126:'WXZU5',101:'BDW1',102:'HSCS',103:'SXBX',104:'SJFC',411:'ZX3',413:'ZXHZ',421:'ZUS',422:'ZUL',423:'HHZX',424:'ZUHZ',
 			1189:'ZX3',1190:'ZXHZ',1192:'ZUS',1193:'ZUL',1194:'HHZX',1195:'ZUHZ',1197:'BDW1',1199:'ZX2',1201:'ZX2',1203:'ZU2',1205:'ZU2',1261:'DWD',1262:'DWD',1263:'DWD',//福彩3D
 			2189:'ZX3',2190:'ZXHZ',2192:'ZUS',2193:'ZUL',2194:'HHZX',2195:'ZUHZ',2197:'BDW1',2199:'ZX2',2201:'ZX2',2203:'ZU2',2205:'ZU2',2261:'DWD',2262:'DWD',2263:'DWD',
 			//天津时时彩
@@ -261,7 +261,7 @@ var is_select=0;
         	6140802:'PK10DXDS',6140770:'ZXKD2',6140771:'ZXKD2',6140772:'ZXKD',6140773:'ZXKD',6140774:'ZXKD',6140775:'ZU3BD',6140776:'ZU3BD',6140777:'ZU3BD',
 
         	//重庆时时彩新增玩法                                                                                                                             
-        	6150802:'PK10DXDS',6150770:'ZXKD2',6150771:'ZXKD2',6150772:'ZXKD',6150773:'ZXKD',6150774:'ZXKD',6150775:'ZU3BD',6150776:'ZU3BD',6150777:'ZU3BD',
+             913:'PK10DXDS',6150770:'ZXKD2',6150771:'ZXKD2',6150772:'ZXKD',6150773:'ZXKD',6150774:'ZXKD',6150775:'ZU3BD',6150776:'ZU3BD',6150777:'ZU3BD',
         	
             //瑞典1分彩                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
             3111002:'ZX3',3111003:'ZXHZ',3111005:'ZX3',3111006:'ZXHZ',3111008:'ZUS',3111009:'ZUL',3111010:'HHZX',3111011:'ZUHZ',3111013:'ZUS',3111014:'ZUL',3111015:'HHZX',3111016:'ZUHZ',3111018:'BDW1',3111020:'BDW2',3111513:'BDW2',3111022:'ZX2',3111026:'ZU2',3111024:'ZX2',3111028:'ZU2',3111030:'DWD',3111031:'DWD',3111032:'DWD',3111033:'DWD',3111034:'DWD',3111036:'DXDS',3111038:'DXDS',                                                                                                           
@@ -1016,7 +1016,7 @@ var is_select=0;
                        // data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
                         data: "lotteryId="+$.lt_lottid ,
                         success : function(data){ //成功
-                            console.log(data) ;
+                           // console.log(data) ;
                            /* data = parseInt(data,10);
                             data = isNaN(data) ? 0 : data;
                             data = data <= 0 ? 0 : data;*/
@@ -1030,7 +1030,7 @@ var is_select=0;
 
 
             }
-        console.log($.lt_time_leave+'倒计时') ;
+       // console.log($.lt_time_leave+'倒计时') ;
             if( $.lt_time_leave <= 0 ){ //结束
                 clearInterval(timerno);
                 if( $.lt_submiting == false ){//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
@@ -1649,7 +1649,17 @@ var is_select=0;
         });    
 
         //ajax提交表单 sean ，下注表单提交
-        function ajaxSubmit(){
+     function ajaxSubmit(){
+            // 余额不足提示充值
+            if( monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text())) ){
+                layer.open({
+                    title:'温馨提示' ,
+                    content:'可用余额不足，请先充值',
+                    btn:'确定'
+                })
+                return false ;
+            }
+
             layer.open({
                 type:2,
                 content:'购买中....',
@@ -1780,7 +1790,8 @@ var is_select=0;
                 data: JSON.stringify(resdata) ,
 
                 success: function(data){
-                        layer.closeAll()
+                       getMemberBalance() ; //下注成功后更新余额
+                        layer.closeAll() ;
 						//解决瞬间提交2次的问题
 						ajaxSubmitAllow = true;
                         $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
@@ -1805,10 +1816,9 @@ var is_select=0;
                             })
 
 							top.location.href="../?controller=default";
-
                             return false;
                         }
-						if( data == "slowly" ){//网络缓慢
+					/*	if( data == "slowly" ){  //网络缓慢
 
                             layer.open({
                                 content:lot_lang.am_s36+lot_lang.dec_s25,
@@ -1820,14 +1830,14 @@ var is_select=0;
                                     $.lt_onfinishbuy();
                                     //$.finishdofunc();
                                     
-                                    /*全清功能*/
+                                    /!*全清功能*!/
                                     showClearAll();
                                 }
                             })
 
                             return false;
-                        }
-                        if( data == "success" ){//购买成功
+                        }*/
+                        if( data.err == "SUCCESS" ){  //购买成功
                            layer.open({
                                 content:lot_lang.am_s24,
                                 btn:['确定'],
@@ -1852,26 +1862,9 @@ var is_select=0;
                                     
                                 }
                             });
-        //                     $.alert(lot_lang.am_s24,lot_lang.dec_s25,function(){
-        //                         if( checkTimeOut() == true ){//时间未结束
-        //                             $.lt_reset();
-        //                         }
-        //                         $.lt_onfinishbuy();
 
-        //                         //追号相关
-        //                         $(".fqzhBox span").removeClass().addClass("uncheck");
-        //                         $(".fqzhBox span").siblings("input[type='checkbox']").prop("checked",false);
-        //                         $(".tzzhBox span").removeClass().addClass("uncheck");
-        //                         $(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);
-                                
-        //                         $($.lt_id_data.id_tra_ifb).val("no");
-        //                         $("#lt_trace_assert").val("no");
-                                
-        //                         $.funList.tzjlfn();//获取投注记录
-								// //$.finishdofunc();
-        //                     });
                             return false;
-                        }else{//购买失败提示
+                        }else{  //购买失败提示
                             eval("data = "+ data +";");
                             if( data.stats == 'error' ){//错误
                                 layer.open({
@@ -1882,12 +1875,10 @@ var is_select=0;
                                         layer.close(index);
                                     }
                                 });
-                                // $.alert(data.data,'',function(){
-                                //    return checkTimeOut();
-                                // });
+
                                 return false;
                             }
-                            if( data.stats == 'fail' ){//有失败的
+                            if( data.err == 'fail' ){//有失败的
                                 msg  = lot_lang.am_s25.replace("[success]",data.data.success).replace("[fail]",data.data.fail);
                                 msg += '<div class="floatarea">';
                                 $.each(data.data.content,function(i,n){
