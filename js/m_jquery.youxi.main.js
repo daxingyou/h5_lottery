@@ -1650,7 +1650,6 @@ var is_select=0;
 
         //ajax提交表单 sean ，下注表单提交
      function ajaxSubmit(){
-            console.log($.lt_total_money)
             // 余额不足提示充值
             if( monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text())) ){
                 layer.open({
@@ -1817,10 +1816,9 @@ var is_select=0;
                             })
 
 							top.location.href="../?controller=default";
-
                             return false;
                         }
-						if( data == "slowly" ){//网络缓慢
+					/*	if( data == "slowly" ){  //网络缓慢
 
                             layer.open({
                                 content:lot_lang.am_s36+lot_lang.dec_s25,
@@ -1832,14 +1830,14 @@ var is_select=0;
                                     $.lt_onfinishbuy();
                                     //$.finishdofunc();
                                     
-                                    /*全清功能*/
+                                    /!*全清功能*!/
                                     showClearAll();
                                 }
                             })
 
                             return false;
-                        }
-                        if( data == "success" ){//购买成功
+                        }*/
+                        if( data.err == "SUCCESS" ){  //购买成功
                            layer.open({
                                 content:lot_lang.am_s24,
                                 btn:['确定'],
@@ -1864,26 +1862,9 @@ var is_select=0;
                                     
                                 }
                             });
-        //                     $.alert(lot_lang.am_s24,lot_lang.dec_s25,function(){
-        //                         if( checkTimeOut() == true ){//时间未结束
-        //                             $.lt_reset();
-        //                         }
-        //                         $.lt_onfinishbuy();
 
-        //                         //追号相关
-        //                         $(".fqzhBox span").removeClass().addClass("uncheck");
-        //                         $(".fqzhBox span").siblings("input[type='checkbox']").prop("checked",false);
-        //                         $(".tzzhBox span").removeClass().addClass("uncheck");
-        //                         $(".tzzhBox span").siblings("input[type='checkbox']").prop("checked",false);
-                                
-        //                         $($.lt_id_data.id_tra_ifb).val("no");
-        //                         $("#lt_trace_assert").val("no");
-                                
-        //                         $.funList.tzjlfn();//获取投注记录
-								// //$.finishdofunc();
-        //                     });
                             return false;
-                        }else{//购买失败提示
+                        }else{  //购买失败提示
                             eval("data = "+ data +";");
                             if( data.stats == 'error' ){//错误
                                 layer.open({
@@ -1894,12 +1875,10 @@ var is_select=0;
                                         layer.close(index);
                                     }
                                 });
-                                // $.alert(data.data,'',function(){
-                                //    return checkTimeOut();
-                                // });
+
                                 return false;
                             }
-                            if( data.stats == 'fail' ){//有失败的
+                            if( data.err == 'fail' ){//有失败的
                                 msg  = lot_lang.am_s25.replace("[success]",data.data.success).replace("[fail]",data.data.fail);
                                 msg += '<div class="floatarea">';
                                 $.each(data.data.content,function(i,n){

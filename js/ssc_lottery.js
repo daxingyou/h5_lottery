@@ -2485,9 +2485,9 @@ function processCode(issue,code,iscurent){
 
     recentCon.find("li").removeClass("hover");
     recentCon.prepend(finishIssueCodeHtml);
-    if(recentCon.find('li').length>6){
+   /* if(recentCon.find('li').length>6){
         recentCon.find('li:nth-last-child(n+7)').remove() ;
-    }
+    }*/
     console.log(recentCon.find('li').length)
 }
 
