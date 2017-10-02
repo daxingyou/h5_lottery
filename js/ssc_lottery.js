@@ -234,15 +234,15 @@ function getMemberBalance() {
             lotteryId : parseInt(1,10),
             issues    : {//所有的可追号期数集合
                 today:[
-                    {issue:'20170817-087',endtime:'2017-08-17 20:29:05'},
+                  /*  {issue:'20170817-087',endtime:'2017-08-17 20:29:05'},
                     {issue:'20170817-088',endtime:'2017-08-17 20:39:05'},
                     {issue:'20170817-089',endtime:'2017-08-17 20:49:05'},
-                    {issue:'20170817-120',endtime:'2017-08-17 23:59:30'}
+                    {issue:'20170817-120',endtime:'2017-08-17 23:59:30'}*/
                 ],
                 tomorrow: [
-                    {issue:'20170818-118',endtime:'2017-08-18 23:49:30'},
+                  /*  {issue:'20170818-118',endtime:'2017-08-18 23:49:30'},
                     {issue:'20170818-119',endtime:'2017-08-18 23:54:30'},
-                    {issue:'20170818-120',endtime:'2017-08-18 23:59:30'}
+                    {issue:'20170818-120',endtime:'2017-08-18 23:59:30'}*/
                 ]
 
             },
@@ -1539,7 +1539,7 @@ function getMemberBalance() {
             desc:'四季发财',maxcodecount:0
         }]}]},
         /* 以下游戏目前没有 */
-        {
+       /* {
             isnew:"0",isdefault:"0",title:"任选二", label:[{gtitle:'任二直选', label:[{methoddesc:'从万位、千位、百位、十位、个位中至少两位上各选1个号码组成1注',
             methodhelp:'从任意两个以上的位置中选择一个号码，所选号码与开奖号码对应位置出现的号码相同，且顺序一致，即为中奖。',
             methodexample:'投注方案：万位1，百位2；<br />开奖号码：13245，<br />即中任选二直选一等奖',
@@ -2435,7 +2435,8 @@ function getMemberBalance() {
             modes:[{modeid:1,name:'元',rate:1}],
             menuid:322412,
             desc:'组选120',maxcodecount:0
-        }]}]}							];
+        }]}]}	,*/
+        ];
 
    // $(document).ready(initFrame);
 
