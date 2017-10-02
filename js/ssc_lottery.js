@@ -2444,7 +2444,7 @@ function getMemberBalance() {
 /*});*/
 
 
-var lotterytype=0;
+var lotterytype = 0;
 var isInit = true;
 var runData = {
     initRank:[[150,210,3],[40,100,2],[100,160,1],[0,70,2],[10,80,3],[100,170,1],[180,250,3],[110,180,1],[10,80,2],[70,140,3]],

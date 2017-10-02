@@ -453,17 +453,6 @@
     var lottery_key = 'L-1';
     var sidebar_hover = 'cq_ssc';
 
-    function m_loginout() {
-        layer.open({
-            content: '您需要退出账号吗？',
-            btn: ['退出', '取消'],
-            yes: function () {
-                window.location.href = '/user/logout';
-            }
-        });
-    }
-
-
     // 元角选单
     $(function () {
         $('#lt_funding').on('click', function () {

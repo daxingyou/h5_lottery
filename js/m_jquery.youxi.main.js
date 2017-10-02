@@ -629,8 +629,8 @@ var is_select=0;
 					
 				}
 			}
-            TextHtml();//  
-        });//*/
+           TextHtml();
+        });
 		
 
         //写入当前期
@@ -880,7 +880,7 @@ var is_select=0;
 			$("dd[name='smalllabel']").removeClass("hover");
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
-			TextHtml() //根据点击的当前的文字显示到按钮上
+			 TextHtml() //根据点击的当前的文字显示到按钮上
             if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){
                 $($.lt_id_data.id_methoddesc).html(opts.label[index[0]].label[index[1]].methoddesc).parent().show();
             }else{
