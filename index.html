@@ -2,7 +2,8 @@
 <html lang="en" style="font-size: 14px;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
@@ -17,12 +18,12 @@
     <!--消息框代码结束-->
     <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
     <script type="text/javascript" src="js/layer.js"></script>
-        <!-- 彈窗css 覆蓋layer.css用 -->
-   <link href="css/page.css" rel="stylesheet" type="text/css">
+    <!-- 彈窗css 覆蓋layer.css用 -->
+    <link href="css/page.css" rel="stylesheet" type="text/css">
     <style>
-      /*  .m_vico_title_timeLHC .lhc {text-align:right;}
-        .lhc_num_box {margin:0 0 0.5rem 0!important;}
-        .lhc_num_box .lhc {margin-top: 0!important;}*/
+        /*  .m_vico_title_timeLHC .lhc {text-align:right;}
+          .lhc_num_box {margin:0 0 0.5rem 0!important;}
+          .lhc_num_box .lhc {margin-top: 0!important;}*/
     </style>
 </head>
 <body>
@@ -62,7 +63,7 @@
                     <dd id="smalllabel_1_3" name="smalllabel" v="1-3">组选和值</dd>
                 </dl>
                 <!-- <dl id="poschoose"></dl> -->
-            
+
                 <div class="fandian ab" id="nfdprize">
 
                 </div>
@@ -85,16 +86,17 @@
 
             </div>
             <div class="m-nav-lott-date">
-                <span class="m-n-data">第<strong  class="current_issue ui_color_strong"> </strong>期</span> <!-- id="current_issue" -->
-                <span class="count_down m-n-countdown" > <!-- id="count_down" -->
-                   <!-- <div class="hour">00:</div>
-                    <div class="min">02:</div>
-                    <div class="sec">33</div>-->
+                <span class="m-n-data">第<strong class="current_issue ui_color_strong"> </strong>期</span>
+                <!-- id="current_issue" -->
+                <span class="count_down m-n-countdown"> <!-- id="count_down" -->
+                    <!-- <div class="hour">00:</div>
+                     <div class="min">02:</div>
+                     <div class="sec">33</div>-->
                 </span>
             </div>
             <div class="ui_btn_history">
                 <!-- <a href="#">近期开奖</a> -->
-            </div> 
+            </div>
         </div>
         <!--end ui_近期開獎-->
         <div href="javascript:;" class="ui_help">
@@ -115,7 +117,7 @@
             <div class="pic_user"><img src="images/pic_user.svg"></div>
             <div class="user_info">
                 <p class="memname">Elsa001EDKoes2</p>
-                <p class="user_money"><span class="icon_wallet"></span><span class="membalance"> </span> </p>
+                <p class="user_money"><span class="icon_wallet"></span><span class="membalance"> </span></p>
             </div>
         </div>
         <div class="left_menu">
@@ -164,138 +166,141 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="warp lotteryBox">
-            <p class="no_old" style="display:none;"> </p>
-            <form method="post" name="buyform" >
-            <input type="hidden" name="lotteryId" id="lotteryId" value="1">
-            <input type="hidden" name="curmid" id="curmid" value="50">
-            <input type="hidden" name="poschoose" value="">
-            <input type="hidden" name="flag" id="flag" value="save">
-            <input type="hidden" name="play_source" id="play_source">
-            <div class="lotteryBody">
-                
-                <div class="lotteryLeft" style="min-height: auto;">
-                <!-- 玩法说明 -->
-                    
-                    <div class="playf_dl">
-                        <div class="m_playf_dl_box">
-                            <!--五分彩/分分彩加官网链接-->
-                            <!-- <span class="wfsm">
-                                玩法说明</span> -->
-                            <span id="lt_desc" class="help_con">从个、十、百位各选一个号码组成一注。</span>
-                        </div>
+            <p class="no_old" style="display:none;"></p>
+            <form method="post" name="buyform">
+                <input type="hidden" name="lotteryId" id="lotteryId" value="1">
+                <input type="hidden" name="curmid" id="curmid" value="50">
+                <input type="hidden" name="poschoose" value="">
+                <input type="hidden" name="flag" id="flag" value="save">
+                <input type="hidden" name="play_source" id="play_source">
+                <div class="lotteryBody">
+
+                    <div class="lotteryLeft" style="min-height: auto;">
+                        <!-- 玩法说明 -->
+
+                        <div class="playf_dl">
+                            <div class="m_playf_dl_box">
+                                <!--五分彩/分分彩加官网链接-->
+                                <!-- <span class="wfsm">
+                                    玩法说明</span> -->
+                                <span id="lt_desc" class="help_con">从个、十、百位各选一个号码组成一注。</span>
+                            </div>
 
 
-                    </div>
-                <!-- 玩法说明end -->    
-                    <div class="lotteryView" id="lt_selector">
-                        <div class="each">
-                            <h3>百位</h3>
-                            <ul class="cList">
-                                <li name="all">全</li>
-                                <li name="big">大</li>
-                                <li name="small">小</li>
-                                <li name="odd">奇</li>
-                                <li name="even">偶</li>
-                                <li name="clean">清</li>
-                            </ul>
-                            <ul class="nList active">
-                                <li name="lt_place_1">0</li>
-                                <li name="lt_place_1">1</li>
-                                <li name="lt_place_1">2</li>
-                                <li name="lt_place_1">3</li>
-                                <li name="lt_place_1">4</li>
-                                <li name="lt_place_1">5</li>
-                                <li name="lt_place_1">6</li>
-                                <li name="lt_place_1">7</li>
-                                <li name="lt_place_1">8</li>
-                                <li name="lt_place_1">9</li>
-                            </ul>
                         </div>
-                        <div class="each">
-                            <h3>十位</h3>
-                            <ul class="cList">
-                                <li name="all">全</li>
-                                <li name="big">大</li>
-                                <li name="small">小</li>
-                                <li name="odd">奇</li>
-                                <li name="even">偶</li>
-                                <li name="clean">清</li>
-                            </ul>
-                            <ul class="nList">
-                                <li name="lt_place_1">0</li>
-                                <li name="lt_place_1">1</li>
-                                <li name="lt_place_1">2</li>
-                                <li name="lt_place_1">3</li>
-                                <li name="lt_place_1">4</li>
-                                <li name="lt_place_1">5</li>
-                                <li name="lt_place_1">6</li>
-                                <li name="lt_place_1">7</li>
-                                <li name="lt_place_1">8</li>
-                                <li name="lt_place_1">9</li>
-                            </ul>
-                        </div>
-                        <div class="each">
-                            <h3>个位</h3>
-                            <ul class="cList">
-                                <li name="all">全</li>
-                                <li name="big">大</li>
-                                <li name="small">小</li>
-                                <li name="odd">奇</li>
-                                <li name="even">偶</li>
-                                <li name="clean">清</li>
-                            </ul>
-                            <ul class="nList">
-                                <li name="lt_place_2">0</li>
-                                <li name="lt_place_2">1</li>
-                                <li name="lt_place_2">2</li>
-                                <li name="lt_place_2">3</li>
-                                <li name="lt_place_2">4</li>
-                                <li name="lt_place_2">5</li>
-                                <li name="lt_place_2">6</li>
-                                <li name="lt_place_2">7</li>
-                                <li name="lt_place_2">8</li>
-                                <li name="lt_place_2">9</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="addOrderBox">
-                        <div class="addOrderLeft">
-                            
-                            <div class="m_funding_box">
-                                <div class="funding" id="lt_funding">
-                                    <span class="onSelect" id="funding_text">元</span>
-                                    <a href="javascript:void(0);" style="display:none;">
-                                        <span class="hover" data="yuan">元</span><span data="jiao">角</span><!--<span data="fen">分</span>-->
-                                    </a>
-                                    <input type="radio" name="lt_project_modes" class="radio_yuan" value="1" checked="checked" style="display:none;"><!--元-->
-                                    <input type="radio" name="lt_project_modes" class="radio_jiao" value="2" style="display:none;"><!--角-->
-                                    <!-- <input type="radio" name="lt_project_modes" class="radio_fen" value="3" style="display:none;">分 -->
-                                </div>
-                                <div class="multipleBox">
-                                    <span class="bei">投</span>
-                                    <div class="multipleCon re">
-                                        <a href="javascript:;" id="less_bei" class="less_bei"></a>
-                                        <input type="text" id="lt_sel_times" value="1">
-                                        <a href="javascript:;" id="add_bei" class="add_bei"></a>
-                                    </div>
-                                    <span class="bei">倍</span>
-                                </div>
+                        <!-- 玩法说明end -->
+                        <div class="lotteryView" id="lt_selector">
+                            <div class="each">
+                                <h3>百位</h3>
+                                <ul class="cList">
+                                    <li name="all">全</li>
+                                    <li name="big">大</li>
+                                    <li name="small">小</li>
+                                    <li name="odd">奇</li>
+                                    <li name="even">偶</li>
+                                    <li name="clean">清</li>
+                                </ul>
+                                <ul class="nList active">
+                                    <li name="lt_place_1">0</li>
+                                    <li name="lt_place_1">1</li>
+                                    <li name="lt_place_1">2</li>
+                                    <li name="lt_place_1">3</li>
+                                    <li name="lt_place_1">4</li>
+                                    <li name="lt_place_1">5</li>
+                                    <li name="lt_place_1">6</li>
+                                    <li name="lt_place_1">7</li>
+                                    <li name="lt_place_1">8</li>
+                                    <li name="lt_place_1">9</li>
+                                </ul>
+                            </div>
+                            <div class="each">
+                                <h3>十位</h3>
+                                <ul class="cList">
+                                    <li name="all">全</li>
+                                    <li name="big">大</li>
+                                    <li name="small">小</li>
+                                    <li name="odd">奇</li>
+                                    <li name="even">偶</li>
+                                    <li name="clean">清</li>
+                                </ul>
+                                <ul class="nList">
+                                    <li name="lt_place_1">0</li>
+                                    <li name="lt_place_1">1</li>
+                                    <li name="lt_place_1">2</li>
+                                    <li name="lt_place_1">3</li>
+                                    <li name="lt_place_1">4</li>
+                                    <li name="lt_place_1">5</li>
+                                    <li name="lt_place_1">6</li>
+                                    <li name="lt_place_1">7</li>
+                                    <li name="lt_place_1">8</li>
+                                    <li name="lt_place_1">9</li>
+                                </ul>
+                            </div>
+                            <div class="each">
+                                <h3>个位</h3>
+                                <ul class="cList">
+                                    <li name="all">全</li>
+                                    <li name="big">大</li>
+                                    <li name="small">小</li>
+                                    <li name="odd">奇</li>
+                                    <li name="even">偶</li>
+                                    <li name="clean">清</li>
+                                </ul>
+                                <ul class="nList">
+                                    <li name="lt_place_2">0</li>
+                                    <li name="lt_place_2">1</li>
+                                    <li name="lt_place_2">2</li>
+                                    <li name="lt_place_2">3</li>
+                                    <li name="lt_place_2">4</li>
+                                    <li name="lt_place_2">5</li>
+                                    <li name="lt_place_2">6</li>
+                                    <li name="lt_place_2">7</li>
+                                    <li name="lt_place_2">8</li>
+                                    <li name="lt_place_2">9</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="bet_random">
-                            <span class="icon_random"></span>
-                            <span class="lt_random_bets_auto">随选</span>
-                        </div>
-                        <div class="addOrderRight">
-                            
+                        <div class="addOrderBox">
+                            <div class="addOrderLeft">
+
+                                <div class="m_funding_box">
+                                    <div class="funding" id="lt_funding">
+                                        <span class="onSelect" id="funding_text">元</span>
+                                        <a href="javascript:void(0);" style="display:none;">
+                                            <span class="hover" data="yuan">元</span><span data="jiao">角</span>
+                                            <!--<span data="fen">分</span>-->
+                                        </a>
+                                        <input type="radio" name="lt_project_modes" class="radio_yuan" value="1"
+                                               checked="checked" style="display:none;"><!--元-->
+                                        <input type="radio" name="lt_project_modes" class="radio_jiao" value="2"
+                                               style="display:none;"><!--角-->
+                                        <!-- <input type="radio" name="lt_project_modes" class="radio_fen" value="3" style="display:none;">分 -->
+                                    </div>
+                                    <div class="multipleBox">
+                                        <span class="bei">投</span>
+                                        <div class="multipleCon re">
+                                            <a href="javascript:;" id="less_bei" class="less_bei"></a>
+                                            <input type="text" id="lt_sel_times" value="1">
+                                            <a href="javascript:;" id="add_bei" class="add_bei"></a>
+                                        </div>
+                                        <span class="bei">倍</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bet_random">
+                                <span class="icon_random"></span>
+                                <span class="lt_random_bets_auto">随选</span>
+                            </div>
+                            <div class="addOrderRight">
+
+                            </div>
                         </div>
                     </div>
+
+                    <div class="clear"></div>
                 </div>
-                
-                <div class="clear"></div>
-            </div>
 
             </form>
         </div>
@@ -313,7 +318,7 @@
             <div class="v-moeny">
                 <div class="you-money">
                     <span class="t_money rounded" title="0.00">
-                        <div class="show-money" style="display: block;"><i>可用余额</i> <span><b  class="membalance"> </b> 元</span>
+                        <div class="show-money" style="display: block;"><i>可用余额</i> <span><b class="membalance"> </b> 元</span>
 
                         </div>
 
@@ -332,7 +337,8 @@
             </a>
 
             <div class="sendChoose">
-                <a href="javascript:void(0);" id="lt_sendok" class="sendBtnDisabled"><span class="icon_bet"></span>投注</a>
+                <a href="javascript:void(0);" id="lt_sendok" class="sendBtnDisabled"><span
+                        class="icon_bet"></span>投注</a>
             </div>
         </div>
 
@@ -342,10 +348,10 @@
     <header class="bet_header">
         <a href="javascript:;" class="btn_back" id="bet_back" title="返回"></a>
         <h2>重庆时时彩</h2>
-        <div class="ui_history" >
+        <div class="ui_history">
             <div class="m-nav-lott-date">
                 <span class="m-n-data">第<strong class="current_issue ui_color_strong"> </strong>期</span>
-                <span class="count_down m-n-countdown" >
+                <span class="count_down m-n-countdown">
                   <!--  <div class="hour"> </div>
                     <div class="min"> </div>
                     <div class="sec"> </div>-->
@@ -367,11 +373,11 @@
                 <div class="addList">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tbody>
-                            <tr>
-                                <td width="100%" id="lt_cf_content">
-                                    <div class="cleanall" style="display: block;">您还未选择号码</div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td width="100%" id="lt_cf_content">
+                                <div class="cleanall" style="display: block;">您还未选择号码</div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -429,9 +435,7 @@
 <script type="text/javascript" src="js/pushstream.js"></script>
 
 <script type="text/javascript" src="js/coreDesign.js"></script>
- <script type="text/javascript" src="js/res.js"></script>
-
-
+<script type="text/javascript" src="js/res.js"></script>
 
 
 <!-- 声音控件-->
@@ -442,36 +446,35 @@
 
 <script type="text/javascript">
     var pushServiceObj = {
-        pushServerHost : " ", // P.888sincai.com
-        pubChannelId  : " ",
-        pubToken  : " ",
-        userChannelId : " ",
-        pushStatus : "1",
-        pushModule : " ",
-        pushServerStatus : "good",     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
-        pushDelayNum : 0,              //推送重启次数
-        pushDelayMaxNum : 3,           //推送重启最大次数
-        pushDelayTime : "60,120,180"   //每次重启的间隔时间
+        pushServerHost: " ", // P.888sincai.com
+        pubChannelId: " ",
+        pubToken: " ",
+        userChannelId: " ",
+        pushStatus: "1",
+        pushModule: " ",
+        pushServerStatus: "good",     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
+        pushDelayNum: 0,              //推送重启次数
+        pushDelayMaxNum: 3,           //推送重启最大次数
+        pushDelayTime: "60,120,180"   //每次重启的间隔时间
     };
 
     var lottery_key = "L-1";
     var sidebar_hover = "cq_ssc";
 
-    function m_loginout(){
+    function m_loginout() {
         layer.open({
-            content:'您需要退出账号吗？',
-            btn:['退出','取消'],
-            yes:function(){
-                window.location.href='/user/logout'
+            content: '您需要退出账号吗？',
+            btn: ['退出', '取消'],
+            yes: function () {
+                window.location.href = '/user/logout'
             }
         })
     }
 
 
-
     // 元角选单
-    $(function(){
-        $('#lt_funding').on('click',function(){
+    $(function () {
+        $('#lt_funding').on('click', function () {
             $(this).find('a').toggle();
         })
     })
@@ -482,12 +485,16 @@
             title: '号码统计',
             className: 'layer_count',
             content: '选择在下方显示对应的数据：<br /><div class="radio"> <p><input type="radio" id="r01" name="radio-group" checked><label for="r01">当前遗漏</label></p><p><input type="radio" id="r02" name="radio-group"><label for="r02">冷热120期</label></p></div>',
-            btn: ['确定', '取消']
+            btn: ['确定', '取消'],
+            yes: function () {
+                // 需要js/soye/index.js支持
+                initSoFun()
+            }
         });
     });
 
 </script>
 <script type="text/javascript" src="js/pushservice.js"></script>
-
+<script src="js/soye/index.js"></script>
 </body>
 </html>
