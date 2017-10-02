@@ -124,9 +124,7 @@ body .layui-m-layer .layui-m-layer-msg { background-color: rgba(52, 65, 70, 0.8)
 
 body .layui-m-layer .layui-m-layer-msg .layui-m-layercont { padding: 0.5rem; padding-right: 1rem; }
 
-.timeout { color: #fff; font-size: 0.875rem; position: relative; padding-left: 2.5rem; text-align: left; line-height: 2rem; }
-
-.timeout img { width: 2rem; margin-right: .5rem; vertical-align: middle; position: absolute; left: 0px; }
+.timeout { color: #fff; font-size: 0.875rem; position: relative; padding-left: 2.5rem; text-align: left; line-height: 2rem; background: url(../images/icon_tip_d.svg) no-repeat top left; background-size: 2rem 2rem; }
 
 .timeout span { color: #FCB008; }
 
