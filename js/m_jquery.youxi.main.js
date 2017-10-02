@@ -46,6 +46,9 @@ var is_select=0;
                         id_sel_num      : '#lt_sel_nums',//装载选号区投注倍数的ID
                         id_sel_money    : '#lt_sel_money',//装载选号区投注金额的ID
                         id_sel_times    : '#lt_sel_times',//选号区倍数输入框ID
+                        lt_cf_date      : '#lt_cf_date',// 选号期数，默认1
+                        id_add_times     : '#id_add_times',// 追号倍数输入框
+                        id_add_date      : '#id_add_date',// 追号期数输入框
                         id_sel_insert   : '#lt_sel_insert',//添加按钮
                         id_sel_modes    : '#lt_sel_modes',//元角模式选择
                         id_cf_count     : '#lt_cf_count', //统计投注单数
@@ -1560,8 +1563,8 @@ var is_select=0;
             $.each(modesmsg,function(i,n){
                 if( $.lt_method_data.modes[i] != undefined && n != undefined && n.length>0 ){
                   /*  $.each(n,function(index,value){*/   // 不需要遍历
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$.lt_total_time+'</span>'+lot_lang.dec_s2+'</div>';//倍数
-                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$.lt_trace_num+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s2_1+'</span>'+'<span>'+$($.lt_id_data.id_add_times).val()+'</span>'+lot_lang.dec_s2+'</div>';//倍数
+                        msg += '<div class="totle">'+'<span>'+lot_lang.dec_s15_1+'</span>'+'<span>'+$($.lt_id_data.id_add_date).val()+'</span>'+lot_lang.dec_s18+'</div>'; //追号期数
                         msg += '<div class="totle">'+'<span>'+lot_lang.dec_s1_1+'</span>'+'<span class="total-num">'+$.lt_total_nums+'</span>'+lot_lang.dec_s1+'</div>'; //注数
                         // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
@@ -1570,7 +1573,9 @@ var is_select=0;
             });
             msg += '</div>';
             $.lt_trace_money = Math.round($.lt_trace_money*1000)/1000 ;
-            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span>'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
+            $.lt_total_money = Math.round( Number($($.lt_id_data.id_cf_money).html())*1000)/1000 ; // 提交时计算总金额
+
+            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span class="total_amount">'+(istrace==true ? $.lt_trace_money : $.lt_total_money)+'</span>'+'<span>'+lot_lang.dec_s3 + '</span></div>';
             msg=msg.replace("[关闭]","");
             layer.open({
                 content:msg,

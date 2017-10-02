@@ -14,16 +14,15 @@
     <link href="css/m-warp.css" rel="stylesheet" type="text/css">
     <link href="css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/dialogUI.css">
-
     <!--消息框代码结束-->
     <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
-
+    <script type="text/javascript" src="js/layer.js"></script>
         <!-- 彈窗css 覆蓋layer.css用 -->
-        <link href="css/page.css" rel="stylesheet" type="text/css">
+   <link href="css/page.css" rel="stylesheet" type="text/css">
     <style>
-        .m_vico_title_timeLHC .lhc {text-align:right;}
+      /*  .m_vico_title_timeLHC .lhc {text-align:right;}
         .lhc_num_box {margin:0 0 0.5rem 0!important;}
-        .lhc_num_box .lhc {margin-top: 0!important;}
+        .lhc_num_box .lhc {margin-top: 0!important;}*/
     </style>
 </head>
 <body>
@@ -287,7 +286,7 @@
                         </div>
                         <div class="bet_random">
                             <span class="icon_random"></span>
-                            <span class="lt_random_bets_1">随选</span>
+                            <span class="lt_random_bets_auto">随选</span>
                         </div>
                         <div class="addOrderRight">
                             
@@ -308,12 +307,12 @@
             </div>
             <div class="chooseMsg" id="ui_car_info">
                 <p><span id="lt_cf_nums"> </span> 注</p>
-                <p><span>1</span> 期</p>
-                <p>共 <span id="lt_cf_money"> </span> 元</p>
+                <p><span id="lt_cf_date">1</span> 期</p>
+                <p>共 <span id="lt_cf_money">0</span> 元</p>
             </div>
             <div class="v-moeny">
                 <div class="you-money">
-                    <span class="t_money rounded" title="0.0000">
+                    <span class="t_money rounded" title="0.00">
                         <div class="show-money" style="display: block;"><i>可用余额</i> <span><b  class="membalance"> </b> 元</span>
 
                         </div>
@@ -357,9 +356,10 @@
     <div class="ui_bet_main">
         <div class="ui_bet_wrap">
             <div class="ui_bet_tool">
+                <!-- 机选 -->
                 <span id="lt_random_area">
-                     <a href="javascript:;" class="lt_random_bets_1"><span class="icon_add2"></span>机选1注</a>
-                     <a href="javascript:;" class="lt_random_bets_5"><span class="icon_add2"></span>机选5注</a>
+                   <!--  <a href="javascript:;" class="lt_random_bets_1"><span class="icon_add2"></span>机选1注</a>
+                     <a href="javascript:;" class="lt_random_bets_5"><span class="icon_add2"></span>机选5注</a>-->
                 </span>
                 <a href="javascript:;" class="delete-all "><span class="icon_trash"></span>清空列表</a>
             </div>
@@ -387,7 +387,7 @@
                         <span class="bei">投</span>
                         <div class="multipleCon re">
                             <a href="javascript:;" class="less_bei"></a>
-                            <input type="text" value="1">
+                            <input type="text" id="id_add_times" value="1">
                             <a href="javascript:;" class="add_bei"></a>
                         </div>
                         <span class="bei">倍</span>
@@ -396,7 +396,7 @@
                         <span class="bei">追</span>
                         <div class="multipleCon re">
                             <a href="javascript:;" class="less_bei"></a>
-                            <input type="text" value="1">
+                            <input type="text" id="id_add_date" value="1">
                             <a href="javascript:;" class="add_bei"></a>
                         </div>
                         <span class="bei">期</span>
@@ -408,12 +408,14 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="js/layer.js"></script>
-<script type="text/javascript" async="" src="js/ga.js"></script>
+
 <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-<!--消息框代码开始-->
+<script type="text/javascript" async="" src="js/ga.js"></script>
 <script type="text/javascript" src="js/jquery.dialogUI.js"></script>
 <script type="text/javascript" src="js/jquery.dragdrop.js"></script>
+
+
+<!--消息框代码开始-->
 <script type="text/javascript" src="js/main.js"></script> <!-- 公共方法放在这 -->
 <script type="text/javascript" src="js/velocity.min.js"></script>
 

@@ -143,13 +143,15 @@ body .layui-m-layer .layui-m-layer-msg{
     padding-left: 2.5rem;
     text-align: left;
     line-height: 2rem;
-    img{
-        width: 2rem;
-        margin-right: .5rem;
-        vertical-align: middle;
-        position: absolute;
-        left: 0px;
-    }
+    background: url(../images/icon_tip_d.svg) no-repeat top left;
+    background-size: 2rem 2rem;
+    // img{
+    //     width: 2rem;
+    //     margin-right: .5rem;
+    //     vertical-align: middle;
+    //     position: absolute;
+    //     left: 0px;
+    // }
     span{
         color: #FCB008;
     }
