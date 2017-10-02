@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba17bb7-30dc-4f60-8def-6f315543d668" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" afterPath="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,23 +69,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+            <state relative-caret-position="179">
+              <caret line="288" column="71" lean-forward="true" selection-start-line="288" selection-start-column="71" selection-end-line="288" selection-end-column="71" />
               <folding>
+                <element signature="n#style#0;n#p#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#2;n#div#3;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m_jquery.youxi.selectarea.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="m_jquery.youxi.selectarea.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="1961" column="0" lean-forward="true" selection-start-line="1961" selection-start-column="0" selection-end-line="1961" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="2076" column="15" lean-forward="true" selection-start-line="2076" selection-start-column="15" selection-end-line="2076" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -136,6 +140,7 @@
       <find>m_vico_title_timeLHC</find>
       <find>lhc_num_box</find>
       <find>layer</find>
+      <find>lt_random_bets_5</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,8 +157,8 @@
         <option value="$PROJECT_DIR$/js/ssc_lottery.js" />
         <option value="$PROJECT_DIR$/template/bet_success.html" />
         <option value="$PROJECT_DIR$/js/m_jquery.youxi.main.js" />
-        <option value="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js" />
       </list>
     </option>
   </component>
@@ -247,12 +252,12 @@
       <updated>1506754580962</updated>
       <workItem from="1506754584221" duration="5364000" />
       <workItem from="1506763699719" duration="6223000" />
-      <workItem from="1506773891272" duration="8546000" />
+      <workItem from="1506773891272" duration="9067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20133000" />
+    <option name="totallyTimeSpent" value="20654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="9" width="1364" height="736" extended-state="0" />
@@ -313,7 +318,10 @@
         <state relative-caret-position="5909">
           <caret line="311" column="45" lean-forward="false" selection-start-line="311" selection-start-column="45" selection-end-line="311" selection-end-column="45" />
           <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#2;n#div#3;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -469,21 +477,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="1961" column="0" lean-forward="true" selection-start-line="1961" selection-start-column="0" selection-end-line="1961" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="179">
+          <caret line="288" column="71" lean-forward="true" selection-start-line="288" selection-start-column="71" selection-end-line="288" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#1;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#2;n#div#3;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/m_jquery.youxi.selectarea.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#2;n#div#3;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="2076" column="15" lean-forward="true" selection-start-line="2076" selection-start-column="15" selection-end-line="2076" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>

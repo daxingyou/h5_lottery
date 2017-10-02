@@ -2077,10 +2077,11 @@
 			});
 			$(".lt_random_bets_5").unbind("click").click(function(){
 				for (var i=0; i<5; i++) {
+					console.log(i)
 					$(".lt_random_bets_1").trigger("click"); 
 				}
 			});
-			$(".lt_random_bets_1").unbind("click").click(function() {
+			$(".lt_random_bets_1,.lt_random_bets_auto").unbind("click").click(function() {
 				//当前为机选sam
 				if(random_bets){
 					for( i=0; i<data_sel.length; i++ ){//清空已选择数据
