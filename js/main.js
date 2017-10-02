@@ -985,12 +985,12 @@ $(function () {
             $('.task_div').hide('slow');
         }
 
-        if (!moveSeeIn) {
+       /* if (!moveSeeIn) {
             $('.seeMore').hide();
-        }
+        }*/
     });
 
-    $(document).on('click', '.seeMore', function () {
+  /*  $(document).on('click', '.seeMore', function () {
         if (moveIn) {
             $('.task_div').hide('slow');
         }
@@ -998,7 +998,7 @@ $(function () {
         if (moveSeeIn) {
             $('.seeMore').hide();
         }
-    });
+    });*/
 
 });
 

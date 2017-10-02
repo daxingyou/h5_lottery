@@ -2459,7 +2459,7 @@ var runData = {
     isInitialize:false,//是否初始化了
     isGroundStopped:false
 }
-showAll();
+  // showAll();
 
 function processCode(issue,code,iscurent){
     var code_arr = code.split(',');
@@ -2659,7 +2659,7 @@ function processCode(issue,code,iscurent){
     }
 }*/
 
-function showAll(){
+/*function showAll(){
     $("span.more").live("click",function(event){
         var index = $("span.more").index($(this));
         var li = $(this).parent().parent("li");
@@ -2673,7 +2673,7 @@ function showAll(){
         event.stopPropagation();
         event.preventDefault();
     });
-}
+}*/
 //pk10开奖
 function fnOpenAwards(codes){
     setTimeout(function(){
