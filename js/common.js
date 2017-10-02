@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 
 // 全选，取消全选
-function selectAll(obj) {
+function selectAll (obj) {
     jQuery(':checkbox[id!=\'' + obj + '\']').attr('checked', jQuery('#' + obj).attr('checked'));
 }
 
-function checkdateInRange(date, day) {
+function checkdateInRange (date, day) {
     var d = new Date();
     var str = d.format('yyyy-MM-dd hh:mm:ss');
     regularTime = daysAddReduceMinute(str, day * 86400, false);
@@ -13,7 +13,7 @@ function checkdateInRange(date, day) {
 }
 
 // 组合数计算
-function Combination(n, m) {
+function Combination (n, m) {
     m = parseInt(m);
     n = parseInt(n);
     if (m < 0 || n < 0) {
@@ -163,7 +163,7 @@ Array.prototype.contains = function (element) {
  * @return mixed
  *
  */
-function GetCombinCount(iBaseNumber, iSelectNumber) {
+function GetCombinCount (iBaseNumber, iSelectNumber) {
     if (iSelectNumber > iBaseNumber) {
         return 0;
     }
@@ -184,7 +184,7 @@ function GetCombinCount(iBaseNumber, iSelectNumber) {
 
 
 // 移动字符串
-function movestring(sString) {
+function movestring (sString) {
     var top = '';// 开始符串
     var middle = '01';// 中间字符串
     var bottom = '';// 结束符串
@@ -235,10 +235,10 @@ function movestring(sString) {
  * @author mark
  *
  */
-function getCombination(aBaseArray, iSelectNum) {
+function getCombination (aBaseArray, iSelectNum) {
     var iBaseNum = aBaseArray.length;
-    var aResult = new Array();
-    var aString = new Array();
+    var aResult = [];
+    var aString = [];
     if (iSelectNum > iBaseNum) {
         return aResult;
     }
@@ -280,7 +280,7 @@ function getCombination(aBaseArray, iSelectNum) {
 }
 
 // 用户名验证(由0-9,a-z,A-Z组成的6~16个字符组成)
-function validateUserName(str) {
+function validateUserName (str) {
     var patrn = /^[0-9a-zA-Z]{6,16}$/;
     if (patrn.exec(str)) {
         return true;
@@ -291,7 +291,7 @@ function validateUserName(str) {
 
 
 // 密码验证(6－16位数字和字母，不能只是数字，或者只是字母，不能连续三位相同)
-function validateUserPss(str) {
+function validateUserPss (str) {
     var patrn = /^[0-9a-zA-Z]{6,16}$/;
     if (!patrn.exec(str)) {
         return false;
@@ -312,7 +312,7 @@ function validateUserPss(str) {
 }
 
 // 呢称验证
-function validateNickName(str) {
+function validateNickName (str) {
     var patrn = /^(.){2,6}$/;
     if (patrn.exec(str)) {
         return true;
@@ -323,7 +323,7 @@ function validateNickName(str) {
 
 // 日期输入验证
 // str : 要验证的日期字符串[格式包括 Y-M-D|Y/M/D|YMD [H[:I][:S]]]
-function validateInputDate(str) {
+function validateInputDate (str) {
     str = jQuery.trim(str);
     if (str == '' || str == null) {
         return true;
@@ -383,13 +383,13 @@ function validateInputDate(str) {
 }
 
 // onkeyup:限制用户资金输入只能输入浮点数，并且小数点后只能跟四位
-function checkMoney(obj) {
+function checkMoney (obj) {
     obj.value = formatFloat(obj.value);
 }
 
 // onkeyup:根据用户输入的资金做检测并自动转换中文大写金额(用于充值和提现)
 // obj:检测对象元素，chineseid:要显示中文大小写金额的ID，maxnum：最大能输入金额
-function checkWithdraw(obj, chineseid, maxnum) {
+function checkWithdraw (obj, chineseid, maxnum) {
     obj.value = formatFloat(obj.value);
     if (parseFloat(obj.value) > parseFloat(maxnum)) {
         alert('输入金额超出了可用余额');
@@ -399,7 +399,7 @@ function checkWithdraw(obj, chineseid, maxnum) {
 }
 
 // 格式化浮点数形式(只能输入正浮点数，且小数点后只能跟四位,总体数值不能大于999999999999999共15位:数值999兆)
-function formatFloat(num) {
+function formatFloat (num) {
     num = num.replace(/^[^\d]/g, '');
     num = num.replace(/[^\d.]/g, '');
     num = num.replace(/\.{2,}/g, '.');
@@ -436,7 +436,7 @@ function formatFloat(num) {
 }*/
 
 // 四舍五入到指定精度,支持到整数位,类似PHP的round函数
-function JsRound(num, len, keep) {
+function JsRound (num, len, keep) {
     len = parseInt(len, 10);
     if (len < 0) {
         len = Math.abs(len);
@@ -463,7 +463,7 @@ function JsRound(num, len, keep) {
 }
 
 // 自动转换数字金额为大小写中文字符,返回大小写中文字符串，最大处理到999兆
-function changeMoneyToChinese(money) {
+function changeMoneyToChinese (money) {
     var cnNums = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖');	// 汉字的数字
     var cnIntRadice = new Array('', '拾', '佰', '仟');	// 基本单位
     var cnIntUnits = new Array('', '万', '亿', '兆');	// 对应整数部分扩展单位
@@ -547,7 +547,7 @@ function changeMoneyToChinese(money) {
 }
 
 // 转换HTML标签为标准代码(类似PHP的htmlspecialchars函数)
-function replaceHTML(str) {
+function replaceHTML (str) {
     str = str.replace(/[&]/g, '&amp;');
     str = str.replace(/[\"]/g, '&quot;');
     str = str.replace(/[\']/g, '&#039;');
@@ -558,7 +558,7 @@ function replaceHTML(str) {
 }
 
 // 转换HTML标准代码为显示代码（类似PHP的htmlspecialchars_decode函数）
-function replaceHTML_DECODE(str) {
+function replaceHTML_DECODE (str) {
     str = str.replace(/&amp;/g, '&');
     str = str.replace(/&quot;/g, '"');
     str = str.replace(/&#039;/g, '\'');
@@ -569,7 +569,7 @@ function replaceHTML_DECODE(str) {
 }
 
 // 设置cookie
-function setCookie(name, value, expire, path) {
+function setCookie (name, value, expire, path) {
     var curdate = new Date();
     var cookie = name + '=' + encodeURIComponent(value) + '; ';
     if (expire != undefined || expire == 0) {
@@ -587,7 +587,7 @@ function setCookie(name, value, expire, path) {
 }
 
 // 获取cookie
-function getCookie(name) {
+function getCookie (name) {
     var re = '(?:; )?' + encodeURIComponent(name) + '=([^;]*);?';
     re = new RegExp(re);
     if (re.test(document.cookie)) {
@@ -597,7 +597,7 @@ function getCookie(name) {
 }
 
 // 删除cookie
-function delCookie(name) {
+function delCookie (name) {
     var exp = new Date();
     exp.setTime(exp.getTime() - 1);
     var cval = getCookie(name);
@@ -607,7 +607,7 @@ function delCookie(name) {
 }
 
 // 复制内容到剪贴板
-function copyToClipboard(obj) {
+function copyToClipboard (obj) {
     txt = jQuery('#' + obj).html();
     if (window.clipboardData) {
         window.clipboardData.clearData();
@@ -645,7 +645,7 @@ function copyToClipboard(obj) {
 }
 
 // 同上，只是做整数限制
-function checkIntWithdraw(obj, chineseid, maxnum) {
+function checkIntWithdraw (obj, chineseid, maxnum) {
     obj.value = parseInt(obj.value, 10);
     obj.value = isNaN(obj.value) ? 0 : obj.value;
     if (parseFloat(obj.value) > parseFloat(maxnum)) {
@@ -657,7 +657,7 @@ function checkIntWithdraw(obj, chineseid, maxnum) {
 }
 
 
-function checkemailWithdraw(obj, chineseid, maxnum) {
+function checkemailWithdraw (obj, chineseid, maxnum) {
     obj.value = formatFloat(obj.value);
     if (parseFloat(obj.value) > parseFloat(maxnum)) {
         alert('充值金额不能高于最高充值限额');

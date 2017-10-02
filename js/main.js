@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-undef,one-var */
 var LOTTERY_URL_INFO = {
     'lot_28': '/lottery/xg1d5fc',
     'lot_27': '/lottery/rd2fc',

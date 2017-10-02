@@ -446,29 +446,29 @@
 
 <script type="text/javascript">
     var pushServiceObj = {
-        pushServerHost: " ", // P.888sincai.com
-        pubChannelId: " ",
-        pubToken: " ",
-        userChannelId: " ",
-        pushStatus: "1",
-        pushModule: " ",
-        pushServerStatus: "good",     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
+        pushServerHost: ' ', // P.888sincai.com
+        pubChannelId: ' ',
+        pubToken: ' ',
+        userChannelId: ' ',
+        pushStatus: '1',
+        pushModule: ' ',
+        pushServerStatus: 'good',     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
         pushDelayNum: 0,              //推送重启次数
         pushDelayMaxNum: 3,           //推送重启最大次数
-        pushDelayTime: "60,120,180"   //每次重启的间隔时间
+        pushDelayTime: '60,120,180'   //每次重启的间隔时间
     };
 
-    var lottery_key = "L-1";
-    var sidebar_hover = "cq_ssc";
+    var lottery_key = 'L-1';
+    var sidebar_hover = 'cq_ssc';
 
     function m_loginout() {
         layer.open({
             content: '您需要退出账号吗？',
             btn: ['退出', '取消'],
             yes: function () {
-                window.location.href = '/user/logout'
+                window.location.href = '/user/logout';
             }
-        })
+        });
     }
 
 
@@ -476,11 +476,11 @@
     $(function () {
         $('#lt_funding').on('click', function () {
             $(this).find('a').toggle();
-        })
-    })
+        });
+    });
 
     //弹窗，号码统计
-    $("#number_count").click(function () {
+    $('#number_count').click(function () {
         layer.open({
             title: '号码统计',
             className: 'layer_count',
@@ -488,7 +488,8 @@
             btn: ['确定', '取消'],
             yes: function () {
                 // 需要js/soye/index.js支持
-                initSoFun()
+                initSoFun();
+                layer.closeAll();
             }
         });
     });
