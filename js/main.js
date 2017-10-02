@@ -972,13 +972,13 @@ $(function () {
         moveIn = false;
     });
 
-    $(document).on('mouseover', '.seeMore', function () {
+ /*   $(document).on('mouseover', '.seeMore', function () {
         moveSeeIn = true;
-    });
+    });*/
 
-    $(document).on('mouseout', '.seeMore', function () {
+  /*  $(document).on('mouseout', '.seeMore', function () {
         moveSeeIn = false;
-    });
+    });*/
 
     $(document).click(function () {
         if (!moveIn) {
