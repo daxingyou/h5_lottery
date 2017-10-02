@@ -1726,6 +1726,7 @@ var is_select=0;
                 var num_each = $(n).find('.num-each').text() ;  // 每单注数
                 var time_each = $(n).find('.time-each').text() ;  // 每单倍数
                 var total_each = $(n).find('.total-each').text() ;  // 每单金额
+                var date_each = $(n).find('.date-each').text() ;  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid') ;  // 每单玩法
                 var play_num = $(n).find('.m_lotter_list_nub').html().split(',') ;
                 var new_num = $.grep(play_num,function(value){
@@ -1740,7 +1741,7 @@ var is_select=0;
                         "betContent": new_num.toString() ,//下注内容，如1,5,8,3,7
                         "betCount": Number(num_each), //注单数
                         "betMode": 0, //下注模式(预留)
-                        "chaseCount": 1, //追号期数(含当期),默认1
+                        "chaseCount": Number(date_each) , //追号期数(含当期),默认1
                         "chaseWinStop": 0,//是否追中即停
                         "ifChase": 0, //是否追号
                         "moneyMode": "y",//付款类型：元y，角j，分f

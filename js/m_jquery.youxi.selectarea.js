@@ -1324,11 +1324,14 @@
             }
             //03:计算金额
             var times = parseInt($($.lt_id_data.id_sel_times).val(),10);
+            var betdates = parseInt($($.lt_id_data.id_add_date).val(),10);//投注期数取整
+
             if( isNaN(times) ) {
                 times = 1;
                 $($.lt_id_data.id_sel_times).val(1);
             }
-            var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+           // var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+            var money = Math.round(times * nums * betdates *2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
             money = isNaN(money) ? 0 : money;
             $($.lt_id_data.id_sel_num).html(nums);   //写入临时的注数
             $($.lt_id_data.id_sel_money).html(money);//写临时单笔价格
@@ -1939,7 +1942,10 @@
 		//倍数修改以后的计算
 		function checkTimes(){
             var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 投注倍数选择
-
+            //  追号相关
+            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号倍数选择
+            var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号期数选择
+            var total_all = 0 ; // 总金额变化
             $($.lt_id_data.id_sel_times).val( times );
 
             if(times === 0){
@@ -1955,17 +1961,13 @@
             //var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
 			var modes = parseInt($("input[name='lt_project_modes']:checked").val(),10);//投注模式
 			//倍数x注数x单价x模式
-            var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000
+           // var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000
+            var money = Math.round(times * nums * 2*z_dates * ($.lt_method_data.modes[modes].rate * 1000))/1000
 
             money = isNaN(money) ? 0 : money;
             $($.lt_id_data.id_sel_money).html(money);
 
-            //  追号相关
-            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号倍数选择
-            var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g,"").substring(0,5);  // 追号期数选择
-            var total_all = 0 ; // 总金额变化
-
-            $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){
+            $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){  // 追号处理
                 var num_each = Number($(n).find('.num-each').text()) ;  // 每单注数
                 var time_each = Number($(n).find('.time-each').text()) ;  // 每单倍数
                 var total_each = Number($(n).find('.total-each').text()) ;  // 每单金额
@@ -2017,7 +2019,9 @@
 			var times = parseInt($($.lt_id_data.id_sel_times).val(),10);//投注倍数取整
 			//var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
 			var modes = parseInt($("input[name='lt_project_modes']:checked").val(),10);//投注模式
-			var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+		//	var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+            var betdates = parseInt($($.lt_id_data.id_add_date).val(),10);//投注期数取整
+			var money = Math.round(times * nums * betdates *2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
 			money = isNaN(money) ? 0 : money;
 			$($.lt_id_data.id_sel_money).html(money);
 		});
@@ -2077,7 +2081,6 @@
 			});
 			$(".lt_random_bets_5").unbind("click").click(function(){
 				for (var i=0; i<5; i++) {
-					console.log(i)
 					$(".lt_random_bets_1").trigger("click"); 
 				}
 			});
@@ -2130,12 +2133,14 @@
         $($.lt_id_data.id_sel_insert).unbind("click").click(function(){
             var nums  = parseInt($($.lt_id_data.id_sel_num).html(),10);//投注注数取整
             var times = parseInt($($.lt_id_data.id_sel_times).val(),10);//投注倍数取整
-            var betdates = parseInt($($.lt_id_data.lt_cf_date).html(),10);//投注倍数取整
+            var betdates = parseInt($($.lt_id_data.id_add_date).val(),10);//投注期数取整
             //var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
 			var modes = parseInt($("input[name='lt_project_modes']:checked").val(),10);//投注模式
-            var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+          // var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
+            var money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*期数*单价 * 模式
             var mid   = $.lt_method_data.methodid;
 			var current_positionsel = $.lt_position_sel;
+
             var cur_position = 0;
             if($(this).hasClass('addBtnDisabled')){//没有选注不让操作
             	return false;
@@ -2149,7 +2154,7 @@
                 })
             }
 			
-            if( isNaN(nums) || isNaN(times) || isNaN(money) || money <= 0 ){//如果没有任何投注内容
+            if( isNaN(nums) || isNaN(times) || isNaN(money) || money <= 0 ){  //如果没有任何投注内容
 				//当前为机选sam
 				if(random_bets){
 					for( i=0; i<data_sel.length; i++ ){//清空已选择数据
@@ -2174,7 +2179,7 @@
 				}
                 return;
             }
-            if( otype == 'input' ){//如果是输入型，则检测号码合法性，以及是否存在重复号
+            if( otype == 'input' ){  //如果是输入型，则检测号码合法性，以及是否存在重复号
                 var mname = $.lt_method[mid];//玩法的简写,如:'ZX3'
 			
                 var error = [];
@@ -2186,7 +2191,8 @@
                     ermsg += lot_lang.em_s2+'\n'+edump.join(", ")+"\n";
                     checkNum();//重新统计
                     nums  = parseInt($($.lt_id_data.id_sel_num).html(),10);//投注注数取整
-                    money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价*模式
+                   // money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价*模式
+					money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*期数*单价 * 模式
                 }
                 switch(mname){//根据类型不同做不同检测
                     //任三 直选 直选单式
@@ -2304,8 +2310,9 @@
             if( nos.length > 10 ){
                 var rand=~~(Math.random()*89999999+10000000).toString();
                 // var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
-                var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
-				// nohtml+='<div id="div_slow_id_'+rand+'" class="more" style="display:none;"><a class="close" href="#" onclick="div_slow_hide('+rand+');return(false);">['+lot_lang.dec_s6+']</a><textarea class="code" readonly="readonly">'+nos+'</textarea></div>';
+               // var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
+                var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos +'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
+
             }else{
                 // var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
                 var nohtml =  '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
@@ -2402,9 +2409,16 @@
 					content:'已选号码：' +$(this).attr("data-list"),
 					btn:'确定'
 				})
-			})
+			}) ;
+			var total_all = 0 ;
+            $.each($('div.lottery',$($.lt_id_data.id_cf_content)),function(i,n){  // 追号处理
+                total_all += Number($(n).find('.total-each').text())  ;  // 累加金额
+                $($.lt_id_data.id_cf_money).html(total_all) ; // 总金额更新
+
+            });
             $.lt_total_nums  += nums;//总注数增加
-            $.lt_total_money += money;//总金额增加
+           // $.lt_total_money += money;//总金额增加，底部总共多少钱
+            $.lt_total_money = total_all;//总金额增加，底部总共多少钱
             $.lt_total_money  = Math.round($.lt_total_money*1000)/1000;
             basemoney         = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//注数*单价 * 模式
             $.lt_trace_base   = Math.round(($.lt_trace_base+basemoney)*1000)/1000; // 追号金额
