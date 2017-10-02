@@ -228,7 +228,7 @@ function getMemberBalance() {
     var initFrame = function(){
 
         $.gameInit({
-            data_label: data_label,
+            data_label: data_label,  // 玩法集合
             cur_issue : {issue: now_pcode,endtime:now_time},
             servertime: sys_time ,  // 系统时间   setAmerTime()
             lotteryId : parseInt(1,10),
