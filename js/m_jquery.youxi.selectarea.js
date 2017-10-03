@@ -1948,15 +1948,35 @@
             var total_all = 0 ; // 总金额变化
             $($.lt_id_data.id_sel_times).val( times );
 
-            if(times === 0){
+            if(times == 0){
             	times = 1;
             	layer.open({
 					content:"倍数不能输入0",
 					btn:'确定'
 				})
-            	// $.alert("倍数不能输入0");
             	$($.lt_id_data.id_sel_times).val(times);
             };
+            if(z_times == 0){
+                z_times = 1;
+                layer.open({
+                    content:"追号倍数不能输入0",
+                    btn:'确定'
+                })
+                $($.lt_id_data.id_add_date).val(z_times);
+            };
+            if(z_dates == 0){
+                z_dates = 1;
+                layer.open({
+                    content:"追号期数不能输入0",
+                    btn:'确定'
+                })
+                $($.lt_id_data.id_add_date).val(z_dates);
+            };
+            console.log(z_times)
+            if(Number(z_times) > 1 || Number(z_dates) > 1 ){  //追中即停按钮处理
+
+            	$('.btn_addstop ').removeClass('disabled') ;
+			}
             var nums  = parseInt($($.lt_id_data.id_sel_num).html(),10);//投注注数取整
             //var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
 			var modes = parseInt($("input[name='lt_project_modes']:checked").val(),10);//投注模式
@@ -1981,6 +2001,7 @@
                 $($.lt_id_data.lt_cf_date).html(z_dates) ; // 底部期数更新
 
             });
+
 
 		}
 
