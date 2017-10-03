@@ -2461,17 +2461,7 @@ var is_select = 0;
                 $($.lt_id_data.id_labelbox + ' li').eq(index).addClass('hover');
                 //生成该标签下的小标签,如果有小标签
                 // console.log(opts.data_label[index].label.length)
-<<<<<<< HEAD
-                if (opts.data_label[index].label.length > 0) {
-                    lt_smalllabel({title: opts.data_label[index].title, label: opts.data_label[index].label});
-                } else {
 
-                }
-            }
-            TextHtml();//
-        });//*/
-
-=======
 				if(opts.data_label[index].label.length>0){
 					lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label});
 				}else{
@@ -2480,8 +2470,7 @@ var is_select = 0;
 			}
            TextHtml();
         });
-		
->>>>>>> 6c0b224f0dc06498c01a7f7a53f1a33528998436
+
 
         //写入当前期
         $($.lt_id_data.id_cur_issue).html(opts.cur_issue.issue);
@@ -2733,23 +2722,14 @@ var is_select = 0;
         $($.lt_id_data.id_smalllabel + ' dl.cWay').remove();
         $($.lt_id_data.id_smalllabel).prepend(html);
         filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
-<<<<<<< HEAD
 
-        $('dd[name=\'smalllabel\']').click(function () {
-            $('dd[name=\'smalllabel\']').removeClass('hover');
-            $(this).addClass('hover');
-            var index = $(this).attr('v').split('-');
-            TextHtml(); //根据点击的当前的文字显示到按钮上
-            if (opts.label[index[0]].label[index[1]].methoddesc.length > 0) {
-=======
-      
         $("dd[name='smalllabel']").click(function(){
 			$("dd[name='smalllabel']").removeClass("hover");
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
 			 TextHtml() //根据点击的当前的文字显示到按钮上
             if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){
->>>>>>> 6c0b224f0dc06498c01a7f7a53f1a33528998436
+
                 $($.lt_id_data.id_methoddesc).html(opts.label[index[0]].label[index[1]].methoddesc).parent().show();
             } else {
                 $($.lt_id_data.id_methoddesc).parent().hide();
