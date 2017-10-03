@@ -3558,21 +3558,8 @@ var is_select = 0;
                         "payoff": 0, //派彩
                         "playId": 111, //玩法
                         "remark": "无"//备注
-                    },
-                    {
-                        "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                        "betContent": "1,6,8,8,7",//下注内容，如1,5,8,3,7
-                        "betCount": 1, //注单数
-                        "betMode": 0, //下注模式(预留)
-                        "chaseCount": 1, //追号期数(含当期),默认1
-                        "chaseWinStop": 0,//是否追中即停
-                        "ifChase": 0, //是否追号
-                        "moneyMode": "y",//付款类型：元y，角j，分f
-                        "multiple": 4 , //倍数最少为1
-                        "payoff": 0, //派彩
-                        "playId": 111, //玩法
-                        "remark": "无"//备注
-                    }*/
+                    }, */
+
                 ],
                 'lotteryId': $.lt_lottid,  //彩种id
                 'operType': 0, //下注类型，1下注
@@ -3604,7 +3591,7 @@ var is_select = 0;
                         'betMode': 0, //下注模式(预留)
                         'chaseCount': Number(date_each), //追号期数(含当期),默认1
                         'chaseWinStop': 0,//是否追中即停
-                        'ifChase': 0, //是否追号
+                        'ifChase': $('.btn_addstop').data('val') , //是否追号,0不追号，1追号
                         'moneyMode': 'y',//付款类型：元y，角j，分f
                         'multiple': Number(time_each), //倍数最少为1
                         'payoff': 0, //派彩
@@ -3614,36 +3601,6 @@ var is_select = 0;
 
             });
 
-            /*     resdata.list.push(
-                {  // 一条数据就是一个方案，一个方案可以有多条下注
-                    "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    "betContent": "8,8,5",//下注内容，如1,5,8,3,7
-                    "betCount": 1, //数单数
-                    "betMode": 0, //下注模式(预留)
-                    "chaseCount": 1, //追号期数(含当期),默认1
-                    "chaseWinStop": 0,//是否追中即停
-                    "ifChase": 0, //是否追号
-                    "moneyMode": "y",//付款类型：元y，角j，分f
-                    "multiple": 1, //倍数最少为1
-                    "payoff": 0, //派彩
-                    "playId": 511, //玩法
-                    "remark": "无"//备注
-                },
-                {
-                    "betAmount": 800 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    "betContent": "1,8,7",//下注内容，如1,5,8,3,7
-                    "betCount": 1, //数单数
-                    "betMode": 0, //下注模式(预留)
-                    "chaseCount": 1, //追号期数(含当期),默认1
-                    "chaseWinStop": 0,//是否追中即停
-                    "ifChase": 0, //是否追号
-                    "moneyMode": "y",//付款类型：元y，角j，分f
-                    "multiple": 4 , //倍数最少为1
-                    "payoff": 0, //派彩
-                    "playId": 511, //玩法
-                    "remark": "无"//备注
-                }
-            )*/
 
             $.ajax({
                 type: 'POST',
