@@ -1972,10 +1972,11 @@
                 })
                 $($.lt_id_data.id_add_date).val(z_dates);
             };
-            console.log(z_times)
-            if(Number(z_times) > 1 || Number(z_dates) > 1 ){  //追中即停按钮处理
 
-            	$('.btn_addstop ').removeClass('disabled') ;
+            if(Number(z_times) > 1 || Number(z_dates) > 1 ){  //追中即停按钮处理
+            	$('.btn_addstop ').removeClass('disable').css('color','#52acd3') ;
+			}else{
+                $('.btn_addstop ').addClass('disable').css('color','#c9c9c9') ;
 			}
             var nums  = parseInt($($.lt_id_data.id_sel_num).html(),10);//投注注数取整
             //var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
@@ -2002,9 +2003,21 @@
 
             });
 
-
 		}
+		var zhuiflage = 1 ;
+        // 追中即停按钮点击处理
+        $('.btn_addstop ').on('click',function () {
+			if($(this).hasClass('disable')){  // 禁止点击
+				return false ;
+			}
+			if(zhuiflage % 2 ==0 ){
+				$(this).attr('data-val','0').css('color','#52acd3').text('追中即停') ;
+			}else{
+                $(this).attr('data-val','1').css('color','#c9c9c9').text('取消') ;
+			}
+            zhuiflage ++ ;
 
+        }) ;
 
 		//倍数加减按钮点击处理
 /*		$(".multipleBox .reduce").unbind("click").click(function(){
