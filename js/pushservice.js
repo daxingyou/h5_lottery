@@ -69,12 +69,12 @@ function pushServiceRestart(num){
 					pushServiceObj.pushStatus = "0";
 					pushServiceObj.pushDelayNum = num;
 					//如果推送服务是页面初始化过后宕掉
-					if(typeof $.globelData === 'object'){//判断是首页逻辑
-						if($.globelData.reviewStatus){//如果页面初始化过
+					if(typeof $.globelData === 'object'){  //判断是首页逻辑
+					/*	if($.globelData.reviewStatus){//如果页面初始化过
 							$.globelData.getBigJson("update");
 						}else{//如果推送服务是一开始就宕掉
 							$.globelData.getBigJson("init");
-						}
+						}*/
 					}
 
 					//历史奖期推送
@@ -105,17 +105,17 @@ function pullFun(module, data) {
 					if(current_countdown >= info.issue_cycle - 3)$.pushLotterInfo.isPushed = true;
 				}			
 			},
-			"push_service" : function(data) {//推送服务处理
+			"push_service" : function(data) {  //推送服务处理
 				//如果关闭推送
 				if (data.is_enabled != undefined && data.is_enabled == "0") {
 					pushServiceObj.pushStatus = "0";
 					publicPushStream.disconnect();
-					if(typeof $.globelData === 'object'){//判断是首页逻辑
-						if($.globelData.reviewStatus){//如果页面初始化过
+					if(typeof $.globelData === 'object'){  //判断是首页逻辑
+				/*		if($.globelData.reviewStatus){ //如果页面初始化过
 							$.globelData.getBigJson("update");
 						}else{
 							$.globelData.getBigJson("init");
-						}
+						}*/
 					}
 
 					//历史奖期推送
@@ -174,7 +174,7 @@ function pullFun(module, data) {
 						"iscurent" : 2
 					};
 					$.getHistoryFun(pushServiceObj,pushModule,hdata);
-					$.funList.tzjlfn();//获取投注记录
+				//	$.funList.tzjlfn();//获取投注记录
 				}
 			},
 			"notice" : function(data){//公告模块

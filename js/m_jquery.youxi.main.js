@@ -3684,7 +3684,7 @@ var is_select = 0;
                                 $('#lt_trace_assert').val('no');
 
                                 layer.close(index);
-                                $.funList.tzjlfn();//获取投注记录
+                              //  $.funList.tzjlfn();//获取投注记录
                                 console.log(urlmon + '房间打开');
                                 top.location.href = './template/bet_success.html?name=' + encodeURI('重庆时时彩') + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
