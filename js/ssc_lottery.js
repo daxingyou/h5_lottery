@@ -717,7 +717,7 @@ function getMemberBalance() {
             "ifrandom" : 1, // 机选
             "randomcos" : 3,  // 机选
             "randomcosvalue" : "1|1|1",  // 机选
-            methodid : 511,
+            methodid : 511 ,
             name:'复式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
