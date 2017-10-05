@@ -34,7 +34,7 @@ function getLotterys(all,hot) {
     $.ajax({
         type: 'GET',
         url : action.forseti+'apis/lotterys',
-        data: {} ,
+        data: {sourceType:'h5'} ,
         dataType:'json',
         success: function(res){
             var allstr ='' ;  // 全部彩种
@@ -76,7 +76,7 @@ function getPlayTree(gameid) {
             "Authorization": "bearer  "+access_token,
         },
         url : action.forseti+'api/playsTree' ,
-        data: { lotteryId:gameid} ,
+        data: { lotteryId:gameid,sourceType:'h5'} ,
         success: function(res){
 
         },
@@ -95,7 +95,7 @@ function getSystemTime() {
             "Authorization": "bearer  "+access_token,
         },
         url : action.forseti+'apis/serverCurrentTime' ,
-        data: {} ,
+        data: {sourceType:'h5'} ,
         success: function(res){
             sys_time = formatTimeUnlix(res.data) ;
 
@@ -117,7 +117,7 @@ function getMemberBalance() {
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
         url : action.uaa+'/api/data/member/getMemberBalance' ,
-        data: {} ,
+        data: {sourceType:'h5'} ,
         success: function(res){
             var mom = roundAmt(res.data.amount) ;
             $('.membalance').text(mom) ;
@@ -202,7 +202,7 @@ function getMemberBalance() {
                 "Authorization": "bearer  "+access_token,
             },
             url : action.forseti+'api/priodDataNewly' ,
-            data: { lotteryId:gameid ,} ,
+            data: { lotteryId:gameid ,sourceType:'h5'} ,
             success: function(res){
 
                 next_pcode = res.data[0].pcode ;  // 下一期数
@@ -320,7 +320,7 @@ function getMemberBalance() {
         $("#right_top_01_02").css("background-position","0px "+position+"px");
 
         //轮询推送控制,获取历史奖期
-        var getHistoryTimer = null;
+       /* var getHistoryTimer = null;
         var pushModule = $.parseJSON("{\"push_issuetime\":\"1\",\"push_issuecode\":\"1\",\"push_notice\":\"1\",\"push_usermessage\":\"1\",\"push_userbalance\":\"1\",\"push_userwonprize\":\"1\"}");
         $.extend({
             getHistoryFun : function(pushServiceObj,pushModule,hdata){
@@ -357,7 +357,7 @@ function getMemberBalance() {
             }
         });
 
-        $.getHistoryFun(pushServiceObj,pushModule,null);
+        $.getHistoryFun(pushServiceObj,pushModule,null);*/
     }
 
     var data_label = [

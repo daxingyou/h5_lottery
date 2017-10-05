@@ -2576,10 +2576,8 @@ var is_select = 0;
     };
 
     var lt_smalllabel = function (opts) {//动态载入小标签
-        //alert(opts);
         var ps = {title: '', label: []};    //标签数据
         opts = $.extend({}, ps, opts || {}); //根据参数初始化默认配置
-        //alert(opts.title);
         var html = '';
         var modelhtml = '';
 
@@ -2947,77 +2945,6 @@ var is_select = 0;
         }, 1000);
     };
 
-    /*  $.fn.lt_timer_1 = function(start,end,info){  //服务器开始时间，服务器结束时间  ，没有用到
-        var me = this;
-        console.log('控制点1')
-        if( start == "" || end == "" ){
-            $.lt_time_leave = 0;
-        }else{
-            $.lt_time_leave = end - start;//总秒数
-        }
-        function fftime(n){
-            return Number(n)<10 ? ""+0+Number(n) : Number(n);
-        }
-        function format(dateStr){//格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, "/"));
-        }
-        function diff(t){//根据时间差返回相隔时间
-            return t>0 ? {
-                day : Math.floor(t/86400),
-                hour : Math.floor(t%86400/3600),
-                minute : Math.floor(t%3600/60),
-                second : Math.floor(t%60)
-            } : {day:0,hour:0,minute:0,second:0};
-        }
-
-        if( $.lt_time_leave <= 1 ){  //结束
-            if( $.lt_submiting == false ){  //如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
-                $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
-                if($($.lt_id_data.id_cur_issue).html()>''){
-                    layer.open({
-                        title: '温馨提示',
-                        className: 'layer_tip',
-                        content:lot_lang.am_s15,
-                        btn:'确定'
-                    })
-                    // $.alert(lot_lang.am_s15);
-                    //传说中的5秒自动关闭
-                    if(sidebar_hover == "hn1fc" || sidebar_hover == "hn5fc" || sidebar_hover == "pk10" || sidebar_hover == "jssm"){
-                        $("#alert_close_button").val("(5) 确定");                //
-                        var second = 4;
-                        var timer5;
-                        timer5 = window.setTimeout(timeFun5,1000);
-
-                        function timeFun5(){
-                            $("#alert_close_button").val("(" + second + ") 确定");
-                            second--;
-                            if(second < 0){
-                                if($("#JS_blockOverlay").length == 1 && $("#JS_blockPage").length == 1){
-                                    $("#JS_blockOverlay").remove();
-                                    $("#JS_blockPage").remove();
-                                }
-                                clearTimeout(timer5);
-                            }else{
-                                timer5 = window.setTimeout(timeFun5,1000);
-                            }
-                        }
-                    }
-                    //传说中的5秒自动关闭
-                    $.lt_reset_1(true,start,end,info);
-                    $.lt_ontimeout();
-
-                }else{
-                    layer.open({
-                        content:lot_lang.am_s15_2,
-                        btn:'确定'
-                    })
-
-                }
-            }
-        }
-        var oDate = diff($.lt_time_leave);
-        $(me).html(""+(oDate.day>0 ? oDate.day+(lot_lang.dec_s21)+" " : "")+"<div class=\"hour\">"+fftime(oDate.hour)+":</div><div class=\"min\">"+fftime(oDate.minute)+":</div><div class=\"sec\">"+fftime(oDate.second)+"</div>");
-    };*/
     $.lt_reset = function (iskeep) {
         if (iskeep && iskeep === true) {
             iskeep = true;
@@ -3477,7 +3404,7 @@ var is_select = 0;
                             $.lt_reset(false);
                             $.lt_ontimeout();
                             layer.close(index);
-                        }//,
+                        }
                         // no:function(){
                         //     $.lt_reset(true);
                         //     $.lt_ontimeout();
@@ -3568,7 +3495,8 @@ var is_select = 0;
                 'pdate': now_day, //日期20170925
                 'playId': 0, //玩法id
                 'remark': '无',//备注，可用于测试
-                'source': 'h5' //来源：h5
+                'source': 'h5', //来源：h5
+                sourceType:'h5'
             };
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
 
@@ -3685,7 +3613,7 @@ var is_select = 0;
                                 $('#lt_trace_assert').val('no');
 
                                 layer.close(index);
-                                $.funList.tzjlfn();//获取投注记录
+                              //  $.funList.tzjlfn();//获取投注记录
                                 console.log(urlmon + '房间打开');
                                 top.location.href = './template/bet_success.html?name=' + encodeURI('重庆时时彩') + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
