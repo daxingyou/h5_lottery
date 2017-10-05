@@ -3496,7 +3496,8 @@ var is_select = 0;
                 'playId': 0, //玩法id
                 'remark': '无',//备注，可用于测试
                 'source': 'h5', //来源：h5
-                sourceType:'2'
+                'sourceType':'2', // 1是pc端，2是h5
+
             };
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
 
@@ -3534,7 +3535,9 @@ var is_select = 0;
             $.ajax({
                 type: 'POST',
                 headers: {
-                    'Authorization': 'bearer  ' + access_token
+                    'Authorization': 'bearer  ' + access_token,
+                   // 'sourceType':'2', // 1是pc端，2是h5
+                   // 'sideType':'1',  // 1是传统盘，2是双面盘
                 },
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',

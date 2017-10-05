@@ -34,7 +34,7 @@ function getLotterys(all,hot) {
     $.ajax({
         type: 'GET',
         url : action.forseti+'apis/lotterys',
-        data: {sourceType:'2'} ,
+        data: {} ,
         dataType:'json',
         success: function(res){
             var allstr ='' ;  // 全部彩种
@@ -76,7 +76,7 @@ function getPlayTree(gameid) {
             "Authorization": "bearer  "+access_token,
         },
         url : action.forseti+'api/playsTree' ,
-        data: { lotteryId:gameid,sourceType:'2'} ,
+        data: { lotteryId:gameid,} ,
         success: function(res){
 
         },
@@ -95,7 +95,7 @@ function getSystemTime() {
             "Authorization": "bearer  "+access_token,
         },
         url : action.forseti+'apis/serverCurrentTime' ,
-        data: {sourceType:'2'} ,
+        data: {} ,
         success: function(res){
             sys_time = formatTimeUnlix(res.data) ;
 
@@ -117,7 +117,7 @@ function getMemberBalance() {
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
         url : action.uaa+'/api/data/member/getMemberBalance' ,
-        data: {sourceType:'2'} ,
+        data: {} ,
         success: function(res){
             var mom = roundAmt(res.data.amount) ;
             $('.membalance').text(mom) ;
@@ -202,7 +202,7 @@ function getMemberBalance() {
                 "Authorization": "bearer  "+access_token,
             },
             url : action.forseti+'api/priodDataNewly' ,
-            data: { lotteryId:gameid ,sourceType:'2'} ,
+            data: { lotteryId:gameid ,} ,
             success: function(res){
 
                 next_pcode = res.data[0].pcode ;  // 下一期数
