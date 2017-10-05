@@ -2901,6 +2901,7 @@ var is_select = 0;
                             content: lot_lang.am_s15_3 + '<span class="ui_color_yellow">' + next_pcode + '</span>' + '  期 。' + '</div>', // 转到下一期
                             // btn:'确定',
                             skin: 'msg',
+                            style:'color:#000;',
                             time: 5
                         });
 
