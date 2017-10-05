@@ -2900,7 +2900,7 @@ var is_select = 0;
                             // btn:'确定',
                             skin: 'msg',
                             style:'background-color: rgba(52, 65, 70, 0.85);border-radius: 60px;padding:0;padding: 5px;width: auto;',
-                            time: 5000
+                            time: 3
                         });
 
                         // 传说中的5秒自动关闭
@@ -2932,7 +2932,7 @@ var is_select = 0;
                             content: lot_lang.am_s15_2,
                             btn: '确定'
                         });
-                        //}
+
                     }
                 }
 
@@ -3496,7 +3496,7 @@ var is_select = 0;
                 'playId': 0, //玩法id
                 'remark': '无',//备注，可用于测试
                 'source': 'h5', //来源：h5
-                sourceType:'h5'
+                sourceType:'2'
             };
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
 
@@ -3614,7 +3614,7 @@ var is_select = 0;
 
                                 layer.close(index);
                               //  $.funList.tzjlfn();//获取投注记录
-                                console.log(urlmon + '房间打开');
+
                                 top.location.href = './template/bet_success.html?name=' + encodeURI('重庆时时彩') + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
                         });
