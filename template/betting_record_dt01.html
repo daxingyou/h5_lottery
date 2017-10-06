@@ -126,6 +126,9 @@
         .html(data.orderStatusName);
     $('.so-betTime')
         .html(formatTime(new Date(data.betTime)));
+
+    console.log(data.betTime);
+    console.log(new Date(data.betTime).toDateString());
     $('.so-orderId')
         .html(data.orderId);
     $('.so-betAmount')

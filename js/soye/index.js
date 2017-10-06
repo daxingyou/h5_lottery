@@ -1,12 +1,15 @@
 /* eslint-disable default-case,no-fallthrough */
 function initSoFun() {
     var html = '';
-    $('.radio input').each(function (i, t) {
-        console.log();
-        if ($(t).attr('checked') == 'checked') {
-            initCount(i);
-        }
-    });
+    $('.radio input')
+        .each(function (i, t) {
+            console.log();
+            if ($(t)
+                    .attr('checked') == 'checked') {
+                initCount(i);
+                radio_start = i;
+            }
+        });
 }
 
 function initCount(type) {
@@ -15,14 +18,14 @@ function initCount(type) {
     var lotteryId = 1;
     var methodid = $.lt_method_data.methodid;
     var data = {
-        'lotteryId': lotteryId
+        'lotteryId': lotteryId,
         // 'pcount': pcount
     };
     console.log(methodid);
     $.ajax({
         type: 'get',
         headers: {
-            'Authorization': 'bearer ' + access_token
+            'Authorization': 'bearer ' + access_token,
         },
         dataType: 'json',
         contentType: 'application/json; charset=utf-8', // json格式传给后端
@@ -73,18 +76,22 @@ function initCount(type) {
         },
         error: function (err) {
             console.log(err.responseText);
-        }
+        },
     });
 }
 
 function initCountFun(arr, name) {
     var li_doc = $('[name=' + name + ']');
+    li_doc.find('i')
+        .remove();
     li_doc.append('<i>0</i>');
     li_doc.css('margin-bottom', '1.5rem');
     li_doc.each(function (i, t) {
         $.each(arr, function (j, u) {
             if (j == i) {
-                $(t).find('i').html(arr[i]);
+                $(t)
+                    .find('i')
+                    .html(arr[i]);
             }
         });
     });

@@ -1,4 +1,4 @@
-/* eslint-disable new-cap */
+/* eslint-disable new-cap,indent */
 access_token = getCookie('access_token'); // 取token
 var membalance = getCookie('membalance');
 $('.so-membalance')
@@ -114,7 +114,7 @@ function getBetRecord(page, type, status) {
         'pageSize': pageSize, // 每页行数
         'searchType': type, // 查询类型，1为投注记录查询，2为追号查询
         'statusType': status, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
-        lotteryId: 1 // 彩种ID
+        lotteryId: 1, // 彩种ID
     };
     $.ajax({
         type: 'post',
@@ -140,7 +140,7 @@ function getBetRecord(page, type, status) {
             res.data.rows.sort(function (a, b) {
                 if (a.pcode > b.pcode) {
                     return 1; // a排在b的前面
-                } else if (a.pcode > b.pcode) {
+                } else if (a.pcode < b.pcode) {
                     return -1; // a排在b的后面
                 } else {
                     return 0; // a和b的位置保持不变
@@ -200,6 +200,12 @@ function getBetRecord(page, type, status) {
                 });
                 $('.tab_content_' + status)
                     .append(restr);
+                $('.slide_toggle')
+                    .first()
+                    .addClass('active');
+                $('.slide_toggle ul')
+                    .show();
+
             } else if (type === 2 && page === 1) {
                 $.each(daysArr, function (j, m) {
                     dateDay.push(j);
@@ -228,7 +234,7 @@ function getBetRecord(page, type, status) {
                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.chaseStatusName + '</span>' +
-                                '<div></div>' +
+                                '<div>' + v.pcode + '期</div>' +
                                 '</div>' +
                                 ' </a>' +
                                 '</li>';
@@ -242,6 +248,11 @@ function getBetRecord(page, type, status) {
                 });
                 $('.tab_track_' + status)
                     .append(restr);
+                $('.slide_toggle')
+                    .first()
+                    .addClass('active');
+                $('.slide_toggle ul')
+                    .show();
             }
 
             if (page > 1 && type === 1) {
@@ -252,7 +263,7 @@ function getBetRecord(page, type, status) {
                                 if (parseInt($(t)
                                         .data('val'), 10) === parseInt(j, 10)) {
                                     $.each(m, function (j, v) {
-                                        var jsonStr = encodeURI('trace_record_dt01.html?data=' + JSON.stringify(v));
+                                        var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(v));
                                         var li_html = '<li class="bet_data" data-status="not_open">' +
                                             '<a href="' + jsonStr + '">' +
                                             '<div class="badge ssc_badge"></div>' +
@@ -260,7 +271,7 @@ function getBetRecord(page, type, status) {
                                             '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                             '<div class="status status0"' + v.orderStatus + '>' +
                                             '<span>' + v.orderStatusName + '</span>' +
-                                            '<div></div>' +
+                                            '<div>' + v.pcode + '期</div>' +
                                             '</div>' +
                                             ' </a>' +
                                             '</li>';
@@ -296,7 +307,7 @@ function getBetRecord(page, type, status) {
                                     '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                     '<div class="status status0"' + v.orderStatus + '>' +
                                     '<span>' + v.orderStatusName + '</span>' +
-                                    '<div></div>' +
+                                    '<div>' + v.pcode + '期</div>' +
                                     '</div>' +
                                     ' </a>' +
                                     '</li>';
@@ -341,7 +352,7 @@ function getBetRecord(page, type, status) {
                                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                                 '<div class="status status0"' + v.orderStatus + '>' +
                                                 '<span>' + v.chaseStatusName + '</span>' +
-                                                '<div></div>' +
+                                                '<div>' + v.pcode + '期</div>' +
                                                 '</div>' +
                                                 ' </a>' +
                                                 '</li>';
