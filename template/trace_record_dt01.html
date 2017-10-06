@@ -33,7 +33,7 @@
 <body>
 <div id="body">
     <header class="page_header">
-        <a class="btn_back" href="javascript:;" onclick="history.go(-1)" title="返回"></a>
+        <a class="btn_back" href="javascript:;" onclick="history.go(-2);" title="返回"></a>
         <h2>追号详情</h2>
         <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
     </header>
@@ -123,48 +123,57 @@
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <script>
-    var access_token = getCookie("access_token");  // 取token
-    var data = getStrParam("data");
-    data = JSON.parse(data.data)
+    var access_token = getCookie('access_token');  // 取token
+    var data = getStrParam('data');
+    data = JSON.parse(data.data);
 
 
-    console.log(data)
+    console.log(data);
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
         data.chaseCountAll = list.length;
 
 
-        $(".lottery_t").html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
-            '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
-            '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
-            '</p>')
+        $('.lottery_t')
+            .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
+                '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
+                '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
+                '</p>');
         if (data.chaseWinStop == 1) {
-            data.chaseWinStop = '追中即停'
+            data.chaseWinStop = '追中即停';
         } else {
-            data.chaseWinStop = '不停止'
+            data.chaseWinStop = '不停止';
         }
 
-        $(".print_data").html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>')
+        $('.print_data')
+            .html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>');
 
 
-        $(".tr_status").html(data.chaseStatusName)
+        $('.tr_status')
+            .html(data.chaseStatusName);
         if (data.chaseStatusName == '进行中') {
-            $(".tr_status").attr('class', 'tr_status status01')
+            $('.tr_status')
+                .attr('class', 'tr_status status01');
         } else if (data.chaseStatusName == '已终止') {
-            $(".tr_status").attr('class', 'tr_status status02')
+            $('.tr_status')
+                .attr('class', 'tr_status status02');
 
         } else if (data.chaseStatusName == '已结束') {
-            $(".tr_status").attr('class', 'tr_status status03')
+            $('.tr_status')
+                .attr('class', 'tr_status status03');
 
         }
-        var li_html = '<ul>'
+        var li_html = '<ul>';
         $.each(list, function (i, e) {
-            console.log(list[i])
-            li_html += '<li><a href="betting_record_dt03.html"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount).toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>'
-        })
-        li_html += '</ul>'
-        $(".tra_list").html(li_html)
+            console.log(list[i]);
+            var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(e));
+            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount)
+                .toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+        });
+        li_html += '</ul>';
+        $('.tra_list')
+            .html(li_html);
 
-    })
+    });
 
 
     //追号数据查询
@@ -172,26 +181,26 @@
         var data = {
             lotteryId: lotteryId,
             parentOrderId: parentOrderId,
-        }
+        };
         $.ajax({
             type: 'get',
             headers: {
-                "Authorization": "bearer " + access_token,
+                'Authorization': 'bearer ' + access_token,
             },
             dataType: 'json',
-            contentType: "application/json; charset=utf-8",  // json格式传给后端
+            contentType: 'application/json; charset=utf-8',  // json格式传给后端
             url: action.forseti + 'api/orders/chaseOrderDetail',
             data: data,  // json格式
             success: function (res) {
-                if (res.err == "SUCCESS") {
+                if (res.err == 'SUCCESS') {
                     var data = res.data;
                     cb(data);
 
                 }
             },
             error: function (err) {
-                console.log(err.responseText)
-            }
+                console.log(err.responseText);
+            },
         });
     }
 
