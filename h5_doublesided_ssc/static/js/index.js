@@ -97,7 +97,7 @@ function initLeftViewEve() {
     $(".so-left-close").click(function () {
         var className = $(".so-left").attr("class") || ""
         $(".so-left").attr("class", className.replace("active", "close"))
-        $(".so-shade").hide()
+        $(".so-shade").hide()//.fadeOut(2000)
     })
     $(".so-menu").click(function () {
         var className = $(".so-left").attr("class") || ""

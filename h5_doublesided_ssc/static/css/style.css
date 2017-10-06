@@ -292,11 +292,11 @@ a { color: #00B7FF; }
 
 .so-tip-pop > div { background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
 
-.so-tip-pop img { width: 4rem; text-align: center; margin: auto; margin-top: 1rem; }
+.so-tip-pop img { width: 4rem; text-align: center; margin: auto; margin-top: 1.2rem; }
 
 .so-tip-pop img:nth-child(2) { max-width: .8rem; margin-top: 0; display: block; }
 
-.so-tip-pop p { color: #c93030; margin-top: 0.2rem; font-size: 0.34rem; }
+.so-tip-pop p { color: #c93030; margin-top: 0.25rem; font-size: 0.34rem; }
 
 .bet_ok_area p { color: #ffc600; line-height: 1.5em; }
 
@@ -328,9 +328,9 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop-xxx div h2 > a { content: ""; display: block; width: 1rem; height: 1rem; float: right; position: absolute; right: 0; top: 0; }
 
-.so-pop-xxx div img { width: 1rem; margin-top: 0.6rem; }
+.so-pop-xxx div img { width: 1rem; margin-top: 0.5rem; }
 
-.so-pop-xxx div p { display: block; width: 6rem; text-align: center; margin: auto; color: #c93030; font-size: 0.34rem; margin-top: 0.4rem; }
+.so-pop-xxx div p { display: block; width: 6rem; text-align: center; margin: auto; color: #c93030; font-size: 0.34rem; margin-top: 0.4rem; line-height: 1.5em; }
 
 .so-pop-xxx div > a { display: block; background: url("../images/pop/lan.png") no-repeat; background-size: 100%; width: 2.31rem; height: 0.74rem; text-align: center; margin: auto; margin-top: 0.3rem; line-height: 0.74rem; font-size: 0.34rem; color: white; }
 
