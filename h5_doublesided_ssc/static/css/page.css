@@ -46,23 +46,23 @@ body { width: 100%; min-height: 18rem; }
 
 #pa_head > .center { text-align: center; padding: .5rem 0; width: calc(100% - 4rem); font-weight: 300; }
 
-#pa_head > .left { float: left; width: 2.3rem; }
+#pa_head > .left { float: left; width: 1.3rem; }
 
 #pa_head > .left a { display: inline-block; }
 
-#pa_head > .left a img { width: 80%; margin: 0; }
+#pa_head > .left a img { width: 100%; margin: 0; }
 
 .slide_toggle { text-align: left; color: #ACACAC; cursor: pointer; }
 
 .slide_toggle .panel_title { padding: .5rem 0.7143rem .5rem 1.2rem; font-size: .4rem; height: .25rem; line-height: .25rem; background: url("../../static/images/page/date_bar.png") no-repeat left top; background-size: 100%; }
 
-.slide_toggle .panel_title span { background-image: url("../../static/images/arrow_up.png"); background-size: 0.7143rem 0.7143rem; width: 0.7rem; height: 0.7rem; position: relative; background-position: 0px 0; background-repeat: no-repeat; background-size: 100%; top: -.1rem; -webkit-transition: all .2s; -o-transition: all .2s; transition: all .2s; float: right; }
+.slide_toggle .panel_title span { background-image: url("../../static/images/arrow_up.png"); background-size: 0.7143rem 0.7143rem; width: 0.7rem; height: 0.7rem; position: relative; background-position: 0px 0; background-repeat: no-repeat; background-size: 100%; top: -.1rem; -webkit-transition: all .2s; -o-transition: all .2s; transition: all .2s; float: right; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); }
 
 .slide_toggle .panel { display: none; background-color: rgba(17, 22, 28, 0.5); border: 1px solid rgba(35, 48, 74, 0.9); width: 99.5%; }
 
 .slide_toggle.active { color: #ccc; }
 
-.slide_toggle.active .panel_title span { top: -.3rem; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); }
+.slide_toggle.active .panel_title span { top: -.3rem; }
 
 .tab { font-size: 0; }
 
@@ -144,7 +144,7 @@ body { width: 100%; min-height: 18rem; }
 
 .badge { width: 1.8rem; height: 1.8rem; border-radius: 100%; margin-right: 0.5714rem; background-image: url("../../static/images/page/logo_bg.png"); background-size: 100%; overflow: hidden; }
 
-.badge > img { width: 1.5rem; padding-top: .35rem; }
+.badge > img { width: 75%; padding-top: .35rem; }
 
 .lottery_t { margin-right: .4rem; font-size: .4rem; }
 
