@@ -1047,6 +1047,9 @@ img.bet_ok {
             line-height: 1rem;
             color: #ffc600;
             font-size: 0.34rem;
+            &:last-child{
+                background-position-y: 0.6rem;
+            }
         }
     }
     .so-pop-sum {
@@ -1055,7 +1058,7 @@ img.bet_ok {
         line-height: 1rem;
         background: url(../images/pop/local_video_list_bottom_light.png) no-repeat;
         background-size: 100% auto;
-        background-position-y: 0.1rem;
+        background-position-y: 0.05rem;
         margin-top: 0.3rem;
         span {
             color: #ffc600;
@@ -1064,6 +1067,8 @@ img.bet_ok {
     a {
         margin: 0.1rem;
         width: 2.31rem;
+        height: .7rem;
+        display: inline-block;
     }
 }
 .so-pop-xxx {

@@ -244,6 +244,8 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road02 .tab_content:last-child > li:first-child:before { content: '单 / 双'; display: block; position: fixed; color: #666; top: 50%; left: 3%; font-size: .25rem; }
 
+.grey_text { margin-left: 1.2rem; padding: .1rem 0; }
+
 /*# sourceMappingURL=all.css.map */
 
 /*# sourceMappingURL=page.css.map */

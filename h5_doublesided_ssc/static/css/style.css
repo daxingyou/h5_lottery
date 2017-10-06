@@ -314,11 +314,13 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop > div p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
 
-.so-pop .so-pop-sum { color: white; font-size: .34rem; line-height: 1rem; background: url(../images/pop/local_video_list_bottom_light.png) no-repeat; background-size: 100% auto; background-position-y: 0.1rem; margin-top: 0.3rem; }
+.so-pop > div p:last-child { background-position-y: 0.6rem; }
+
+.so-pop .so-pop-sum { color: white; font-size: .34rem; line-height: 1rem; background: url(../images/pop/local_video_list_bottom_light.png) no-repeat; background-size: 100% auto; background-position-y: 0.05rem; margin-top: 0.3rem; }
 
 .so-pop .so-pop-sum span { color: #ffc600; }
 
-.so-pop a { margin: 0.1rem; width: 2.31rem; }
+.so-pop a { margin: 0.1rem; width: 2.31rem; height: .7rem; display: inline-block; }
 
 .so-pop-xxx { display: none; position: fixed; top: 0; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
 
