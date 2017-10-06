@@ -185,7 +185,7 @@ function getBetRecord(page, type, status) {
                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.orderStatusName + '</span>' +
-                                '<div></div>' +
+                                '<div>' + v.pcode + '期</div>' +
                                 '</div>' +
                                 ' </a>' +
                                 '</li>';
@@ -389,7 +389,7 @@ function getBetRecord(page, type, status) {
                                     '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
                                     '<div class="status status0"' + v.orderStatus + '>' +
                                     '<span>' + v.chaseStatusName + '</span>' +
-                                    '<div></div>' +
+                                    '<div>' + v.pcode + '期</div>' +
                                     '</div>' +
                                     ' </a>' +
                                     '</li>';
