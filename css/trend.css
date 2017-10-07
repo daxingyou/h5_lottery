@@ -1,7 +1,8 @@
-.trend_main{
-    padding-top: calc( 3.4285rem + 2.5rem + 2.143rem );
+.trend_main {
+    padding-top: calc(3.4285rem + 2.5rem + 2.143rem);
 }
-.trend_tab_1{
+
+.trend_tab_1 {
     background-color: #344146;
     color: #fff;
     position: fixed;
@@ -10,7 +11,8 @@
     top: 3.4285rem;
     z-index: 1;
 }
-.trend_tab_1 li{
+
+.trend_tab_1 li {
     float: left;
     height: 2.5rem;
     line-height: 2.5rem;
@@ -18,17 +20,20 @@
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
-.trend_tab_1 li.active{
+
+.trend_tab_1 li.active {
     color: #ffcf06;
 }
-.trend_tab_2{
+
+.trend_tab_2 {
     background-color: #fff;
     position: fixed;
     width: 100%;
-    top: calc( 3.4285rem + 2.5rem );
+    top: calc(3.4285rem + 2.5rem);
     z-index: 1;
 }
-.trend_tab_2 li{
+
+.trend_tab_2 li {
     float: left;
     height: 2.143rem;
     line-height: 2.143rem;
@@ -37,71 +42,85 @@
     color: #898989;
     border-right: 1px solid #f1f1f1;
 }
-.trend_tab_2 li.on{
+
+.trend_tab_2 li.on {
     color: #52acd3;
     border-bottom: 2px solid #52acd3;
 }
-.trend_tab_1:after,.trend_tab_2:after{
+
+.trend_tab_1:after, .trend_tab_2:after {
     content: '';
     display: table;
     clear: both;
 }
-.trend_tab_1 li:last-child, .trend_tab_2 li:last-child{
+
+.trend_tab_1 li:last-child, .trend_tab_2 li:last-child {
     border-right: none;
 }
-.trend_content{
+
+.trend_content {
     width: 100%;
     overflow: hidden;
     /*font-size: 0px;*/
     white-space: nowrap;
     position: relative;
 }
-.trend_data{
+
+.trend_data {
     position: relative;
     /*display: inline-block;*/
     font-size: 1rem;
     /*width: 20%;*/
 }
-.trend_table{
+
+.trend_table {
     width: 100%;
     background-color: #fff;
     color: #c9c9c9;
 }
-.trend_table th, .trend_table td{
+
+.trend_table th, .trend_table td {
     text-align: center;
     border: 1px solid #f1f1f1;
     background-color: #fdfdfd;
     width: 8%;
     height: 2.143rem;
 }
-.trend_table th:first-child, .trend_table td:first-child{
+
+.trend_table th:first-child, .trend_table td:first-child {
     width: 20%;
     color: #52acd3;
     border-left: none;
 }
-.trend_table td{
+
+.trend_table td {
     position: relative;
 }
-.trend_table th{
+
+.trend_table th {
     color: #52acd3;
     font-weight: normal;
 }
-.trend_table thead td{
+
+.trend_table thead td {
 }
-.trend_table tbody{
+
+.trend_table tbody {
     position: relative;
 }
-.trend_canvas{
+
+.trend_canvas {
     position: absolute;
     right: 0px;
     top: 2.143rem;
-    width: calc( 80% - 1px ); 
+    width: calc(80% - 1px);
     /* width: 80%; */
 }
-.trend_canvas > div{
+
+.trend_canvas > div {
     position: absolute;
-    width:  2rem;
-    height:  2rem;
+    width: 2rem;
+    height: 2rem;
     line-height: 2rem;
     margin-left: -1rem;
     margin-top: -1rem;
@@ -111,7 +130,8 @@
     border-radius: 50%;
     overflow: hidden;
 }
-.trend_canvas > div:after{
+
+.trend_canvas > div:after {
     content: '';
     position: absolute;
     top: 0;
@@ -124,24 +144,29 @@
 }
 
 /* recent lottery */
-.recent_main{
-    padding-top: calc( 3.4285rem + 2.5rem );
+.recent_main {
+    padding-top: calc(3.4285rem + 2.5rem);
 }
-.recent_main .trend_table td, .recent_main .trend_table th{
+
+.recent_main .trend_table td, .recent_main .trend_table th {
     width: auto;
     font-size: 0.8571rem;
 }
-.recent_main .trend_table td:first-child, .recent_main .trend_table th:first-child{
+
+.recent_main .trend_table td:first-child, .recent_main .trend_table th:first-child {
     width: 20%;
 }
-.recent_main .trend_table td:nth-child(2), .recent_main .trend_table th:nth-child(2){
+
+.recent_main .trend_table td:nth-child(2), .recent_main .trend_table th:nth-child(2) {
     width: 30%;
 }
-.trend_table td i{
+
+.trend_table td i {
     font-style: normal;
     margin: 0 6px;
 }
-.trend_table td i:last-child{
-    color: #f67280;
-    text-decoration: underline;
-}
+
+/*.trend_table td i:last-child{*/
+/*color: #f67280;*/
+/*text-decoration: underline;*/
+/*}*/

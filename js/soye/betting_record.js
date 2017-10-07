@@ -148,11 +148,10 @@ function getBetRecord(page, type, status) {
             });
 
             $.each(res.data.rows, function (i, v) {
-                v.pcode = v.pcode.toString()
+                v.pcodeStr = v.pcode.toString()
                     .substring(0, 8); // 截取日期前面6位
-                daysArr[v.pcode] = daysArr[v.pcode] || [];
-                daysArr[v.pcode].push(v);
-
+                daysArr[v.pcodeStr] = daysArr[v.pcodeStr] || [];
+                daysArr[v.pcodeStr].push(v);
             });
             console.log(daysArr);
             var li_html = '';
@@ -446,7 +445,6 @@ function recodeChange() {
                 .ready(function () {
                     getBetRecord(page, 2, val);
                 });
-
         });
 }
 
