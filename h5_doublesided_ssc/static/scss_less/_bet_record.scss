@@ -1,8 +1,6 @@
 @charset "utf-8";
 @import "variable";
 body{
-    // background: url('../../static/images/main/bg.jpg');
-    // background-size: 100%;
     width: 100%;
     min-height: 18rem;
 }
@@ -12,9 +10,12 @@ body{
     overflow-x: hidden;
     text-align: center;
     margin: auto;
-    background: url('../../static/images/main/bg.jpg');
+    background: url('../../static/images/bg.jpg');
     background-size: 100%;
         min-height: 18rem;
+        .so-right > div:first-child img {
+            right: 0.49rem;
+        }
 }
 #pa_head{
     overflow: hidden;
@@ -30,17 +31,34 @@ body{
     >.center{
         text-align: center;
         padding: .5rem 0;
-        width: calc(100% - 4rem);
+        width: calc(100% - 2.96rem);
         font-weight: 300;
+        color: #d7e8f0;
+        font-size: .38rem;
     }
     >.left{
         float: left;
-        width: 2.3rem;
+        width: 1.48rem;
+        height: 1.48rem;
         a{
             display: inline-block;
             img{
-                width: 80%;
+                width: 100%;
                 margin: 0;
+            }
+        }
+    }
+    >.right{
+        float: right;
+        >.so-top-zoushi {
+            // float: right;
+            height: 1.48rem;
+            width: 1.48rem;
+            img {
+                height: 0.6rem;
+                position: relative;
+                top: 0.46rem;
+                left: -0.1rem;
             }
         }
     }
@@ -68,27 +86,32 @@ body{
             background-repeat: no-repeat;
             background-size: 100%;
             // left:1.2rem;
-            top: -.1rem;
+            top: -.3rem;
             transition: all .2s;
             // margin-top: -0.2rem;
             float: right;
-        }
-    }
-    .panel {
-        display: none;
-        background-color: rgba(#11161c,.5);
-        border: 1px solid rgba(#23304a,.9);
-            width: 99.5%;
-    }
-    &.active{
-        color: #ccc;
-        .panel_title span{
-            top:-.3rem;
             -webkit-transform: rotate(180deg);
             -moz-transform: rotate(180deg);
             -o-transform: rotate(180deg);
             -ms-transform: rotate(180deg);
             transform: rotate(180deg);
+        }
+    }
+    .panel {
+        display: none;
+        background-color: rgba(#11161c,.7);
+        border: 1px solid rgba(#23304a,.9);
+        width: 99.5%;
+    }
+    &.active{
+        color: #ccc;
+        .panel_title span{
+            top:-.1rem;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
             // background-image: url('../images/icon_arrow_up.svg');
         }
     }
@@ -150,7 +173,7 @@ body{
 .tab_mid{
     // margin: .8rem 0;
     color: #d7e8f0;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0,0,0,.15);
     >li{
         display: inline-block;
         // padding: .5rem;
@@ -231,15 +254,25 @@ body{
         overflow: hidden;
         > div{
                 float: left;
-                line-height: .8rem;
+                line-height: .6rem;
+        }
+        >.status{
+            float: right;
+        }
+        >.badge{
+            width: 1.5rem;
+            height: 1.5rem;
+            >img{
+                margin-left: 0.2rem;
             }
+        }
     }
     strong{
         color: #ffc600;
-        font-size: .5rem;
+        font-size: .35rem;
     }
     .status{
-        float: right;
+        // float: right;
         min-width: 15%;
         text-align: center;
         color: #acacac;
@@ -308,11 +341,11 @@ body{
     vertical-align: top;
     line-height: 1;
     background-image: url('../../static/images/page/pn_lt_bg.png');
-    height: .43rem;
+    height: .4rem;
     background-size: 100%;
-    width: 4rem;
+    width: 3.5rem;
     color: #8393ab;
-    font-size: .4rem;
+    font-size: .35rem;
     padding: .2rem 0 .15rem .4rem;
     &:after{
         content: '';
@@ -332,7 +365,7 @@ body{
     background-size: 100%;
     overflow: hidden;
     >img{
-        width: 1.5rem;
+        width: 75%;
         padding-top: .35rem;
         // height: 3.5rem;
     }
@@ -340,7 +373,10 @@ body{
 .lottery_t{
     margin-right: .4rem;
     // margin-top: 0.3571rem;
-        font-size: .4rem;
+    font-size: .35rem;
+    >p{
+        margin-top: .2rem;
+    }
 }
 //查看往期
 .past_view{
@@ -363,16 +399,41 @@ body{
         padding: 0rem 0 .3rem 0;
         line-height: .3rem;
         // margin-left: -2rem;
-            margin-left: -1.3rem;
+        //margin-left: -1.3rem;
+        float: left;
+        width: 4rem;
+        >span{
+            font-size: .3rem;
+            padding-top: .2rem;
+            display: inline-block;
+        }
+        >i{
+            margin-left: -.3rem;
+            margin-right: .1rem;
+        }
     }
     ul{
         >li{
+            // float: left;
+            // background-color: #ffbd00;
+            // border: 1px solid #fdf19b;
+            // padding: 0.01rem .2rem;
+            // @include border-radius(2rem);
+            // margin: .2rem 0.09rem;
+            display: block;
             float: left;
+            width: .9rem;
+            height: .35rem;
+            border: solid .01rem #ffffff;
             background-color: #ffbd00;
-            border: 1px solid #fdf19b;
-            padding: 0.01rem .2rem;
-            @include border-radius(2rem);
-            margin: .2rem 0.09rem;
+            -webkit-border-radius: .19rem;
+            -moz-border-radius: .19rem;
+            border-radius: .19rem;
+            text-align: center;
+            margin-top: 0.14rem;
+            margin-right: 0.23rem;
+            font-size: 0.34rem;
+            line-height: 0.35rem;
         }
     }
 }
@@ -380,7 +441,8 @@ ul.lo_ball{
     margin-left: -1rem;
     // width: 2.5rem;
     text-align: center;
-    margin: 0 auto;
+    //margin: 0 auto;
+    margin-top: .1rem;
     >li{
         background-image: url('../../static/images/content/qiu.png');
         background-repeat: no-repeat;
@@ -388,8 +450,8 @@ ul.lo_ball{
         display: inline-block;
         width: 1.3rem;
         height: 1.3rem;
-        color: #ffffff;
-        font-size: 0.52rem;
+        color: #fffbe2;
+        font-size: 0.6rem;
         text-align: center;
         line-height: 1.3rem;
         text-indent: 0.1rem;
@@ -403,6 +465,7 @@ ul.no_open{
         background-size: 2.1rem;
         color: #000;
         width: 2rem;
+        font-size: 0.5rem;
     }
 }
 i.prd{
@@ -414,6 +477,7 @@ i.prd{
     width: .5rem;
     display: inline-block;
     line-height: .3rem;
+    vertical-align: inherit;
 }
 //ds_long 雙面長龍
 .ds_long{
@@ -473,7 +537,7 @@ i.prd{
 // }
 #road01,#road02{
     background-color: #191f2d;
-    @include border-radius(.2rem);
+    @include border-radius(.15rem);
     border: 1px solid #679edf;
     box-shadow:0px 0px 15px rgba(#679edf, 0.9);
     margin: .2rem;
@@ -495,7 +559,7 @@ i.prd{
         white-space: nowrap;
         width: 100% !important;
         // padding: 0 .5rem;
-        min-height: 5rem;
+        min-height: 3rem;
         display: block !important;
         padding: 0;
     }
@@ -503,8 +567,9 @@ i.prd{
 .road{
     box-sizing: border-box;
     width: .85rem;
-    min-height: 5rem;
+    height: 4.6rem;
     display: inline-block;
+    overflow: hidden;
     &:last-child{
         margin-right: .5rem;
         &:before{
@@ -584,4 +649,8 @@ i.prd{
             }
         }
     }
+}
+.grey_text{
+    margin-left: 1.2rem;
+    padding: .1rem 0;
 }

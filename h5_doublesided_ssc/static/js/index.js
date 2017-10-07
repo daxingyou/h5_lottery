@@ -37,6 +37,13 @@ function initKuang() {
         }
         $(t).show()
     })
+    $(".so-con-right div .sec_ball p").each(function (i, t) {
+        if ($(t).find('span')[0].innerText.length < 1) {
+            var className = $(t).attr('class');
+            $(t).attr('class', 'so-con-span-short ' + className);
+        }
+        $(t).show()
+    })
     $(".so-con-right div div p").each(function (i, t) {
         if ($(t).find('span')[0].innerText.length > 6) {
             var className = $(t).attr('class');
@@ -90,7 +97,7 @@ function initLeftViewEve() {
     $(".so-left-close").click(function () {
         var className = $(".so-left").attr("class") || ""
         $(".so-left").attr("class", className.replace("active", "close"))
-        $(".so-shade").hide()
+        $(".so-shade").hide()//.fadeOut(2000)
     })
     $(".so-menu").click(function () {
         var className = $(".so-left").attr("class") || ""
