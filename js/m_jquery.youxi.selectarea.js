@@ -2456,7 +2456,7 @@
             });*/
 
 
-        // 机选 n 注
+        // 机选 5 注
             $('.lt_random_bets_5').unbind('click').click(function () {   // 机选5注
                 var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数选择
                 var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
