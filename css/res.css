@@ -198,7 +198,7 @@ height: 2.9rem; line-height: 2.9rem; z-index: 1; }
       .hide-money { font-size: 1.1rem; line-height: 1.8rem; height: 1.8rem; font-style: normal; padding-left: 0.428571rem; }
       .m_fx_footer .show-money,
       .m_fx_footer .hide-money { float: left; }
-      .m_fx_footer .v-moeny .show-money #refff { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; float: left; margin-left: 0.2rem;}
+      .m_fx_footer .v-moeny .show-money .membalance { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; float: left; margin-left: 0.2rem;}
       /* .v-moeny i { color: #919191; } */
       .m_fx_footer .v-moeny i { float: left; }
       .v-moeny .show-money a,

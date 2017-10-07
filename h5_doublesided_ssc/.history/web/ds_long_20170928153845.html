@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="../../static/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/page.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/rewrite.css" rel="stylesheet" type="text/css">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <!-- <script src="../../static/js/flexible_css.debug.js"></script>
+    <script src="../../static/js/flexible.debug.js"></script> -->
+    <title>投注记录</title>
+</head>
+<body>
+    <div id="pa_con">
+        <header id="pa_head">
+            <div class="left">
+                <a href="index.html">
+                    <img src="../../static/images/back.png" alt="">
+                </a>
+            </div>
+            <h2 class="center">重庆时时彩 双面长龙</h2>
+            <div class="right"></div>
+        </header>
+        <div id="pa_content">
+            <div id="betting_record" class="tab_container tabBox">
+                <div class="hd">
+                    <ul class="tab tab_mid tab_two">
+                        <li class="on"><a href="javascript:;" data-filter="">连续开奖</a></li>
+                        <li><a href="javascript:;" data-filter="not_open">连续未开</a></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="tab_content">
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <i class="prd"></i>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer id="pa_foot"></footer>
+
+    </div>
+    <script src="../../static/js/jquery-1.7.min.js"></script>
+    <script src="../../static/js/page.js"></script>
+    <script src="../../static/js/touchslide.1.1"></script>
+    <script>
+        $(function () {
+            var index = 0;
+            $('#tabs .item').on('click',function(){
+                $(this).addClass('active').siblings().removeClass('active');
+
+                var index = $(this).index();
+                $('.tab_container').eq(index).stop(true,true).fadeIn().siblings().stop(true,true).fadeOut();
+            }).eq(index).click();
+        });
+    </script>
+    <script>
+            TouchSlide({
+                slideCell: "#betting_record",
+            });
+    </script>
+    <script>
+        $(function(){
+            $('.slide_toggle').on('click',function(){
+                $(this).find('.panel').stop(true,true).slideToggle(200);
+                $(this).toggleClass('active').siblings().removeClass('active').find('.panel').stop(true,true).slideUp(200);
+            });
+            $('.tab_content .slide_toggle:first-child').click();
+        })
+    </script>
+</body>
+</html>

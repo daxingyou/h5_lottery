@@ -1,0 +1,93 @@
+@charset "utf-8";
+@import "variable";
+html {
+    -webkit-text-size-adjust: none;
+}
+body,.warp {
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+*, :after, :before {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+}
+a{
+  text-decoration: none;
+    // pc_demo用
+    &:hover,&:focus,&:active{
+        text-decoration: none;
+    }
+    // h5正式用
+    &.active{}
+}
+img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;    // fix bottom empty problem
+    @include respond-to('sm') {
+        max-width: 600px;
+    }
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+hr{
+    border-top: 1px solid rgba(#464a4e,0.1);
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.5em;
+}
+
+input,select,button,a{
+    outline: none;
+}
+// 基礎layout
+// header
+header {
+    
+}
+// 中間區塊
+.warp{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+.container {
+    width: 100%;
+}
+
+// footer
+.footer {
+
+}
+.clearfix {
+    @include clearfix();
+}
+
+// 404
+.notfound {
+
+}
+.text-red{
+    color: #c93030;
+}
+.text-yellow{
+    color: #ffc600;
+}
+.text-default{
+    color: #d7e8f0;
+}
+.text-l-yellow{
+    color: #fdf19b;
+}
+.text-green{
+    color: #71c341;
+}
+

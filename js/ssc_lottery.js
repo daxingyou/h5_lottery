@@ -1,215 +1,280 @@
+
+
 /*
  *  时时彩
  * */
-(function($){
+
+var now_pcode  ; // 当前期数
+var now_time  ; // 当前期数销售截止时间
+var next_pcode  ; // 下一期数销售截止时间
+var sys_time  ; // 当前系统时间
+var now_day  ; // 当前日期
+
+// 登录接口
+function LoginAction() {
+    $.ajax({
+        type: 'post',
+        headers:{ Authorization: 'Basic d2ViX2FwcDo=' } ,
+        url : action.uaa+'oauth/token' ,
+        // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+        data: { grant_type :'password',username :'mgappid01|admin',password :'admin' } ,
+        success: function(res){
+            access_token = res.access_token ;
+            setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
+        },
+        error: function() {
+
+        }
+    });
+}
+
+// 获取彩种
+function getLotterys(all,hot) {
+
+    $.ajax({
+        type: 'GET',
+        url : action.forseti+'apis/lotterys',
+        data: {} ,
+        dataType:'json',
+        success: function(res){
+            var allstr ='' ;  // 全部彩种
+            var hotstr ='' ;  // 热门彩种
+
+            $.each(res.data,function (i,v) { // 通过 v.cid 跳转到每个彩种
+                allstr +='<a href="javascript:;">'+
+                    '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                    ' <div class="menu_name">'+
+                    ' <h2>'+v.name+'</h2>'+
+                    ' <span>'+v.periodDesc+'</span>'+
+                    '</div> </a>' ;
+                if(v.ifHot == '1'){
+                    hotstr +='<a href="javascript:;">'+
+                        '<div class="menu_logo"><img src="'+v.imgUrl+'"></div>'+
+                        ' <div class="menu_name">'+
+                        ' <h2>'+v.name+'</h2>'+
+                        ' <span>'+v.periodDesc+'</span>'+
+                        '</div> </a>' ;
+                }
+
+            });
+
+            $(all).html(allstr) ;
+            $(hot).html(hotstr) ;
+
+        },
+        error: function() {
+
+        }
+    });
+}
+
+// 玩法树
+function getPlayTree(gameid) {
+    $.ajax({
+        type: 'get',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        url : action.forseti+'api/playsTree' ,
+        data: { lotteryId:gameid,} ,
+        success: function(res){
+
+        },
+        error: function() {
+
+        }
+    });
+}
+
+
+// 获取系统时间
+function getSystemTime() {
+    $.ajax({
+        type: 'get',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        url : action.forseti+'apis/serverCurrentTime' ,
+        data: {} ,
+        success: function(res){
+            sys_time = formatTimeUnlix(res.data) ;
+
+            priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
+        },
+        error: function() {
+
+        }
+    });
+}
+
+// 获取用户余额
+function getMemberBalance() {
+    $.ajax({
+        type: 'GET',
+        headers: {
+            "Authorization": "bearer  "+access_token,
+        },
+        // dataType:'json',
+        // contentType:"application/json; charset=utf-8",  // json格式传给后端
+        url : action.uaa+'/api/data/member/getMemberBalance' ,
+        data: {} ,
+        success: function(res){
+            var mom = roundAmt(res.data.amount) ;
+            $('.membalance').text(mom) ;
+            setCookie("membalance",mom);  // 把登录余额放在cookie里面
+        },
+        error: function() {
+
+        }
+    });
+}
+
+
+/*$(function(){*/
+        LoginAction() ;
+
+        setTimeout(function () {
+            getSystemTime() ; // 系统时间
+            gamePlay() ;
+            shopCar() ;
+            helpChoose() ;
+            getLotterys('.game-all','.game-hot') ; // 获取彩种
+            getPlayTree(1) ;  // 玩法
+            getMemberBalance() ; // 获取用户余额
+
+        },500)
+
+
+        var riable=0;
+        // 玩法菜单选择
+        function gamePlay() {
+            $(".nfdprize_text").click(function(){
+                if(riable==0){
+                    riable=1;
+                    $(".m-lott-methodBox .nfdprize_text b").addClass('cur')
+                }else{
+                    riable =0;
+                    $(".m-lott-methodBox .nfdprize_text b").removeClass('cur')
+                }
+                $(".m-lott-methodBox-list").toggle();
+            });
+            $('.ui_playlist_cover').click(function(){
+                $(".nfdprize_text").click();
+            })
+        }
+
+// 购物车动画
+        function shopCar() {
+            $('#ui_cart').on('click',function(){
+                $('#ui_bet').stop(true,true).animate({left: 0},300,function(){
+                    $('#body').addClass('bet_cart');
+
+                });
+            })
+            $('#bet_back').on('click',function(){
+                var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数
+                var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数
+                if(z_times>1 || z_dates>1){ // 如果已经有追号方案，返回的时候清空之前的方案
+                    layer.open({
+                        content: lot_lang.am_s41,
+                        btn: ['确定','取消'],
+                        yes: function (index) {
+                            for(var i= 0;i<z_times;i++){  // 还原倍数
+                                $('.multipleBox').find('.less_bei').click() ;
+                            }
+                            for(var i= 0;i<z_dates;i++){   // 还原期数
+                                $('.multipleBox').find('.less_bei').click() ;
+                            }
+                            $('#body').removeClass('bet_cart');
+                            $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+
+                            layer.close(index);
+                        }
+                    });
+                }else{
+                    $('#body').removeClass('bet_cart');
+                    $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+
+                }
+
+            });
+
+        }
+// 助手选单
+        function helpChoose() {
+            $('.ui_help').on('click','.ui_btn_help',function(){
+                $(this).parent('.ui_help').find('ul').stop().fadeIn(200);
+                $(this).append('<div class="ui_cover"></div>');
+                $('.ui_help').find('ul').on('click',function(){
+                    $('.ui_cover').remove();
+                    $(this).hide();
+                });
+                $('.ui_cover').on('click',function(){
+                    $('.ui_cover').remove();
+                    $('.ui_help').find('ul').hide();
+                })
+            });
+        }
+
+    // 最新开奖期数
+    function priodDataNewly(gameid) {
+        $.ajax({
+            type: 'get',
+            headers: {
+                "Authorization": "bearer  "+access_token,
+            },
+            url : action.forseti+'api/priodDataNewly' ,
+            data: { lotteryId:gameid ,} ,
+            success: function(res){
+
+                next_pcode = res.data[0].pcode ;  // 下一期数
+                now_pcode = res.data[1].pcode ;  // 当前期数
+                now_time = formatTimeUnlix(res.data[1].endTime) ;  // 当前期数
+                now_day =( res.data[1].pcode).toString().substr(0,8) ;  // 当天日期
+
+                for(var i=2;i<res.data.length;i++){
+                    processCode(res.data[i].pcode,res.data[i].winNumber);
+                }
+
+                initFrame() ;
+            },
+            error: function() {
+
+            }
+        });
+    }
+
+
+
     // 初始化方法
     var initFrame = function(){
 
         $.gameInit({
-            data_label: data_label,
-            cur_issue : {issue:'20170817-054',endtime:'2017-08-17 14:59:05'},
+            data_label: data_label,  // 玩法集合
+            cur_issue : {issue: now_pcode,endtime:now_time},
+            servertime: sys_time ,  // 系统时间   setAmerTime()
+            lotteryId : parseInt(1,10),
             issues    : {//所有的可追号期数集合
                 today:[
-                    {issue:'20170817-054',endtime:'2017-08-17 14:59:05'},
-                    {issue:'20170817-055',endtime:'2017-08-17 15:09:05'},
-                    {issue:'20170817-056',endtime:'2017-08-17 15:19:05'},
-                    {issue:'20170817-057',endtime:'2017-08-17 15:29:05'},
-                    {issue:'20170817-058',endtime:'2017-08-17 15:39:05'},
-                    {issue:'20170817-059',endtime:'2017-08-17 15:49:05'},
-                    {issue:'20170817-060',endtime:'2017-08-17 15:59:05'},
-                    {issue:'20170817-061',endtime:'2017-08-17 16:09:05'},
-                    {issue:'20170817-062',endtime:'2017-08-17 16:19:05'},
-                    {issue:'20170817-063',endtime:'2017-08-17 16:29:05'},
-                    {issue:'20170817-064',endtime:'2017-08-17 16:39:05'},
-                    {issue:'20170817-065',endtime:'2017-08-17 16:49:05'},
-                    {issue:'20170817-066',endtime:'2017-08-17 16:59:05'},
-                    {issue:'20170817-067',endtime:'2017-08-17 17:09:05'},
-                    {issue:'20170817-068',endtime:'2017-08-17 17:19:05'},
-                    {issue:'20170817-069',endtime:'2017-08-17 17:29:05'},
-                    {issue:'20170817-070',endtime:'2017-08-17 17:39:05'},
-                    {issue:'20170817-071',endtime:'2017-08-17 17:49:05'},
-                    {issue:'20170817-072',endtime:'2017-08-17 17:59:05'},
-                    {issue:'20170817-073',endtime:'2017-08-17 18:09:05'},
-                    {issue:'20170817-074',endtime:'2017-08-17 18:19:05'},
-                    {issue:'20170817-075',endtime:'2017-08-17 18:29:05'},
-                    {issue:'20170817-076',endtime:'2017-08-17 18:39:05'},
-                    {issue:'20170817-077',endtime:'2017-08-17 18:49:05'},
-                    {issue:'20170817-078',endtime:'2017-08-17 18:59:05'},
-                    {issue:'20170817-079',endtime:'2017-08-17 19:09:05'},
-                    {issue:'20170817-080',endtime:'2017-08-17 19:19:05'},
-                    {issue:'20170817-081',endtime:'2017-08-17 19:29:05'},
-                    {issue:'20170817-082',endtime:'2017-08-17 19:39:05'},
-                    {issue:'20170817-083',endtime:'2017-08-17 19:49:05'},
-                    {issue:'20170817-084',endtime:'2017-08-17 19:59:05'},
-                    {issue:'20170817-085',endtime:'2017-08-17 20:09:05'},
-                    {issue:'20170817-086',endtime:'2017-08-17 20:19:05'},
-                    {issue:'20170817-087',endtime:'2017-08-17 20:29:05'},
+                  /*  {issue:'20170817-087',endtime:'2017-08-17 20:29:05'},
                     {issue:'20170817-088',endtime:'2017-08-17 20:39:05'},
                     {issue:'20170817-089',endtime:'2017-08-17 20:49:05'},
-                    {issue:'20170817-090',endtime:'2017-08-17 20:59:05'},
-                    {issue:'20170817-091',endtime:'2017-08-17 21:09:05'},
-                    {issue:'20170817-092',endtime:'2017-08-17 21:19:05'},
-                    {issue:'20170817-093',endtime:'2017-08-17 21:29:05'},
-                    {issue:'20170817-094',endtime:'2017-08-17 21:39:05'},
-                    {issue:'20170817-095',endtime:'2017-08-17 21:49:05'},
-                    {issue:'20170817-096',endtime:'2017-08-17 21:59:05'},
-                    {issue:'20170817-097',endtime:'2017-08-17 22:04:30'},
-                    {issue:'20170817-098',endtime:'2017-08-17 22:09:30'},
-                    {issue:'20170817-099',endtime:'2017-08-17 22:14:30'},
-                    {issue:'20170817-100',endtime:'2017-08-17 22:19:30'},
-                    {issue:'20170817-101',endtime:'2017-08-17 22:24:30'},
-                    {issue:'20170817-102',endtime:'2017-08-17 22:29:30'},
-                    {issue:'20170817-103',endtime:'2017-08-17 22:34:30'},
-                    {issue:'20170817-104',endtime:'2017-08-17 22:39:30'},
-                    {issue:'20170817-105',endtime:'2017-08-17 22:44:30'},
-                    {issue:'20170817-106',endtime:'2017-08-17 22:49:30'},
-                    {issue:'20170817-107',endtime:'2017-08-17 22:54:30'},
-                    {issue:'20170817-108',endtime:'2017-08-17 22:59:30'},
-                    {issue:'20170817-109',endtime:'2017-08-17 23:04:30'},
-                    {issue:'20170817-110',endtime:'2017-08-17 23:09:30'},
-                    {issue:'20170817-111',endtime:'2017-08-17 23:14:30'},
-                    {issue:'20170817-112',endtime:'2017-08-17 23:19:30'},
-                    {issue:'20170817-113',endtime:'2017-08-17 23:24:30'},
-                    {issue:'20170817-114',endtime:'2017-08-17 23:29:30'},
-                    {issue:'20170817-115',endtime:'2017-08-17 23:34:30'},
-                    {issue:'20170817-116',endtime:'2017-08-17 23:39:30'},
-                    {issue:'20170817-117',endtime:'2017-08-17 23:44:30'},
-                    {issue:'20170817-118',endtime:'2017-08-17 23:49:30'},
-                    {issue:'20170817-119',endtime:'2017-08-17 23:54:30'},
-                    {issue:'20170817-120',endtime:'2017-08-17 23:59:30'}
+                    {issue:'20170817-120',endtime:'2017-08-17 23:59:30'}*/
                 ],
                 tomorrow: [
-                    {issue:'20170818-001',endtime:'2017-08-18 00:04:30'},
-                    {issue:'20170818-002',endtime:'2017-08-18 00:09:30'},
-                    {issue:'20170818-003',endtime:'2017-08-18 00:14:30'},
-                    {issue:'20170818-004',endtime:'2017-08-18 00:19:30'},
-                    {issue:'20170818-005',endtime:'2017-08-18 00:24:30'},
-                    {issue:'20170818-006',endtime:'2017-08-18 00:29:30'},
-                    {issue:'20170818-007',endtime:'2017-08-18 00:34:30'},
-                    {issue:'20170818-008',endtime:'2017-08-18 00:39:30'},
-                    {issue:'20170818-009',endtime:'2017-08-18 00:44:30'},
-                    {issue:'20170818-010',endtime:'2017-08-18 00:49:30'},
-                    {issue:'20170818-011',endtime:'2017-08-18 00:54:30'},
-                    {issue:'20170818-012',endtime:'2017-08-18 00:59:30'},
-                    {issue:'20170818-013',endtime:'2017-08-18 01:04:30'},
-                    {issue:'20170818-014',endtime:'2017-08-18 01:09:30'},
-                    {issue:'20170818-015',endtime:'2017-08-18 01:14:30'},
-                    {issue:'20170818-016',endtime:'2017-08-18 01:19:30'},
-                    {issue:'20170818-017',endtime:'2017-08-18 01:24:30'},
-                    {issue:'20170818-018',endtime:'2017-08-18 01:29:30'},
-                    {issue:'20170818-019',endtime:'2017-08-18 01:34:30'},
-                    {issue:'20170818-020',endtime:'2017-08-18 01:39:30'},
-                    {issue:'20170818-021',endtime:'2017-08-18 01:44:30'},
-                    {issue:'20170818-022',endtime:'2017-08-18 01:49:30'},
-                    {issue:'20170818-023',endtime:'2017-08-18 01:54:30'},
-                    {issue:'20170818-024',endtime:'2017-08-18 09:59:05'},
-                    {issue:'20170818-025',endtime:'2017-08-18 10:09:05'},
-                    {issue:'20170818-026',endtime:'2017-08-18 10:19:05'},
-                    {issue:'20170818-027',endtime:'2017-08-18 10:29:05'},
-                    {issue:'20170818-028',endtime:'2017-08-18 10:39:05'},
-                    {issue:'20170818-029',endtime:'2017-08-18 10:49:05'},
-                    {issue:'20170818-030',endtime:'2017-08-18 10:59:05'},
-                    {issue:'20170818-031',endtime:'2017-08-18 11:09:05'},
-                    {issue:'20170818-032',endtime:'2017-08-18 11:19:05'},
-                    {issue:'20170818-033',endtime:'2017-08-18 11:29:05'},
-                    {issue:'20170818-034',endtime:'2017-08-18 11:39:05'},
-                    {issue:'20170818-035',endtime:'2017-08-18 11:49:05'},
-                    {issue:'20170818-036',endtime:'2017-08-18 11:59:05'},
-                    {issue:'20170818-037',endtime:'2017-08-18 12:09:05'},
-                    {issue:'20170818-038',endtime:'2017-08-18 12:19:05'},
-                    {issue:'20170818-039',endtime:'2017-08-18 12:29:05'},
-                    {issue:'20170818-040',endtime:'2017-08-18 12:39:05'},
-                    {issue:'20170818-041',endtime:'2017-08-18 12:49:05'},
-                    {issue:'20170818-042',endtime:'2017-08-18 12:59:05'},
-                    {issue:'20170818-043',endtime:'2017-08-18 13:09:05'},
-                    {issue:'20170818-044',endtime:'2017-08-18 13:19:05'},
-                    {issue:'20170818-045',endtime:'2017-08-18 13:29:05'},
-                    {issue:'20170818-046',endtime:'2017-08-18 13:39:05'},
-                    {issue:'20170818-047',endtime:'2017-08-18 13:49:05'},
-                    {issue:'20170818-048',endtime:'2017-08-18 13:59:05'},
-                    {issue:'20170818-049',endtime:'2017-08-18 14:09:05'},
-                    {issue:'20170818-050',endtime:'2017-08-18 14:19:05'},
-                    {issue:'20170818-051',endtime:'2017-08-18 14:29:05'},
-                    {issue:'20170818-052',endtime:'2017-08-18 14:39:05'},
-                    {issue:'20170818-053',endtime:'2017-08-18 14:49:05'},
-                    {issue:'20170818-054',endtime:'2017-08-18 14:59:05'},
-                    {issue:'20170818-055',endtime:'2017-08-18 15:09:05'},
-                    {issue:'20170818-056',endtime:'2017-08-18 15:19:05'},
-                    {issue:'20170818-057',endtime:'2017-08-18 15:29:05'},
-                    {issue:'20170818-058',endtime:'2017-08-18 15:39:05'},
-                    {issue:'20170818-059',endtime:'2017-08-18 15:49:05'},
-                    {issue:'20170818-060',endtime:'2017-08-18 15:59:05'},
-                    {issue:'20170818-061',endtime:'2017-08-18 16:09:05'},
-                    {issue:'20170818-062',endtime:'2017-08-18 16:19:05'},
-                    {issue:'20170818-063',endtime:'2017-08-18 16:29:05'},
-                    {issue:'20170818-064',endtime:'2017-08-18 16:39:05'},
-                    {issue:'20170818-065',endtime:'2017-08-18 16:49:05'},
-                    {issue:'20170818-066',endtime:'2017-08-18 16:59:05'},
-                    {issue:'20170818-067',endtime:'2017-08-18 17:09:05'},
-                    {issue:'20170818-068',endtime:'2017-08-18 17:19:05'},
-                    {issue:'20170818-069',endtime:'2017-08-18 17:29:05'},
-                    {issue:'20170818-070',endtime:'2017-08-18 17:39:05'},
-                    {issue:'20170818-071',endtime:'2017-08-18 17:49:05'},
-                    {issue:'20170818-072',endtime:'2017-08-18 17:59:05'},
-                    {issue:'20170818-073',endtime:'2017-08-18 18:09:05'},
-                    {issue:'20170818-074',endtime:'2017-08-18 18:19:05'},
-                    {issue:'20170818-075',endtime:'2017-08-18 18:29:05'},
-                    {issue:'20170818-076',endtime:'2017-08-18 18:39:05'},
-                    {issue:'20170818-077',endtime:'2017-08-18 18:49:05'},
-                    {issue:'20170818-078',endtime:'2017-08-18 18:59:05'},
-                    {issue:'20170818-079',endtime:'2017-08-18 19:09:05'},
-                    {issue:'20170818-080',endtime:'2017-08-18 19:19:05'},
-                    {issue:'20170818-081',endtime:'2017-08-18 19:29:05'},
-                    {issue:'20170818-082',endtime:'2017-08-18 19:39:05'},
-                    {issue:'20170818-083',endtime:'2017-08-18 19:49:05'},
-                    {issue:'20170818-084',endtime:'2017-08-18 19:59:05'},
-                    {issue:'20170818-085',endtime:'2017-08-18 20:09:05'},
-                    {issue:'20170818-086',endtime:'2017-08-18 20:19:05'},
-                    {issue:'20170818-087',endtime:'2017-08-18 20:29:05'},
-                    {issue:'20170818-088',endtime:'2017-08-18 20:39:05'},
-                    {issue:'20170818-089',endtime:'2017-08-18 20:49:05'},
-                    {issue:'20170818-090',endtime:'2017-08-18 20:59:05'},
-                    {issue:'20170818-091',endtime:'2017-08-18 21:09:05'},
-                    {issue:'20170818-092',endtime:'2017-08-18 21:19:05'},
-                    {issue:'20170818-093',endtime:'2017-08-18 21:29:05'},
-                    {issue:'20170818-094',endtime:'2017-08-18 21:39:05'},
-                    {issue:'20170818-095',endtime:'2017-08-18 21:49:05'},
-                    {issue:'20170818-096',endtime:'2017-08-18 21:59:05'},
-                    {issue:'20170818-097',endtime:'2017-08-18 22:04:30'},
-                    {issue:'20170818-098',endtime:'2017-08-18 22:09:30'},
-                    {issue:'20170818-099',endtime:'2017-08-18 22:14:30'},
-                    {issue:'20170818-100',endtime:'2017-08-18 22:19:30'},
-                    {issue:'20170818-101',endtime:'2017-08-18 22:24:30'},
-                    {issue:'20170818-102',endtime:'2017-08-18 22:29:30'},
-                    {issue:'20170818-103',endtime:'2017-08-18 22:34:30'},
-                    {issue:'20170818-104',endtime:'2017-08-18 22:39:30'},
-                    {issue:'20170818-105',endtime:'2017-08-18 22:44:30'},
-                    {issue:'20170818-106',endtime:'2017-08-18 22:49:30'},
-                    {issue:'20170818-107',endtime:'2017-08-18 22:54:30'},
-                    {issue:'20170818-108',endtime:'2017-08-18 22:59:30'},
-                    {issue:'20170818-109',endtime:'2017-08-18 23:04:30'},
-                    {issue:'20170818-110',endtime:'2017-08-18 23:09:30'},
-                    {issue:'20170818-111',endtime:'2017-08-18 23:14:30'},
-                    {issue:'20170818-112',endtime:'2017-08-18 23:19:30'},
-                    {issue:'20170818-113',endtime:'2017-08-18 23:24:30'},
-                    {issue:'20170818-114',endtime:'2017-08-18 23:29:30'},
-                    {issue:'20170818-115',endtime:'2017-08-18 23:34:30'},
-                    {issue:'20170818-116',endtime:'2017-08-18 23:39:30'},
-                    {issue:'20170818-117',endtime:'2017-08-18 23:44:30'},
-                    {issue:'20170818-118',endtime:'2017-08-18 23:49:30'},
+                  /*  {issue:'20170818-118',endtime:'2017-08-18 23:49:30'},
                     {issue:'20170818-119',endtime:'2017-08-18 23:54:30'},
-                    {issue:'20170818-120',endtime:'2017-08-18 23:59:30'}
+                    {issue:'20170818-120',endtime:'2017-08-18 23:59:30'}*/
                 ]
 
             },
-            servertime: '2017-08-17 14:56:10',
-            lotteryid : parseInt(1,10),
-            ajaxurl   : './?controller=game&action=play',
-            ontimeout : function(){
+
+            ajaxurl : action.forseti+'api/priodDataNewly' ,   // 获取最近五期的开奖号码
+   /*         ontimeout : function(){
                 $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
-                    data: "lotteryid=1&flag=gethistory",
+                    data: "lotteryId=1&flag=gethistory",
                     success: function(data){
                         if( data == 'empty'){
                             return;
@@ -218,12 +283,12 @@
                         processCode(data[0].issue,data[0].code);
                     }
                 });
-            },
+            },*/
             onfinishbuy : function(){
                 $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
-                    data: "lotteryid=1&flag=getprojects",
+                    data: "lotteryId=1&flag=getprojects",
                     success: function(data){
                         var partn = /<script.*>.*<\/script>/;
                         if( data == 'empty' && partn.test(data) ){
@@ -261,9 +326,9 @@
             }
         });
         //$.gameInit结束
-        if('18083' != ''){
-            processCode('20170817-053','18083');
-        }
+   /*     if('18083' != ''){
+            processCode(now_pcode,'18083');
+        }*/
         $('span[class="project_more"]',"#history_project").live("click",function(){
             var mme = this;
             var $h = $('<span style="display: block;" id="task_div">号码详情[<span class="close">关闭</span>]<br><textarea readonly="readonly" class="code1">'+$(mme).next().html()+'</textarea></span>');
@@ -277,7 +342,7 @@
         $("#right_top_01_02").css("background-position","0px "+position+"px");
 
         //轮询推送控制,获取历史奖期
-        var getHistoryTimer = null;
+       /* var getHistoryTimer = null;
         var pushModule = $.parseJSON("{\"push_issuetime\":\"1\",\"push_issuecode\":\"1\",\"push_notice\":\"1\",\"push_usermessage\":\"1\",\"push_userbalance\":\"1\",\"push_userwonprize\":\"1\"}");
         $.extend({
             getHistoryFun : function(pushServiceObj,pushModule,hdata){
@@ -298,7 +363,7 @@
                         $.ajax({
                             type: 'POST',
                             url : './?controller=game&action=play&curmid=50',
-                            data: "lotteryid=1&flag=gethistory&currentissue="+currentissue,
+                            data: "lotteryId=1&flag=gethistory&currentissue="+currentissue,
                             success: function(data){
                                 if( data == 'empty' ){
                                     return;
@@ -314,11 +379,12 @@
             }
         });
 
-        $.getHistoryFun(pushServiceObj,pushModule,null);
+        $.getHistoryFun(pushServiceObj,pushModule,null);*/
     }
 
     var data_label = [
-        {isnew:"0",isdefault:"0",title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
+        {
+            isnew:"0",isdefault:"0",title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
             "methodhelp":"从万位、千位、百位、十位、个位中选择一个5位数号码组成一注，所选号码与开奖号码全部相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：23456；<br />开奖号码：23456，<br />即中五星直选",
             "selectarea":{
@@ -335,7 +401,10 @@
             },
             "show_str" : "X,X,X,X,X",
             "code_sp" : "",
-            methodid : 2274,
+            "ifrandom" : 1, // 机选
+            "randomcos" : 5,  // 机选
+            "randomcosvalue" : "1|1|1|1|1",  // 机选
+            methodid : 111 ,
             name:'复式',
             prize:{1:'180000.00'},
             nfdprize:{levs:'194000',defaultprize:180000.00,userdiffpoint:7},
@@ -348,7 +417,7 @@
             "selectarea":{"type":"input","singletypetips":"三星123,234 五星12345"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 2274,
+            methodid : 112 ,
             name:'单式',
             prize:{1:'180000.00'},
             nfdprize:{levs:'194000',defaultprize:180000.00,userdiffpoint:7},
@@ -372,7 +441,7 @@
             },
             "show_str" : "X,X,X,X,X",
             "code_sp" : "",
-            methodid : 2276,
+            methodid : 113,
             name:'组合',
             prize:{1:'180000.00',2:'18000.00',3:'1800.00',4:'180.00',5:'18.00'},
             nfdprize:{},
@@ -392,7 +461,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2278,
+            methodid : 121,
             name:'组选120',
             prize:{1:'1500.00'},
             nfdprize:{levs:'1616',defaultprize:1500.00,userdiffpoint:7},
@@ -413,7 +482,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2279,
+            methodid : 122,
             name:'组选60 ',
             prize:{2:'3000.00'},
             nfdprize:{levs:'3233',defaultprize:3000.00,userdiffpoint:7},
@@ -434,7 +503,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2280,
+            methodid : 123,
             name:'组选30',
             prize:{3:'6000.00'},
             nfdprize:{levs:'6466',defaultprize:6000.00,userdiffpoint:7},
@@ -455,7 +524,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2281,
+            methodid : 124,
             name:'组选20',
             prize:{4:'9000.00'},
             nfdprize:{levs:'9700',defaultprize:9000.00,userdiffpoint:7},
@@ -476,7 +545,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2282,
+            methodid : 125,
             name:'组选10',
             prize:{5:'18000.00'},
             nfdprize:{levs:'19400',defaultprize:18000.00,userdiffpoint:7},
@@ -497,14 +566,16 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2283,
+            methodid : 126,
             name:'组选5',
             prize:{6:'36000.00'},
             nfdprize:{levs:'38800',defaultprize:36000.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:2198,
             desc:'组选5',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"四星", label:[{gtitle:'四星直选', label:[{"methoddesc":"从千位、百位、十位、个位中选择一个4位数号码组成一注",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"四星", label:[{gtitle:'四星直选', label:[{"methoddesc":"从千位、百位、十位、个位中选择一个4位数号码组成一注",
             "methodhelp":"从千位、百位、十位、个位中选择一个4位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：3456；开奖号码：*3456，即中四星直选。",
             "selectarea":{
@@ -520,7 +591,10 @@
             },
             "show_str" : "-,X,X,X,X",
             "code_sp" : "",
-            methodid : 2265,
+            "ifrandom" : 1, // 机选
+            "randomcos" : 4,  // 机选
+            "randomcosvalue" : "1|1|1|1",  // 机选
+            methodid : 211,
             name:'复式',
             prize:{1:'18000.00'},
             nfdprize:{levs:'19400',defaultprize:18000.00,userdiffpoint:7},
@@ -533,7 +607,7 @@
             "selectarea":{"type":"input","singletypetips":"三星123,234 五星12345"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 2265,
+            methodid : 212,
             name:'单式',
             prize:{1:'18000.00'},
             nfdprize:{levs:'19400',defaultprize:18000.00,userdiffpoint:7},
@@ -557,7 +631,7 @@
             },
             "show_str" : "-,X,X,X,X",
             "code_sp" : "",
-            methodid : 2267,
+            methodid : 213,
             name:'组合',
             prize:{1:'18000.00',2:'1800.00',3:'180.00',4:'18.00'},
             nfdprize:{},
@@ -577,7 +651,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2269,
+            methodid : 221 ,
             name:'组选24',
             prize:{1:'750.00'},
             nfdprize:{levs:'808',defaultprize:750.00,userdiffpoint:7},
@@ -598,7 +672,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2270,
+            methodid : 222,
             name:'组选12',
             prize:{2:'1500.00'},
             nfdprize:{levs:'1616',defaultprize:1500.00,userdiffpoint:7},
@@ -618,7 +692,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2271,
+            methodid : 223,
             name:'组选6',
             prize:{3:'3000.00'},
             nfdprize:{levs:'3233',defaultprize:3000.00,userdiffpoint:7},
@@ -638,14 +712,16 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 2272,
+            methodid : 224,
             name:'组选4',
             prize:{4:'4500.00'},
             nfdprize:{levs:'4850',defaultprize:4500.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:2191,
             desc:'组选4',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"1",title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"1",title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
             "methodhelp":"从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：345；<br />开奖号码：345，<br />即中后三直选一等奖",
             "selectarea":{
@@ -660,7 +736,10 @@
             },
             "show_str" : "-,-,X,X,X",
             "code_sp" : "",
-            methodid : 5,
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
+            methodid : 511 ,
             name:'复式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -673,7 +752,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 5,
+            methodid : 512,
             name:'单式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -693,7 +772,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 6,
+            methodid : 513,
             name:'直选和值',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -713,7 +792,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 13,
+            methodid : 522,
             name:'组三',
             prize:{1:'600.00'},
             nfdprize:{levs:'646',defaultprize:600.00,userdiffpoint:7},
@@ -733,7 +812,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 14,
+            methodid : 523,
             name:'组六',
             prize:{2:'300.00'},
             nfdprize:{levs:'323',defaultprize:300.00,userdiffpoint:7},
@@ -746,7 +825,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 15,
+            methodid : 524,
             name:'混合组选',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
@@ -766,20 +845,24 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 16,
+            methodid : 525,
             name:'组选和值',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:68,
             desc:'组选和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"前三码", label:[{gtitle:'前三直选', label:[{"methoddesc":"从万、千、百位各选一个号码组成一注。",
+        }]}]},
+        {isnew:"0",isdefault:"0",title:"前三码", label:[{gtitle:'前三直选', label:[{"methoddesc":"从万、千、百位各选一个号码组成一注。",
             "methodhelp":"从万位、千位、百位中选择一个3位数号码组成一注，所选号码与开奖号码的前3位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：345； 开奖号码：345，即中前三直选一等奖",
             "selectarea":{"type":"digital","layout":[{"title":"万位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1},{"title":"千位", "no":"0|1|2|3|4|5|6|7|8|9", "place":1, "cols":1},{"title":"百位", "no":"0|1|2|3|4|5|6|7|8|9", "place":2, "cols":1}],"noBigIndex":5,"isButton":true},
             "show_str" : "X,X,X,-,-",
             "code_sp"  : "",
-            methodid : 2,
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
+            methodid : 311,
             name:'复式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -792,7 +875,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 2,
+            methodid : 312,
             name:'单式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -812,7 +895,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 3,
+            methodid : 313,
             name:'直选和值',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -832,7 +915,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 8,
+            methodid : 321,
             name:'组三',
             prize:{1:'600.00'},
             nfdprize:{levs:'646',defaultprize:600.00,userdiffpoint:7},
@@ -852,7 +935,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 9,
+            methodid : 322,
             name:'组六',
             prize:{2:'300.00'},
             nfdprize:{levs:'323',defaultprize:300.00,userdiffpoint:7},
@@ -865,7 +948,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 10,
+            methodid : 323,
             name:'混合组选',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
@@ -885,20 +968,25 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 11,
+            methodid : 324,
             name:'组选和值',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:63,
             desc:'组选和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"中三码", label:[{gtitle:'中三直选', label:[{"methoddesc":"从千、百、十位各选一个号码组成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"中三码", label:[{gtitle:'中三直选', label:[{"methoddesc":"从千、百、十位各选一个号码组成一注。",
             "methodhelp":"从千位、百位、十位中选择一个3位数号码组成一注，所选号码与开奖号码的中间3位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：456； 开奖号码：3456，即中中三直选一等奖",
             "selectarea":{"type":"digital","layout":[{"title":"千位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1},{"title":"百位", "no":"0|1|2|3|4|5|6|7|8|9", "place":1, "cols":1},{"title":"十位", "no":"0|1|2|3|4|5|6|7|8|9", "place":2, "cols":1}],"noBigIndex":5,"isButton":true},
             "show_str" : "-,X,X,X,-",
             "code_sp"  : "",
-            methodid : 2291,
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1",  // 机选
+            methodid : 411,
             name:'复式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -911,7 +999,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 2291,
+            methodid : 412,
             name:'单式',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -931,7 +1019,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2292,
+            methodid : 413,
             name:'直选和值',
             prize:{1:'1800.00'},
             nfdprize:{levs:'1940',defaultprize:1800.00,userdiffpoint:7},
@@ -951,7 +1039,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2293,
+            methodid : 421,
             name:'组三',
             prize:{1:'600.00'},
             nfdprize:{levs:'646',defaultprize:600.00,userdiffpoint:7},
@@ -971,7 +1059,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2294,
+            methodid : 422,
             name:'组六',
             prize:{2:'300.00'},
             nfdprize:{levs:'323',defaultprize:300.00,userdiffpoint:7},
@@ -984,7 +1072,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 2295,
+            methodid : 423,
             name:'混合组选',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
@@ -1004,14 +1092,16 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2296,
+            methodid : 424,
             name:'组选和值',
             prize:{1:'600.00',2:'300.00'},
             nfdprize:{},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:2234,
             desc:'组选和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"二码", label:[{gtitle:'二星直选', label:[{"methoddesc":"从十、个位各选一个号码组成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"二码", label:[{gtitle:'二星直选', label:[{"methoddesc":"从十、个位各选一个号码组成一注。",
             "methodhelp":"从十位、个位中选择一个2位数号码组成一注，所选号码与开奖号码的十位、个位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：58；开奖号码后二位：58，即中后二直选一等奖。",
             "selectarea":{
@@ -1028,7 +1118,7 @@
             "ifrandom" : 1,
             "randomcos" : 2,
             "randomcosvalue" : "1|1",
-            methodid : 24,
+            methodid : 611,
             name:'后二直选(复式)',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1041,7 +1131,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 24,
+            methodid : 612,
             name:'后二直选(单式)',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1065,7 +1155,7 @@
             "ifrandom" : 1,
             "randomcos" : 2,
             "randomcosvalue" : "1|1",
-            methodid : 22,
+            methodid : 614,
             name:'前二直选(复式)',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1078,7 +1168,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 22,
+            methodid : 615,
             name:'前二直选(单式)',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1097,7 +1187,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 474,
+            methodid : 613,
             name:'后二直选和值',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1116,7 +1206,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 472,
+            methodid : 616,
             name:'前二直选和值',
             prize:{1:'180.00'},
             nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},
@@ -1136,7 +1226,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 28,
+            methodid : 621,
             name:'后二组选(复式)',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
@@ -1149,7 +1239,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 28,
+            methodid : 622,
             name:'后二组选(单式)',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
@@ -1169,7 +1259,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 26,
+            methodid : 624,
             name:'前二组选(复式)',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
@@ -1182,7 +1272,7 @@
             "selectarea":{"type":"input"},
             "show_str" : "X",
             "code_sp" : " ",
-            methodid : 26,
+            methodid : 625,
             name:'前二组选(单式)',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
@@ -1201,7 +1291,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 478,
+            methodid : 623,
             name:'后二组选和值',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
@@ -1220,14 +1310,16 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 476,
+            methodid : 626,
             name:'前二组选和值',
             prize:{1:'90.00'},
             nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:2217,
             desc:'前二和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"定位胆", label:[{gtitle:'定位胆', label:[{"methoddesc":"在万位，千位，百位，十位，个位任意位置上任意选择1个或1个以上号码。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"定位胆", label:[{gtitle:'定位胆', label:[{"methoddesc":"在万位，千位，百位，十位，个位任意位置上任意选择1个或1个以上号码。",
             "methodhelp":"从万位、千位、百位、十位、个位任意位置上至少选择1个以上号码，所选号码与相同位置上的开奖号码一致，即为中奖。",
             "methodexample":"投注方案：1；开奖号码万位：1，即中定位胆万位一等奖。",
             "selectarea":{
@@ -1244,14 +1336,16 @@
             },
             "show_str" : "X,X,X,X,X",
             "code_sp" : "",
-            methodid : 30,
+            methodid : 711,
             name:'定位胆',
             prize:{1:'18.00'},
             nfdprize:{levs:'19.4',defaultprize:18.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:78,
             desc:'定位胆',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"不定胆", label:[{gtitle:'三星不定胆', label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"不定胆", label:[{gtitle:'三星不定胆', label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
             "methodhelp":"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。",
             "methodexample":"投注方案：1；开奖号码后三位：至少出现1个1，即中后三一码不定位一等奖。",
             "selectarea":{
@@ -1264,7 +1358,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 18,
+            methodid : 811,
             name:'后三一码不定胆',
             prize:{1:'6.60'},
             nfdprize:{levs:'7.1',defaultprize:6.60,userdiffpoint:7},
@@ -1284,7 +1378,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 20,
+            methodid : 812,
             name:'后三二码不定胆',
             prize:{1:'33.00'},
             nfdprize:{levs:'35.9',defaultprize:33.00,userdiffpoint:7},
@@ -1304,7 +1398,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 512,
+            methodid : 813,  // 没有找到相应的玩法数据 2017 0930
             name:'前三一码不定胆',
             prize:{1:'6.60'},
             nfdprize:{levs:'7.1',defaultprize:6.60,userdiffpoint:7},
@@ -1324,14 +1418,16 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 513,
+            methodid : 814,
             name:'前三二码不定胆',
             prize:{1:'33.00'},
             nfdprize:{levs:'35.9',defaultprize:33.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:71,
             desc:'前三二码不定胆',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"大小单双", label:[{gtitle:'大小单双', label:[{"methoddesc":"从总和的“大、小、单、双”中至少选一个成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"大小单双", label:[{gtitle:'大小单双', label:[{"methoddesc":"从总和的“大、小、单、双”中至少选一个成一注。",
             "methodhelp":"对个位至万位的总和的“大（23以上，包括23）小（22以下，包括22））、单（奇数）双（偶数）”形态进行购买，所选号码的位形态与开奖号码的形态相同，即为中奖。",
             "methodexample":"投注方案:大，开奖号码67895(6+7+8+9+5=35)，即中比大小一等奖。投注方案:单，开奖号码12345(1+2+3+4+5=15)，即中比单双一等奖。",
             "selectarea":{
@@ -1340,7 +1436,7 @@
             },
             "show_str" : "X",
             "code_sp" : "",
-            methodid : 6150802,
+            methodid : 913,
             name:'总和',
             prize:{1:'3.60'},
             nfdprize:{levs:'3.88',defaultprize:3.60,userdiffpoint:7},
@@ -1357,7 +1453,7 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 38,
+            methodid : 911,
             name:'后二',
             prize:{1:'7.20'},
             nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},
@@ -1374,14 +1470,16 @@
             },
             "show_str" : "X,X",
             "code_sp" : "",
-            methodid : 36,
+            methodid : 912,
             name:'前二',
             prize:{1:'7.20'},
             nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:80,
             desc:'前二大小单双',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"趣味", label:[{gtitle:'特殊', label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"趣味", label:[{gtitle:'特殊', label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
             "methodhelp":"从0-9中任意选择1个号码组成一注，只要开奖号码的万位、千位、百位、十位、个位中包含所选号码，即为中奖。",
             "methodexample":"投注方案：8；开奖号码：至少出现1个8，即中一帆风顺。",
             "selectarea":{
@@ -1394,7 +1492,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2285,
+            methodid : 101,
             name:'一帆风顺',
             prize:{1:'4.30'},
             nfdprize:{levs:'4.6',defaultprize:4.30,userdiffpoint:7},
@@ -1414,7 +1512,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2286,
+            methodid : 102,
             name:'好事成双',
             prize:{2:'22.00'},
             nfdprize:{levs:'23.7',defaultprize:22.00,userdiffpoint:7},
@@ -1434,7 +1532,7 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2287,
+            methodid : 103,
             name:'三星报喜',
             prize:{3:'210.00'},
             nfdprize:{levs:'226.3',defaultprize:210.00,userdiffpoint:7},
@@ -1454,14 +1552,17 @@
             },
             "show_str" : "X",
             "code_sp" : ",",
-            methodid : 2288,
+            methodid : 104,
             name:'四季发财',
             prize:{4:'3900.00'},
             nfdprize:{levs:'4203',defaultprize:3900.00,userdiffpoint:7},
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:2223,
             desc:'四季发财',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"任选二", label:[{gtitle:'任二直选', label:[{methoddesc:'从万位、千位、百位、十位、个位中至少两位上各选1个号码组成1注',
+        }]}]},
+        /* 以下游戏目前没有 */
+       /* {
+            isnew:"0",isdefault:"0",title:"任选二", label:[{gtitle:'任二直选', label:[{methoddesc:'从万位、千位、百位、十位、个位中至少两位上各选1个号码组成1注',
             methodhelp:'从任意两个以上的位置中选择一个号码，所选号码与开奖号码对应位置出现的号码相同，且顺序一致，即为中奖。',
             methodexample:'投注方案：万位1，百位2；<br />开奖号码：13245，<br />即中任选二直选一等奖',
             selectarea:{
@@ -1595,7 +1696,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:101203,
             desc:'组选和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"任选三", label:[{gtitle:'任三直选', label:[{"methoddesc":"从万位、千位、百位、十位、个位中至少三位上各选1个号码组成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"任选三", label:[{gtitle:'任三直选', label:[{"methoddesc":"从万位、千位、百位、十位、个位中至少三位上各选1个号码组成一注。",
             "methodhelp":"从万位、千位、百位、十位、个位中至少三位上各选1个号码组成一注，所选号码与开奖号码的指定位置上的号码相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：万位5，百8,个位2<br/>开奖号码：51812，即中任三直选。",
             "selectarea":{
@@ -1736,7 +1839,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:101404,
             desc:'组选和值',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"任选四", label:[{gtitle:'任四直选', label:[{"methoddesc":"从万位、千位、百位、十位、个位中至少四位上各选1个号码组成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"任选四", label:[{gtitle:'任四直选', label:[{"methoddesc":"从万位、千位、百位、十位、个位中至少四位上各选1个号码组成一注。",
             "methodhelp":"从万位、千位、百位、十位、个位中至少四位上各选1个号码组成一注，所选号码与开奖号码的指定位置上的号码相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：万位5，千位1,百位8,十位1<br>开奖号码：51812，即中任四直选。",
             "selectarea": {
@@ -1865,7 +1970,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:101604,
             desc:'组选4',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"直选跨度", label:[{gtitle:'二码跨度', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"直选跨度", label:[{gtitle:'二码跨度', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
             methodhelp:'所选数值等于开奖号码的前两位最大与最小数字相减之差，即为中奖。',
             methodexample:'投注跨度号码2，开奖：1.3.x.x.x（不限顺序），【3-1=2】即为中奖。',
             selectarea:{
@@ -1965,7 +2072,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:322386,
             desc:'后三跨度',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"组选包胆", label:[{gtitle:'组选包胆', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"组选包胆", label:[{gtitle:'组选包胆', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
             methodhelp:'从0-9中任意选择1个包胆号码，开奖号码的前三位中任意1位与所选包胆号码相同(不含豹子号)，即为中奖。',
             methodexample:'投注包胆号码3：开奖号码前三位：(1)出现3xx或者33x，即中前三组三，(2)出现3xy，即中前三组六。',
             selectarea:{
@@ -2025,7 +2134,9 @@
             modes:[{modeid:1,name:'元',rate:1}],
             menuid:322390,
             desc:'后三包胆',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"和值尾数", label:[{gtitle:'和值尾数', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"和值尾数", label:[{gtitle:'和值尾数', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
             methodhelp:'从0-9中任意选择1个和值尾数号码，开奖号码的前三位和值尾数与投注号码相同，即为中奖。',
             methodexample:'投注和值尾数8，开奖9.3.6.x.x，【9+3+6=18】和值尾数为8，即为中奖。',
             selectarea:{
@@ -2085,7 +2196,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1}],
             menuid:322394,
             desc:'后三和值尾数',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"龙虎斗", label:[{gtitle:'龙虎', label:[{"methoddesc":"青龙【万位】 PK 白虎【个位】，从龙虎的“龙、虎、和”中至少选一个成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"龙虎斗", label:[{gtitle:'龙虎', label:[{"methoddesc":"青龙【万位】 PK 白虎【个位】，从龙虎的“龙、虎、和”中至少选一个成一注。",
             "methodhelp":"从龙虎中任意选择1个龙、虎、和，开奖号码的万位比个位号码大，中龙，反之中虎，相等中和。",
             "methodexample":"投注【青龙】，开奖号码的万位比个位号码大，即为中奖，反之则为不中奖。",
             "selectarea":{
@@ -2117,7 +2230,9 @@
             modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
             menuid:322397,
             desc:'玄麟斗',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"百家乐", label:[{gtitle:'百家乐', label:[{"methoddesc":"[庄]万位+千位 VS [闲]十位+个位，从庄闲的“庄、闲”中至少选一个成一注。",
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"百家乐", label:[{gtitle:'百家乐', label:[{"methoddesc":"[庄]万位+千位 VS [闲]十位+个位，从庄闲的“庄、闲”中至少选一个成一注。",
             "methodhelp":"从庄闲中任意选择1个庄、闲，开奖号码万位+千位之和比十位+个位之和大，中庄，反之中闲，如开出和则不会退还庄闲下注金额。",
             "methodexample":"投注【闲】，开奖号码为32698【3+2=5】vs【9+8=7】 闲赢。",
             "selectarea":{
@@ -2198,7 +2313,9 @@
             modes:[{modeid:1,name:'元',rate:1}],
             menuid:322403,
             desc:'天王',maxcodecount:0
-        }]}]},								{isnew:"0",isdefault:"0",title:"全5中1", label:[{gtitle:'全5中1', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
+        }]}]},
+        {
+            isnew:"0",isdefault:"0",title:"全5中1", label:[{gtitle:'全5中1', label:[{methoddesc:'从0-9中任意选择1个或1个以上号码。',
             methodhelp:'开奖号码为五重号，开奖号码里包含所选号码即为中奖。',
             methodexample:'投注号码9，开奖号码：99999，即为中奖。',
             selectarea:{
@@ -2340,13 +2457,16 @@
             modes:[{modeid:1,name:'元',rate:1}],
             menuid:322412,
             desc:'组选120',maxcodecount:0
-        }]}]}							];
+        }]}]}	,*/
+        ];
 
-    $(document).ready(initFrame);
+   // $(document).ready(initFrame);
 
-})(jQuery);
 
-var lotterytype=0;
+/*});*/
+
+
+var lotterytype = 0;
 var isInit = true;
 var runData = {
     initRank:[[150,210,3],[40,100,2],[100,160,1],[0,70,2],[10,80,3],[100,170,1],[180,250,3],[110,180,1],[10,80,2],[70,140,3]],
@@ -2361,15 +2481,43 @@ var runData = {
     isInitialize:false,//是否初始化了
     isGroundStopped:false
 }
-showAll();
+  // showAll();
+
 function processCode(issue,code,iscurent){
-    //issue 20160407-175
-    //code 43389
-    //iscurent 2
+    var code_arr = code.split(',');
+
+    var finishIssueCodeHtml = '<li class="hover"><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    //已开奖期号节点,开奖号码
+    var recentCon = $(".recentCon ul") ;
+    for(var i=0;i<code_arr.length;i++){
+        finishIssueCodeHtml += '<i>' + code_arr[i] + '</i>';
+    }
+    finishIssueCodeHtml +='</span></li>';
+
+    var str = "";
+    $.each(code_arr,function(i,n){
+        if(i == code_arr.length - 1){
+            str += n;
+        }else{
+            str += n + " ";
+        }
+
+    });
+
+    recentCon.find("li").removeClass("hover");
+    recentCon.prepend(finishIssueCodeHtml);
+    if(recentCon.find('li').length>5){
+      // recentCon.find('li:nth-last-child(n+7)').remove() ;
+        recentCon.find('li:nth-child(n+6)').remove() ;
+    }
+
+}
+
+/*function processCode(issue,code,iscurent){
     if(sidebar_hover === "pk10"||sidebar_hover === "jssm"){//如果是pk10
         var code_arr = code.split(' ');
     }else{
-        var code_arr = code.split('');
+        var code_arr = code.split(',');
     }
     var _html = "";
     $('.no_old').html(issue);
@@ -2400,7 +2548,7 @@ function processCode(issue,code,iscurent){
             recentCon.find("li").removeClass("hover");
             recentCon.prepend(finishIssueCodeHtml);
         }
-        /*新号码产生的动画*/
+        /!*新号码产生的动画*!/
         if(sidebar_hover === "pk10" ){//如果是pk10
             setTimeout(function(){
                 $("#num li").each(function(index){
@@ -2459,7 +2607,7 @@ function processCode(issue,code,iscurent){
             })
             $("#num").addClass("pk10_ul").empty().html(_html);
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.removeClass().addClass("car" + code_arr[index]).hide();
@@ -2482,7 +2630,7 @@ function processCode(issue,code,iscurent){
             })
             $("#num").addClass("horse_ul").empty().html(_html);
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.removeClass().addClass("horse" + code_arr[index]).hide();
@@ -2507,7 +2655,7 @@ function processCode(issue,code,iscurent){
             $("#num").empty().html(_html);
             // .css({'width': 50*code_arr.length + "px"});
 
-            /*入场*/
+            /!*入场*!/
             $("#num li").each(function(index){
                 var num = $(this);
                 num.animate({
@@ -2531,9 +2679,9 @@ function processCode(issue,code,iscurent){
             $(".recentCon ul li:last").remove();
         }
     }
-}
+}*/
 
-function showAll(){
+/*function showAll(){
     $("span.more").live("click",function(event){
         var index = $("span.more").index($(this));
         var li = $(this).parent().parent("li");
@@ -2547,7 +2695,7 @@ function showAll(){
         event.stopPropagation();
         event.preventDefault();
     });
-}
+}*/
 //pk10开奖
 function fnOpenAwards(codes){
     setTimeout(function(){

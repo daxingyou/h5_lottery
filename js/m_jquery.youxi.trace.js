@@ -445,7 +445,7 @@
 			$("#lt_trace_stop").prop("disabled",true).prop("checked",false);
 			$($.lt_id_data.id_tra_ifb).prop("checked",false);
 			//取消以后显示原先计算的金额
-			$("#lt_cf_money").text($.lt_total_money);
+			//$("#lt_cf_money").text($.lt_total_money);
             fnTraceAssert(false);
 		});
 		
@@ -460,7 +460,7 @@
 		$(".save_zh").unbind().click(function(){
 			zhCloseBox();
 			var lt_trace_hmoney = $("#lt_trace_hmoney").text();
-			$("#lt_cf_money").text(lt_trace_hmoney);
+		//	$("#lt_cf_money").text(lt_trace_hmoney);
             fnTraceAssert(true);
 		});
 		

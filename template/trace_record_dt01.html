@@ -3,7 +3,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
@@ -16,119 +17,195 @@
     <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
     <script type="text/javascript" async="" src="../js/ga.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
     <!--消息框代码开始-->
     <!-- <script type="text/javascript" src="../js/jquery.dialogUI.js"></script> -->
-    <script type="text/javascript" src="../js/jquery.dragdrop.js"></script>
+    <!--<script type="text/javascript" src="../js/jquery.dragdrop.js"></script>-->
     <!--消息框代码结束-->
     <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
-    <script type="text/javascript" src="../js/main.js"></script>
-    <script type="text/javascript" src="../js/velocity.min.js"></script>
-    <script type="text/javascript" src="../js/layer.js"></script>
-    <script type="text/javascript" src="../js/common.js"></script>
+    <!--<script type="text/javascript" src="../js/velocity.min.js"></script>-->
+    <!--<script type="text/javascript" src="../js/layer.js"></script>-->
     <!--时时彩js-->
-    <script type="text/javascript" src="../js/ssc_lottery.js"></script>
+    <!--<script type="text/javascript" src="../js/ssc_lottery.js"></script>-->
     <!-- 弹窗css 覆盖layer.css用 -->
     <link href="../css/page.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div id="body">
-        <header class="page_header">
-            <a class="btn_back" href="betting_record.html#trace_record" title="返回"></a>
-            <h2>追号详情</h2>
-            <a class="right" href="trace_cancel.html">撤消追号</a>
-        </header>
-        <section class="wraper-page-inner">
-            <div class="tra_dt_area">
-                <div class="tra_period">
-                    <div class="badge ssc_badge"></div>
-                    <div class="lottery_t ssc">
-                        <p>重庆时时彩 - <span>五星直选_复式</span></p>
-                        <p class="tra_info">
-                            <span>已追<span class="ui_color_yellow">1</span>期</span>
-                            <span>总<span class="ui_color_yellow">5</span>期<span>
-                        </p>
-                    </div>
-                    <span class="tr_status status01">进行中</span>
-                    <!-- <span class="tr_status status02">已终止</span>
-                    <span class="tr_status status03 ">已结束</span> -->
+<div id="body">
+    <header class="page_header">
+        <a class="btn_back" href="javascript:;" onclick="history.go(-2);" title="返回"></a>
+        <h2>追号详情</h2>
+        <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
+    </header>
+    <section class="wraper-page-inner">
+        <div class="tra_dt_area">
+            <div class="tra_period">
+                <div class="badge ssc_badge"></div>
+                <div class="lottery_t ssc">
+                    <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                    <p class="tra_info">
+                        <span>已追<span class="ui_color_yellow">1</span>期</span>
+                        <span>总<span class="ui_color_yellow">5</span>期</span>
+                    </p>
                 </div>
-                <div class="print_data">
-                    <ul>
-                        <li>
-                            <span>投注时间</span>
-                            <span>2017-07-14   15:21:33</span>
-                        </li>
-                        <li>
-                            <span>追号方案</span>
-                            <span>
-                                ZCQWE1707146548dfmr
-                            </span>
-                        </li>
-                        <li>
-                            <span>追号条件</span>
-                            <span>追中即停</span>
-                            <!-- <span>不停止</span> -->
-                        </li>
-                        <!-- <span>
-                            <span>查看追号方案</span>
-                            <span></span>
-                        </span> -->
-                    </ul>
-                </div>
-                <div class="tra_list">
-                        <ul>
-                            <li>
-                                <a href="betting_record_dt03.html">
-                                    <div class="tra_info">
-                                        <p>第 <span class="period">20170715036</span> 期</p>
-                                        <span class="ui_color_yellow">0.20 元</span>
-                                    </div>
-                                    <div class="t_l_sta01">已完成</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="betting_record_dt01.html">
-                                    <div class="tra_info">
-                                        <p>第 <span class="period">20170715036</span> 期</p>
-                                        <span class="ui_color_yellow">0.20 元</span>
-                                    </div>
-                                    <div class="t_l_sta02">进行中</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="betting_record_dt02.html">
-                                    <div class="tra_info">
-                                        <p>第 <span class="period">20170715036</span> 期</p>
-                                        <span class="ui_color_yellow">0.20 元</span>
-                                    </div>
-                                    <div class="t_l_sta03">已取消</div>
-                                </a>
-                            </li>
-                        </ul>
-                </div>
+                <span class="tr_status status01">进行中</span>
+                <!-- <span class="tr_status status02">已终止</span>
+                <span class="tr_status status03 ">已结束</span> -->
             </div>
-        </section>
+            <div class="print_data">
+                <ul>
+                    <li>
+                        <span>投注时间</span>
+                        <span>2017-07-14   15:21:33</span>
+                    </li>
+                    <li>
+                        <span>追号方案</span>
+                        <span>
+                                    ZCQWE1707146548dfmr
+                                </span>
+                    </li>
+                    <li>
+                        <span>追号条件</span>
+                        <span>追中即停</span>
+                        <!-- <span>不停止</span> -->
+                    </li>
+                    <!-- <span>
+                        <span>查看追号方案</span>
+                        <span></span>
+                    </span> -->
+                </ul>
+            </div>
+            <div class="tra_list">
+                <ul>
+                    <li>
+                        <a href="betting_record_dt03.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta01">已完成</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="betting_record_dt01.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta02">进行中</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="betting_record_dt02.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta03">已取消</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<!--<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>-->
+<!--<script type="text/javascript" src="../js/youxi_lang_zh.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>-->
+<!--<script type="text/javascript" src="../js/m_jquery.youxi.trace.js"></script>-->
+<!--<script type="text/javascript" src="../js/pushstream.js"></script>-->
+<!--<script type="text/javascript" src="../js/coreDesign.js"></script>-->
+<!--<script type="text/javascript" src="../js/res.js"></script>-->
+<!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
+<!--<script src="../js/soye/betting_record.js"></script>-->
+<script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script>
+    var access_token = getCookie('access_token');  // 取token
+    var data = getStrParam('data');
+    data = JSON.parse(data.data);
 
 
-    </div>
+    console.log(data);
+    chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
+        data.chaseCountAll = list.length;
 
-    <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="../js/youxi_lang_zh.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.main.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.selectarea.js"></script>
-    <script type="text/javascript" src="../js/m_jquery.youxi.trace.js"></script>
-    <script type="text/javascript" src="../js/pushstream.js"></script>
 
-    <script type="text/javascript" src="../js/coreDesign.js"></script>
-    <script type="text/javascript" src="../js/res.js"></script>
+        $('.lottery_t')
+            .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
+                '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
+                '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
+                '</p>');
+        if (data.chaseWinStop == 1) {
+            data.chaseWinStop = '追中即停';
+        } else {
+            data.chaseWinStop = '不停止';
+        }
 
-    <script>
+        $('.print_data')
+            .html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>');
 
-    </script>
-    <script type="text/javascript" src="../js/pushservice.js"></script>
 
+        $('.tr_status')
+            .html(data.chaseStatusName);
+        if (data.chaseStatusName == '进行中') {
+            $('.tr_status')
+                .attr('class', 'tr_status status01');
+        } else if (data.chaseStatusName == '已终止') {
+            $('.tr_status')
+                .attr('class', 'tr_status status02');
+
+        } else if (data.chaseStatusName == '已结束') {
+            $('.tr_status')
+                .attr('class', 'tr_status status03');
+
+        }
+        var li_html = '<ul>';
+        $.each(list, function (i, e) {
+            console.log(list[i]);
+            var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(e));
+            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount)
+                .toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+        });
+        li_html += '</ul>';
+        $('.tra_list')
+            .html(li_html);
+
+    });
+
+
+    //追号数据查询
+    function chaseOrderDetailFun(lotteryId, parentOrderId, cb) {
+        var data = {
+            lotteryId: lotteryId,
+            parentOrderId: parentOrderId,
+        };
+        $.ajax({
+            type: 'get',
+            headers: {
+                'Authorization': 'bearer ' + access_token,
+            },
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',  // json格式传给后端
+            url: action.forseti + 'api/orders/chaseOrderDetail',
+            data: data,  // json格式
+            success: function (res) {
+                if (res.err == 'SUCCESS') {
+                    var data = res.data;
+                    cb(data);
+
+                }
+            },
+            error: function (err) {
+                console.log(err.responseText);
+            },
+        });
+    }
+
+
+</script>
 </body>
 
 </html>

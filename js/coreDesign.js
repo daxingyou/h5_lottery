@@ -85,12 +85,12 @@ $(function(){
 	//初始化方法
 	$.funList = {
 		'initTag' : true,
-		'tzjlfn' : function(){//获取投注记录
+		/*'tzjlfn' : function(){ //获取投注记录
 			var v = Math.random();
 	        $.getJSON('/gameinfo/gamelistbyself?v=' + v, function(res) {
 	            $('#close_bet-record_tc').html(res);
 	        })
-		},
+		},*/
 		'fastBettingOpen' : true,//是否开启分辨率相关处理
 		'fastBetting' : function(){//立即投注 根据屏幕分辨率变更投注方式
 			var _width,_height,_html,isNull,_offsetTop,that = $.funList,pk10Height;
@@ -269,16 +269,16 @@ $(function(){
 
 	$.globelData = {
 		"bigJson" : { 
-		/*"lottery_12" : {"lotteryid":12,"uType":"ssc","runTime":"1160","issue":"20140928-018","lotteryName":"12天天时时彩","code":"80652","totalTime":"300"},
-		"lottery_23" : {"lotteryid":23,"uType":"ssc","runTime":"862","issue":"20140928-018","lotteryName":"23天天时时彩","code":"80652","totalTime":"300"}*/
+		/*"lottery_12" : {"lotteryId":12,"uType":"ssc","runTime":"1160","issue":"20140928-018","lotteryName":"12天天时时彩","code":"80652","totalTime":"300"},
+		"lottery_23" : {"lotteryId":23,"uType":"ssc","runTime":"862","issue":"20140928-018","lotteryName":"23天天时时彩","code":"80652","totalTime":"300"}*/
 		},
 		//是否已经渲染过页面
 		"reviewStatus" : false,
 		//获取大json的方法
-		"getBigJson" : function(_type){
+		/*"getBigJson" : function(_type){
 			var _this = this;
 			var v = Math.random();
-			if(pushServiceObj.pushStatus == "1"){//如果开启了推送
+			if(pushServiceObj.pushStatus == "1"){  //如果开启了推送
 				if(_type == "init"){//初始化
 					$.ajax({
 						type:'GET',
@@ -348,10 +348,10 @@ $(function(){
 					}
 				})
 			}
-		},
+		},*/
 		init : function(){
 			var _this = this;
-			_this.getBigJson("init");
+			// _this.getBigJson("init");
 		}
 	}
 
@@ -363,10 +363,10 @@ $(function(){
 		"timeold" : "000000",
 		"issueold" : "",
 		"init" : function(){
-			//lottery_key = "L-{$iLotteryId},L-{$iLotteryId}"
+			//lottery_key = "L-{$ilotteryId},L-{$ilotteryId}"
 			var _lottery_key = lottery_key,
 				_lottery_list_arr,//彩种序列
-				_lotteryid,
+				_lotteryId,
 				_data,_this;
 			_this = this;
 			_lottery_list_arr = _lottery_key.split(',');
@@ -377,8 +377,8 @@ $(function(){
 			}
 
 			$.each(_lottery_list_arr,function(index,value){
-				_lotteryid = value.split('-')[1];
-				if(_lotteryid === ""){
+				_lotteryId = value.split('-')[1];
+				if(_lotteryId === ""){
 					_this.lottery_arr = [];
 					//$.alert('彩种数据获取失败');
 				}
@@ -489,9 +489,9 @@ $(function(){
 					//声音调用
 					// _sound._mPlay();
 				}
-				if(_second == 0){
+			/*	if(_second == 0){
 					$.globelData.getBigJson("update");
-				}
+				}*/
 			}else{
 				//$.alert('时间保存失败');
 				return false;
@@ -575,7 +575,7 @@ $(function(){
 		postDataFun : function(){
 			var _this = this;
 			$.globelTimer.runSecond++;
-			$.globelTimer.timeDoFun($.globelTimer.cycle,$.globelData.getBigJson,"update");
+			// $.globelTimer.timeDoFun($.globelTimer.cycle,$.globelData.getBigJson,"update");
 			//写入倒计时
 			$.lotteryView.drawLotteryTime();//时间动画
 			//$.lotteryView.changeNumFun();//开奖号动画 推送二期之后该方式禁用

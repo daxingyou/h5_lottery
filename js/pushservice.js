@@ -69,12 +69,12 @@ function pushServiceRestart(num){
 					pushServiceObj.pushStatus = "0";
 					pushServiceObj.pushDelayNum = num;
 					//如果推送服务是页面初始化过后宕掉
-					if(typeof $.globelData === 'object'){//判断是首页逻辑
-						if($.globelData.reviewStatus){//如果页面初始化过
+					if(typeof $.globelData === 'object'){  //判断是首页逻辑
+					/*	if($.globelData.reviewStatus){//如果页面初始化过
 							$.globelData.getBigJson("update");
 						}else{//如果推送服务是一开始就宕掉
 							$.globelData.getBigJson("init");
-						}
+						}*/
 					}
 
 					//历史奖期推送
@@ -105,17 +105,17 @@ function pullFun(module, data) {
 					if(current_countdown >= info.issue_cycle - 3)$.pushLotterInfo.isPushed = true;
 				}			
 			},
-			"push_service" : function(data) {//推送服务处理
+			"push_service" : function(data) {  //推送服务处理
 				//如果关闭推送
 				if (data.is_enabled != undefined && data.is_enabled == "0") {
 					pushServiceObj.pushStatus = "0";
 					publicPushStream.disconnect();
-					if(typeof $.globelData === 'object'){//判断是首页逻辑
-						if($.globelData.reviewStatus){//如果页面初始化过
+					if(typeof $.globelData === 'object'){  //判断是首页逻辑
+				/*		if($.globelData.reviewStatus){ //如果页面初始化过
 							$.globelData.getBigJson("update");
 						}else{
 							$.globelData.getBigJson("init");
-						}
+						}*/
 					}
 
 					//历史奖期推送
@@ -174,7 +174,7 @@ function pullFun(module, data) {
 						"iscurent" : 2
 					};
 					$.getHistoryFun(pushServiceObj,pushModule,hdata);
-					$.funList.tzjlfn();//获取投注记录
+				//	$.funList.tzjlfn();//获取投注记录
 				}
 			},
 			"notice" : function(data){//公告模块
@@ -218,10 +218,9 @@ function pullFun(module, data) {
 		//用户模块
 
 		var userList = {
-			"user_balance" : function(data) {//用户余额
-
+		/*	"user_balance" : function(data) {//用户余额
 				var availablebalance = +data.availablebalance;
-				var old_money = +$("#refff").text().replace(/,/g,'').replace(/￥/g,''),
+				var old_money = +$(".membalance").text().replace(/,/g,'').replace(/￥/g,''),
 					money_diff = availablebalance - old_money,
 					change_effect_html;
 				money_diff = money_diff < 0 ?(money_diff).toFixed(4):'+'+(money_diff).toFixed(4);
@@ -235,8 +234,8 @@ function pullFun(module, data) {
 					}));
 				}
 
-				$("#refff").html(moneyFormat(availablebalance)).attr("title",moneyFormat(availablebalance));
-			},
+				$(".membalance").html(moneyFormat(availablebalance)).attr("title",moneyFormat(availablebalance));
+			},*/
 			"user_message": function(data){//站内信
 				var count,title,content,link,time,sender,is_show;
 				count = data["count"] - 0;
@@ -264,15 +263,15 @@ function pullFun(module, data) {
 
 			},
 			"user_project" : function(data){//用户投注中奖推送模块
-				var bonus,code,issue,lotteryid,lotteryName,projectid;
+				var bonus,code,issue,lotteryId,lotteryName,projectid;
 				var $pBox = $('.prize-winning'),$pMoney = $('#prize-money'),$pName = $('#prize-lottery'),$pIssue = $('#prize-issue'),$pHref = $('#prize-href');
 				bonus = data["bonus"];
 				code = data["code"];
 				issue = data["issue"];
-				lotteryid = data["lotteryid"];
+				lotteryId = data["lotteryId"];
 				lotteryName = data["lottery"];
 				projectid = data["projectid"];
-				aLink = LOTTERY_URL_INFO['lot_'+lotteryid];
+				aLink = LOTTERY_URL_INFO['lot_'+lotteryId];
 				if($(".C_" + projectid).length === 1){
 					$(".C_" + projectid).html(code).fadeOut().fadeIn().fadeOut().fadeIn().fadeOut().fadeIn();	
 				}
