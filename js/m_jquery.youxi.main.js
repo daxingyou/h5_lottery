@@ -2434,9 +2434,8 @@ var is_select = 0;
             $($.lt_id_data.id_labelbox + ' li').eq(0).removeClass().addClass('hover');
         }
         TextHtml();
-        $('.m-lott-methodBox-list').css('display', 'none');//解决 JS 计算宽度不能识别的问题
-        $('.m-lott-methodBox-list').css('height', 'auto');
-        //*
+        $('.m-lott-methodBox-list').css({'display': 'none','height': 'auto'});//解决 JS 计算宽度不能识别的问题
+      //  $('.m-lott-methodBox-list').css('height', 'auto');
 
         //下面是对【小标签】进行切换（例如：前三、后三、二码）
         $($.lt_id_data.id_labelbox + ' li').click(function () {//切换标签
@@ -2721,7 +2720,8 @@ var is_select = 0;
         $($.lt_id_data.id_smalllabel).prepend(html);
         filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
 
-        $("dd[name='smalllabel']").click(function(){
+        $("dd[name='smalllabel']").click(function(){ // 选择游戏种类标签
+
 			$("dd[name='smalllabel']").removeClass("hover");
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
@@ -2745,7 +2745,7 @@ var is_select = 0;
                 $($.lt_id_data.id_methodexample).hide();
                 $($.lt_id_data.id_examplediv).html('');
             }
-            console.log(opts.label[index[0]].label[index[1]].ifrandom);
+           // console.log(opts.label[index[0]].label[index[1]].ifrandom);
 
             /* //机选功能运营说不用了
             if( opts.label[index[0]].label[index[1]].ifrandom && opts.label[index[0]].label[index[1]].ifrandom>0 ){
@@ -2816,12 +2816,8 @@ var is_select = 0;
             if (is_select) {
                 SelectItem($('#lt_project_modes')[0], selmodes);
             }
-            //$("#lt_project_modes").empty();
-            //$("#lt_project_modes")[0].options.length ==0;
-            //$(modelhtml).appendTo("#lt_project_modes");
-            /*modelhtml += '</select>';
-            $($.lt_id_data.id_sel_modes).empty();
-            $(modelhtml).appendTo($.lt_id_data.id_sel_modes);*/
+
+            $('.m-lott-methodBox-list').hide() ; //隐藏游戏菜单
 
         });
 
