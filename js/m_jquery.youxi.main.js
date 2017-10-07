@@ -302,7 +302,8 @@ var is_select = 0;
                 389: 'BJSXP',
                 391: 'BJJOP',
                 427: 'BJDXDS',//北京快乐8
-                111: 'ZX5',
+                111: 'ZX5', // 重庆时时彩五星复式
+                112: 'ZX5',  // 重庆时时彩五星单式
                 213: 'ZH4',
                 211: 'ZX4',
                 212: 'ZXd4',
@@ -2602,7 +2603,6 @@ var is_select = 0;
 
                     if (i == 0 && ii == 0) {//第一个标签自动选择 新版
                         html += '<dd class="hover" id="smalllabel_' + i + '_' + ii + '" name="smalllabel" v="' + i + '-' + ii + '">' + nn.desc + '</dd>';
-
                         if (nn.methoddesc.length > 0) {
                             $($.lt_id_data.id_methoddesc).html(nn.methoddesc).parent().show();
                         } else {
@@ -3344,11 +3344,17 @@ var is_select = 0;
             });
 
             console.log(modesmsg);
+            var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
             $.each(modesmsg, function (i, n) {
                 if ($.lt_method_data.modes[i] != undefined && n != undefined && n.length > 0) {
                     /*  $.each(n,function(index,value){*/   // 不需要遍历
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s2_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_times).val() + '</span>' + lot_lang.dec_s2 + '</div>';//倍数
+                if(z_dates>1){
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_date).val() + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
+                }else{
+                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + 0 + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
+                }
+
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s1_1 + '</span>' + '<span class="total-num">' + $.lt_total_nums + '</span>' + lot_lang.dec_s1 + '</div>'; //注数
                     // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
@@ -3394,7 +3400,8 @@ var is_select = 0;
                     layer.open({ // 确定
                         title: '温馨提示',
                         className: 'layer_tip',
-                        content: lot_lang.am_s15,
+                       // content: lot_lang.am_s15,
+                        content: lot_lang.am_s15_2,
                         btn: ['确定'],
                         yes: function (index) {
                             $.lt_reset(false);
@@ -3406,13 +3413,7 @@ var is_select = 0;
                         //     $.lt_ontimeout();
                         // }
                     });
-                    // $.confirm(lot_lang.am_s15,function(){//确定
-                    // 	$.lt_reset(false);
-                    // 	$.lt_ontimeout();
-                    // },function(){//取消
-                    // 	$.lt_reset(true);
-                    // 	$.lt_ontimeout();
-                    // });
+
                 } else {
                     layer.open({
                         title: '温馨提示',

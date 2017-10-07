@@ -2486,7 +2486,7 @@ var runData = {
 function processCode(issue,code,iscurent){
     var code_arr = code.split(',');
 
-    var finishIssueCodeHtml = '<li class="hover"><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    var finishIssueCodeHtml = '<li><span class="issue">第' + issue + '期</span><span class="num"> ' ;
     //已开奖期号节点,开奖号码
     var recentCon = $(".recentCon ul") ;
     for(var i=0;i<code_arr.length;i++){
