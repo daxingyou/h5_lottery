@@ -602,4 +602,6 @@ body { }
 	.m_fx_footer .v-moeny .you-money b { color: #ffcf06; font-size: 1rem; }
 	.m_fx_footer .v-moeny  .chongzhi { float: right; font-size: 1rem; color: #fff; }
 	.m_fx_footer .v-moeny  .chongzhi a { width: auto; font-size: 1.142857rem; line-height: 2.45rem; color: #52acd3; text-decoration: underline; background-color: #2E263D; }
-
+@media only screen and (max-width:350px){
+	.multipleCon input { width: 1.5rem;}
+}
