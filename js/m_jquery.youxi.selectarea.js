@@ -603,7 +603,8 @@
             $('input[name=\'poschoose\']').val(str.slice(0, -1));
         }
 
-        function checkNum() {// 实时计算投注注数与金额等
+        function checkNum() { // 实时计算投注注数与金额等
+
             var nums = 0, mname = $.lt_method[$.lt_method_data.methodid];// 玩法的简写,如:'ZX3'
             // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
             var modes = parseInt($('input[name=\'lt_project_modes\']:checked').val(), 10);// 投注模式
@@ -1692,7 +1693,7 @@
                     }
                     return false;
                 }
-                if (err.length > 0) {// 如果有重复号码
+                if (err.length > 0) {  // 如果有重复号码
                     checkNum();
                     switch (methodname) {
                         case 'SDZX3' :
@@ -1750,8 +1751,7 @@
                 var s = _inptu_deal();
                 $(this).val(s);
                 checkNum();
-            })
-                .keyup(function () {
+            }).keyup(function () {
                     _inptu_deal();
                     checkNum();
                 });
@@ -2523,7 +2523,6 @@
          * */
         $('.lt_random_bets_1').unbind('click')
             .click(function () {
-               // console.log('很多事看见')
                 var z_times = $($.lt_id_data.id_add_times).val()
                     .replace(/[^0-9]/g, '')
                     .substring(0, 5); // 追号倍数选择
@@ -2609,9 +2608,8 @@
         }
 
         //  号码添加按钮
-        $($.lt_id_data.id_sel_insert).unbind('click')
-            .click(function () {
-
+        $($.lt_id_data.id_sel_insert).unbind('click').click(function () {
+            console.log('添加成功')
                 var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
                 var times = parseInt($($.lt_id_data.id_sel_times).val(), 10);// 投注倍数取整
                 var betdates = parseInt($($.lt_id_data.id_add_date).val(), 10);// 投注期数取整
@@ -2623,10 +2621,10 @@
                 var current_positionsel = $.lt_position_sel;
 
                 var cur_position = 0;
-                if ($(this).hasClass('addBtnDisabled')) {// 没有选注不让操作
+                if ($(this).hasClass('addBtnDisabled')) { // 没有选注不让操作
                     return false;
                 }
-                var tianBtn = $('#lt_sendok').offset().top;// 添加投注 滑动事件
+                var tianBtn = $('#lt_sendok').offset().top; // 添加投注 滑动事件
                 // $('body').animate({scrollTop:tianBtn},800);
 
                 if (current_positionsel.length > 0) {
@@ -2648,6 +2646,7 @@
                                 $(this).removeClass('hover');
                             });
                         }
+                        console.log('回复第三节课')
                         checkNum();
                     } else {
                         checkNum();
@@ -2880,6 +2879,7 @@
                                 });
                             }
                         }
+                        console.log('放得开时间')
                         checkNum();
                         layer.open({
                             content: lot_lang.am_s28,

@@ -2886,7 +2886,7 @@ var is_select = 0;
             // console.log($.lt_time_leave+'倒计时') ;
             if ($.lt_time_leave <= 0) { //结束
                 clearInterval(timerno);
-                if ($.lt_submiting == false) {//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
+                if ($.lt_submiting == false) {  //如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                     if ($($.lt_id_data.id_cur_issue).html() > '') {
 
@@ -2900,7 +2900,7 @@ var is_select = 0;
                         });
 
                         // 传说中的5秒自动关闭
-                        if (sidebar_hover == 'hn1fc' || sidebar_hover == 'hn5fc' || sidebar_hover == 'pk10' || sidebar_hover == 'jssm') {
+                       /* if (sidebar_hover == 'hn1fc' || sidebar_hover == 'hn5fc' || sidebar_hover == 'pk10' || sidebar_hover == 'jssm') {
                             $('.layui-m-layerbtn span').html('(5) 确定');               //
                             var second = 4;
                             timer5 = window.setTimeout(timeFun5, 1000);
@@ -2918,9 +2918,11 @@ var is_select = 0;
                                     timer5 = window.setTimeout(timeFun5, 1000);
                                 }
                             }
-                        }
+                        }*/
                         //传说中的5秒自动关闭
-                        $.lt_reset(true);
+
+                       // $.lt_reset(true);  // 还原数据
+
                         $.lt_ontimeout();
 
                     } else {  // 销售截止
@@ -3292,7 +3294,6 @@ var is_select = 0;
                     btn: '确定'
                 });
 
-                // $.alert(lot_lang.am_s6);
                 return;
             }
             if (istrace == true) {
