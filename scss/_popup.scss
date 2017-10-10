@@ -1,206 +1,220 @@
 @import "var";
 // 彈窗樣式 layer.js 產生
-.layui-m-layerchild{
-    border-radius: 10px;
-    padding: 2rem 1rem 1.286rem 1rem;
-    h3{
-        font-size: 1.071rem;
-        line-height: 2rem;
-        height: auto;
-        margin-bottom: 0.3rem;
-    }
-    &.layer_tip:before,&.layer_check:before,&.layer_count:before{
-        content: '';
-        display: block;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 3rem 3rem;
-        width: 4rem;
-        height: 4rem;
-        position: absolute;
-        top: -2rem;
-        left: 50%;
-        margin-left: -2rem;
-        background-color: #fff;
-        border-radius: 50%;
-    }
-    &.layer_tip{
-        &:before{
-            background-image: url('../../images/icon_tip_d.svg');
-        }
-        h3{
-            color: $l_yellow;
-        }
-    }
-    &.layer_check{
-        &:before{
-            background-image: url('../../images/icon_check.svg');
-        }
-        h3{
-            color: $l_green;
-        }
-    }
-    &.layer_count{
-        &:before{
-            background-image: url('../../images/icon_count.svg');
-        }
-        h3{
-            color: $l_blue;
-        }
-    }
-}
-.layui-m-layer0 .layui-m-layerchild{
-    width: 70%;
-}
-.layui-m-layercont{
-    color: #484848;
-    padding: 0;
-    line-height: 1.286rem;
-    font-size: 0.8571rem;
-    width: auto;
-    span{
-        display: inline-block;
-        padding:0 0.2rem;
-    }
-    .radio{
-        display: inline-block;
-        margin: 0px auto;
-        p{
-            text-align: left;
-            margin: 0.5rem 0;
-        } 
-    }
-}
-.layui-m-layerbtn{
-    background-color: #fff;
-    height: 2rem;
-    line-height: 1.8rem;
-    border-top: 0;
-    // padding: 0 1rem 1.5rem;
-    margin-top: 1rem;
-    border-radius: 0 0 10px 10px;
-    font-size: 0.8571rem;
-    text-align: center;
-    width: auto;
-    span{
-        border-radius: 60px;
-        color: #000;
-        // width: 40%;
-        margin: auto 0.5714rem;
-    }
-    span[no]{
-        border-radius: 60px;
-        border-right: none;
-        border: 1px solid #EFEFEF;
-        background-color: #fff;
-        font-size: 0.8571rem;
-    }
-    span[yes]{
-        background-color: $l_blue;
-        border: 1px solid #fff;
-        box-shadow: 0px 0px 0px 1px #EFEFEF;
-        font-size: 0.8571rem;
-        background: url(../images/btn_bg.svg) no-repeat center center #52acd3;
-        // &:after{
-        //     content: '';
-        //     display: block;
-        //     position: absolute;
-        //     background: url('../../images/lottery/btn_light@2x.png') no-repeat;
-        //     background-size: 100% 100%;
-        //     width: 60%;
-        //     height: 100%;
-        //     max-height: 137px;
-        //     top: 0;
-        //     left: 0;
-        //     overflow: hidden;
-        // }
-    }
-}
-.floatarea{
-    border-top: none;
-    border-bottom:none;
-    font-size: 0.8571rem;
-}
-.periods{
-    color: #FCB008;
-}
-// 風控提示類型樣式
-body .layui-m-layer .layui-m-layer-msg{
-    background-color: rgba(52, 65, 70, 0.8);
-    border-radius: 1.5rem;
-    bottom: auto;
-    padding: 0px;
-    .layui-m-layercont{
-        padding: 0.5rem;
-        padding-right: 1rem;
-    }
-}
-.timeout{
-    color: #fff;
-    // padding: .5rem 1.5rem;
-    font-size: 0.875rem;
-    position: relative;
-    padding-left: 2.5rem;
-    text-align: left;
+.layui-m-layerchild {
+  width: 70%;
+  border-radius: 10px;
+  padding: 2rem 1rem 1.286rem 1rem;
+  h3 {
+    font-size: 1.071rem;
     line-height: 2rem;
-    background: url(../images/icon_tip_d.svg) no-repeat top left;
-    background-size: 2rem 2rem;
-    // img{
-    //     width: 2rem;
-    //     margin-right: .5rem;
-    //     vertical-align: middle;
-    //     position: absolute;
-    //     left: 0px;
-    // }
-    span{
-        color: #FCB008;
+    height: auto;
+    margin-bottom: 0.3rem;
+  }
+  &.layer_tip:before, &.layer_check:before, &.layer_count:before {
+    content: '';
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 3rem 3rem;
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    margin-left: -2rem;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  &.layer_tip {
+    &:before {
+      background-image: url('../../images/icon_tip_d.svg');
     }
+    h3 {
+      color: $l_yellow;
+    }
+  }
+  &.layer_check {
+    &:before {
+      background-image: url('../../images/icon_check.svg');
+    }
+    h3 {
+      color: $l_green;
+    }
+  }
+  &.layer_count {
+    &:before {
+      background-image: url('../../images/icon_count.svg');
+    }
+    h3 {
+      color: $l_blue;
+    }
+  }
 }
+
+.layui-m-layer0 .layui-m-layerchild {
+  width: 70%;
+}
+
+.layui-m-layermain .layui-m-layersection .layui-m-layerchild {
+  width: 70% !important;
+}
+
+.layui-m-layercont {
+  color: #484848;
+  padding: 0;
+  line-height: 1.286rem;
+  font-size: 0.8571rem;
+  width: auto;
+  span {
+    display: inline-block;
+    padding: 0 0.2rem;
+  }
+  .radio {
+    display: inline-block;
+    margin: 0px auto;
+    p {
+      text-align: left;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+.layui-m-layerbtn {
+  background-color: #fff;
+  height: 2rem;
+  line-height: 1.8rem;
+  border-top: 0;
+  // padding: 0 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 0 0 10px 10px;
+  font-size: 0.8571rem;
+  text-align: center;
+  width: auto;
+  span {
+    border-radius: 60px;
+    color: #000;
+    // width: 40%;
+    margin: auto 0.5714rem;
+  }
+  span[no] {
+    border-radius: 60px;
+    border-right: none;
+    border: 1px solid #EFEFEF;
+    background-color: #fff;
+    font-size: 0.8571rem;
+  }
+  span[yes] {
+    background-color: $l_blue;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 0px 1px #EFEFEF;
+    font-size: 0.8571rem;
+    background: url(../images/btn_bg.svg) no-repeat center center #52acd3;
+    // &:after{
+    //     content: '';
+    //     display: block;
+    //     position: absolute;
+    //     background: url('../../images/lottery/btn_light@2x.png') no-repeat;
+    //     background-size: 100% 100%;
+    //     width: 60%;
+    //     height: 100%;
+    //     max-height: 137px;
+    //     top: 0;
+    //     left: 0;
+    //     overflow: hidden;
+    // }
+  }
+}
+
+.floatarea {
+  border-top: none;
+  border-bottom: none;
+  font-size: 0.8571rem;
+}
+
+.periods {
+  color: #FCB008;
+}
+
+// 風控提示類型樣式
+body .layui-m-layer .layui-m-layer-msg {
+  background-color: rgba(52, 65, 70, 0.8);
+  border-radius: 1.5rem;
+  bottom: auto;
+  padding: 0px;
+  .layui-m-layercont {
+    padding: 0.5rem;
+    padding-right: 1rem;
+  }
+}
+
+.timeout {
+  color: #fff;
+  // padding: .5rem 1.5rem;
+  font-size: 0.875rem;
+  position: relative;
+  padding-left: 2.5rem;
+  text-align: left;
+  line-height: 2rem;
+  background: url(../images/icon_tip_d.svg) no-repeat top left;
+  background-size: 2rem 2rem;
+  // img{
+  //     width: 2rem;
+  //     margin-right: .5rem;
+  //     vertical-align: middle;
+  //     position: absolute;
+  //     left: 0px;
+  // }
+  span {
+    color: #FCB008;
+  }
+}
+
 // 總金額 原css layer.css,need/layer.css
 .totleNum {
-    color: #484848;
-    font-weight: 500;
-    font-size: 0.8571rem;
-    padding: 0 2rem 1.15rem;
-    margin-left: 0;
-    .numlabel{
-        font-size: inherit;
-        color: inherit;
+  color: #484848;
+  font-weight: 500;
+  font-size: 0.8571rem;
+  padding: 0 2rem 1.15rem;
+  margin-left: 0;
+  .numlabel {
+    font-size: inherit;
+    color: inherit;
+  }
+  span {
+    &:nth-child(2) {
+      color: #FCB008;
+      padding: 0 0.3rem 0 0.5rem;
     }
-    span{
-        &:nth-child(2){
-            color: #FCB008;
-            padding:0 0.3rem 0 0.5rem;
-        }
-    }
+  }
 }
+
 // 確認取消鈕區域 原css dialogUI.css
-.floatarea{
-    padding: 0 2rem;
-    margin: 0;
-    color: #484848;
-    text-align: center;
-    p b {
-        font-weight: normal;
-        word-break: break-all;
-        width: 80%;
-        display: inline-block;
-        margin: 0 auto;
-        vertical-align: top;
+.floatarea {
+  padding: 0 2rem;
+  margin: 0;
+  color: #484848;
+  text-align: center;
+  p b {
+    font-weight: normal;
+    word-break: break-all;
+    width: 80%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+  }
+  .totle {
+    span {
+      display: inline-block;
+      &:first-child {
+        text-align: left;
+      }
+      &:last-child {
+        // color: #FCB008;
+        padding: 0 0.3rem 0 0.5rem;
+      }
     }
-    .totle{
-        span{
-            display: inline-block;
-            &:first-child{
-                text-align: left;
-            }
-            &:last-child{
-                // color: #FCB008;
-                padding:0 0.3rem 0 0.5rem;
-            }
-        }
-        // &:not(span){
-        //     text-align: left;
-        // }
-    }
+    // &:not(span){
+    //     text-align: left;
+    // }
+  }
 }

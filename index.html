@@ -42,7 +42,7 @@
                 <ul id="lotteryType">
 
                 </ul>
-               <!-- <div class="ren"><a href="/lottery/cqssc">任选玩法</a></div>-->
+                <!-- <div class="ren"><a href="/lottery/cqssc">任选玩法</a></div>-->
             </div>
             <div class="lotteryMember" id="lt_small_label">
                 <!-- <dl class="cWay">
@@ -472,12 +472,33 @@
             } else {
                 radio_checked_1 = 'checked';
             }
+//            layer.open({
+//                title: '号码统计',
+//                className: 'layer_count',
+//                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p></div>',
+//                btn: ['确定', '取消'],
+//                yes: function () {
+//                    // 需要js/soye/index.js支持
+//                    initSoFun();
+//                    layer.closeAll();
+//                },
+//            });
+            //在这里面输入任何合法的js语句
             layer.open({
-                title: '号码统计',
-                className: 'layer_count',
-                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p></div>',
-                btn: ['确定', '取消', '哦'],
-                yes: function () {
+                type: 1 //Page层类型
+//                ,area: ['500px', '300px']
+//                ,title: '你好，layer。'
+                ,
+                shade: 0.6 //遮罩透明度
+                ,
+                maxmin: true //允许全屏最小化
+                ,
+                anim: 1 //0-6的动画形式，-1不开启
+                ,
+                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p><p><input  class="so-radio-tongji" type="radio" id="r03" name="radio-group" ' + radio_checked_1 + '><label for="r03">取消显示</label></p></div>'
+                ,
+                btn: ['确定', '取消']
+                , yes: function () {
                     // 需要js/soye/index.js支持
                     initSoFun();
                     layer.closeAll();

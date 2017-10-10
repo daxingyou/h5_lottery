@@ -138,9 +138,9 @@ function getBetRecord(page, type, status) {
                 return;
             }
             res.data.rows.sort(function (a, b) {
-                if (a.pcode > b.pcode) {
+                if (a.pdate > b.date) {
                     return 1; // a排在b的前面
-                } else if (a.pcode < b.pcode) {
+                } else if (a.date < b.date) {
                     return -1; // a排在b的后面
                 } else {
                     return 0; // a和b的位置保持不变
@@ -148,10 +148,10 @@ function getBetRecord(page, type, status) {
             });
 
             $.each(res.data.rows, function (i, v) {
-                v.pcodeStr = v.pcode.toString()
-                    .substring(0, 8); // 截取日期前面6位
-                daysArr[v.pcodeStr] = daysArr[v.pcodeStr] || [];
-                daysArr[v.pcodeStr].push(v);
+                // v.pcodeStr = v.pcode.toString()
+                //     .substring(0, 8); // 截取日期前面6位
+                daysArr[v.date] = daysArr[v.date] || [];
+                daysArr[v.date].push(v);
             });
             console.log(daysArr);
             var li_html = '';
