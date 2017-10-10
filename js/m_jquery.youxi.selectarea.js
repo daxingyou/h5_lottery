@@ -2523,12 +2523,14 @@
          * */
         $('.lt_random_bets_1').unbind('click')
             .click(function () {
+               // console.log('很多事看见')
                 var z_times = $($.lt_id_data.id_add_times).val()
                     .replace(/[^0-9]/g, '')
                     .substring(0, 5); // 追号倍数选择
                 var z_dates = $($.lt_id_data.id_add_date).val()
                     .replace(/[^0-9]/g, '')
                     .substring(0, 5); // 追号期数选择
+
                 if (z_times > 1 || z_dates > 1) { // 如果已经有追号方案，机选的时候清空之前的方案
                     layer.open({
                         content: lot_lang.am_s41,
