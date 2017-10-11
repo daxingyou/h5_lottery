@@ -328,7 +328,7 @@ body { }
 .chooseMsg p { display: inline-block; }
 /* .chooseMsg p span { color: #52acd3; }
 #lt_sel_money { color: #ff0000; font-weight: bold; } */
-.addBtn { background: url(../images/btn_bg_add.svg) no-repeat right top #52acd3; background-size: 100% auto; border-radius: 3rem 3rem 0px 0px; width: 4.285rem; height: 5.2228rem; border: none; cursor: pointer; text-align: center;  font-size:0.857143rem; color: #fff; font-family: 'Microsoft Yahei'; position: fixed; z-index: 12; bottom:0px; right: 6.0714rem;   }
+.addBtn { background: url(../images/btn_bg_add.svg) no-repeat right top #52acd3; background-size: 100% auto; border-radius: 3rem 3rem 0px 0px; width: 4.285rem; height: 5.2228rem; border: none; cursor: pointer; text-align: center;  font-size:0.857143rem; color: #fff; font-family: 'Microsoft Yahei'; position: absolute; z-index: 12; bottom:0px; right: 6.0714rem;   }
 .addBtnDisabled { background: url(../images/btn_bg_add.svg) no-repeat right top #C7C7C7; background-size: 100% auto; cursor: default; color: #fff; font-family: 'Microsoft Yahei'; width: 4.285rem; height: 5.2228rem; }
 
 /*正常高度与625高度*/
@@ -602,4 +602,6 @@ body { }
 	.m_fx_footer .v-moeny .you-money b { color: #ffcf06; font-size: 1rem; }
 	.m_fx_footer .v-moeny  .chongzhi { float: right; font-size: 1rem; color: #fff; }
 	.m_fx_footer .v-moeny  .chongzhi a { width: auto; font-size: 1.142857rem; line-height: 2.45rem; color: #52acd3; text-decoration: underline; background-color: #2E263D; }
-
+@media only screen and (max-width:350px){
+	.multipleCon input { width: 1.5rem;}
+}

@@ -3,11 +3,13 @@ function initSoFun() {
     var html = '';
     $('.radio input')
         .each(function (i, t) {
-            console.log();
             if ($(t)
-                    .attr('checked') == 'checked') {
+                    .attr('checked') == 'checked' && i !== 2) {
                 initCount(i);
                 radio_start = i;
+            } else {
+                $('#lt_selector .nList li').find('i')
+                    .remove();
             }
         });
 }
@@ -21,7 +23,6 @@ function initCount(type) {
         'lotteryId': lotteryId,
         // 'pcount': pcount
     };
-    console.log(methodid);
     $.ajax({
         type: 'get',
         headers: {

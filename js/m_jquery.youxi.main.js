@@ -103,11 +103,11 @@ var is_select = 0;
                 313: 'ZXHZ',
                 512: 'ZX3',
                 513: 'ZXHZ',
-                321: 'ZUS',
+                522: 'ZUS', // 后三组三
+                321: 'ZUS',  // 前三组三
                 322: 'ZUL',
                 323: 'HHZX',
                 324: 'ZUHZ',
-                522: 'ZUS',
                 523: 'ZUL',
                 524: 'HHZX',
                 525: 'ZUHZ',
@@ -302,7 +302,8 @@ var is_select = 0;
                 389: 'BJSXP',
                 391: 'BJJOP',
                 427: 'BJDXDS',//北京快乐8
-                111: 'ZX5',
+                111: 'ZX5', // 重庆时时彩五星复式
+                112: 'ZX5',  // 重庆时时彩五星单式
                 213: 'ZH4',
                 211: 'ZX4',
                 212: 'ZXd4',
@@ -2434,9 +2435,8 @@ var is_select = 0;
             $($.lt_id_data.id_labelbox + ' li').eq(0).removeClass().addClass('hover');
         }
         TextHtml();
-        $('.m-lott-methodBox-list').css('display', 'none');//解决 JS 计算宽度不能识别的问题
-        $('.m-lott-methodBox-list').css('height', 'auto');
-        //*
+        $('.m-lott-methodBox-list').css({'display': 'none','height': 'auto'});//解决 JS 计算宽度不能识别的问题
+      //  $('.m-lott-methodBox-list').css('height', 'auto');
 
         //下面是对【小标签】进行切换（例如：前三、后三、二码）
         $($.lt_id_data.id_labelbox + ' li').click(function () {//切换标签
@@ -2603,7 +2603,6 @@ var is_select = 0;
 
                     if (i == 0 && ii == 0) {//第一个标签自动选择 新版
                         html += '<dd class="hover" id="smalllabel_' + i + '_' + ii + '" name="smalllabel" v="' + i + '-' + ii + '">' + nn.desc + '</dd>';
-
                         if (nn.methoddesc.length > 0) {
                             $($.lt_id_data.id_methoddesc).html(nn.methoddesc).parent().show();
                         } else {
@@ -2721,7 +2720,8 @@ var is_select = 0;
         $($.lt_id_data.id_smalllabel).prepend(html);
         filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
 
-        $("dd[name='smalllabel']").click(function(){
+        $("dd[name='smalllabel']").click(function(){ // 选择游戏种类标签
+
 			$("dd[name='smalllabel']").removeClass("hover");
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
@@ -2745,7 +2745,7 @@ var is_select = 0;
                 $($.lt_id_data.id_methodexample).hide();
                 $($.lt_id_data.id_examplediv).html('');
             }
-            console.log(opts.label[index[0]].label[index[1]].ifrandom);
+           // console.log(opts.label[index[0]].label[index[1]].ifrandom);
 
             /* //机选功能运营说不用了
             if( opts.label[index[0]].label[index[1]].ifrandom && opts.label[index[0]].label[index[1]].ifrandom>0 ){
@@ -2816,12 +2816,8 @@ var is_select = 0;
             if (is_select) {
                 SelectItem($('#lt_project_modes')[0], selmodes);
             }
-            //$("#lt_project_modes").empty();
-            //$("#lt_project_modes")[0].options.length ==0;
-            //$(modelhtml).appendTo("#lt_project_modes");
-            /*modelhtml += '</select>';
-            $($.lt_id_data.id_sel_modes).empty();
-            $(modelhtml).appendTo($.lt_id_data.id_sel_modes);*/
+
+            $('.m-lott-methodBox-list').hide() ; //隐藏游戏菜单
 
         });
 
@@ -2890,7 +2886,7 @@ var is_select = 0;
             // console.log($.lt_time_leave+'倒计时') ;
             if ($.lt_time_leave <= 0) { //结束
                 clearInterval(timerno);
-                if ($.lt_submiting == false) {//如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
+                if ($.lt_submiting == false) {  //如果没有正在提交数据则弹出对话框,否则主动权交给提交表单
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                     if ($($.lt_id_data.id_cur_issue).html() > '') {
 
@@ -2904,7 +2900,7 @@ var is_select = 0;
                         });
 
                         // 传说中的5秒自动关闭
-                        if (sidebar_hover == 'hn1fc' || sidebar_hover == 'hn5fc' || sidebar_hover == 'pk10' || sidebar_hover == 'jssm') {
+                       /* if (sidebar_hover == 'hn1fc' || sidebar_hover == 'hn5fc' || sidebar_hover == 'pk10' || sidebar_hover == 'jssm') {
                             $('.layui-m-layerbtn span').html('(5) 确定');               //
                             var second = 4;
                             timer5 = window.setTimeout(timeFun5, 1000);
@@ -2922,9 +2918,11 @@ var is_select = 0;
                                     timer5 = window.setTimeout(timeFun5, 1000);
                                 }
                             }
-                        }
+                        }*/
                         //传说中的5秒自动关闭
-                        $.lt_reset(true);
+
+                       // $.lt_reset(true);  // 还原数据
+
                         $.lt_ontimeout();
 
                     } else {  // 销售截止
@@ -3296,7 +3294,6 @@ var is_select = 0;
                     btn: '确定'
                 });
 
-                // $.alert(lot_lang.am_s6);
                 return;
             }
             if (istrace == true) {
@@ -3348,11 +3345,17 @@ var is_select = 0;
             });
 
             console.log(modesmsg);
+            var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
             $.each(modesmsg, function (i, n) {
                 if ($.lt_method_data.modes[i] != undefined && n != undefined && n.length > 0) {
                     /*  $.each(n,function(index,value){*/   // 不需要遍历
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s2_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_times).val() + '</span>' + lot_lang.dec_s2 + '</div>';//倍数
+                if(z_dates>1){
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_date).val() + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
+                }else{
+                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + 0 + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
+                }
+
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s1_1 + '</span>' + '<span class="total-num">' + $.lt_total_nums + '</span>' + lot_lang.dec_s1 + '</div>'; //注数
                     // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
@@ -3398,7 +3401,8 @@ var is_select = 0;
                     layer.open({ // 确定
                         title: '温馨提示',
                         className: 'layer_tip',
-                        content: lot_lang.am_s15,
+                       // content: lot_lang.am_s15,
+                        content: lot_lang.am_s15_2,
                         btn: ['确定'],
                         yes: function (index) {
                             $.lt_reset(false);
@@ -3410,13 +3414,7 @@ var is_select = 0;
                         //     $.lt_ontimeout();
                         // }
                     });
-                    // $.confirm(lot_lang.am_s15,function(){//确定
-                    // 	$.lt_reset(false);
-                    // 	$.lt_ontimeout();
-                    // },function(){//取消
-                    // 	$.lt_reset(true);
-                    // 	$.lt_ontimeout();
-                    // });
+
                 } else {
                     layer.open({
                         title: '温馨提示',

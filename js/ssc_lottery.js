@@ -172,9 +172,33 @@ function getMemberBalance() {
                 });
             })
             $('#bet_back').on('click',function(){
-                $('#body').removeClass('bet_cart');
+                var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数
+                var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数
+                var id_sel_num = $($.lt_id_data.id_cf_num).html() ;//添加投注 已选注数
 
-                $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+                if((z_times>1 && id_sel_num >0 ) || (z_dates>1 && id_sel_num>0)){ // 如果已经有追号方案，返回的时候清空之前的方案
+                    layer.open({
+                        content: lot_lang.am_s41,
+                        btn: ['确定','取消'],
+                        yes: function (index) {
+                            for(var i= 0;i<z_times;i++){  // 还原倍数
+                                $('.multipleBox').find('.less_bei').click() ;
+                            }
+                            for(var i= 0;i<z_dates;i++){   // 还原期数
+                                $('.multipleBox').find('.less_bei').click() ;
+                            }
+                            $('#body').removeClass('bet_cart');
+                            $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+
+                            layer.close(index);
+                        }
+                    });
+                }else{
+                    $('#body').removeClass('bet_cart');
+                    $('#ui_bet').stop(true,true).animate({left: '100%'},300);
+
+                }
+
             });
 
         }
@@ -2464,7 +2488,7 @@ var runData = {
 function processCode(issue,code,iscurent){
     var code_arr = code.split(',');
 
-    var finishIssueCodeHtml = '<li class="hover"><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    var finishIssueCodeHtml = '<li><span class="issue">第' + issue + '期</span><span class="num"> ' ;
     //已开奖期号节点,开奖号码
     var recentCon = $(".recentCon ul") ;
     for(var i=0;i<code_arr.length;i++){

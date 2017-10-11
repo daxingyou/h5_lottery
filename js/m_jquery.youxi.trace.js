@@ -372,11 +372,10 @@
                 //检测是否有投注内容
                 if( $.lt_total_nums <= 0 ){
                     layer.open({
-                        content:lot_lang.am_s7,
+                        content:lot_lang.am_s6,
                         btn:'确定'
                     })
 
-                    // $.alert(lot_lang.am_s7);
                     $(this).next("input[type='checkbox']").prop("checked",false);
                     return;
                 }
@@ -539,11 +538,10 @@
             var c = parseInt($.lt_total_nums,10);//总投注注数
             if( c <= 0 ){//无投注内容
                 layer.open({
-                    content:lot_lang.am_s7,
+                    content:lot_lang.am_s6,
                     btn:'确定'
                 })
 
-                // $.alert(lot_lang.am_s7);
                 return false;
             }
 
