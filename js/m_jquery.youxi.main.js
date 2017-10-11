@@ -312,7 +312,7 @@ var is_select = 0;
                 223: 'SXZU6',
                 224: 'SXZU4',
                 113: 'ZH5',
-                121: 'WXZU120',
+                121: 'WXZU120',  // 五星组选120
                 122: 'WXZU60',
                 123: 'WXZU30',
                 124: 'WXZU20',
@@ -2921,7 +2921,7 @@ var is_select = 0;
                         }*/
                         //传说中的5秒自动关闭
 
-                       // $.lt_reset(true);  // 还原数据
+                       $.lt_reset(true);  // 还原数据
 
                         $.lt_ontimeout();
 
@@ -2950,7 +2950,6 @@ var is_select = 0;
             iskeep = false;
         }
         if ($.lt_time_leave <= 0) {    //本期结束后的刷新
-
             //01:刷新选号区
             if (iskeep == false) {
                 $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click();
@@ -3142,7 +3141,7 @@ var is_select = 0;
         }
         $.gameBtn();
     };
-    $.lt_reset_1 = function (iskeep, start, end, info) {
+   /* $.lt_reset_1 = function (iskeep, start, end, info) {
         var data = info;
         if (iskeep && iskeep === true) {
             iskeep = true;
@@ -3270,7 +3269,7 @@ var is_select = 0;
             }
         }
         $.gameBtn();
-    };
+    };*/
     //提交表单
     var ajaxSubmitAllow = true;
     $.fn.lt_ajaxSubmit = function () {
@@ -3288,6 +3287,7 @@ var is_select = 0;
             var istrace = $($.lt_id_data.id_tra_ifb).prop('checked') == true ? 1 : 0;//是否追号
             //alert(istrace);
             if ($.lt_total_nums <= 0 || $.lt_total_money <= 0) {   //检查是否有投注内容
+                console.log('没有投注内容') ;
                 $.lt_submiting = false;
                 layer.open({
                     content: lot_lang.am_s6,
@@ -3504,6 +3504,7 @@ var is_select = 0;
                 var total_each = $(n).find('.total-each').text();  // 每单金额
                 var date_each = $(n).find('.date-each').text();  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
+                var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
                 var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
                 var new_num = $.grep(play_num, function (value) {
                     return value >= 0;// 筛选出只是数字
@@ -3520,7 +3521,7 @@ var is_select = 0;
                         'chaseCount': Number(date_each), //追号期数(含当期),默认1
                         'chaseWinStop': 0,//是否追中即停
                         'ifChase': $('.btn_addstop').data('val') , //是否追号,0不追号，1追号
-                        'moneyMode': 'y',//付款类型：元y，角j，分f
+                        'moneyMode': play_type ,//付款类型：元y，角j，分f
                         'multiple': Number(time_each), //倍数最少为1
                         'payoff': 0, //派彩
                         'playId': play_each, //玩法
@@ -3571,7 +3572,7 @@ var is_select = 0;
                             btn: '确定'
                         });
 
-                        top.location.href = '../?controller=default';
+                       // top.location.href = '../?controller=default';
                         return false;
                     }
                     /*	if( data == "slowly" ){  //网络缓慢

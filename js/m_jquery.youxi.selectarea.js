@@ -2417,10 +2417,11 @@
                 var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
                 var times = parseInt($($.lt_id_data.id_sel_times).val(), 10);// 投注倍数取整
                 // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
-                var modes = parseInt($('input[name=\'lt_project_modes\']:checked').val(), 10);// 投注模式
+                var modes = parseInt($('input[name=\'lt_project_modes\']:checked').val(), 10);// 投注模式，元（1），角（2），分
                 //	var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
                 var betdates = parseInt($($.lt_id_data.id_add_date).val(), 10);// 投注期数取整
                 var money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 倍数*注数*单价 * 模式
+               console.log(modes+'公交卡')
                 money = isNaN(money) ? 0 : money;
                 $($.lt_id_data.id_sel_money).html(money);
             });
@@ -2839,11 +2840,11 @@
                     var rand = ~~(Math.random() * 89999999 + 10000000).toString();
                     // var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
                     // var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
-                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
+                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
 
                 } else {
                     // var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
-                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
+                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
                 }
                 var pmodel = $('#pmode').val();// 投注奖金模式
 
