@@ -1235,6 +1235,7 @@ img.bet_ok {
 
 // 江西11選5
 #so-item0.jc115 ul li {
+    @extend #so-item0;
     &.first_ball{
         margin-top: 1.5rem;
     }
@@ -1278,9 +1279,139 @@ img.bet_ok {
         }
     }
     &.active {
-        background: url(../../static/images/content/changkuang.png) no-repeat;
+        background: url('../../static/images/content/changkuang.png') no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
         border: solid 0.01rem transparent;
+    }
+}
+#so-item1.jc115 ul li {
+    // margin-top: 1.7rem;
+    height: 6.6rem;
+    &:first-child{
+        margin-top:0;
+    }
+    > div {
+        width: 100%;
+        height: 6.74rem;
+        background: url('../images/content/jc115_ball_bg.png') no-repeat;
+        background-size: 110% 6.84rem;
+        background-position-x: -0.9rem;
+        text-align: center;
+        margin: auto;
+        > h2 {
+            padding-left: 3%;
+        }
+        > div {
+            padding-left: 5%;
+            p {
+                float: left;
+                height: 1.65rem;
+                width: 1.3rem;
+                display: none;
+                padding-bottom: .2rem;
+                span:first-child {
+                    background: url("../images/content/zhunxing.png") no-repeat;
+                    background-size: 1.1rem;
+                    background-position: 0.15rem;
+                    display: block;
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    color: #fffbe2;
+                    font-size: 0.6rem;
+                    text-align: center;
+                    line-height: 1.3rem;
+                    text-indent: 0.1rem;
+                }
+                span {
+                    color: #fff;
+                    font-size: 0.3rem;
+                    display: block;
+                    // padding-left: .25rem;
+                    padding-right: 0;
+                    line-height: 0.5rem;
+                }
+            }
+            p.active {
+                span:first-child {
+                    background: url("../images/content/qiu.png") no-repeat;
+                    background-size: 1.1rem;
+                    background-position: 0.15rem;
+                    display: block;
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    color: #fffbe2;
+                    font-size: 0.52rem;
+                    text-align: center;
+                    line-height: 1.3rem;
+                    text-indent: 0.1rem;
+                }
+            }
+        }
+    }
+}
+#so-item3.jc115 ul li {
+    // margin-top: 1.7rem;
+    height: 6.6rem;
+    &:first-child{
+        margin-top:0;
+    }
+    > div {
+        width: 100%;
+        height: 6.74rem;
+        background: url('../images/content/jc115_ball_bg.png') no-repeat;
+        background-size: 110% 6.84rem;
+        background-position-x: -0.9rem;
+        text-align: center;
+        margin: auto;
+        > h2 {
+            padding-left: 3%;
+        }
+        > div {
+            padding-left: 5%;
+            p {
+                float: left;
+                height: 1.65rem;
+                width: 1.3rem;
+                display: none;
+                padding-bottom: .2rem;
+                span:first-child {
+                    background: url("../images/content/zhunxing.png") no-repeat;
+                    background-size: 1.1rem;
+                    background-position: 0.15rem;
+                    display: block;
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    color: #fffbe2;
+                    font-size: 0.6rem;
+                    text-align: center;
+                    line-height: 1.3rem;
+                    text-indent: 0.1rem;
+                }
+                span {
+                    color: #fff;
+                    font-size: 0.3rem;
+                    display: block;
+                    // padding-left: .25rem;
+                    padding-right: 0;
+                    line-height: 0.5rem;
+                }
+            }
+            p.active {
+                span:first-child {
+                    background: url("../images/content/qiu.png") no-repeat;
+                    background-size: 1.1rem;
+                    background-position: 0.15rem;
+                    display: block;
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    color: #fffbe2;
+                    font-size: 0.52rem;
+                    text-align: center;
+                    line-height: 1.3rem;
+                    text-indent: 0.1rem;
+                }
+            }
+        }
     }
 }
