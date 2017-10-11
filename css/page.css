@@ -80,7 +80,7 @@ input[type="checkbox"]:checked + label span { border-color: #52ACD3; background:
 
 .play_area h3 { color: #484848; font-size: 1.071rem; padding: 1rem 0 .5rem; }
 
-.layui-m-layerchild { border-radius: 10px; padding: 2rem 1rem 1.286rem 1rem; }
+.layui-m-layerchild { width: 70%; border-radius: 10px; padding: 2rem 1rem 1.286rem 1rem; }
 
 .layui-m-layerchild h3 { font-size: 1.071rem; line-height: 2rem; height: auto; margin-bottom: 0.3rem; }
 
@@ -99,6 +99,8 @@ input[type="checkbox"]:checked + label span { border-color: #52ACD3; background:
 .layui-m-layerchild.layer_count h3 { color: #52ACD3; }
 
 .layui-m-layer0 .layui-m-layerchild { width: 70%; }
+
+.layui-m-layermain .layui-m-layersection .layui-m-layerchild { width: 70% !important; }
 
 .layui-m-layercont { color: #484848; padding: 0; line-height: 1.286rem; font-size: 0.8571rem; width: auto; }
 

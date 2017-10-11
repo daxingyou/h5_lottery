@@ -134,6 +134,8 @@ a { color: #00B7FF; }
 
 #so-item0 ul li > div > div p span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding-left: .25rem; padding-right: .2rem; line-height: 0.9rem; }
 
+#so-item0 ul li > div > div p span:last-child { float: right; }
+
 #so-item0 ul li > div > div p.active { background: url(../../static/images/content/changkuang.png) no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
 
 #so-item0 ul li > div > div p.active > span:first-child { color: #010101; }
@@ -357,5 +359,29 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 .purse { position: relative; left: -0.2rem; }
 
 #so-item0 ul li > div > div p span.font-ss span { font-size: .26rem; }
+
+#so-item0.jc115 ul li.first_ball { margin-top: 1.5rem; }
+
+#so-item0.jc115 ul li:first-child > div { background-size: 8.4rem 6.5rem; height: 6.5rem; }
+
+#so-item0.jc115 ul li:first-child > div > h2 { line-height: 1.5rem; }
+
+#so-item0.jc115 ul li:first-child > div > div { padding: 2% 3%; }
+
+#so-item0.jc115 ul li > div > div { padding: 3%; min-height: 2.1rem; }
+
+#so-item0.jc115 ul li > div > div p span { font-size: .3rem; }
+
+#so-item0.jc115 ul li > div > div p span:last-child { float: right; }
+
+#so-item0.jc115 ul li .so-con-span-short { width: 3rem !important; }
+
+#so-item0.jc115 ul li .so-con-span-short > span { padding: 0 .25rem; }
+
+#so-item0.jc115 ul li .so-con-span-short > span:first-child { float: left; }
+
+#so-item0.jc115 ul li .so-con-span-short > span:last-child { float: right; }
+
+#so-item0.jc115 ul li .so-con-span-short.active { background: url(../../static/images/content/changkuang.png) no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
 
 /*# sourceMappingURL=style.css.map */

@@ -452,6 +452,9 @@ a {
                     padding-left: .25rem;
                     padding-right: .2rem;
                     line-height: 0.9rem;
+                    &:last-child {
+                        float: right;
+                    }
                 }
             }
             p.active {
@@ -1229,3 +1232,55 @@ img.bet_ok {
     // height: 100%;
     //;
 //}
+
+// 江西11選5
+#so-item0.jc115 ul li {
+    &.first_ball{
+        margin-top: 1.5rem;
+    }
+    &:first-child{
+        >div{
+            background-size: 8.4rem 6.5rem;
+            height: 6.5rem;
+            >h2{
+                line-height: 1.5rem;
+            }
+            >div{
+                padding: 2% 3%;
+            }
+        }
+
+    }
+    > div {
+        > div {
+            padding: 3%;
+            min-height: 2.1rem;
+            p {
+                span {
+                    font-size: .3rem;
+                    &:last-child {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}
+#so-item0.jc115 ul li .so-con-span-short {
+    width: 3rem !important;
+    >span {
+        padding: 0 .25rem;
+        &:first-child {
+            float: left;
+        }
+        &:last-child {
+            float: right;
+        }
+    }
+    &.active {
+        background: url(../../static/images/content/changkuang.png) no-repeat;
+        background-size: 3.06rem 0.9rem;
+        background-position: -0.01rem;
+        border: solid 0.01rem transparent;
+    }
+}

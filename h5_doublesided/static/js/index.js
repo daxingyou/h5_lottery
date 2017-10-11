@@ -30,6 +30,7 @@ function initKuang() {
         }
         $(t).show()
     });
+    //重慶時時彩第一球 左字為一個字時
     $(".so-con-right div .first_ball p").each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 1) {
             var className = $(t).attr('class');
@@ -37,6 +38,7 @@ function initKuang() {
         }
         $(t).show()
     })
+    //重慶時時彩第二球 左字為一個字時
     $(".so-con-right div .sec_ball p").each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 1) {
             var className = $(t).attr('class');
@@ -51,6 +53,14 @@ function initKuang() {
         }
         $(t).show()
     })
+    //江西11選5 雙面
+    $(".so-con-right .jc115 div div p").each(function (i, t) {
+        if ($(t).find('span')[0].innerText.length < 3) {
+            var className = $(t).attr('class');
+            $(t).attr('class', 'so-con-span-short ' + className);
+        }
+        $(t).show()
+    });
 }
 
 // 此方法用来初始化页面高度
