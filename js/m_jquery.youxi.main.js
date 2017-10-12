@@ -2767,7 +2767,7 @@ var is_select = 0;
                 str: opts.label[index[0]].label[index[1]].show_str,
                 prize: opts.label[index[0]].label[index[1]].prize,
                 nfdprize: opts.label[index[0]].label[index[1]].nfdprize,
-                modes: $.lt_method_data.modes ? $.lt_method_data.modes : {},
+                modes: $.lt_method_data.modes ? $.lt_method_data.modes : {},  // 模式 ，1 元，0.1 角
                 sp: opts.label[index[0]].label[index[1]].code_sp,
                 maxcodecount: opts.label[index[0]].label[index[1]].maxcodecount,
                 defaultposition: opts.label[index[0]].label[index[1]].defaultposition,
@@ -2950,12 +2950,10 @@ var is_select = 0;
             iskeep = false;
         }
         if ($.lt_time_leave <= 0) {    //本期结束后的刷新
-            //01:刷新选号区
-            if (iskeep == false) {
-                $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click();
-            }
+            console.log('士大夫返点')
             //02:刷新确认区
             if (iskeep == false) {
+                $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click() ;   //01:刷新选号区
                 $.lt_total_nums = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base = 0;//追号基础数据
@@ -3088,7 +3086,7 @@ var is_select = 0;
                     $($.lt_id_data.id_tra_alct).html(t_count);
                     //07:更新追号数据
                     cleanTraceIssue();//清空追号区数据
-                    while (true) {//删除追号列表里已经过期的数据
+                    while (true) {  //删除追号列表里已经过期的数据
                         $j = $('tr[id^=\'tr_trace_\']:first', $('#lt_trace_issues_today'));
                         if ($j.length <= 0) {
                             break;
@@ -3110,18 +3108,16 @@ var is_select = 0;
                             layer.close(index);
                         }
                     });
-                    // $.alert(lot_lang.am_s16);
+
                     // cleanTraceIssue();//清空追号区数据
                     return false;
                 }
             });
         } else {    //提交表单成功后的刷新
-            //01:刷新选号区
-            if (iskeep == false) {
-                $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click();
-            }
+
             //02:刷新确认区
             if (iskeep == false) {
+                $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click();   //01:刷新选号区
                 $.lt_total_nums = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
                 $.lt_trace_base = 0;//追号基数
@@ -3133,11 +3129,9 @@ var is_select = 0;
                 $($.lt_id_data.id_cf_content + ' div.lottery').remove();
                 //$($.lt_id_data.id_cf_content + " tr.cleanall").hide();
                 $($.lt_id_data.id_cf_count).html(0);
-            }
-            //03:刷新追号区
-            if (iskeep == false) {
                 cleanTraceIssue();//清空追号区数据
             }
+
         }
         $.gameBtn();
     };
@@ -3285,7 +3279,7 @@ var is_select = 0;
             $.lt_submiting = true;//倒计时提示的主动权转移到这里
             //var istrace = $($.lt_id_data.id_tra_if).hasClass("clicked");//是否追号
             var istrace = $($.lt_id_data.id_tra_ifb).prop('checked') == true ? 1 : 0;//是否追号
-            //alert(istrace);
+           console.log($.lt_total_nums+'发多少')
             if ($.lt_total_nums <= 0 || $.lt_total_money <= 0) {   //检查是否有投注内容
                 console.log('没有投注内容') ;
                 $.lt_submiting = false;
@@ -3346,8 +3340,9 @@ var is_select = 0;
 
             console.log(modesmsg);
             var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
-            $.each(modesmsg, function (i, n) {
-                if ($.lt_method_data.modes[i] != undefined && n != undefined && n.length > 0) {
+         /*   $.each(modesmsg, function (i, n) {
+             if ($.lt_method_data.modes[i] != undefined && n != undefined && n.length > 0) { */
+                if ( modesmsg.length > 0) {
                     /*  $.each(n,function(index,value){*/   // 不需要遍历
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s2_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_times).val() + '</span>' + lot_lang.dec_s2 + '</div>';//倍数
                 if(z_dates>1){
@@ -3361,7 +3356,7 @@ var is_select = 0;
 
                     /*})*/
                 }
-            });
+         /*   });*/
             msg += '</div>';
             $.lt_trace_money = Math.round($.lt_trace_money * 1000) / 1000;
             $.lt_total_money = Math.round(Number($($.lt_id_data.id_cf_money).html()) * 1000) / 1000; // 提交时计算总金额
