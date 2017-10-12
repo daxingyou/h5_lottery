@@ -475,7 +475,7 @@ body { }
 .lotteryList .ui_bet_count{ color: #52acd3; font-size: 1rem; }
 .lotteryList span.del{ position: absolute; top: 50%; right: 0.7143rem; width: 1.143rem; height: 1.143rem; margin-top: -0.5714rem; }
 .lotteryList a.del { display: inline-block; width: 1.143rem; height: 1.143rem; background: url(../images/icon_del.svg) no-repeat center center; background-size: 1.143rem; }
-.lotteryList .m_lotter_list_nub { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #898989; padding-right: 0.357143rem; font-weight: normal; }
+.lotteryList .m_lotter_list_nub { max-width:19.5rem;overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #898989; padding-right: 0.357143rem; font-weight: normal; }
 .lotteryList .m_lotter_details { float: left; width: 15%; text-align: center; color: #898989; }
 .lotteryList .lottery { margin-bottom: 0.642857rem; }
 .lotteryList table tr.lottery th { border: none; border-top: 1px dashed #e2e1df; text-align: left; text-indent: 1.428571rem; }

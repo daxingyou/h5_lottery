@@ -2950,7 +2950,6 @@ var is_select = 0;
             iskeep = false;
         }
         if ($.lt_time_leave <= 0) {    //本期结束后的刷新
-            console.log('士大夫返点')
             //02:刷新确认区
             if (iskeep == false) {
                 $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click() ;   //01:刷新选号区
@@ -3279,7 +3278,10 @@ var is_select = 0;
             $.lt_submiting = true;//倒计时提示的主动权转移到这里
             //var istrace = $($.lt_id_data.id_tra_if).hasClass("clicked");//是否追号
             var istrace = $($.lt_id_data.id_tra_ifb).prop('checked') == true ? 1 : 0;//是否追号
-           console.log($.lt_total_nums+'发多少')
+            // 当前期数结束后，不清空数据，转到下一期
+            $.lt_total_nums = Number($($.lt_id_data.id_cf_num).html()) ;
+            $.lt_total_money = Number($($.lt_id_data.id_cf_money).html()) ;
+
             if ($.lt_total_nums <= 0 || $.lt_total_money <= 0) {   //检查是否有投注内容
                 console.log('没有投注内容') ;
                 $.lt_submiting = false;
@@ -3363,11 +3365,11 @@ var is_select = 0;
 
             msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span class="total_amount">' + (istrace == true ? $.lt_trace_money : $.lt_total_money) + '</span>' + '<span>' + lot_lang.dec_s3 + '</span></div>';
             msg = msg.replace('[关闭]', '');
-            layer.open({
+            layer.open({ // 确认付款，点击确定提交
                 content: msg,
                 btn: ['确定', '取消'],
                 yes: function (index) {
-                    if (checkTimeOut() == false) {//正式提交前再检查1下时间
+                    if (checkTimeOut() == false) {  //正式提交前再检查1下时间
                         $.lt_submiting = false;
                         return;
                     }
@@ -3379,6 +3381,7 @@ var is_select = 0;
                         ajaxSubmit();
                     }
                     layer.close(index);
+                    ajaxSubmitAllow = true ;
                 },
                 no: function () {
                     $.lt_submiting = false;
@@ -3437,6 +3440,7 @@ var is_select = 0;
 
         //ajax提交表单 sean ，下注表单提交
         function ajaxSubmit() {
+            console.log('后付款时间')
             // 余额不足提示充值
             if (monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text()))) {
                 layer.open({
