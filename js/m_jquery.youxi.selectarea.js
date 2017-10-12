@@ -2875,7 +2875,7 @@
                         layer.open({
                             content: lot_lang.am_s28,
                             // btn:'确定',
-                            style: 'background-color: rgba(52, 65, 70, 0.85);border-radius: 60px;padding:0;padding: 5px;width: auto;',
+                            style: 'background-color: rgba(52, 65, 70, 0.85);border-radius: 1.5rem;padding:0;padding: 5px;width: auto;',
                             shade: false,
                             time: 3,
                         });
