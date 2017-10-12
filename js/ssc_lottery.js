@@ -9,7 +9,7 @@ var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
 var sys_time  ; // 当前系统时间
 var now_day  ; // 当前日期
-
+var dataPlay =[] ;
 // 登录接口
 function LoginAction() {
     $.ajax({
@@ -78,7 +78,8 @@ function getPlayTree(gameid) {
         url : action.forseti+'api/playsTree' ,
         data: { lotteryId:gameid,} ,
         success: function(res){
-
+            dataPlay = res.data.childrens ;
+           // console.log(dataPlay+'发后端数据库')
         },
         error: function() {
 
@@ -237,8 +238,10 @@ function getMemberBalance() {
                 for(var i=2;i<res.data.length;i++){
                     processCode(res.data[i].pcode,res.data[i].winNumber);
                 }
+                setTimeout(function () {
+                    initFrame() ;
+                },100)
 
-                initFrame() ;
             },
             error: function() {
 
@@ -247,12 +250,12 @@ function getMemberBalance() {
     }
 
 
-
     // 初始化方法
     var initFrame = function(){
-
+    console.log(dataPlay)
         $.gameInit({
             data_label: data_label,  // 玩法集合
+           /// data_label: dataPlay,  // 玩法集合,2017/10
             cur_issue : {issue: now_pcode,endtime:now_time},
             servertime: sys_time ,  // 系统时间   setAmerTime()
             lotteryId : parseInt(1,10),
@@ -2474,6 +2477,7 @@ function getMemberBalance() {
 
 /*});*/
 
+console.log(data_label)
 
 var lotterytype = 0;
 var isInit = true;
@@ -2730,7 +2734,7 @@ function fnOpenAwards(codes){
                     num.removeClass().addClass("rank" + codes[index]);
                 }
                 $("#top"+(index+1)).attr("class","cars" + codes[index]);
-                //console.log("矫正");
+
             });
         },2000);
     },2000);
