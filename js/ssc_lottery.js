@@ -386,7 +386,9 @@ function getMemberBalance() {
 
     var data_label = [
         {
-            isnew:"0",isdefault:"0",title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
+            isnew:"0",
+            isdefault:"1",
+            title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
             "methodhelp":"从万位、千位、百位、十位、个位中选择一个5位数号码组成一注，所选号码与开奖号码全部相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：23456；<br />开奖号码：23456，<br />即中五星直选",
             "selectarea":{
@@ -726,7 +728,9 @@ function getMemberBalance() {
             desc:'组选4',maxcodecount:0
         }]}]},
         {
-            isnew:"0",isdefault:"1",title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
+            isnew:"0",
+            isdefault:"0", // 展示默认玩法，1表示默认展示
+            title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
             "methodhelp":"从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：345；<br />开奖号码：345，<br />即中后三直选一等奖",
             "selectarea":{

@@ -2595,7 +2595,8 @@
             });
             para = [];
 
-            $($.lt_id_data.id_sel_insert).trigger('click'); // 添加按钮
+             $($.lt_id_data.id_sel_insert).trigger('click'); // 添加按钮
+
         }
 
         //  号码添加按钮
@@ -2637,9 +2638,10 @@
                                 $(this).removeClass('hover');
                             });
                         }
-                        console.log('回复第三节课')
+
                         checkNum();
                     } else {
+
                         checkNum();
                         layer.open({
                             content: otype == 'input' ? lot_lang.am_s29 : lot_lang.am_s19,
@@ -2651,7 +2653,6 @@
                 }
                 if (otype == 'input') { // 如果是输入型，则检测号码合法性，以及是否存在重复号
                     var mname = $.lt_method[mid];// 玩法的简写,如:'ZX3'
-
                     var error = [];
                     var edump = [];
                     var ermsg = '';
@@ -2856,7 +2857,7 @@
                 //	pmodel = stemp;
                 // 判断是否有重复相同的单
                 if ($.lt_same_code[mid] != undefined && $.lt_same_code[mid][modes] != undefined && $.lt_same_code[mid][modes].length > 0 && $.lt_same_code[mid][modes][cur_position] != undefined && $.lt_same_code[mid][modes][cur_position].length > 0) {
-                    if ($.inArray(temp.join('|'), $.lt_same_code[mid][modes][cur_position]) != -1) {// 存在相同的
+                    if ($.inArray(temp.join('|'), $.lt_same_code[mid][modes][cur_position]) != -1) { // 存在相同的
                         // 当前为机选sam
                         if (random_bets) {
                             for (i = 0; i < data_sel.length; i++) {// 清空已选择数据
@@ -2870,7 +2871,6 @@
                                 });
                             }
                         }
-                        console.log('放得开时间')
                         checkNum();
                         layer.open({
                             content: lot_lang.am_s28,
@@ -2895,6 +2895,7 @@
                 if ($('input[name=\'poschoose\']').val()) {
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\',\'poschoose\':\'' + $('input[name=\'poschoose\']').val() + '\'}';
                 } else {
+                    console.log('发多少')
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\'}';
                 }
 

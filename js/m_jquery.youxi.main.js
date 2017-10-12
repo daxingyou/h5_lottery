@@ -2380,6 +2380,7 @@ var is_select = 0;
         var bhtml = ''; //大标签HTML
         var hasdefault = false;//初始没有设置默认标签
         $.each(opts.data_label, function (i, n) {  //生成标签
+
             if (typeof(n) == 'object') {
                 //如果是后台设置的默认标签
                 if (n.isdefault == 1) {
