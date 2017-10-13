@@ -2742,8 +2742,8 @@ var is_select = 0;
                             ifrandom: nn.ifrandom,
                             randomcos: nn.randomcos,
                             randomcosvalue: nn.randomcosvalue,
-                            prize: nn.prize,
-                            nfdprize: nn.nfdprize,
+                           // prize: nn.prize,
+                           // nfdprize: nn.nfdprize,
                             modes: $.lt_method_data.modes ? $.lt_method_data.modes : {},
                             sp: nn.code_sp,
                             maxcodecount: nn.maxcodecount,
@@ -2772,7 +2772,7 @@ var is_select = 0;
                             SelectItem($('#lt_project_modes')[0], selmodes);
                         }
 
-                        if ((typeof(nn.nfdprize) != 'undefined') && (nn.nfdprize.levs != '') && (typeof(nn.nfdprize.levs) != 'undefined')) {
+                   /*     if ((typeof(nn.nfdprize) != 'undefined') && (nn.nfdprize.levs != '') && (typeof(nn.nfdprize.levs) != 'undefined')) {
                             $nfdhtml = '单注奖金：<select name="pmode" id="pmode">';
                             $nfdhtml += '<option value ="1" >奖金' + nn.nfdprize.defaultprize + '-' + nn.nfdprize.userdiffpoint + '%</option>';
                             $nfdhtml += '<option value ="2" selected="selected" >奖金' + nn.nfdprize.levs + '-0%</option>';
@@ -2792,7 +2792,7 @@ var is_select = 0;
                         } else {
                             $('#wrapshow').css('display', 'none');
                             $('#nfdprize').html('');
-                        }
+                        }*/
 
                     } else {//第一个标签不自动选择结束
                         html += '<dd id="smalllabel_' + i + '_' + ii + '" name="smalllabel" v="' + i + '-' + ii + '">' + nn.desc + '</dd>';
@@ -2853,8 +2853,8 @@ var is_select = 0;
                 randomcos: opts.label[index[0]].label[index[1]].randomcos,
                 randomcos: opts.label[index[0]].label[index[1]].randomcosvalue,
                 str: opts.label[index[0]].label[index[1]].show_str,
-                prize: opts.label[index[0]].label[index[1]].prize,
-                nfdprize: opts.label[index[0]].label[index[1]].nfdprize,
+               // prize: opts.label[index[0]].label[index[1]].prize,
+               // nfdprize: opts.label[index[0]].label[index[1]].nfdprize,
                 modes: $.lt_method_data.modes ? $.lt_method_data.modes : {},  // 模式 ，1 元，0.1 角
                 sp: opts.label[index[0]].label[index[1]].code_sp,
                 maxcodecount: opts.label[index[0]].label[index[1]].maxcodecount,
@@ -2863,7 +2863,7 @@ var is_select = 0;
             };
 
             //单注奖金：<select name="" id=""><option value="1">1950-0%</option></select>
-            if (typeof(opts.label[index[0]].label[index[1]].nfdprize.defaultprize) != 'undefined' && opts.label[index[0]].label[index[1]].nfdprize.levs != '') {
+/*            if (typeof(opts.label[index[0]].label[index[1]].nfdprize.defaultprize) != 'undefined' && opts.label[index[0]].label[index[1]].nfdprize.levs != '') {
                 $nfdhtml = '单注奖金：<select name="pmode" id="pmode">';
                 $nfdhtml += '<option value ="1" >奖金' + opts.label[index[0]].label[index[1]].nfdprize.defaultprize
                     + '-' + opts.label[index[0]].label[index[1]].nfdprize.userdiffpoint + '%</option>';
@@ -2879,11 +2879,10 @@ var is_select = 0;
                     setCookie('pmode_selected_value', $(this).val());
                 });
                 //2013-04-12 Tomcat end-----------------------------------------------
-            }
-            else {
+            } else {
                 $('#wrapshow').css('display', 'none');
                 $('#nfdprize').html('');
-            }
+            }*/
             $($.lt_id_data.id_selector).lt_selectarea(opts.label[index[0]].label[index[1]].selectarea);//生成选号界面
             $.gameBtn();//在较小屏幕下，变换投注按钮位置
           //  filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
