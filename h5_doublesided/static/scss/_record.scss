@@ -447,14 +447,14 @@ ul.lo_ball{
         background-repeat: no-repeat;
         background-size: 1.1rem;
         display: inline-block;
-        width: 1.3rem;
-        height: 1.3rem;
+        width: 1.1rem;
+        height: 1.1rem;
         color: #fffbe2;
         font-size: 0.6rem;
         text-align: center;
-        line-height: 1.3rem;
+        line-height: 1.1rem;
         text-indent: 0.1rem;
-        background-position: 0.15rem;
+        background-position: 0.05rem;
     }
 }
 ul.no_open{
@@ -484,6 +484,9 @@ i.prd{
     color: #fff;
     ul.lo_ball{
         width: 2.5rem;
+        &.two{ //寫js去判斷內容物數量超過1增加這個class
+            width: auto;
+        }
     }
     >.panel{
         background-color: #0f1520;
