@@ -9,7 +9,7 @@ var now_time  ; // 当前期数销售截止时间
 var next_pcode  ; // 下一期数销售截止时间
 var sys_time  ; // 当前系统时间
 var now_day  ; // 当前日期
-
+var dataPlay =[] ;
 // 登录接口
 function LoginAction() {
     $.ajax({
@@ -78,7 +78,8 @@ function getPlayTree(gameid) {
         url : action.forseti+'api/playsTree' ,
         data: { lotteryId:gameid,} ,
         success: function(res){
-
+            dataPlay = res.data.childrens ;
+           // console.log(dataPlay+'发后端数据库')
         },
         error: function() {
 
@@ -237,8 +238,10 @@ function getMemberBalance() {
                 for(var i=2;i<res.data.length;i++){
                     processCode(res.data[i].pcode,res.data[i].winNumber);
                 }
+                setTimeout(function () {
+                    initFrame() ;
+                },100)
 
-                initFrame() ;
             },
             error: function() {
 
@@ -247,12 +250,12 @@ function getMemberBalance() {
     }
 
 
-
     // 初始化方法
     var initFrame = function(){
-
+    console.log(dataPlay)
         $.gameInit({
             data_label: data_label,  // 玩法集合
+           /// data_label: dataPlay,  // 玩法集合,2017/10
             cur_issue : {issue: now_pcode,endtime:now_time},
             servertime: sys_time ,  // 系统时间   setAmerTime()
             lotteryId : parseInt(1,10),
@@ -386,7 +389,9 @@ function getMemberBalance() {
 
     var data_label = [
         {
-            isnew:"0",isdefault:"0",title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
+            isnew:"0",
+            isdefault:"1",
+            title:"五星", label:[{gtitle:'五星直选', label:[{"methoddesc":"从个、十、百、千、万位各选一个号码组成一注。",
             "methodhelp":"从万位、千位、百位、十位、个位中选择一个5位数号码组成一注，所选号码与开奖号码全部相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：23456；<br />开奖号码：23456，<br />即中五星直选",
             "selectarea":{
@@ -463,6 +468,9 @@ function getMemberBalance() {
             },
             "show_str" : "X",
             "code_sp" : ",",
+            "ifrandom" : 1, // 机选
+            "randomcos" : 3,  // 机选
+            "randomcosvalue" : "1|1|1|1|1",  // 机选
             methodid : 121,
             name:'组选120',
             prize:{1:'1500.00'},
@@ -723,7 +731,9 @@ function getMemberBalance() {
             desc:'组选4',maxcodecount:0
         }]}]},
         {
-            isnew:"0",isdefault:"1",title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
+            isnew:"0",
+            isdefault:"0", // 展示默认玩法，1表示默认展示
+            title:"后三码", label:[{gtitle:'后三直选', label:[{"methoddesc":"从个、十、百位各选一个号码组成一注。",
             "methodhelp":"从百位、十位、个位中选择一个3位数号码组成一注，所选号码与开奖号码后3位相同，且顺序一致，即为中奖。",
             "methodexample":"投注方案：345；<br />开奖号码：345，<br />即中后三直选一等奖",
             "selectarea":{
@@ -2467,6 +2477,7 @@ function getMemberBalance() {
 
 /*});*/
 
+console.log(data_label)
 
 var lotterytype = 0;
 var isInit = true;
@@ -2723,7 +2734,7 @@ function fnOpenAwards(codes){
                     num.removeClass().addClass("rank" + codes[index]);
                 }
                 $("#top"+(index+1)).attr("class","cars" + codes[index]);
-                //console.log("矫正");
+
             });
         },2000);
     },2000);

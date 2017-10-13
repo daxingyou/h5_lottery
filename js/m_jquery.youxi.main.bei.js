@@ -2406,7 +2406,7 @@ var is_select = 0;
                     //生成该标签下的小标签
                     lt_smalllabel({title: n.title, label: n.label});
                 } else { //如果不是后台设置的默认标签
-
+                    console.log(data_label)
                     if (n.isnew == 1) {
                         bhtml += '<li>' + n.title + '<em></em></li>';
                     } else {
@@ -3528,7 +3528,7 @@ var is_select = 0;
 
         //ajax提交表单 sean ，下注表单提交
         function ajaxSubmit() {
-
+            console.log('后付款时间')
             // 余额不足提示充值
             if (monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text()))) {
                 layer.open({
