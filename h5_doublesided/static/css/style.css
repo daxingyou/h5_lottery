@@ -64,7 +64,7 @@ a { color: #00B7FF; }
 
 .so-con .so-in-top ul .so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
 
-.so-con .so-in-main { height: 2.78rem; background: url("../images/bg.jpg"); }
+.so-con .so-in-main { height: 2.78rem; background: url("../images/bg.jpg"); background-size: 100%; }
 
 .so-con .so-in-main > div { width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
 
@@ -394,7 +394,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
 
-#so-item1.jc115 ul li > div > div p span:first-child { background: url("../images/content/zhunxing.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1.jc115 ul li > div > div p span:first-child { background: url("../images/content/zhunxing.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item1.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
@@ -412,7 +412,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; border: none; display: inline-block; margin-bottom: 0; margin-left: 0; }
 
-#so-item2.jc115 ul li > div > div p span:first-child { background: url("../images/content/zhunxing.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item2.jc115 ul li > div > div p span:first-child { background: url("../images/content/zhunxing.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item2.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; float: none; padding: 0; }
 
@@ -422,7 +422,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > div p.active span:last-child { color: #fffbe2; }
 
-#so-item2.jc115 > .hd { height: .9rem; background: url("../../static/images/withcode_tab_bg.png") no-repeat; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.1rem; }
+#so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
 #so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; }
 
@@ -433,6 +433,10 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 #so-item2.jc115 > .hd ul > li.on { background: url("../../static/images/withcode_select_tab.png") no-repeat; background-size: 100%; width: 2rem; background-position-y: 0.03rem; margin-left: 0.03rem; }
 
 #so-item2.jc115 > .hd ul > li > a { height: .9rem; line-height: .9rem; }
+
+#so-item2.jc115 .bd .tab_content { padding: 0; }
+
+#so-item2.jc115 .bd .tab_content li { padding-top: 0; }
 
 .bule_bg { display: block; background: url("../images/bg.jpg") repeat-y; width: 100%; background-size: 100%; }
 

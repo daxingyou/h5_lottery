@@ -192,6 +192,7 @@ a {
     .so-in-main {
         height: 2.78rem;
         background: url("../images/bg.jpg");
+        background-size: 100%;
         > div {
             width: 100%;
             height: 100%;
@@ -1318,7 +1319,7 @@ img.bet_ok {
                     width: 1.3rem;
                     height: 1.3rem;
                     color: #fffbe2;
-                    font-size: 0.6rem;
+                    font-size: 0.52rem;
                     text-align: center;
                     line-height: 1.3rem;
                     text-indent: 0.1rem;
@@ -1365,6 +1366,11 @@ img.bet_ok {
         background: url('../images/content/jc115_ball_bg.png') no-repeat;
         background-size: 110% 6.84rem;
         background-position-x: -0.9rem;
+        // width: 7.4rem;
+        // height: 7.74rem;
+        // background: url(../images/content/jc115_ball_bg.png) no-repeat;
+        // background-size: 8.1rem 6.84rem;
+        // background-position-x: -1.1rem;
         text-align: center;
         margin: auto;
         > h2 {
@@ -1396,7 +1402,7 @@ img.bet_ok {
                     width: 1.3rem;
                     height: 1.3rem;
                     color: #fffbe2;
-                    font-size: 0.6rem;
+                    font-size: 0.52rem;
                     text-align: center;
                     line-height: 1.3rem;
                     text-indent: 0.1rem;
@@ -1438,7 +1444,7 @@ img.bet_ok {
 #so-item2.jc115{
     >.hd{
         height: .9rem;
-        background: url('../../static/images/withcode_tab_bg.png') no-repeat;
+        // background: url('../../static/images/withcode_tab_bg.png') no-repeat;
         width: 95%;
         background-size: 100%;
         // background-position: center 0.08rem;
@@ -1449,7 +1455,8 @@ img.bet_ok {
         border-right: 1px solid rgba(#456d8b,.6);
         border-bottom: 1px solid rgba(#456d8b,.4);
         box-shadow: 1px 1px 1px 0px rgba(#000, 0.2);
-        margin-top: 0.1rem;
+        margin-top: 0.2rem;
+        background-color: rgba($color: #0f1012, $alpha: 0.6);
         ul{
             white-space: nowrap;
             width: 100% !important;
@@ -1475,6 +1482,14 @@ img.bet_ok {
                     height: .9rem;
                     line-height: .9rem
                 }
+            }
+        }
+    }
+    .bd{
+        .tab_content{
+            padding: 0;
+            li{
+                padding-top: 0;
             }
         }
     }
