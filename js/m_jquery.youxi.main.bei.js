@@ -2752,7 +2752,7 @@ var is_select = 0;
                         };
                         $($.lt_id_data.id_selector).lt_selectarea(nn.selectarea);//生成选号界面
                         $.gameBtn();//在较小屏幕下，变换投注按钮位置
-                        filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
+                       // filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
 
                         //生成模式选择
 
@@ -2806,7 +2806,7 @@ var is_select = 0;
 
         $($.lt_id_data.id_smalllabel + ' dl.cWay').remove();
         $($.lt_id_data.id_smalllabel).prepend(html);
-        filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
+       // filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
 
         $("dd[name='smalllabel']").click(function(){ // 选择游戏种类标签
 
@@ -2886,7 +2886,7 @@ var is_select = 0;
             }
             $($.lt_id_data.id_selector).lt_selectarea(opts.label[index[0]].label[index[1]].selectarea);//生成选号界面
             $.gameBtn();//在较小屏幕下，变换投注按钮位置
-            filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
+           // filterHeight();//根据购彩区域高度来调整近期开奖和活动公告高度
 
             //生成模式选择
             //modelhtml = '<select name="lt_project_modes" id="lt_project_modes">';
