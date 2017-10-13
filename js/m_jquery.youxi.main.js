@@ -240,14 +240,14 @@ var is_select = 0;
                 305: 'SDZU3',
                 307: 'SDZX2',
                 309: 'SDZU2',
-                311: 'SDBDW',
-                313: 'SDDWD',
+                // 311: 'SDBDW',
+               // 313: 'SDDWD',
                 314: 'SDDWD',
                 315: 'SDDWD',
                 317: 'SDDDS',
                 319: 'SDCZW',
-                321: 'SDRX1',
-                323: 'SDRX2',
+               // 321: 'SDRX1',
+               // 323: 'SDRX2',
                 325: 'SDRX3',
                 327: 'SDRX4',
                 329: 'SDRX5',
@@ -3482,7 +3482,7 @@ var is_select = 0;
 
         //检查时间是否结束，然后做处理
         function checkTimeOut() {
-            if ($.lt_time_leave <= 0) {//结束
+            if ($.lt_time_leave <= 0) { //结束
                 if ($($.lt_id_data.id_cur_issue).html() > '') {
                     layer.open({ // 确定
                         title: '温馨提示',
@@ -3491,7 +3491,7 @@ var is_select = 0;
                         content: lot_lang.am_s15_2,
                         btn: ['确定'],
                         yes: function (index) {
-                            $.lt_reset(false);
+                          //  $.lt_reset(false); // 清空投注
                             $.lt_ontimeout();
                             layer.close(index);
                         }
@@ -3508,7 +3508,6 @@ var is_select = 0;
                         content: lot_lang.am_s15_2,
                         btn: ['确认']
                     });
-                    // $.alert(lot_lang.am_s15_2);
 
                 }
                 return false;
