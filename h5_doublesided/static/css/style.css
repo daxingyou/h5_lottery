@@ -108,7 +108,7 @@ a { color: #00B7FF; }
 
 .so-con .so-in-con .so-con-left > ul li.active { background: url(../images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
 
-.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: auto; }
+.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; }
 
 .so-con .so-in-con .so-con-right > div { padding-bottom: 2rem; }
 
@@ -220,7 +220,7 @@ a { color: #00B7FF; }
 
 .so-foot > div:nth-child(2) input::-webkit-input-placeholder { color: white; }
 
-.so-foot > div:nth-child(2) a { width: 1.63rem; display: block; height: 0.68rem; float: left; line-height: 0.64rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("../images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem; }
+.so-foot > div:nth-child(2) input[type=reset] { width: 1.63rem; display: block; height: 0.68rem; float: left; line-height: 0.64rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("../images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem; }
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
@@ -242,7 +242,7 @@ a { color: #00B7FF; }
 
 .so-foot.close > div:last-child > div { background: url(../images/foot/xiazhuhui.png) no-repeat; background-size: 84%; background-position: 0.17rem 0.5rem; }
 
-.so-fengpan { display: block; width: 10rem; height: 2.3rem; position: fixed; bottom: 0; }
+.so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.4rem; position: fixed; bottom: 0; z-index: 10; }
 
 .so-fengpan a { color: #fff; line-height: 2.3rem; font-size: 0.4rem; }
 

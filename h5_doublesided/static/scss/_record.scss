@@ -562,8 +562,16 @@ i.prd{
         width: 100% !important;
         // padding: 0 .5rem;
         min-height: 3rem;
-        display: block !important;
+        //display: block !important;
         padding: 0;
+        display: block;
+
+    }
+    .tab_content_out{
+        display: none;
+        &.on{
+            display: block;
+        }
     }
 }
 .road{
@@ -625,7 +633,7 @@ i.prd{
                      &:before{
                          content: '大 / 小';
                          display: block;
-                         position: fixed;
+                         position: absolute;
                          color: #666;
                          top:0;
                          left: 3%;
@@ -641,9 +649,10 @@ i.prd{
                     &:before{
                         content: '单 / 双';
                         display: block;
-                        position: fixed;
+                        position: absolute;
                         color: #666;
-                        top:50%;
+                        //top:50%;
+                        top:0;
                         left: 3%;
                         font-size: .25rem;
                     }

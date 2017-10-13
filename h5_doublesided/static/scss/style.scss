@@ -365,7 +365,8 @@ a {
             width: 7.5rem;
             float: left;
             height: 100%;
-            overflow-y: auto;
+            //overflow-y: auto;
+            overflow-y: scroll;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;
@@ -717,7 +718,7 @@ a {
         input::-webkit-input-placeholder {
             color: white;
         }
-        a {
+        input[type=reset]{
             width: 1.63rem;
             display: block;
             height: 0.68rem;
@@ -790,11 +791,12 @@ a {
 }
 .so-fengpan {
     display: block;
-    //封盤狀態切換background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.6);
     width: 10rem;
-    height: 2.3rem;
+    height: 2.4rem;
     position: fixed;
     bottom: 0;
+    z-index: 10;
     a {
         color: #fff;
         line-height: 2.3rem;
