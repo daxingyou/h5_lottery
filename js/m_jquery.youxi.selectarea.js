@@ -275,9 +275,9 @@
                     html += '<ul class="nList quwei">';
                     numbers = n.no.split('|');
                     temphtml = '';
-                    if (n.prize) {
+                  /*  if (n.prize) {
                         tmpprize = n.prize.split(',');
-                    }
+                    }*/
                     for (i = 0; i < numbers.length; i++) {
                         html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
                     }
@@ -2838,8 +2838,7 @@
                     var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
                 }
                 var pmodel = $('#pmode').val();// 投注奖金模式
-
-                if (typeof (pmodel) !== 'undefined') {
+            /*  if (typeof (pmodel) !== 'undefined') {
                     switch (pmodel) {
                         case '2':
                             stemp = $.lt_method_data.nfdprize.levs;
@@ -2852,9 +2851,9 @@
                 } else {
                     stemp = '';
                     pmodel = 1;
-                }
+                }*/
 
-                //	pmodel = stemp;
+
                 // 判断是否有重复相同的单
                 if ($.lt_same_code[mid] != undefined && $.lt_same_code[mid][modes] != undefined && $.lt_same_code[mid][modes].length > 0 && $.lt_same_code[mid][modes][cur_position] != undefined && $.lt_same_code[mid][modes][cur_position].length > 0) {
                     if ($.inArray(temp.join('|'), $.lt_same_code[mid][modes][cur_position]) != -1) { // 存在相同的
@@ -2895,7 +2894,6 @@
                 if ($('input[name=\'poschoose\']').val()) {
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\',\'poschoose\':\'' + $('input[name=\'poschoose\']').val() + '\'}';
                 } else {
-                    console.log('发多少')
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\'}';
                 }
 
@@ -2948,11 +2946,11 @@
                 // 计算奖金，并且判断是否支持利润率追号
                 var pc = 0;
                 var pz = 0;
-                $.each($.lt_method_data.prize, function (i, n) {
+              /*  $.each($.lt_method_data.prize, function (i, n) {
                     n = isNaN(Number(n)) ? 0 : Number(n);
                     pz = pz > n ? pz : n;
                     pc++;
-                });
+                });*/
                 if (pc != 1) {
                     pz = 0;
                 }
@@ -2964,7 +2962,7 @@
                     modes: modes,
                     poschoose: cur_position,
                     basemoney: basemoney,
-                    prize: pz,
+                   // prize: pz,
                     code: temp.join('|'),
                 });
                 // 把投注内容记录到临时数组中，用于判断是否有重复
