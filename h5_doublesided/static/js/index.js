@@ -84,8 +84,11 @@ function initNavChoice() {
             $(".so-con-left li").attr("class", "")
             $(this).attr("class", "active")
             $("#so-item" + i).show();
-        })
+        }).click(0);
     })
+    TouchSlide({
+        slideCell: "#so-item2",
+    });
 }
 
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次

@@ -110,7 +110,7 @@ a { color: #00B7FF; }
 
 .so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: auto; }
 
-.so-con .so-in-con .so-con-right > div { display: none; padding-bottom: 2rem; }
+.so-con .so-in-con .so-con-right > div { padding-bottom: 2rem; }
 
 .so-con .so-in-con .so-con-right > div.active { display: block; }
 
@@ -435,5 +435,3 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 #so-item2.jc115 > .hd ul > li > a { height: .9rem; line-height: .9rem; }
 
 .bule_bg { display: block; background: url("../images/bg.jpg") repeat-y; width: 100%; background-size: 100%; }
-
-/*# sourceMappingURL=style.css.map */
