@@ -84,7 +84,7 @@ function initNavChoice() {
             $(".so-con-left li").attr("class", "")
             $(this).attr("class", "active")
             $("#so-item" + i).show();
-        }).click(0);
+        }).click(0);//預先載入第一類左側選單的所有內容
     })
     TouchSlide({
         slideCell: "#so-item2",

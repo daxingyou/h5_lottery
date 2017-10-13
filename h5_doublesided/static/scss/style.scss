@@ -366,7 +366,7 @@ a {
             height: 100%;
             overflow-y: auto;
             > div {
-                // display: none;
+                // display: none; //更改載入方式
                 padding-bottom: 2rem;
             }
             > div.active {
