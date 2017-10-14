@@ -17,7 +17,7 @@ function initSoFun() {
 function initCount(type) {
 // api/priodDataNewly
     var access_token = getCookie('access_token'); // 取token
-    var lotteryId = 1;
+    var lotteryId = getCookie('lt_lottid') ;
     var methodid = $.lt_method_data.methodid;
     var data = {
         'lotteryId': lotteryId,

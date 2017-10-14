@@ -91,7 +91,7 @@ var numOne = [7, 5, 9, 7, 4, 1, 3, 5, 9, 7, 4, 2, 3, 5, 9, 7, 6, 3, 5, 9, 7, 4, 
 
 var pcodeArr = [];
 var pcount = 30; // 期数
-var lotteryId = 1; // 彩种
+var lotteryId = getCookie('lt_lottid') ; // 彩种
 
 $(function () {
     $(window).on('resize', function () {

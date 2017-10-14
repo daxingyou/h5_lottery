@@ -114,7 +114,7 @@ function getBetRecord(page, type, status) {
         'pageSize': pageSize, // 每页行数
         'searchType': type, // 查询类型，1为投注记录查询，2为追号查询
         'statusType': status, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
-        lotteryId: 1, // 彩种ID
+        lotteryId:getCookie('lt_lottid') , // 彩种ID
     };
     $.ajax({
         type: 'post',

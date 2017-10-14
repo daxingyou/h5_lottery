@@ -2,7 +2,7 @@
 $(function () {
     access_token = getCookie('access_token'); // 取token
     var pcount = 30;
-    var lotteryId = 1;
+    var lotteryId = getCookie('lt_lottid');
 
     var data = {
         'lotteryId': lotteryId,
