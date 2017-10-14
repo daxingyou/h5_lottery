@@ -3098,7 +3098,7 @@
         $.gameBtn();
     }
 
-    $(document).click(function () {
+/*    $(document).click(function () {
         var sid = window.showid;
         var $this = $('#div_slow_id_' + sid);
         var isHidden = $this.is(':hidden');
@@ -3109,10 +3109,10 @@
     $('.code').live('click', function (e) {
         e = e || window.event || arguments.callee.caller.arguments[0];
         e.stopPropagation();
-    });
+    });*/
 })(jQuery);
 
-function div_slow_show(showslow_id) {
+/*function div_slow_show(showslow_id) {
     var e = window.event || arguments.callee.caller.arguments[0];
     e.stopPropagation();
     window.showid = showslow_id;
@@ -3125,4 +3125,4 @@ function div_slow_show(showslow_id) {
 
 function div_slow_hide(showslow_id) {
     $('#div_slow_id_' + showslow_id).hide();
-}
+}*/

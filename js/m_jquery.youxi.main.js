@@ -86,6 +86,7 @@ var is_select = 0;
             servertime: '2010-02-10 09:09:40',//服务器时间[与服务器同步]
             ajaxurl: '',    //提交的URL地址,获取下一期的地址是后面加上flag=read,提交是后面加上flag=save
             lotteryId: 1,//彩种ID
+            lotteryName : '', // 当前彩种名称
             ontimeout: function () {
             },//时间结束后执行的函数
             onfinishbuy: function () {
@@ -2350,6 +2351,7 @@ var is_select = 0;
             lt_issues: opts.issues,//所有的可追号期的初始集合
             lt_ajaxurl: opts.ajaxurl,
             lt_lottid: opts.lotteryId,
+            lt_lotteryName : opts.lotteryName , // 当前彩种名称
             lt_total_nums: 0,//总投注注数
             lt_total_money: 0,//总投注金额[非追号]
             lt_time_leave: 0, //本期剩余时间
@@ -2367,6 +2369,7 @@ var is_select = 0;
         opts.issues = null;
         opts.ajaxurl = null;
         opts.lotteryId = null;
+        opts.lotteryName = null;
         if ($.browser.msie) {//&& /MSIE 6.0/.test(navigator.userAgent)
             CollectGarbage();//释放内存
         }
@@ -2498,7 +2501,7 @@ var is_select = 0;
 
 
         //生成并写入起始期内容
-        var chtml = '<select name="lt_issue_start" id="lt_issue_start">';
+   /*     var chtml = '<select name="lt_issue_start" id="lt_issue_start">';
         $.each($.lt_issues.today, function (i, n) {
             chtml += '<option value="' + n.issue + '">' + n.issue + (n.issue == opts.cur_issue.issue ? lot_lang.dec_s7 : '') + '</option>';
         });
@@ -2509,11 +2512,10 @@ var is_select = 0;
             }
         }
         chtml += '</select><input type="hidden" name="lt_total_nums" id="lt_total_nums" value="0"><input type="hidden" name="lt_total_money" id="lt_total_money" value="0">';
-        $(chtml).appendTo($.lt_id_data.id_issues);
+        $(chtml).appendTo($.lt_id_data.id_issues);*/
 
 
         $($.lt_id_data.id_cf_clear).click(function () {//清空按钮
-
             layer.open({
                 content: lot_lang.am_s5,
                 btn: ['确定'],
@@ -3008,8 +3010,7 @@ var is_select = 0;
                         }*/
                         //传说中的5秒自动关闭
 
-                       $.lt_reset(true);  // 还原数据
-
+                        $.lt_reset(true);  // 还原数据
                         $.lt_ontimeout();
 
                     } else {  // 销售截止
@@ -3065,7 +3066,7 @@ var is_select = 0;
                 data: 'lotteryId=' + $.lt_lottid,
                 success: function (data) {  //成功
                     console.log('拉取期数成功');
-                    for (var i = 2; i < data.data.length; i++) {
+                    for (var i = 2; i < data.data.length; i++) { // 重新处理近期开奖
                         processCode(data.data[i].pcode, data.data[i].winNumber);
                     }
 
@@ -3140,7 +3141,7 @@ var is_select = 0;
                     //  $($.lt_id_data.id_cur_end).html(formatTimeUnlix(data.data[1].endTime));
 
 
-                    var l = $.lt_issues.today.length;
+                   /* var l = $.lt_issues.today.length;
                     //05:更新起始期
                     while (true) {
                         if (data.issue == $.lt_issues.today.shift().issue) {
@@ -3151,7 +3152,6 @@ var is_select = 0;
                     }
                     $.lt_issues.today.unshift({issue: data.issue, endtime: data.saleend});
                     //重新生成并写入起始期内容
-                    //var chtml = '<select name="lt_issue_start" id="lt_issue_start">';
                     var chtml = '';
                     $.each($.lt_issues.today, function (i, n) {
                         chtml += '<option value="' + n.issue + '">' + n.issue + (n.issue == data.issue ? lot_lang.dec_s7 : '') + '</option>';
@@ -3162,17 +3162,16 @@ var is_select = 0;
                             chtml += '<option value="' + $.lt_issues.tomorrow[i].issue + '">' + $.lt_issues.tomorrow[i].issue + '</option>';
                         }
                     }
-                    /*chtml += '</select>';
-                                $("#lt_issue_start").remove();
-                                $(chtml).appendTo($.lt_id_data.id_issues);*/
+
                     $('#lt_issue_start').empty();
                     $(chtml).appendTo('#lt_issue_start');
                     //06:更新可追号期数
                     t_count = $.lt_issues.tomorrow.length;
-                    $($.lt_id_data.id_tra_alct).html(t_count);
+                    $($.lt_id_data.id_tra_alct).html(t_count);*/
+
                     //07:更新追号数据
-                    cleanTraceIssue();//清空追号区数据
-                    while (true) {  //删除追号列表里已经过期的数据
+                  //  cleanTraceIssue();//清空追号区数据
+                /*    while (true) {  //删除追号列表里已经过期的数据
                         $j = $('tr[id^=\'tr_trace_\']:first', $('#lt_trace_issues_today'));
                         if ($j.length <= 0) {
                             break;
@@ -3181,7 +3180,7 @@ var is_select = 0;
                             break;
                         }
                         $j.remove();
-                    }
+                    }*/
                 },
                 error: function () {//失败
                     layer.open({
@@ -3215,11 +3214,11 @@ var is_select = 0;
                 $($.lt_id_data.id_cf_content + ' div.lottery').remove();
                 //$($.lt_id_data.id_cf_content + " tr.cleanall").hide();
                 $($.lt_id_data.id_cf_count).html(0);
-                cleanTraceIssue();//清空追号区数据
+               // cleanTraceIssue();//清空追号区数据
             }
 
         }
-        $.gameBtn();
+       // $.gameBtn();
     };
    /* $.lt_reset_1 = function (iskeep, start, end, info) {
         var data = info;
@@ -3691,18 +3690,17 @@ var is_select = 0;
                                 $.lt_onfinishbuy();
 
                                 //追号相关
-                                $('.fqzhBox span').removeClass().addClass('uncheck');
+                               /* $('.fqzhBox span').removeClass().addClass('uncheck');
                                 $('.fqzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
                                 $('.tzzhBox span').removeClass().addClass('uncheck');
                                 $('.tzzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
-
                                 $($.lt_id_data.id_tra_ifb).val('no');
-                                $('#lt_trace_assert').val('no');
+                                $('#lt_trace_assert').val('no');*/
 
                                 layer.close(index);
                               //  $.funList.tzjlfn();//获取投注记录
 
-                                top.location.href = './template/bet_success.html?name=' + encodeURI('重庆时时彩') + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
+                                top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
                         });
 
@@ -3775,8 +3773,9 @@ var is_select = 0;
         };
 
     };
-
+// 重置投注保单，清空
     $.gameBtn = function () {
+        console.log('风控')
         var id_sel_num = $($.lt_id_data.id_sel_num).html(),//添加投注 已选注数
             id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(), 10), //投注倍数取整
             id_sel_insert = $($.lt_id_data.id_sel_insert),//添加投注 添加按钮
@@ -3798,7 +3797,6 @@ var is_select = 0;
             $('#lt_cf_content .cleanall').css('display', 'none');
 
         }
-        //alert($.lt_id_data.id_examplediv)
     };
 
 })(jQuery);

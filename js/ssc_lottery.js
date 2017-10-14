@@ -18,6 +18,7 @@ var data_label = [
         isnew:"0",
         isdefault:"1",
         title:"五星",
+        childrens:[],
         label:[
             {
                 gtitle:'五星直选',
@@ -223,6 +224,7 @@ var data_label = [
         isnew:"0",
         isdefault:"0",
         title:"四星",
+        childrens:[],
         label:[
             {
         gtitle:'四星直选',
@@ -379,7 +381,8 @@ var data_label = [
     {
         isnew:"0",
         isdefault:"0", // 展示默认玩法，1表示默认展示
-        title:"后三码",
+        title:"后三",
+        childrens:[],
         label:[
         {gtitle:'后三直选',
         cid:51,
@@ -521,7 +524,8 @@ var data_label = [
     {
         isnew:"0",
         isdefault:"0",
-        title:"前三码",
+        title:"前三",
+        childrens:[],
         label:[
             {
             gtitle:'前三直选',
@@ -655,7 +659,8 @@ var data_label = [
     {
         isnew:"0",
         isdefault:"0",
-        title:"中三码",
+        title:"中三",
+        childrens:[],
         label:[
             {gtitle:'中三直选',
         cid:41,
@@ -788,7 +793,8 @@ var data_label = [
     {
         isnew:"0",
         isdefault:"0",
-        title:"二码",
+        title:"二星",
+        childrens:[],
         label:[
             {gtitle:'二星直选',
             cid:61,
@@ -1016,6 +1022,7 @@ var data_label = [
         isnew:"0",
         isdefault:"0",
         title:"定位胆",
+        childrens:[],
         label:[
             {gtitle:'定位胆',
             cid:71,
@@ -1047,9 +1054,11 @@ var data_label = [
     {
         isnew:"0",
         isdefault:"0",
-        title:"不定胆",
+        title:"不定位",
+        childrens:[],
         label:[
-            {gtitle:'三星不定胆',
+            {
+            gtitle:'三星不定胆',
             cid:81,
             label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
         "methodhelp":"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。",
@@ -1136,6 +1145,7 @@ var data_label = [
         isnew:"0",
         isdefault:"0",
         title:"大小单双",
+        childrens:[],
         label:[
             {gtitle:'大小单双',
             cid:91,
@@ -1194,6 +1204,7 @@ var data_label = [
         isnew:"0",
         isdefault:"0",
         title:"趣味",
+        childrens:[],
         label:[
             {gtitle:'特殊',
             cid:100 ,
@@ -2245,7 +2256,7 @@ function getPlayTree(gameid) {
             "Authorization": "bearer  "+access_token,
         },
         url : action.forseti+'api/playsTree' ,
-        data: { lotteryId:gameid,} ,
+        data: { lotteryId:gameid,} , // 当前彩种id
         success: function(res){
            // dataPlay = res.data.childrens ;
 
@@ -2259,7 +2270,6 @@ function getPlayTree(gameid) {
             $.each(dataPlay, function (i, v) { // 组装最终数组
                // console.log(i.substring(0, 2)) ;
                 // console.log(v[0].status) ;
-
                 if(i.length>3){  // 除了不定位等
                     dataPlayAll[i.substring(0, 2)] =  dataPlayAll[i.substring(0, 2)] || [] ;
                     dataPlayAll[i.substring(0, 2)].push(v[0]) ;
@@ -2268,12 +2278,25 @@ function getPlayTree(gameid) {
                     dataPlayAll[i.substring(0, 3)].push(v[0]) ;
                 }
 
-
             });
 
-            console.log(dataPlayAll) ;
+            $.each(dataPlayAll, function (i, v) {
+                // console.log(i)
+                    $.each(v, function (j, m) {
+                     // console.log(m.childrens)
+                        $.each(data_label, function (ii, vv) { // 添加 childrens 数组进去
+                             if(i == vv.title){
+                                 vv.childrens.push(m.childrens)  ;
+                              }
+                            // console.log(vv.title)
 
-            console.log(data_label) ;
+                        });
+                    });
+            });
+
+            console.log(data_label)
+            console.log(dataPlayAll) ;
+           // console.log(data_label) ;
 
         },
         error: function() {
@@ -2454,8 +2477,9 @@ function getMemberBalance() {
            /// data_label: dataPlay,  // 玩法集合,2017/10
             cur_issue : {issue: now_pcode,endtime:now_time},
             servertime: sys_time ,  // 系统时间   setAmerTime()
-            lotteryId : parseInt(1,10),
-            issues    : {//所有的可追号期数集合
+            lotteryId : parseInt(1,10), // 当前彩种id
+            lotteryName : '重庆时时彩', // 当前彩种名称
+            issues    : {  //所有的可追号期数集合
                 today:[
                   /*  {issue:'20170817-087',endtime:'2017-08-17 20:29:05'},
                     {issue:'20170817-088',endtime:'2017-08-17 20:39:05'},
@@ -2471,8 +2495,8 @@ function getMemberBalance() {
             },
 
             ajaxurl : action.forseti+'api/priodDataNewly' ,   // 获取最近五期的开奖号码
-   /*         ontimeout : function(){
-                $.ajax({
+            ontimeout : function(){  // 时间结束后执行的函数
+               /* $.ajax({
                     type: 'POST',
                     url : './?controller=game&action=play&curmid=50',
                     data: "lotteryId=1&flag=gethistory",
@@ -2483,8 +2507,8 @@ function getMemberBalance() {
                         eval("data="+data);
                         processCode(data[0].issue,data[0].code);
                     }
-                });
-            },*/
+                });*/
+            },
             onfinishbuy : function(){
                /* $.ajax({
                     type: 'POST',
