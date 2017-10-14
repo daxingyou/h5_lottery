@@ -17,7 +17,7 @@ var is_select = 0;
 
     function TextHtml() { // 识别选的彩种玩法
         var bb = $('#lt_small_label .hover').html();
-        var cc = $('#lotteryType .hover').html();
+        var cc =  $($.lt_id_data.id_labelbox).find('.hover').html();
         $('#m-lott-listContent').html(cc + ' ' + bb + '<b></b>');
 
         // var laBox = $("#lt_small_label .cWay");
@@ -37,7 +37,7 @@ var is_select = 0;
                 // id_count_down   : '#count_down',//装载倒计时的ID
                 id_count_down: '.count_down',//装载倒计时的class
                 //id_labelbox     : '#lt_big_label', //装载大标签的元素ID
-                id_labelbox: '#lotteryType', //装载大标签的元素ID(原来的是:lt_big_label)
+                id_labelbox: '#lotteryType_ul', //装载大标签的元素ID(原来的是:lt_big_label)
                 id_smalllabel: '#lt_small_label',//装载小标签的元素ID
                 id_funding: '#lt_funding',//元角分控制
                 id_methoddesc: '#lt_desc',//装载玩法描述的ID
@@ -2463,8 +2463,11 @@ var is_select = 0;
 
         //下面是对【小标签】进行切换（例如：前三、后三、二码）
         $($.lt_id_data.id_labelbox + ' li').click(function () {  //切换标签
+            var name =  $(this).text();
+            sessionStorage.setItem('typename',name) ; // 把选择的玩法放在session里面，下次进来默认展示该玩法
             //获取当前点击标签的索引
             var index = $($.lt_id_data.id_labelbox + ' li').index($(this));
+
             //如果当前标签是被选中的标签
             if ($(this).hasClass('hover')) {
                 return false;

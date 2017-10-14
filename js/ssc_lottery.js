@@ -2192,6 +2192,17 @@ var data_label = [
      }]}]}	,*/
 ];
 
+// 改变默认玩法，从session 里面取值
+function setTypePlay() {
+    $.each(data_label,function (n,m) {
+        m.isdefault = '0' ;  // 还原默认玩法
+        if(m.title ==  sessionStorage.getItem('typename')){  // 匹配上次设置的玩法
+            m.isdefault = '1' ;
+        }
+    }) ;
+}
+setTypePlay() ;
+
 
 // 登录接口
 function LoginAction() {
