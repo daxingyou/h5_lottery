@@ -84,6 +84,8 @@
         border-bottom: 1px solid #F6F6F6;
         padding: 0.8571rem 0;
         display: block;
+        word-wrap: break-word;
+        word-break: break-all;
         span{
             display: inline-block;
             &:first-child{

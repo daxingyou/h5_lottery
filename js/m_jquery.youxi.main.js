@@ -3215,6 +3215,7 @@ var is_select = 0;
                 //$($.lt_id_data.id_cf_content + " tr.cleanall").hide();
                 $($.lt_id_data.id_cf_count).html(0);
                // cleanTraceIssue();//清空追号区数据
+                $.gameBtn() ;
             }
 
         }
@@ -3791,11 +3792,14 @@ var is_select = 0;
         if (id_cf_count == 0) {
             id_sendok.addClass('sendBtnDisabled');
             $('#lt_cf_content .cleanall').css('display', 'block');
+            $('.less_bei,.add_bei').addClass('sendBtnDisabled') ; //追号按钮，输入框处理
+            $('#id_add_times,#id_add_date').attr('readonly',true) ; //追号按钮，输入框处理
 
         } else {
             id_sendok.removeClass('sendBtnDisabled');
             $('#lt_cf_content .cleanall').css('display', 'none');
-
+            $('.less_bei,.add_bei').removeClass('sendBtnDisabled') ; //追号按钮，输入框处理
+            $('#id_add_times,#id_add_date').removeAttr('readonly') ; //追号按钮，输入框处理
         }
     };
 

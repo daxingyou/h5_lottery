@@ -2262,6 +2262,9 @@
             var inputVal = $(this).find('input');
 
             lessBtn.off().on('click', function () {
+                if ($(this).hasClass('sendBtnDisabled')) {  //没有选注不让操作
+                    return false;
+                }
                 var timesnum = parseInt(inputVal.val());
                 if (inputVal.val() > 1) {
                     inputVal.val(timesnum - 1);
@@ -2270,6 +2273,9 @@
                 return false;
             });
             addBtn.off().on('click', function () {
+                if ($(this).hasClass('sendBtnDisabled')) {  //没有选注不让操作
+                    return false;
+                }
                 var timesnum = parseInt(inputVal.val());
                 if (inputVal.val() < 99999) {
                     inputVal.val(timesnum + 1);
@@ -2411,7 +2417,7 @@
                 //	var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
                 var betdates = parseInt($($.lt_id_data.id_add_date).val(), 10);// 投注期数取整
                 var money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 倍数*注数*单价 * 模式
-               console.log(modes+'公交卡')
+
                 money = isNaN(money) ? 0 : money;
                 $($.lt_id_data.id_sel_money).html(money);
             });

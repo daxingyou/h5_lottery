@@ -2281,7 +2281,7 @@ function getPlayTree(gameid) {
             });
 
             $.each(dataPlayAll, function (i, v) {
-                // console.log(i)
+                // console.log(v)
                     $.each(v, function (j, m) {
                      // console.log(m.childrens)
                         $.each(data_label, function (ii, vv) { // 添加 childrens 数组进去
@@ -2386,6 +2386,7 @@ function getMemberBalance() {
 // 购物车动画
         function shopCar() {
             $('#ui_cart').on('click',function(){
+                $($.lt_id_data.id_sel_insert).click() ; // 购物车也可以添加投注
                 $('#ui_bet').stop(true,true).animate({left: 0},300,function(){
                     $('#body').addClass('bet_cart');
 
