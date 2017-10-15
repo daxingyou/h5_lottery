@@ -2636,6 +2636,9 @@ function getMemberBalance() {
 
 // 近期开奖处理
 function processCode(issue,code,iscurent){
+    if(!code){
+        code='-,-,-,-,-';
+    }
     var code_arr = code.split(',');
 
     var finishIssueCodeHtml = '<li><span class="issue">第' + issue + '期</span><span class="num"> ' ;
