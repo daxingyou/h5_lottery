@@ -126,17 +126,11 @@
     var access_token = getCookie('access_token');  // 取token
     var data = getStrParam('data');
     data = JSON.parse(data.data);
-
-
-    console.log(data);
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
-        data.chaseCountAll = list.length;
-
-
         $('.lottery_t')
             .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
-                '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
-                '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
+                '<span>已追<span class="ui_color_yellow">' + data.chaseSeq  + '</span>期</span>' +
+                '<span>总<span class="ui_color_yellow">' + data.chaseCount + '</span>期</span>' +
                 '</p>');
         if (data.chaseWinStop == 1) {
             data.chaseWinStop = '追中即停';
