@@ -33,7 +33,7 @@
 <body>
 <div id="body">
     <header class="page_header">
-        <a class="btn_back" href="javascript:;" onclick="history.go(-2);" title="返回"></a>
+        <a class="btn_back" href="javascript:;" onclick="history.go(-1);" title="返回"></a>
         <h2>追号详情</h2>
         <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
     </header>
@@ -166,8 +166,7 @@
         $.each(list, function (i, e) {
             console.log(list[i]);
             var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(e));
-            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount)
-                .toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + roundAmt(e.betAmount) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
         $('.tra_list')

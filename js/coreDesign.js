@@ -9,7 +9,7 @@ $(function(){
 				if(_href.indexOf(sidebar_hover) != -1 && len == 0){
 					$(node).parent('dd').addClass('hover');
 					len = 1;
-				}	
+				}
 			});
 		}
 	}
@@ -46,7 +46,7 @@ $(function(){
 			_key = sidebar_hover;
 			_data = lottery_data[_key];
 			if(typeof _data['classUl'] !== 'undefined'){//如果父容器有节点
-				_node.addClass(_data['classUl']);	
+				_node.addClass(_data['classUl']);
 			}
 
 			for(i; i < _data['len'] ; i+=1){
@@ -55,9 +55,9 @@ $(function(){
 						if(i === _data['andIndex']){
 							_html += '<li class="' + _data['andClass'] + '"><span></span></li>';
 						}else{
-							_html += '<li class="' + _data['classLi'] + '"><span>' + _data['num'] + '</span></li>';	
+							_html += '<li class="' + _data['classLi'] + '"><span>' + _data['num'] + '</span></li>';
 						}
-						
+
 					}else{
 						_html += '<li class="' + _data['classLi'] + '"><span>' + _data['num'] + '</span></li>';
 					}
@@ -65,9 +65,9 @@ $(function(){
 					if(typeof _data['classSpan'] !== 'undefined'){
 						_html += '<li><span class="' + _data['classSpan'] + '">' + _data['num'] + '</span></li>';
 					}else{
-						_html += '<li><span>' + _data['num'] + '</span></li>';	
+						_html += '<li><span>' + _data['num'] + '</span></li>';
 					}
-					
+
 				}
 			}
 
@@ -78,7 +78,7 @@ $(function(){
 				_node.html(_html)
 				// .css({'width': _data['width']*_data['len'] + "px"});
 			}
-			
+
 		}
 	}
 	fillBall();
@@ -231,7 +231,7 @@ $(function(){
 		'hideLotteries' : function(){//隐藏左侧彩种集合
 			var _height = $(window).height();
 			if(_height <= 625 && $.funList.initTag){
-				$('.sidebar_lotteries a').trigger('click');		
+				$('.sidebar_lotteries a').trigger('click');
 			}
 		},
 		'JS_blockPage' : function(){//如果有弹窗让他永远在屏幕的中间
@@ -268,7 +268,7 @@ $(function(){
 	$.funList.init();//初始化相关功能
 
 	$.globelData = {
-		"bigJson" : { 
+		"bigJson" : {
 		/*"lottery_12" : {"lotteryId":12,"uType":"ssc","runTime":"1160","issue":"20140928-018","lotteryName":"12天天时时彩","code":"80652","totalTime":"300"},
 		"lottery_23" : {"lotteryId":23,"uType":"ssc","runTime":"862","issue":"20140928-018","lotteryName":"23天天时时彩","code":"80652","totalTime":"300"}*/
 		},
@@ -344,7 +344,7 @@ $(function(){
 						}else{//出错 打印出错信息
 							//alert(json.error);
 						}
-						
+
 					}
 				})
 			}
@@ -392,7 +392,7 @@ $(function(){
 				if(typeof _data !== 'object'){
 					_this.lottery_arr = [];
 					//$.alert("获取数据失败");
-				}	
+				}
 			})
 
 			$.globelTimer.init();
@@ -525,7 +525,7 @@ $(function(){
 			_code = _obj['code'];
 			//console.log('runTime:' + _obj['runTime'] + '-----' + 'totalTime:' + _obj['totalTime']);
 			if(_this.issueold === ""){
-				_this.issueold = _issue;	
+				_this.issueold = _issue;
 			}
 			if(_this.issueold !== _issue){
 				processCode(_issue,_code,2);
@@ -641,7 +641,7 @@ $(function(){
 							_seconds = ~~_time10[2] + _time10[1]*60;
 						var secs = ($.now() - timer)/1000;
 						if(secs > 60){
-							
+
 							if(_seconds > 270){
 								$.race().fnTabChangeInitial();
 							}else if(_seconds <= 270 && _seconds >= 210){
@@ -675,7 +675,7 @@ $(function(){
 						}
 					}
 				});
-			}		
+			}
 		}
 	};
 
@@ -684,8 +684,8 @@ $(function(){
 	$.globelFun = {
 		spCode : ":",
 		//倒计时时间返回
-		showTime : function(second){
-			var second = parseInt(second);
+        showTime : function(second){
+            var second = parseInt(second);
 			var day,hour,minute,sec;
 			//day = parseInt(second/(3600*24));
 			//hour = parseInt(second%(3600*24)/(3600));
@@ -696,10 +696,10 @@ $(function(){
 			//day = (day > 0 && day < 10 && day != "") ? day + "天" : day;
 			hour = (hour == 0) ? "" : hour;
 			//if(day != ""){
-				//hour = (hour > 0 && hour < 10) ? "0" + hour + ":" : hour + ":"	
+				//hour = (hour > 0 && hour < 10) ? "0" + hour + ":" : hour + ":"
 			//}else{
 				if(hour != ""){
-					hour = (hour > 0 && hour < 10) ? "0" + hour + this.spCode : hour + this.spCode	
+					hour = (hour > 0 && hour < 10) ? "0" + hour + this.spCode : hour + this.spCode
 				}else{
 					hour = "00" + this.spCode;
 				}
@@ -713,7 +713,7 @@ $(function(){
 				return hour + minute + sec;
 			}else{
 				return "-- : -- : --";
-			}		
+			}
 		},
 		//获取cookie
 		getCookie : function(name){
@@ -803,7 +803,7 @@ function filterHeight(){
 	var _timeout;
 	//console.log(lotteryBodyHeight);
 	//设置近期开奖活动公告高度
-	
+
 
 	var next_height = $(".recentBox .next").height();
 	next_height = (typeof next_height === 'object') ? 0 : next_height;

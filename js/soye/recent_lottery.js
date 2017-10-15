@@ -4,16 +4,16 @@ $(function () {
     var pcount = 30;
     var lotteryId = getCookie('lt_lottid');
 
-    var data = {
+    var pam = {
         'lotteryId': lotteryId,
-        'pcount': pcount
+        'pcount': pcount,
     };
     // trend_tab_1
     $('.trend_tab_1 li').each(function (i, t) {
         $(t).click(function () {
             $('.trend_tab_1 li').attr('class', '');
             $(this).attr('class', 'active');
-            data.pcount = $(this).attr('data-val');
+            pam.pcount = $(this).attr('data-val');
             initopenNumsFun();
         });
     });
@@ -24,15 +24,31 @@ $(function () {
         $.ajax({
             type: 'get',
             headers: {
-                'Authorization': 'bearer ' + access_token
+                'Authorization': 'bearer ' + access_token,
             },
             dataType: 'json',
             contentType: 'application/json; charset=utf-8', // json格式传给后端
             url: action.forseti + 'api/openNums/bigDoubleCount',
-            data: data, // json格式
+            data: pam, // json格式
             success: function (res) {
                 if (res.err == 'SUCCESS') {
                     var data = res.data;
+                    if (parseInt(pam.pcount, 10) === 120) {
+                        var l = [];
+                        var date = '';
+                        for (var i in data) {
+                            if (data[i].pdate > date || date === '') {
+                                date = data[i].pdate;
+                            }
+                        }
+                        for (var i in data) {
+                            if (date === data[i].pdate) {
+                                l.push(data[i]);
+                            }
+                        }
+                        data = l;
+
+                    }
                     console.log(data);
                     var tr_html = '';
                     $.each(data, function (i, e) {
@@ -57,7 +73,7 @@ $(function () {
             },
             error: function (err) {
                 console.log(err.responseText);
-            }
+            },
         });
     }
 });

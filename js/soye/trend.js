@@ -16,6 +16,8 @@ $(function () {
             .removeClass('hover');
         var val = $(this).data('val');
         var trend_content = $('.trend_content li');
+        var trend_data = $('.trend_data');
+
         if (val == 0) {
             trend_content.show();
             $(trend_content[0]).trigger('click');
@@ -24,6 +26,7 @@ $(function () {
             // 四星
             trend_content.show();
             $(trend_content[0]).hide();
+            $(trend_data[0]).hide();
             $(trend_content[1]).trigger('click');
             trend_content.width('25%');
         } else if (val == 2) {
@@ -31,6 +34,9 @@ $(function () {
             trend_content.show();
             $(trend_content[3]).hide();
             $(trend_content[4]).hide();
+            $(trend_data[3]).hide();
+            $(trend_data[4]).hide();
+
             $(trend_content[0]).trigger('click');
             trend_content.width('33.33%');
         } else if (val == 3) {
@@ -38,6 +44,8 @@ $(function () {
             trend_content.show();
             $(trend_content[0]).hide();
             $(trend_content[4]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[4]).hide();
             $(trend_content[1]).trigger('click');
             trend_content.width('33.33%');
         } else if (val == 4) {
@@ -45,6 +53,8 @@ $(function () {
             trend_content.show();
             $(trend_content[0]).hide();
             $(trend_content[1]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[1]).hide();
             $(trend_content[2]).trigger('click');
             trend_content.width('33.33%');
         } else if (val == 5) {
@@ -53,6 +63,9 @@ $(function () {
             $(trend_content[2]).hide();
             $(trend_content[3]).hide();
             $(trend_content[4]).hide();
+            $(trend_data[2]).hide();
+            $(trend_data[3]).hide();
+            $(trend_data[4]).hide();
             $(trend_content[0]).trigger('click');
             trend_content.width('50%');
         } else if (val == 6) {
@@ -61,9 +74,16 @@ $(function () {
             $(trend_content[0]).hide();
             $(trend_content[1]).hide();
             $(trend_content[2]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[1]).hide();
+            $(trend_data[2]).hide();
             $(trend_content[3]).trigger('click');
             trend_content.width('50%');
         }
+        /**
+         * 应在此更新页码滑动插件
+         */
+
     });
     $('.trend_tab_1 li').click(function () {
         $(this).addClass('active')
@@ -298,5 +318,5 @@ function initTableFun() {
 }
 
 TouchSlide({
-    slideCell: '#trend_content'
+    slideCell: '#trend_content',
 });
