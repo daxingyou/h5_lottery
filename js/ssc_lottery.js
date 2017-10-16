@@ -108,7 +108,7 @@ var data_label = [
             "show_str" : "X",
             "code_sp" : ",",
             "ifrandom" : 1, // 机选
-            "randomcos" : 3,  // 机选
+            "randomcos" : 5,  // 机选
             "randomcosvalue" : "1|1|1|1|1",  // 机选
             methodid : 121,
             name:'组选120',

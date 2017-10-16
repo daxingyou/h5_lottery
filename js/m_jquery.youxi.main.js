@@ -27,6 +27,22 @@ var is_select = 0;
         // }
     }
 
+  // 处理头部玩法问题
+    function setWidth() {
+        var docW = $(document).width();
+        var sum = 0;
+        $($.lt_id_data.id_labelbox).find('li').each(function (i, v) {
+            var wd = $(v).width() + 30;
+            sum += wd;
+        });
+        if (sum > docW) {
+            $($.lt_id_data.id_labelbox).width(sum);
+            return false;
+        } else {
+
+        }
+    }
+
     $.gameInit = function (opts) {//整个购彩界面的初始化
         var ps = {//整个JS的初试化默认参数
             data_label: [],
@@ -2435,24 +2451,10 @@ var is_select = 0;
             $($.lt_id_data.id_changetype).show();
         }
 
-        $(bhtml).appendTo($.lt_id_data.id_labelbox);
-        (function () {
-            var docW = $(document).width();
-            var sum = 0;
-            $($.lt_id_data.id_labelbox).find('li').each(function (i, v) {
-                var wd = $(v).width() + 30;
-                sum += wd;
-            });
-            // var html_font = parseFloat($('html').css('font-size').slice(0,2));
-            // var sun_rem =  ((sum/html_font)+3) + 'rem';
-            if (sum > docW) {
-                $($.lt_id_data.id_labelbox).width(sum);
-                return false;
-            } else {
-            }
+       // $(bhtml).appendTo($.lt_id_data.id_labelbox);
+       $($.lt_id_data.id_labelbox).html(bhtml) ;
 
-        })();
-
+        setWidth() ;
         //如果没有设置默认玩法，将第一个设置为默认玩法
         if (hasdefault == false) {
             $($.lt_id_data.id_labelbox + ' li').eq(0).removeClass().addClass('hover');
