@@ -310,9 +310,9 @@ body { }
 .addOrderBox .funding .onSelect{ display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; background: url(../images/icon_arrow-b.svg) no-repeat right 0.5rem center;padding: 0px 2rem 0px 1rem; color: #52acd3; }
 .addOrderBox .funding a span { font-size: 0.857143rem; color: #52acd3; display: block; height: 1.785714rem; line-height: 1.785714rem; text-align: center;  cursor: pointer; }
 .addOrderBox .funding a span.hover { color: #fff; background-color: #344146; }
-.addOrderBox .multipleBox { margin-left: 0.8rem; display: inline; float: left; margin-top: 0.1rem;}
+.addOrderBox .multipleBox { margin-left: 0.5rem; display: inline; float: left; margin-top: 0.1rem;}
 .multipleCon {  height: 2.1rem; display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; color: #c9c9c9; }
-.multipleCon input { width: 3.571rem; height: calc( 1.714rem - 2px ); line-height: calc( 1.714rem - 2px ); color: #52acd3; font-weight: bold; text-align: center; font-size: 1.0rem; border: 1px solid #fff; }
+.multipleCon input { width: 3.571rem; height: calc( 1.714rem - 2px ); line-height: calc( 1.714rem - 2px ); color: #52acd3; font-weight: bold; text-align: center; font-size: 0.8rem; border: 1px solid #fff; }
 .multipleCon .reduce { width: 2.428571rem; height: 1.0rem; line-height: 1.0rem; position: absolute; right: 0px; bottom: 0px; background: url(../images/lottery/bei.png) no-repeat; }
 .multipleCon .add { width: 34px; height: 1.071429rem; line-height: 1.071429rem; position: absolute; right: 0px; top: 0px; background: url(../images/lottery/bei.png) no-repeat; }
 .multipleCon .reduce,
@@ -603,5 +603,5 @@ body { }
 	.m_fx_footer .v-moeny  .chongzhi { float: right; font-size: 1rem; color: #fff; }
 	.m_fx_footer .v-moeny  .chongzhi a { width: auto; font-size: 1.142857rem; line-height: 2.45rem; color: #52acd3; text-decoration: underline; background-color: #2E263D; }
 @media only screen and (max-width:350px){
-	.multipleCon input { width: 1.5rem;}
+	.multipleCon input { width: 2rem; }
 }
