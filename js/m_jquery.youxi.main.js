@@ -2490,7 +2490,7 @@ var is_select = 0;
 				if(opts.data_label[index].label.length>0){
 				   lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label});
 				}else{
-					
+
 				}
 			}
            TextHtml();

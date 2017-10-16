@@ -3,11 +3,11 @@ function initSoFun() {
     var html = '';
     $('.radio input')
         .each(function (i, t) {
-            if ($(t)
-                    .attr('checked') == 'checked' && i !== 2) {
+            if ($(t).attr('checked') == 'checked' && i !== 2) {
                 initCount(i);
                 radio_start = i;
-            } else {
+            } else if ($(t).attr('checked') == 'checked' && i === 2) {
+                radio_start = 99;
                 $('#lt_selector .nList li').find('i')
                     .remove();
             }

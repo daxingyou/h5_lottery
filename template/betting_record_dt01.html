@@ -132,7 +132,13 @@
     $('.so-orderId')
         .html(data.orderId);
     $('.so-betAmount')
-        .html(data.betAmount);
+        .html(roundAmt(data.betAmount));
+
+    // 金额转换,分转成元
+    function roundAmt(v) {
+        return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
+    }
+
     $('.so-playName')
         .html(data.playName);
     $('.so-betContent')
@@ -154,6 +160,8 @@
                 .attr('class', 'bet_status status_green');
             $('.bet_status')
                 .html('已中奖');
+            var html = '<li><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>'
+            $('.print_data li:nth-child(3)').after(html)
         }
         if (data.orderStatusName == '系统撤单') {
             $('.bet_status')
