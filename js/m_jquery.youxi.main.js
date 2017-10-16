@@ -3516,6 +3516,19 @@ var is_select = 0;
                 'sourceType':'2', // 1是pc端，2是h5
 
             };
+            var if_zhui = '1'; // 期数大于1默认追号
+            var if_zt = $('.btn_addstop').data('val') ; // 期数大于1默认追中即停
+            var z_dates = $($.lt_id_data.id_add_date).val()
+                .replace(/[^0-9]/g, '')
+                .substring(0, 5); // 追号期数选择
+            if(z_dates>1){ // 期数大于1 的情况下
+                if_zhui = '1';
+                if_zt = $('.btn_addstop').data('val') ;
+            }else{
+                if_zhui = '0';
+                if_zt = '0' ;
+            }
+
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
 
                 var num_each = $(n).find('.num-each').text();  // 每单注数
@@ -3538,8 +3551,8 @@ var is_select = 0;
                         'betCount': Number(num_each), //注单数
                         'betMode': 0, //下注模式(预留)
                         'chaseCount': Number(date_each), //追号期数(含当期),默认1
-                        'chaseWinStop': 0,//是否追中即停
-                        'ifChase': $('.btn_addstop').data('val') , //是否追号,0不追号，1追号
+                        'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
+                        'ifChase': if_zhui , //是否追号,0不追号，1追号
                         'moneyMode': play_type ,//付款类型：元y，角j，分f
                         'multiple': Number(time_each), //倍数最少为1
                         'payoff': 0, //派彩
