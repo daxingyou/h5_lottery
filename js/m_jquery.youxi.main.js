@@ -3725,13 +3725,13 @@ var is_select = 0;
         if (id_cf_count == 0) {
             id_sendok.addClass('sendBtnDisabled');
             $('#lt_cf_content .cleanall').css('display', 'block');
-            $('.less_bei,.add_bei').addClass('sendBtnDisabled') ; //追号按钮，输入框处理
+            $('.z_less_bei,.z_add_bei').addClass('sendBtnDisabled') ; //追号按钮，输入框处理
             $('#id_add_times,#id_add_date').attr('readonly',true) ; //追号按钮，输入框处理
 
         } else {
             id_sendok.removeClass('sendBtnDisabled');
             $('#lt_cf_content .cleanall').css('display', 'none');
-            $('.less_bei,.add_bei').removeClass('sendBtnDisabled') ; //追号按钮，输入框处理
+            $('.z_less_bei,.z_add_bei').removeClass('sendBtnDisabled') ; //追号按钮，输入框处理
             $('#id_add_times,#id_add_date').removeAttr('readonly') ; //追号按钮，输入框处理
         }
     };

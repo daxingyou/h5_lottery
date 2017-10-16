@@ -2373,7 +2373,7 @@
             } else {
                 $(this).attr('data-val', '1')
                     .css('color', '#c9c9c9')
-                    .text('取消');
+                    .text('取消追号');
             }
             zhuiflage++;
 
