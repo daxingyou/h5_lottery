@@ -20,12 +20,12 @@ body { }
 .m-lott-methodBox .fandian select { border: 1px solid #bbb; padding: 0.2rem 0.1rem; border-radius: 0.3rem; font-size: 0.8rem; color: #624982; }
 .m-lott-methodBox-list {	/*display: none;*/background: #f1f1f1; width: 100%; height: 0px; position: absolute; z-index: 2; max-height: 20.714285rem; }
 /* .m-lott-methodBox-list:before { content: ''; height: 2.8rem; width: 1.4rem; text-align: left; color: #fff; z-index: 2; position: absolute; right: 0; background-image: -webkit-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgb(55, 47, 80) 100%); background-image: -moz-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: -o-linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); background-image: linear-gradient(left, rgba(55, 47, 80, 0) 0%, rgba(55, 47, 80) 100%); } */
-.lotteryGroup { height: 3.0rem; overflow: scroll; position: relative; z-index: 2; background-color: #f1f1f1; }
-.lotteryGroup ul { display: block; overflow-y: scroll; height: 3.0rem;    /*width: 657px; */  white-space: nowrap;}
-.lotteryGroup ul li { cursor: pointer; font-size: 1.1rem; color: #ccc; display: inline-block; float: left; height: 2.857143rem; line-height: 2.857143rem; padding: 0px 0.928571rem; position: relative; }
+.lotteryGroup {height: auto;overflow: scroll;position: relative;z-index: 2;background-color: #f1f1f1;}
+.lotteryGroup ul {display: block;overflow-y: scroll;/* height: 3.0rem; *//*width: 657px; */white-space: nowrap;margin-top: .5rem;}
+.lotteryGroup ul li {cursor: pointer;font-size: 1.1rem;color: #ccc;display: inline-block;float: left;height: 2.3rem;line-height: 2.3rem;padding: 0px 0.6rem;position: relative;border-radius: .5rem;border: 1px solid #ccc;margin: 0.2rem .2rem;}
 
 /*.lotteryGroup ul li:hover { color:#52acd3; font-weight:bold;}*/
-.lotteryGroup ul li.hover { border-bottom: 2px solid #52acd3; font-weight: bold; color: #52acd3; }
+.lotteryGroup ul li.hover {border: 1px solid #52acd3;font-weight: bold;color: #fff;background: #52acd3;}
 .lotteryGroup .ren { padding-right: 1.071429rem; display: inline; float: right; height: 2.857143rem; line-height: 2.857143rem; display: none; }
 .lotteryGroup .ren a { background: url(../images/lottery/ren.png) no-repeat left center; display: block; padding-left: 1.285714rem; font-size: 1.0rem; color: #2e2b2b; }
 .lotteryGroup .fandian { color: #494949; font-size: 0.857143rem; top: 0.857143rem; right: 0.571428rem; }
@@ -415,13 +415,13 @@ body { }
 
 
 .recentBox ul.pk10_kjul li .num_k8{max-width: none;margin-right: 0px;width: 67%;}
-.recentBox ul.pk10_kjul{float: none; margin-right: 0;}       
+.recentBox ul.pk10_kjul{float: none; margin-right: 0;}
 .recentBox ul.pk10_kjul li { }
 .recentBox ul.pk10_kjul li .issue_k8{font-size: 1rem;
-     line-height: 2.5rem; 
-    float: left;
-    text-align: center;
-    width: 30%;}
+	line-height: 2.5rem;
+	float: left;
+	text-align: center;
+	width: 30%;}
 
 .recentBox ul li.hover .issue,
 .recentBox ul li.hover .num,
@@ -491,117 +491,117 @@ body { }
 .m_vico_lhc .cleanall {	/*line-height: 2.142857rem;*/ }
 .m_vico_lhc .addList {	/*	max-height: 200px;
 				    overflow-x: scroll;*/ }
-	.m_vico_lhc .lotteryList {	/*padding: 0;*/ }
+.m_vico_lhc .lotteryList {	/*padding: 0;*/ }
 
-	/*.m_vico_lhc .cleanall{
-	padding: 2px 7px;
-	font-size: 12px;
-	}*/
+/*.m_vico_lhc .cleanall{
+padding: 2px 7px;
+font-size: 12px;
+}*/
 
-	/*立即投注区域*/
-	.orderNow { overflow: hidden; padding: 0.5rem 0.5rem 0; background: #fff; }
-	.m_total_amout { padding: 1.285714rem 0; font-size: 1.285714rem; text-align: center; }
-	.chooseAllMsg { font-size: 1.0rem; color: #b5aac8; }
-	.chooseAllMsg .num { font-weight: bold; font-size: 1.285714rem; color: #52acd3; }
-	.chooseAllMsg .orange { color: #52acd3; }
-	.chooseAllMsg p { display: inline-block; margin-right: 1.071429rem; }
-	.sendChoose {  position: absolute; bottom: 0.8rem; right: 1rem; z-index: 120; display: none; }
-	.sendChoose a { background: #52acd3; margin: 0 auto; border-radius: 20px; display: block; width: 100%; height: 1.785714rem; line-height: 1.785714rem; text-align: center; color: #fff; font-size: 0.8571rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; padding: 0px 2rem;}
-	.sendChoose a.sendBtnDisabled { background-color: #C7C7C7; }
-	.checkZhui { color: #52acd3; font-size: 0.928571rem; }
-	.fqzhBox,
-	.qxzhBox { margin: 0.357143rem 0px 0 1.071429rem; float: right; display: inline; }
-	.qxzhBox { cursor: pointer; color: #CAA396; }
+/*立即投注区域*/
+.orderNow { overflow: hidden; padding: 0.5rem 0.5rem 0; background: #fff; }
+.m_total_amout { padding: 1.285714rem 0; font-size: 1.285714rem; text-align: center; }
+.chooseAllMsg { font-size: 1.0rem; color: #b5aac8; }
+.chooseAllMsg .num { font-weight: bold; font-size: 1.285714rem; color: #52acd3; }
+.chooseAllMsg .orange { color: #52acd3; }
+.chooseAllMsg p { display: inline-block; margin-right: 1.071429rem; }
+.sendChoose {  position: absolute; bottom: 0.8rem; right: 1rem; z-index: 120; display: none; }
+.sendChoose a { background: #52acd3; margin: 0 auto; border-radius: 20px; display: block; width: 100%; height: 1.785714rem; line-height: 1.785714rem; text-align: center; color: #fff; font-size: 0.8571rem; background: url(../images/btn_bg.svg) no-repeat center center #52acd3; padding: 0px 2rem;}
+.sendChoose a.sendBtnDisabled { background-color: #C7C7C7; }
+.checkZhui { color: #52acd3; font-size: 0.928571rem; }
+.fqzhBox,
+.qxzhBox { margin: 0.357143rem 0px 0 1.071429rem; float: right; display: inline; }
+.qxzhBox { cursor: pointer; color: #CAA396; }
 
-	/*.qxzhBox:hover { color:#999;}*/
-	.checkZhui span { display: inline-block; width: 13px; height: 13px; margin-right: 0.142857rem; cursor: pointer; background: url(../images/lottery/checkbox.png) no-repeat; vertical-align: -0.1rem; }
-	.checkZhui span.uncheck { background: url(../images/lottery/checkbox.png) left -13px no-repeat; background-size: 100% }
-	.checkZhui input,
-	.close_zhbox,
-	.zhBox { display: none; }
-	.checkZhui b { font-weight: normal; cursor: pointer; }
-	.prize-notification{float:right;color:#52acd3;font-size:13px;}
-	.prize-notification span{display: inline; margin-top: 2px; width: 13px; height: 13px; float: left; margin-right: 2px; cursor: pointer; background: url(../images/lottery/checkbox.png) no-repeat;}
-	.prize-notification .uncheck{background: url(../images/lottery/checkbox.png) left -13px no-repeat;}
-	.prize-notification b { font-weight: normal; cursor: pointer; margin-left:3px;}
-	/*.checkZhui b:hover { color:#898989;}*/
+/*.qxzhBox:hover { color:#999;}*/
+.checkZhui span { display: inline-block; width: 13px; height: 13px; margin-right: 0.142857rem; cursor: pointer; background: url(../images/lottery/checkbox.png) no-repeat; vertical-align: -0.1rem; }
+.checkZhui span.uncheck { background: url(../images/lottery/checkbox.png) left -13px no-repeat; background-size: 100% }
+.checkZhui input,
+.close_zhbox,
+.zhBox { display: none; }
+.checkZhui b { font-weight: normal; cursor: pointer; }
+.prize-notification{float:right;color:#52acd3;font-size:13px;}
+.prize-notification span{display: inline; margin-top: 2px; width: 13px; height: 13px; float: left; margin-right: 2px; cursor: pointer; background: url(../images/lottery/checkbox.png) no-repeat;}
+.prize-notification .uncheck{background: url(../images/lottery/checkbox.png) left -13px no-repeat;}
+.prize-notification b { font-weight: normal; cursor: pointer; margin-left:3px;}
+/*.checkZhui b:hover { color:#898989;}*/
 
-	/*查看更多*/
-	.m_see_more { display: block; padding: 0.5rem 0.571428rem 0.5rem 0.571428rem; border: 1px solid #b5aac8; color: #b5aac8; border-radius: 5px; margin: 1.5rem auto; width: 9.9rem; background-image: url(../images/lottery/iconfont-2jilu.png); background-position: 1.214286rem center; background-repeat: no-repeat; padding-left: 2.928571rem; background-size: 1.214286rem; }
+/*查看更多*/
+.m_see_more { display: block; padding: 0.5rem 0.571428rem 0.5rem 0.571428rem; border: 1px solid #b5aac8; color: #b5aac8; border-radius: 5px; margin: 1.5rem auto; width: 9.9rem; background-image: url(../images/lottery/iconfont-2jilu.png); background-position: 1.214286rem center; background-repeat: no-repeat; padding-left: 2.928571rem; background-size: 1.214286rem; }
 
-	/*底部标注*/
-	.m_footer_annotation { background: #f3f3f3; color: #c2c2c2;}
-	.padding_fot_b20 { height: 5.5rem; }
+/*底部标注*/
+.m_footer_annotation { background: #f3f3f3; color: #c2c2c2;}
+.padding_fot_b20 { height: 5.5rem; }
 
-	/*追号容器*/
-	.zhBox { -moz-user-select: -moz-none; background-color: #fff; position: fixed; top: 0.571428rem; left: 0px; width: 100%; -webkit-user-select: none; display: none; z-index: 998; }
-	.zhBox .checkZhui { float: left; margin: 0.3rem 0 0 0; color: #a96b94; font-size: 0.857143rem; text-align: center; }
-	.zhBox .checkZhui span { display: inline-block; width: 1.2rem; height: 1.2rem; margin-top: 0; margin-right: 0.357143rem; cursor: pointer; }
-	.zhBox .checkZhui span.check { background: url(../images/lottery/checked.png) no-repeat; background-size: 100%; vertical-align: -0.2rem; }
-	.zhBox .checkZhui span.uncheck { background: url(../images/lottery/unchecked.png) no-repeat; background-size: 100%; vertical-align: -0.2rem; }
-	.zhBox .checkZhui input { display: none; }
-	.zTab { background: #f8f8f8 url(../images/lottery/sc_zuihao_tit_xian.png) repeat-x 0 bottom; overflow: hidden; }
-	.zTab ul { }
-	.zTab ul li { float: left; display: inline; width: 33.3%; text-align: center; height: 3.642857rem; font-size: 1.1rem; line-height: 3.857143rem; border-right: 1px solid #e5e5e5; }
-	.zTab ul li.hover { background: #a96b94; /* background:#fff url("../images/lottery/sc_zuihao_tit-currentbg.png") repeat-x top left;*/ font-weight: bold; }
-	.zTab ul li.hover a { color: #fff; }
-	.zTab ul li a { color: #333; cursor: pointer; display: block; }
-	.zCon { overflow: hidden; background: #fff; width: 100%; margin: 0 auto; padding: 1rem 0 0.8rem 1rem; border-bottom: 1px solid #e6e6e6; }
-	.cLeft { overflow: hidden; }
-	.cLeft .group { display: inline; float: left; margin: 0 0.2rem 0.2rem 0; }
-	.cLeft .group span { color: #666; font-size: 0.8rem; float: left; display: inline; margin-top: 0.2rem; }
-	.cLeft .group .tools { float: left; display: inline; overflow: hidden; width: auto; height: 1.8rem; margin: 0 0.2rem; border: 1px solid #a7a6ac; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 0.4rem; }
-	.cLeft .group .tools span { float: left; display: inline; cursor: pointer; font-weight: normal; margin-top: 0px; margin-right: 0px; }
-	.cLeft .group .tools .reduce { background: url(../images/lottery/reduceBtn.jpg) no-repeat; width: 1.5rem; height: 2.0rem; border-right: 1px solid #a7a6ac; }
-	.cLeft .group .tools .add { background: url(../images/lottery/addBtn.jpg) no-repeat; width: 1.5rem; height: 2.0rem; border-left: 1px solid #a7a6ac; }
-	.cLeft .group .tools input { width: 3rem; height: 1.8rem; border: 0px; float: left; display: inline; text-align: center; font-size: 1.0rem; color: #333; }
-	.cRight { text-align: center; margin-top: 0.6rem; }
-	.cRight input { float: right; background: #a96b94; color: #fff; width: 10rem; margin-right: 1.8rem; height: 2.2rem; line-height: 2.2rem; font-size: 1.1rem; border-radius: 1rem; text-align: center; border: 0; }
-	.zList .f_header { overflow: hidden; zoom: 1; width: 100%; color: #666; font-size: 0.928571rem; background: #fff; }
-	.zList .f_header b { font-size: 1.428571rem; font-weight: bold; }
-	.zList .f_header .text_zh { padding: 0.8rem 0; padding-top: 0; display: block; text-align: center; overflow: hidden; }
-	.zList .f_header .text_zh .red { color: #52acd3; }
-	.zList .f_header .cancel_zh { background-color: #C7C7C7; border-radius: 1rem; width: 6rem; height: 2.285714rem; line-height: 2.285714rem; font-size: 1.0rem; margin-left: 0.357143rem; text-align: center; color: #fff; display: inline-block; }
-	.zList .f_header .save_zh { background-color: #EA5D2C; border-radius: 1rem; letter-spacing: 0.1rem; width: 10rem; height: 2.285714rem; line-height: 2.285714rem; margin: 0 0.5rem; text-align: center; color: #fff; font-size: 1.2rem; display: inline-block; }
-	.zList .f_header #lt_trace_count { margin-right: 1.285714rem; color: #666; }
-	.zList .f_header .f_had_btton { overflow: hidden; text-align: center; padding-bottom: 0.8rem; position: relative; }
-	.zList .tableBox { height: 21rem; overflow: scroll; overflow-x: hidden; background: #fff; }
-	.close_zhbox { position: absolute; top: 0.6rem; right: 1rem; color: #888; font-size: 0.9rem; display: inline-block; }
-	.zList table { font-size: 0.857143rem; color: #494949; }
-	.zList table th { border-top: 1px solid #e6e6e6; border-bottom: 2px solid #e6e6e6; border-right: 1px solid #e6e6e6; text-align: center; background: #f7f7f4; font-size: 0.9rem; line-height: 1rem; padding: 0.5rem 0; }
-	.zList table th.nobd { border: 0px; }
-	.zList table .zh_th01 { width: 5%; }
-	.zList table .zh_th02 { width: 10%; }
-	.zList table .zh_th03 { width: 30%; }
-	.zList table .zh_th04 { width: 20%; }
-	.zList table .zh_th05 { width: 20%; }
-	.zList table .zh_th06 { width: 15%; }
-	.zList table td { border-bottom: 1px solid #e6e6e6; font-size: 0.8rem; border-right: 1px solid #e6e6e6; text-align: center; background: #fff; padding: 0.4rem 0; }
-	.zList table td .input { width: 2.5rem; height: 1.8rem; line-height: 1.8rem; text-align: center; border: 1px solid #dddddd; border-radius: 0.2rem; background: #f5f5f5; margin-right: 0.3rem; }
-	.zList table td .red { font-size: 0.9rem; color: #52acd3; }
-	.time_width { width: 5.6rem; display: inline-block; word-break: break-all; }
+/*追号容器*/
+.zhBox { -moz-user-select: -moz-none; background-color: #fff; position: fixed; top: 0.571428rem; left: 0px; width: 100%; -webkit-user-select: none; display: none; z-index: 998; }
+.zhBox .checkZhui { float: left; margin: 0.3rem 0 0 0; color: #a96b94; font-size: 0.857143rem; text-align: center; }
+.zhBox .checkZhui span { display: inline-block; width: 1.2rem; height: 1.2rem; margin-top: 0; margin-right: 0.357143rem; cursor: pointer; }
+.zhBox .checkZhui span.check { background: url(../images/lottery/checked.png) no-repeat; background-size: 100%; vertical-align: -0.2rem; }
+.zhBox .checkZhui span.uncheck { background: url(../images/lottery/unchecked.png) no-repeat; background-size: 100%; vertical-align: -0.2rem; }
+.zhBox .checkZhui input { display: none; }
+.zTab { background: #f8f8f8 url(../images/lottery/sc_zuihao_tit_xian.png) repeat-x 0 bottom; overflow: hidden; }
+.zTab ul { }
+.zTab ul li { float: left; display: inline; width: 33.3%; text-align: center; height: 3.642857rem; font-size: 1.1rem; line-height: 3.857143rem; border-right: 1px solid #e5e5e5; }
+.zTab ul li.hover { background: #a96b94; /* background:#fff url("../images/lottery/sc_zuihao_tit-currentbg.png") repeat-x top left;*/ font-weight: bold; }
+.zTab ul li.hover a { color: #fff; }
+.zTab ul li a { color: #333; cursor: pointer; display: block; }
+.zCon { overflow: hidden; background: #fff; width: 100%; margin: 0 auto; padding: 1rem 0 0.8rem 1rem; border-bottom: 1px solid #e6e6e6; }
+.cLeft { overflow: hidden; }
+.cLeft .group { display: inline; float: left; margin: 0 0.2rem 0.2rem 0; }
+.cLeft .group span { color: #666; font-size: 0.8rem; float: left; display: inline; margin-top: 0.2rem; }
+.cLeft .group .tools { float: left; display: inline; overflow: hidden; width: auto; height: 1.8rem; margin: 0 0.2rem; border: 1px solid #a7a6ac; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 0.4rem; }
+.cLeft .group .tools span { float: left; display: inline; cursor: pointer; font-weight: normal; margin-top: 0px; margin-right: 0px; }
+.cLeft .group .tools .reduce { background: url(../images/lottery/reduceBtn.jpg) no-repeat; width: 1.5rem; height: 2.0rem; border-right: 1px solid #a7a6ac; }
+.cLeft .group .tools .add { background: url(../images/lottery/addBtn.jpg) no-repeat; width: 1.5rem; height: 2.0rem; border-left: 1px solid #a7a6ac; }
+.cLeft .group .tools input { width: 3rem; height: 1.8rem; border: 0px; float: left; display: inline; text-align: center; font-size: 1.0rem; color: #333; }
+.cRight { text-align: center; margin-top: 0.6rem; }
+.cRight input { float: right; background: #a96b94; color: #fff; width: 10rem; margin-right: 1.8rem; height: 2.2rem; line-height: 2.2rem; font-size: 1.1rem; border-radius: 1rem; text-align: center; border: 0; }
+.zList .f_header { overflow: hidden; zoom: 1; width: 100%; color: #666; font-size: 0.928571rem; background: #fff; }
+.zList .f_header b { font-size: 1.428571rem; font-weight: bold; }
+.zList .f_header .text_zh { padding: 0.8rem 0; padding-top: 0; display: block; text-align: center; overflow: hidden; }
+.zList .f_header .text_zh .red { color: #52acd3; }
+.zList .f_header .cancel_zh { background-color: #C7C7C7; border-radius: 1rem; width: 6rem; height: 2.285714rem; line-height: 2.285714rem; font-size: 1.0rem; margin-left: 0.357143rem; text-align: center; color: #fff; display: inline-block; }
+.zList .f_header .save_zh { background-color: #EA5D2C; border-radius: 1rem; letter-spacing: 0.1rem; width: 10rem; height: 2.285714rem; line-height: 2.285714rem; margin: 0 0.5rem; text-align: center; color: #fff; font-size: 1.2rem; display: inline-block; }
+.zList .f_header #lt_trace_count { margin-right: 1.285714rem; color: #666; }
+.zList .f_header .f_had_btton { overflow: hidden; text-align: center; padding-bottom: 0.8rem; position: relative; }
+.zList .tableBox { height: 21rem; overflow: scroll; overflow-x: hidden; background: #fff; }
+.close_zhbox { position: absolute; top: 0.6rem; right: 1rem; color: #888; font-size: 0.9rem; display: inline-block; }
+.zList table { font-size: 0.857143rem; color: #494949; }
+.zList table th { border-top: 1px solid #e6e6e6; border-bottom: 2px solid #e6e6e6; border-right: 1px solid #e6e6e6; text-align: center; background: #f7f7f4; font-size: 0.9rem; line-height: 1rem; padding: 0.5rem 0; }
+.zList table th.nobd { border: 0px; }
+.zList table .zh_th01 { width: 5%; }
+.zList table .zh_th02 { width: 10%; }
+.zList table .zh_th03 { width: 30%; }
+.zList table .zh_th04 { width: 20%; }
+.zList table .zh_th05 { width: 20%; }
+.zList table .zh_th06 { width: 15%; }
+.zList table td { border-bottom: 1px solid #e6e6e6; font-size: 0.8rem; border-right: 1px solid #e6e6e6; text-align: center; background: #fff; padding: 0.4rem 0; }
+.zList table td .input { width: 2.5rem; height: 1.8rem; line-height: 1.8rem; text-align: center; border: 1px solid #dddddd; border-radius: 0.2rem; background: #f5f5f5; margin-right: 0.3rem; }
+.zList table td .red { font-size: 0.9rem; color: #52acd3; }
+.time_width { width: 5.6rem; display: inline-block; word-break: break-all; }
 
-	/*投注记录*/
-	.lotteryMember .playf_dl .btn_bet-record { background: #EC7F5C url(/images/scblue/skin/blue_skin/lottery/tzjl_icon.png) no-repeat 12px -91px; display: block; float: right; padding: 0 15px 0 35px; font-size: 14px; color: #fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; margin: 0 12px 0 0; }
+/*投注记录*/
+.lotteryMember .playf_dl .btn_bet-record { background: #EC7F5C url(/images/scblue/skin/blue_skin/lottery/tzjl_icon.png) no-repeat 12px -91px; display: block; float: right; padding: 0 15px 0 35px; font-size: 14px; color: #fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; margin: 0 12px 0 0; }
 
-	/*.lotteryMember .playf_dl .btn_bet-record:hover { background:#F15B12 url(/images/scblue/skin/blue_skin/lottery/tzjl_icon.png) no-repeat 12px -91px; color:#fff;}*/
+/*.lotteryMember .playf_dl .btn_bet-record:hover { background:#F15B12 url(/images/scblue/skin/blue_skin/lottery/tzjl_icon.png) no-repeat 12px -91px; color:#fff;}*/
 
-	/*开奖官网*/
-	.lotteryMember .playf_dl .draw_web_f { background-color: #a96b94; display: block; float: right; padding: 0 7px; font-size: 14px; color: #fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; margin: 0 12px 0 0; }
+/*开奖官网*/
+.lotteryMember .playf_dl .draw_web_f { background-color: #a96b94; display: block; float: right; padding: 0 7px; font-size: 14px; color: #fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; margin: 0 12px 0 0; }
 
-	/*.lotteryMember .playf_dl .draw_web_f:hover { background-color:#F15B12; color:#fff; }*/
+/*.lotteryMember .playf_dl .draw_web_f:hover { background-color:#F15B12; color:#fff; }*/
 
-	/*新玩法标签*/
-	#lotteryType li em { background: url(../images/home/ico-new.png) no-repeat; width: 13px; height: 13px; position: absolute; top: 2px; right: 2px; }
+/*新玩法标签*/
+#lotteryType li em { background: url(../images/home/ico-new.png) no-repeat; width: 13px; height: 13px; position: absolute; top: 2px; right: 2px; }
 
-	/*固定下面余额*/
-	.m_fx_footer { width: 100%; height: 3.4285rem; background: #344146; position: fixed; bottom: 0px;left:0; z-index: 11; color: #fff; line-height: 1.2em; }
-	.m_fx_footer p span { color: #ffcf06; }
-	/* .m_fx_footer .v-moeny .you-money .show-money,
-	.m_fx_footer .v-moeny .you-money .hide-money { float: left; } */
-	.m_fx_footer .v-moeny .you-money b { color: #ffcf06; font-size: 1rem; }
-	.m_fx_footer .v-moeny  .chongzhi { float: right; font-size: 1rem; color: #fff; }
-	.m_fx_footer .v-moeny  .chongzhi a { width: auto; font-size: 1.142857rem; line-height: 2.45rem; color: #52acd3; text-decoration: underline; background-color: #2E263D; }
+/*固定下面余额*/
+.m_fx_footer { width: 100%; height: 3.4285rem; background: #344146; position: fixed; bottom: 0px;left:0; z-index: 11; color: #fff; line-height: 1.2em; }
+.m_fx_footer p span { color: #ffcf06; }
+/* .m_fx_footer .v-moeny .you-money .show-money,
+.m_fx_footer .v-moeny .you-money .hide-money { float: left; } */
+.m_fx_footer .v-moeny .you-money b { color: #ffcf06; font-size: 1rem; }
+.m_fx_footer .v-moeny  .chongzhi { float: right; font-size: 1rem; color: #fff; }
+.m_fx_footer .v-moeny  .chongzhi a { width: auto; font-size: 1.142857rem; line-height: 2.45rem; color: #52acd3; text-decoration: underline; background-color: #2E263D; }
 @media only screen and (max-width:359px){
 	.multipleCon input { width: 2rem; }
 }

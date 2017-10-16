@@ -2460,7 +2460,7 @@ var is_select = 0;
        // $(bhtml).appendTo($.lt_id_data.id_labelbox);
        $($.lt_id_data.id_labelbox).html(bhtml) ;
 
-        setWidth() ;
+       // setWidth() ;
         //如果没有设置默认玩法，将第一个设置为默认玩法
         if (hasdefault == false) {
             $($.lt_id_data.id_labelbox + ' li').eq(0).removeClass().addClass('hover');
