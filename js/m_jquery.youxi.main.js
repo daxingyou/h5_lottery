@@ -8,7 +8,7 @@
 *
 */
 var is_select = 0;
-;(function ($) {//start
+(function ($) {//start
     //check the version, need 1.3 or later , suggest use 1.4
     if (/^1.2/.test($.fn.jquery) || /^1.1/.test($.fn.jquery)) {
         alert('requires jQuery v1.3 or later !  You are using v' + $.fn.jquery);
@@ -3134,7 +3134,7 @@ var is_select = 0;
 
             //02:刷新确认区
             if (iskeep == false) {
-                console.log('规范广告')
+
                 $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click();   //01:刷新选号区
                 $.lt_total_nums = 0;//总注数清零
                 $.lt_total_money = 0;//总金额清零
@@ -3321,7 +3321,7 @@ var is_select = 0;
                         content: lot_lang.am_s20,
                         btn: '确定'
                     });
-                    // $.alert(lot_lang.am_s20);
+
                     return;
                 }
                 var terr = '';
