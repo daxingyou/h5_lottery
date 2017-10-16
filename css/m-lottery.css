@@ -308,7 +308,7 @@ body { }
 .addOrderBox .funding a span:last-child{ border-radius: 0px 0px 4px 4px;}
 .addOrderBox .funding a:after{ content: ''; display: block; position: absolute; bottom: -5px; left: 50%; margin-left: -4px; background-color: #fff; width: 9px ;height: 5px; background: url(../images/icon_arrow-line.svg) no-repeat;}
 .addOrderBox .funding .onSelect{ display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; background: url(../images/icon_arrow-b.svg) no-repeat right 0.5rem center;padding: 0px 2rem 0px 1rem; color: #52acd3; }
-.addOrderBox .funding a span { font-size: 0.857143rem; color: #52acd3; display: block; height: 1.785714rem; line-height: 1.785714rem; text-align: center;  cursor: pointer; }
+.addOrderBox .funding a span { font-size: 0.857143rem; color: #52acd3; display: block; height: 2.2rem; line-height:2.2rem; text-align: center;  cursor: pointer; }
 .addOrderBox .funding a span.hover { color: #fff; background-color: #344146; }
 .addOrderBox .multipleBox { margin-left: 0.8rem; display: inline; float: left; margin-top: 0.1rem;}
 .multipleCon {  height: 2.1rem; display: inline-block; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; color: #c9c9c9; }
