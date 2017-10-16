@@ -275,9 +275,9 @@
                     html += '<ul class="nList quwei">';
                     numbers = n.no.split('|');
                     temphtml = '';
-                    if (n.prize) {
+                  /*  if (n.prize) {
                         tmpprize = n.prize.split(',');
-                    }
+                    }*/
                     for (i = 0; i < numbers.length; i++) {
                         html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
                     }
@@ -2262,6 +2262,9 @@
             var inputVal = $(this).find('input');
 
             lessBtn.off().on('click', function () {
+                if ($(this).hasClass('sendBtnDisabled')) {  //没有选注不让操作
+                    return false;
+                }
                 var timesnum = parseInt(inputVal.val());
                 if (inputVal.val() > 1) {
                     inputVal.val(timesnum - 1);
@@ -2270,6 +2273,9 @@
                 return false;
             });
             addBtn.off().on('click', function () {
+                if ($(this).hasClass('sendBtnDisabled')) {  //没有选注不让操作
+                    return false;
+                }
                 var timesnum = parseInt(inputVal.val());
                 if (inputVal.val() < 99999) {
                     inputVal.val(timesnum + 1);
@@ -2367,7 +2373,7 @@
             } else {
                 $(this).attr('data-val', '1')
                     .css('color', '#c9c9c9')
-                    .text('取消');
+                    .text('取消追号');
             }
             zhuiflage++;
 
@@ -2411,7 +2417,7 @@
                 //	var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
                 var betdates = parseInt($($.lt_id_data.id_add_date).val(), 10);// 投注期数取整
                 var money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 倍数*注数*单价 * 模式
-               console.log(modes+'公交卡')
+
                 money = isNaN(money) ? 0 : money;
                 $($.lt_id_data.id_sel_money).html(money);
             });
@@ -2838,8 +2844,7 @@
                     var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
                 }
                 var pmodel = $('#pmode').val();// 投注奖金模式
-
-                if (typeof (pmodel) !== 'undefined') {
+            /*  if (typeof (pmodel) !== 'undefined') {
                     switch (pmodel) {
                         case '2':
                             stemp = $.lt_method_data.nfdprize.levs;
@@ -2852,9 +2857,9 @@
                 } else {
                     stemp = '';
                     pmodel = 1;
-                }
+                }*/
 
-                //	pmodel = stemp;
+
                 // 判断是否有重复相同的单
                 if ($.lt_same_code[mid] != undefined && $.lt_same_code[mid][modes] != undefined && $.lt_same_code[mid][modes].length > 0 && $.lt_same_code[mid][modes][cur_position] != undefined && $.lt_same_code[mid][modes][cur_position].length > 0) {
                     if ($.inArray(temp.join('|'), $.lt_same_code[mid][modes][cur_position]) != -1) { // 存在相同的
@@ -2895,7 +2900,6 @@
                 if ($('input[name=\'poschoose\']').val()) {
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\',\'poschoose\':\'' + $('input[name=\'poschoose\']').val() + '\'}';
                 } else {
-                    console.log('发多少')
                     serverdata += temp.join('|') + '\',\'menuid\':' + menuid + ',\'nums\':' + nums + ',\'omodel\':' + pmodel + ',\'times\':' + times + ',\'money\':' + money + ',\'mode\':' + modes + ',\'desc\':\'' + noshtml + '\'}';
                 }
 
@@ -2948,11 +2952,11 @@
                 // 计算奖金，并且判断是否支持利润率追号
                 var pc = 0;
                 var pz = 0;
-                $.each($.lt_method_data.prize, function (i, n) {
+              /*  $.each($.lt_method_data.prize, function (i, n) {
                     n = isNaN(Number(n)) ? 0 : Number(n);
                     pz = pz > n ? pz : n;
                     pc++;
-                });
+                });*/
                 if (pc != 1) {
                     pz = 0;
                 }
@@ -2964,7 +2968,7 @@
                     modes: modes,
                     poschoose: cur_position,
                     basemoney: basemoney,
-                    prize: pz,
+                   // prize: pz,
                     code: temp.join('|'),
                 });
                 // 把投注内容记录到临时数组中，用于判断是否有重复
@@ -3100,7 +3104,7 @@
         $.gameBtn();
     }
 
-    $(document).click(function () {
+/*    $(document).click(function () {
         var sid = window.showid;
         var $this = $('#div_slow_id_' + sid);
         var isHidden = $this.is(':hidden');
@@ -3111,10 +3115,10 @@
     $('.code').live('click', function (e) {
         e = e || window.event || arguments.callee.caller.arguments[0];
         e.stopPropagation();
-    });
+    });*/
 })(jQuery);
 
-function div_slow_show(showslow_id) {
+/*function div_slow_show(showslow_id) {
     var e = window.event || arguments.callee.caller.arguments[0];
     e.stopPropagation();
     window.showid = showslow_id;
@@ -3127,4 +3131,4 @@ function div_slow_show(showslow_id) {
 
 function div_slow_hide(showslow_id) {
     $('#div_slow_id_' + showslow_id).hide();
-}
+}*/

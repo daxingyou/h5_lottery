@@ -33,7 +33,7 @@
 <body>
 <div id="body">
     <header class="page_header">
-        <a class="btn_back" href="javascript:;" onclick="history.go(-2);" title="返回"></a>
+        <a class="btn_back" href="./betting_record.html"  title="返回"></a>
         <h2>追号详情</h2>
         <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
     </header>
@@ -126,17 +126,11 @@
     var access_token = getCookie('access_token');  // 取token
     var data = getStrParam('data');
     data = JSON.parse(data.data);
-
-
-    console.log(data);
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
-        data.chaseCountAll = list.length;
-
-
         $('.lottery_t')
             .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
-                '<span>已追<span class="ui_color_yellow">' + (data.chaseCount - 1) + '</span>期</span>' +
-                '<span>总<span class="ui_color_yellow">' + data.chaseCountAll + '</span>期</span>' +
+                '<span>已追<span class="ui_color_yellow">' + data.chaseSeq  + '</span>期</span>' +
+                '<span>总<span class="ui_color_yellow">' + data.chaseCount + '</span>期</span>' +
                 '</p>');
         if (data.chaseWinStop == 1) {
             data.chaseWinStop = '追中即停';
@@ -166,8 +160,7 @@
         $.each(list, function (i, e) {
             console.log(list[i]);
             var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(e));
-            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + parseInt(e.betAmount)
-                .toFixed(2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+            li_html += '<li><a href="' + jsonStr + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + roundAmt(e.betAmount) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
         $('.tra_list')

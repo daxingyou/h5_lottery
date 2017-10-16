@@ -283,7 +283,7 @@ body .layui-m-layer .layui-m-layer-msg .layui-m-layercont { padding: 0.5rem; pad
 
 .print_data ul { width: 100%; }
 
-.print_data li { border-bottom: 1px solid #F6F6F6; padding: 0.8571rem 0; display: block; }
+.print_data li { border-bottom: 1px solid #F6F6F6; padding: 0.8571rem 0; display: block; word-wrap: break-word; word-break: break-all; }
 
 .print_data li span { display: inline-block; }
 

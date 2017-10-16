@@ -39,7 +39,7 @@
         <!--玩法-->
         <div class="m-lott-methodBox-list" style="display: none;">
             <div class="lotteryGroup">
-                <ul id="lotteryType">
+                <ul id="lotteryType_ul">
 
                 </ul>
                 <!-- <div class="ren"><a href="/lottery/cqssc">任选玩法</a></div>-->
@@ -177,7 +177,7 @@
                                 <!--五分彩/分分彩加官网链接-->
                                 <!-- <span class="wfsm">
                                     玩法说明</span> -->
-                                <span id="lt_desc" class="help_con">从个、十、百位各选一个号码组成一注。</span>
+                                <span id="lt_desc" class="help_con"> </span>
                             </div>
 
 
@@ -329,8 +329,8 @@
             </a>
 
             <div class="sendChoose">
-                <a href="javascript:void(0);" id="lt_sendok" class="sendBtnDisabled"><span
-                        class="icon_bet"></span>投注</a>
+                <a href="javascript:void(0);" id="lt_sendok" class="sendBtnDisabled">
+                    <span class="icon_bet"></span>投注</a>
             </div>
         </div>
 
@@ -383,18 +383,18 @@
                     <div class="multipleBox">
                         <span class="bei">投</span>
                         <div class="multipleCon re">
-                            <a href="javascript:;" class="less_bei"></a>
-                            <input type="text" id="id_add_times" value="1">
-                            <a href="javascript:;" class="add_bei"></a>
+                            <a href="javascript:;" class="less_bei z_less_bei"></a>
+                            <input type="text" id="id_add_times" value="1" readonly>
+                            <a href="javascript:;" class="add_bei z_add_bei"></a>
                         </div>
                         <span class="bei">倍</span>
                     </div>
                     <div class="multipleBox">
                         <span class="bei">追</span>
                         <div class="multipleCon re">
-                            <a href="javascript:;" class="less_bei"></a>
-                            <input type="text" id="id_add_date" value="1">
-                            <a href="javascript:;" class="add_bei"></a>
+                            <a href="javascript:;" class="less_bei z_less_bei"></a>
+                            <input type="text" id="id_add_date" value="1" readonly>
+                            <a href="javascript:;" class="add_bei z_add_bei"></a>
                         </div>
                         <span class="bei">期</span>
                     </div>
@@ -462,15 +462,18 @@
             });
     });
     var radio_start = 0;//0遗漏 ，1冷热
-    var radio_checked_0 = '';
-    var radio_checked_1 = '';
     //弹窗，号码统计
     $('#number_count')
         .click(function () {
+            var radio_checked_0 = '';
+            var radio_checked_1 = '';
+            var radio_checked_2 = '';
             if (radio_start == 0) {
                 radio_checked_0 = 'checked';
-            } else {
+            } else if (radio_start == 1) {
                 radio_checked_1 = 'checked';
+            } else {
+                radio_checked_2 = 'checked';
             }
 //            layer.open({
 //                title: '号码统计',
@@ -495,7 +498,7 @@
                 ,
                 anim: 1 //0-6的动画形式，-1不开启
                 ,
-                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p><p><input  class="so-radio-tongji" type="radio" id="r03" name="radio-group" ' + radio_checked_1 + '><label for="r03">取消显示</label></p></div>'
+                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p><p><input  class="so-radio-tongji" type="radio" id="r03" name="radio-group" ' + radio_checked_2 + '><label for="r03">取消显示</label></p></div>'
                 ,
                 btn: ['确定', '取消']
                 , yes: function () {
