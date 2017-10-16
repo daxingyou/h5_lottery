@@ -117,6 +117,7 @@ var is_select = 0;
             lt_method: {
 
                 311: 'ZX3',
+                312: 'ZX3',
                 313: 'ZXHZ',
                 512: 'ZX3',
                 513: 'ZXHZ',
@@ -131,10 +132,14 @@ var is_select = 0;
                 811: 'BDW1',
                 812: 'BDW2',
                 814: 'BDW2',
-                614: 'ZX2',
-                624: 'ZU2',
                 611: 'ZX2',
+                612: 'ZX2',
+                614: 'ZX2',
+                615: 'ZX2',
                 621: 'ZU2',
+                622: 'ZU2',
+                624: 'ZU2',
+                625: 'ZU2',
                 711: 'DWD',
                 31: 'DWD',
                 32: 'DWD',
@@ -299,13 +304,20 @@ var is_select = 0;
                 405: 'SDDWD',
                 407: 'SDDDS',
                 409: 'SDCZW',
-                411: 'SDRX1',
-                413: 'SDRX2',
+                411: 'ZX3',
+                412: 'ZX3', // 中三单式
+                413: 'ZXHZ',
+               // 411: 'SDRX1',
+               // 413: 'SDRX2',
+                421: 'ZUS',
+                422: 'ZUL',
+                423: 'HHZX',
+                424: 'ZUHZ',
                 415: 'SDRX3',
                 417: 'SDRX4',
                 419: 'SDRX5',
-                421: 'SDRX6',
-                423: 'SDRX7',
+               // 421: 'SDRX6',
+               // 423: 'SDRX7',
                 425: 'SDRX8',
                 2304: 'BJRX1',
                 2305: 'BJRX2',
@@ -339,12 +351,6 @@ var is_select = 0;
                 222: 'SXZU12',
                 223: 'SXZU6',
                 224: 'SXZU4',
-                411: 'ZX3',
-                413: 'ZXHZ',
-                421: 'ZUS',
-                422: 'ZUL',
-                423: 'HHZX',
-                424: 'ZUHZ',
                 1189: 'ZX3',
                 1190: 'ZXHZ',
                 1192: 'ZUS',
@@ -3038,7 +3044,7 @@ var is_select = 0;
                         });
                         return false;
                     }
-                    eval('data=' + data);
+                  //  eval('data=' + data);
 
                     /*  if(sidebar_hover == "pk10"){
                                     setTimeout(function(){

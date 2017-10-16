@@ -2331,9 +2331,7 @@ function getSystemTime() {
         data: {} ,
         success: function(res){
             sys_time = formatTimeUnlix(res.data) ;
-
-                priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
-
+            priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
         },
         error: function() {
 
