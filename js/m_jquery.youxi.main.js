@@ -3545,7 +3545,8 @@ var is_select = 0;
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
                 var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
-                if(play_input = 'dxds'){ // 大小单双
+
+                if(play_input == 'dxds'){ // 大小单双
                     var new_num = $(n).find('.m_lotter_list_nub').html() ;
                 }else{
                     if(play_input == 'input'){ // 输入类型
@@ -3553,12 +3554,11 @@ var is_select = 0;
                     }else{
                         var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
                     }
-
                     var new_num = $.grep(play_num, function (value) {
                         return value >= 0;// 筛选出只是数字
                     });
-                }
 
+                }
                 //  console.log(new_num.toString()) ;
 
                 // 下注以对象的形式传递
@@ -3672,8 +3672,16 @@ var is_select = 0;
 
                         return false;
                     } else {  //购买失败提示
-                        eval('data = ' + data + ';');
-                        if (data.stats == 'error') {//错误
+                      //  console.log(data.data.params.ErrInfo)
+                        if(data.data.params.ErrInfo !=''){
+                            layer.open({
+                                content: data.data.params.ErrInfo ,
+                                btn: '确定'
+                            });
+                        }
+                        return false ;
+                       /* eval('data = ' + data + ';');
+                        if (data.stats == 'error') { //错误
                             layer.open({
                                 content: data.data,
                                 btn: ['确定'],
@@ -3720,28 +3728,19 @@ var is_select = 0;
                             //     return checkTimeOut();
                             //     $.lt_onfinishbuy();
                             // },'',400);
-                        }
+                        }*/
                     }
                 },
                 error: function (res) {  // 错误提示
-                    console.log(res.err)
+                   // console.log(res.err)
                     layer.closeAll();
                     $.lt_submiting = false;
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                     ajaxSubmitAllow = true;
-                  //  console.log(data.data.params.ErrInf)
-      /*          if(data.data.params.ErrInfo !=''){
-                    console.log('发货的')
-                    layer.open({
-                        content: data.data.params.ErrInfo ,
-                        btn: '确定'
-                    });
-                }else{*/
                     layer.open({
                         content: lot_lang.am_s23,
                         btn: '确定'
                     });
-             /*   }*/
 
                 }
             });
