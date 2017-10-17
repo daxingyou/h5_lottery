@@ -2770,8 +2770,8 @@ var is_select = 0;
             var index = $(this).attr("v").split('-');
 			 TextHtml() //根据点击的当前的文字显示到按钮上
            // console.log(index[1]) ;
-          console.log(opts.childrens) ;
-          console.log(opts.label) ;
+         // console.log(opts.childrens) ;
+        //  console.log(opts.label) ;
 
             if(opts.childrens[index[0]][index[1]].oddsData != undefined){ // 每个玩法奖金处理，组合目前没有返回，后期再处理
                 $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff)+' </strong>元').show() ;
