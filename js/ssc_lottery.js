@@ -2472,8 +2472,8 @@ function getMemberBalance() {
                 }
                 setTimeout(function () {
                     initFrame() ;
-                    setCookie("lt_lottid",$.lt_lottid);  // 把彩票 lottery 放在cookie里面
-
+                    setCookie("lt_lottid",$.lt_lottid);  // 把彩票 lottery id 放在cookie里面
+                    $('.name-lottery').html($.lt_lotteryName) ; // 当前彩种名称
                 },100)
 
             },
