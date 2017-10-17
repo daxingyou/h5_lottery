@@ -44,7 +44,7 @@
                 <div class="lottery_t ssc">
                     <p>重庆时时彩 - <span>五星直选_复式</span></p>
                     <p class="tra_info">
-                        <span>已追<span class="ui_color_yellow">1</span>期</span>
+                        <!--<span>已追<span class="ui_color_yellow">1</span>期</span>-->
                         <span>总<span class="ui_color_yellow">5</span>期</span>
                     </p>
                 </div>
@@ -129,7 +129,7 @@
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
         $('.lottery_t')
             .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
-                '<span>已追<span class="ui_color_yellow">' + data.chaseSeq  + '</span>期</span>' +
+//                '<span>已追<span class="ui_color_yellow">' + data.chaseSeq  + '</span>期</span>' +
                 '<span>总<span class="ui_color_yellow">' + data.chaseCount + '</span>期</span>' +
                 '</p>');
         if (data.chaseWinStop == 1) {

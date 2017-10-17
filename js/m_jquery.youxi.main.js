@@ -121,17 +121,14 @@ var is_select = 0;
                 313: 'ZXHZ',
                 512: 'ZX3',
                 513: 'ZXHZ',
-                522: 'ZUS', // 后三组三
+                521: 'ZUS', // 后三组三
+                522: 'ZUL',
+                523: 'HHZX',
+                524: 'ZUHZ',
                 321: 'ZUS',  // 前三组三
                 322: 'ZUL',
                 323: 'HHZX',
                 324: 'ZUHZ',
-                523: 'ZUL',
-                524: 'HHZX',
-                525: 'ZUHZ',
-                811: 'BDW1',
-                812: 'BDW2',
-                814: 'BDW2',
                 611: 'ZX2',
                 612: 'ZX2',
                 614: 'ZX2',
@@ -141,6 +138,10 @@ var is_select = 0;
                 624: 'ZU2',
                 625: 'ZU2',
                 711: 'DWD',
+                811: 'BDW1',
+                812: 'BDW2',
+                813: 'BDW1', //前三一码不定胆
+                814: 'BDW2',
                 31: 'DWD',
                 32: 'DWD',
                 33: 'DWD',
@@ -149,18 +150,18 @@ var is_select = 0;
                 911: 'DXDS',
                 89: 'ZX3',
                 92: 'ZXHZ',
-                102: 'ZX3',
-                103: 'ZXHZ',
-                104: 'ZUS',
+                //102: 'ZX3',
+               // 103: 'ZXHZ',
+               // 104: 'ZUS',
                 105: 'ZUL',
                 106: 'HHZX',
                 107: 'ZUHZ',
                 108: 'ZUS',
                 109: 'ZUL',
                 110: 'HHZX',
-                111: 'ZUHZ',
-                112: 'BDW1',
-                113: 'BDW2',
+               // 111: 'ZUHZ',
+              //  112: 'BDW1',
+               // 113: 'BDW2',
                 114: 'ZX2',
                 115: 'ZX2',
                 116: 'ZU2',
@@ -332,22 +333,23 @@ var is_select = 0;
                 391: 'BJJOP',
                 427: 'BJDXDS',//北京快乐8
                 101: 'BDW1',
-                102: 'HSCS',
-                103: 'SXBX',
-                104: 'SJFC',
+                102: 'HSCS', //好事成双
+                103: 'SXBX', //三星报喜
+                104: 'SJFC', //四季发财
                 111: 'ZX5', // 重庆时时彩五星复式
                 112: 'ZX5',  // 重庆时时彩五星单式
                 113: 'ZH5',
                 121: 'WXZU120',  // 五星组选120
                 122: 'WXZU60',  // 五星组选60
-                123: 'WXZU30',
-                124: 'WXZU20',
+                123: 'WXZU30', // 五星组选30
+                124: 'WXZU20', // 五星组选20
                 125: 'WXZU10', // 五星组选10
                 126: 'WXZU5', // 五星组选5
                 211: 'ZX4',
-                212: 'ZXd4',
+                212: 'ZX4',
+               // 212: 'ZXd4',
                 213: 'ZH4',
-                221: 'SXZU24',
+                221: 'SXZU24', // 四星组选24
                 222: 'SXZU12',
                 223: 'SXZU6',
                 224: 'SXZU4',
@@ -2496,7 +2498,7 @@ var is_select = 0;
                 //生成该标签下的小标签,如果有小标签
 
 				if(opts.data_label[index].label.length>0){
-				   lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label});
+				   lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label,childrens:opts.data_label[index].childrens});
 				}else{
 
 				}
@@ -2627,8 +2629,22 @@ var is_select = 0;
                 }
             }
         }
+        $.each(opts.childrens, function (j, m) { // 每个玩法奖金处理
+            $.each(m, function (jj, mm) {
+                if (j == 0 && jj == 0) { //第一个标签自动选择 新版
+                    if(mm.oddsData != undefined){ // 组合目前没有返回，后期再处理
+                        $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(mm.oddsData.payoff)+' </strong>元') ;
+                       // console.log(roundAmt(mm.oddsData.payoff))
+                    }else{
+                        $('#lt_payoff').hide() ;
+                    }
+                }
+               // console.log(mm.oddsData.payoff)
+            });
 
-        $.each(opts.label, function (i, n) {  // 原来的玩法渲染
+        });
+            $.each(opts.label, function (i, n) {  // 原来的玩法渲染
+               // console.log(n)
             html += '<dl class="cWay">' +
                 '<dt>' + n.gtitle + '</dt>';
             $.each(n.label, function (ii, nn) {
@@ -2753,8 +2769,17 @@ var is_select = 0;
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
 			 TextHtml() //根据点击的当前的文字显示到按钮上
+           // console.log(index[1]) ;
+          //  console.log(opts.childrens) ;
 
-            if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){
+            if(opts.childrens[index[0]][index[1]].oddsData != undefined){ // 每个玩法奖金处理，组合目前没有返回，后期再处理
+                $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff)+' </strong>元').show() ;
+              //  console.log(roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff))
+            }else{
+                $('#lt_payoff').hide() ;
+            }
+
+            if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){ // 玩法说明处理
           /*  if( opts.childrens.length >0 ){*/  // 新的 2017/10
                 $($.lt_id_data.id_methoddesc).html(opts.label[index[0]].label[index[1]].methoddesc).parent().show();
                // $($.lt_id_data.id_methoddesc).html(opts.childrens[index[0]][0].descData.descs).parent().show(); // 新的 2017/10
@@ -3537,18 +3562,28 @@ var is_select = 0;
                 if_zt = '0' ;
             }
 
-            $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
-
+            $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {  // 遍历每笔注单
                 var num_each = $(n).find('.num-each').text();  // 每单注数
                 var time_each = $(n).find('.time-each').text();  // 每单倍数
                 var total_each = $(n).find('.total-each').text();  // 每单金额
                 var date_each = $(n).find('.date-each').text();  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
-                var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
-                var new_num = $.grep(play_num, function (value) {
-                    return value >= 0;// 筛选出只是数字
-                });
+                var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
+
+                if(play_input == 'dxds'){ // 大小单双
+                    var new_num = $(n).find('.m_lotter_list_nub').html() ;
+                }else{
+                    if(play_input == 'input'){ // 输入类型
+                        var play_num = $(n).find('.m_lotter_list_nub').html().split(' ');
+                    }else{
+                        var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
+                    }
+                    var new_num = $.grep(play_num, function (value) {
+                        return value >= 0;// 筛选出只是数字
+                    });
+
+                }
                 //  console.log(new_num.toString()) ;
 
                 // 下注以对象的形式传递
@@ -3662,8 +3697,16 @@ var is_select = 0;
 
                         return false;
                     } else {  //购买失败提示
-                        eval('data = ' + data + ';');
-                        if (data.stats == 'error') {//错误
+                      //  console.log(data.data.params.ErrInfo)
+                        if(data.data.params.ErrInfo !=''){
+                            layer.open({
+                                content: data.data.params.ErrInfo ,
+                                btn: '确定'
+                            });
+                        }
+                        return false ;
+                       /* eval('data = ' + data + ';');
+                        if (data.stats == 'error') { //错误
                             layer.open({
                                 content: data.data,
                                 btn: ['确定'],
@@ -3710,15 +3753,15 @@ var is_select = 0;
                             //     return checkTimeOut();
                             //     $.lt_onfinishbuy();
                             // },'',400);
-                        }
+                        }*/
                     }
                 },
-                error: function () {
+                error: function (res) {  // 错误提示
+                   // console.log(res.err)
                     layer.closeAll();
                     $.lt_submiting = false;
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                     ajaxSubmitAllow = true;
-                    // $.alert(lot_lang.am_s23,'',checkTimeOut);
                     layer.open({
                         content: lot_lang.am_s23,
                         btn: '确定'
@@ -3731,11 +3774,11 @@ var is_select = 0;
     };
 // 重置投注保单，清空
     $.gameBtn = function () {
-        var id_sel_num = $($.lt_id_data.id_sel_num).html(),//添加投注 已选注数
-            id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(), 10), //投注倍数取整
-            id_sel_insert = $($.lt_id_data.id_sel_insert),//添加投注 添加按钮
-            id_cf_count = $($.lt_id_data.id_cf_count).html(),//立即投注 已选单
-            id_sendok = $($.lt_id_data.id_sendok);//立即投注 立即按钮
+        var id_sel_num = $($.lt_id_data.id_sel_num).html(),// 添加投注 已选注数
+            id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(), 10), // 投注倍数取整
+            id_sel_insert = $($.lt_id_data.id_sel_insert),// 添加投注 添加按钮
+            id_cf_count = $($.lt_id_data.id_cf_count).html(),// 立即投注 已选单
+            id_sendok = $($.lt_id_data.id_sendok);// 立即投注 立即按钮
         if (id_sel_num == 0) {
             id_sel_insert.addClass('addBtnDisabled');
 
