@@ -65,7 +65,7 @@ var data_label = [
                 menuid:2181,
                 desc:'单式',maxcodecount:0
             },
-          /*  {"methoddesc":"从个、十、百、千、万位各选一个号码组成五注。",
+            {"methoddesc":"从个、十、百、千、万位各选一个号码组成五注。",
                 "methodhelp":"从万位、千位、百位、十位、个位中至少各选一个号码组成1-5星的组合，共五注，所选号码的个位与开奖号码相同，则中1个5等奖；所选号码的个位、十位与开奖号码相同，则中1个5等奖以及1个4等奖，依此类推，最高可中5个奖。",
                 "methodexample":"五星组合示例，如购买：1+2+3+4+5，该票共10元，由以下5注：（12345）五星、1（2345）四星、12（345）三星、123（45）二星、1234（5）一星构成。开奖号码12345，即五星、四星、三星、二星、一星的一等奖各1注。",
                 "selectarea":{
@@ -84,12 +84,12 @@ var data_label = [
                 "code_sp" : "",
                 methodid : 113,
                 name:'组合',
-              /!*  prize:{1:'180000.00',2:'18000.00',3:'1800.00',4:'180.00',5:'18.00'},
-                nfdprize:{},*!/
+              /*  prize:{1:'180000.00',2:'18000.00',3:'1800.00',4:'180.00',5:'18.00'},
+                nfdprize:{},*/
                 modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
                 menuid:2182,
                 desc:'组合',maxcodecount:0
-            }*/
+            }
             ]},
             {
              gtitle:'五星组选',
@@ -108,7 +108,7 @@ var data_label = [
             "show_str" : "X",
             "code_sp" : ",",
             "ifrandom" : 1, // 机选
-            "randomcos" : 3,  // 机选
+            "randomcos" : 5,  // 机选
             "randomcosvalue" : "1|1|1|1|1",  // 机选
             methodid : 121,
             name:'组选120',
@@ -463,7 +463,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 522,
+        methodid : 521,
         name:'组三',
        /* prize:{1:'600.00'},
         nfdprize:{levs:'646',defaultprize:600.00,userdiffpoint:7},*/
@@ -483,7 +483,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 523,
+        methodid : 522,
         name:'组六',
       /*  prize:{2:'300.00'},
         nfdprize:{levs:'323',defaultprize:300.00,userdiffpoint:7},*/
@@ -496,7 +496,7 @@ var data_label = [
         "selectarea":{"type":"input"},
         "show_str" : "X",
         "code_sp" : " ",
-        methodid : 524,
+        methodid : 523,
         name:'混合组选',
        /* prize:{1:'600.00',2:'300.00'},
         nfdprize:{},*/
@@ -516,7 +516,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 525,
+        methodid : 524,
         name:'组选和值',
        /* prize:{1:'600.00',2:'300.00'},
         nfdprize:{},*/
@@ -2331,9 +2331,7 @@ function getSystemTime() {
         data: {} ,
         success: function(res){
             sys_time = formatTimeUnlix(res.data) ;
-
-                priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
-
+            priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
         },
         error: function() {
 
@@ -2417,10 +2415,10 @@ function getMemberBalance() {
                         btn: ['确定','取消'],
                         yes: function (index) {
                             for(var i= 0;i<z_times;i++){  // 还原倍数
-                                $('.multipleBox').find('.less_bei').click() ;
+                                $('.zh_multipleBox').find('.less_bei').click() ;
                             }
                             for(var i= 0;i<z_dates;i++){   // 还原期数
-                                $('.multipleBox').find('.less_bei').click() ;
+                                $('.zh_multipleBox').find('.less_bei').click() ;
                             }
                             $('#body').removeClass('bet_cart');
                             $('#ui_bet').stop(true,true).animate({left: '100%'},300);
@@ -2474,8 +2472,8 @@ function getMemberBalance() {
                 }
                 setTimeout(function () {
                     initFrame() ;
-                    setCookie("lt_lottid",$.lt_lottid);  // 把彩票 lottery 放在cookie里面
-
+                    setCookie("lt_lottid",$.lt_lottid);  // 把彩票 lottery id 放在cookie里面
+                    $('.name-lottery').html($.lt_lotteryName) ; // 当前彩种名称
                 },100)
 
             },
