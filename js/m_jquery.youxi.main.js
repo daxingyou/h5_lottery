@@ -2498,7 +2498,7 @@ var is_select = 0;
                 //生成该标签下的小标签,如果有小标签
 
 				if(opts.data_label[index].label.length>0){
-				   lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label});
+				   lt_smalllabel({title:opts.data_label[index].title,label:opts.data_label[index].label,childrens:opts.data_label[index].childrens});
 				}else{
 
 				}
@@ -2629,8 +2629,22 @@ var is_select = 0;
                 }
             }
         }
+        $.each(opts.childrens, function (j, m) { // 每个玩法奖金处理
+            $.each(m, function (jj, mm) {
+                if (j == 0 && jj == 0) { //第一个标签自动选择 新版
+                    if(mm.oddsData != undefined){ // 组合目前没有返回，后期再处理
+                        $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(mm.oddsData.payoff)+' </strong>元') ;
+                       // console.log(roundAmt(mm.oddsData.payoff))
+                    }else{
+                        $('#lt_payoff').hide() ;
+                    }
+                }
+               // console.log(mm.oddsData.payoff)
+            });
 
-        $.each(opts.label, function (i, n) {  // 原来的玩法渲染
+        });
+            $.each(opts.label, function (i, n) {  // 原来的玩法渲染
+               // console.log(n)
             html += '<dl class="cWay">' +
                 '<dt>' + n.gtitle + '</dt>';
             $.each(n.label, function (ii, nn) {
@@ -2755,8 +2769,17 @@ var is_select = 0;
 			$(this).addClass("hover");
             var index = $(this).attr("v").split('-');
 			 TextHtml() //根据点击的当前的文字显示到按钮上
+           // console.log(index[1]) ;
+          //  console.log(opts.childrens) ;
 
-            if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){
+            if(opts.childrens[index[0]][index[1]].oddsData != undefined){ // 每个玩法奖金处理，组合目前没有返回，后期再处理
+                $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff)+' </strong>元').show() ;
+              //  console.log(roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff))
+            }else{
+                $('#lt_payoff').hide() ;
+            }
+
+            if( opts.label[index[0]].label[index[1]].methoddesc.length >0 ){ // 玩法说明处理
           /*  if( opts.childrens.length >0 ){*/  // 新的 2017/10
                 $($.lt_id_data.id_methoddesc).html(opts.label[index[0]].label[index[1]].methoddesc).parent().show();
                // $($.lt_id_data.id_methoddesc).html(opts.childrens[index[0]][0].descData.descs).parent().show(); // 新的 2017/10

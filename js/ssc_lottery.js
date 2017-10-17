@@ -233,7 +233,7 @@ var data_label = [
         gtitle:'四星直选',
         cid:21,
         label:[
-            {"methoddesc":"从千位、百位、十位、个位中选择一个4位数号码组成一注",
+            {"methoddesc":"从千位、百位、十位、个位中选择一个4位数号码组成一注。",
         "methodhelp":"从千位、百位、十位、个位中选择一个4位数号码组成一注，所选号码与开奖号码相同，且顺序一致，即为中奖。",
         "methodexample":"投注方案：3456；开奖号码：*3456，即中四星直选。",
         "selectarea":{
@@ -562,7 +562,7 @@ var data_label = [
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:53,
         desc:'单式',maxcodecount:0
-    },{"methoddesc":"从0-27中任意选择1个或1个以上号码",
+    },{"methoddesc":"从0-27中任意选择1个或1个以上号码。",
         "methodhelp":"所选数值等于开奖号码的万位、千位、百位三个数字相加之和，即为中奖。",
         "methodexample":"投注方案：和值1；开奖号码前三位：001,010,100,即中前三直选一等奖",
         "selectarea":{
@@ -696,7 +696,7 @@ var data_label = [
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:2228,
         desc:'单式',maxcodecount:0
-    },{"methoddesc":"从0-27中任意选择1个或1个以上号码",
+    },{"methoddesc":"从0-27中任意选择1个或1个以上号码。",
         "methodhelp":"所选数值等于开奖号码的千位、百位、十位三个数字相加之和，即为中奖。",
         "methodexample":"投注方案：和值1；开奖号码中间三位：01001,00010,00100,即中中三直选一等奖",
         "selectarea":{
@@ -1001,7 +1001,7 @@ var data_label = [
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:2218,
         desc:'后二和值',maxcodecount:0
-    },{"methoddesc":"从1-17中任意选择1个或1个以上号码",
+    },{"methoddesc":"从1-17中任意选择1个或1个以上号码。",
         "methodhelp":"所选数值等于开奖号码的万位、千位二个数字相加之和（不含对子号），即为中奖。",
         "methodexample":"投注方案：和值1；开奖号码前二位：10或01 (顺序不限，不含对子号)，即中前二组选。",
         "selectarea":{
