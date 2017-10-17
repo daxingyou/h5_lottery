@@ -121,14 +121,14 @@ var is_select = 0;
                 313: 'ZXHZ',
                 512: 'ZX3',
                 513: 'ZXHZ',
-                522: 'ZUS', // 后三组三
+                521: 'ZUS', // 后三组三
+                522: 'ZUL',
+                523: 'HHZX',
+                524: 'ZUHZ',
                 321: 'ZUS',  // 前三组三
                 322: 'ZUL',
                 323: 'HHZX',
                 324: 'ZUHZ',
-                523: 'ZUL',
-                524: 'HHZX',
-                525: 'ZUHZ',
                 811: 'BDW1',
                 812: 'BDW2',
                 814: 'BDW2',
@@ -3537,18 +3537,28 @@ var is_select = 0;
                 if_zt = '0' ;
             }
 
-            $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
-
+            $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {  // 遍历每笔注单
                 var num_each = $(n).find('.num-each').text();  // 每单注数
                 var time_each = $(n).find('.time-each').text();  // 每单倍数
                 var total_each = $(n).find('.total-each').text();  // 每单金额
                 var date_each = $(n).find('.date-each').text();  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
-                var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
-                var new_num = $.grep(play_num, function (value) {
-                    return value >= 0;// 筛选出只是数字
-                });
+                var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
+                if(play_input = 'dxds'){ // 大小单双
+                    var new_num = $(n).find('.m_lotter_list_nub').html() ;
+                }else{
+                    if(play_input == 'input'){ // 输入类型
+                        var play_num = $(n).find('.m_lotter_list_nub').html().split(' ');
+                    }else{
+                        var play_num = $(n).find('.m_lotter_list_nub').html().split(',');
+                    }
+
+                    var new_num = $.grep(play_num, function (value) {
+                        return value >= 0;// 筛选出只是数字
+                    });
+                }
+
                 //  console.log(new_num.toString()) ;
 
                 // 下注以对象的形式传递
@@ -3713,16 +3723,25 @@ var is_select = 0;
                         }
                     }
                 },
-                error: function () {
+                error: function (res) {  // 错误提示
+                    console.log(res.err)
                     layer.closeAll();
                     $.lt_submiting = false;
                     $.unblockUI({fadeInTime: 0, fadeOutTime: 0});
                     ajaxSubmitAllow = true;
-                    // $.alert(lot_lang.am_s23,'',checkTimeOut);
+                  //  console.log(data.data.params.ErrInf)
+      /*          if(data.data.params.ErrInfo !=''){
+                    console.log('发货的')
+                    layer.open({
+                        content: data.data.params.ErrInfo ,
+                        btn: '确定'
+                    });
+                }else{*/
                     layer.open({
                         content: lot_lang.am_s23,
                         btn: '确定'
                     });
+             /*   }*/
 
                 }
             });

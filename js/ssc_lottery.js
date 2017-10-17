@@ -463,7 +463,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 522,
+        methodid : 521,
         name:'组三',
        /* prize:{1:'600.00'},
         nfdprize:{levs:'646',defaultprize:600.00,userdiffpoint:7},*/
@@ -483,7 +483,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 523,
+        methodid : 522,
         name:'组六',
       /*  prize:{2:'300.00'},
         nfdprize:{levs:'323',defaultprize:300.00,userdiffpoint:7},*/
@@ -496,7 +496,7 @@ var data_label = [
         "selectarea":{"type":"input"},
         "show_str" : "X",
         "code_sp" : " ",
-        methodid : 524,
+        methodid : 523,
         name:'混合组选',
        /* prize:{1:'600.00',2:'300.00'},
         nfdprize:{},*/
@@ -516,7 +516,7 @@ var data_label = [
         },
         "show_str" : "X",
         "code_sp" : ",",
-        methodid : 525,
+        methodid : 524,
         name:'组选和值',
        /* prize:{1:'600.00',2:'300.00'},
         nfdprize:{},*/

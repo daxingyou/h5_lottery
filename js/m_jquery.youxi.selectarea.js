@@ -17,7 +17,7 @@
         var random_bets = false;// 是否机选
         var minchosen = [];
         var max_place = 0; // 总共的选择型排列数
-        var otype = opts.type.toLowerCase(); // 类型全部转换为小写
+        var otype = opts.type.toLowerCase(); // 类型全部转换为小写 ，玩法输入类型，或者数字类型
         var methodname = $.lt_method[$.lt_method_data.methodid];// 玩法的简写,如:'ZX3'
         var defaultposition = $.lt_method_data.defaultposition;// 获取任选复选框初始化参数
         var menuid = $.lt_method_data.menuid;
@@ -92,7 +92,7 @@
         // 代码开始
 
         if (1) {
-            if (otype == 'input') {// 输入型，则载入输入型的数据
+            if (otype == 'input') {   // 输入型，则载入输入型的数据
                 // var html  = '<div class="grayContent" id="right_05_input">';
                 var tempdes = '';
                 switch (methodname) {
@@ -131,7 +131,7 @@
                 html += '<div class="yellow">' + tempdes + '</div><div class="grayBottom"></div>';
                 data_sel[0] = []; // 初始数据
                 tempdes = null;
-            } else if (otype == 'digital') {// 数字选号型
+            } else if (otype == 'digital') { // 数字选号型
                 $.each(opts.layout, function (i, n) {
                     if (typeof (n) === 'object') {
                         n.place = parseInt(n.place, 10);
@@ -2835,11 +2835,11 @@
                     var rand = ~~(Math.random() * 89999999 + 10000000).toString();
                     // var nohtml = '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos+'</b>'+'<a class="m_lotter_details" data-list="'+nos+'" >'+'详情'+'</a>';
                     // var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos+'...'+'</p><p class="ui_bet_title" data-modid="'+$.lt_method_data.methodid+'">'+$.lt_method_data.title+'_'+$.lt_method_data.name+'</p>';
-                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
+                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-input="'+otype+'" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
 
                 } else {
                     // var nohtml =  '<b class="m_lotter_list_nub">'+'['+$.lt_method_data.title+'_'+$.lt_method_data.name+'] ' + nos + '</b>';
-                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
+                    var nohtml = '<p class="ui_bet_num m_lotter_list_nub">' + nos + '</p><p class="ui_bet_title" data-input="'+otype+'" data-type="'+ $('input[name=\'lt_project_modes\']:checked').data('type')+'" data-val="'+$.lt_method_data.modes[modes].rate+'" data-modid="' + $.lt_method_data.methodid + '">' + $.lt_method_data.title + '_' + $.lt_method_data.name + '</p>';
                 }
                 var pmodel = $('#pmode').val();// 投注奖金模式
             /*  if (typeof (pmodel) !== 'undefined') {
