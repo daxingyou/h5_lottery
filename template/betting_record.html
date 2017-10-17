@@ -23,7 +23,7 @@
 </head>
 
 <body>
-<div id="body">
+<div id="main" class="body">
     <header class="page_header">
         <a class="btn_back" title="返回" href="../"></a>
         <h2>投注纪录</h2>
@@ -1215,6 +1215,146 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="page1" style="display: none" class="body">
+    <header class="page_header">
+        <a class="btn_back" href="javascript:;" onclick="showMain()" title="返回"></a>
+        <h2>注单详情</h2>
+        <!--撤单下一期再做-->
+        <!--<a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>-->
+    </header>
+    <section class="wraper-page-inner">
+        <div class="bet_dt_area">
+            <div class="period">
+                    <span>
+                        <b class="lt_ty">重庆时时彩</b>
+                        第
+                        <strong class="periods">20170715086</strong>
+                        期
+                    </span>
+                <span class="bet_status status_gray">等待开奖 </span>
+            </div>
+            <div class="bet_nlist">
+                <ul>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                    <li class="b_lt_1" name="b_lt_1">?</li>
+                </ul>
+            </div>
+            <div class="print_data">
+                <ul>
+                    <li>
+                        <span>投注时间</span>
+                        <span class="so-betTime">2017-07-14   15:21:33</span>
+                    </li>
+                    <li>
+                        <span>方案编号</span>
+                        <span class="so-orderId">
+                                ZCQWE1707146548
+                                <small>(追号方案)</small>
+                            </span>
+                    </li>
+                    <li>
+                        <span>投注金额</span>
+                        <span class="ui_color_yellow so-betAmount">200,002.00</span>
+                    </li>
+                    <li>
+                        <span>我的投注</span>
+                        <span class="so-playName">五星直选_复式</span>
+                    </li>
+                    <li>
+                        <span></span>
+                        <span class="ui_color_yellow so-betContent">0,1,8,6,3</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="goto_bet">
+                <a class="lbtn lbtn_info lbtn_md" href="../">前往投注</a>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<div id="page2" style="display: none" class="body">
+    <header class="page_header">
+        <a class="btn_back" href="javascript:;" onclick="showMain()" title="返回"></a>
+        <h2>追号详情</h2>
+        <!--<a class="right" href="trace_cancel.html">撤消追号</a>-->
+    </header>
+    <section class="wraper-page-inner">
+        <div class="tra_dt_area">
+            <div class="tra_period">
+                <div class="badge ssc_badge"></div>
+                <div class="lottery_t ssc">
+                    <p>重庆时时彩 - <span>五星直选_复式</span></p>
+                    <p class="tra_info">
+                        <!--<span>已追<span class="ui_color_yellow">1</span>期</span>-->
+                        <span>总<span class="ui_color_yellow">5</span>期</span>
+                    </p>
+                </div>
+                <span class="tr_status status01">进行中</span>
+                <!-- <span class="tr_status status02">已终止</span>
+                <span class="tr_status status03 ">已结束</span> -->
+            </div>
+            <div class="print_data">
+                <ul>
+                    <li>
+                        <span>投注时间</span>
+                        <span>2017-07-14   15:21:33</span>
+                    </li>
+                    <li>
+                        <span>追号方案</span>
+                        <span>
+                                    ZCQWE1707146548dfmr
+                                </span>
+                    </li>
+                    <li>
+                        <span>追号条件</span>
+                        <span>追中即停</span>
+                        <!-- <span>不停止</span> -->
+                    </li>
+                    <!-- <span>
+                        <span>查看追号方案</span>
+                        <span></span>
+                    </span> -->
+                </ul>
+            </div>
+            <div class="tra_list">
+                <ul>
+                    <li>
+                        <a href="betting_record_dt03.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta01">已完成</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="betting_record_dt01.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta02">进行中</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="betting_record_dt02.html">
+                            <div class="tra_info">
+                                <p>第 <span class="period">20170715036</span> 期</p>
+                                <span class="ui_color_yellow">0.20 元</span>
+                            </div>
+                            <div class="t_l_sta03">已取消</div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
