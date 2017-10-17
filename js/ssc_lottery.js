@@ -2285,8 +2285,15 @@ function getPlayTree(gameid) {
                // console.log(i.substring(0, 2)) ;
                 // console.log(v[0].status) ;
                 if(i.length>3){  // 除了不定位等
-                    dataPlayAll[i.substring(0, 2)] =  dataPlayAll[i.substring(0, 2)] || [] ;
-                    dataPlayAll[i.substring(0, 2)].push(v[0]) ;
+                  // console.log(i)
+                    if(i =='大小单双'){ // 单独处理
+                        dataPlayAll[i.substring(0, 4)] =  dataPlayAll[i.substring(0, 4)] || [] ;
+                        dataPlayAll[i.substring(0, 4)].push(v[0]) ;
+                    }else{
+                        dataPlayAll[i.substring(0, 2)] =  dataPlayAll[i.substring(0, 2)] || [] ;
+                        dataPlayAll[i.substring(0, 2)].push(v[0]) ;
+                    }
+
                 }else{  // 名字位数小于4，定位胆，不定位，趣味等
                     dataPlayAll[i.substring(0, 3)] =  dataPlayAll[i.substring(0, 3)] || [] ;
                     dataPlayAll[i.substring(0, 3)].push(v[0]) ;
