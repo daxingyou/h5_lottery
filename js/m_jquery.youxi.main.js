@@ -27,6 +27,22 @@ var is_select = 0;
         // }
     }
 
+  // 处理头部玩法问题
+    function setWidth() {
+        var docW = $(document).width();
+        var sum = 0;
+        $($.lt_id_data.id_labelbox).find('li').each(function (i, v) {
+            var wd = $(v).width() + 30;
+            sum += wd;
+        });
+        if (sum > docW) {
+            $($.lt_id_data.id_labelbox).width(sum);
+            return false;
+        } else {
+
+        }
+    }
+
     $.gameInit = function (opts) {//整个购彩界面的初始化
         var ps = {//整个JS的初试化默认参数
             data_label: [],
@@ -101,6 +117,7 @@ var is_select = 0;
             lt_method: {
 
                 311: 'ZX3',
+                312: 'ZX3',
                 313: 'ZXHZ',
                 512: 'ZX3',
                 513: 'ZXHZ',
@@ -115,10 +132,14 @@ var is_select = 0;
                 811: 'BDW1',
                 812: 'BDW2',
                 814: 'BDW2',
-                614: 'ZX2',
-                624: 'ZU2',
                 611: 'ZX2',
+                612: 'ZX2',
+                614: 'ZX2',
+                615: 'ZX2',
                 621: 'ZU2',
+                622: 'ZU2',
+                624: 'ZU2',
+                625: 'ZU2',
                 711: 'DWD',
                 31: 'DWD',
                 32: 'DWD',
@@ -147,11 +168,11 @@ var is_select = 0;
                 118: 'DWD',
                 119: 'DWD',
                 120: 'DWD',
-                121: 'DWD',
-                122: 'DWD',
-                123: 'DXDS',
-                124: 'DXDS',
-                126: 'ZX3',
+               // 121: 'DWD',
+               // 122: 'DWD',
+               // 123: 'DXDS',
+               // 124: 'DXDS',
+               // 126: 'ZX3',
                 127: 'ZXHZ',
                 129: 'ZX3',
                 130: 'ZXHZ',
@@ -283,13 +304,20 @@ var is_select = 0;
                 405: 'SDDWD',
                 407: 'SDDDS',
                 409: 'SDCZW',
-                411: 'SDRX1',
-                413: 'SDRX2',
+                411: 'ZX3',
+                412: 'ZX3', // 中三单式
+                413: 'ZXHZ',
+               // 411: 'SDRX1',
+               // 413: 'SDRX2',
+                421: 'ZUS',
+                422: 'ZUL',
+                423: 'HHZX',
+                424: 'ZUHZ',
                 415: 'SDRX3',
                 417: 'SDRX4',
                 419: 'SDRX5',
-                421: 'SDRX6',
-                423: 'SDRX7',
+               // 421: 'SDRX6',
+               // 423: 'SDRX7',
                 425: 'SDRX8',
                 2304: 'BJRX1',
                 2305: 'BJRX2',
@@ -303,32 +331,26 @@ var is_select = 0;
                 389: 'BJSXP',
                 391: 'BJJOP',
                 427: 'BJDXDS',//北京快乐8
-                111: 'ZX5', // 重庆时时彩五星复式
-                112: 'ZX5',  // 重庆时时彩五星单式
-                213: 'ZH4',
-                211: 'ZX4',
-                212: 'ZXd4',
-                221: 'SXZU24',
-                222: 'SXZU12',
-                223: 'SXZU6',
-                224: 'SXZU4',
-                113: 'ZH5',
-                121: 'WXZU120',  // 五星组选120
-                122: 'WXZU60',
-                123: 'WXZU30',
-                124: 'WXZU20',
-                125: 'WXZU10',
-                126: 'WXZU5',
                 101: 'BDW1',
                 102: 'HSCS',
                 103: 'SXBX',
                 104: 'SJFC',
-                411: 'ZX3',
-                413: 'ZXHZ',
-                421: 'ZUS',
-                422: 'ZUL',
-                423: 'HHZX',
-                424: 'ZUHZ',
+                111: 'ZX5', // 重庆时时彩五星复式
+                112: 'ZX5',  // 重庆时时彩五星单式
+                113: 'ZH5',
+                121: 'WXZU120',  // 五星组选120
+                122: 'WXZU60',  // 五星组选60
+                123: 'WXZU30',
+                124: 'WXZU20',
+                125: 'WXZU10', // 五星组选10
+                126: 'WXZU5', // 五星组选5
+                211: 'ZX4',
+                212: 'ZXd4',
+                213: 'ZH4',
+                221: 'SXZU24',
+                222: 'SXZU12',
+                223: 'SXZU6',
+                224: 'SXZU4',
                 1189: 'ZX3',
                 1190: 'ZXHZ',
                 1192: 'ZUS',
@@ -2435,24 +2457,10 @@ var is_select = 0;
             $($.lt_id_data.id_changetype).show();
         }
 
-        $(bhtml).appendTo($.lt_id_data.id_labelbox);
-        (function () {
-            var docW = $(document).width();
-            var sum = 0;
-            $($.lt_id_data.id_labelbox).find('li').each(function (i, v) {
-                var wd = $(v).width() + 30;
-                sum += wd;
-            });
-            // var html_font = parseFloat($('html').css('font-size').slice(0,2));
-            // var sun_rem =  ((sum/html_font)+3) + 'rem';
-            if (sum > docW) {
-                $($.lt_id_data.id_labelbox).width(sum);
-                return false;
-            } else {
-            }
+       // $(bhtml).appendTo($.lt_id_data.id_labelbox);
+       $($.lt_id_data.id_labelbox).html(bhtml) ;
 
-        })();
-
+       // setWidth() ;
         //如果没有设置默认玩法，将第一个设置为默认玩法
         if (hasdefault == false) {
             $($.lt_id_data.id_labelbox + ' li').eq(0).removeClass().addClass('hover');
@@ -3036,7 +3044,7 @@ var is_select = 0;
                         });
                         return false;
                     }
-                    eval('data=' + data);
+                  //  eval('data=' + data);
 
                     /*  if(sidebar_hover == "pk10"){
                                     setTimeout(function(){
@@ -3516,6 +3524,19 @@ var is_select = 0;
                 'sourceType':'2', // 1是pc端，2是h5
 
             };
+            var if_zhui = '1'; // 期数大于1默认追号
+            var if_zt = $('.btn_addstop').data('val') ; // 期数大于1默认追中即停
+            var z_dates = $($.lt_id_data.id_add_date).val()
+                .replace(/[^0-9]/g, '')
+                .substring(0, 5); // 追号期数选择
+            if(z_dates>1){ // 期数大于1 的情况下
+                if_zhui = '1';
+                if_zt = $('.btn_addstop').data('val') ;
+            }else{
+                if_zhui = '0';
+                if_zt = '0' ;
+            }
+
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {
 
                 var num_each = $(n).find('.num-each').text();  // 每单注数
@@ -3538,8 +3559,8 @@ var is_select = 0;
                         'betCount': Number(num_each), //注单数
                         'betMode': 0, //下注模式(预留)
                         'chaseCount': Number(date_each), //追号期数(含当期),默认1
-                        'chaseWinStop': 0,//是否追中即停
-                        'ifChase': $('.btn_addstop').data('val') , //是否追号,0不追号，1追号
+                        'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
+                        'ifChase': if_zhui , //是否追号,0不追号，1追号
                         'moneyMode': play_type ,//付款类型：元y，角j，分f
                         'multiple': Number(time_each), //倍数最少为1
                         'payoff': 0, //派彩

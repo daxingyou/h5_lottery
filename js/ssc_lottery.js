@@ -108,7 +108,7 @@ var data_label = [
             "show_str" : "X",
             "code_sp" : ",",
             "ifrandom" : 1, // 机选
-            "randomcos" : 3,  // 机选
+            "randomcos" : 5,  // 机选
             "randomcosvalue" : "1|1|1|1|1",  // 机选
             methodid : 121,
             name:'组选120',
@@ -2331,9 +2331,7 @@ function getSystemTime() {
         data: {} ,
         success: function(res){
             sys_time = formatTimeUnlix(res.data) ;
-
-                priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
-
+            priodDataNewly(1) ; // 最近5期开奖，获取系统时间后再调用
         },
         error: function() {
 

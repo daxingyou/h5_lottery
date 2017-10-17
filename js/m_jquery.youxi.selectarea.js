@@ -2324,12 +2324,12 @@
              return false ;
              }*/
 
-            if (Number(z_times) > 1 || Number(z_dates) > 1) { // 追中即停按钮处理
+            if ( Number(z_dates) > 1) { // 追中即停按钮处理，期数大于1即为追号
                 $('.btn_addstop ').removeClass('disable')
-                    .css('color', '#52acd3');
+                    .css({'background': '#52acd3','color':'#fff'});
             } else {
                 $('.btn_addstop ').addClass('disable')
-                    .css('color', '#c9c9c9');
+                    .css({'background':'none','color': '#c9c9c9'});
             }
             var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
             // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
@@ -2367,13 +2367,11 @@
                 return false;
             }
             if (zhuiflage % 2 == 0) {
-                $(this).attr('data-val', '0')
-                    .css('color', '#52acd3')
-                    .text('追中即停');
-            } else {
                 $(this).attr('data-val', '1')
-                    .css('color', '#c9c9c9')
-                    .text('取消追号');
+                    .css({'background': '#52acd3','color':'#fff'});
+            } else {
+                $(this).attr('data-val', '0')
+                    .css({'background': 'none','color':'#c9c9c9'});
             }
             zhuiflage++;
 
