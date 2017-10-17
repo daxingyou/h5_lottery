@@ -3710,11 +3710,11 @@ var is_select = 0;
     };
 // 重置投注保单，清空
     $.gameBtn = function () {
-        var id_sel_num = $($.lt_id_data.id_sel_num).html(),//添加投注 已选注数
-            id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(), 10), //投注倍数取整
-            id_sel_insert = $($.lt_id_data.id_sel_insert),//添加投注 添加按钮
-            id_cf_count = $($.lt_id_data.id_cf_count).html(),//立即投注 已选单
-            id_sendok = $($.lt_id_data.id_sendok);//立即投注 立即按钮
+        var id_sel_num = $($.lt_id_data.id_sel_num).html(),// 添加投注 已选注数
+            id_sel_time = parseInt($($.lt_id_data.id_sel_times).val(), 10), // 投注倍数取整
+            id_sel_insert = $($.lt_id_data.id_sel_insert),// 添加投注 添加按钮
+            id_cf_count = $($.lt_id_data.id_cf_count).html(),// 立即投注 已选单
+            id_sendok = $($.lt_id_data.id_sendok);// 立即投注 立即按钮
         if (id_sel_num == 0) {
             id_sel_insert.addClass('addBtnDisabled');
 

@@ -19,7 +19,7 @@ function soyeScroll(selector) {
                 var thisClientHeight = document.body.clientHeight;
                 var thisScrollHeight = document.body.scrollHeight;
                 console.log(thisScrollHeight + ':' + (thisClientHeight + that.getScrollTop()));
-                if (thisScrollHeight === (thisClientHeight + that.getScrollTop())) {
+                if (thisScrollHeight - 100 <= (thisClientHeight + that.getScrollTop())) {
                     cb();
                 }
             };
