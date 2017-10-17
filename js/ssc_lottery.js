@@ -2415,10 +2415,10 @@ function getMemberBalance() {
                         btn: ['确定','取消'],
                         yes: function (index) {
                             for(var i= 0;i<z_times;i++){  // 还原倍数
-                                $('.multipleBox').find('.less_bei').click() ;
+                                $('.zh_multipleBox').find('.less_bei').click() ;
                             }
                             for(var i= 0;i<z_dates;i++){   // 还原期数
-                                $('.multipleBox').find('.less_bei').click() ;
+                                $('.zh_multipleBox').find('.less_bei').click() ;
                             }
                             $('#body').removeClass('bet_cart');
                             $('#ui_bet').stop(true,true).animate({left: '100%'},300);
