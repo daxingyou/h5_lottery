@@ -2590,7 +2590,9 @@
                 }
             }
             var end = $('li[name^=\'lt_place_0\']').length || 0;
-            if (end === 0) {
+
+            // 不支持机选的玩法
+            if (end === 0 || otype == 'dxds' || methodname =='WXZU120' || methodname=='WXZU60' || methodname=='WXZU30' || methodname=='WXZU20'|| methodname=='SXZU24' || methodname=='SXZU12' || methodname=='SXZU6'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
                 layer.open({
                     content: '该玩法不支持机选',
                     btn: '确定',
@@ -2650,7 +2652,7 @@
                         for (i = 0; i < data_sel.length; i++) {// 清空已选择数据
                             data_sel[i] = [];
                         }
-                        if (otype == 'input') {// 清空所有显示的数据
+                        if (otype == 'input') {  // 玩法是输入类型，清空所有显示的数据
                             $('#lt_write_box', $(me)).val('');
                         } else if (otype == 'digital' || otype == 'dxds' || otype == 'dds') {
                             $.each($('.nList li', $(me)).filter('.hover'), function (i, n) {
