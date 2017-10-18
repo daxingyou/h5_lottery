@@ -196,7 +196,6 @@ soyeScroll.init(function () {
  */
 var mainView = 0;
 var ding = 0;
-
 function showMain() {
     if (mainView === 0) {
         $('.body').hide();
@@ -207,7 +206,6 @@ function showMain() {
         mainView = 0;
     }
     window.scrollTo(0, ding);
-    $('#ding').parent()
 }
 
 /**
@@ -215,9 +213,7 @@ function showMain() {
  */
 function touzhu(that, view) {
     event.stopPropagation();
-    $('#ding').attr('id', '');
-    $(that).attr('id', 'ding');
-    ding = getElementTop(document.getElementById('ding'));
+    ding = document.body.scrollHeight
     if (view === 1) {
         mainView = 1;
     }
@@ -290,9 +286,7 @@ function touzhu(that, view) {
  */
 function zhuihao(that) {
     event.stopPropagation();
-    $('#ding').attr('id', '');
-    $(that).attr('id', 'ding');
-    ding = getElementTop(document.getElementById('ding'));
+    ding = document.body.scrollHeight
     var access_token = getCookie('access_token'); // 取token
     var data = $(that).data('val');
     $('.body').hide();
