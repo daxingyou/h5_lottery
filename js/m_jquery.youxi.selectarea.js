@@ -3050,7 +3050,20 @@
                 // 删除全部注数，清空列表
                 $('.delete-all').off()
                     .on('click', function () {
-                        $.lt_reset(false);
+                        var id_cf_count = $($.lt_id_data.id_cf_count).html() ; // 立即投注 已选单
+                        if(id_cf_count ==0){ // 没有注单
+                            return false ;
+                        }
+                        layer.open({
+                            title: '温馨提示',
+                            className: 'layer_tip',
+                            content: '确定要清空购物区吗？',
+                            btn: ['确定','取消'],
+                            yes: function (index) {
+                                $.lt_reset(false);
+                                layer.close(index);
+                            }
+                        });
 
                     });
 

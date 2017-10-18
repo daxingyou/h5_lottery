@@ -2914,6 +2914,27 @@ var is_select = 0;
                 second: Math.floor(t % 60)
             } : {day: 0, hour: 0, minute: 0, second: 0};
         }
+        function _getSystemTime() { // 获取系统时间
+            $.ajax({
+                type: 'get',
+                // url : $.lt_ajaxurl,
+                url: action.forseti + 'apis/serverCurrentTime',
+                headers: {
+                    'Authorization': 'bearer  ' + access_token
+                },
+                timeout: 30000,
+                // data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
+                data: 'lotteryId=' + $.lt_lottid ,
+                success: function (data) { //成功
+                    // console.log(data) ;
+                    sys_time = formatTimeUnlix(data.data); // 更新系统时间
+                    $.lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
+
+
+                }
+            });
+        }
+
        /* function formatDate(date, format) {
             if (!date) {
                 return;
@@ -2969,30 +2990,15 @@ var is_select = 0;
                 $(".m-n-countdown").text(formatTimer($.lt_time_leave));
             }
         }, 1000);*/
+      /*  window.addEventListener('pageshow', function(event) {
+           alert('合适的');
+
+        })*/
+
         var timerno = window.setInterval(function () {
             if ($.lt_time_leave > 0 && ($.lt_time_leave % 240 == 0 || $.lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
-                $.ajax({
-                    type: 'get',
-                    // url : $.lt_ajaxurl,
-                    url: action.forseti + 'apis/serverCurrentTime',
-                    headers: {
-                        'Authorization': 'bearer  ' + access_token
-                    },
-                    timeout: 30000,
-                    // data: "lotteryId="+$.lt_lottid+"&issue="+$($.lt_id_data.id_cur_issue).html()+"&flag=gettime",
-                    data: 'lotteryId=' + $.lt_lottid ,
-                    success: function (data) { //成功
-                        // console.log(data) ;
-                        /* data = parseInt(data,10);
-                            data = isNaN(data) ? 0 : data;
-                            data = data <= 0 ? 0 : data;*/
-                        // $.lt_time_leave = data.data ;
-                        sys_time = formatTimeUnlix(data.data); // 更新系统时间
-                        $.lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000;
+                _getSystemTime();
 
-
-                    }
-                });
             }
 
             // console.log($.lt_time_leave+'倒计时') ;
