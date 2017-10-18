@@ -66,11 +66,28 @@
     position: relative;
 }
 
-.trend_data {
+#trend_content {
+    width: 100%;
+    overflow: hidden;
+}
+
+.bd {
+    width: 500%;
     position: relative;
-    /*display: inline-block;*/
+}
+
+.bd:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.trend_data {
+    width: 20%;
+    position: relative;
     font-size: 1rem;
-    /*width: 20%;*/
+    display: block;
+    float: left;
 }
 
 .trend_table {
