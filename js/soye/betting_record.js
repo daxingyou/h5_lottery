@@ -286,7 +286,7 @@ function showMain() {
         mainView = 0;
     }
     window.scrollTo(0, ding);
-    console.log(ding);
+    // console.log(ding);
 }
 
 /**
@@ -349,7 +349,7 @@ function touzhu(that, view) {
             $('.bet_status')
                 .html('已中奖');
             var html = '<li><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
-            $('.print_data li:nth-child(3)').after(html);
+            $('#page1 .print_data li:nth-child(3)').after(html);
         }
         if (data.orderStatusName == '系统撤单') {
             $('.bet_status')
@@ -433,7 +433,7 @@ function zhuihao(that) {
             data.chaseWinStop = '不停止';
         }
 
-        $('.print_data')
+        $('#page2 .print_data')
             .html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>');
 
 
