@@ -669,3 +669,4 @@ function checkemailWithdraw (obj, chineseid, maxnum) {
     }
     jQuery('#' + chineseid).html(changeMoneyToChinese(obj.value));
 }
+

@@ -20,7 +20,7 @@ var touzhuXQ = {};
 // 追号详情
 var zhuihaoXQ = {};
 
-initView();
+// initView();
 
 
 function initView() {
@@ -48,7 +48,7 @@ function initView() {
     });
     $('.first_li').each(function (i, t) {
         if ($(t).attr('class')
-                .indexOf('active') < 0 && (i === 0 || i === 4)) {
+                .indexOf('active') >= 0 || i === 0 || i === 4) {
             $(t).trigger('click');
         }
     });
@@ -95,7 +95,8 @@ function getBetRecord() {
                                 // '<div>' + v.pcode + '期</div></div></a></li>';
                                 '<div style="color: #ffc85d">总' + v.chaseCount + '期</div></div></a></li>';
                         }
-
+                        $(t).find('ul')
+                            .append(li_html);
                         /*
                              注单状态OrderStatus
                              bet_success(1, "等待开奖"),
@@ -111,19 +112,19 @@ function getBetRecord() {
                              追号详情：进行中，已完成，已取消
                              追号记录：进行中，已终止，已结束
                              */
-                        if (seadata.statusType === 1) {
-                            $(t).find('ul')
-                                .append(li_html);
-                        } else if (v.orderStatus === 1 && seadata.statusType === 2) {
-                            $(t).find('ul')
-                                .append(li_html);
-                        } else if (v.orderStatus === 32 && seadata.statusType === 3) {
-                            $(t).find('ul')
-                                .append(li_html);
-                        } else if (v.orderStatus === 31 && seadata.statusType === 4) {
-                            $(t).find('ul')
-                                .append(li_html);
-                        }
+                        // if (seadata.statusType === 1) {
+                        // $(t).find('ul')
+                        // .append(li_html);
+                        // } else if (v.orderStatus === 1 && seadata.statusType === 2) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // } else if (v.orderStatus === 32 && seadata.statusType === 3) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // } else if (v.orderStatus === 31 && seadata.statusType === 4) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // }
                     }
                 });
             });
@@ -273,6 +274,7 @@ soyeScroll.init(function () {
  * 显示主页面
  */
 var mainView = 0;
+var ding = 0;
 
 function showMain() {
     if (mainView === 0) {
@@ -283,12 +285,17 @@ function showMain() {
         $('#page2').show();
         mainView = 0;
     }
+    window.scrollTo(0, ding);
+    console.log(ding);
 }
 
 /**
  * 投注详情
  */
 function touzhu(that, view) {
+    $('#ding').attr('id', '');
+    $(that).attr('id', 'ding');
+    ding = getElementTop(document.getElementById('ding'));
     if (view === 1) {
         mainView = 1;
     }
@@ -296,6 +303,7 @@ function touzhu(that, view) {
 
     // var data = getStrParam('data');
     var data = $(that).data('val');
+
     $('.body').hide();
     $('#page1').show();
     data = JSON.parse(decodeURI(data));
@@ -405,6 +413,9 @@ function touzhu(that, view) {
  * 追号详情
  */
 function zhuihao(that) {
+    $('#ding').attr('id', '');
+    $(that).attr('id', 'ding');
+    ding = getElementTop(document.getElementById('ding'));
     var access_token = getCookie('access_token'); // 取token
     var data = $(that).data('val');
     $('.body').hide();
@@ -481,4 +492,20 @@ function zhuihao(that) {
         });
     }
 
+}
+
+
+/**
+ * 获取元素的绝对位置
+ * @param element
+ * @returns {Number|number}
+ */
+function getElementTop(element) {
+    var actualTop = element.offsetTop;
+    var current = element.offsetParent;
+    while (current !== null) {
+        actualTop += current.offsetTop;
+        current = current.offsetParent;
+    }
+    return actualTop;
 }
