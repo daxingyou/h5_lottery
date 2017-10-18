@@ -1180,7 +1180,7 @@ var is_select = 0;
                 6140777: 'ZU3BD',
 
                 //重庆时时彩新增玩法
-                913: 'PK10DXDS',
+               // 913: 'PK10DXDS',
                 6150770: 'ZXKD2',
                 6150771: 'ZXKD2',
                 6150772: 'ZXKD',
@@ -2770,7 +2770,14 @@ var is_select = 0;
             var index = $(this).attr("v").split('-');
 			 TextHtml() //根据点击的当前的文字显示到按钮上
            // console.log(index[1]) ;
-          //  console.log(opts.childrens) ;
+         // console.log(opts.childrens) ;
+        //  console.log(opts.label) ;
+            var gametype = opts.label[index[0]].label[index[1]].selectarea.type.toLowerCase() ; // 所有单式玩法去掉随选
+            if(gametype =='input'){
+                $('.bet_random').hide() ;
+            }else{
+                $('.bet_random').show() ;
+            }
 
             if(opts.childrens[index[0]][index[1]].oddsData != undefined){ // 每个玩法奖金处理，组合目前没有返回，后期再处理
                 $('#lt_payoff').html('奖金<strong class="ui_color_strong" >'+roundAmt(opts.childrens[index[0]][index[1]].oddsData.payoff)+' </strong>元').show() ;
@@ -2888,7 +2895,7 @@ var is_select = 0;
         if (start == '' || end == '') {
             $.lt_time_leave = 0;
         } else {
-            $.lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
+           $.lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
         }
 
         function fftime(n) {
@@ -2907,10 +2914,63 @@ var is_select = 0;
                 second: Math.floor(t % 60)
             } : {day: 0, hour: 0, minute: 0, second: 0};
         }
-
+       /* function formatDate(date, format) {
+            if (!date) {
+                return;
+            }
+            if (!format) {
+                format = "yyyy-MM-dd";
+            }
+            switch (typeof date) {
+                case "string":
+                    var da = date.replace("年", "-").replace("月", "-").replace("日", "").replace(/-/g, "/").split(/\/|\:|\ /);
+                    date = new Date(da[0],da[1] - 1,da[2],da[3],da[4],da[5]);
+                    break;
+                case "number":
+                    date = new Date(date);
+                    break;
+            }
+            if (!date instanceof Date) {
+                return;
+            }
+            var dict = {
+                "yyyy": date.getFullYear(),
+                "M": date.getMonth() + 1,
+                "d": date.getDate(),
+                "H": date.getHours(),
+                "m": date.getMinutes(),
+                "s": date.getSeconds(),
+                "MM": ("" + (date.getMonth() + 101)).substr(1),
+                "dd": ("" + (date.getDate() + 100)).substr(1),
+                "HH": ("" + (date.getHours() + 100)).substr(1),
+                "mm": ("" + (date.getMinutes() + 100)).substr(1),
+                "ss": ("" + (date.getSeconds() + 100)).substr(1)
+            };
+            return format.replace(/(yyyy|MM?|dd?|HH?|ss?|mm?)/g, function() {
+                return dict[arguments[0]];
+            });
+        }
+         function formatTimer(seconds) {
+            var day = Math.floor(seconds / (3600 * 24));
+            var remain = seconds % (3600 * 24);
+            var timezoneOffset = (new Date()).getTimezoneOffset();
+            return (day > 0 ? (day + "天") : "") + " " + formatDate(remain * 1000 + timezoneOffset * 60 * 1000, "HH:mm:ss");
+        }*/
+      /*  var timer = window.setInterval(function() {
+          $.lt_time_leave-- ;
+            console.log($.lt_time_leave)
+            if ($.lt_time_leave <= 0) {
+                window.clearInterval(timer);
+               /!* MainJS.dataCache[_this.resultCacheKey] = null;
+                _this.refreshModule();*!/
+            } else {
+                console.log('电风扇')
+               // $(me).html('' + (oDate.day > 0 ? oDate.day + (lot_lang.dec_s21) + ' ' : '') + '<div class="hour">' + fftime(oDate.hour) + ':</div><div class="min">' + fftime(oDate.minute) + ':</div><div class="sec">' + fftime(oDate.second) + '</div>');
+                $(".m-n-countdown").text(formatTimer($.lt_time_leave));
+            }
+        }, 1000);*/
         var timerno = window.setInterval(function () {
             if ($.lt_time_leave > 0 && ($.lt_time_leave % 240 == 0 || $.lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
-
                 $.ajax({
                     type: 'get',
                     // url : $.lt_ajaxurl,
@@ -2933,9 +2993,8 @@ var is_select = 0;
 
                     }
                 });
-
-
             }
+
             // console.log($.lt_time_leave+'倒计时') ;
             if ($.lt_time_leave <= 0) { //结束
                 clearInterval(timerno);
@@ -2989,6 +3048,7 @@ var is_select = 0;
                 console.log('停止当前期数');
 
             }
+
             var oDate = diff($.lt_time_leave--);
             $(me).html('' + (oDate.day > 0 ? oDate.day + (lot_lang.dec_s21) + ' ' : '') + '<div class="hour">' + fftime(oDate.hour) + ':</div><div class="min">' + fftime(oDate.minute) + ':</div><div class="sec">' + fftime(oDate.second) + '</div>');
 
@@ -3670,7 +3730,7 @@ var is_select = 0;
                             return false;
                         }*/
                     if (data.err == 'SUCCESS') {  //购买成功
-                        layer.open({
+                       /* layer.open({
                             content: lot_lang.am_s24,
                             btn: ['确定'],
                             yes: function (index) {
@@ -3679,31 +3739,29 @@ var is_select = 0;
                                     $.lt_reset();
                                 }
                                 $.lt_onfinishbuy();
-
-                                //追号相关
-                               /* $('.fqzhBox span').removeClass().addClass('uncheck');
-                                $('.fqzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
-                                $('.tzzhBox span').removeClass().addClass('uncheck');
-                                $('.tzzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
-                                $($.lt_id_data.id_tra_ifb).val('no');
-                                $('#lt_trace_assert').val('no');*/
-
                                 layer.close(index);
-                              //  $.funList.tzjlfn();//获取投注记录
 
                                 top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
-                        });
-
+                        });*/
+                        top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                         return false;
                     } else {  //购买失败提示
                       //  console.log(data.data.params.ErrInfo)
-                        if(data.data.params.ErrInfo !=''){
+                        if(data.data =='' || data.data ==null){ // 平台商不存在
                             layer.open({
-                                content: data.data.params.ErrInfo ,
+                                content: data.data.msg ,
                                 btn: '确定'
                             });
+                        }else{   // 各种错误提示
+                            if(data.data.params.ErrInfo !=''){
+                                layer.open({
+                                    content: data.data.params.ErrInfo ,
+                                    btn: '确定'
+                                });
+                            }
                         }
+
                         return false ;
                        /* eval('data = ' + data + ';');
                         if (data.stats == 'error') { //错误

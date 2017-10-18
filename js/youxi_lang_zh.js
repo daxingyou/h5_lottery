@@ -22,7 +22,7 @@ var lot_lang = {
     dec_s2: '倍',
     dec_s2_1: '倍数 :',
     dec_s3: '元', // 游戏币
-    dec_s4: '<div class="inputdesc" ><p class="inputdesc_title">注单输入规则如下 :</p><p>1.请手动输入号码;</p><p>2.单注内各号码保持相连;</p><p>3.不同注号码间请用 空格[ ] 或是 回车[Enter] 隔开;</p><p>4.单数较多时，提交注单需要一定时间，请耐心等候;</p><p class="strong">※重覆及错误号码会自动去除。</p></div>',
+    dec_s4: '<div class="inputdesc" ><p class="inputdesc_title">注单输入规则如下 :</p><p>1.请手动输入号码;</p><p>2.单注内各号码保持相连;</p><p>3.不同注号码间请用 空格[ ] 、[,]或 回车[Enter] 隔开;</p><p>4.单数较多时，提交注单需要一定时间，请耐心等候;</p><p class="strong">※重覆及错误号码会自动去除。</p></div>',
     dec_s5: '详情',
     dec_s6: '关闭',
     dec_s7: '(当前期)',

@@ -2285,8 +2285,15 @@ function getPlayTree(gameid) {
                // console.log(i.substring(0, 2)) ;
                 // console.log(v[0].status) ;
                 if(i.length>3){  // 除了不定位等
-                    dataPlayAll[i.substring(0, 2)] =  dataPlayAll[i.substring(0, 2)] || [] ;
-                    dataPlayAll[i.substring(0, 2)].push(v[0]) ;
+                  // console.log(i)
+                    if(i =='大小单双'){ // 单独处理
+                        dataPlayAll[i.substring(0, 4)] =  dataPlayAll[i.substring(0, 4)] || [] ;
+                        dataPlayAll[i.substring(0, 4)].push(v[0]) ;
+                    }else{
+                        dataPlayAll[i.substring(0, 2)] =  dataPlayAll[i.substring(0, 2)] || [] ;
+                        dataPlayAll[i.substring(0, 2)].push(v[0]) ;
+                    }
+
                 }else{  // 名字位数小于4，定位胆，不定位，趣味等
                     dataPlayAll[i.substring(0, 3)] =  dataPlayAll[i.substring(0, 3)] || [] ;
                     dataPlayAll[i.substring(0, 3)].push(v[0]) ;
@@ -2403,13 +2410,14 @@ function getMemberBalance() {
                     $('#body').addClass('bet_cart');
 
                 });
-            })
+            });
+            // 返回按钮
             $('#bet_back').on('click',function(){
                 var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数
                 var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数
                 var id_sel_num = $($.lt_id_data.id_cf_num).html() ;//添加投注 已选注数
 
-                if((z_times>1 && id_sel_num >0 ) || (z_dates>1 && id_sel_num>0)){ // 如果已经有追号方案，返回的时候清空之前的方案
+                if( (z_dates>1 && id_sel_num>0)){ // 如果已经有追号方案，返回的时候清空之前的方案
                     layer.open({
                         content: lot_lang.am_s41,
                         btn: ['确定','取消'],
@@ -2635,7 +2643,7 @@ function getMemberBalance() {
 // 近期开奖处理
 function processCode(issue,code,iscurent){
     if(!code){
-        code='-,-,-,-,-';
+        code='-,开,奖,中,-';
     }
     var code_arr = code.split(',');
 
