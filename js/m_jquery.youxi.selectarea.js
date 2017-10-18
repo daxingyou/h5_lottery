@@ -194,16 +194,16 @@
                         // $.isNumeric(parseInt(numbers[0]));
                         if (methodname !== 'PK10JS') {
                             for (i = 0; i < numbers.length; i++) {
-                                html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
+                                html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                             }
                         } else {
                             if ($.isNumeric(parseInt(numbers[0]))) {
                                 for (i = 0; i < numbers.length; i++) {
-                                    html += '<li name="lt_place_' + n.place + '" class="car_' + numbers[i] + '">' + numbers[i] + '</li>';
+                                    html += '<li name="lt_place_' + n.place + '" class="car_' + numbers[i] + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                                 }
                             } else if ($.isNumeric(parseInt(numbers[0])) === false && numbers[0] !== '-') {
                                 for (i = 0; i < numbers.length - 5; i++) {
-                                    html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
+                                    html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                                 }
                             } else {
                                 for (i = 0; i < numbers.length; i++) {
@@ -246,7 +246,7 @@
                         }
                         numbers = n.no.split('|');
                         for (i = 0; i < numbers.length; i++) {
-                            html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
+                            html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                         }
                         html += '</ul><ul class="cList">';
                         html += '<li name="all">' + lot_lang.bt_sel_all + '</li>' +
@@ -279,7 +279,7 @@
                         tmpprize = n.prize.split(',');
                     }*/
                     for (i = 0; i < numbers.length; i++) {
-                        html += '<li name="lt_place_' + n.place + '">' + numbers[i] + '</li>';
+                        html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                     }
                     html += '</ul></div>';// 去掉了【<td></tr>】
                 });
@@ -1903,7 +1903,8 @@
             $(obj).addClass('hover');// 样式改变为选中
             place = Number($(obj).attr('name')
                 .replace('lt_place_', ''));
-            var number = $.trim($(obj).html());
+          // var number = $.trim($(obj).html());
+            var number = $.trim($(obj).val());  // 防止带上热门号码
             number = number.toLowerCase();
             number = number.replace(/\<div.*\<\/div>/g, '').replace(/\r\n/g, '');
             if ($.lt_lottid == 15) {
