@@ -2643,7 +2643,7 @@ function getMemberBalance() {
 // 近期开奖处理
 function processCode(issue,code,iscurent){
     if(!code){
-        code='-,-,-,-,-';
+        code='-,开,奖,中,-';
     }
     var code_arr = code.split(',');
 
