@@ -3724,7 +3724,7 @@ var is_select = 0;
                             return false;
                         }*/
                     if (data.err == 'SUCCESS') {  //购买成功
-                        layer.open({
+                       /* layer.open({
                             content: lot_lang.am_s24,
                             btn: ['确定'],
                             yes: function (index) {
@@ -3733,22 +3733,12 @@ var is_select = 0;
                                     $.lt_reset();
                                 }
                                 $.lt_onfinishbuy();
-
-                                //追号相关
-                               /* $('.fqzhBox span').removeClass().addClass('uncheck');
-                                $('.fqzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
-                                $('.tzzhBox span').removeClass().addClass('uncheck');
-                                $('.tzzhBox span').siblings('input[type=\'checkbox\']').prop('checked', false);
-                                $($.lt_id_data.id_tra_ifb).val('no');
-                                $('#lt_trace_assert').val('no');*/
-
                                 layer.close(index);
-                              //  $.funList.tzjlfn();//获取投注记录
 
                                 top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                             }
-                        });
-
+                        });*/
+                        top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
                         return false;
                     } else {  //购买失败提示
                       //  console.log(data.data.params.ErrInfo)

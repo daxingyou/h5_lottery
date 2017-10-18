@@ -2497,15 +2497,15 @@
                 var z_dates = $($.lt_id_data.id_add_date).val()
                     .replace(/[^0-9]/g, '')
                     .substring(0, 5); // 追号期数选择
-                if (z_times > 1 || z_dates > 1) { // 如果已经有追号方案，机选的时候清空之前的方案
+                if ( z_dates > 1) { // 如果已经有追号方案，机选的时候清空之前的方案
                     layer.open({
                         content: lot_lang.am_s41,
                         btn: ['确定', '取消'],
                         yes: function (index) {
-                            for (var i = 0; i < z_times; i++) { // 还原追号倍数
+                           /* for (var i = 0; i < z_times; i++) { // 还原追号倍数
                                 $('.zh_multipleBox').find('.less_bei')
                                     .click();
-                            }
+                            }*/
                             for (var i = 0; i < z_dates; i++) { // 还原追号期数
                                 $('.zh_multipleBox').find('.less_bei')
                                     .click();
@@ -2540,15 +2540,15 @@
                     .replace(/[^0-9]/g, '')
                     .substring(0, 5); // 追号期数选择
 
-                if (z_times > 1 || z_dates > 1) { // 如果已经有追号方案，机选的时候清空之前的方案
+                if ( z_dates > 1) { // 如果已经有追号方案，机选的时候清空之前的方案
                     layer.open({
                         content: lot_lang.am_s41,
                         btn: ['确定', '取消'],
                         yes: function (index) {
-                            for (var i = 0; i < z_times; i++) { // 还原追号倍数
+                           /* for (var i = 0; i < z_times; i++) { // 还原追号倍数
                                 $('.zh_multipleBox').find('.less_bei')
                                     .click();
-                            }
+                            }*/
                             for (var i = 0; i < z_dates; i++) { // 还原追号期数
                                 $('.zh_multipleBox').find('.less_bei')
                                     .click();
