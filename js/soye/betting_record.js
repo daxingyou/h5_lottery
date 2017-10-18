@@ -196,6 +196,7 @@ soyeScroll.init(function () {
  */
 var mainView = 0;
 var ding = 0;
+
 function showMain() {
     if (mainView === 0) {
         $('.body').hide();
@@ -263,7 +264,8 @@ function touzhu(that, view) {
                 .attr('class', 'bet_status status_green');
             $('.bet_status')
                 .html('已中奖');
-            var html = '<li><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
+            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
+            $('.so-zhongjiang').remove()
             $('#page1 .print_data li:nth-child(3)').after(html);
         }
         if (data.orderStatusName == '系统撤单') {
