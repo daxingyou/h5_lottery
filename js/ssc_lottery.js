@@ -2215,6 +2215,7 @@ function LoginAction() {
         success: function(res){
             access_token = res.access_token ;
             setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
+            setCookie("username","mgappid01|admin");  // 把登录用户名放在cookie里面
         },
         error: function() {
 
