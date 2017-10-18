@@ -235,6 +235,10 @@
                         } else {
                             html += '';
                         }
+                        html += '</ul><ul class="cList">';
+                        html += '<li name="all">' + lot_lang.bt_sel_all + '</li>' +
+                            '<li class="selectType" name="clean">' + lot_lang.bt_sel_clean + '</li>' +
+                            '</ul>';
                         if (lotterytype == 0 || lotterytype == 2) {
                             html += '<ul class="nList">';
                         } else if (lotterytype == 3) {
@@ -248,10 +252,7 @@
                         for (i = 0; i < numbers.length; i++) {
                             html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                         }
-                        html += '</ul><ul class="cList">';
-                        html += '<li name="all">' + lot_lang.bt_sel_all + '</li>' +
-                            '<li class="selectType" name="clean">' + lot_lang.bt_sel_clean + '</li>' +
-                            '</ul>';
+
                         html += '</div>';
                     }
                 });

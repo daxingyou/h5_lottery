@@ -1,7 +1,6 @@
 /* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
 access_token = getCookie('access_token'); // 取token
 
-
 var nowDate = new Date();
 var seadata = {
     page: 1, // 页数，从1开始
