@@ -3748,12 +3748,20 @@ var is_select = 0;
                         return false;
                     } else {  //购买失败提示
                       //  console.log(data.data.params.ErrInfo)
-                        if(data.data.params.ErrInfo !=''){
+                        if(data.data =='' || data.data ==null){ // 平台商不存在
                             layer.open({
-                                content: data.data.params.ErrInfo ,
+                                content: data.data.msg ,
                                 btn: '确定'
                             });
+                        }else{   // 各种错误提示
+                            if(data.data.params.ErrInfo !=''){
+                                layer.open({
+                                    content: data.data.params.ErrInfo ,
+                                    btn: '确定'
+                                });
+                            }
                         }
+
                         return false ;
                        /* eval('data = ' + data + ';');
                         if (data.stats == 'error') { //错误
