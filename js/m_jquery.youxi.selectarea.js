@@ -2301,39 +2301,38 @@
         function checkTimes(flage) {
             var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 投注倍数选择
             //  追号相关
-            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '')
-                .substring(0, 5); // 追号倍数选择
+            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数选择
             var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
             var total_all = 0; // 总金额变化
             $($.lt_id_data.id_sel_times).val(times);
 
-            /* if (times == 0) {
-             times = 1;
-             layer.open({
-             content: '倍数不能输入0',
-             btn: '确定'
-             });
-             $($.lt_id_data.id_sel_times).val(times);
-             return false ;
+            if (times == 0) {
+                 times = 1;
+                 layer.open({
+                 content: '倍数不能输入0',
+                 btn: '确定'
+                 });
+                 $($.lt_id_data.id_sel_times).val(times);
+                 return false ;
              }
              if (z_times == 0) {
-             z_times = 1;
-             layer.open({
-             content: '追号倍数不能输入0',
-             btn: '确定'
-             });
-             $($.lt_id_data.id_add_date).val(z_times);
-             return false ;
+                 z_times = 1;
+                 layer.open({
+                 content: '追号倍数不能输入0',
+                 btn: '确定'
+               });
+                 $($.lt_id_data.id_add_times).val(z_times);
+                 return false ;
              }
              if (z_dates == 0) {
-             z_dates = 1;
+                z_dates = 1;
              layer.open({
-             content: '追号期数不能输入0',
-             btn: '确定'
+                 content: '追号期数不能输入0',
+                 btn: '确定'
              });
-             $($.lt_id_data.id_add_date).val(z_dates);
-             return false ;
-             }*/
+                 $($.lt_id_data.id_add_date).val(z_dates);
+                 return false ;
+             }
 
 
             var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
