@@ -1,5 +1,7 @@
 /* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
 access_token = getCookie('access_token'); // 取token
+var username = getCookie('username') ;
+$('.user_name').text(username) ;
 
 var nowDate = new Date();
 var seadata = {

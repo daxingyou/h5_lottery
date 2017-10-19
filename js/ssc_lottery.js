@@ -2361,6 +2361,7 @@ function getMemberBalance() {
         success: function(res){
             var mom = roundAmt(res.data.amount) ;
             $('.membalance').text(mom) ;
+            $('.user_name').text(getCookie('username')) ;
             setCookie("membalance",mom);  // 把登录余额放在cookie里面
         },
         error: function() {
