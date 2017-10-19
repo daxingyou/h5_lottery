@@ -2359,10 +2359,12 @@ function getMemberBalance() {
         url : action.uaa+'/api/data/member/getMemberBalance' ,
         data: {} ,
         success: function(res){
-            var mom = roundAmt(res.data.amount) ;
+           // var mom = roundAmt(res.data.amount) ;
+            var mom = fortMoney(roundAmt(res.data.amount),2) ;
             $('.membalance').text(mom) ;
             $('.user_name').text(getCookie('username')) ;
             setCookie("membalance",mom);  // 把登录余额放在cookie里面
+           // console.log(returnMoney(mom))
         },
         error: function() {
 

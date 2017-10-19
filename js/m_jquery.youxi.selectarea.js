@@ -1591,8 +1591,8 @@
             // var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
             var money = Math.round(times * nums * betdates * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 倍数*注数*单价 * 模式
             money = isNaN(money) ? 0 : money;
-            $($.lt_id_data.id_sel_num).html(nums); // 写入临时的注数
-            $($.lt_id_data.id_sel_money).html(money);// 写临时单笔价格
+            $($.lt_id_data.id_sel_num).html(formatNumber(nums)); // 写入临时的注数
+            $($.lt_id_data.id_sel_money).html(formatNumber(money));// 写临时单笔价格
             $.gameBtn();
         }
 
@@ -2310,32 +2310,46 @@
 
             if (times == 0) {
                  times = 1;
-                 layer.open({
+                /* layer.open({
                  content: '倍数不能输入0',
                  btn: '确定'
-                 });
+                 });*/
+                 $($.lt_id_data.id_sel_times).val(times);
+                 return false ;
+             }
+             if(times >9999){
+                 times = 9999;
                  $($.lt_id_data.id_sel_times).val(times);
                  return false ;
              }
              if (z_times == 0) {
                  z_times = 1;
-                 layer.open({
+                /* layer.open({
                  content: '追号倍数不能输入0',
                  btn: '确定'
-               });
+               });*/
                  $($.lt_id_data.id_add_times).val(z_times);
                  return false ;
              }
+            if(z_times >9999){
+                z_times = 9999;
+                $($.lt_id_data.id_add_times).val(z_times);
+                return false ;
+            }
              if (z_dates == 0) {
                 z_dates = 1;
-             layer.open({
+            /* layer.open({
                  content: '追号期数不能输入0',
                  btn: '确定'
-             });
+             });*/
                  $($.lt_id_data.id_add_date).val(z_dates);
                  return false ;
              }
-
+            if(z_dates >9999){
+                z_dates = 9999;
+                $($.lt_id_data.id_add_date).val(z_dates);
+                return false ;
+            }
 
             var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
             // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
@@ -2626,9 +2640,9 @@
         //  号码添加按钮
         $($.lt_id_data.id_sel_insert).unbind('click').click(function () {
             console.log('添加成功')
-                var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
-                var times = parseInt($($.lt_id_data.id_sel_times).val(), 10);// 投注倍数取整
-                var betdates = parseInt($($.lt_id_data.id_add_date).val(), 10);// 投注期数取整
+                var nums = parseInt(returnMoney($($.lt_id_data.id_sel_num).html()), 10);// 投注注数取整
+                var times = parseInt(returnMoney($($.lt_id_data.id_sel_times).val()), 10);// 投注倍数取整
+                var betdates = parseInt(returnMoney($($.lt_id_data.id_add_date).val()), 10);// 投注期数取整
                 // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
                 var modes = parseInt($('input[name=\'lt_project_modes\']:checked').val(), 10);// 投注模式
                 // var money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价 * 模式
@@ -2924,10 +2938,10 @@
                     nohtml +
                     '<p class="ui_bet_count">' +
                     // '<span class="ui_bet_mode">['+$.lt_method_data.modes[modes].name+'] 模式</span>'+
-                    '<span class="num-each">' + nums + '</span>' + lot_lang.dec_s1 +
-                    '<span class="time-each">' + times + '</span>' + lot_lang.dec_s2 +
-                    '<span class="date-each">' + betdates + '</span>期' +
-                    '共<span class="total-each">' + money + '</span>' + lot_lang.dec_s3 +
+                    '<span class="num-each">' + formatNumber(nums) + '</span>' + lot_lang.dec_s1 +
+                    '<span class="time-each">' + formatNumber(times) + '</span>' + lot_lang.dec_s2 +
+                    '<span class="date-each">' + formatNumber(betdates) + '</span>期' +
+                    '共<span class="total-each">' + formatNumber(money) + '</span>' + lot_lang.dec_s3 +
                     // stemp+
                     '</p>' +
                     '<span class="del">' +
@@ -2952,8 +2966,8 @@
                 });
                 var total_all = 0;
                 $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) { // 追号处理
-                    total_all += Number($(n).find('.total-each').text()); // 累加金额
-                    $($.lt_id_data.id_cf_money).html(total_all); // 总金额更新
+                    total_all += Number(returnMoney($(n).find('.total-each').text())); // 累加金额
+                    $($.lt_id_data.id_cf_money).html(formatNumber(total_all)); // 总金额更新
 
                 });
                 $.lt_total_nums += nums;// 总注数增加
@@ -2963,8 +2977,8 @@
                 basemoney = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 注数*单价 * 模式
                 $.lt_trace_base = Math.round(($.lt_trace_base + basemoney) * 1000) / 1000; // 追号金额
                 $.lt_total_time = parseInt($($.lt_id_data.id_sel_times).val(), 10); // 投注倍数取整
-                $($.lt_id_data.id_cf_num).html($.lt_total_nums);// 更新总注数显示
-                $($.lt_id_data.id_cf_money).html($.lt_total_money);// 更新总金额显示
+                $($.lt_id_data.id_cf_num).html(formatNumber($.lt_total_nums));// 更新总注数显示
+                $($.lt_id_data.id_cf_money).html(formatNumber($.lt_total_money));// 更新总金额显示
                 $($.lt_id_data.id_cf_count).html(parseInt($($.lt_id_data.id_cf_count).html(), 10) + 1);// 总投注项加1
                 // 计算奖金，并且判断是否支持利润率追号
                 var pc = 0;
@@ -3035,8 +3049,8 @@
                         $.lt_total_time = parseInt($($.lt_id_data.id_sel_times).val(), 10); // 投注倍数取整
                         $(this).parents('.lotteryList')
                             .remove();
-                        $($.lt_id_data.id_cf_num).html($.lt_total_nums);// 更新总注数显示
-                        $($.lt_id_data.id_cf_money).html($.lt_total_money);// 更新总金额显示
+                        $($.lt_id_data.id_cf_num).html(formatNumber($.lt_total_nums));// 更新总注数显示
+                        $($.lt_id_data.id_cf_money).html(formatNumber($.lt_total_money));// 更新总金额显示
                         $($.lt_id_data.id_cf_count).html(parseInt($($.lt_id_data.id_cf_count).html(), 10) - 1);// 总投注项减1
 
                         /*  cleanTraceIssue();//清空追号区数据
