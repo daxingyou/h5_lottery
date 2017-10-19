@@ -2480,8 +2480,10 @@
             if (end - start + 1 < size) {// 验证随机数个数是否超出随机数范围
                 return;
             }
+
             for (var i = 0; i < size; i++) {// 生成 size 个不重复的随机数
                 rnum = newNumber(start, end);// 获取随机数
+               // console.log( newNumber(0, 9))
                 if (isHaveThisNumber(para, rnum)) {// 是否已经存在
                     while (isHaveThisNumber(para, rnum)) {// 获取新的随机数 直到不重复
                         rnum = newNumber(start, end);// 重新获取随机数
@@ -2588,7 +2590,7 @@
                 for (i = 0; i < data_sel.length; i++) {// 清空已选择数据
                     data_sel[i] = [];
                 }
-                if (otype == 'input') {// 清空所有显示的数据
+                if (otype == 'input') { // 清空所有显示的数据，单式玩法，输入框
                     $('#lt_write_box', $(me)).val('');
                 } else if (otype == 'digital' || otype == 'dxds' || otype == 'dds') {
                     $.each($('.nList li', $(me)).filter('.hover'), function (i, n) {
@@ -2609,7 +2611,7 @@
             var end = $('li[name^=\'lt_place_0\']').length || 0;
 
             // 不支持机选的玩法
-            if (end === 0 || otype == 'dxds' || methodname =='WXZU120' || methodname=='WXZU60' || methodname=='WXZU30' || methodname=='WXZU20'|| methodname=='SXZU24' || methodname=='SXZU12' || methodname=='SXZU6'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
+            if (end === 0 || otype == 'dxds' || methodname=='WXZU30' || methodname=='WXZU20'|| methodname=='SXZU24' || methodname=='SXZU12' || methodname=='SXZU6'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
                 layer.open({
                     content: '该玩法不支持机选',
                     btn: '确定',
@@ -2619,19 +2621,47 @@
             var para = newRandomNumbersWithNoRepeat(0, end - 1, totalnum); // 随机得到一个不重复的数字组成的数组
             var randomcos_arr = [];
             randomcos_arr.length = randomcos;
-            $.each(randomcos_arr, function (i, v1) {
-                var minsize_arr = [];
-                minsize_arr.length = minsize[i];
-                $.each(minsize_arr, function (j, v2) {
-                    $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
-                        if (n == para[j]) {
-                            $(this).trigger('click');
-                        }
-                    });
+            var snum = Math.floor(Math.random()*10) ; // 五星组选60
+
+                $.each(randomcos_arr, function (i, v1) {
+                    var minsize_arr = [];
+                    minsize_arr.length = minsize[i];
+                  $.each(minsize_arr, function (j, v2) {
+                      switch (methodname) {
+                          case 'WXZU120':  // 五星组选120
+                              $.each($('[name="lt_place_0"]'), function (m, va) {
+                                  if (m == para[j]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+
+                              break;
+                          case 'WXZU60': // 五星组选60
+                              $('[name="lt_place_0"]').eq(snum).trigger('click') ;
+                              $.each($('[name="lt_place_1"]'), function (m, va) {
+                                  if (m == para[i]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+                              break;
+                          case 2:
+
+                              break;
+                          default:
+                              $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
+                                  if (n == para[j]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+                              break;
+
+                      }
+
+
+                        });
+                    para.shift();
                 });
-                para.shift();
-            });
-            para = [];
+                para = [];
 
              $($.lt_id_data.id_sel_insert).trigger('click'); // 添加按钮
 
