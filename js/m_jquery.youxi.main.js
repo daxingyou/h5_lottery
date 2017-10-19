@@ -3495,8 +3495,9 @@ var is_select = 0;
                         $.lt_submiting = false;
                         return;
                     }
-                    $('#lt_total_nums').val($.lt_total_nums);
-                    $('#lt_total_money').val($.lt_total_money);
+                   /* $('#lt_total_nums').val($.lt_total_nums);
+                    $('#lt_total_money').val($.lt_total_money);*/
+
                     //解决瞬间提交2次的问题
                     if (ajaxSubmitAllow) {
                         ajaxSubmitAllow = false;
@@ -3590,23 +3591,7 @@ var is_select = 0;
                 'chaseCount': 0, //追号期数
                 'chaseWinStop': 0,//是否追中即停
                 'ifChase': 0, //是否追号
-                'list': [
-                    /*  {  // 一条数据就是一个方案，一个方案可以有多条下注
-                        "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                        "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
-                        "betCount": 1, //注单数
-                        "betMode": 0, //下注模式(预留)
-                        "chaseCount": 1, //追号期数(含当期),默认1
-                        "chaseWinStop": 0,//是否追中即停
-                        "ifChase": 0, //是否追号
-                        "moneyMode": "y",//付款类型：元y，角j，分f
-                        "multiple": 1, //倍数最少为1
-                        "payoff": 0, //派彩
-                        "playId": 111, //玩法
-                        "remark": "无"//备注
-                    }, */
-
-                ],
+                'list': [ ],
                 'lotteryId': $.lt_lottid,  //彩种id
                 'operType': 0, //下注类型，1下注
                 'pcode': $('.current_issue ').eq(0).text(), //期次20170925013
@@ -3631,10 +3616,10 @@ var is_select = 0;
             }
 
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {  // 遍历每笔注单
-                var num_each = $(n).find('.num-each').text();  // 每单注数
-                var time_each = $(n).find('.time-each').text();  // 每单倍数
-                var total_each = $(n).find('.total-each').text();  // 每单金额
-                var date_each = $(n).find('.date-each').text();  // 每单期数
+                var num_each = returnMoney($(n).find('.num-each').text()) ;  // 每单注数
+                var time_each = returnMoney($(n).find('.time-each').text()) ;  // 每单倍数
+                var total_each = returnMoney($(n).find('.total-each').text()) ;  // 每单金额
+                var date_each = returnMoney($(n).find('.date-each').text()) ;  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
                 var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
@@ -3690,7 +3675,7 @@ var is_select = 0;
                 data: JSON.stringify(resdata),
 
                 success: function (data) {
-                    getMemberBalance(); //下注成功后更新余额
+
                     layer.closeAll();
                     //解决瞬间提交2次的问题
                     ajaxSubmitAllow = true;
