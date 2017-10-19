@@ -3010,10 +3010,10 @@ var is_select = 0;
 
                         layer.open({  // 当前期数结束，转到下一期
                             className: 'time_ontimeout',
-                            content: lot_lang.am_s15_3 + '<span class="ui_color_yellow">' + next_pcode + '</span>' + '  期 。' + '</div>', // 转到下一期
+                            content: lot_lang.am_s15_3 + '<span class="ui_color_yellow">' + next_pcode + '</span>' + '  期' + '</div>', // 转到下一期
                             // btn:'确定',
                             skin: 'msg',
-                            style:'background-color: rgba(52, 65, 70, 0.85);border-radius: 1.5rem;padding:0;padding: 5px;width: auto;',
+                            style:'background-color: rgba(52, 65, 70, 0.85);border-radius: 1.5rem;padding:0;width: auto;',
                             time: 3
                         });
 
@@ -3487,6 +3487,8 @@ var is_select = 0;
             msg = msg.replace('[关闭]', '');
             layer.open({ // 确认付款，点击确定提交
                 content: msg,
+                title: '确认付款',
+                className: 'layer_check',
                 btn: ['确定', '取消'],
                 yes: function (index) {
                     if (checkTimeOut() == false) {  //正式提交前再检查1下时间
