@@ -328,8 +328,6 @@ access_token = getCookie('access_token'); // 取token
 var membalance = getCookie('membalance');
 $('.so-membalance')
     .html(membalance);
-var membalance = getCookie('membalance');
-
 
 // getBetRecord(1, 1, 1); // 投注记录
 

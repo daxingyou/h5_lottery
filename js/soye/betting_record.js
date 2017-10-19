@@ -1,7 +1,9 @@
 /* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
 access_token = getCookie('access_token'); // 取token
 var username = getCookie('username') ;
-$('.user_name').text(username) ;
+var membalance = getCookie('membalance') ;
+$('.user_name').text(username) ;  // 用户名
+$('.so-membalance').html(membalance);  // 余额
 
 var nowDate = new Date();
 var seadata = {
