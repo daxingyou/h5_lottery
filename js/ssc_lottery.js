@@ -819,12 +819,12 @@ var data_label = [
         "randomcos" : 2,
         "randomcosvalue" : "1|1",
         methodid : 611,
-        name:'后二直选(复式)',
+        name:'后二直选复式',
        /* prize:{1:'180.00'},
         nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:75,
-        desc:'后二(复式)',maxcodecount:0
+        desc:'后二复式',maxcodecount:0
     },{"methoddesc":"手动输入号码，至少输入1个两位数号码。",
         "methodhelp":"手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，且顺序一致，即为中奖。",
         "methodexample":"投注方案：58；开奖号码后二位：58，即中后二直选一等奖。",
@@ -832,12 +832,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : " ",
         methodid : 612,
-        name:'后二直选(单式)',
+        name:'后二直选单式',
        /* prize:{1:'180.00'},
         nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:446,
-        desc:'后二(单式)',maxcodecount:0
+        desc:'后二单式',maxcodecount:0
     },{"methoddesc":"从万、千位各选一个号码组成一注。",
         "methodhelp":"从万位、千位中选择一个2位数号码组成一注，所选号码与开奖号码的前2位相同，且顺序一致，即为中奖。",
         "methodexample":"投注方案：58；开奖号码前二位：58，即中前二直选一等奖。",
@@ -856,12 +856,12 @@ var data_label = [
         "randomcos" : 2,
         "randomcosvalue" : "1|1",
         methodid : 614,
-        name:'前二直选(复式)',
+        name:'前二直选复式',
        /* prize:{1:'180.00'},
         nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:73,
-        desc:'前二(复式)',maxcodecount:0
+        desc:'前二复式',maxcodecount:0
     },{"methoddesc":"手动输入号码，至少输入1个两位数号码。",
         "methodhelp":"手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，且顺序一致，即为中奖。",
         "methodexample":"投注方案：58；开奖号码前二位：58，即中前二直选一等奖。",
@@ -869,12 +869,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : " ",
         methodid : 615,
-        name:'前二直选(单式)',
+        name:'前二直选单式',
        /* prize:{1:'180.00'},
         nfdprize:{levs:'194',defaultprize:180.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:445,
-        desc:'前二(单式)',maxcodecount:0
+        desc:'前二单式',maxcodecount:0
     },{"methoddesc":"从0-18中任意选择1个或1个以上的和值号码。",
         "methodhelp":"所选数值等于开奖号码的十位、个位二个数字相加之和，即为中奖。",
         "methodexample":"投注方案：和值1；开奖号码后二位：01,10，即中后二直选。",
@@ -930,12 +930,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 621,
-        name:'后二组选(复式)',
+        name:'后二组选复式',
        /* prize:{1:'90.00'},
         nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:442,
-        desc:'后二(复式)',maxcodecount:0
+        desc:'后二复式',maxcodecount:0
     },{"methoddesc":"手动输入号码，至少输入1个两位数号码。",
         "methodhelp":"手动输入一个2位数号码组成一注，所选号码的十位、个位与开奖号码相同，顺序不限，即为中奖。",
         "methodexample":"投注方案：5,8；开奖号码后二位：1个5，1个8 (顺序不限)，即中后二组选一等奖。",
@@ -943,12 +943,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : " ",
         methodid : 622,
-        name:'后二组选(单式)',
+        name:'后二组选单式',
       /*  prize:{1:'90.00'},
         nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:448,
-        desc:'后二(单式)',maxcodecount:0
+        desc:'后二单式',maxcodecount:0
     },{"methoddesc":"从0-9中任意选择2个或2个以上号码。",
         "methodhelp":"从0-9中选2个号码组成一注，所选号码与开奖号码的万位、千位相同，顺序不限，即中奖。",
         "methodexample":"投注方案：5,8；开奖号码前二位：1个5，1个8 (顺序不限)，即中前二组选一等奖。",
@@ -963,12 +963,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 624,
-        name:'前二组选(复式)',
+        name:'前二组选复式',
        /* prize:{1:'90.00'},
         nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:439,
-        desc:'前二(复式)',maxcodecount:0
+        desc:'前二复式',maxcodecount:0
     },{"methoddesc":"手动输入号码，至少输入1个两位数号码。",
         "methodhelp":"手动输入一个2位数号码组成一注，所选号码的万位、千位与开奖号码相同，顺序不限，即为中奖。",
         "methodexample":"投注方案：5,8；开奖号码前二位：1个5，1个8 (顺序不限)，即中前二组选一等奖。",
@@ -976,12 +976,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : " ",
         methodid : 625,
-        name:'前二组选(单式)',
+        name:'前二组选单式',
      /*   prize:{1:'90.00'},
         nfdprize:{levs:'97',defaultprize:90.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:447,
-        desc:'前二(单式)',maxcodecount:0
+        desc:'前二单式',maxcodecount:0
     },{"methoddesc":"从1-17中任意选择1个或1个以上的和值号码。",
         "methodhelp":"所选数值等于开奖号码的十位、个位二个数字相加之和（不含对子号），即为中奖。",
         "methodexample":"投注方案：和值1；开奖号码后二位：10或01(顺序不限，不含对子号)，即中后二组选。",
@@ -1061,7 +1061,7 @@ var data_label = [
         childrens:[],
         label:[
             {
-            gtitle:'三星不定胆',
+            gtitle:'不定位',
             cid:81,
             label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
         "methodhelp":"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的百位、十位、个位中包含所选号码，即为中奖。",
@@ -1069,7 +1069,7 @@ var data_label = [
         "selectarea":{
             "type"   : "digital",
             "layout" : [
-                {"title":"不定胆", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
+                {"title":"不定位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
             ],
             "noBigIndex" : 5,
             "isButton"   : true
@@ -1077,19 +1077,19 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 811,
-        name:'后三一码不定胆',
+        name:'后三一码',
        /* prize:{1:'6.60'},
         nfdprize:{levs:'7.1',defaultprize:6.60,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:451,
-        desc:'后三一码不定胆',maxcodecount:0
+        desc:'后三一码',maxcodecount:0
     },{"methoddesc":"从0-9中任意选择2个以上号码。",
         "methodhelp":"从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的百位、十位、个位中同时包含所选的2个号码，即为中奖。",
         "methodexample":"投注方案：1,2；开奖号码后三位：至少出现1和2各1个，即中后三二码不定位一等奖。",
         "selectarea":{
             "type"   : "digital",
             "layout" : [
-                {"title":"不定胆", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
+                {"title":"不定位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
             ],
             "noBigIndex" : 5,
             "isButton"   : true
@@ -1097,19 +1097,19 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 812,
-        name:'后三二码不定胆',
+        name:'后三二码',
       /*  prize:{1:'33.00'},
         nfdprize:{levs:'35.9',defaultprize:33.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:452,
-        desc:'后三二码不定胆',maxcodecount:0
+        desc:'后三二码',maxcodecount:0
     },{"methoddesc":"从0-9中任意选择1个以上号码。",
         "methodhelp":"从0-9中选择1个号码，每注由1个号码组成，只要开奖号码的万位、千位、百位中包含所选号码，即为中奖。",
         "methodexample":"投注方案：1；开奖号码前三位：至少出现1个1，即中前三一码不定位一等奖。",
         "selectarea":{
             "type"   : "digital",
             "layout" : [
-                {"title":"不定胆", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
+                {"title":"不定位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
             ],
             "noBigIndex" : 5,
             "isButton"   : true
@@ -1117,19 +1117,19 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 813,  // 没有找到相应的玩法数据 2017 0930
-        name:'前三一码不定胆',
+        name:'前三一码',
        /* prize:{1:'6.60'},
         nfdprize:{levs:'7.1',defaultprize:6.60,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:70,
-        desc:'前三一码不定胆',maxcodecount:0
+        desc:'前三一码',maxcodecount:0
     },{"methoddesc":"从0-9中任意选择2个以上号码。",
         "methodhelp":"从0-9中选择2个号码，每注由2个不同的号码组成，开奖号码的万位、千位、百位中同时包含所选的2个号码，即为中奖。",
         "methodexample":"投注方案：1,2；开奖号码前三位：至少出现1和2各1个，即中前三二码不定位一等奖。",
         "selectarea":{
             "type"   : "digital",
             "layout" : [
-                {"title":"不定胆", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
+                {"title":"不定位", "no":"0|1|2|3|4|5|6|7|8|9", "place":0, "cols":1}
             ],
             "noBigIndex" : 5,
             "isButton"   : true
@@ -1137,12 +1137,12 @@ var data_label = [
         "show_str" : "X",
         "code_sp" : ",",
         methodid : 814,
-        name:'前三二码不定胆',
+        name:'前三二码',
        /* prize:{1:'33.00'},
         nfdprize:{levs:'35.9',defaultprize:33.00,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:71,
-        desc:'前三二码不定胆',maxcodecount:0
+        desc:'前三二码',maxcodecount:0
     }]}]},
     {
         isnew:"0",
@@ -1167,7 +1167,7 @@ var data_label = [
         nfdprize:{levs:'3.88',defaultprize:3.60,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:322379,
-        desc:'总和大小单双',maxcodecount:0
+        desc:'总和',maxcodecount:0
     },{"methoddesc":"从十位、个位中的“大、小、单、双”中至少各选一个组成一注。",
         "methodhelp":"对十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
         "methodexample":"投注方案：大单；开奖号码十位与个位：大单，即中后二大小单双一等奖。",
@@ -1184,7 +1184,7 @@ var data_label = [
         nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:81,
-        desc:'后二大小单双',maxcodecount:0
+        desc:'后二',maxcodecount:0
     },{"methoddesc":"从万位、千位中的“大、小、单、双”中至少各选一个组成一注。",
         "methodhelp":"对百位、十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
         "methodexample":"投注方案：小双；开奖号码万位与千位：小双，即中前二大小单双一等奖。",
@@ -1201,7 +1201,7 @@ var data_label = [
         nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
         modes:[{modeid:1,name:'元',rate:1},{modeid:2,name:'角',rate:0.1},{modeid:3,name:'分',rate:0.01}],
         menuid:80,
-        desc:'前二大小单双',maxcodecount:0
+        desc:'前二',maxcodecount:0
     }]}]},
     {
         isnew:"0",
@@ -1209,7 +1209,7 @@ var data_label = [
         title:"趣味",
         childrens:[],
         label:[
-            {gtitle:'特殊',
+            {gtitle:'趣味',
             cid:100 ,
             label:[{"methoddesc":"从0-9中任意选择1个以上号码。",
         "methodhelp":"从0-9中任意选择1个号码组成一注，只要开奖号码的万位、千位、百位、十位、个位中包含所选号码，即为中奖。",
@@ -2215,6 +2215,7 @@ function LoginAction() {
         success: function(res){
             access_token = res.access_token ;
             setCookie("access_token",res.access_token);  // 把登录token放在cookie里面
+            setCookie("username","mgappid01|admin");  // 把登录用户名放在cookie里面
         },
         error: function() {
 
@@ -2360,6 +2361,7 @@ function getMemberBalance() {
         success: function(res){
             var mom = roundAmt(res.data.amount) ;
             $('.membalance').text(mom) ;
+            $('.user_name').text(getCookie('username')) ;
             setCookie("membalance",mom);  // 把登录余额放在cookie里面
         },
         error: function() {
@@ -2647,7 +2649,7 @@ function processCode(issue,code,iscurent){
     }
     var code_arr = code.split(',');
 
-    var finishIssueCodeHtml = '<li><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    var finishIssueCodeHtml = '<li><span class="issue">第 ' + issue + ' 期</span><span class="num"> ' ;
     //已开奖期号节点,开奖号码
     var recentCon = $(".recentCon ul") ;
     for(var i=0;i<code_arr.length;i++){

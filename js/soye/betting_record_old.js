@@ -1,9 +1,9 @@
-/* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
+/* eslint-disable new-cap,indent */
 access_token = getCookie('access_token'); // 取token
+var membalance = getCookie('membalance');
 var username = getCookie('username') ;
-var membalance = getCookie('membalance') ;
-$('.user_name').text(username) ;  // 用户名
-$('.so-membalance').html(membalance);  // 余额
+$('.user_name').text(username) ;
+$('.so-membalance').html(membalance);
 
 var nowDate = new Date();
 var seadata = {
@@ -22,7 +22,7 @@ var touzhuXQ = {};
 // 追号详情
 var zhuihaoXQ = {};
 
-initView();
+// initView();
 
 
 function initView() {
@@ -42,21 +42,18 @@ function initView() {
     }
     $('.tab_content')
         .append(restr);
-    var DateclassName = '';
-    if (seadata.searchType === 1) {
-        DateclassName = '.tab_content_1 .slide_toggle'
-    } else {
-        DateclassName = '.tab_track_1 .slide_toggle'
-    }
-    $(DateclassName).each(function (i, t) {
-        if ($(t).attr('class').indexOf('active') < 0 && i === 0) {
-            $(t).addClass('active').siblings().removeClass('active');
-            $(t).find('ul').show();
-            $(t).siblings().find('ul').hide();
+    $('.new_bet_day').on('click', function () {
+        seadata.pdate = $(this).data('val');
+        seadata.page = 1;
+        getBetRecord();
+        // $(this).attr('data-page', $(this).data('page') + 1);
+    });
+    $('.first_li').each(function (i, t) {
+        if ($(t).attr('class')
+                .indexOf('active') >= 0 || i === 0 || i === 4) {
+            $(t).trigger('click');
         }
     });
-    getBetRecord()
-    initDateMeun();
 }
 
 function getBetRecord() {
@@ -102,6 +99,34 @@ function getBetRecord() {
                         }
                         $(t).find('ul')
                             .append(li_html);
+                        /*
+                             注单状态OrderStatus
+                             bet_success(1, "等待开奖"),
+                             prize_no_win(31, "未中奖"),
+                             prize_win(32, "已派彩"),
+                             withdrawals(4, "用户撤单"),
+                             system_withdrawals(5, "系统撤单"),
+                             prize_win_stop_chase(6, "中奖停追"),
+                             exception(71, "存在异常"),
+                             exception_deal(81, "异常处理中");
+                             chaseStatusName
+                             追号状态
+                             追号详情：进行中，已完成，已取消
+                             追号记录：进行中，已终止，已结束
+                             */
+                        // if (seadata.statusType === 1) {
+                        // $(t).find('ul')
+                        // .append(li_html);
+                        // } else if (v.orderStatus === 1 && seadata.statusType === 2) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // } else if (v.orderStatus === 32 && seadata.statusType === 3) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // } else if (v.orderStatus === 31 && seadata.statusType === 4) {
+                        //     $(t).find('ul')
+                        //         .append(li_html);
+                        // }
                     }
                 });
             });
@@ -113,69 +138,111 @@ function getBetRecord() {
     });
 }
 
-// 一级标签
-(function () {
-    $('#tabs > div').click(function () {
-        $(this).addClass('active').siblings().removeClass('active');
-        if ($(this).index()) {
-            // 追号
-            $('#betting_record').hide()
-            $('#trace_record').show()
+
+
+TouchSlide({
+    slideCell: '#betting_record',
+});
+TouchSlide({
+    slideCell: '#trace_record',
+});
+// 菜单处理
+var index = 0;
+$('#tabs .item')
+    .on('click', function () {
+        $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active');
+
+        index = $(this)
+            .index();
+        if (index == 1) {
             seadata.searchType = 2;
             seadata.page = 1;// 页数，从1开始
+            restr = '';// 网页html缓存
         } else {
-            // 投注
-            $('#betting_record').show()
-            $('#trace_record').hide()
             seadata.searchType = 1;
             seadata.page = 1;// 页数，从1开始
-        }
-        restr = '';// 网页html缓存
-        initView()
-    });
-})();
-// 二级标签
-(function () {
-    $('.tab_mid > li').click(function () {
-        $(this).addClass('on').siblings().removeClass('on');
-        var num = parseInt($(this).index(), 10);
-        switch (num) {
-            case 0:
-                seadata.statusType = 1
-                break
-            case 1:
-                seadata.statusType = 2
-                break
-            case 2:
-                seadata.statusType = 3
-                break
-            case 3:
-                seadata.statusType = 4
-                break
-        }
-        seadata.page = 1
-        initView()
-    });
-})();
+            restr = '';// 网页html缓存
 
-// 日期标签
-function initDateMeun() {
-    $('.tab_content .slide_toggle').each(function (i, t) {
-        $(t).unbind('click');
-        $(t).click(function () {
-            if ($(this).attr('class').indexOf('active') < 0) {
-                $(this).addClass('active').siblings().removeClass('active');
-                $(this).find('ul').show();
-                $(this).siblings().find('ul').hide();
-                seadata.pdate = $(this).data('val')
-                getBetRecord(); // 投注记录
-            } else {
-                $(this).removeClass('active');
-                $(this).find('ul').hide();
-            }
-        });
+        }
+        $('.tab_content')
+            .html('')
+            .ready(function () {
+                initView(); // 投注记录
+            });
+        $('.tab_container')
+            .eq(index)
+            .stop(true, true)
+            .fadeIn()
+            .siblings()
+            .stop(true, true)
+            .fadeOut();
+    })
+    .eq(index)
+    .click();
+
+$('.tempWrap')
+    .on('click', '.slide_toggle', function () {
+        $(this)
+            .find('.panel')
+            .stop(true, true)
+            .slideToggle(200);
+        $(this)
+            .toggleClass('active')
+            .siblings()
+            .removeClass('active')
+            .find('.panel')
+            .stop(true, true)
+            .slideUp(200);
     });
-}
+//  $('.tab_content .slide_toggle:first-child').click();
+
+$('.recode-tab')
+    .on('click', 'a', function () {
+        var val = $(this)
+            .data('val');
+        seadata.statusType = parseInt($(this).data('val'), 10);
+        seadata.page = 1;// 页数，从1开始
+        restr = '';// 网页html缓存
+        $('.tab_content')
+            .html('')
+            .ready(function () {
+                initView(); // 投注记录
+                if (tableLock !== val) {
+                    tableLock = val;
+                    $('.first_li').each(function (i, t) {
+                        if ($(t).attr('class')
+                                .indexOf('active') < 0 && val == (i + 1)) {
+                            $(t).trigger('click');
+                        }
+                    });
+                }
+            });
+    });
+$('.track-tab')
+    .on('click', 'a', function () {
+        var val = $(this)
+            .data('val');
+        seadata.statusType = parseInt($(this).data('val'), 10);
+        seadata.page = 1;// 页数，从1开始
+        restr = '';// 网页html缓存
+        $('.tab_content')
+            .html('')
+            .ready(function () {
+                initView(); // 投注记录
+                if (tableLock !== val) {
+                    tableLock = val;
+                    $('.first_li').each(function (i, t) {
+                        if ($(t).attr('class')
+                                .indexOf('active') < 0 && val + 4 == (i + 1)) {
+                            $(t).trigger('click');
+                        }
+                    });
+                }
+            });
+    });
 
 
 // 下拉加载
@@ -189,8 +256,15 @@ soyeScroll.init(function () {
         lock = 1;
         $('.bet-recode-all')
             .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
-        restr = '';
-        getBetRecord(); // 投注记录
+        if (index == 1) {
+            seadata.searchType = 2;
+            restr = '';
+            getBetRecord(); // 投注记录
+        } else {
+            seadata.searchType = 1;
+            restr = '';
+            getBetRecord(); // 投注记录
+        }
     }
 });
 
@@ -210,17 +284,22 @@ function showMain() {
         mainView = 0;
     }
     window.scrollTo(0, ding);
+    // console.log(ding);
 }
 
 /**
  * 投注详情
  */
 function touzhu(that, view) {
-    event.stopPropagation();
-    ding = document.body.scrollHeight
+    $('#ding').attr('id', '');
+    $(that).attr('id', 'ding');
+    ding = getElementTop(document.getElementById('ding'));
     if (view === 1) {
         mainView = 1;
     }
+    var access_token = getCookie('access_token'); // 取token
+
+    // var data = getStrParam('data');
     var data = $(that).data('val');
 
     $('.body').hide();
@@ -267,8 +346,7 @@ function touzhu(that, view) {
                 .attr('class', 'bet_status status_green');
             $('.bet_status')
                 .html('已中奖');
-            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
-            $('.so-zhongjiang').remove()
+            var html = '<li><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
             $('#page1 .print_data li:nth-child(3)').after(html);
         }
         if (data.orderStatusName == '系统撤单') {
@@ -284,21 +362,65 @@ function touzhu(that, view) {
                 .attr('class', 'bet_status status_red');
         }
     }
+
+//    //开奖数据查询
+//    function openNumsFun(lotteryId, pcount) {
+//        var data = {
+//            lotteryId: lotteryId,
+//            pcount: pcount,
+//        }
+//        $.ajax({
+//            type: 'post',
+//            headers: {
+//                "Authorization": "bearer " + access_token,
+//            },
+//            dataType: 'json',
+//            contentType: "application/json; charset=utf-8",  // json格式传给后端
+//            url: action.forseti + 'api/openNums',
+//            data: JSON.stringify(data),  // json格式
+//            success: function (res) {
+//                if (res.code == 200) {
+//                    return
+//                }
+//            },
+//            error: function (err) {
+//                console.log(err.responseText)
+//            }
+//        });
+//    }
+
+    /**
+     * 解析URL参数
+     */
+    function getStrParam() {
+        var url = location.search; // 获取url中"?"符后的字串
+        var param = {};
+        if (url.indexOf('?') != -1) {
+            var str = url.substr(1);
+            strs = str.split('&');
+            for (var i = 0; i < strs.length; i++) {
+                param[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+            }
+        }
+        return param;
+    }
+
 }
 
 /**
  * 追号详情
  */
 function zhuihao(that) {
-    event.stopPropagation();
-    ding = document.body.scrollHeight
+    $('#ding').attr('id', '');
+    $(that).attr('id', 'ding');
+    ding = getElementTop(document.getElementById('ding'));
     var access_token = getCookie('access_token'); // 取token
     var data = $(that).data('val');
     $('.body').hide();
     $('#page2').show();
     data = JSON.parse(decodeURI(data));
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
-        $('#page2 .lottery_t')
+        $('.lottery_t')
             .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
                 //                '<span>已追<span class="ui_color_yellow">' + data.chaseSeq  + '</span>期</span>' +
                 '<span>总<span class="ui_color_yellow">' + data.chaseCount + '</span>期</span>' +
@@ -313,7 +435,7 @@ function zhuihao(that) {
             .html('<ul><li><span>投注时间</span> <span>' + (new Date(data.betTime)).format('yyyy-MM-dd hh:mm:ss') + '</span></li><li><span>追号方案</span> <span>' + data.parentOrderId + '</span></li><li><span>追号条件</span> <span>' + data.chaseWinStop + '</span> </li></ul>');
 
 
-        $('#page2 .tr_status')
+        $('.tr_status')
             .html(data.chaseStatusName);
         if (data.chaseStatusName == '进行中') {
             $('.tr_status')
@@ -330,10 +452,11 @@ function zhuihao(that) {
         var li_html = '<ul>';
         $.each(list, function (i, e) {
             console.log(list[i]);
+            // var jsonStr = encodeURI('betting_record_dt01.html?data=' + JSON.stringify(e));
             li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + roundAmt(e.betAmount) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
-        $('#page2 .tra_list')
+        $('.tra_list')
             .html(li_html);
 
     });

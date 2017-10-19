@@ -26,7 +26,7 @@ $(function () {
             // 四星
             trend_content.show();
             $(trend_content[0]).hide();
-            // $(trend_data[0]).hide();
+            $(trend_data[0]).hide();
             $(trend_content[1]).trigger('click');
             trend_content.width('25%');
         } else if (val == 2) {
@@ -34,8 +34,8 @@ $(function () {
             trend_content.show();
             $(trend_content[3]).hide();
             $(trend_content[4]).hide();
-            // $(trend_data[3]).hide();
-            // $(trend_data[4]).hide();
+            $(trend_data[3]).hide();
+            $(trend_data[4]).hide();
 
             $(trend_content[0]).trigger('click');
             trend_content.width('33.33%');
@@ -44,8 +44,8 @@ $(function () {
             trend_content.show();
             $(trend_content[0]).hide();
             $(trend_content[4]).hide();
-            // $(trend_data[0]).hide();
-            // $(trend_data[4]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[4]).hide();
             $(trend_content[1]).trigger('click');
             trend_content.width('33.33%');
         } else if (val == 4) {
@@ -53,8 +53,8 @@ $(function () {
             trend_content.show();
             $(trend_content[0]).hide();
             $(trend_content[1]).hide();
-            // $(trend_data[0]).hide();
-            // $(trend_data[1]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[1]).hide();
             $(trend_content[2]).trigger('click');
             trend_content.width('33.33%');
         } else if (val == 5) {
@@ -63,9 +63,9 @@ $(function () {
             $(trend_content[2]).hide();
             $(trend_content[3]).hide();
             $(trend_content[4]).hide();
-            // $(trend_data[2]).hide();
-            // $(trend_data[3]).hide();
-            // $(trend_data[4]).hide();
+            $(trend_data[2]).hide();
+            $(trend_data[3]).hide();
+            $(trend_data[4]).hide();
             $(trend_content[0]).trigger('click');
             trend_content.width('50%');
         } else if (val == 6) {
@@ -74,9 +74,9 @@ $(function () {
             $(trend_content[0]).hide();
             $(trend_content[1]).hide();
             $(trend_content[2]).hide();
-            // $(trend_data[0]).hide();
-            // $(trend_data[1]).hide();
-            // $(trend_data[2]).hide();
+            $(trend_data[0]).hide();
+            $(trend_data[1]).hide();
+            $(trend_data[2]).hide();
             $(trend_content[3]).trigger('click');
             trend_content.width('50%');
         }
@@ -111,7 +111,7 @@ var numOne = [7, 5, 9, 7, 4, 1, 3, 5, 9, 7, 4, 2, 3, 5, 9, 7, 6, 3, 5, 9, 7, 4, 
 
 var pcodeArr = [];
 var pcount = 30; // 期数
-var lotteryId = getCookie('lt_lottid'); // 彩种
+var lotteryId = getCookie('lt_lottid') ; // 彩种
 
 $(function () {
     $(window).on('resize', function () {
@@ -153,7 +153,7 @@ function initOpenNumsFun() {
                 $.each(newData, function (i, e) {
                     var winNumber = e.winNumber || '';
                     winNumber = winNumber.split(',');
-                    console.log(i + ':::' + winNumber)
+                    // console.log(i + ':::' + winNumber)
                     var pcode = e.pcode % 1000;
                     if (pcode < 100 && pcode >= 10) {
                         pcode = '0' + pcode;
@@ -215,7 +215,6 @@ function initOpenNumsShow() {
     $('#trend_Ten').append(textTen);
     $('#trend_One').html('<svg width="' + $('.trend_canvas').width() + ' "height="' + row * itemH + '"><polyline points="' + posOne + '" style="fill:none;stroke:#52acd3;stroke-width:2" /></svg>');
     $('#trend_One').append(textOne);
-    initTab()
 }
 
 // 表格处理
@@ -318,12 +317,6 @@ function initTableFun() {
     initOpenNumsShow();
 }
 
-// 标签切换
-function initTab() {
-    $('.trend_tab_2 li').each(function (i, t) {
-        $(t).click(function () {
-            $(this).addClass('on').siblings().removeClass('on');
-            $('.bd').attr('style', 'left:' + (i * -100) + '%');
-        });
-    });
-}
+TouchSlide({
+    slideCell: '#trend_content',
+});

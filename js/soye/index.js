@@ -17,7 +17,7 @@ function initSoFun() {
 function initCount(type) {
 // api/priodDataNewly
     var access_token = getCookie('access_token'); // 取token
-    var lotteryId = getCookie('lt_lottid') ;
+    var lotteryId = getCookie('lt_lottid');
     var methodid = $.lt_method_data.methodid;
     var data = {
         'lotteryId': lotteryId,
@@ -71,6 +71,17 @@ function initCount(type) {
                         initCountFun(data[2], 'lt_place_0');
                         initCountFun(data[3], 'lt_place_1');
                         initCountFun(data[4], 'lt_place_2');
+                        break;
+                    case 611:
+                        initCountFun(data[3], 'lt_place_0');
+                        initCountFun(data[4], 'lt_place_1');
+                        break;
+                    case 711:
+                        initCountFun(data[0], 'lt_place_0');
+                        initCountFun(data[1], 'lt_place_1');
+                        initCountFun(data[2], 'lt_place_2');
+                        initCountFun(data[3], 'lt_place_3');
+                        initCountFun(data[4], 'lt_place_4');
                         break;
                 }
             }

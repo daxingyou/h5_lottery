@@ -94,7 +94,7 @@ body { }
 /*.lotteryView .quwei li:hover { border: 2px solid #52acd3; background:none;}*/
 .lotteryView .quwei li.hover { background: #52acd3; width: auto; color: #fff; border: 2px solid #52acd3; }
 .lotteryView .cList {text-align: right; border-bottom: 1px dashed #dde2e6;}
-.lotteryView .cList li { display: inline-block; width: 2.5714rem; height: 1.326rem; line-height: 1.326rem; color: #52acd3; font-size:0.85rem; text-align: center; margin: 0.5rem 0.5rem 0.5rem 0; border:1px solid #efefef; border-radius: 20px;  }
+.lotteryView .cList li {display: inline-block;width: 2.5714rem;height: 1.326rem;line-height: 1.1rem;color: #52acd3;/* font-size:0.85rem; */text-align: center;margin: 0.5rem 0.5rem 0.5rem 0;border:1px solid #efefef;border-radius: 20px;}
 .lotteryView .cList li:last-child {  margin-right: 0px }
 .lotteryView .cList li.hover { color: #fff; border-color: #52acd3; background-color: #52acd3; }
 

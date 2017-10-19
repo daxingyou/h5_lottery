@@ -235,6 +235,10 @@
                         } else {
                             html += '';
                         }
+                        html += '</ul><ul class="cList">';
+                        html += '<li name="all">' + lot_lang.bt_sel_all + '</li>' +
+                            '<li class="selectType" name="clean">' + lot_lang.bt_sel_clean + '</li>' +
+                            '</ul>';
                         if (lotterytype == 0 || lotterytype == 2) {
                             html += '<ul class="nList">';
                         } else if (lotterytype == 3) {
@@ -248,10 +252,7 @@
                         for (i = 0; i < numbers.length; i++) {
                             html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                         }
-                        html += '</ul><ul class="cList">';
-                        html += '<li name="all">' + lot_lang.bt_sel_all + '</li>' +
-                            '<li class="selectType" name="clean">' + lot_lang.bt_sel_clean + '</li>' +
-                            '</ul>';
+
                         html += '</div>';
                     }
                 });
@@ -2300,39 +2301,38 @@
         function checkTimes(flage) {
             var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 投注倍数选择
             //  追号相关
-            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '')
-                .substring(0, 5); // 追号倍数选择
+            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数选择
             var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择
             var total_all = 0; // 总金额变化
             $($.lt_id_data.id_sel_times).val(times);
 
-            /* if (times == 0) {
-             times = 1;
-             layer.open({
-             content: '倍数不能输入0',
-             btn: '确定'
-             });
-             $($.lt_id_data.id_sel_times).val(times);
-             return false ;
+            if (times == 0) {
+                 times = 1;
+                 layer.open({
+                 content: '倍数不能输入0',
+                 btn: '确定'
+                 });
+                 $($.lt_id_data.id_sel_times).val(times);
+                 return false ;
              }
              if (z_times == 0) {
-             z_times = 1;
-             layer.open({
-             content: '追号倍数不能输入0',
-             btn: '确定'
-             });
-             $($.lt_id_data.id_add_date).val(z_times);
-             return false ;
+                 z_times = 1;
+                 layer.open({
+                 content: '追号倍数不能输入0',
+                 btn: '确定'
+               });
+                 $($.lt_id_data.id_add_times).val(z_times);
+                 return false ;
              }
              if (z_dates == 0) {
-             z_dates = 1;
+                z_dates = 1;
              layer.open({
-             content: '追号期数不能输入0',
-             btn: '确定'
+                 content: '追号期数不能输入0',
+                 btn: '确定'
              });
-             $($.lt_id_data.id_add_date).val(z_dates);
-             return false ;
-             }*/
+                 $($.lt_id_data.id_add_date).val(z_dates);
+                 return false ;
+             }
 
 
             var nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
@@ -3050,7 +3050,20 @@
                 // 删除全部注数，清空列表
                 $('.delete-all').off()
                     .on('click', function () {
-                        $.lt_reset(false);
+                        var id_cf_count = $($.lt_id_data.id_cf_count).html() ; // 立即投注 已选单
+                        if(id_cf_count ==0){ // 没有注单
+                            return false ;
+                        }
+                        layer.open({
+                            title: '温馨提示',
+                            className: 'layer_tip',
+                            content: '确定要清空购物区吗？',
+                            btn: ['确定','取消'],
+                            yes: function (index) {
+                                $.lt_reset(false);
+                                layer.close(index);
+                            }
+                        });
 
                     });
 
