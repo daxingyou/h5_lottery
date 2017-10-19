@@ -194,16 +194,16 @@
                         // $.isNumeric(parseInt(numbers[0]));
                         if (methodname !== 'PK10JS') {
                             for (i = 0; i < numbers.length; i++) {
-                                html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
+                                html += '<li name="lt_place_' + n.place + '" data-value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                             }
                         } else {
                             if ($.isNumeric(parseInt(numbers[0]))) {
                                 for (i = 0; i < numbers.length; i++) {
-                                    html += '<li name="lt_place_' + n.place + '" class="car_' + numbers[i] + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
+                                    html += '<li name="lt_place_' + n.place + '" class="car_' + numbers[i] + '" data-value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                                 }
                             } else if ($.isNumeric(parseInt(numbers[0])) === false && numbers[0] !== '-') {
                                 for (i = 0; i < numbers.length - 5; i++) {
-                                    html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
+                                    html += '<li name="lt_place_' + n.place + '" data-value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                                 }
                             } else {
                                 for (i = 0; i < numbers.length; i++) {
@@ -250,7 +250,7 @@
                         }
                         numbers = n.no.split('|');
                         for (i = 0; i < numbers.length; i++) {
-                            html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
+                            html += '<li name="lt_place_' + n.place + '" data-value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                         }
 
                         html += '</div>';
@@ -280,7 +280,7 @@
                         tmpprize = n.prize.split(',');
                     }*/
                     for (i = 0; i < numbers.length; i++) {
-                        html += '<li name="lt_place_' + n.place + '" value="'+ numbers[i] +'">' + numbers[i] + '</li>';
+                        html += '<li name="lt_place_' + n.place + '" data-value="'+ numbers[i] +'">' + numbers[i] + '</li>';
                     }
                     html += '</ul></div>';// 去掉了【<td></tr>】
                 });
@@ -1905,7 +1905,8 @@
             place = Number($(obj).attr('name')
                 .replace('lt_place_', ''));
           // var number = $.trim($(obj).html());
-            var number = $.trim($(obj).val());  // 防止带上热门号码
+            var number = $.trim($(obj).data('value'));  // 防止带上热门号码
+            //console.log(number)
             number = number.toLowerCase();
             number = number.replace(/\<div.*\<\/div>/g, '').replace(/\r\n/g, '');
             if ($.lt_lottid == 15) {
@@ -1966,9 +1967,8 @@
             }
 
             data_sel[place].push(number);// 加入到数组中
-
+            //console.log(data_sel[place])
             if (!isButton) {// 如果不是按钮触发则进行统计，按钮的统一进行统计
-
                 var numlimit = parseInt($.lt_method_data.maxcodecount);
                 if (numlimit > 0) {
                     if (data_sel[place].length > numlimit) {
@@ -1993,7 +1993,8 @@
             $(obj).removeClass('hover');// 样式改变为未选中
             place = Number($(obj).attr('name')
                 .replace('lt_place_', ''));
-            var number = $.trim($(obj).html());
+          //  var number = $.trim($(obj).html());
+            var number = $.trim($(obj).data('value'));  // 防止带上热门号码
             number = number.toLowerCase();
             number = number.replace(/\<div.*\<\/div>/g, '').replace(/\r\n/g, '');
 
@@ -2026,7 +2027,8 @@
         function dealPK10(obj) {
             var place = Number($(obj).attr('name')
                 .replace('lt_place_', ''));// 第几行
-            var number = $.trim($(obj).html());
+           // var number = $.trim($(obj).html());
+            var number = $.trim($(obj).data('value'));  // 防止带上热门号码
             number = number.toLowerCase();
             number = number.replace(/\<div.*\<\/div>/g, '').replace(/\r\n/g, '');
             var index;
