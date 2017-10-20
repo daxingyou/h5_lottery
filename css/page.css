@@ -100,7 +100,9 @@ input[type="checkbox"]:checked + label span { border-color: #52ACD3; background:
 
 .layui-m-layer0 .layui-m-layerchild { width: 70%; }
 
-.layui-m-layermain .layui-m-layersection .layui-m-layerchild { width: 70% !important; }
+.layui-m-layermain .layui-m-layersection .layui-m-layerchild { width: 75% !important; }
+
+.layui-m-layer1 .layui-m-layercont { text-align: center; }
 
 .layui-m-layercont { color: #484848; padding: 0; line-height: 1.286rem; font-size: 0.8571rem; width: auto; }
 

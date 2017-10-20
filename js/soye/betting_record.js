@@ -1,5 +1,9 @@
 /* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
 access_token = getCookie('access_token'); // 取token
+var username = getCookie('username') ;
+var membalance = getCookie('membalance') ;
+$('.user_name').text(username) ;  // 用户名
+$('.so-membalance').html(membalance);  // 余额
 
 var nowDate = new Date();
 var seadata = {
@@ -88,7 +92,7 @@ function getBetRecord() {
                                 '<a href="javascript:;" onClick="touzhu(this,0)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
-                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
+                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount),2) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.orderStatusName + '</span><div></div></div></a></li>';
                             // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
@@ -97,7 +101,7 @@ function getBetRecord() {
                                 '<a href="javascript:;" onClick="zhuihao(this)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
-                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
+                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount),2) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.chaseStatusName + '</span>' +
                                 // '<div>' + v.pcode + '期</div></div></a></li>';
@@ -241,12 +245,7 @@ function touzhu(that, view) {
     $('.so-orderId')
         .html(data.orderId);
     $('.so-betAmount')
-        .html(roundAmt(data.betAmount));
-
-// 金额转换,分转成元
-    function roundAmt(v) {
-        return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
-    }
+        .html( fortMoney(roundAmt(data.betAmount),2) );
 
     $('.so-playName')
         .html(data.playName);
@@ -269,7 +268,7 @@ function touzhu(that, view) {
                 .attr('class', 'bet_status status_green');
             $('.bet_status')
                 .html('已中奖');
-            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
+            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + fortMoney(roundAmt(data.payoff),2) + '</span></li>';
             $('.so-zhongjiang').remove()
             $('#page1 .print_data li:nth-child(3)').after(html);
         }
@@ -332,7 +331,7 @@ function zhuihao(that) {
         var li_html = '<ul>';
         $.each(list, function (i, e) {
             console.log(list[i]);
-            li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + roundAmt(e.betAmount) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+            li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + fortMoney(roundAmt(e.betAmount),2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
         $('#page2 .tra_list')

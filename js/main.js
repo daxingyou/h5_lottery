@@ -1350,6 +1350,37 @@ function monAmt (v) {
     return /^[-+]?\d+(\.\d*)?$/.test(v) ? v * 100 : '';
 }
 
+/*
+* 数字转换，显示千位符，s 要转换的数字，n 保留n位小数
+* */
+function fortMoney(s, n) {
+    n = n > 0 && n <= 20 ? n : 2;
+    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+    var l = s.split(".")[0].split("").reverse(),
+        r = s.split(".")[1];
+    t = "";
+    for(i = 0; i < l.length; i ++ ){
+        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+    }
+    return t.split("").reverse().join("") + "." + r;
+}
+/*
+* 数字转千分位
+* */
+function formatNumber (num) {
+    return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+}
+
+/*
+* 还原金额，去除逗号
+* */
+function returnMoney(s) {
+    return parseFloat(s.replace(/[^\d\.-]/g, ""));
+}
+
+
+
+
 /**
  * 解析URL参数
  */

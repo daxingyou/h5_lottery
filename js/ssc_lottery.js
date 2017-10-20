@@ -12,6 +12,8 @@ var now_day  ; // 当前日期
 var dataPlay ={} ; // 玩法树数据
 var dataPlayAll ={} ; // 玩法树数据最终组装
 var lotterytype = 0;
+var c_access_token = getCookie("access_token") ; // 从cookie 拿token
+console.log(c_access_token) ;
 
 var data_label = [
     {
@@ -2268,7 +2270,7 @@ function getPlayTree(gameid) {
     $.ajax({
         type: 'get',
         headers: {
-            "Authorization": "bearer  "+access_token,
+            "Authorization": "bearer  "+access_token || c_access_token ,
         },
         url : action.forseti+'api/playsTree' ,
         data: { lotteryId:gameid,} , // 当前彩种id
@@ -2333,7 +2335,7 @@ function getSystemTime() {
     $.ajax({
         type: 'get',
         headers: {
-            "Authorization": "bearer  "+access_token,
+            "Authorization": "bearer  "+access_token || c_access_token ,
         },
         url : action.forseti+'apis/serverCurrentTime' ,
         data: {} ,
@@ -2352,16 +2354,19 @@ function getMemberBalance() {
     $.ajax({
         type: 'GET',
         headers: {
-            "Authorization": "bearer  "+access_token,
+            "Authorization": "bearer  "+access_token || c_access_token ,
         },
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
         url : action.uaa+'/api/data/member/getMemberBalance' ,
         data: {} ,
         success: function(res){
-            var mom = roundAmt(res.data.amount) ;
+           // var mom = roundAmt(res.data.amount) ;
+            var mom = fortMoney(roundAmt(res.data.amount),2) ;
             $('.membalance').text(mom) ;
+            $('.user_name').text(getCookie('username')) ;
             setCookie("membalance",mom);  // 把登录余额放在cookie里面
+           // console.log(returnMoney(mom))
         },
         error: function() {
 
@@ -2465,7 +2470,7 @@ function getMemberBalance() {
         $.ajax({
             type: 'get',
             headers: {
-                "Authorization": "bearer  "+access_token,
+                "Authorization": "bearer  "+access_token || c_access_token,
             },
             url : action.forseti+'api/priodDataNewly' ,
             data: { lotteryId:gameid ,} ,
@@ -2648,7 +2653,7 @@ function processCode(issue,code,iscurent){
     }
     var code_arr = code.split(',');
 
-    var finishIssueCodeHtml = '<li><span class="issue">第' + issue + '期</span><span class="num"> ' ;
+    var finishIssueCodeHtml = '<li><span class="issue">第 ' + issue + ' 期</span><span class="num"> ' ;
     //已开奖期号节点,开奖号码
     var recentCon = $(".recentCon ul") ;
     for(var i=0;i<code_arr.length;i++){

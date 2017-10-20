@@ -376,7 +376,9 @@ textarea,input[type="text"] {
 .ui_color_strong{ color: #ffcf06;}
 .ui_color_yellow{ color: #fcb008;}
 .addOrderLeft{ float: left;}
-.bet_random { float: right; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.5rem; margin-top: 0.1rem; color: #52acd3;}
+.bet_random { float: right; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.5rem; margin-top: 0.1rem; color: #52acd3; -webkit-user-select: none; user-select: none; }
+.bet_random:active { border-color:#52acd3; color: #fff; background-color: #52acd3;}
+.bet_random:active .icon_random{ background-image: url(../images/icon_random_active.svg); }
 .multipleBox{ color: #c9c9c9;}
 .multipleBox .multipleCon{font-size: 0px;}
 .multipleBox .less_bei, .multipleBox .add_bei{ font-size: 1rem; display: inline-block; vertical-align: top; height: 1.714rem; width: 1.6rem; text-align: center; margin-top: -0.1rem; color: #c9c9c9;}

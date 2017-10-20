@@ -3010,10 +3010,10 @@ var is_select = 0;
 
                         layer.open({  // 当前期数结束，转到下一期
                             className: 'time_ontimeout',
-                            content: lot_lang.am_s15_3 + '<span class="ui_color_yellow">' + next_pcode + '</span>' + '  期 。' + '</div>', // 转到下一期
+                            content: lot_lang.am_s15_3 + '<span class="ui_color_yellow">' + next_pcode + '</span>' + '  期' + '</div>', // 转到下一期
                             // btn:'确定',
                             skin: 'msg',
-                            style:'background-color: rgba(52, 65, 70, 0.85);border-radius: 1.5rem;padding:0;padding: 5px;width: auto;',
+                            style:'background-color: rgba(52, 65, 70, 0.85);border-radius: 1.5rem;padding:0;width: auto;',
                             time: 3
                         });
 
@@ -3399,8 +3399,8 @@ var is_select = 0;
             //var istrace = $($.lt_id_data.id_tra_if).hasClass("clicked");//是否追号
             var istrace = $($.lt_id_data.id_tra_ifb).prop('checked') == true ? 1 : 0;//是否追号
             // 当前期数结束后，不清空数据，转到下一期
-            $.lt_total_nums = Number($($.lt_id_data.id_cf_num).html()) ;
-            $.lt_total_money = Number($($.lt_id_data.id_cf_money).html()) ;
+            $.lt_total_nums = Number(returnMoney($($.lt_id_data.id_cf_num).html())) ;
+            $.lt_total_money = Number(returnMoney($($.lt_id_data.id_cf_money).html())) ;
 
             if ($.lt_total_nums <= 0 || $.lt_total_money <= 0) {   //检查是否有投注内容
                 console.log('没有投注内容') ;
@@ -3466,14 +3466,14 @@ var is_select = 0;
              if ($.lt_method_data.modes[i] != undefined && n != undefined && n.length > 0) { */
                 if ( modesmsg.length > 0) {
                     /*  $.each(n,function(index,value){*/   // 不需要遍历
-                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s2_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_times).val() + '</span>' + lot_lang.dec_s2 + '</div>';//倍数
+                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s2_1 + '</span>' + '<span>' + formatNumber($($.lt_id_data.id_add_times).val()) + '</span>' + lot_lang.dec_s2 + '</div>';//倍数
                 if(z_dates>1){
-                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + $($.lt_id_data.id_add_date).val() + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
+                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + formatNumber($($.lt_id_data.id_add_date).val()) + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
                 }else{
                     msg += '<div class="totle">' + '<span>' + lot_lang.dec_s15_1 + '</span>' + '<span>' + 0 + '</span>' + lot_lang.dec_s18 + '</div>'; //追号期数
                 }
 
-                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s1_1 + '</span>' + '<span class="total-num">' + $.lt_total_nums + '</span>' + lot_lang.dec_s1 + '</div>'; //注数
+                    msg += '<div class="totle">' + '<span>' + lot_lang.dec_s1_1 + '</span>' + '<span class="total-num">' + formatNumber($.lt_total_nums) + '</span>' + lot_lang.dec_s1 + '</div>'; //注数
                     // msg += '<p><span>' +$.lt_method_data.modes[i].name+ '</span><b>' + value + '</b></p>';
 
                     /*})*/
@@ -3481,20 +3481,23 @@ var is_select = 0;
          /*   });*/
             msg += '</div>';
             $.lt_trace_money = Math.round($.lt_trace_money * 1000) / 1000;
-            $.lt_total_money = Math.round(Number($($.lt_id_data.id_cf_money).html()) * 1000) / 1000; // 提交时计算总金额
+            $.lt_total_money = Math.round(Number( returnMoney ($($.lt_id_data.id_cf_money).html()) ) * 1000) / 1000; // 提交时计算总金额
 
-            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span class="total_amount">' + (istrace == true ? $.lt_trace_money : $.lt_total_money) + '</span>' + '<span>' + lot_lang.dec_s3 + '</span></div>';
+            msg += '<div class="totleNum"><span class="numlabel">' + lot_lang.dec_s9 + '</span> <span class="total_amount">' + (istrace == true ? formatNumber($.lt_trace_money) : formatNumber($.lt_total_money) ) + '</span>' + '<span>' + lot_lang.dec_s3 + '</span></div>';
             msg = msg.replace('[关闭]', '');
             layer.open({ // 确认付款，点击确定提交
                 content: msg,
+                title: '确认付款',
+                className: 'layer_check',
                 btn: ['确定', '取消'],
                 yes: function (index) {
                     if (checkTimeOut() == false) {  //正式提交前再检查1下时间
                         $.lt_submiting = false;
                         return;
                     }
-                    $('#lt_total_nums').val($.lt_total_nums);
-                    $('#lt_total_money').val($.lt_total_money);
+                   /* $('#lt_total_nums').val($.lt_total_nums);
+                    $('#lt_total_money').val($.lt_total_money);*/
+
                     //解决瞬间提交2次的问题
                     if (ajaxSubmitAllow) {
                         ajaxSubmitAllow = false;
@@ -3561,7 +3564,7 @@ var is_select = 0;
         function ajaxSubmit() {
 
             // 余额不足提示充值
-            if (monAmt(Number($.lt_total_money)) > monAmt(Number($('.membalance').eq(0).text()))) {
+            if (monAmt(Number($.lt_total_money)) > monAmt(Number(returnMoney($('.membalance').eq(0).text())))) {
                 layer.open({
                     title: '温馨提示',
                     content: '可用余额不足，请先充值',
@@ -3588,23 +3591,7 @@ var is_select = 0;
                 'chaseCount': 0, //追号期数
                 'chaseWinStop': 0,//是否追中即停
                 'ifChase': 0, //是否追号
-                'list': [
-                    /*  {  // 一条数据就是一个方案，一个方案可以有多条下注
-                        "betAmount": 200 , //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                        "betContent": "1,6,8,8,5",//下注内容，如1,5,8,3,7
-                        "betCount": 1, //注单数
-                        "betMode": 0, //下注模式(预留)
-                        "chaseCount": 1, //追号期数(含当期),默认1
-                        "chaseWinStop": 0,//是否追中即停
-                        "ifChase": 0, //是否追号
-                        "moneyMode": "y",//付款类型：元y，角j，分f
-                        "multiple": 1, //倍数最少为1
-                        "payoff": 0, //派彩
-                        "playId": 111, //玩法
-                        "remark": "无"//备注
-                    }, */
-
-                ],
+                'list': [ ],
                 'lotteryId': $.lt_lottid,  //彩种id
                 'operType': 0, //下注类型，1下注
                 'pcode': $('.current_issue ').eq(0).text(), //期次20170925013
@@ -3629,10 +3616,10 @@ var is_select = 0;
             }
 
             $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) {  // 遍历每笔注单
-                var num_each = $(n).find('.num-each').text();  // 每单注数
-                var time_each = $(n).find('.time-each').text();  // 每单倍数
-                var total_each = $(n).find('.total-each').text();  // 每单金额
-                var date_each = $(n).find('.date-each').text();  // 每单期数
+                var num_each = returnMoney($(n).find('.num-each').text()) ;  // 每单注数
+                var time_each = returnMoney($(n).find('.time-each').text()) ;  // 每单倍数
+                var total_each = returnMoney($(n).find('.total-each').text()) ;  // 每单金额
+                var date_each = returnMoney($(n).find('.date-each').text()) ;  // 每单期数
                 var play_each = $(n).find('.ui_bet_title').data('modid');  // 每单玩法
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
                 var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
@@ -3688,7 +3675,7 @@ var is_select = 0;
                 data: JSON.stringify(resdata),
 
                 success: function (data) {
-                    getMemberBalance(); //下注成功后更新余额
+
                     layer.closeAll();
                     //解决瞬间提交2次的问题
                     ajaxSubmitAllow = true;
@@ -3756,7 +3743,7 @@ var is_select = 0;
                       //  console.log(data.data.params.ErrInfo)
                         if(data.data =='' || data.data ==null){ // 平台商不存在
                             layer.open({
-                                content: data.data.msg ,
+                                content: data.msg ,
                                 btn: '确定'
                             });
                         }else{   // 各种错误提示

@@ -51,7 +51,7 @@ $(function () {
     var param = getStrParam() ;
     $('.lottery-name').text(decodeURI(param.name)) ;
     $('.lottery-pcode').text(param.pcode) ;
-    $('.lottery-bet').text(roundAmt(param.money)) ;
+    $('.lottery-bet').text(fortMoney(roundAmt(param.money),2)) ;
 
     getLotterys('.hot-game') ;
 

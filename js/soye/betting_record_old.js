@@ -1,7 +1,9 @@
 /* eslint-disable new-cap,indent */
 access_token = getCookie('access_token'); // 取token
 var membalance = getCookie('membalance');
-
+var username = getCookie('username') ;
+$('.user_name').text(username) ;
+$('.so-membalance').html(membalance);
 
 var nowDate = new Date();
 var seadata = {
@@ -137,11 +139,7 @@ function getBetRecord() {
 }
 
 
-$('.so-membalance')
-    .html(membalance);
-var membalance = getCookie('membalance');
-$('.so-user')
-    .html(membalance);
+
 TouchSlide({
     slideCell: '#betting_record',
 });
