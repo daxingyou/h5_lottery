@@ -251,6 +251,7 @@ function touzhu(that, view) {
         .html(data.playName);
     $('.so-betContent')
         .html(data.betContent);
+    $('.so-zhongjiang').remove()
 
 // 如果已经开奖
     if (data.orderStatusName != '等待开奖') {
@@ -269,7 +270,6 @@ function touzhu(that, view) {
             $('.bet_status')
                 .html('已中奖');
             var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + fortMoney(roundAmt(data.payoff), 2) + '</span></li>';
-            $('.so-zhongjiang').remove()
             $('#page1 .print_data li:nth-child(3)').after(html);
         }
         if (data.orderStatusName == '系统撤单') {
