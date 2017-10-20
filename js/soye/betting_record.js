@@ -1,9 +1,9 @@
 /* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
 access_token = getCookie('access_token'); // 取token
-var username = getCookie('username') ;
-var membalance = getCookie('membalance') ;
-$('.user_name').text(username) ;  // 用户名
-$('.so-membalance').html(membalance);  // 余额
+var username = getCookie('username');
+var membalance = getCookie('membalance');
+$('.user_name').text(username); // 用户名
+$('.so-membalance').html(membalance); // 余额
 
 var nowDate = new Date();
 var seadata = {
@@ -17,6 +17,7 @@ var seadata = {
 
 // 标签切换锁
 tableLock = 0;
+
 // 投注详情
 var touzhuXQ = {};
 // 追号详情
@@ -49,17 +50,26 @@ function initView() {
         DateclassName = '.tab_track_1 .slide_toggle'
     }
     $(DateclassName).each(function (i, t) {
-        if ($(t).attr('class').indexOf('active') < 0 && i === 0) {
-            $(t).addClass('active').siblings().removeClass('active');
-            $(t).find('ul').show();
-            $(t).siblings().find('ul').hide();
+        if ($(t).attr('class')
+                .indexOf('active') < 0 && i === 0) {
+            $(t).addClass('active')
+                .siblings()
+                .removeClass('active');
+            $(t).find('ul')
+                .show();
+            $(t).siblings()
+                .find('ul')
+                .hide();
         }
     });
-    getBetRecord()
+    getBetRecord();
     initDateMeun();
 }
 
 function getBetRecord() {
+    $('.so-zzjz').hide()
+    $('.bet-recode-all')
+        .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
     $.ajax({
         type: 'post',
         headers: {
@@ -72,6 +82,12 @@ function getBetRecord() {
         success: function (res) {
             $('.so-zzjz').hide();
             var data = res.data.rows;
+            if (data.length === 0) {
+                $('.bet-recode-all')
+                    .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">没有数据了</li>');
+            } else {
+                lock = 0;
+            }
             console.log(seadata.pdate + '[' + seadata.page + ']');
             $('.new_bet_day').each(function (i, t) {
                 touzhuXQ = data;
@@ -85,7 +101,7 @@ function getBetRecord() {
                                 '<a href="javascript:;" onClick="touzhu(this,0)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
-                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
+                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.orderStatusName + '</span><div></div></div></a></li>';
                             // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
@@ -94,7 +110,7 @@ function getBetRecord() {
                                 '<a href="javascript:;" onClick="zhuihao(this)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
-                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + roundAmt(v.betAmount) + '</strong> </div>' +
+                                '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                 '<div class="status status0"' + v.orderStatus + '>' +
                                 '<span>' + v.chaseStatusName + '</span>' +
                                 // '<div>' + v.pcode + '期</div></div></a></li>';
@@ -116,7 +132,9 @@ function getBetRecord() {
 // 一级标签
 (function () {
     $('#tabs > div').click(function () {
-        $(this).addClass('active').siblings().removeClass('active');
+        $(this).addClass('active')
+            .siblings()
+            .removeClass('active');
         if ($(this).index()) {
             // 追号
             $('#betting_record').hide()
@@ -137,7 +155,9 @@ function getBetRecord() {
 // 二级标签
 (function () {
     $('.tab_mid > li').click(function () {
-        $(this).addClass('on').siblings().removeClass('on');
+        $(this).addClass('on')
+            .siblings()
+            .removeClass('on');
         var num = parseInt($(this).index(), 10);
         switch (num) {
             case 0:
@@ -163,15 +183,23 @@ function initDateMeun() {
     $('.tab_content .slide_toggle').each(function (i, t) {
         $(t).unbind('click');
         $(t).click(function () {
-            if ($(this).attr('class').indexOf('active') < 0) {
-                $(this).addClass('active').siblings().removeClass('active');
-                $(this).find('ul').show();
-                $(this).siblings().find('ul').hide();
-                seadata.pdate = $(this).data('val')
+            seadata.page = 1;
+            if ($(this).attr('class')
+                    .indexOf('active') < 0) {
+                $(this).addClass('active')
+                    .siblings()
+                    .removeClass('active');
+                $(this).find('ul')
+                    .show();
+                $(this).siblings()
+                    .find('ul')
+                    .hide();
+                seadata.pdate = $(this).data('val');
                 getBetRecord(); // 投注记录
             } else {
                 $(this).removeClass('active');
-                $(this).find('ul').hide();
+                $(this).find('ul')
+                    .hide();
             }
         });
     });
@@ -187,8 +215,6 @@ var soyeScroll = new soyeScroll('.bet_data');
 soyeScroll.init(function () {
     if (lock === 0) {
         lock = 1;
-        $('.bet-recode-all')
-            .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
         restr = '';
         getBetRecord(); // 投注记录
     }
@@ -199,6 +225,22 @@ soyeScroll.init(function () {
  */
 var mainView = 0;
 var ding = 0;
+
+function getScroll() {
+    var t, l, w, h;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        t = document.documentElement.scrollTop;
+        l = document.documentElement.scrollLeft;
+        w = document.documentElement.scrollWidth;
+        h = document.documentElement.scrollHeight;
+    } else if (document.body) {
+        t = document.body.scrollTop;
+        l = document.body.scrollLeft;
+        w = document.body.scrollWidth;
+        h = document.body.scrollHeight;
+    }
+    return {t: t, l: l, w: w, h: h};
+}
 
 function showMain() {
     if (mainView === 0) {
@@ -217,7 +259,7 @@ function showMain() {
  */
 function touzhu(that, view) {
     event.stopPropagation();
-    ding = document.body.scrollHeight
+    ding = document.documentElement.scrollTop
     if (view === 1) {
         mainView = 1;
     }
@@ -239,17 +281,13 @@ function touzhu(that, view) {
     $('.so-orderId')
         .html(data.orderId);
     $('.so-betAmount')
-        .html(roundAmt(data.betAmount));
-
-// 金额转换,分转成元
-    function roundAmt(v) {
-        return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
-    }
+        .html(fortMoney(roundAmt(data.betAmount), 2));
 
     $('.so-playName')
         .html(data.playName);
     $('.so-betContent')
         .html(data.betContent);
+    $('.so-zhongjiang').remove()
 
 // 如果已经开奖
     if (data.orderStatusName != '等待开奖') {
@@ -267,8 +305,7 @@ function touzhu(that, view) {
                 .attr('class', 'bet_status status_green');
             $('.bet_status')
                 .html('已中奖');
-            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + roundAmt(data.payoff) + '</span></li>';
-            $('.so-zhongjiang').remove()
+            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + fortMoney(roundAmt(data.payoff), 2) + '</span></li>';
             $('#page1 .print_data li:nth-child(3)').after(html);
         }
         if (data.orderStatusName == '系统撤单') {
@@ -291,7 +328,7 @@ function touzhu(that, view) {
  */
 function zhuihao(that) {
     event.stopPropagation();
-    ding = document.body.scrollHeight
+    ding = document.documentElement.scrollTop
     var access_token = getCookie('access_token'); // 取token
     var data = $(that).data('val');
     $('.body').hide();
@@ -330,7 +367,7 @@ function zhuihao(that) {
         var li_html = '<ul>';
         $.each(list, function (i, e) {
             console.log(list[i]);
-            li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + roundAmt(e.betAmount) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
+            li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + fortMoney(roundAmt(e.betAmount), 2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
         $('#page2 .tra_list')
@@ -366,7 +403,6 @@ function zhuihao(that) {
             },
         });
     }
-
 }
 
 

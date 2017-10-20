@@ -25,7 +25,7 @@
 }
 .layui-m-anim-up { -webkit-animation-name: layui-m-anim-up; animation-name: layui-m-anim-up }
 .layui-m-layer0 .layui-m-layerchild { width: 90%; max-width: 640px }
-.layui-m-layer1 .layui-m-layerchild { border: none; border-radius: 0 }
+.layui-m-layer1 .layui-m-layerchild { border: none; border-radius: 10px; }
 .layui-m-layer2 .layui-m-layerchild { width: auto; max-width: 260px; min-width: 40px; border: none; background: 0 0; box-shadow: none; color: #fff }
 .layui-m-layerchild h3 { padding: 0 10px; height: 60px; line-height: 60px; font-size: 16px; font-weight: 400; border-radius: 5px 5px 0 0; text-align: center }
 .layui-m-layerbtn span,

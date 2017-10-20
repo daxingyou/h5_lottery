@@ -80,6 +80,7 @@ $(function () {
             $(trend_content[3]).trigger('click');
             trend_content.width('50%');
         }
+
         /**
          * 应在此更新页码滑动插件
          */
@@ -126,12 +127,12 @@ function initOpenNumsFun() {
 
     var data = {
         'lotteryId': lotteryId,
-        'pcount': pcount
+        'pcount': pcount,
     };
     $.ajax({
         type: 'get',
         headers: {
-            'Authorization': 'bearer ' + access_token
+            'Authorization': 'bearer ' + access_token,
         },
         dataType: 'json',
         contentType: 'application/json; charset=utf-8', // json格式传给后端
@@ -147,13 +148,20 @@ function initOpenNumsFun() {
                 numOne = [];
                 var newData = [];
                 for (var i = data.length; i > 0; i--) {
-                    newData.push(data[i - 1]);
+                    if (typeof data[i - 1].winNumber !== 'undefined') {
+                        newData.push(data[i - 1]);
+                    } else {
+                        console.log('有数据没有传开奖号码');
+                    }
                 }
                 pcodeArr = [];
                 $.each(newData, function (i, e) {
+                    if (i === 29) {
+
+                    }
                     var winNumber = e.winNumber || '';
                     winNumber = winNumber.split(',');
-                    console.log(i + ':::' + winNumber)
+                    console.log(i + ':::' + winNumber);
                     var pcode = e.pcode % 1000;
                     if (pcode < 100 && pcode >= 10) {
                         pcode = '0' + pcode;
@@ -167,12 +175,13 @@ function initOpenNumsFun() {
                     numTen.push(parseInt(winNumber[3]));
                     numOne.push(parseInt(winNumber[4]));
                 });
+                pcount = pcodeArr.length - 1;
                 initTableFun();
             }
         },
         error: function (err) {
             console.log(err.responseText);
-        }
+        },
     });
 }
 
@@ -191,7 +200,7 @@ function initOpenNumsShow() {
     var textOne = '';
     var itemW = $('.trend_canvas').width() / 10;
     var itemH = $('.trend_content td').outerHeight(true);
-    var row = pcount; // 行数
+    var row = pcount + 1; // 行数
 
     for (var i = 0; i < row; i++) {
         posMillion += (itemW * numMillion[i] + itemW / 2) + ',' + (i * itemH + itemH / 2) + ' ';
@@ -215,7 +224,7 @@ function initOpenNumsShow() {
     $('#trend_Ten').append(textTen);
     $('#trend_One').html('<svg width="' + $('.trend_canvas').width() + ' "height="' + row * itemH + '"><polyline points="' + posOne + '" style="fill:none;stroke:#52acd3;stroke-width:2" /></svg>');
     $('#trend_One').append(textOne);
-    initTab()
+    initTab();
 }
 
 // 表格处理
@@ -322,7 +331,9 @@ function initTableFun() {
 function initTab() {
     $('.trend_tab_2 li').each(function (i, t) {
         $(t).click(function () {
-            $(this).addClass('on').siblings().removeClass('on');
+            $(this).addClass('on')
+                .siblings()
+                .removeClass('on');
             $('.bd').attr('style', 'left:' + (i * -100) + '%');
         });
     });

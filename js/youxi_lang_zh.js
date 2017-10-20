@@ -26,7 +26,7 @@ var lot_lang = {
     dec_s5: '详情',
     dec_s6: '关闭',
     dec_s7: '(当前期)',
-    dec_s8: '<div class="title check">确认付款<p>第<span class="periods"> [issue] </span>期</p></div>', // 投注付款出現視窗
+    dec_s8: '<div class="title check"><p>第<span class="periods"> [issue] </span>期</p></div>', // 投注付款出現視窗
     dec_s9: '总额 :', // 总金额
     dec_s10: '同倍追号',
     dec_s11: '翻倍追号',
@@ -66,7 +66,7 @@ var lot_lang = {
     am_s14: '确定要追号 [count] 期？',
     am_s15: '非常抱歉，本彩种暂停销售。\r\n请前往其他游戏。', // '当期销售已截止，请进入下一期购买。'
     am_s15_2: '该彩种目前已过销售时间，\r\n请在销售周期时间内投注。',
-    am_s15_3: '<div class="timeout">投注时间已经结束，<br/>投注内容将进到 第',
+    am_s15_3: '<div class="timeout">当期已结束，将进第',
     am_s16: '获取数据失败,请刷新页面',
     am_s17: '登录超时，或者账户在其他地方登录，请重新登录',
     am_s18: '未到销售时间',

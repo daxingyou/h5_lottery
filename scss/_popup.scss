@@ -27,7 +27,7 @@
   }
   &.layer_tip {
     &:before {
-      background-image: url('../../images/icon_tip_d.svg');
+      background-image: url('../images/icon_tip_d.svg');
     }
     h3 {
       color: $l_yellow;
@@ -35,7 +35,7 @@
   }
   &.layer_check {
     &:before {
-      background-image: url('../../images/icon_check.svg');
+      background-image: url('../images/icon_check.svg');
     }
     h3 {
       color: $l_green;
@@ -43,7 +43,7 @@
   }
   &.layer_count {
     &:before {
-      background-image: url('../../images/icon_count.svg');
+      background-image: url('../images/icon_count.svg');
     }
     h3 {
       color: $l_blue;
@@ -56,7 +56,10 @@
 }
 
 .layui-m-layermain .layui-m-layersection .layui-m-layerchild {
-  width: 70% !important;
+  width: 75% !important;
+}
+.layui-m-layer1 .layui-m-layercont{
+  text-align: center;
 }
 
 .layui-m-layercont {
