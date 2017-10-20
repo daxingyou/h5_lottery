@@ -2647,8 +2647,8 @@
             }
             var end = $('li[name^=\'lt_place_0\']').length || 0;
 
-            // 不支持机选的玩法
-            if (end === 0 || otype == 'dxds' || methodname=='SXZU12'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
+            // 不支持机选的玩法 定位胆 DWD
+            if (end === 0  ) {
                 layer.open({
                     content: '该玩法不支持机选',
                     btn: '确定',
@@ -2657,13 +2657,26 @@
             }
             var para = newRandomNumbersWithNoRepeat(0, end - 1, totalnum); // 随机得到一个不重复的数字组成的数组
             var randomcos_arr = [];
-            var snum = Math.floor(Math.random()*10) ; // 随机生成 0-1 的整数五星组选60
+            var snum = Math.floor(Math.random()*10) ; // 随机生成 0-9 的整数 ,五星组选60
+            var dnum = Math.floor(Math.random()*5) ; // 随机生成 0-4 的整数 ,五星组选60
             var thnum = (snum==0 ?snum+2 :snum-1)  ;
             var tthnum = (snum==9 ?snum-1 :snum+1)  ;
-           // console.log(snum)
-            console.log(para)
-            randomcos_arr.length = randomcos;
-
+           // console.log(dnum)
+           // console.log(para)
+            if(methodname =='DWD'){  // 定位胆处理 BDW2
+                $('.each:nth-child('+(dnum+1)+') .nList').find('[name="lt_place_'+dnum+'"]').eq(snum).trigger('click') ;
+            }else if(methodname=='BDW1' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC'){  // 不定位后三一码，趣味好事成双，三星报喜
+                $('[name="lt_place_0"]').eq(snum).trigger('click') ;
+            }else if(methodname=='BDW2'){  // 不定位后三二码
+                $('[name="lt_place_0"]').eq(snum).trigger('click') ;
+                $('[name="lt_place_0"]').eq(thnum).trigger('click') ;
+            }else if(otype=='dxds'){  // 大小单双
+                $('[name="lt_place_0"]').eq(dnum-1).trigger('click') ;
+                $('[name="lt_place_1"]').eq(snum/3).trigger('click') ;
+            }
+            else{
+                randomcos_arr.length = randomcos;
+            }
                 $.each(randomcos_arr, function (i, v1) {
                     var minsize_arr = [];
                     minsize_arr.length = minsize[i];
@@ -2688,6 +2701,7 @@
                               break;
                           case 'WXZU30':  // 五星组选30
                           case 'SXZU6': // 四星组选6
+                          case 'ZUS' :  // 后三组三
                               $.each($('[name="lt_place_0"]'), function (m, va) {
                                   // console.log(para[i])
                                   if (m == para[i]) {
@@ -2703,6 +2717,8 @@
                               $('[name="lt_place_1"]').eq(tthnum).trigger('click') ;
                               break;
                           case 'SXZU24': // 四星组选24
+                          case 'ZUL': // 后三组六
+                          case 'ZU2': // 二星组选后二复式
                               $.each($('[name="lt_place_0"]'), function (m, va) {
                                   if (m == para[j]) {
                                       $(this).trigger('click');
@@ -2717,6 +2733,7 @@
                                   }
                               });
                               break;*/
+
                           default:
                               $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
                                   if (n == para[j]) {
