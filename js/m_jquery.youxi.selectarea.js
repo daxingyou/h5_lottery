@@ -2585,15 +2585,15 @@
         // 随选
         $('.lt_random_bets_auto').unbind('click').click(function () {
             var type = $(this).data('type') ;
-            $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
-                var ishas =$(this).hasClass('hover') ;
-                console.log(ishas)
-                if (ishas ) {
-                    $(this).trigger('click');
-                }
-            });
-
-            console.log(type)
+            var len = $('.nList').length ;  // 号码组长度
+            for(var i=0;i<len;i++){
+                $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
+                    var ishas =$(this).hasClass('hover') ;
+                    if (ishas ) {
+                        $(this).trigger('click');
+                    }
+                });
+            }
             autoSelect(type) ;
         }) ;
 

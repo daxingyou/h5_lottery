@@ -2574,6 +2574,7 @@ var data_label = [
      }]}]}	,*/
 ];
 
+// token 处理
 function getAccessToken(access_token) {
     if (access_token && access_token.length > 10) {
         // console.log(access_token)
