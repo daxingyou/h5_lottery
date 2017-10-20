@@ -78,6 +78,8 @@ function getBetRecord() {
             if (data.length === 0) {
                 $('.bet-recode-all')
                     .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">没有数据了</li>');
+            } else {
+                lock = 0;
             }
             console.log(seadata.pdate + '[' + seadata.page + ']');
             $('.new_bet_day').each(function (i, t) {
