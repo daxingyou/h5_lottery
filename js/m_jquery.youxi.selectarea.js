@@ -2234,13 +2234,27 @@
         $($.lt_id_data.id_sel_times).keyup(function () {
             checkTimes();
         });
+         $($.lt_id_data.id_sel_times).blur(function () {
+            setNumberAction() ;
+
+        });
+
         // 追号倍数键盘处理事件
         $($.lt_id_data.id_add_times).keyup(function () {
             checkTimes('zh');
         });
+        $($.lt_id_data.id_add_times).blur(function () {
+            setNumberAction() ;
+
+
+        });
         // 追号期数键盘处理事件
         $($.lt_id_data.id_add_date).keyup(function () {
             checkTimes('zh');
+        });
+        $($.lt_id_data.id_add_date).blur(function () {
+            setNumberAction() ;
+
         });
         //  加减倍数按钮点击处理
         $('.multipleBox').each(function () {
@@ -2291,49 +2305,6 @@
             var total_all = 0; // 总金额变化
             $($.lt_id_data.id_sel_times).val(times);
 
-            if (times == 0) {
-                 times = 1;
-                /* layer.open({
-                 content: '倍数不能输入0',
-                 btn: '确定'
-                 });*/
-                 $($.lt_id_data.id_sel_times).val(times);
-                 return false ;
-             }
-             if(times >9999){
-                 times = 9999;
-                 $($.lt_id_data.id_sel_times).val(times);
-                 return false ;
-             }
-             if (z_times == 0) {
-                 z_times = 1;
-                /* layer.open({
-                 content: '追号倍数不能输入0',
-                 btn: '确定'
-               });*/
-                 $($.lt_id_data.id_add_times).val(z_times);
-                 return false ;
-             }
-            if(z_times >9999){
-                z_times = 9999;
-                $($.lt_id_data.id_add_times).val(z_times);
-                return false ;
-            }
-             if (z_dates == 0) {
-                z_dates = 1;
-            /* layer.open({
-                 content: '追号期数不能输入0',
-                 btn: '确定'
-             });*/
-                 $($.lt_id_data.id_add_date).val(z_dates);
-                 return false ;
-             }
-            if(z_dates >9999){
-                z_dates = 9999;
-                $($.lt_id_data.id_add_date).val(z_dates);
-                return false ;
-            }
-
             var nums = parseInt(returnMoney ($($.lt_id_data.id_sel_num).html()) , 10);// 选号投注注数取整
             // var modes = parseInt($("#lt_project_modes").val(),10);//投注模式
             var modes = parseInt($('input[name=\'lt_project_modes\']:checked').val(), 10);// 投注模式
@@ -2373,7 +2344,60 @@
 
 
         }
+       // 输入重置数字
+        function setNumberAction() {
+            var times = $($.lt_id_data.id_sel_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 投注倍数选择
+            //  追号相关
+            var z_times = $($.lt_id_data.id_add_times).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号倍数输入框值
+            var z_dates = $($.lt_id_data.id_add_date).val().replace(/[^0-9]/g, '').substring(0, 5); // 追号期数选择输入框值
+            var total_all = 0; // 总金额变化
+            $($.lt_id_data.id_sel_times).val(times);
 
+            if (times == 0) {
+                times = 1;
+                /* layer.open({
+                 content: '倍数不能输入0',
+                 btn: '确定'
+                 });*/
+                $($.lt_id_data.id_sel_times).val(times);
+                return false ;
+            }
+            if(times >9999){
+                times = 9999;
+                $($.lt_id_data.id_sel_times).val(times);
+                return false ;
+            }
+            if (z_times == 0) {
+                z_times = 1;
+                /* layer.open({
+                 content: '追号倍数不能输入0',
+                 btn: '确定'
+                 });*/
+                $($.lt_id_data.id_add_times).val(z_times);
+                $('.zh_multipleBox').eq(0).find('.less_bei').click();  // 还原倍数
+                return false ;
+            }
+            if(z_times >9999){
+                z_times = 9999;
+                $($.lt_id_data.id_add_times).val(z_times);
+                return false ;
+            }
+            if (z_dates == 0) {
+                z_dates = 1;
+                /* layer.open({
+                 content: '追号期数不能输入0',
+                 btn: '确定'
+                 });*/
+                $($.lt_id_data.id_add_date).val(z_dates);
+                $('.zh_multipleBox').eq(1).find('.less_bei').click();  // 还原期数
+                return false ;
+            }
+            if(z_dates >9999){
+                z_dates = 9999;
+                $($.lt_id_data.id_add_date).val(z_dates);
+                return false ;
+            }
+        }
 
         var zhuiflage = 1;
         // 追中即停按钮点击处理
@@ -2636,7 +2660,7 @@
             var snum = Math.floor(Math.random()*10) ; // 随机生成 0-1 的整数五星组选60
             var thnum = (snum==0 ?snum+2 :snum-1)  ;
             var tthnum = (snum==9 ?snum-1 :snum+1)  ;
-            console.log(snum)
+           // console.log(snum)
             console.log(para)
             randomcos_arr.length = randomcos;
 

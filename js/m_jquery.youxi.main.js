@@ -3624,7 +3624,7 @@ var is_select = 0;
                 var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
                 var play_input = $(n).find('.ui_bet_title').data('input').toLowerCase() ;  // 选号，'input':输入型,'digital':数字选号型,'dxds':大小单双类型
 
-                if(play_input == 'dxds'){ // 大小单双
+                if(play_input == 'dxds' || play_each=='711'){ // 大小单双 和定位胆
                     var new_num = $(n).find('.m_lotter_list_nub').html() ;
                 }else{
                     if(play_input == 'input'){ // 输入类型
