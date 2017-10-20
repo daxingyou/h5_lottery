@@ -226,6 +226,22 @@ soyeScroll.init(function () {
 var mainView = 0;
 var ding = 0;
 
+function getScroll() {
+    var t, l, w, h;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        t = document.documentElement.scrollTop;
+        l = document.documentElement.scrollLeft;
+        w = document.documentElement.scrollWidth;
+        h = document.documentElement.scrollHeight;
+    } else if (document.body) {
+        t = document.body.scrollTop;
+        l = document.body.scrollLeft;
+        w = document.body.scrollWidth;
+        h = document.body.scrollHeight;
+    }
+    return {t: t, l: l, w: w, h: h};
+}
+
 function showMain() {
     if (mainView === 0) {
         $('.body').hide();
@@ -243,7 +259,7 @@ function showMain() {
  */
 function touzhu(that, view) {
     event.stopPropagation();
-    ding = document.body.scrollHeight
+    ding = document.documentElement.scrollTop
     if (view === 1) {
         mainView = 1;
     }
@@ -312,7 +328,7 @@ function touzhu(that, view) {
  */
 function zhuihao(that) {
     event.stopPropagation();
-    ding = document.body.scrollHeight
+    ding = document.documentElement.scrollTop
     var access_token = getCookie('access_token'); // 取token
     var data = $(that).data('val');
     $('.body').hide();
