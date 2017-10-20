@@ -51,11 +51,14 @@ function initView() {
             $(t).siblings().find('ul').hide();
         }
     });
-    getBetRecord()
+    getBetRecord();
     initDateMeun();
 }
 
 function getBetRecord() {
+    $('.so-zzjz').hide()
+    $('.bet-recode-all')
+        .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
     $.ajax({
         type: 'post',
         headers: {
@@ -68,6 +71,10 @@ function getBetRecord() {
         success: function (res) {
             $('.so-zzjz').hide();
             var data = res.data.rows;
+            if (data.length === 0) {
+                $('.bet-recode-all')
+                    .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">没有数据了</li>');
+            }
             console.log(seadata.pdate + '[' + seadata.page + ']');
             $('.new_bet_day').each(function (i, t) {
                 touzhuXQ = data;
@@ -159,11 +166,12 @@ function initDateMeun() {
     $('.tab_content .slide_toggle').each(function (i, t) {
         $(t).unbind('click');
         $(t).click(function () {
+            seadata.page = 1;
             if ($(this).attr('class').indexOf('active') < 0) {
                 $(this).addClass('active').siblings().removeClass('active');
                 $(this).find('ul').show();
                 $(this).siblings().find('ul').hide();
-                seadata.pdate = $(this).data('val')
+                seadata.pdate = $(this).data('val');
                 getBetRecord(); // 投注记录
             } else {
                 $(this).removeClass('active');
@@ -183,8 +191,6 @@ var soyeScroll = new soyeScroll('.bet_data');
 soyeScroll.init(function () {
     if (lock === 0) {
         lock = 1;
-        $('.bet-recode-all')
-            .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
         restr = '';
         getBetRecord(); // 投注记录
     }
@@ -362,7 +368,6 @@ function zhuihao(that) {
             },
         });
     }
-
 }
 
 
