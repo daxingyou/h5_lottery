@@ -2,8 +2,8 @@
 access_token = getCookie('access_token'); // 取token
 var username = getCookie('username');
 var membalance = getCookie('membalance');
-$('.user_name').text(username);  // 用户名
-$('.so-membalance').html(membalance);  // 余额
+$('.user_name').text(username); // 用户名
+$('.so-membalance').html(membalance); // 余额
 
 var nowDate = new Date();
 var seadata = {
@@ -17,6 +17,7 @@ var seadata = {
 
 // 标签切换锁
 tableLock = 0;
+
 // 投注详情
 var touzhuXQ = {};
 // 追号详情
@@ -49,10 +50,16 @@ function initView() {
         DateclassName = '.tab_track_1 .slide_toggle'
     }
     $(DateclassName).each(function (i, t) {
-        if ($(t).attr('class').indexOf('active') < 0 && i === 0) {
-            $(t).addClass('active').siblings().removeClass('active');
-            $(t).find('ul').show();
-            $(t).siblings().find('ul').hide();
+        if ($(t).attr('class')
+                .indexOf('active') < 0 && i === 0) {
+            $(t).addClass('active')
+                .siblings()
+                .removeClass('active');
+            $(t).find('ul')
+                .show();
+            $(t).siblings()
+                .find('ul')
+                .hide();
         }
     });
     getBetRecord();
@@ -125,7 +132,9 @@ function getBetRecord() {
 // 一级标签
 (function () {
     $('#tabs > div').click(function () {
-        $(this).addClass('active').siblings().removeClass('active');
+        $(this).addClass('active')
+            .siblings()
+            .removeClass('active');
         if ($(this).index()) {
             // 追号
             $('#betting_record').hide()
@@ -146,7 +155,9 @@ function getBetRecord() {
 // 二级标签
 (function () {
     $('.tab_mid > li').click(function () {
-        $(this).addClass('on').siblings().removeClass('on');
+        $(this).addClass('on')
+            .siblings()
+            .removeClass('on');
         var num = parseInt($(this).index(), 10);
         switch (num) {
             case 0:
@@ -173,15 +184,22 @@ function initDateMeun() {
         $(t).unbind('click');
         $(t).click(function () {
             seadata.page = 1;
-            if ($(this).attr('class').indexOf('active') < 0) {
-                $(this).addClass('active').siblings().removeClass('active');
-                $(this).find('ul').show();
-                $(this).siblings().find('ul').hide();
+            if ($(this).attr('class')
+                    .indexOf('active') < 0) {
+                $(this).addClass('active')
+                    .siblings()
+                    .removeClass('active');
+                $(this).find('ul')
+                    .show();
+                $(this).siblings()
+                    .find('ul')
+                    .hide();
                 seadata.pdate = $(this).data('val');
                 getBetRecord(); // 投注记录
             } else {
                 $(this).removeClass('active');
-                $(this).find('ul').hide();
+                $(this).find('ul')
+                    .hide();
             }
         });
     });
