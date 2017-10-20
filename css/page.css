@@ -86,15 +86,15 @@ input[type="checkbox"]:checked + label span { border-color: #52ACD3; background:
 
 .layui-m-layerchild.layer_tip:before, .layui-m-layerchild.layer_check:before, .layui-m-layerchild.layer_count:before { content: ''; display: block; background-repeat: no-repeat; background-position: center center; background-size: 3rem 3rem; width: 4rem; height: 4rem; position: absolute; top: -2rem; left: 50%; margin-left: -2rem; background-color: #fff; border-radius: 50%; }
 
-.layui-m-layerchild.layer_tip:before { background-image: url("../../images/icon_tip_d.svg"); }
+.layui-m-layerchild.layer_tip:before { background-image: url("../images/icon_tip_d.svg"); }
 
 .layui-m-layerchild.layer_tip h3 { color: #FCB008; }
 
-.layui-m-layerchild.layer_check:before { background-image: url("../../images/icon_check.svg"); }
+.layui-m-layerchild.layer_check:before { background-image: url("../images/icon_check.svg"); }
 
 .layui-m-layerchild.layer_check h3 { color: #71C341; }
 
-.layui-m-layerchild.layer_count:before { background-image: url("../../images/icon_count.svg"); }
+.layui-m-layerchild.layer_count:before { background-image: url("../images/icon_count.svg"); }
 
 .layui-m-layerchild.layer_count h3 { color: #52ACD3; }
 
@@ -342,5 +342,3 @@ body .layui-m-layer .layui-m-layer-msg .layui-m-layercont { padding: 0.5rem; pad
 .cancel_area > div:last-child { float: right; }
 
 .cancel_area label span { vertical-align: text-top; }
-
-/*# sourceMappingURL=page.css.map */

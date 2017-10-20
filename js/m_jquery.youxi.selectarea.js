@@ -937,14 +937,14 @@
                             nums += Combination(data_sel[0].length, minchosen[0]);
                         }
                         break;
-                    case 'SXZU12':
+                   // case 'SXZU12':
                     case 'SXZU4':
                         if (data_sel[0].length >= minchosen[0] && data_sel[1].length >= minchosen[1]) {
                             var h = Array.intersect(data_sel[0], data_sel[1]).length;
                             tmp_nums = Combination(data_sel[0].length, minchosen[0]) * Combination(data_sel[1].length, minchosen[1]);
                             if (h > 0) {
                                 if (mname == 'SXZU12') {
-                                    tmp_nums -= Combination(h, 1) * Combination(data_sel[1].length - 1, 1);
+                                   // tmp_nums -= Combination(h, 1) * Combination(data_sel[1].length - 1, 1);
                                 } else {
                                     if (mname == 'SXZU4') {
                                         tmp_nums -= Combination(h, 1);
@@ -2611,7 +2611,7 @@
             var end = $('li[name^=\'lt_place_0\']').length || 0;
 
             // 不支持机选的玩法
-            if (end === 0 || otype == 'dxds' || methodname=='WXZU30' || methodname=='WXZU20'|| methodname=='SXZU24' || methodname=='SXZU12' || methodname=='SXZU6'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
+            if (end === 0 || otype == 'dxds' || methodname=='SXZU12'|| methodname=='ZUS' || methodname=='ZUL'|| methodname=='ZU2' || methodname=='DWD'|| methodname=='BDW1' ||methodname=='BDW2' || methodname=='HSCS' || methodname=='SXBX' || methodname=='SJFC' ) {
                 layer.open({
                     content: '该玩法不支持机选',
                     btn: '确定',
@@ -2620,8 +2620,12 @@
             }
             var para = newRandomNumbersWithNoRepeat(0, end - 1, totalnum); // 随机得到一个不重复的数字组成的数组
             var randomcos_arr = [];
+            var snum = Math.floor(Math.random()*10) ; // 随机生成 0-1 的整数五星组选60
+            var thnum = (snum==0 ?snum+2 :snum-1)  ;
+            var tthnum = (snum==9 ?snum-1 :snum+1)  ;
+            console.log(snum)
+            console.log(para)
             randomcos_arr.length = randomcos;
-            var snum = Math.floor(Math.random()*10) ; // 五星组选60
 
                 $.each(randomcos_arr, function (i, v1) {
                     var minsize_arr = [];
@@ -2639,14 +2643,43 @@
                           case 'WXZU60': // 五星组选60
                               $('[name="lt_place_0"]').eq(snum).trigger('click') ;
                               $.each($('[name="lt_place_1"]'), function (m, va) {
+                                 // console.log(para[i])
                                   if (m == para[i]) {
                                       $(this).trigger('click');
                                   }
                               });
                               break;
-                          case 2:
-
+                          case 'WXZU30':  // 五星组选30
+                          case 'SXZU6': // 四星组选6
+                              $.each($('[name="lt_place_0"]'), function (m, va) {
+                                  // console.log(para[i])
+                                  if (m == para[i]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+                              $('[name="lt_place_1"]').eq(snum).trigger('click') ;
                               break;
+
+                          case 'WXZU20': // 五星组选20
+                              $('[name="lt_place_0"]').eq(snum).trigger('click') ;
+                              $('[name="lt_place_1"]').eq(thnum).trigger('click') ;
+                              $('[name="lt_place_1"]').eq(tthnum).trigger('click') ;
+                              break;
+                          case 'SXZU24': // 四星组选24
+                              $.each($('[name="lt_place_0"]'), function (m, va) {
+                                  if (m == para[j]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+                              break;
+                         /* case 'SXZU6': // 四星组选6
+                              $.each($('[name="lt_place_0"]'), function (m, va) {
+                                  // console.log(para[i])
+                                  if (m == para[i]) {
+                                      $(this).trigger('click');
+                                  }
+                              });
+                              break;*/
                           default:
                               $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
                                   if (n == para[j]) {
