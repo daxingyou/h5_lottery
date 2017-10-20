@@ -2229,24 +2229,7 @@
             });
         }
 
-        /**
-         *  随选功能
-         */
-        $('.lt_random_bets_auto').unbind('click')
-            .click(function () {
-                var arr = [];
-                $('#lt_selector .nList').each(function (i, t) {
-                    var num = Math.round(Math.random() * 9);
-                    num++
-                    arr.push(num);
-                    $($(t).find('li')).attr('class', 'hover').trigger('click')
-                    $(t).find('li:nth-child(' + num + ')')
-                        .trigger('click');
-                    // .addClass('hover')
-                    // .siblings()
-                    // .removeClass('hover');
-                });
-            });
+
         // 倍数键盘处理事件
         $($.lt_id_data.id_sel_times).keyup(function () {
             checkTimes();
@@ -2545,7 +2528,24 @@
                 }
 
             });
-
+        /**
+         *  随选功能
+         */
+     /*   $('.lt_random_bets_auto').unbind('click')
+            .click(function () {
+                var arr = [];
+                $('#lt_selector .nList').each(function (i, t) {
+                    var num = Math.round(Math.random() * 9);
+                    num++
+                    arr.push(num);
+                    $($(t).find('li')).attr('class', 'hover').trigger('click')
+                    $(t).find('li:nth-child(' + num + ')')
+                        .trigger('click');
+                    // .addClass('hover')
+                    // .siblings()
+                    // .removeClass('hover');
+                });
+            });*/
 
         /*
          *  机选功能
@@ -2581,11 +2581,24 @@
                     autoSelect();
                 }
 
-
+            });
+        // 随选
+        $('.lt_random_bets_auto').unbind('click').click(function () {
+            var type = $(this).data('type') ;
+            $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
+                var ishas =$(this).hasClass('hover') ;
+                console.log(ishas)
+                if (ishas ) {
+                    $(this).trigger('click');
+                }
             });
 
+            console.log(type)
+            autoSelect(type) ;
+        }) ;
+
         // 机选操作
-        function autoSelect() {
+        function autoSelect(type) {
             if (random_bets) {
                 for (i = 0; i < data_sel.length; i++) {// 清空已选择数据
                     data_sel[i] = [];
@@ -2696,7 +2709,9 @@
                 });
                 para = [];
 
-             $($.lt_id_data.id_sel_insert).trigger('click'); // 添加按钮
+            if(!type){ // 随选不需要自动添加到购物车
+                $($.lt_id_data.id_sel_insert).trigger('click'); // 添加按钮
+            }
 
         }
 
