@@ -1494,72 +1494,75 @@ var data_label = [
             {
                 gtitle: '大小单双',
                 cid: 91,
-                label: [{
-                    "methoddesc": "从总和的“大、小、单、双”中至少选一个成一注。",
-                    "methodhelp": "对个位至万位的总和的“大（23以上，包括23）小（22以下，包括22））、单（奇数）双（偶数）”形态进行购买，所选号码的位形态与开奖号码的形态相同，即为中奖。",
-                    "methodexample": "投注方案:大，开奖号码67895(6+7+8+9+5=35)，即中比大小一等奖。投注方案:单，开奖号码12345(1+2+3+4+5=15)，即中比单双一等奖。",
-                    "selectarea": {
-                        "type": "dxds",
-                        "layout": [{"title": "总和", "no": "大|小|单|双", "place": 0, "cols": 1}]
+                label: [
+                    {
+                        "methoddesc": "从十位、个位中的“大、小、单、双”中至少各选一个组成一注。",
+                        "methodhelp": "对十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
+                        "methodexample": "投注方案：大单；开奖号码十位与个位：大单，即中后二大小单双一等奖。",
+                        "selectarea": {
+                            "type": "dxds",
+                            "layout": [{"title": "十位", "no": "大|小|单|双", "place": 0, "cols": 1},
+                                {"title": "个位", "no": "大|小|单|双", "place": 1, "cols": 1}]
+                        },
+                        "show_str": "X,X",
+                        "code_sp": "",
+                        methodid: 911,
+                        name: '后二',
+                        /* prize:{1:'7.20'},
+                         nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
+                        modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
+                            modeid: 3,
+                            name: '分',
+                            rate: 0.01
+                        }],
+                        menuid: 81,
+                        desc: '后二', maxcodecount: 0
                     },
-                    "show_str": "X",
-                    "code_sp": "",
-                    methodid: 913,
-                    name: '总和',
-                    /*  prize:{1:'3.60'},
-        nfdprize:{levs:'3.88',defaultprize:3.60,userdiffpoint:7},*/
-                    modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
-                        modeid: 3,
-                        name: '分',
-                        rate: 0.01
-                    }],
-                    menuid: 322379,
-                    desc: '总和', maxcodecount: 0
-                }, {
-                    "methoddesc": "从十位、个位中的“大、小、单、双”中至少各选一个组成一注。",
-                    "methodhelp": "对十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
-                    "methodexample": "投注方案：大单；开奖号码十位与个位：大单，即中后二大小单双一等奖。",
-                    "selectarea": {
-                        "type": "dxds",
-                        "layout": [{"title": "十位", "no": "大|小|单|双", "place": 0, "cols": 1},
-                            {"title": "个位", "no": "大|小|单|双", "place": 1, "cols": 1}]
-                    },
-                    "show_str": "X,X",
-                    "code_sp": "",
-                    methodid: 911,
-                    name: '后二',
-                    /* prize:{1:'7.20'},
-        nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
-                    modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
-                        modeid: 3,
-                        name: '分',
-                        rate: 0.01
-                    }],
-                    menuid: 81,
-                    desc: '后二', maxcodecount: 0
-                }, {
-                    "methoddesc": "从万位、千位中的“大、小、单、双”中至少各选一个组成一注。",
-                    "methodhelp": "对百位、十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
-                    "methodexample": "投注方案：小双；开奖号码万位与千位：小双，即中前二大小单双一等奖。",
-                    "selectarea": {
-                        "type": "dxds",
-                        "layout": [{"title": "万位", "no": "大|小|单|双", "place": 0, "cols": 1},
-                            {"title": "千位", "no": "大|小|单|双", "place": 1, "cols": 1}]
-                    },
-                    "show_str": "X,X",
-                    "code_sp": "",
-                    methodid: 912,
-                    name: '前二',
-                    /* prize:{1:'7.20'},
-        nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
-                    modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
-                        modeid: 3,
-                        name: '分',
-                        rate: 0.01
-                    }],
-                    menuid: 80,
-                    desc: '前二', maxcodecount: 0
-                }]
+                    {
+                        "methoddesc": "从万位、千位中的“大、小、单、双”中至少各选一个组成一注。",
+                        "methodhelp": "对百位、十位和个位的“大（56789）小（01234）、单（13579）双（02468）”形态进行购买，所选号码的位置、形态与开奖号码的位置、形态相同，即为中奖。",
+                        "methodexample": "投注方案：小双；开奖号码万位与千位：小双，即中前二大小单双一等奖。",
+                        "selectarea": {
+                            "type": "dxds",
+                            "layout": [{"title": "万位", "no": "大|小|单|双", "place": 0, "cols": 1},
+                                {"title": "千位", "no": "大|小|单|双", "place": 1, "cols": 1}]
+                        },
+                        "show_str": "X,X",
+                        "code_sp": "",
+                        methodid: 912,
+                        name: '前二',
+                        /* prize:{1:'7.20'},
+                         nfdprize:{levs:'7.7',defaultprize:7.20,userdiffpoint:7},*/
+                        modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
+                            modeid: 3,
+                            name: '分',
+                            rate: 0.01
+                        }],
+                        menuid: 80,
+                        desc: '前二', maxcodecount: 0
+                    } , {
+                        "methoddesc": "从总和的“大、小、单、双”中至少选一个成一注。",
+                        "methodhelp": "对个位至万位的总和的“大（23以上，包括23）小（22以下，包括22））、单（奇数）双（偶数）”形态进行购买，所选号码的位形态与开奖号码的形态相同，即为中奖。",
+                        "methodexample": "投注方案:大，开奖号码67895(6+7+8+9+5=35)，即中比大小一等奖。投注方案:单，开奖号码12345(1+2+3+4+5=15)，即中比单双一等奖。",
+                        "selectarea": {
+                            "type": "dxds",
+                            "layout": [{"title": "总和", "no": "大|小|单|双", "place": 0, "cols": 1}]
+                        },
+                        "show_str": "X",
+                        "code_sp": "",
+                        methodid: 913,
+                        name: '总和',
+                        /*  prize:{1:'3.60'},
+                         nfdprize:{levs:'3.88',defaultprize:3.60,userdiffpoint:7},*/
+                        modes: [{modeid: 1, name: '元', rate: 1}, {modeid: 2, name: '角', rate: 0.1}, {
+                            modeid: 3,
+                            name: '分',
+                            rate: 0.01
+                        }],
+                        menuid: 322379,
+                        desc: '总和', maxcodecount: 0
+                    }
+                ]
             }]
     },
     {
