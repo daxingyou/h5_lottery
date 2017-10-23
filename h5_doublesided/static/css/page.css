@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html { -webkit-text-size-adjust: none; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
 
