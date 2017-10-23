@@ -126,18 +126,22 @@ var now_day; // 当前日期
 var lotterytype = 0;
 
 
-
-LoginAction();
-
-setTimeout(function () {
-
-    getSystemTime(); // 系统时间
-    // getLotterys('.game-all', '.game-hot'); // 获取彩种
-    getPlayTree(1);  // 玩法
-    getMemberBalance(); // 获取用户余额
+$(function () {
+    LoginAction();
+    setTimeout(function () {
+        getSystemTime(); // 系统时间
+        // getLotterys('.game-all', '.game-hot'); // 获取彩种
+        getPlayTree(1);  // 玩法
+        getMemberBalance(); // 获取用户余额
 
 
-}, 500) ;
+    }, 500) ;
+
+    initChoiceObj() ; // 球点击处理
+
+})
+
+
 
 // token 处理
 function getAccessToken(access_token) {
@@ -266,7 +270,7 @@ function getMemberBalance() {
         success: function (res) {
             // var mom = roundAmt(res.data.amount) ;
             var mom = fortMoney(roundAmt(res.data.amount), 2);
-            $('.membalance').text(mom);
+            $('.so-in-top-sum').text(mom);
             $('.user_name').text(getCookie('username'));
             setCookie("membalance", mom);  // 把登录余额放在cookie里面
             // console.log(returnMoney(mom))
@@ -440,7 +444,7 @@ function outTimeSet() {
             "Authorization": "bearer  " + getAccessToken(access_token),
         },
         url: action.forseti + 'api/priodDataNewly',
-        data: getCookie('lt_lottid'),
+        data: { lotteryId: getCookie('lt_lottid')},
         success: function (res) {  //成功
             console.log('拉取期数成功');
             // 开奖数据处理
@@ -498,4 +502,21 @@ function processCode(issue, lastissue,code) {
     }
     $('.last-open-num ul').html(str) ;
 
+}
+
+//此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
+function initChoiceObj() {
+    $('.so-con-right p').click(function () {
+        var className = $(this).attr("class") || ""
+        if (className.indexOf("active") >= 0) {
+            $(this).attr("class", className.replace("active", ""))
+        } else {
+            $(this).attr("class", className + " active")
+        }
+        var choosed =   $(".so-con-right p.active").length ;
+        // 已选注数
+        $('.bet-select-num').text(choosed) ;
+
+
+    })
 }

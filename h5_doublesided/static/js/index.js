@@ -2,7 +2,7 @@ window.onload = function () {
     initViewHeight()
     initKuang()
     initNavChoice()
-    initChoiceObj()
+   // initChoiceObj()
     initLeftViewEve()
     initRightViewEve()
     initPopEve()
@@ -96,18 +96,22 @@ function initNavChoice() {
 }
 
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
-function initChoiceObj() {
-    $(".so-con-right p").each(function (i, t) {
-        $(t).click(function () {
+/*function initChoiceObj() {
+   /!* $(".so-con-right p").each(function (i, t) {*!/
+
+        $('.so-con-right p').click(function () {
             var className = $(this).attr("class") || ""
             if (className.indexOf("active") >= 0) {
                 $(this).attr("class", className.replace("active", ""))
             } else {
                 $(this).attr("class", className + " active")
             }
+                var choosed =   $(".so-con-right p.active").length ;
+                console.log(choosed)
+
         })
-    })
-}
+   /!* })*!/
+}*/
 
 //此方法用来初始化左侧边栏的呼出和关闭的点击事件
 function initLeftViewEve() {
