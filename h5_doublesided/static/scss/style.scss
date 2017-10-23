@@ -159,32 +159,32 @@ a {
             z-index: 2;
         }
         ul {
-            li {
+            >li {
                 height: 100%;
                 min-width: 1rem;
                 display: block;
                 float: left;
-                .so-top-menu {
+                >.so-top-menu {
                     height: 0.47rem;
                     position: relative;
                     top: 0.5rem;
                     left: 0.25rem;
                 }
-                .so-top-logo {
+                >.so-top-logo {
                     position: relative;
                     left: -0.8rem;
                     top: 0.1rem;
                     height: 1.3rem;
                 }
-            }
-            .so-top-zoushi {
-                float: right;
-                height: 1.48rem;
-                img {
-                    height: 0.6rem;
-                    position: relative;
-                    top: 0.46rem;
-                    left: -0.1rem;
+                &.so-top-zoushi {
+                    float: right;
+                    height: 1.48rem;
+                    img {
+                        height: 0.6rem;
+                        position: relative;
+                        top: 0.46rem;
+                        left: -0.1rem;
+                    }
                 }
             }
         }

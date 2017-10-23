@@ -54,15 +54,15 @@ a { color: #00B7FF; }
 
 .so-con .so-in-top .so-menu { display: block; height: 1.48rem; width: 1rem; position: relative; z-index: 2; }
 
-.so-con .so-in-top ul li { height: 100%; min-width: 1rem; display: block; float: left; }
+.so-con .so-in-top ul > li { height: 100%; min-width: 1rem; display: block; float: left; }
 
-.so-con .so-in-top ul li .so-top-menu { height: 0.47rem; position: relative; top: 0.5rem; left: 0.25rem; }
+.so-con .so-in-top ul > li > .so-top-menu { height: 0.47rem; position: relative; top: 0.5rem; left: 0.25rem; }
 
-.so-con .so-in-top ul li .so-top-logo { position: relative; left: -0.8rem; top: 0.1rem; height: 1.3rem; }
+.so-con .so-in-top ul > li > .so-top-logo { position: relative; left: -0.8rem; top: 0.1rem; height: 1.3rem; }
 
-.so-con .so-in-top ul .so-top-zoushi { float: right; height: 1.48rem; }
+.so-con .so-in-top ul > li.so-top-zoushi { float: right; height: 1.48rem; }
 
-.so-con .so-in-top ul .so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
+.so-con .so-in-top ul > li.so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
 
 .so-con .so-in-main { height: 2.78rem; background: url("../images/bg.jpg"); background-size: 100%; }
 
