@@ -145,7 +145,7 @@ var data_label = [
                         "type": "digital",
                         "layout": [
                             {"title": "二重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 1},
-                            {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 3}
+                            {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 3}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -171,7 +171,7 @@ var data_label = [
                         "type": "digital",
                         "layout": [
                             {"title": "二重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 2},
-                            {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
+                            {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -197,7 +197,7 @@ var data_label = [
                         "type": "digital",
                         "layout": [
                             {"title": "三重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 1},
-                            {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 2}
+                            {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 2}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -249,7 +249,7 @@ var data_label = [
                         "type": "digital",
                         "layout": [
                             {"title": "四重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 1},
-                            {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
+                            {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -395,7 +395,7 @@ var data_label = [
                         "type": "digital",
                         "layout": [
                             {"title": "二重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 1},
-                            {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 2}
+                            {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 2}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -451,7 +451,7 @@ var data_label = [
                                 "place": 0,
                                 "cols": 1,
                                 "minchosen": 1
-                            }, {"title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
+                            }, {"title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
                         ],
                         "noBigIndex": 5,
                         "isButton": true
@@ -2023,7 +2023,7 @@ var data_label = [
      "type": "digital",
      "layout": [
      {"title": "二重号","no": "0|1|2|3|4|5|6|7|8|9","place": 0,"cols": 1,"minchosen": 1},
-     {"title": "单　号","no": "0|1|2|3|4|5|6|7|8|9","place": 1,"cols": 1,"minchosen": 2}
+     {"title": "单号","no": "0|1|2|3|4|5|6|7|8|9","place": 1,"cols": 1,"minchosen": 2}
      ],
      "noBigIndex": 5,
      "isButton": true,
@@ -2068,7 +2068,7 @@ var data_label = [
      "type": "digital",
      "layout": [
      { "title": "三重号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 0, "cols": 1, "minchosen": 1},
-     { "title": "单　号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
+     { "title": "单号", "no": "0|1|2|3|4|5|6|7|8|9", "place": 1, "cols": 1, "minchosen": 1}
      ],
      "noBigIndex": 5,
      "isButton": true,
