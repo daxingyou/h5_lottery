@@ -84,7 +84,15 @@ function returnMoney(s) {
     return parseFloat(s.replace(/[^\d\.-]/g, ""));
 }
 
+/*
+ *  正整数判断，不包含零
+ * */
 
+function  isPositiveNum(num) {
+    //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
+    var re=/^[0-9]*$/;
+    return re.test(num);
+}
 
 
 /**
@@ -138,6 +146,7 @@ $(function () {
     }, 500) ;
 
     initChoiceObj() ; // 球点击处理
+    initPopEve() ; // 表单提交判断
 
 })
 
@@ -513,10 +522,44 @@ function initChoiceObj() {
         } else {
             $(this).attr("class", className + " active")
         }
-        var choosed =   $(".so-con-right p.active").length ;
         // 已选注数
+        var choosed =  $(".so-con-right p.active").length ;
         $('.bet-select-num').text(choosed) ;
 
+    }) ;
 
-    })
+}
+
+//此方法弹出结算框，len ,注单数量
+function initPopEve() {
+    $(".so-add").click(function () {
+        var amount = $('.bet-amount').val() ;
+        var nums = Number($('.bet-select-num').text()) ;
+        if(nums<1){ // 没有选择投注项目
+            $('.bet-error-content').html('请选择投注项目') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        if(!amount || !isPositiveNum(amount)){ // 投注金额不正确
+            $('.bet-error-content').html('请输入投注金额') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        // 注单金额正确
+        $(".so-pop").toggle()
+        $(".so-shade").toggle()
+    }) ;
+
+    $(".so-pop a").click(function () {
+        $(".so-pop").toggle()
+        $(".so-shade").toggle()
+    }) ;
+
+    // 投注金额提示弹窗关闭
+    $(".so-tip-pop-04").click(function () {
+        $(".so-tip-pop-04").toggle()
+        $(".so-shade").toggle()
+    }) ;
 }
