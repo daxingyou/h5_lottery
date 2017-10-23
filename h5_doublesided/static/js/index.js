@@ -16,7 +16,7 @@ window.onload = function () {
     // initTipPop04()
     initTipPop05();
     initTipPop06();
-    initBetPop01();
+   // initBetPop01();
 
 };
 
@@ -251,7 +251,7 @@ function initPop01() {
     });
 }
 // 本期投注已结束
-function initBetPop01() {
+/*function initBetPop01() {
     $('.so-bet-end-pop-click').click(function () {
         $('.so-bet-end-pop').toggle();
         $('.so-shade').toggle();
@@ -260,7 +260,7 @@ function initBetPop01() {
         $('.so-bet-end-pop').toggle();
         $('.so-shade').toggle();
     });
-}
+}*/
 // 投注项目未符合最低条件
 function initPopFengpan01() {
     $('.so-fengpan-pop-01-click').click(function () {

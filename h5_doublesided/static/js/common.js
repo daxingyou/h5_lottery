@@ -370,8 +370,9 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 
         }
 
-        if (lt_time_leave <= 0) { //结束
+        if (lt_time_leave <= 0) { // 倒计时结束
             clearInterval(timerno);
+            initBetPop01('3000') ;
             outTimeSet() ;
             console.log('停止当前期数');
         }
@@ -435,6 +436,21 @@ function outTimeSet() {
             return false;
         }
     });
+}
+
+// 本期投注已结束
+function initBetPop01(closet) {
+   /* $('.so-bet-end-pop-click').click(function () {*/
+        $('.so-bet-end-pop').toggle();
+        $('.so-shade').toggle();
+  /*  });*/
+    $('.so-bet-end-pop').click(function () {
+        $('.so-bet-end-pop').toggle();
+        $('.so-shade').toggle();
+    });
+    setTimeout(function () {
+        $('.so-bet-end-pop,.so-shade').hide() ;
+    },closet) ; // 自动关闭
 }
 
 //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码
