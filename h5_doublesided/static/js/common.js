@@ -433,12 +433,13 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 
 // 倒计时结束后处理
 function outTimeSet() {
+    // 拉取期数数据
     $.ajax({
         type: 'get',
-        url: $.lt_ajaxurl,
         headers: {
-            'Authorization': 'bearer  ' + access_token
+            "Authorization": "bearer  " + getAccessToken(access_token),
         },
+        url: action.forseti + 'api/priodDataNewly',
         data: getCookie('lt_lottid'),
         success: function (res) {  //成功
             console.log('拉取期数成功');
