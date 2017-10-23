@@ -90,9 +90,9 @@ function initNavChoice() {
             $("#so-item" + i).show();
         }).click(0);//預先載入第一類左側選單的所有內容
     })
-   /* TouchSlide({
+    TouchSlide({
         slideCell: "#so-item2",
-    });*/
+    });
 }
 
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
