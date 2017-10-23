@@ -937,14 +937,14 @@
                             nums += Combination(data_sel[0].length, minchosen[0]);
                         }
                         break;
-                   // case 'SXZU12':
+                    case 'SXZU12':
                     case 'SXZU4':
                         if (data_sel[0].length >= minchosen[0] && data_sel[1].length >= minchosen[1]) {
                             var h = Array.intersect(data_sel[0], data_sel[1]).length;
                             tmp_nums = Combination(data_sel[0].length, minchosen[0]) * Combination(data_sel[1].length, minchosen[1]);
                             if (h > 0) {
                                 if (mname == 'SXZU12') {
-                                   // tmp_nums -= Combination(h, 1) * Combination(data_sel[1].length - 1, 1);
+                                     tmp_nums -= Combination(h, 1) * Combination(data_sel[1].length - 1, 1);
                                 } else {
                                     if (mname == 'SXZU4') {
                                         tmp_nums -= Combination(h, 1);
@@ -2552,24 +2552,7 @@
                 }
 
             });
-        /**
-         *  随选功能
-         */
-     /*   $('.lt_random_bets_auto').unbind('click')
-            .click(function () {
-                var arr = [];
-                $('#lt_selector .nList').each(function (i, t) {
-                    var num = Math.round(Math.random() * 9);
-                    num++
-                    arr.push(num);
-                    $($(t).find('li')).attr('class', 'hover').trigger('click')
-                    $(t).find('li:nth-child(' + num + ')')
-                        .trigger('click');
-                    // .addClass('hover')
-                    // .siblings()
-                    // .removeClass('hover');
-                });
-            });*/
+
 
         /*
          *  机选功能
@@ -2673,6 +2656,10 @@
             }else if(otype=='dxds'){  // 大小单双
                 $('[name="lt_place_0"]').eq(dnum-1).trigger('click') ;
                 $('[name="lt_place_1"]').eq(snum/3).trigger('click') ;
+            }else if(methodname =='SXZU12'){
+                $('[name="lt_place_0"]').eq(snum).trigger('click') ;
+                $('[name="lt_place_1"]').eq(thnum).trigger('click') ;
+                $('[name="lt_place_1"]').eq(tthnum).trigger('click') ;
             }
             else{
                 randomcos_arr.length = randomcos;
@@ -2699,7 +2686,7 @@
                                   }
                               });
                               break;
-                          case 'WXZU30':  // 五星组选30
+
                           case 'SXZU6': // 四星组选6
                           case 'ZUS' :  // 后三组三
                               $.each($('[name="lt_place_0"]'), function (m, va) {
@@ -2710,7 +2697,11 @@
                               });
                               $('[name="lt_place_1"]').eq(snum).trigger('click') ;
                               break;
-
+                          case 'WXZU30':  // 五星组选30
+                              $('[name="lt_place_0"]').eq(thnum).trigger('click') ;
+                              $('[name="lt_place_0"]').eq(tthnum).trigger('click') ;
+                              $('[name="lt_place_1"]').eq(snum).trigger('click') ;
+                              break;
                           case 'WXZU20': // 五星组选20
                               $('[name="lt_place_0"]').eq(snum).trigger('click') ;
                               $('[name="lt_place_1"]').eq(thnum).trigger('click') ;
@@ -2725,14 +2716,6 @@
                                   }
                               });
                               break;
-                         /* case 'SXZU6': // 四星组选6
-                              $.each($('[name="lt_place_0"]'), function (m, va) {
-                                  // console.log(para[i])
-                                  if (m == para[i]) {
-                                      $(this).trigger('click');
-                                  }
-                              });
-                              break;*/
 
                           default:
                               $.each($('li[name^=\'lt_place_' + i + '\']'), function (n, val) {
@@ -2816,7 +2799,7 @@
                     // 检测重复号，并除去重复号
                     edump = dumpNum(true);
                     if (edump.length > 0) {// 有重复号
-                        ermsg += lot_lang.em_s2 + '\n' + edump.join(', ') + '\n';
+                        ermsg += lot_lang.em_s2 + '\n' + edump.join(', ') + '\n <br/>';
                         checkNum();// 重新统计
                         nums = parseInt($($.lt_id_data.id_sel_num).html(), 10);// 投注注数取整
                         // money = Math.round(times * nums * 2 * ($.lt_method_data.modes[modes].rate * 1000))/1000;//倍数*注数*单价*模式
