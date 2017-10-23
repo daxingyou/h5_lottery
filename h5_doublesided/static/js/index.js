@@ -2,10 +2,10 @@ window.onload = function () {
     initViewHeight()
     initKuang()
     initNavChoice()
-    initChoiceObj()
+   // initChoiceObj()
     initLeftViewEve()
     initRightViewEve()
-    initPopEve()
+   // initPopEve()
     initPopWafa()
     initPopFengpan01()
     initPopFengpan02()
@@ -13,7 +13,7 @@ window.onload = function () {
     initTipPop01()
     initTipPop02()
     initTipPop03()
-    initTipPop04()
+   // initTipPop04()
     initTipPop05()
     initTipPop06()
     initBetPop01()
@@ -96,18 +96,22 @@ function initNavChoice() {
 }
 
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
-function initChoiceObj() {
-    $(".so-con-right p").each(function (i, t) {
-        $(t).click(function () {
+/*function initChoiceObj() {
+   /!* $(".so-con-right p").each(function (i, t) {*!/
+
+        $('.so-con-right p').click(function () {
             var className = $(this).attr("class") || ""
             if (className.indexOf("active") >= 0) {
                 $(this).attr("class", className.replace("active", ""))
             } else {
                 $(this).attr("class", className + " active")
             }
+                var choosed =   $(".so-con-right p.active").length ;
+                console.log(choosed)
+
         })
-    })
-}
+   /!* })*!/
+}*/
 
 //此方法用来初始化左侧边栏的呼出和关闭的点击事件
 function initLeftViewEve() {
@@ -188,15 +192,41 @@ function initRightViewEve() {
 
 //此方法弹出结算框
 function initPopEve() {
+//此方法弹出结算框，len ,注单数量
+/*function initPopEve() {
     $(".so-add").click(function () {
+        var amount = $('.bet-amount').val() ;
+        var nums = Number($('.bet-select-num').text()) ;
+        if(nums<1){ // 没有选择投注项目
+            $('.bet-error-content').html('请选择投注项目') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        if(!amount || !isPositiveNum(amount)){ // 投注金额不正确
+            $('.bet-error-content').html('请输入投注金额') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        // 注单金额正确
         $(".so-pop").toggle()
         $(".so-shade").toggle()
-    })
+    }) ;
+
     $(".so-pop a").click(function () {
         $(".so-pop").toggle()
         $(".so-shade").toggle()
-    })
-}
+    }) ;
+
+    // 投注金额提示弹窗关闭
+    $(".so-tip-pop-04").click(function () {
+        $(".so-tip-pop-04").toggle()
+        $(".so-shade").toggle()
+    }) ;
+}*/
+
+
 //此方法弹出遊戲說明
 function initPopWafa() {
     $(".play").click(function () {
@@ -289,7 +319,7 @@ function initTipPop03() {
     })
 }
 //请输入投注金额
-function initTipPop04() {
+/*function initTipPop04() {
     $(".so-tip-pop-04-click").click(function () {
         $(".so-tip-pop-04").toggle()
         $(".so-shade").toggle()
@@ -298,7 +328,7 @@ function initTipPop04() {
         $(".so-tip-pop-04").toggle()
         $(".so-shade").toggle()
     })
-}
+}*/
 //下注弹窗_成功
 function initTipPop05() {
     $(".so-tip-pop-05-click").click(function () {

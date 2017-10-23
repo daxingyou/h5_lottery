@@ -84,7 +84,15 @@ function returnMoney(s) {
     return parseFloat(s.replace(/[^\d\.-]/g, ""));
 }
 
+/*
+ *  正整数判断，不包含零
+ * */
 
+function  isPositiveNum(num) {
+    //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
+    var re=/^[0-9]*$/;
+    return re.test(num);
+}
 
 
 /**
@@ -126,18 +134,23 @@ var now_day; // 当前日期
 var lotterytype = 0;
 
 
-
-LoginAction();
-
-setTimeout(function () {
-
-    getSystemTime(); // 系统时间
-    // getLotterys('.game-all', '.game-hot'); // 获取彩种
-    getPlayTree(1);  // 玩法
-    getMemberBalance(); // 获取用户余额
+$(function () {
+    LoginAction();
+    setTimeout(function () {
+        getSystemTime(); // 系统时间
+        // getLotterys('.game-all', '.game-hot'); // 获取彩种
+        getPlayTree(1);  // 玩法
+        getMemberBalance(); // 获取用户余额
 
 
-}, 500) ;
+    }, 500) ;
+
+    initChoiceObj() ; // 球点击处理
+    initPopEve() ; // 表单提交判断
+
+})
+
+
 
 // token 处理
 function getAccessToken(access_token) {
@@ -266,7 +279,7 @@ function getMemberBalance() {
         success: function (res) {
             // var mom = roundAmt(res.data.amount) ;
             var mom = fortMoney(roundAmt(res.data.amount), 2);
-            $('.membalance').text(mom);
+            $('.so-in-top-sum').text(mom);
             $('.user_name').text(getCookie('username'));
             setCookie("membalance", mom);  // 把登录余额放在cookie里面
             // console.log(returnMoney(mom))
@@ -440,7 +453,7 @@ function outTimeSet() {
             "Authorization": "bearer  " + getAccessToken(access_token),
         },
         url: action.forseti + 'api/priodDataNewly',
-        data: getCookie('lt_lottid'),
+        data: { lotteryId: getCookie('lt_lottid')},
         success: function (res) {  //成功
             console.log('拉取期数成功');
             // 开奖数据处理
@@ -498,4 +511,55 @@ function processCode(issue, lastissue,code) {
     }
     $('.last-open-num ul').html(str) ;
 
+}
+
+//此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
+function initChoiceObj() {
+    $('.so-con-right p').click(function () {
+        var className = $(this).attr("class") || ""
+        if (className.indexOf("active") >= 0) {
+            $(this).attr("class", className.replace("active", ""))
+        } else {
+            $(this).attr("class", className + " active")
+        }
+        // 已选注数
+        var choosed =  $(".so-con-right p.active").length ;
+        $('.bet-select-num').text(choosed) ;
+
+    }) ;
+
+}
+
+//此方法弹出结算框，len ,注单数量
+function initPopEve() {
+    $(".so-add").click(function () {
+        var amount = $('.bet-amount').val() ;
+        var nums = Number($('.bet-select-num').text()) ;
+        if(nums<1){ // 没有选择投注项目
+            $('.bet-error-content').html('请选择投注项目') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        if(!amount || !isPositiveNum(amount)){ // 投注金额不正确
+            $('.bet-error-content').html('请输入投注金额') ;
+            $(".so-tip-pop-04").toggle() ;
+            $(".so-shade").toggle() ;
+            return false;
+        }
+        // 注单金额正确
+        $(".so-pop").toggle()
+        $(".so-shade").toggle()
+    }) ;
+
+    $(".so-pop a").click(function () {
+        $(".so-pop").toggle()
+        $(".so-shade").toggle()
+    }) ;
+
+    // 投注金额提示弹窗关闭
+    $(".so-tip-pop-04").click(function () {
+        $(".so-tip-pop-04").toggle()
+        $(".so-shade").toggle()
+    }) ;
 }
