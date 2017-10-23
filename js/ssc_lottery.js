@@ -2771,6 +2771,39 @@ function getMemberBalance() {
     });
 }
 
+// 最新开奖期数
+function priodDataNewly(gameid) {
+    $.ajax({
+        type: 'get',
+        headers: {
+            "Authorization": "bearer  " + getAccessToken(access_token),
+        },
+        url: action.forseti + 'api/priodDataNewly',
+        data: {lotteryId: gameid,},
+        success: function (res) {
+
+            next_pcode = res.data[0].pcode;  // 下一期数
+            now_pcode = res.data[1].pcode;  // 当前期数
+            now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
+            now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
+
+            for (var i = 2; i < res.data.length; i++) {
+                processCode(res.data[i].pcode, res.data[i].winNumber);
+            }
+            setTimeout(function () {
+                initFrame();
+                setCookie("lt_lottid", $.lt_lottid);  // 把彩票 lottery id 放在cookie里面
+                $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
+            }, 100)
+
+        },
+        error: function () {
+
+        }
+    });
+}
+
+
 
 /*$(function(){*/
 LoginAction();
@@ -2865,37 +2898,6 @@ function helpChoose() {
     });
 }
 
-// 最新开奖期数
-function priodDataNewly(gameid) {
-    $.ajax({
-        type: 'get',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        url: action.forseti + 'api/priodDataNewly',
-        data: {lotteryId: gameid,},
-        success: function (res) {
-
-            next_pcode = res.data[0].pcode;  // 下一期数
-            now_pcode = res.data[1].pcode;  // 当前期数
-            now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
-            now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-
-            for (var i = 2; i < res.data.length; i++) {
-                processCode(res.data[i].pcode, res.data[i].winNumber);
-            }
-            setTimeout(function () {
-                initFrame();
-                setCookie("lt_lottid", $.lt_lottid);  // 把彩票 lottery id 放在cookie里面
-                $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
-            }, 100)
-
-        },
-        error: function () {
-
-        }
-    });
-}
 
 
 // 初始化方法
