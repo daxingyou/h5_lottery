@@ -533,8 +533,8 @@ function initChoiceObj() {
 //此方法弹出结算框，len ,注单数量
 function initPopEve() {
     $(".so-add").click(function () {
-        var amount = $('.bet-amount').val() ;
-        var nums = Number($('.bet-select-num').text()) ;
+        var amount = $('.bet-amount').val() ;  // 获取金额
+        var nums = Number($('.bet-select-num').text()) ;  // 获取注数
         if(nums<1){ // 没有选择投注项目
             $('.bet-error-content').html('请选择投注项目') ;
             $(".so-tip-pop-04").toggle() ;
