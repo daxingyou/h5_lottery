@@ -190,8 +190,7 @@ function initRightViewEve() {
 // }
 
 
-//此方法弹出结算框
-function initPopEve() {
+
 //此方法弹出结算框，len ,注单数量
 /*function initPopEve() {
     $(".so-add").click(function () {
