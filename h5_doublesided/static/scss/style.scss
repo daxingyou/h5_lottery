@@ -1049,19 +1049,24 @@ img.bet_ok {
         text-align: center;
         margin: auto;
         margin-top: 0.2rem;
-        p {
-            display: block;
-            background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat;
-            background-size: 100% auto;
-            background-position-y: 0.5rem;
-            height: 1rem;
-            line-height: 1rem;
-            color: #ffc600;
-            font-size: 0.34rem;
-            &:last-child{
-                background-position-y: 0.6rem;
+        .boxlist{
+            overflow: scroll;
+            height: 2.8rem;
+            p {
+                display: block;
+                background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat;
+                background-size: 100% auto;
+                background-position-y: 0.5rem;
+                height: 1rem;
+                line-height: 1rem;
+                color: #ffc600;
+                font-size: 0.34rem;
+                &:last-child{
+                    background-position-y: 0.6rem;
+                }
             }
         }
+
     }
     .so-pop-sum {
         color: white;

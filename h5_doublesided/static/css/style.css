@@ -312,9 +312,11 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop > div { width: 6.94rem; height: 2.96rem; border: solid 0.01rem #222c46; -webkit-box-shadow: 0 0 0.3rem #222c46; box-shadow: 0 0 0.3rem #222c46; border-radius: 0.2rem; background-color: #0e121d; text-align: center; margin: auto; margin-top: 0.2rem; }
 
-.so-pop > div p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
+.so-pop > div .boxlist { overflow: scroll; height: 2.8rem; }
 
-.so-pop > div p:last-child { background-position-y: 0.6rem; }
+.so-pop > div .boxlist p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
+
+.so-pop > div .boxlist p:last-child { background-position-y: 0.6rem; }
 
 .so-pop .so-pop-sum { color: white; font-size: .34rem; line-height: 1rem; background: url(../images/pop/local_video_list_bottom_light.png) no-repeat; background-size: 100% auto; background-position-y: 0.05rem; margin-top: 0.3rem; }
 
