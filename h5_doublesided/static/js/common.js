@@ -440,30 +440,27 @@ function outTimeSet() {
             'Authorization': 'bearer  ' + access_token
         },
         data: getCookie('lt_lottid'),
-        success: function (data) {  //成功
+        success: function (res) {  //成功
             console.log('拉取期数成功');
+            // 开奖数据处理
             processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
-
-            //03:刷新当前期的信息
-           // $($.lt_id_data.id_cur_issue).html(data.data[1].pcode);
-
             getSystemTime();  // 获取当前系统时间
 
-            if (data.length <= 0) {  // 获取数据失败
-                layer.open({
+            if (res.length <= 0) {  // 获取数据失败
+              /*  layer.open({
                     title: '温馨提示',
                     className: 'layer_tip',
                     content: lot_lang.am_s16,
                     btn: '确定'
-                });
+                });*/
                 return false;
             }
 
-            if (data == 'empty') { 	//未到销售时间
-                layer.open({
+            if (res == 'empty') { 	//未到销售时间
+              /*  layer.open({
                     content: lot_lang.am_s18,
                     btn: '确定'
-                });
+                });*/
                 return false;
             }
 
