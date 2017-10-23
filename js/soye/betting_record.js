@@ -67,9 +67,9 @@ function initView() {
 }
 
 function getBetRecord() {
-    $('.so-zzjz').hide()
+    $('.so-zzjz').remove()
     $('.bet-recode-all')
-        .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">正在加载...</li>');
+        .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">正在加载...</li>');
     $.ajax({
         type: 'post',
         headers: {
@@ -80,11 +80,11 @@ function getBetRecord() {
         url: action.forseti + 'api/orders/orderList',
         data: JSON.stringify(seadata), // json格式
         success: function (res) {
-            $('.so-zzjz').hide();
+            $('.so-zzjz').remove();
             var data = res.data.rows;
             if (data.length === 0) {
                 $('.bet-recode-all')
-                    .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;" class="so-zzjz">没有数据了</li>');
+                    .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>');
             } else {
                 lock = 0;
             }

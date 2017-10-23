@@ -35,10 +35,10 @@ function initCount(type) {
         success: function (res) {
             if (res.err == 'SUCCESS') {
                 var data = res.data[2];
-                if (type == 0) {
+                if (type == 1) {
                     data = data.hotData;
                     console.log(data);
-                } else if (type == 1) {
+                } else if (type == 0) {
                     data = data.lackData;
                 }
                 switch (methodid) {
