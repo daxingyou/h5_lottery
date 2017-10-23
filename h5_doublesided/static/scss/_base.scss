@@ -91,3 +91,16 @@ h2{
     font-weight: 300;
 }
 
+.boxlist::-webkit-scrollbar {
+    width: 1em;
+}
+.boxlist::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.boxlist::-webkit-scrollbar-thumb {
+  background-color: #ff0;
+  outline: 1px solid #ff0;
+}
+.boxlist::-webkit-scrollbar-corner{
+background-color: #000;
+}
