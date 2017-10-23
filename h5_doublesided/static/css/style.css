@@ -54,15 +54,15 @@ a { color: #00B7FF; }
 
 .so-con .so-in-top .so-menu { display: block; height: 1.48rem; width: 1rem; position: relative; z-index: 2; }
 
-.so-con .so-in-top ul li { height: 100%; min-width: 1rem; display: block; float: left; }
+.so-con .so-in-top ul > li { height: 100%; min-width: 1rem; display: block; float: left; }
 
-.so-con .so-in-top ul li .so-top-menu { height: 0.47rem; position: relative; top: 0.5rem; left: 0.25rem; }
+.so-con .so-in-top ul > li > .so-top-menu { height: 0.47rem; position: relative; top: 0.5rem; left: 0.25rem; }
 
-.so-con .so-in-top ul li .so-top-logo { position: relative; left: -0.8rem; top: 0.1rem; height: 1.3rem; }
+.so-con .so-in-top ul > li > .so-top-logo { position: relative; left: -0.8rem; top: 0.1rem; height: 1.3rem; }
 
-.so-con .so-in-top ul .so-top-zoushi { float: right; height: 1.48rem; }
+.so-con .so-in-top ul > li.so-top-zoushi { float: right; height: 1.48rem; }
 
-.so-con .so-in-top ul .so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
+.so-con .so-in-top ul > li.so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
 
 .so-con .so-in-main { height: 2.78rem; background: url("../images/bg.jpg"); background-size: 100%; }
 
@@ -92,11 +92,11 @@ a { color: #00B7FF; }
 
 .so-con .so-in-main > div .so-main-down ul li > p { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; }
 
-.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 0.4rem; width: .4rem; height: .4rem; float: left; margin-top: 0.2rem; margin-left: 0.5rem; }
+.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 0.4rem; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
 
 .so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.15rem; margin-left: 0.1rem; font-size: 0.32rem; }
 
-.so-con .so-in-main > div .so-main-down ul li > a { display: flow-root; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.18rem; color: #ffffff; }
+.so-con .so-in-main > div .so-main-down ul li > a { display: inline-block; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.08rem; color: #ffffff; }
 
 .so-con .so-in-con { width: 100%; background-color: #19222f; }
 
@@ -202,7 +202,7 @@ a { color: #00B7FF; }
 
 #so-item0 .so-con-span-short.active { background: url(../images/content/duankaung.png) no-repeat; background-size: 1.96rem .9rem; background-position: -0.01rem; }
 
-#so-item0 .so-con-span-short, #so-item0.jc115 ul li .so-con-span-short { width: 1.93rem !important; }
+#so-item0 .so-con-span-short, #so-item0.jc115 ul li .so-con-span-short { width: 1.9rem !important; }
 
 #so-item0 .so-con-span-short span, #so-item0.jc115 ul li .so-con-span-short span { padding-left: .15rem; padding-right: .1rem; }
 
@@ -220,7 +220,7 @@ a { color: #00B7FF; }
 
 .so-foot > div:nth-child(2) input::-webkit-input-placeholder { color: white; }
 
-.so-foot > div:nth-child(2) input[type=reset] { width: 1.63rem; display: block; height: 0.68rem; float: left; line-height: 0.64rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("../images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem; }
+.so-foot > div:nth-child(2) input[type=reset] { width: 1.63rem; display: block; height: 0.68rem; float: left; line-height: 0.64rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("../images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem; padding-right: .15rem; }
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
@@ -312,9 +312,11 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop > div { width: 6.94rem; height: 2.96rem; border: solid 0.01rem #222c46; -webkit-box-shadow: 0 0 0.3rem #222c46; box-shadow: 0 0 0.3rem #222c46; border-radius: 0.2rem; background-color: #0e121d; text-align: center; margin: auto; margin-top: 0.2rem; }
 
-.so-pop > div p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
+.so-pop > div .boxlist { overflow: scroll; height: 2.8rem; }
 
-.so-pop > div p:last-child { background-position-y: 0.6rem; }
+.so-pop > div .boxlist p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
+
+.so-pop > div .boxlist p:last-child { background-position-y: 0.6rem; }
 
 .so-pop .so-pop-sum { color: white; font-size: .34rem; line-height: 1rem; background: url(../images/pop/local_video_list_bottom_light.png) no-repeat; background-size: 100% auto; background-position-y: 0.05rem; margin-top: 0.3rem; }
 
@@ -357,6 +359,8 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 .purse { position: relative; left: -0.2rem; }
 
 #so-item0 ul li > div > div p span.font-ss span, #so-item0.jc115 ul li ul li > div > div p span.font-ss span { font-size: .26rem; }
+
+.so-index { width: 10rem; }
 
 #so-item0.jc115 ul li.first_ball { margin-top: 1.5rem; }
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html { -webkit-text-size-adjust: none; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
 
@@ -34,6 +34,14 @@ input, select, button, a { outline: none; }
 .text-green { color: #71c341; }
 
 h2 { font-weight: 300; }
+
+.boxlist::-webkit-scrollbar { width: 1em; }
+
+.boxlist::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+
+.boxlist::-webkit-scrollbar-thumb { background-color: #ff0; outline: 1px solid #ff0; }
+
+.boxlist::-webkit-scrollbar-corner { background-color: #000; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 body { width: 100%; min-height: 18rem; }
@@ -156,7 +164,7 @@ body { width: 100%; min-height: 18rem; }
 
 .prd_num:after { content: ''; display: table; clear: both; }
 
-.badge { width: 1.8rem; height: 1.8rem; border-radius: 100%; margin-right: 0.5714rem; background-image: url("../../static/images/page/logo_bg.png"); background-size: 100%; overflow: hidden; }
+.badge { width: 1.8rem; height: 1.8rem; border-radius: 100%; margin-right: 0.5714rem; background-image: url("../../static/images/page/logo_bg.png"); background-size: 100%; overflow: hidden; margin: 0 auto; }
 
 .badge > img { width: 75%; padding-top: .35rem; }
 
@@ -251,6 +259,33 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 #road02 .tab_content:last-child > li:first-child:before { content: '单 / 双'; display: block; position: absolute; color: #666; top: 0; left: 3%; font-size: .25rem; }
 
 .grey_text { margin-left: 1.2rem; padding: .1rem 0; }
+
+/* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+.warp { position: relative; width: 100%; height: 100%; min-height: 18rem; color: #fff; }
+
+.warp a { color: #fff; }
+
+.warp > header { overflow: hidden; height: .5rem; padding: .3rem 0; }
+
+.warp > header .left { float: left; width: 1.5rem; }
+
+.warp > header .center { width: calc(100% - 3rem); text-align: center; margin: 0 auto; float: left; font-size: .5rem; }
+
+.warp > header .right { float: right; width: 1.5rem; }
+
+.warp > header img { max-width: .8rem; }
+
+.news img { width: 100%; }
+
+.content > ul, .bot_nav > ul { overflow: hidden; max-width: 90%; margin: 0 auto; text-align: left; font-size: 0; }
+
+.content > ul > li, .bot_nav > ul > li { display: inline-block; font-size: .35rem; text-align: center; width: 30%; }
+
+footer.bot_nav { position: fixed; left: 0; bottom: 0; width: 100%; background-color: #000; padding: .5rem 0; height: .8rem; }
+
+footer.bot_nav > ul { text-align: center; }
+
+footer.bot_nav > ul > li { width: 25%; }
 
 /*# sourceMappingURL=all.css.map */
 
