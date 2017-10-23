@@ -69,7 +69,7 @@ function initViewHeight() {
     var topHeight = $(".so-in-top").height();
     var mainHeight = $(".so-in-main").height();
     var rightConHeight = 0;
-    var leftConHeight =0;
+    var leftConHeight = 0;
     rightConHeight = viewHeight - topHeight - mainHeight;
     $(".so-con-right").height(rightConHeight + "px");
     //六合彩左側選單高度
@@ -148,6 +148,43 @@ function initRightViewEve() {
         })
     })
 }
+
+// function initRightViewEve(){
+//     $('.so-top-zoushi').on('click',function(){
+//         $('.so-right').slideToggle(500);
+//         $(".so-shade").show();
+//     });
+//     $(".so-top-zoushi").click(function(){
+//         $(".so-right").off("click");
+//     });
+// }
+
+
+// function onclick(){
+//     $('.so-top-zoushi').on('click',function(){
+//         $('.so-right').slideToggle(500);
+//         $(".so-shade").show();
+//     });
+//     $(".so-top-zoushi").click(function(){
+//         $(".so-right").off("click");
+//     });
+// }
+
+// function initRightViewEve() {
+//     $('.so-in-top').on('click', '.so-top-zoushi', function () {
+//         $(this).parent('.so-in-top').find('.so-right > div:last-child > div').stop().fadeIn(200);
+//         $(this).append('<div class="so-shade"></div>');
+//         $('.so-in-top').find('.so-right > div:last-child > div').on('click', function () {
+//             $('.so-shade').remove();
+//             $(this).hide();
+//         });
+//         $('.so-shade').on('click', function () {
+//             $('.so-shade').remove();
+//             $('.so-in-top').find('.so-right > div:last-child > div').hide();
+//         })
+//     });
+// }
+
 
 //此方法弹出结算框
 function initPopEve() {

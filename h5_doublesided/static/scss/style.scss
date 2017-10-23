@@ -298,7 +298,7 @@ a {
                             width: .4rem;
                             height: .4rem;
                             float: left;
-                            margin-top: 0.2rem;
+                            margin-top: 0.13rem;
                             margin-left: 0.5rem;
                         }
                         > span {
@@ -311,7 +311,8 @@ a {
                             font-size: 0.32rem;
                         }
                         > a {
-                            display: flow-root;
+                            //display: flow-root; 大部分行動裝置都不支援
+                            display: inline-block;
                             background-color: #0b1723;
                             width: 1.6rem;
                             height: .45rem;
@@ -321,7 +322,7 @@ a {
                             margin: auto;
                             font-size: 0.32rem;
                             text-align: center;
-                            margin-top: 0.18rem;
+                            margin-top: 0.08rem;
                             color: #ffffff;
                         }
                     }
@@ -673,7 +674,7 @@ a {
     background-position: -0.01rem;
 }
 #so-item0 .so-con-span-short {
-    width: 1.93rem !important;
+    width: 1.9rem !important;
     span {
         padding-left: .15rem;
         padding-right: .1rem;
@@ -735,6 +736,7 @@ a {
             background-size: 100% 0.68rem;
             color: white;
             font-size: 0.34rem;
+            padding-right: .15rem;
         }
     }
     > div:last-child {
@@ -1231,13 +1233,9 @@ img.bet_ok {
         font-size: .26rem;
     }
 }
-// .so-index {
-    // background: url('../images/bg.png') repeat-y;
-    // width: 100%;
-    // background-size: cover;
-    // height: 100%;
-    //;
-//}
+.so-index {
+    width: 10rem;
+}
 
 // 江西11選5
 #so-item0.jc115 ul li {
