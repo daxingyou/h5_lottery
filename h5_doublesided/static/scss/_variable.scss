@@ -5,6 +5,7 @@ $yellow:#ffbd00;
 $bluetext:#d7e8f0;
 $green:#71c341;
 $red:#c93030;
+$normalblue:#256e93;
 
 // other
 @mixin border-radius($radius) {
@@ -82,14 +83,10 @@ $y) {
 }
 
 //compass
-@mixin box-shadow($top,
-$left,
-$blur,
-$color) {
-    -webkit-box-shadow: $top, $left, $blur, $color;
-    -moz-box-shadow: $top, $left, $blur, $color;
-    -ms-box-shadow: $top, $left, $blur, $color;
-    box-shadow: $top, $left, $blur, $color;
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+    -webkit-box-shadow:$top $left $blur $color #{$inset};
+    -moz-box-shadow:$top $left $blur $color #{$inset};
+    box-shadow:$top $left $blur $color #{$inset};
 }
 
 @mixin appearance($appearance) {
