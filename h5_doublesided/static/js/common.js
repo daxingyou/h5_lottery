@@ -601,7 +601,14 @@ function doCheckAction() {
 * */
 
 function submitAction(lotteryid) {
+
     var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
+    // 余额不足提示充值
+    if (monAmt(total_mon) > monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
+        initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
+        return false;
+    }
+
     var resdata = {
         'list': [ ],
         'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
@@ -631,7 +638,7 @@ function submitAction(lotteryid) {
                 'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
                 'betCount': Number(num_each), //注单数
                 'betMode': 0, //下注模式(预留)
-              //  'chaseCount': Number(date_each), //追号期数(含当期),默认1
+                'chaseCount': 0, //追号期数(含当期),默认1
                // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
                'ifChase': 0 , //是否追号,0不追号，1追号
                 'moneyMode': 'y' ,//付款类型：元y，角j，分f
@@ -642,6 +649,7 @@ function submitAction(lotteryid) {
             });
 
     });
+    $('.so-shade').show() ;
     $.ajax({
         type: 'POST',
         headers: {
@@ -656,6 +664,7 @@ function submitAction(lotteryid) {
         //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
         data: JSON.stringify(resdata),
         success: function (data) {
+            $('.so-shade').hide() ;
             //解决瞬间提交2次的问题
            // ajaxSubmitAllow = true;
             if (data.length <= 0) {
