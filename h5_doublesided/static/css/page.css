@@ -39,9 +39,9 @@ h2 { font-weight: 300; }
 
 .boxlist::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-.boxlist::-webkit-scrollbar-thumb { background-color: #ff0; outline: 1px solid #ff0; }
+.boxlist::-webkit-scrollbar-thumb { background-color: #0b5c8f; outline: 1px solid #0e121d; }
 
-.boxlist::-webkit-scrollbar-corner { background-color: #000; }
+.boxlist::-webkit-scrollbar-corner { background-color: #0e121d; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 body { width: 100%; min-height: 18rem; }
@@ -168,7 +168,7 @@ body { width: 100%; min-height: 18rem; }
 
 .badge > img { width: 75%; padding-top: .35rem; }
 
-.lottery_t { margin-right: .4rem; font-size: .35rem; }
+.lottery_t { margin-left: .4rem; font-size: .35rem; }
 
 .lottery_t > p { margin-top: .2rem; }
 
@@ -261,9 +261,9 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 .grey_text { margin-left: 1.2rem; padding: .1rem 0; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-.warp { position: relative; width: 100%; height: 100%; min-height: 18rem; color: #fff; }
+.warp { position: relative; width: 100%; height: 100%; min-height: 18rem; color: #d7e8f0; }
 
-.warp a { color: #fff; }
+.warp a { color: #d7e8f0; }
 
 .warp > header { overflow: hidden; height: .5rem; padding: .3rem 0; }
 
@@ -276,6 +276,12 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 .warp > header img { max-width: .8rem; }
 
 .news img { width: 100%; }
+
+.marquee { overflow: hidden; background-color: rgba(17, 22, 28, 0.8); }
+
+.marquee > * { display: inline-block; }
+
+.marquee > .speaker { width: .5rem; }
 
 .content > ul, .bot_nav > ul { overflow: hidden; max-width: 90%; margin: 0 auto; text-align: left; font-size: 0; }
 

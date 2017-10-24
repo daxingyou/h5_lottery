@@ -152,7 +152,7 @@ a { color: #00B7FF; }
 
 #so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
-#so-item1 ul li > div > div p.active span:first-child { background: url("../images/content/qiu.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1 ul li > div > div p.active span:first-child { background: url("../images/content/qiu.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item2 ul li > div { width: 7rem; height: 4.74rem; background: url(../images/content/kuang.png) no-repeat; background-size: 8.4rem 4.84rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
 
@@ -168,7 +168,7 @@ a { color: #00B7FF; }
 
 #so-item2 ul li > div > div p { float: left; border: solid 0.01rem #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 3.5%; display: none; }
 
-#so-item2 ul li > div > div p > span { color: #fffbe2; font-size: .36rem; display: block; float: left; padding-left: .45rem; line-height: 0.9rem; padding: 0 .25rem; }
+#so-item2 ul li > div > div p > span { color: #d7e8f0; font-size: .36rem; display: block; float: left; padding-left: .45rem; line-height: 0.9rem; padding: 0 .25rem; }
 
 #so-item2 ul li > div > div p > span:first-child { float: left; }
 
@@ -212,7 +212,7 @@ a { color: #00B7FF; }
 
 .so-foot > div:first-child p { color: #ffffff; line-height: 0.87rem; font-size: .34rem; text-align: left; text-indent: 0.4rem; }
 
-.so-foot > div:first-child p span { color: #ffc600; font-size: 0.34rem; }
+.so-foot > div:first-child p span { color: #ffc600; font-size: 0.34rem; padding: 0 .3rem; }
 
 .so-foot > div:nth-child(2) { height: 100%; background: url("../images/foot/foot-bg.png") no-repeat; background-size: 100%; }
 
@@ -312,7 +312,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop > div { width: 6.94rem; height: 2.96rem; border: solid 0.01rem #222c46; -webkit-box-shadow: 0 0 0.3rem #222c46; box-shadow: 0 0 0.3rem #222c46; border-radius: 0.2rem; background-color: #0e121d; text-align: center; margin: auto; margin-top: 0.2rem; }
 
-.so-pop > div .boxlist { overflow: scroll; height: 2.8rem; }
+.so-pop > div .boxlist { overflow: scroll; height: 3.1rem; }
 
 .so-pop > div .boxlist p { display: block; background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat; background-size: 100% auto; background-position-y: 0.5rem; height: 1rem; line-height: 1rem; color: #ffc600; font-size: 0.34rem; }
 
