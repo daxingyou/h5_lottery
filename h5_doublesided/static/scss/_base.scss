@@ -67,6 +67,12 @@ input,select,button,a{
     background-color: #0a1625;
     color: #fff;
     font-size: .4rem;
+    &.index_nav_top{
+        position: fixed;
+        top: 0;
+        z-index: 5;
+        width: 10rem;
+    }
     >*{
         display: inline-block;
         float: left;
@@ -78,21 +84,27 @@ input,select,button,a{
         font-weight: 300;
         color: $bluetext;
         font-size: .38rem;
-           >img{
-               width: 3.5rem;
-               max-width: 100%;
-               margin-top: -.25rem;
-           }
+        >img{
+            width: 3.5rem;
+            max-width: 100%;
+            margin-top: -.25rem;
+        }
+        &.logo{
+            width: auto;
+        }
     }
     >.left{
         float: left;
         width: 1.48rem;
-        height: 1.48rem;
+        //height: 1.48rem;
         a{
             display: inline-block;
             img{
                 width: 100%;
                 margin: 0;
+            }
+            &.btn_leftside{
+                margin-top: .5rem;
             }
         }
     }
@@ -109,6 +121,10 @@ input,select,button,a{
                 left: -0.1rem;
             }
         }
+        >a{
+            padding-top: 0.43rem;
+            font-size: .35rem;
+        }
     }
 }
 // 中間區塊
@@ -117,6 +133,7 @@ input,select,button,a{
     width: 100%;
     margin: 0 auto;
     height: auto;
+    color: $bluetext;
 }
 .container {
     width: 100%;
@@ -131,9 +148,6 @@ input,select,button,a{
 }
 
 // 404
-.notfound {
-
-}
 .text-red{
     color: $red;
 }
