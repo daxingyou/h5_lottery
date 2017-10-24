@@ -472,7 +472,7 @@ function processCode(issue, lastissue,code) {
 
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
 function initChoiceObj() {
-    $('.so-con-right p').click(function () {
+    $('.so-con-right').on('click','p',function () {
         var className = $(this).attr("class") || ""
         if (className.indexOf("active") >= 0) {
             $(this).attr("class", className.replace("active", ""))

@@ -27,7 +27,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 3) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
@@ -36,7 +36,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 1) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
@@ -45,7 +45,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 1) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ' );
+            $(t).attr('class', 'so-con-span-short' );
         }
         $(t).show();
     });
@@ -62,7 +62,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 3) {
            // var className = $(t).attr('class');
           //  $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
