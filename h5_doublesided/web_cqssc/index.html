@@ -770,7 +770,7 @@
         <div>
             <img src="../static/images/pop/title_bet_fail.png">
             <img src="../static/images/page/status03.svg">
-            <p>您的余额不足 <br/>请充值后继续进行！</p>
+            <p class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</p>
         </div>
     </div>
 
@@ -784,11 +784,17 @@
 <script>
     $(function () {
         var lotteryid = '2' ; // 彩种id
+        setCookie('lt_lottid','2') ; // 彩种id
         getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
         $('.btn-submit').on('click',function () {
             submitAction(lotteryid) ;
         }) ;
+        setTimeout(function () {
+            getSystemTime(lotteryid); // 系统时间
+
+        }, 500) ;
+
 
     })
 

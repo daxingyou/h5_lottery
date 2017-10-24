@@ -294,7 +294,7 @@ body { }
 .inputdesc p{ margin-bottom: 0.6rem;}
 .inputdesc p.strong{ color: #e03a5d; font-size: 0.8571rem;}
 .inputdesc p.inputdesc_title { color: #898989; background: url(../images/icon_intro.svg) no-repeat left top 0.2rem; background-size: 1rem 1rem; padding-left: 1.2rem; }
-.addOrderBox { padding: 0.142rem 0.571428rem; /*overflow: hidden;*/ position: fixed; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6; font-size: 0.8571rem;}
+.addOrderBox { padding: 0.142rem 0.571428rem; /*overflow: hidden;*/ position: fixed; left: 0px; bottom: 3.4285rem; z-index: 10; width: 100%; background-color: #fff; border-top: 1px solid #dde2e6; border-bottom: 1px solid #dde2e6; font-size: 0.8571rem;}
 .addOrderBox:after{ content: ''; display: table; clear: both;}
 /* .m_funding_box { overflow: hidden; } */
 .addOrderBox .funding { margin-top: 0.1rem; display: inline; float: left; position: relative;}

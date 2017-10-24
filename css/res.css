@@ -415,7 +415,7 @@ textarea,input[type="text"] {
 .ui_bet_tool{ margin-bottom: 1rem; font-size: 0px; }
 .ui_bet_tool a{ display: inline-block;border-radius: 3px; width: 30%; height: 2.143rem; line-height: 2.143rem; margin-right: 5%; ; text-align: center; font-size: 0.8571rem; border: 1px solid #52acd3;}
 .ui_bet_tool a:last-child{ margin-right: 0px;}
-#all_addOrderBox{ z-index: 103;}
+#all_addOrderBox{ z-index: 103; display: none;}
 .btn_addstop{ float: left; border: 1px solid #efefef; border-radius: 20px; line-height: 1.714rem; height: 1.714rem; padding: 0px 0.8rem; margin-top: 0.15rem;}
 .btn_addstop.disable{ color: #c9c9c9;}
 #ui_car_info{display: none;}
