@@ -3069,7 +3069,6 @@ var is_select = 0;
             iskeep = false;
         }
         if ($.lt_time_leave <= 0) {    //本期结束后的刷新
-
             //02:刷新确认区
             if (iskeep == false) {
                 $(':radio:checked', $($.lt_id_data.id_smalllabel)).removeData('ischecked').click() ;   //01:刷新选号区
@@ -3404,7 +3403,6 @@ var is_select = 0;
             $.lt_total_money = Number(returnMoney($($.lt_id_data.id_cf_money).html())) ;
 
             if ($.lt_total_nums <= 0 || $.lt_total_money <= 0) {   //检查是否有投注内容
-                console.log('没有投注内容') ;
                 $.lt_submiting = false;
                 layer.open({
                     content: lot_lang.am_s6,

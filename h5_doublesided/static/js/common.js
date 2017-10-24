@@ -139,7 +139,7 @@ $(function () {
     setTimeout(function () {
         getSystemTime(); // 系统时间
         // getLotterys('.game-all', '.game-hot'); // 获取彩种
-        getPlayTree(1);  // 玩法
+
         getMemberBalance(); // 获取用户余额
 
 
@@ -458,7 +458,7 @@ function processCode(issue, lastissue,code) {
     $('.last-date').html(lastissue) ;
     $('.now-date').html(issue) ;
     if (!code) {
-        code = '-,开,奖,中,-';
+        code = '-,中,奖,开,-';
     }
     var code_arr = code.split(',');
     var str = '';

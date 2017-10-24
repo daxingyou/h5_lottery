@@ -3066,15 +3066,19 @@
                         btn: '确定',
                     });
                 });
-                var total_all = 0;
+                var total_all = 0; // 总金额增加，底部总共多少钱
+                var total_nums = 0; // 总注数增加，底部总共多少钱
                 $.each($('div.lottery', $($.lt_id_data.id_cf_content)), function (i, n) { // 追号处理
                     total_all += Number(returnMoney($(n).find('.total-each').text())); // 累加金额
+                    total_nums += Number(returnMoney($(n).find('.num-each').text())); // 累加注数
                     $($.lt_id_data.id_cf_money).html(formatNumber(total_all)); // 总金额更新
+                    $($.lt_id_data.id_cf_num).html(formatNumber(total_nums)); // 总注数更新
 
                 });
-                $.lt_total_nums += nums;// 总注数增加
+               // $.lt_total_nums += nums;// 总注数增加
+                $.lt_total_nums = total_nums;// 总注数增加
                 // $.lt_total_money += money;//总金额增加，底部总共多少钱
-                $.lt_total_money = total_all;// 总金额增加，底部总共多少钱
+                $.lt_total_money = total_all; // 总金额增加，底部总共多少钱
                 $.lt_total_money = Math.round($.lt_total_money * 1000) / 1000;
                 basemoney = Math.round(nums * 2 * ($.lt_method_data.modes[modes].rate * 1000)) / 1000;// 注数*单价 * 模式
                 $.lt_trace_base = Math.round(($.lt_trace_base + basemoney) * 1000) / 1000; // 追号金额
