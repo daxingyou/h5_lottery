@@ -25,39 +25,44 @@ function initKuang() {
 
     $('.so-con-right div div p').each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 3) {
-            var className = $(t).attr('class');
-            $(t).attr('class', 'so-con-span-short ' + className);
+           // var className = $(t).attr('class');
+           // $(t).attr('class', 'so-con-span-short ' + className);
+            $(t).attr('class', 'so-con-span-short ');
         }
         $(t).show();
     });
     // 重慶時時彩第一球 左字為一個字時
     $('.so-con-right div .first_ball p').each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 1) {
-            var className = $(t).attr('class');
-            $(t).attr('class', 'so-con-span-short ' + className);
+           // var className = $(t).attr('class');
+           // $(t).attr('class', 'so-con-span-short ' + className);
+            $(t).attr('class', 'so-con-span-short ');
         }
         $(t).show();
     });
     // 重慶時時彩第二球 左字為一個字時
     $('.so-con-right div .sec_ball p').each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 1) {
-            var className = $(t).attr('class');
-            $(t).attr('class', 'so-con-span-short ' + className);
+           // var className = $(t).attr('class');
+           // $(t).attr('class', 'so-con-span-short ' + className);
+            $(t).attr('class', 'so-con-span-short ' );
         }
         $(t).show();
     });
     $('.so-con-right div div p').each(function (i, t) {
         if ($(t).find('span')[0].innerText.length > 6) {
-            var className = $(t).attr('class');
-            $(t).attr('class', 'font-ss ' + className);
+           // var className = $(t).attr('class');
+           // $(t).attr('class', 'font-ss ' + className);
+            $(t).attr('class', 'font-ss ');
         }
         $(t).show();
     });
     // 江西11選5 雙面
     $('.so-con-right .jc115 div div p').each(function (i, t) {
         if ($(t).find('span')[0].innerText.length < 3) {
-            var className = $(t).attr('class');
-            $(t).attr('class', 'so-con-span-short ' + className);
+           // var className = $(t).attr('class');
+          //  $(t).attr('class', 'so-con-span-short ' + className);
+            $(t).attr('class', 'so-con-span-short ');
         }
         $(t).show();
     });
