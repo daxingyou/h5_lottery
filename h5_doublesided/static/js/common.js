@@ -363,65 +363,6 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
         });
     }
 
-    /* function formatDate(date, format) {
-     if (!date) {
-     return;
-     }
-     if (!format) {
-     format = "yyyy-MM-dd";
-     }
-     switch (typeof date) {
-     case "string":
-     var da = date.replace("年", "-").replace("月", "-").replace("日", "").replace(/-/g, "/").split(/\/|\:|\ /);
-     date = new Date(da[0],da[1] - 1,da[2],da[3],da[4],da[5]);
-     break;
-     case "number":
-     date = new Date(date);
-     break;
-     }
-     if (!date instanceof Date) {
-     return;
-     }
-     var dict = {
-     "yyyy": date.getFullYear(),
-     "M": date.getMonth() + 1,
-     "d": date.getDate(),
-     "H": date.getHours(),
-     "m": date.getMinutes(),
-     "s": date.getSeconds(),
-     "MM": ("" + (date.getMonth() + 101)).substr(1),
-     "dd": ("" + (date.getDate() + 100)).substr(1),
-     "HH": ("" + (date.getHours() + 100)).substr(1),
-     "mm": ("" + (date.getMinutes() + 100)).substr(1),
-     "ss": ("" + (date.getSeconds() + 100)).substr(1)
-     };
-     return format.replace(/(yyyy|MM?|dd?|HH?|ss?|mm?)/g, function() {
-     return dict[arguments[0]];
-     });
-     }
-     function formatTimer(seconds) {
-     var day = Math.floor(seconds / (3600 * 24));
-     var remain = seconds % (3600 * 24);
-     var timezoneOffset = (new Date()).getTimezoneOffset();
-     return (day > 0 ? (day + "天") : "") + " " + formatDate(remain * 1000 + timezoneOffset * 60 * 1000, "HH:mm:ss");
-     }*/
-    /*  var timer = window.setInterval(function() {
-     $.lt_time_leave-- ;
-     console.log($.lt_time_leave)
-     if ($.lt_time_leave <= 0) {
-     window.clearInterval(timer);
-     /!* MainJS.dataCache[_this.resultCacheKey] = null;
-     _this.refreshModule();*!/
-     } else {
-     console.log('电风扇')
-     // $(me).html('' + (oDate.day > 0 ? oDate.day + (lot_lang.dec_s21) + ' ' : '') + '<div class="hour">' + fftime(oDate.hour) + ':</div><div class="min">' + fftime(oDate.minute) + ':</div><div class="sec">' + fftime(oDate.second) + '</div>');
-     $(".m-n-countdown").text(formatTimer($.lt_time_leave));
-     }
-     }, 1000);*/
-    /*  window.addEventListener('pageshow', function(event) {
-     alert('合适的');
-
-     })*/
 
     var timerno = window.setInterval(function () {
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
@@ -429,8 +370,9 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 
         }
 
-        if (lt_time_leave <= 0) { //结束
+        if (lt_time_leave <= 0) { // 倒计时结束
             clearInterval(timerno);
+            initBetPop01('3000') ;
             outTimeSet() ;
             console.log('停止当前期数');
         }
@@ -496,6 +438,21 @@ function outTimeSet() {
     });
 }
 
+// 本期投注已结束
+function initBetPop01(closet) {
+   /* $('.so-bet-end-pop-click').click(function () {*/
+        $('.so-bet-end-pop').toggle();
+        $('.so-shade').toggle();
+  /*  });*/
+    $('.so-bet-end-pop').click(function () {
+        $('.so-bet-end-pop').toggle();
+        $('.so-shade').toggle();
+    });
+    setTimeout(function () {
+        $('.so-bet-end-pop,.so-shade').hide() ;
+    },closet) ; // 自动关闭
+}
+
 //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码
 function processCode(issue, lastissue,code) {
     $('.last-date').html(lastissue) ;
@@ -530,7 +487,7 @@ function initChoiceObj() {
 
 }
 
-//此方法弹出结算框，len ,注单数量
+//此方法弹出结算框 ,注单数量，添加按钮
 function initPopEve() {
     $(".so-add").click(function () {
         var amount = $('.bet-amount').val() ;  // 获取金额
@@ -548,18 +505,53 @@ function initPopEve() {
             return false;
         }
         // 注单金额正确
-        $(".so-pop").toggle()
-        $(".so-shade").toggle()
+        $(".so-pop").toggle() ;
+        $(".so-shade").toggle() ;
+
+        doCheckAction() ;  // 注单结算
+
     }) ;
 
+    // 关闭当前窗口
     $(".so-pop a").click(function () {
-        $(".so-pop").toggle()
-        $(".so-shade").toggle()
+        $(".so-pop").toggle() ;
+        $(".so-shade").toggle() ;
     }) ;
 
     // 投注金额提示弹窗关闭
     $(".so-tip-pop-04").click(function () {
-        $(".so-tip-pop-04").toggle()
-        $(".so-shade").toggle()
+        $(".so-tip-pop-04").toggle() ;
+        $(".so-shade").toggle() ;
     }) ;
 }
+
+/*
+* 提交表单时，注单处理
+*
+* */
+function doCheckAction() {
+    var bet_num = $('.bet-select-num').text() ; // 总注数
+    var bet_mon = $('.bet-amount').val() ; // 投注金额
+    var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
+    var betstr = '' ;
+    $(".so-con-right p").each(function (i, t) {
+    // 已选择的注单
+    if($(this).hasClass('active')){
+        var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
+        var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+        var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
+        betstr +='<p>【'+ total_title +'-'+ total_con +'】 @ '+ total_mon+' x '+ bet_mon +'</p>' ;
+
+    }
+    });
+    $('.bet-go-list').html(betstr) ;
+
+    // 总注数
+    $('.total-bet-num').text(bet_num) ;
+    // 总金额
+    $('.total-bet-mon').text(all_bet_mon) ;
+
+}
+
+
+

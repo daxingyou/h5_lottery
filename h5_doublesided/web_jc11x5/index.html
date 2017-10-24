@@ -227,7 +227,7 @@
                 <!-- jc115 双面 -->
                 <div id="so-item0" class="active jc115 ">
                     <ul>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     总和&龙虎
@@ -268,7 +268,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="first_ball">
+                        <li class="first_ball select-li">
                             <div>
                                 <h2>
                                     第一球
@@ -293,7 +293,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="sec_ball">
+                        <li class="sec_ball select-li">
                             <div>
                                 <h2>
                                     第二球
@@ -323,7 +323,7 @@
                 <!-- jc115 1-5球 -->
                 <div id="so-item1" class="jc115 ">
                     <ul>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     第一球
@@ -376,7 +376,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     第二球
@@ -429,7 +429,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     第三球
@@ -482,7 +482,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     第四球
@@ -535,7 +535,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <li class="select-li">
                             <div>
                                 <h2>
                                     第五球
@@ -608,7 +608,7 @@
                     </div>
                     <div class="bd">
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                          一中一
@@ -663,7 +663,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         二中二
@@ -718,7 +718,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                             三中三
@@ -773,7 +773,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         四中四
@@ -828,7 +828,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         五中五
@@ -883,7 +883,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         六中五
@@ -938,7 +938,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         七中五
@@ -993,7 +993,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         八中五
@@ -1048,7 +1048,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         前二組選
@@ -1103,7 +1103,7 @@
                             </li>
                         </ul>
                         <ul class="tab_content">
-                            <li>
+                            <li class="select-li">
                                 <div>
                                     <h2>
                                         前三組選
@@ -1171,7 +1171,7 @@
         </div>
         <div>
             <form>
-                <input placeholder="输入金额" type="number">
+                <input placeholder="输入金额" type="number" class="bet-amount">
                 <input type="reset" value="重置">
             </form>
         </div>
@@ -1187,13 +1187,13 @@
         <h2>下注清单<a></a></h2>
         <p class="grey_text">请核对您的下注信息</p>
         <div>
-            <div>
+            <div  class="boxlist bet-go-list">
+              <!--  <p>【第一球-单】 @ 1.995 x 10</p>
                 <p>【第一球-单】 @ 1.995 x 10</p>
-                <p>【第一球-单】 @ 1.995 x 10</p>
-                <p>【第一球-单】 @ 1.995 x 10</p>
+                <p>【第一球-单】 @ 1.995 x 10</p>-->
             </div>
         </div>
-        <p class="so-pop-sum">【总计】总注数：<span>3</span> 总金额：<span>30</span></p>
+        <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
         <a><img style="width: 2rem;" src="../static/images/pop/hui.png"></a>
         <a><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
     </div>
@@ -1232,6 +1232,27 @@
             <a>确定</a>
         </div>
     </div>
+
+    <!--请输入投注金额-->
+    <div class="popup so-tip-pop so-tip-pop-04">
+        <div>
+            <img src="../static/images/pop/title_tip.png">
+            <img src="../static/images/page/status03.svg">
+            <p class="bet-error-content">请输入投注金额</p>
+        </div>
+    </div>
+    <!--本期投注已结束-->
+    <div class="popup so-fengpan-pop so-bet-end-pop">
+        <div>
+            <img src="../static/images/pop/title_end.png">
+            <img src="../static/images/page/status03.svg">
+            <p>请至下期继续投注</p>
+        </div>
+    </div>
+
+
+
+
 </div>
 <script src="../static/js/jquery-1.7.min.js"></script>
 <script src="../static/js/touchslide.1.1.js"></script>

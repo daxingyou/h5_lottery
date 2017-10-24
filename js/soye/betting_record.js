@@ -1,4 +1,4 @@
-/* eslint-disable new-cap,indent,semi,no-multiple-empty-lines */
+/* eslint-disable new-cap,indent,semi,no-multiple-empty-lines,default-case */
 access_token = getCookie('access_token'); // 取token
 var username = getCookie('username');
 var membalance = getCookie('membalance');
@@ -96,14 +96,29 @@ function getBetRecord() {
                         var jsonStr = '';
                         var li_html = '';
                         var pcode = ('' + v.pcode).substring(8, 11);
+                        var className = 'status0';
+                        var payoff = ''
+                        switch (parseInt(v.orderStatus)) {
+                            case 32:
+                                className = 'status02';
+                                payoff = fortMoney(roundAmt(v.payoff), 2) + '元'
+                                break;
+                            case 4:
+                            case 5:
+                            case 6:
+                            case 71:
+                            case 81:
+                                className = 'status04';
+                                break;
+                        }
                         if (seadata.searchType === 1) {
                             li_html = '<li class="bet_data" data-status="not_open">' +
                                 '<a href="javascript:;" onClick="touzhu(this,0)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                '<div class="status status0"' + v.orderStatus + '>' +
-                                '<span>' + v.orderStatusName + '</span><div></div></div></a></li>';
+                                '<div class="status ' + className + '"' + v.orderStatus + '>' +
+                                '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div></a></li>';
                             // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
                         } else {
                             li_html += '<li class="bet_data" data-status="not_open">' +
@@ -290,7 +305,7 @@ function touzhu(that, view) {
     $('.so-zhongjiang').remove()
 
 // 如果已经开奖
-    if (data.orderStatusName != '等待开奖') {
+    if (data.orderStatus !== 1) {
         data.winNumber = data.winNumber || '1,2,3,4,5';
         var openNums = data.winNumber.split(',');
         $('.bet_nlist ul li')
@@ -300,25 +315,24 @@ function touzhu(that, view) {
                 $(t)
                     .attr('class', 'b_lt_1 hover');
             });
-        if (data.orderStatusName == '已派彩') {
-            $('.bet_status')
-                .attr('class', 'bet_status status_green');
-            $('.bet_status')
-                .html('已中奖');
-            var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + fortMoney(roundAmt(data.payoff), 2) + '</span></li>';
-            $('#page1 .print_data li:nth-child(3)').after(html);
-        }
-        if (data.orderStatusName == '系统撤单') {
-            $('.bet_status')
-                .attr('class', 'bet_status status_red');
-        }
-        if (data.orderStatusName == '暂缓派奖') {
-            $('.bet_status')
-                .attr('class', 'bet_status status_red');
-        }
-        if (data.orderStatusName == '会员撤单') {
-            $('.bet_status')
-                .attr('class', 'bet_status status_red');
+        switch (parseInt(data.orderStatus)) {
+            case 32:
+                $('.bet_status')
+                    .attr('class', 'bet_status status_green');
+                $('.bet_status')
+                    .html('已中奖');
+                var html = '<li class="so-zhongjiang"><span>中奖金额</span><span class="ui_color_yellow">' + fortMoney(roundAmt(data.payoff), 2) + '</span></li>';
+                $('#page1 .print_data li:nth-child(3)').after(html);
+
+                break;
+            case 4:
+            case 5:
+            case 6:
+            case 71:
+            case 81:
+                $('.bet_status')
+                    .attr('class', 'bet_status status_red');
+                break;
         }
     }
 }
@@ -366,7 +380,6 @@ function zhuihao(that) {
         }
         var li_html = '<ul>';
         $.each(list, function (i, e) {
-            console.log(list[i]);
             li_html += '<li><a href="javascript:;" onClick="touzhu(this,1)" data-val="' + encodeURI(JSON.stringify(e)) + '"><div class="tra_info"><p>第 <span class="period">' + e.pcode + '</span> 期</p><span class="ui_color_yellow">' + fortMoney(roundAmt(e.betAmount), 2) + ' 元</span></div><div class="t_l_sta01">' + e.chaseStatusName + '</div></a></li>';
         });
         li_html += '</ul>';
