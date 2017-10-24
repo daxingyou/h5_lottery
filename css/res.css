@@ -160,7 +160,7 @@ textarea,input[type="text"] {
 .blue-slide { background: #4390EE; }
 .red-slide { background: #CA4040; }
 .orange-slide { background: #FF8604; }
-.swiper-slide { line-height: 6.571429rem; color: #fff; font-size: 2.571429rem; text-align: center; }
+.swiper-slide {  color: #fff;  text-align: center; }
 .swiper-container { height: 6.571429rem; }
 .swiper-slide img { width: 100%; }
 .pagination { position: absolute; left: 0; text-align: center; bottom: 0.357143rem; border-right: 0.357143rem; width: 100%; }

@@ -51,7 +51,7 @@ function initView() {
     }
     $(DateclassName).each(function (i, t) {
         if ($(t).attr('class')
-                .indexOf('active') < 0 && i === 0) {
+                .indexOf('active') < 0 && i % 3 === 0) {
             $(t).addClass('active')
                 .siblings()
                 .removeClass('active');
@@ -156,6 +156,7 @@ function getBetRecord() {
             $('#trace_record').show()
             seadata.searchType = 2;
             seadata.page = 1;// 页数，从1开始
+            initZhuihao()
         } else {
             // 投注
             $('#betting_record').show()
@@ -167,6 +168,8 @@ function getBetRecord() {
         initView()
     });
 })();
+
+
 // 二级标签
 (function () {
     $('.tab_mid > li').click(function () {
@@ -177,15 +180,35 @@ function getBetRecord() {
         switch (num) {
             case 0:
                 seadata.statusType = 1
+                if (seadata.searchType === 1) {
+                    mySwiperRecode.slideTo(0, 200, false);
+                } else {
+                    mySwiperTrack.slideTo(0, 200, false);
+                }
                 break
             case 1:
                 seadata.statusType = 2
+                if (seadata.searchType === 1) {
+                    mySwiperRecode.slideTo(1, 200, false);
+                } else {
+                    mySwiperTrack.slideTo(1, 200, false);
+                }
                 break
             case 2:
                 seadata.statusType = 3
+                if (seadata.searchType === 1) {
+                    mySwiperRecode.slideTo(2, 200, false);
+                } else {
+                    mySwiperTrack.slideTo(2, 200, false);
+                }
                 break
             case 3:
                 seadata.statusType = 4
+                if (seadata.searchType === 1) {
+                    mySwiperRecode.slideTo(3, 200, false);
+                } else {
+                    mySwiperTrack.slideTo(3, 200, false);
+                }
                 break
         }
         seadata.page = 1
@@ -432,4 +455,40 @@ function getElementTop(element) {
         current = current.offsetParent;
     }
     return actualTop;
+}
+
+var mySwiperRecode = new Swiper('#swiper1', {
+    // autoplay: 5000,//可选选项，自动滑动
+    onSlideChangeStart: function (swiper) {
+        var index = swiper.activeIndex
+        seadata.statusType = index + 1
+        seadata.page = 1
+        initView()
+        $('#betting_record .recode-tab .tab_mid  li').each(function (i, t) {
+            if (i === index) {
+                $(t).addClass('on')
+                    .siblings()
+                    .removeClass('on');
+            }
+        })
+    },
+})
+var mySwiperTrack = null;
+
+function initZhuihao() {
+    mySwiperTrack = new Swiper('#swiper2', {
+        onSlideChangeStart: function (swiper) {
+            var index = swiper.activeIndex
+            seadata.statusType = index + 1
+            seadata.page = 1
+            initView()
+            $('#trace_record .track-tab .tab_mid  li').each(function (i, t) {
+                if (i === index) {
+                    $(t).addClass('on')
+                        .siblings()
+                        .removeClass('on');
+                }
+            })
+        },
+    })
 }
