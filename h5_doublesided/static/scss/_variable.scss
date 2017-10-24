@@ -140,3 +140,21 @@ $breakpoints: (
 //   "lg": 1004px  //targeting >=1024px tablets (e.g. landscape iPad) and desktops but leaving room for the scroll bar
 // );
 
+
+//usage @include background-image("header.png", right, $black);
+$path--rel      : "../../static/images";
+@mixin background-image($img, $background-position, $background-color) {
+    background-image: url('#{$path--rel}/#{$img}');
+    background-repeat: no-repeat;
+    background-position: $background-position;
+    background-color: $background-color ;
+    background-size: 100%;
+}
+
+@mixin pseudo() {
+    content: '';
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+}
