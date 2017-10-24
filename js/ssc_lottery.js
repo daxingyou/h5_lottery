@@ -2846,7 +2846,7 @@ function shopCar() {
         $($.lt_id_data.id_sel_insert).click(); // 购物车也可以添加投注
         $('#ui_bet').stop(true, true).animate({left: 0}, 300, function () {
             $('#body').addClass('bet_cart');
-
+            $('#all_addOrderBox').show();
         });
     });
     // 返回按钮
@@ -2875,7 +2875,7 @@ function shopCar() {
         } else {
             $('#body').removeClass('bet_cart');
             $('#ui_bet').stop(true, true).animate({left: '100%'}, 300);
-
+            $('#all_addOrderBox').hide();
         }
 
     });
