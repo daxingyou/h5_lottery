@@ -2781,20 +2781,21 @@ function priodDataNewly(gameid) {
         url: action.forseti + 'api/priodDataNewly',
         data: {lotteryId: gameid,},
         success: function (res) {
+            if(res.data){
+                next_pcode = res.data[0].pcode;  // 下一期数
+                now_pcode = res.data[1].pcode;  // 当前期数
+                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
+                now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
 
-            next_pcode = res.data[0].pcode;  // 下一期数
-            now_pcode = res.data[1].pcode;  // 当前期数
-            now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
-            now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-
-            for (var i = 2; i < res.data.length; i++) {
-                processCode(res.data[i].pcode, res.data[i].winNumber);
+                for (var i = 2; i < res.data.length; i++) {
+                    processCode(res.data[i].pcode, res.data[i].winNumber);
+                }
+                setTimeout(function () {
+                    initFrame();
+                    setCookie("lt_lottid", $.lt_lottid);  // 把彩票 lottery id 放在cookie里面
+                    $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
+                }, 100)
             }
-            setTimeout(function () {
-                initFrame();
-                setCookie("lt_lottid", $.lt_lottid);  // 把彩票 lottery id 放在cookie里面
-                $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
-            }, 100)
 
         },
         error: function () {
