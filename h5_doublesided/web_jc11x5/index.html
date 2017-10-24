@@ -1261,6 +1261,7 @@
 <script>
     $(function () {
         var lotteryid = '4' ; // 彩种id
+        setCookie('lt_lottid','4') ; // 彩种id
         TouchSlide({
             slideCell: "#so-item2",
         });
@@ -1269,6 +1270,11 @@
         $('.btn-submit').on('click',function () {
             submitAction(lotteryid) ;
         }) ;
+
+        setTimeout(function () {
+            getSystemTime(lotteryid); // 系统时间
+
+        }, 500) ;
 
     })
 

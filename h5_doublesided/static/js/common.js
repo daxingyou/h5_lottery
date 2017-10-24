@@ -137,7 +137,7 @@ var lotterytype = 0;
 $(function () {
     LoginAction();
     setTimeout(function () {
-        getSystemTime(); // 系统时间
+       // getSystemTime(); // 系统时间
         // getLotterys('.game-all', '.game-hot'); // 获取彩种
 
         getMemberBalance(); // 获取用户余额
@@ -235,6 +235,21 @@ function getPlayTree(gameid) {
         data: {lotteryId: gameid,}, // 当前彩种id
         success: function (res) {
 
+        $.each(res.data.childrens,function (i,v) { // 遍历数据
+           // console.log(v) ;
+            $.each(v.childrens,function (j,vv) {
+                $(".so-con-right p").each(function (i, t) {
+                   var playid = $(this).data('id') ;
+                   if(playid == vv.cid){
+                       $(this).find('.bet-times').text(vv.oddsData.payoff) ; // 每种玩法赔率
+                   }
+
+
+                });
+              //  console.log(vv.cid) ;
+
+            }) ;
+        }) ;
 
         },
         error: function () {
@@ -244,8 +259,8 @@ function getPlayTree(gameid) {
 }
 
 
-// 获取系统时间
-function getSystemTime() {
+// 获取系统时间，lotteryid 彩种id
+function getSystemTime(lotteryid) {
     $.ajax({
         type: 'get',
         headers: {
@@ -256,7 +271,7 @@ function getSystemTime() {
         success: function (res) {
             sys_time = formatTimeUnlix(res.data);
 
-            priodDataNewly(1); // 最近5期开奖，获取系统时间后再调用
+            priodDataNewly(lotteryid); // 最近5期开奖，获取系统时间后再调用
 
         },
         error: function () {
@@ -389,18 +404,19 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 // 倒计时结束后处理
 function outTimeSet() {
     // 拉取期数数据
+    var lotteryid = getCookie('lt_lottid') ;
     $.ajax({
         type: 'get',
         headers: {
             "Authorization": "bearer  " + getAccessToken(access_token),
         },
         url: action.forseti + 'api/priodDataNewly',
-        data: { lotteryId: getCookie('lt_lottid')},
+        data: { lotteryId: lotteryid },
         success: function (res) {  //成功
             console.log('拉取期数成功');
             // 开奖数据处理
             processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
-            getSystemTime();  // 获取当前系统时间
+            getSystemTime(lotteryid);  // 获取当前系统时间
 
             if (res.length <= 0) {  // 获取数据失败
               /*  layer.open({
@@ -670,10 +686,10 @@ function submitAction(lotteryid) {
             } else {  //购买失败提示
 
                 if(data.data =='' || data.data ==null){ // 平台商不存在
-                    layer.open({
+                   /* layer.open({
                         content: data.msg ,
                         btn: '确定'
-                    });
+                    });*/
                 }else{   // 各种错误提示
                     if(data.data.params.ErrInfo !=''){
                         layer.open({
