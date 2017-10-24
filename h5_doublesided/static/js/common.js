@@ -372,7 +372,7 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 
         if (lt_time_leave <= 0) { // 倒计时结束
             clearInterval(timerno);
-            initBetPop01('3000') ;
+            initBetPop01(3) ;
             outTimeSet() ;
             console.log('停止当前期数');
         }
@@ -450,7 +450,7 @@ function initBetPop01(closet) {
     });
     setTimeout(function () {
         $('.so-bet-end-pop,.so-shade').hide() ;
-    },closet) ; // 自动关闭
+    },closet*1000) ; // 自动关闭
 }
 
 //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码
@@ -525,6 +525,31 @@ function initPopEve() {
     }) ;
 }
 
+// 下注弹窗_成功，失败 ,closetime 关闭时间
+function initTipPop05(flag,closetime) {
+    // 成功
+    if(flag){
+        $('.so-tip-pop-05').toggle();
+        $('.so-shade').toggle();
+        $('.so-tip-pop-05').click(function () {
+            $('.so-tip-pop-05').toggle();
+            $('.so-shade').toggle();
+        });
+    }else{
+        // 失败
+        $(".so-tip-pop-06").toggle() ;
+        $(".so-shade").toggle() ;
+        $(".so-tip-pop-06").click(function () {
+            $(".so-tip-pop-06").toggle() ;
+            $(".so-shade").toggle() ;
+        })
+    }
+    setTimeout(function () {
+        $('.so-tip-pop-05,.so-shade,.so-tip-pop-06').hide() ;
+    },closetime*1000)
+
+}
+
 /*
 * 提交表单时，注单处理
 *
@@ -540,7 +565,8 @@ function doCheckAction() {
         var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
         var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
-        betstr +='<p>【'+ total_title +'-'+ total_con +'】 @ '+ total_mon+' x '+ bet_mon +'</p>' ;
+        var total_id = $(this).data('id') ;  // 投注内容玩法id
+        betstr +='<p data-id="'+total_id+'">【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
 
     }
     });
@@ -553,5 +579,125 @@ function doCheckAction() {
 
 }
 
+/*
+* 表单提交，下注接口,lotteryid 彩种id
+* */
+
+function submitAction(lotteryid) {
+    var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
+    var resdata = {
+        'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
+        'list': [ ],
+        'lotteryId': lotteryid ,  //彩种id
+        'operType': 0, //下注类型，1下注
+        'pcode': $('.current_issue ').eq(0).text(), //期次20170925013
+        'pdate': now_day, //日期20170925
+       // 'playId': 0, //玩法id
+        'remark': '无',//备注，可用于测试
+        'source': 'h5', //来源：h5
+        'sourceType':'2', // 1是pc端，2是h5
+
+    };
+
+    $.each($('.bet-go-list p'), function (i, n) {  // 遍历每笔注单
+        var num_each = 1 ;  // 每单注数
+        var time_each = 1 ;  // 每单倍数
+        var total_each = returnMoney($(n).find('.each-mon').text()) ;  // 每单金额
+        var play_each = $(n).data('id');  // 每单玩法
+       // var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
+        var new_num = $(n).find('.each-content').html() ;  //下注内容
+
+        // 下注以对象的形式传递
+        resdata.list.push(
+            {  // 一条数据就是一个方案，一个方案可以有多条下注
+                'betAmount': monAmt(Number(total_each)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
+                'betCount': Number(num_each), //注单数
+                'betMode': 0, //下注模式(预留)
+              //  'chaseCount': Number(date_each), //追号期数(含当期),默认1
+               // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
+              //  'ifChase': if_zhui , //是否追号,0不追号，1追号
+                'moneyMode': 'y' ,//付款类型：元y，角j，分f
+                'multiple': Number(time_each), //倍数最少为1
+                'payoff': 0, //派彩
+                'playId': play_each, //玩法
+                'remark': '无'//备注
+            });
+
+    });
+    $.ajax({
+        type: 'POST',
+        headers: {
+            'Authorization': 'bearer  ' + access_token,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        url: action.forseti + 'api/orders/betOrder',
+        timeout: 600000,
+        //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
+        data: JSON.stringify(resdata),
+        success: function (data) {
+            //解决瞬间提交2次的问题
+           // ajaxSubmitAllow = true;
+            if (data.length <= 0) {
+              /*  layer.open({
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: lot_lang.am_s16,
+                    btn: '确定'
+                });*/
+
+                return false;
+            }
+
+            var partn = /<script.*>.*<\/script>/;
+            if (partn.test(data)) {
+                layer.open({
+                    content: lot_lang.am_s17,
+                    btn: '确定'
+                });
+
+                // top.location.href = '../?controller=default';
+                return false;
+            }
+
+            if (data.err == 'SUCCESS') {  //购买成功
+                initTipPop05(true,3) ;
+               // top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
+                return false;
+            } else {  //购买失败提示
+
+                if(data.data =='' || data.data ==null){ // 平台商不存在
+                    layer.open({
+                        content: data.msg ,
+                        btn: '确定'
+                    });
+                }else{   // 各种错误提示
+                    if(data.data.params.ErrInfo !=''){
+                        layer.open({
+                            content: data.data.params.ErrInfo ,
+                            btn: '确定'
+                        });
+                    }
+                }
+
+                return false ;
+
+            }
+        },
+        error: function (res) {  // 错误提示
+            initTipPop05(false,3) ;
+           // ajaxSubmitAllow = true;
+
+        }
+    });
+
+
+
+
+
+}
 
 

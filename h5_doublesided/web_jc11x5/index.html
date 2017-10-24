@@ -1195,7 +1195,7 @@
         </div>
         <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
         <a><img style="width: 2rem;" src="../static/images/pop/hui.png"></a>
-        <a><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
+        <a class="btn-submit"><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
     </div>
     <!--封盘底部遮挡-->
      <!-- <div class="so-fengpan">
@@ -1259,9 +1259,19 @@
 <script src="../static/js/common.js"></script>
 <script src="../static/js/index.js"></script>
 <script>
-    TouchSlide({
-        slideCell: "#so-item2",
-    });
+    $(function () {
+        var lotteryid = '4' ; // 彩种id
+        TouchSlide({
+            slideCell: "#so-item2",
+        });
+        getPlayTree(lotteryid);  // 玩法树，彩种id
+        // 确认提交注单
+        $('.btn-submit').on('click',function () {
+            submitAction(lotteryid) ;
+        }) ;
+
+    })
+
 </script>
 </body>
 </html>
