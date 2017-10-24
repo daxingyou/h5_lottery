@@ -8,7 +8,7 @@ window.onload = function () {
     // initPopEve()
     initPopWafa();
     initPopFengpan01();
-    initPopFengpan02();
+   // initPopFengpan02();
     initPop01();
     initTipPop01();
     initTipPop02();
@@ -278,7 +278,7 @@ function initPopFengpan01() {
     });
 }
 // 投注项目超过规定数量
-function initPopFengpan02() {
+/*function initPopFengpan02() {
     $('.so-fengpan-pop-02-click').click(function () {
         $('.so-fengpan-pop-02').toggle();
         $('.so-shade').toggle();
@@ -287,7 +287,7 @@ function initPopFengpan02() {
         $('.so-fengpan-pop-02').toggle();
         $('.so-shade').toggle();
     });
-}
+}*/
 
 // 此期已封盘
 function initTipPop01() {

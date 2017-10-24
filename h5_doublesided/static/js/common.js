@@ -132,7 +132,7 @@ var now_day; // 当前日期
 // var dataPlay = {}; // 玩法树数据
 // var dataPlayAll = {}; // 玩法树数据最终组装
 var lotterytype = 0;
-
+var xlen = 1 ; // 江西11选5 二中二、三中三等
 
 $(function () {
     LoginAction();
@@ -314,20 +314,22 @@ function priodDataNewly(gameid) {
         url: action.forseti + 'api/priodDataNewly',
         data: {lotteryId: gameid,},
         success: function (res) {
+            if(res.data){
+                next_pcode = res.data[0].pcode;  // 下一期数
+                now_pcode = res.data[1].pcode;  // 当前期数
+                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
+                now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
+                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
 
-            next_pcode = res.data[0].pcode;  // 下一期数
-            now_pcode = res.data[1].pcode;  // 当前期数
-            now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
-            now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-            processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
+                setTimeout(function () {
+                    setCookie("lt_lottid",1);  // 把彩票 lottery id 放在cookie里面
+                    $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
+                    // 倒计时
+                    lt_timer(sys_time,now_time) ;
 
-            setTimeout(function () {
-                setCookie("lt_lottid",1);  // 把彩票 lottery id 放在cookie里面
-                $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
-                // 倒计时
-                lt_timer(sys_time,now_time) ;
+                }, 100)
+            }
 
-            }, 100)
 
         },
         error: function () {
@@ -456,10 +458,8 @@ function outTimeSet() {
 
 // 本期投注已结束
 function initBetPop01(closet) {
-   /* $('.so-bet-end-pop-click').click(function () {*/
         $('.so-bet-end-pop').toggle();
         $('.so-shade').toggle();
-  /*  });*/
     $('.so-bet-end-pop').click(function () {
         $('.so-bet-end-pop').toggle();
         $('.so-shade').toggle();
@@ -489,19 +489,107 @@ function processCode(issue, lastissue,code) {
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
 function initChoiceObj() {
     $('.so-con-right').on('click','p',function () {
-        var className = $(this).attr("class") || ""
+        var _this =  $(this) ;
+        var className = _this.attr("class") || "" ;
         if (className.indexOf("active") >= 0) {
-            $(this).attr("class", className.replace("active", ""))
+            _this.attr("class", className.replace("active", "")) ;
         } else {
-            $(this).attr("class", className + " active")
+            _this.attr("class", className + " active") ;
         }
         // 已选注数
         var choosed =  $(".so-con-right p.active").length ;
-        $('.bet-select-num').text(choosed) ;
+
+        var pid = _this.parents('ul.tab_content').attr('id') ;
+        var paid = '#'+pid ;
+        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
+        // var ifSp = 0 ;
+       // var spArr = [] ; // 二中二，三中三等
+        if(pid){ // 二中二，三中三等
+            checkNumbers(pid,z_choosed,_this) ;
+           // sessionStorage.setItem(pid,paid) ;
+            var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+            $('.bet-select-num').text(spchoose) ;
+
+        }else{
+            $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
+        }
 
     }) ;
 
 }
+
+/*
+* 江西11选5 ,method 玩法，len 长度
+* */
+function checkNumbers(method,len,self) {
+    switch (method) {
+        case 'tab_jx_eze': // 二中二
+            xlen = 2 ;
+        if(len>2){
+            initPopFengpan02(3,len-1) ;
+            self.removeClass('active') ;
+            return false ;
+        }
+            break;
+        case 'tab_jx_szs': // 三中三
+            xlen = 3 ;
+            if(len>3){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_sizsi': // 四中四
+            xlen = 4 ;
+            if(len>4){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_wzw': // 五中五
+            xlen = 5 ;
+            if(len>5){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_lzw': // 六中五
+            if(len>6){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_qzw': // 七中五
+            if(len>7){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_bzw': // 八中五
+            if(len>8){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
+            break;
+        case 'tab_jx_qez': // 前二组选
+
+            break;
+        case 'tab_jx_qsz': // 前三组选
+
+            break;
+        default :
+
+            break;
+    }
+
+}
+
+
 
 //此方法弹出结算框 ,注单数量，添加按钮
 function initPopEve() {
@@ -566,6 +654,21 @@ function initTipPop05(flag,closetime,content) {
     },closetime*1000)
 
 }
+// 投注项目超过规定数量
+function initPopFengpan02(closet,num) {
+        $('.so-fengpan-pop-02').toggle();
+        $('.so-shade').toggle();
+
+       $('.so-fengpan-pop-02').click(function () {
+        $('.so-fengpan-pop-02').toggle();
+        $('.so-shade').toggle();
+    });
+     $('.not-allow-content').text(num) ;
+       setTimeout(function () {
+           $('.so-fengpan-pop-02,.so-shade').hide() ;
+       },closet*1000) ;
+
+}
 
 /*
 * 提交表单时，注单处理
@@ -616,7 +719,6 @@ function submitAction(lotteryid) {
         'operType': 0, //下注类型，1下注
         'pcode': $('.now-date ').eq(0).text(), //期次20170925013
         'pdate': now_day, //日期20170925
-       // 'playId': 0, //玩法id
         'remark': '无',//备注，可用于测试
         'source': 'h5', //来源：h5
         'sourceType':'2', // 1是pc端，2是h5
