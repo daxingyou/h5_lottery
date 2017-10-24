@@ -67,11 +67,20 @@ input,select,button,a{
     background-color: #0a1625;
     color: #fff;
     font-size: .4rem;
+    position: relative;
     &.index_nav_top{
         position: fixed;
         top: 0;
         z-index: 5;
         width: 10rem;
+    }
+    &.login{
+        height: auto;
+        background-color: transparent;
+        float: none;
+        >img{
+            width: 100%;
+        }
     }
     >*{
         display: inline-block;
@@ -124,6 +133,9 @@ input,select,button,a{
         >a{
             padding-top: 0.43rem;
             font-size: .35rem;
+            display: inline-block;
+            color: #63a5d6;
+            padding: 0.43rem .35rem 0 0;
         }
     }
 }
@@ -140,8 +152,64 @@ input,select,button,a{
 }
 
 // footer
-.footer {
-
+footer.bot_nav{
+    position: fixed;
+    bottom:0;
+    width: 10rem;
+    @include background-image ('bot_nav.jpg',0,#102634);
+    background-repeat:repeat-x;
+    height: 1.5rem;
+    >ul{
+        text-align: center;
+        overflow: hidden;
+        margin: 0 auto;
+        font-size: 0;
+        >li{
+            display: inline-block;
+            font-size: .35rem;
+            text-align: center;
+            width: 25%;
+            padding: .35rem 0 .5rem;
+            &:after{
+                @include pseudo;
+                @include background-image ('bot_nav_line.jpg',0,transparent);
+                width: 2px;
+                height: 2.3rem;
+                background-repeat: repeat-y;
+            }
+            a{
+                margin-left: 15%;
+                &:before{
+                    @include pseudo;
+                    @include background-image ('icon.png',0,transparent);
+                    width: .5rem;
+                    height: .5rem;
+                    top: .4rem;
+                    left: calc( 30% - .55rem);
+                }
+                &.index{
+                    &:before{
+                        background-position-y: 0;
+                    }
+                }
+                &.trend{
+                    &:before{
+                        background-position-y: -.65rem;
+                    }
+                }
+                &.record{
+                    &:before{
+                        background-position-y: -1.45rem;
+                    }
+                }
+                &.member{
+                    &:before{
+                        background-position-y: -2.1rem;
+                    }
+                }
+            }
+        }
+    }
 }
 .clearfix {
     @include clearfix();
