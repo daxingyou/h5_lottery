@@ -1,4 +1,11 @@
 @charset "utf-8";
+//color
+$lightblue:#00B7FF;
+$yellow:#ffbd00;
+$bluetext:#d7e8f0;
+$green:#71c341;
+$red:#c93030;
+
 // other
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;

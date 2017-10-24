@@ -1,10 +1,5 @@
-body {
-    padding: 50px;
-    font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
-}
-a {
-    color: #00B7FF;
-}
+@charset "utf-8";
+@import "variable";
 .so-con {
     width: 10rem;
     height: 100%;
@@ -211,7 +206,7 @@ a {
                     div:first-child {
                         height: 1.1rem;
                         width: 3.3rem;
-                        color: #d7e8f0;
+                        color: $bluetext;
                         font-size: 0.34rem;
                         line-height: 1.4rem;
                         text-align: right;
@@ -227,7 +222,7 @@ a {
                             position: relative;
                             left: .3rem;
                             top: .2rem;
-                            color: #d7e8f0;
+                            color: $bluetext;
                             line-height: .5rem;
                             text-align: center;
                             font-size: 0.3rem;
@@ -262,7 +257,7 @@ a {
                                 width: .9rem;
                                 height: .35rem;
                                 border: solid .01rem #ffffff;
-                                background-color: #ffbd00;
+                                background-color: $yellow;
                                 -webkit-border-radius: .19rem;
                                 -moz-border-radius: .19rem;
                                 border-radius: .19rem;
@@ -287,7 +282,7 @@ a {
                         > p {
                             line-height: 0.79rem;
                             font-size: .34rem;
-                            color: #d7e8f0;
+                            color: $bluetext;
                             text-align: right;
                         }
                         > i {
@@ -303,7 +298,7 @@ a {
                         }
                         > span {
                             display: block;
-                            color: #d7e8f0;
+                            color: $bluetext;
                             height: .4rem;
                             float: left;
                             margin-top: 0.15rem;
@@ -451,7 +446,7 @@ a {
                 margin-left: 3.5%;
                 display: none;
                 span {
-                    color: #d7e8f0;
+                    color: $bluetext;
                     font-size: .34rem;
                     display: block;
                     float: left;
@@ -490,7 +485,7 @@ a {
         text-align: center;
         margin: auto;
         > h2 {
-            color: #ffc600;
+            color: $yellow;
             font-size: .4rem;
             line-height: 1.12rem;
             text-align: left;
@@ -599,7 +594,7 @@ a {
                 margin-left: 3.5%;
                 display: none;
                 >span {
-                    color: #d7e8f0;
+                    color: $bluetext;
                     font-size: .36rem;
                     display: block;
                     float: left;
@@ -695,7 +690,7 @@ a {
             text-align: left;
             text-indent: 0.4rem;
             span {
-                color: #ffc600;
+                color: $yellow;
                 font-size: 0.34rem;
                 padding: 0 .3rem;
             }
@@ -876,7 +871,7 @@ a {
                     top: 0.4rem;
                 }
                 > div {
-                    color: #71c341;
+                    color: $green;
                     text-align: right;
                     margin-right: 0.3rem;
                     font-size: 0.34rem;
@@ -953,7 +948,7 @@ a {
         //display: block;
     }
     p {
-        color: #c93030;
+        color: $red;
         margin-top: 0.2rem;
         font-size: 0.34rem;
         line-height: 1.5em;
@@ -992,14 +987,14 @@ a {
         display: block;
     }
     p {
-        color: #c93030;
+        color: $red;
         margin-top: 0.25rem;
         font-size: 0.34rem;
     }
 }
 .bet_ok_area {
     p {
-        color: #ffc600;
+        color: $yellow;
         line-height: 1.5em;
     }
 }
@@ -1060,7 +1055,7 @@ img.bet_ok {
                 background-position-y: 0.5rem;
                 height: 1rem;
                 line-height: 1rem;
-                color: #ffc600;
+                color: $yellow;
                 font-size: 0.34rem;
                 &:last-child{
                     background-position-y: 0.6rem;
@@ -1078,7 +1073,7 @@ img.bet_ok {
         background-position-y: 0.05rem;
         margin-top: 0.3rem;
         span {
-            color: #ffc600;
+            color: $yellow;
         }
     }
     a {
@@ -1130,7 +1125,7 @@ img.bet_ok {
             width: 6rem;
             text-align: center;
             margin: auto;
-            color: #c93030;
+            color: $red;
             font-size: 0.34rem;
             margin-top: 0.4rem;
             line-height: 1.5em;
@@ -1195,7 +1190,7 @@ img.bet_ok {
         }
         h3 {
             font-size: .34rem;
-            color: #ffc600;
+            color: $yellow;
             line-height: .34rem;
             margin-top: .3rem;
             margin-bottom: .1rem;
@@ -1384,7 +1379,7 @@ img.bet_ok {
         margin: auto;
         > h2 {
             padding-left: 3%;
-            color: #ffc600;
+            color: $yellow;
             font-size: .4rem;
             line-height: 1.12rem;
             text-align: left;
@@ -1502,10 +1497,4 @@ img.bet_ok {
             }
         }
     }
-}
-.bule_bg{
-    display: block;
-    background: url('../images/bg.jpg') repeat-y;
-    width: 100%;
-    background-size: 100%;
 }

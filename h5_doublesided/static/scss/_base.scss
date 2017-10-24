@@ -4,6 +4,12 @@ html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
 }
+body{
+    width: 100%;
+    min-height: 18rem;
+    padding: 50px;
+    font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
+}
 body,.warp {
     &::-webkit-scrollbar {
         width: 0px;
@@ -14,6 +20,7 @@ body,.warp {
             box-sizing: inherit;
 }
 a{
+  color: $lightblue;
   text-decoration: none !important;
     // pc_demo用
     &:hover,&:focus,&:active{
@@ -22,15 +29,7 @@ a{
     // h5正式用
     &.active{}
 }
-// img {
-//     width: 100%;
-//     max-width: 100%;
-//     margin: 0 auto;
-//     display: block;    
-//     @include respond-to('sm') {
-//         max-width: 600px;
-//     }
-// }
+
 ul{
     list-style: none;
     padding-left: 0;
@@ -49,6 +48,69 @@ input,select,button,a{
     outline: none;
 }
 // 基礎layout
+#pa_con{
+    width: 10rem;
+    height: 100%;
+    overflow-x: hidden;
+    text-align: center;
+    margin: auto;
+    background: url('../../static/images/bg.jpg');
+    background-size: 100%;
+        min-height: 18rem;
+        .so-right > div:first-child img {
+            right: 0.49rem;
+        }
+}
+#pa_head{
+    overflow: hidden;
+    height: 1.5rem;
+    background-color: #0a1625;
+    color: #fff;
+    font-size: .4rem;
+    >*{
+        display: inline-block;
+        float: left;
+    }
+    >.center{
+        text-align: center;
+        padding: .5rem 0;
+        width: calc(100% - 2.96rem);
+        font-weight: 300;
+        color: $bluetext;
+        font-size: .38rem;
+           >img{
+               width: 3.5rem;
+               max-width: 100%;
+               margin-top: -.25rem;
+           }
+    }
+    >.left{
+        float: left;
+        width: 1.48rem;
+        height: 1.48rem;
+        a{
+            display: inline-block;
+            img{
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    >.right{
+        float: right;
+        >.so-top-zoushi {
+            // float: right;
+            height: 1.48rem;
+            width: 1.48rem;
+            img {
+                height: 0.6rem;
+                position: relative;
+                top: 0.46rem;
+                left: -0.1rem;
+            }
+        }
+    }
+}
 // 中間區塊
 .warp{
     position: relative;
@@ -73,24 +135,96 @@ input,select,button,a{
 
 }
 .text-red{
-    color: #c93030;
+    color: $red;
 }
 .text-yellow{
-    color: #ffc600;
+    color: $yellow;
 }
 .text-default{
-    color: #d7e8f0;
+    color: $bluetext;
 }
 .text-l-yellow{
     color: #fdf19b;
 }
 .text-green{
-    color: #71c341;
+    color: $green;
 }
 h2{
     font-weight: 300;
 }
-
+//  展開收合效果
+.slide_toggle {
+    text-align: left;
+    color: #ACACAC;
+    cursor: pointer;
+    .panel_title{
+        padding: .5rem 0.7143rem .5rem 1.2rem;
+        font-size: .4rem;
+        height: .25rem;
+        line-height: .25rem;
+        background: url('../../static/images/page/date_bar.png') no-repeat left top;
+        background-size: 100%;
+        span{
+            background-image: url('../../static/images/arrow_up.png');
+            background-size:0.7143rem 0.7143rem;
+            // display: inline-block;
+            width: 0.7rem;
+            height: 0.7rem;
+            position: relative;
+            background-position: 0px 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            // left:1.2rem;
+            top: -.3rem;
+            transition: all .2s;
+            // margin-top: -0.2rem;
+            float: right;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+    .panel {
+        display: none;
+        background-color: rgba(#11161c,.7);
+        border: 1px solid rgba(#23304a,.9);
+        width: 99.5%;
+    }
+    &.active{
+        color: #ccc;
+        .panel_title span{
+            top:-.1rem;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+            // background-image: url('../images/icon_arrow_up.svg');
+        }
+    }
+}
+//左側選單+投注紀錄logo樣式
+.badge{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 100%;
+    // padding: .5rem;
+    // margin: .2rem .5rem;
+    margin-right: 0.5714rem;
+    // border: 3px solid #ccc;
+    background-image: url('../../static/images/page/logo_bg.png');
+    background-size: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    >img{
+        width: 75%;
+        padding-top: .35rem;
+        // height: 3.5rem;
+    }
+}
+//投注紀錄的scrollbar
 .boxlist::-webkit-scrollbar {
     width: 1em;
 }
@@ -103,4 +237,11 @@ h2{
 }
 .boxlist::-webkit-scrollbar-corner{
 background-color: #0e121d;
+}
+
+.bule_bg{
+    display: block;
+    background: url('../images/bg.jpg') repeat-y;
+    width: 100%;
+    background-size: 100%;
 }
