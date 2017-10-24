@@ -542,7 +542,7 @@ function initPopEve() {
 }
 
 // 下注弹窗_成功，失败 ,closetime 关闭时间
-function initTipPop05(flag,closetime) {
+function initTipPop05(flag,closetime,content) {
     // 成功
     if(flag){
         $('.so-tip-pop-05').toggle();
@@ -558,7 +558,8 @@ function initTipPop05(flag,closetime) {
         $(".so-tip-pop-06").click(function () {
             $(".so-tip-pop-06").toggle() ;
             $(".so-shade").toggle() ;
-        })
+        });
+        $('.submit-error-content').html(content) ; // 投注失败提示
     }
     setTimeout(function () {
         $('.so-tip-pop-05,.so-shade,.so-tip-pop-06').hide() ;
@@ -602,11 +603,11 @@ function doCheckAction() {
 function submitAction(lotteryid) {
     var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
     var resdata = {
-        'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
         'list': [ ],
+        'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
         'lotteryId': lotteryid ,  //彩种id
         'operType': 0, //下注类型，1下注
-        'pcode': $('.current_issue ').eq(0).text(), //期次20170925013
+        'pcode': $('.now-date ').eq(0).text(), //期次20170925013
         'pdate': now_day, //日期20170925
        // 'playId': 0, //玩法id
         'remark': '无',//备注，可用于测试
@@ -632,7 +633,7 @@ function submitAction(lotteryid) {
                 'betMode': 0, //下注模式(预留)
               //  'chaseCount': Number(date_each), //追号期数(含当期),默认1
                // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
-              //  'ifChase': if_zhui , //是否追号,0不追号，1追号
+               'ifChase': 0 , //是否追号,0不追号，1追号
                 'moneyMode': 'y' ,//付款类型：元y，角j，分f
                 'multiple': Number(time_each), //倍数最少为1
                 'payoff': 0, //派彩
@@ -668,34 +669,19 @@ function submitAction(lotteryid) {
                 return false;
             }
 
-            var partn = /<script.*>.*<\/script>/;
-            if (partn.test(data)) {
-                layer.open({
-                    content: lot_lang.am_s17,
-                    btn: '确定'
-                });
-
-                // top.location.href = '../?controller=default';
-                return false;
-            }
-
             if (data.err == 'SUCCESS') {  //购买成功
                 initTipPop05(true,3) ;
-               // top.location.href = './template/bet_success.html?name=' + encodeURI($.lt_lotteryName) + '&pcode=' + $('.current_issue ').eq(0).text() + '&money=' + urlmon; //跳转到投注成功页面
+
                 return false;
             } else {  //购买失败提示
 
                 if(data.data =='' || data.data ==null){ // 平台商不存在
-                   /* layer.open({
-                        content: data.msg ,
-                        btn: '确定'
-                    });*/
+
+                    initTipPop05(false,3,data.msg) ;
                 }else{   // 各种错误提示
                     if(data.data.params.ErrInfo !=''){
-                        layer.open({
-                            content: data.data.params.ErrInfo ,
-                            btn: '确定'
-                        });
+                        initTipPop05(false,3,data.data.params.ErrInfo) ;
+
                     }
                 }
 
@@ -704,7 +690,7 @@ function submitAction(lotteryid) {
             }
         },
         error: function (res) {  // 错误提示
-            initTipPop05(false,3) ;
+            initTipPop05(false,3,'投注失败，请稍后再试') ;
            // ajaxSubmitAllow = true;
 
         }
