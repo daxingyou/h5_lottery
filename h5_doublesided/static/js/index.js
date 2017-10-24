@@ -14,8 +14,8 @@ window.onload = function () {
     initTipPop02();
     initTipPop03();
     // initTipPop04()
-    initTipPop05();
-    initTipPop06();
+   // initTipPop05();
+   // initTipPop06();
    // initBetPop01();
 
 };
@@ -27,7 +27,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 3) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
@@ -36,7 +36,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 1) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
@@ -45,7 +45,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 1) {
            // var className = $(t).attr('class');
            // $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ' );
+            $(t).attr('class', 'so-con-span-short' );
         }
         $(t).show();
     });
@@ -62,7 +62,7 @@ function initKuang() {
         if ($(t).find('span')[0].innerText.length < 3) {
            // var className = $(t).attr('class');
           //  $(t).attr('class', 'so-con-span-short ' + className);
-            $(t).attr('class', 'so-con-span-short ');
+            $(t).attr('class', 'so-con-span-short');
         }
         $(t).show();
     });
@@ -334,7 +334,7 @@ function initTipPop03() {
     })
 }*/
 // 下注弹窗_成功
-function initTipPop05() {
+/*function initTipPop05() {
     $('.so-tip-pop-05-click').click(function () {
         $('.so-tip-pop-05').toggle();
         $('.so-shade').toggle();
@@ -343,9 +343,9 @@ function initTipPop05() {
         $('.so-tip-pop-05').toggle();
         $('.so-shade').toggle();
     });
-}
+}*/
 // 下注弹窗_失敗
-function initTipPop06() {
+/*function initTipPop06() {
     $(".so-tip-pop-06-click").click(function () {
         $(".so-tip-pop-06").toggle()
         $(".so-shade").toggle()
@@ -354,7 +354,7 @@ function initTipPop06() {
         $(".so-tip-pop-06").toggle()
         $(".so-shade").toggle()
     })
-}
+}*/
 
 //禁止iossafari瀏覽器出現頁面雙擊放大
 $('body').on('touchend',function(e) { e.preventDefault; });

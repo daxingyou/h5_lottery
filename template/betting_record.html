@@ -16,6 +16,7 @@
     <link href="../css/m-warp.css" rel="stylesheet" type="text/css">
     <link href="../css/m-lottery.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/dialogUI.css">
+    <link rel="stylesheet" type="text/css" href="../css/swiper-3.4.2.min.css">
 
     <!--消息框代码结束-->
     <link href="../css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
@@ -36,7 +37,7 @@
                     <img src="../images/pic_user.svg" alt="">
                 </div>
                 <div class="info_data">
-                    <h2 class="so-user user_name"> </h2>
+                    <h2 class="so-user user_name"></h2>
                     <i class="icon i_wallet"></i><span class="so-membalance"> </span>
                 </div>
             </div>
@@ -71,10 +72,37 @@
                             <li><a href="javascript:;" data-filter="not_win" data-val="4">未中奖</a></li>
                         </ul>
                     </div>
-                    <div class="bd">
-                        <ul class="tab_content tab_content_1">
-                            <!--列表内容-->
-                        </ul>
+                    <div class="swiper-container" id="swiper1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="trace_record" class="tab_container" style="display: none">
@@ -86,12 +114,39 @@
                             <li class=""><a href="javascript:;" data-filter="end" data-val="4">已终止</a></li>
                         </ul>
                     </div>
-                    <div class="bd">
-                        <!--全部-->
-                        <ul class="tab_content tab_track_1">
-                            <!--列表内容-->
-                        </ul>
+                    <div class="swiper-container" id="swiper2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_track_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_track_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_track_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_track_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -241,7 +296,12 @@
 <script type="text/javascript" src="../js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/soye/soye-scroll.js"></script>
+<script type="text/javascript" src="../js/soye/swiper-3.4.2.jquery.min.js"></script>
 <script type="text/javascript" src="../js/soye/betting_record.js"></script>
-
+<style>
+    .swiper-container {
+        height: 100%;
+    }
+</style>
 </body>
 </html>
