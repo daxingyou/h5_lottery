@@ -829,7 +829,6 @@ function submitAction(lotteryid) {
 * 重置投注页，提交表单后调用
 * */
 function resetAction() {
-    console.log('回复的')
     $(".so-con-right p").each(function (i, t) {
         $(this).removeClass('active') ;
         $('.bet-select-num').text('0') ;

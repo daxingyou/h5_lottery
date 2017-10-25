@@ -89,13 +89,8 @@ function initViewHeight() {
 function initNavChoice() {
     $('.so-con-left li').each(function (i, t) {
         $(t).click(function () {
-            var ifclick = getCookie('ifclick') ;
-            if(ifclick ==true){
-                resetAction() ;
-            }
-            console.log(ifclick)
             var hasreset = $(this).hasClass('reset_bet') ; // 江西11选5切换时，需要重置投注
-            setCookie('ifclick',hasreset) ;
+           // setCookie('ifclick',hasreset) ;
             if(hasreset){
                 resetAction() ;
             }
