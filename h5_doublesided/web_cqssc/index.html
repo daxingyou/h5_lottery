@@ -103,7 +103,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="bet_record.html">
+                        <a href="../publicTemplate/bet_record.html">
                             <img src="../static/images/right/1.png">
                             <p>投注记录</p>
                         </a>
@@ -784,7 +784,9 @@
 <script>
     $(function () {
         var lotteryid = '2' ; // 彩种id
-        setCookie('lt_lottid','2') ; // 彩种id
+        var lotteryname = '重庆时时彩' ; // 彩种名称
+        setCookie('lt_lottid',lotteryid) ; // 彩种id
+        setCookie('lottery_name',lotteryname) ; // 彩种名称
         getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
         $('.btn-submit').on('click',function () {

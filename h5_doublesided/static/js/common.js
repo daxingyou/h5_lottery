@@ -45,6 +45,19 @@ function formatTimeUnlix (v) {
     var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 }
+// 格式化时间
+function formatTime (date) {
+    var year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDate(),
+        hour = date.getHours(),
+        minutes = date.getMinutes();
+    month = month > 9 ? month : '0' + month;
+    day = day > 9 ? day : '0' + day;
+    hour = hour > 9 ? hour : '0' + hour;
+    minutes = minutes > 9 ? minutes : '0' + minutes;
+    return month + '-' + day + ' ' + hour + ':' + minutes;
+}
 
 // 金额转换,分转成元
 function roundAmt (v) {
@@ -110,6 +123,7 @@ function getStrParam () {
     }
     return param;
 }
+
 
 
 
@@ -322,7 +336,6 @@ function priodDataNewly(gameid) {
                 processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
 
                 setTimeout(function () {
-                    setCookie("lt_lottid",1);  // 把彩票 lottery id 放在cookie里面
                     $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
                     // 倒计时
                     lt_timer(sys_time,now_time) ;
@@ -727,7 +740,7 @@ function submitAction(lotteryid) {
 
     $.each($('.bet-go-list p'), function (i, n) {  // 遍历每笔注单
         var num_each = 1 ;  // 每单注数
-        var time_each = 1 ;  // 每单倍数
+      //  var time_each = 1 ;  // 每单倍数
         var total_each = returnMoney($(n).find('.each-mon').text()) ;  // 每单金额
         var play_each = $(n).data('id');  // 每单玩法
        // var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
@@ -740,18 +753,18 @@ function submitAction(lotteryid) {
                 'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
                 'betCount': Number(num_each), //注单数
                 'betMode': 0, //下注模式(预留)
-                'chaseCount': 0, //追号期数(含当期),默认1
+                'chaseCount': 1, //追号期数(含当期),默认1
                // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
                'ifChase': 0 , //是否追号,0不追号，1追号
                 'moneyMode': 'y' ,//付款类型：元y，角j，分f
-                'multiple': Number(time_each), //倍数最少为1
+                'multiple': Number(total_each), //倍数最少为1
                 'payoff': 0, //派彩
                 'playId': play_each, //玩法
                 'remark': '无'//备注
             });
 
     });
-    $('.so-shade').show() ;
+   // $('.so-shade').show() ;
     $.ajax({
         type: 'POST',
         headers: {
@@ -766,7 +779,7 @@ function submitAction(lotteryid) {
         //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
         data: JSON.stringify(resdata),
         success: function (data) {
-            $('.so-shade').hide() ;
+           // $('.so-shade').hide() ;
             //解决瞬间提交2次的问题
            // ajaxSubmitAllow = true;
             if (data.length <= 0) {
@@ -782,7 +795,7 @@ function submitAction(lotteryid) {
 
             if (data.err == 'SUCCESS') {  //购买成功
                 initTipPop05(true,3) ;
-
+                resetAction() ;
                 return false;
             } else {  //购买失败提示
 
@@ -806,11 +819,17 @@ function submitAction(lotteryid) {
 
         }
     });
-
-
-
-
+    
 
 }
 
-
+/*
+* 重置投注页，提交表单后调用
+* */
+function resetAction() {
+    $(".so-con-right p").each(function (i, t) {
+        $(this).removeClass('active') ;
+        $('.bet-select-num').text('0') ;
+        $('.bet-amount').val('0') ;
+    })
+}
