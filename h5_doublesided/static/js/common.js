@@ -255,7 +255,7 @@ function getPlayTree(gameid) {
                 $(".so-con-right p").each(function (i, t) {
                    var playid = $(this).data('id') ;
                    if(playid == vv.cid){
-                       $(this).find('.bet-times').text(vv.oddsData.payoff) ; // 每种玩法赔率
+                       $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(4)) ; // 每种玩法赔率
                    }
 
 
@@ -333,7 +333,7 @@ function priodDataNewly(gameid) {
                 now_pcode = res.data[1].pcode;  // 当前期数
                 now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
                 now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
+                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
 
                 setTimeout(function () {
                     $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
@@ -430,7 +430,7 @@ function outTimeSet() {
         success: function (res) {  //成功
             console.log('拉取期数成功');
             // 开奖数据处理
-            processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
+            processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
             getSystemTime(lotteryid);  // 获取当前系统时间
 
             if (res.length <= 0) {  // 获取数据失败
@@ -482,8 +482,8 @@ function initBetPop01(closet) {
     },closet*1000) ; // 自动关闭
 }
 
-//  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码
-function processCode(issue, lastissue,code) {
+//  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码，double 上期开奖统计
+function processCode(issue, lastissue,code,double) {
     $('.last-date').html(lastissue) ;
     $('.now-date').html(issue) ;
     if (!code) {
@@ -496,6 +496,12 @@ function processCode(issue, lastissue,code) {
         str +='<li>'+ code_arr[i] +'</li>' ;
     }
     $('.last-open-num ul').html(str) ;
+    var dstr ='';
+    dstr +='<li>'+double.total+'</li>' ;
+    dstr +='<li>'+double.sizer+'</li>' ;
+    dstr +='<li>'+double.longer+'</li>' ;
+    dstr +='<li>'+double.doubler+'</li>' ;
+    $('.last-open-dou ul').html(dstr) ;
 
 }
 
