@@ -49,16 +49,20 @@
     }
 }
 .content{
-    padding-top: .5rem;
+    padding-top: .1rem;
     >section{
-        >h3{
+        h3{
             text-align: left;
-            margin-left: .8rem;
+            margin-left: .5rem;
+            margin-top: .35rem;
+            >img{
+                width: 2rem;
+            }
         }
     }
     ul{
         overflow: hidden;
-        max-width: 90%;
+        max-width: 95%;
         margin: 0 auto;
         text-align: left;
         font-size: 0;
@@ -67,18 +71,89 @@
             font-size: .35rem;
             text-align: center;
             width: 30%;
-            background-image: url('../../static/images/lo_bg.png');
-            background-size: 100%;
-            margin: .15rem;
-            height: 2.6rem;
-            >.badge{
-                width: 1.5rem;
-                height: 1.5rem;
-                margin-top: .35rem;
+            // background-image: url('../../static/images/lo_bg.png');
+            // background-size: 100%;
+            // margin: .15rem;
+            // height: 2.6rem;
+
+        }
+    }
+    >.hotgame_area{
+        ul{
+            >li{
+                background-image: url('../../static/images/lo_bg.png');
+                background-size: 100%;
+                margin: .15rem;
+                height: 2.6rem;
+                >.badge{
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    margin-top: .35rem;
+                }
+            }
+        }
+    }
+    .cooper_area{
+        margin-top: .3rem;
+        margin-bottom: 1rem;
+    }
+    .cooper{
+        @include background-image ('cooper_bg.png',0,transparent);
+        width: 100%;
+        margin: 0 auto;
+        height: 4rem;
+        padding: .3rem 0;
+        >h3{
+            margin-top: .1rem;
+        }
+        >ul{
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            >li{
+                @include background-image ('cooper_c_bg.png',0,transparent);
+                width: 20%;
+                height: 2.5rem;
+                margin: 0 .5rem;
+                line-height: 2.5rem;
+                a{
+                    @include background-image ('other_link.png',0,transparent);
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: 1.5rem;
+                    &::after{
+                        @include pseudo;
+                        left: .25rem;
+                        bottom: -.3rem;
+                        top:inherit;
+                    }
+                    &.icon_intro{
+                        background-position-y: top;
+                        &::after{
+                            content: '新手教程';
+                        }
+                    }
+                    &.icon_agent{
+                        background-position-y: middle;
+                        &::after{
+                            content: '代理加盟';
+                        }
+                    }
+                    &.icon_about{
+                        background-position-y: bottom;
+                        &::after{
+                            content: '关于我们';
+                        }
+                    }
+                }
+
             }
         }
     }
 }
+
 
 //login
 .login_area{
