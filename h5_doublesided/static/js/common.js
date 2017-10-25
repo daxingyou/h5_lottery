@@ -135,8 +135,8 @@ function getStrParam () {
 /* 全局变量定义 */
 var access_token = ' ';
 var action = {
-    forseti: 'http://122.53.134.66:19091/forseti/',
-    uaa: 'http://122.53.134.66:19091/uaa/',
+    forseti: 'http://121.58.234.210:19091/forseti/',
+    uaa: 'http://121.58.234.210:19091/uaa/',
 };
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
