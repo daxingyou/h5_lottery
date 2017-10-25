@@ -615,8 +615,9 @@ function initPopEve() {
             $(".so-shade").toggle() ;
             return false;
         }
-        if(!amount || !isPositiveNum(amount)){ // 投注金额不正确
-            $('.bet-error-content').html('请输入投注金额') ;
+
+        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确
+            $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
             $(".so-tip-pop-04").toggle() ;
             $(".so-shade").toggle() ;
             return false;
@@ -689,7 +690,7 @@ function initPopFengpan02(closet,num) {
 * */
 function doCheckAction() {
     var bet_num = $('.bet-select-num').text() ; // 总注数
-    var bet_mon = $('.bet-amount').val() ; // 投注金额
+    var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
     var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
     var betstr = '' ;
     $(".so-con-right p").each(function (i, t) {
