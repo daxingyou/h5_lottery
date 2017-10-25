@@ -1,0 +1,106 @@
+@charset "utf-8";
+@import "variable";
+//login,form
+.login_area{
+    margin: 0 auto;
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    &.reg{
+        margin-top: .5rem;
+    }
+}
+fieldset{
+    display: block;
+    margin: .5rem 0 !important;
+}
+.form_g{
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(#12151e,.7);
+    padding: .3rem;
+    @include border-radius(.2rem);
+    border: 2px solid $normalblue;
+    >input{
+        background-color: transparent;
+        width: calc(93% - .5rem);
+        color: #fff;
+        border:none;
+        position: relative;
+    }
+    &:hover,&:active,&:focus{
+        box-shadow: 1px 2px 20px rgba($lightblue, 0.9);
+        border: 1px solid $normalblue;
+    }
+    >*{
+        vertical-align: middle;
+        float: left;
+        line-height: .5rem;
+        height: .5rem;
+    }
+    >legend{
+        display: inline-block;
+        width: .5rem;
+        height: .5rem;
+        margin-right: .5rem;
+        position: relative;
+        &:after{
+            @include pseudo;
+            width: 1px;
+            height: .5rem;
+            background-color: $normalblue;
+            right:-.2rem;
+            left: inherit;
+        }
+    }
+    &.text{
+        >legend{
+            background-image: none;
+            width: 1.3rem;
+        }
+        input{
+            width: calc(80% - .5rem);
+        }
+
+    }
+}
+.account{
+    >legend{
+        @include background-image ('account.svg',0,transparent);
+   }
+}
+.password{
+    overflow: hidden;
+    >legend{
+         @include background-image ('lock.svg',0,transparent);
+    }
+    >img{
+        float: right;
+        margin-top: -.5rem;
+    }
+    &.pay_password{
+        >legend{
+            background-image: none;
+            width: 1.3rem;
+        }
+        >input{
+            width: 19%;
+            border-right:1px solid $normalblue;
+            text-align: center;
+            margin: 0 auto;
+            &:last-child{
+                border-right: none;
+            }
+        }
+    }
+}
+.phone{
+    >legend{
+        @include background-image ('phone.svg',0,transparent);
+   }
+}
+.deposit_area{
+    @extend .login_area;
+    margin-top: 0;
+}
