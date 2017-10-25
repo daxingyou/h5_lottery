@@ -142,7 +142,7 @@
       "no-self-assign": 2,
       "no-self-compare": 2,
       "no-sequences": 2,
-      "no-throw-literal": 2,
+      "no-throw-literal": 1,
       "no-unmodified-loop-condition": 2,
       "no-unused-expressions": 0,
       "no-unused-labels": 2,
@@ -317,7 +317,7 @@
       "object-curly-spacing": 0,
       "object-property-newline": 0,
       "one-var": [
-        2,
+        1,
         {
           "initialized": "never"
         }
