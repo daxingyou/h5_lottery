@@ -102,7 +102,7 @@
             <div>
                 <ul>
                     <li>
-                        <a href="bet_record.html">
+                        <a href="../publicTemplate/bet_record.html">
                             <img src="../static/images/right/1.png">
                             <p>投注记录</p>
                         </a>
@@ -1284,7 +1284,9 @@
 <script>
     $(function () {
         var lotteryid = '4' ; // 彩种id
-        setCookie('lt_lottid','4') ; // 彩种id
+        var lotteryname = '江西11选5' ; // 彩种名称
+        setCookie('lt_lottid',lotteryid) ; // 彩种id
+        setCookie('lottery_name',lotteryname) ; // 彩种名称
         TouchSlide({
             slideCell: "#so-item2",
         });

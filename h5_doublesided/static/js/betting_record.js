@@ -6,10 +6,8 @@ var mainView = 0;
 
 $(function () {
     var access_token = getCookie('access_token'); // 取token
-    var username = getCookie('username');
-    var membalance = getCookie('membalance');
-    $('.user_name').text(username); // 用户名
-    $('.so-membalance').html(membalance); // 余额
+    var lotteryname = getCookie('lottery_name');
+    $('.lottery_name').html(lotteryname+'投注记录'); // 彩种名称
 
     var nowDate = new Date();
     var seadata = {
