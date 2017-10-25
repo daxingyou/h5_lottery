@@ -31,7 +31,7 @@ input, select, button, a { outline: none; }
 
 #pa_con .so-right > div:first-child img { right: 0.49rem; }
 
-#pa_head { overflow: hidden; height: 1.5rem; background-color: #0a1625; color: #d7e8f0; font-size: .4rem; position: relative; }
+#pa_head { overflow: hidden; height: 1.5rem; background-color: #0a1625; color: #d7e8f0; font-size: .4rem; position: relative; z-index: 11; }
 
 #pa_head:after { display: block; clear: both; content: ""; }
 
@@ -48,8 +48,6 @@ input, select, button, a { outline: none; }
 #pa_head > .center > img { width: 3.5rem; max-width: 100%; margin-top: -.25rem; }
 
 #pa_head > .center.logo { width: auto; }
-
-#pa_head > .center.lottery_name { width: calc(100% - 4rem); }
 
 #pa_head > .left { float: left; width: 1.48rem; }
 
@@ -141,17 +139,19 @@ h2 { font-weight: 300; }
 
 .bule_bg { display: block; background: url("../images/bg.jpg") repeat-y; width: 100%; background-size: 100%; }
 
-.btn { font-size: .35rem; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); margin: .5rem 0; text-align: center; }
+.btn { font-size: .35rem; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); margin: .5rem 0; }
 
-.btn > a { display: inline-block; padding: .3rem; width: 100%; margin: 0 auto; color: #d7e8f0; }
+.btn > a { display: block; padding: .3rem; margin: 0 auto; color: #d7e8f0; text-align: center; }
 
 .btn.btn_two { width: 40%; display: inline-block; margin: 0 auto; }
 
-.btn.btn_two > a { width: 100%; }
-
 .btn.btn_blue { background-image: -webkit-gradient(linear, left top, left bottom, from(#3792cc), to(#1e4b77)); background-image: -webkit-linear-gradient(#3792cc, #1e4b77); background-image: -o-linear-gradient(#3792cc, #1e4b77); background-image: linear-gradient(#3792cc, #1e4b77); }
 
+.btn.btn_blue02 { background-image: -webkit-gradient(linear, left top, left bottom, from(#1c4975), to(#3793cc)); background-image: -webkit-linear-gradient(#1c4975, #3793cc); background-image: -o-linear-gradient(#1c4975, #3793cc); background-image: linear-gradient(#1c4975, #3793cc); }
+
 .btn.btn_outline { border: 2px solid #256e93; }
+
+.btn.round { -webkit-border-radius: 0.5rem; -moz-border-radius: 0.5rem; -ms-border-radius: 0.5rem; border-radius: 0.5rem; }
 
 .other_link { font-size: .35rem; }
 
@@ -168,6 +168,14 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 .play_area { display: block; position: absolute; left: 0; top: 1.5rem; z-index: 15; background: #212838; width: 100%; border-top: 1px solid #383838; color: #d7e8f0; text-align: left; padding: .3rem 0; }
 
 .play_area .sort > h5 { margin-left: .55rem; margin-bottom: .2rem; color: #256e93; }
+
+.play_area .sort > div { margin: 0 auto; width: 90%; margin-top: .5rem; padding-bottom: .5rem; text-align: center; }
+
+.play_area .sort > div > .btn { width: 45%; }
+
+.play_area .sort > div > .btn:last-child { margin-left: .5rem; }
+
+.play_area .sort > div > .btn > a { padding-top: .25rem; padding-bottom: .25rem; }
 
 .play_area ul { width: 90%; margin: 0 auto; }
 
