@@ -324,10 +324,32 @@ h2{
     background-size: 100%;
     overflow: hidden;
     margin: 0 auto;
+    position: relative;
+    line-height: 1.8rem;
+    &:before{
+        @include pseudo;
+        //@include background-image ('logo_cqssc.svg',0,transparent);
+        width: 1.15rem;
+        height: 1.45rem;
+        left: 0.575rem;
+        margin-left: -0.43rem;
+        vertical-align: middle;
+
+    }
     >img{
         width: 75%;
         padding-top: .35rem;
         // height: 3.5rem;
+    }
+    &.lottery_logo_2{
+        &:before{
+            @include background-image ('logo_cqssc.svg',0,transparent);
+        }
+    }
+    &.lottery_logo_4{
+        &:before{
+            @include background-image ('logo_jc11x5.svg',0,transparent);
+        }
     }
 }
 //投注紀錄的scrollbar
