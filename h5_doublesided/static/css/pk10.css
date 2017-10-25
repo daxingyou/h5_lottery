@@ -1,0 +1,195 @@
+@charset "UTF-8";
+/* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+.pk10_clear:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+#pk10 .so-in-top {
+  background-image: url(../images/pk10/bg_top.jpg);
+  background-size: auto 100%; }
+
+#pk10 .so-m-t-left {
+  width: 2.5rem; }
+  #pk10 .so-m-t-left div:first-child {
+    width: 2.3rem; }
+
+#pk10 .so-m-t-right {
+  width: 7.5rem; }
+
+#pk10 .pk10_top_number li {
+  background: none;
+  float: left;
+  width: 0.65rem;
+  height: auto;
+  margin-right: 0.07rem; }
+  #pk10 .pk10_top_number li:last-child {
+    margin-right: 0px; }
+  #pk10 .pk10_top_number li .pk10_ball {
+    width: 0.65rem;
+    height: 0.58rem; }
+
+#pk10 .pk10_top_detail {
+  margin-left: 0.1rem; }
+  #pk10 .pk10_top_detail li {
+    width: 0.66rem;
+    margin-top: 0.1rem; }
+
+#pk10 .so-main-down li:first-child p {
+  width: 2.3rem;
+  margin-right: 0.12rem; }
+
+#pk10 .so-main-down li i {
+  margin-top: 0.18rem;
+  margin-left: 0;
+  vertical-align: middle; }
+
+#pk10 .so-main-down li a {
+  margin-top: 0.15rem;
+  margin-right: 0.1rem; }
+
+#pk10 .select-li {
+  height: auto;
+  padding-top: 0.3rem; }
+
+#pk10 .pk10_panel {
+  background: none;
+  height: auto;
+  position: relative; }
+  #pk10 .pk10_panel h2 {
+    background: url(../../static/images/content/panel_header.png) no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
+  #pk10 .pk10_panel > div {
+    background: url(../../static/images/content/panel_body.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 3% 3% 3.5%;
+    height: auto;
+    margin: 0px auto; }
+    #pk10 .pk10_panel > div p {
+      margin: 2%; }
+      #pk10 .pk10_panel > div p span:last-child {
+        padding-left: 0rem; }
+    #pk10 .pk10_panel > div:after {
+      content: '';
+      display: table;
+      clear: both; }
+  #pk10 .pk10_panel:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    clear: both;
+    background: url(../../static/images/content/panel_footer.png) no-repeat;
+    background-size: 100% 100%;
+    height: 0.4rem;
+    margin-top: -0.4rem; }
+  #pk10 .pk10_panel.style1 h2 {
+    background-image: url(../../static/images/content/panel_header_1.png); }
+
+.pk10_item ul li .pk10_panel {
+  width: 7rem;
+  height: 5rem;
+  background: url(../../static/images/content/kuang.png) no-repeat;
+  background-size: 8.4rem 5rem;
+  background-position-x: -1.1rem;
+  text-align: center;
+  margin: auto; }
+  .pk10_item ul li .pk10_panel > h2 {
+    color: #ffffff;
+    font-size: .4rem;
+    line-height: 1.12rem; }
+  .pk10_item ul li .pk10_panel > div {
+    padding: 3%;
+    width: 94%;
+    height: 3.1rem; }
+    .pk10_item ul li .pk10_panel > div p {
+      float: left;
+      border: solid 0.01rem #277ca5;
+      height: 0.85rem;
+      width: 3rem;
+      margin-bottom: 4%;
+      margin-left: 3.5%; }
+      .pk10_item ul li .pk10_panel > div p > span {
+        color: #d7e8f0;
+        font-size: .34rem;
+        display: block;
+        float: left;
+        padding-left: .25rem;
+        padding-right: .2rem;
+        line-height: 0.9rem; }
+        .pk10_item ul li .pk10_panel > div p > span:last-child {
+          float: right; }
+    .pk10_item ul li .pk10_panel > div p.active {
+      background: url(../../static/images/content/changkuang.png) no-repeat;
+      background-size: 3.06rem 0.9rem;
+      background-position: -0.01rem;
+      border: solid 0.01rem transparent; }
+      .pk10_item ul li .pk10_panel > div p.active > span:first-child {
+        color: #010101; }
+      .pk10_item ul li .pk10_panel > div p.active > span:last-child {
+        color: #ab0000; }
+
+.pk10_item ul li .so-con-span-short {
+  width: 3rem !important;
+  background-size: 3.06rem 0.9rem; }
+
+.pk10_ball {
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 0.8rem;
+  height: 0.8rem; }
+  .pk10_ball.num_1 {
+    background-image: url(../images/pk10/ball_1.png); }
+  .pk10_ball.num_2 {
+    background-image: url(../images/pk10/ball_2.png); }
+  .pk10_ball.num_3 {
+    background-image: url(../images/pk10/ball_3.png); }
+  .pk10_ball.num_4 {
+    background-image: url(../images/pk10/ball_4.png); }
+  .pk10_ball.num_5 {
+    background-image: url(../images/pk10/ball_5.png); }
+  .pk10_ball.num_6 {
+    background-image: url(../images/pk10/ball_6.png); }
+  .pk10_ball.num_7 {
+    background-image: url(../images/pk10/ball_7.png); }
+  .pk10_ball.num_8 {
+    background-image: url(../images/pk10/ball_8.png); }
+  .pk10_ball.num_9 {
+    background-image: url(../images/pk10/ball_9.png); }
+  .pk10_ball.num_10 {
+    background-image: url(../images/pk10/ball_10.png); }
+
+.pk10_panel .active .pk10_ball.num_1 {
+  background-image: url(../images/pk10/ball_1_a.png); }
+
+.pk10_panel .active .pk10_ball.num_2 {
+  background-image: url(../images/pk10/ball_2_a.png); }
+
+.pk10_panel .active .pk10_ball.num_3 {
+  background-image: url(../images/pk10/ball_3_a.png); }
+
+.pk10_panel .active .pk10_ball.num_4 {
+  background-image: url(../images/pk10/ball_4_a.png); }
+
+.pk10_panel .active .pk10_ball.num_5 {
+  background-image: url(../images/pk10/ball_5_a.png); }
+
+.pk10_panel .active .pk10_ball.num_6 {
+  background-image: url(../images/pk10/ball_6_a.png); }
+
+.pk10_panel .active .pk10_ball.num_7 {
+  background-image: url(../images/pk10/ball_7_a.png); }
+
+.pk10_panel .active .pk10_ball.num_8 {
+  background-image: url(../images/pk10/ball_8_a.png); }
+
+.pk10_panel .active .pk10_ball.num_9 {
+  background-image: url(../images/pk10/ball_9_a.png); }
+
+.pk10_panel .active .pk10_ball.num_10 {
+  background-image: url(../images/pk10/ball_10_a.png); }

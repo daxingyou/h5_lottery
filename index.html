@@ -1,11 +1,518 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>h5_lottery</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport"
+        content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <title>彩票</title>
+  <meta name="keywords" content="">
+  <meta nam="description" content="">
+  <link rel="stylesheet" href="css/res.css">
+  <link href="css/m-reset.css" rel="stylesheet" type="text/css">
+  <link href="css/m-warp.css" rel="stylesheet" type="text/css">
+  <link href="css/m-lottery.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="css/dialogUI.css">
+  <!--消息框代码结束-->
+  <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+  <script type="text/javascript" src="js/layer.js"></script>
+  <!-- 彈窗css 覆蓋layer.css用 -->
+  <link href="css/page.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id="body">
+  <header class="header">
+    <!-- <a class="m-return-home" href="#">返回大厅</a> -->
+    <span class="btn-slide-bar"></span>
+    <div id="nfdprize-text" class="m-lott-methodBox">
+      <span class="nfdprize_text" id="m-lott-listContent"> 复式<b></b></span>
+      <!-- <div class="fandian" id="nfdprize">单注奖金：
+          <select name="pmode" id="pmode">
+              <option value="1">奖金1800-7%</option>
+              <option value="2" selected="selected">奖金1940-0%</option>
+          </select>
+      </div> -->
+    </div>
+    <!--玩法-->
+    <div class="m-lott-methodBox-list" style="display: none;">
+      <div class="lotteryGroup">
+        <ul id="lotteryType_ul">
+
+        </ul>
+        <!-- <div class="ren"><a href="/lottery/cqssc">任选玩法</a></div>-->
+      </div>
+      <div class="lotteryMember" id="lt_small_label">
+        <!-- <dl class="cWay">
+             <dt>后三直选</dt>
+             <dd class="hover" id="smalllabel_0_0" name="smalllabel" v="0-0">复式</dd>
+             <dd id="smalllabel_0_1" name="smalllabel" v="0-1">单式</dd>
+             <dd id="smalllabel_0_2" name="smalllabel" v="0-2">直选和值</dd>
+         </dl>
+         <dl class="cWay">
+             <dt>后三组选</dt>
+             <dd id="smalllabel_1_0" name="smalllabel" v="1-0">组三</dd>
+             <dd id="smalllabel_1_1" name="smalllabel" v="1-1">组六</dd>
+             <dd id="smalllabel_1_2" name="smalllabel" v="1-2">混合组选</dd>
+             <dd id="smalllabel_1_3" name="smalllabel" v="1-3">组选和值</dd>
+         </dl>-->
+        <!-- <dl id="poschoose"></dl> -->
+
+        <div class="fandian ab" id="nfdprize">
+
+        </div>
+      </div>
+      <div class="ui_playlist_cover"></div>
+    </div>
+    <!--end 玩法-->
+
+    <!-- 最近五期开奖 -->
+    <div class="ui_history" id="m_recen_v">
+      <div id="m_vi_recLott" style="display:none;">
+        <div class="recentBox">
+          <div class="recentCon">
+            <ul>
+
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="m-nav-lott-date">
+        <span class="m-n-data">第<strong class="current_issue ui_color_strong"> </strong>期</span>
+        <!-- id="current_issue" -->
+        <span class="count_down m-n-countdown"> <!-- id="count_down" -->
+          <!-- <div class="hour">00:</div>
+           <div class="min">02:</div>
+           <div class="sec">33</div>-->
+                </span>
+      </div>
+      <div class="ui_btn_history">
+        <!-- <a href="#">近期开奖</a> -->
+      </div>
+    </div>
+    <!--end ui_近期開獎-->
+    <div href="javascript:;" class="ui_help">
+      <a class="ui_btn_help" href="javascript:;"><span class="icon_help"></span>助手</a>
+      <ul style="display:none;">
+        <li><a href="template/betting_record.html"><span class="icon_bet-history"></span>投注记录</a></li>
+        <li><a href="template/trend.html"><span class="icon_trend"></span>走势图</a></li>
+        <li><a href="template/recent_lottery.html"><span class="icon_lottery"></span>近期开奖</a></li>
+        <li><a id="number_count" href="javascript:;"><span class="icon_conut"></span>号码统计</a></li>
+        <li><a href="template/play.html"><span class="icon_info"></span>玩法说明</a></li>
+      </ul>
+    </div>
+  </header>
+  <!--侧导航 -->
+  <section class="slide-bar">
+
+    <div class="ui_info">
+      <div class="pic_user"><img src="images/pic_user.svg"></div>
+      <div class="user_info">
+        <p class="user_name"> </p>
+        <p class="user_money"><span class="icon_wallet"></span><span class="membalance"> </span></p>
+      </div>
+    </div>
+    <div class="left_menu">
+      <dl class="ui_block-list">
+        <dt>大家都在玩</dt>
+        <!-- 热门游戏 -->
+        <dd class="game-hot">
+
+        </dd>
+      </dl>
+      <!-- 全部游戏 -->
+      <dl class="ui_block-list">
+        <dt>更多好玩彩种</dt>
+        <dd class="game-all">
+
+        </dd>
+
+      </dl>
+    </div>
+  </section>
+
+  <div class="shady"></div>
+  <section class="wraper-page">
+
+    <div class="prize-winning" style="display:none;margin-top:-80px;">
+      <div class="pw-left">
+        <h2>
+          恭喜您！中奖<span id="prize-money">220.00</span>元
+        </h2>
+      </div>
+      <div class="pw-right">
+        <div class="pw-checkbox">
+          <input type="checkbox" class="non-notification">
+          <label>不再提示</label>
+          <span class="close-btn"></span>
+        </div>
+      </div>
+      <div class="pw-detail">
+        <span id="prize-lottery">河内一分彩</span>
+        <span class="issue" id="prize-issue">20170220-0957期</span>
+        <a href="#" class="order" id="prize-href">注单详情<i>&gt;</i>
+        </a>
+      </div>
+    </div>
+
+    <div class="warp lotteryBox">
+      <p class="no_old" style="display:none;"></p>
+      <form method="post" name="buyform">
+        <input type="hidden" name="lotteryId" id="lotteryId" value="1">
+        <input type="hidden" name="curmid" id="curmid" value="50">
+        <input type="hidden" name="poschoose" value="">
+        <input type="hidden" name="flag" id="flag" value="save">
+        <input type="hidden" name="play_source" id="play_source">
+        <div class="lotteryBody">
+
+          <div class="lotteryLeft">
+            <!-- 玩法说明 -->
+
+            <div class="playf_dl">
+              <div class="m_playf_dl_box">
+                <!--五分彩/分分彩加官网链接-->
+                <!-- <span class="wfsm">
+                    玩法说明</span> -->
+                <span id="lt_desc" class="help_con"> </span>
+                <span class="help_con" id="lt_payoff"> </span>
+              </div>
+
+
+            </div>
+            <!-- 玩法说明end -->
+            <div class="lotteryView" id="lt_selector">
+              <!--<div class="each">
+                  <h3>百位</h3>
+                  <ul class="cList">
+                      <li name="all">全</li>
+                      <li name="big">大</li>
+                      <li name="small">小</li>
+                      <li name="odd">奇</li>
+                      <li name="even">偶</li>
+                      <li name="clean">清</li>
+                  </ul>
+                  <ul class="nList active">
+                      <li name="lt_place_1">0</li>
+                      <li name="lt_place_1">1</li>
+                      <li name="lt_place_1">2</li>
+                      <li name="lt_place_1">3</li>
+                      <li name="lt_place_1">4</li>
+                      <li name="lt_place_1">5</li>
+                      <li name="lt_place_1">6</li>
+                      <li name="lt_place_1">7</li>
+                      <li name="lt_place_1">8</li>
+                      <li name="lt_place_1">9</li>
+                  </ul>
+              </div>
+              <div class="each">
+                  <h3>十位</h3>
+                  <ul class="cList">
+                      <li name="all">全</li>
+                      <li name="big">大</li>
+                      <li name="small">小</li>
+                      <li name="odd">奇</li>
+                      <li name="even">偶</li>
+                      <li name="clean">清</li>
+                  </ul>
+                  <ul class="nList">
+                      <li name="lt_place_1">0</li>
+                      <li name="lt_place_1">1</li>
+                      <li name="lt_place_1">2</li>
+                      <li name="lt_place_1">3</li>
+                      <li name="lt_place_1">4</li>
+                      <li name="lt_place_1">5</li>
+                      <li name="lt_place_1">6</li>
+                      <li name="lt_place_1">7</li>
+                      <li name="lt_place_1">8</li>
+                      <li name="lt_place_1">9</li>
+                  </ul>
+              </div>
+              <div class="each">
+                  <h3>个位</h3>
+                  <ul class="cList">
+                      <li name="all">全</li>
+                      <li name="big">大</li>
+                      <li name="small">小</li>
+                      <li name="odd">奇</li>
+                      <li name="even">偶</li>
+                      <li name="clean">清</li>
+                  </ul>
+                  <ul class="nList">
+                      <li name="lt_place_2">0</li>
+                      <li name="lt_place_2">1</li>
+                      <li name="lt_place_2">2</li>
+                      <li name="lt_place_2">3</li>
+                      <li name="lt_place_2">4</li>
+                      <li name="lt_place_2">5</li>
+                      <li name="lt_place_2">6</li>
+                      <li name="lt_place_2">7</li>
+                      <li name="lt_place_2">8</li>
+                      <li name="lt_place_2">9</li>
+                  </ul>
+              </div>-->
+            </div>
+            <div class="addOrderBox">
+              <div class="addOrderLeft">
+
+                <div class="m_funding_box">
+                  <div class="funding" id="lt_funding">
+                    <span class="onSelect" id="funding_text">元</span>
+                    <a href="javascript:void(0);" style="display:none;">
+                      <span class="hover" data="yuan">元</span><span data="jiao">角</span>
+                      <!--<span data="fen">分</span>-->
+                    </a>
+                    <input type="radio" name="lt_project_modes" class="radio_yuan" value="1"
+                           checked="checked" style="display:none;" data-type="y"><!--元-->
+                    <input type="radio" name="lt_project_modes" class="radio_jiao" value="2"
+                           style="display:none;" data-type="j"><!--角-->
+                    <!-- <input type="radio" name="lt_project_modes" class="radio_fen" value="3" style="display:none;">分 -->
+                  </div>
+                  <div class="multipleBox xh_multipleBox">
+                    <span class="bei">投</span>
+                    <div class="multipleCon re">
+                      <a href="javascript:;" id="less_bei" class="less_bei"></a>
+                      <input type="text" id="lt_sel_times" value="1">
+                      <a href="javascript:;" id="add_bei" class="add_bei"></a>
+                    </div>
+                    <span class="bei">倍</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bet_random lt_random_bets_auto" data-type="autochooce">
+                <span class="icon_random"></span>
+                <span >随选</span>
+              </div>
+              <div class="addOrderRight">
+
+              </div>
+            </div>
+          </div>
+
+          <div class="clear"></div>
+        </div>
+
+      </form>
+    </div>
+    <div class="padding_fot_b20 "></div>
+    <div class="m_fx_footer">
+      <div class="chooseMsg" id="ui_bet_info">
+        <p>已选 <span id="lt_sel_nums">0</span> 注 </p>
+        <p>共 <span id="lt_sel_money">0</span> 元</p>
+      </div>
+      <div class="chooseMsg" id="ui_car_info">
+        <p><span id="lt_cf_nums">0</span> 注</p>
+        <p><span id="lt_cf_date">1</span> 期</p>
+        <p>共 <span id="lt_cf_money">0</span> 元</p>
+      </div>
+      <div class="v-moeny">
+        <div class="you-money">
+                    <span class="t_money rounded" title="0.00">
+                        <div class="show-money" style="display: block;"><i>可用余额</i> <span><b class="membalance"> </b> 元</span>
+
+                        </div>
+
+                    </span>
+
+        </div>
+
+      </div>
+      <div class="ui_cart" id="ui_cart">
+        <span class="icon_car"></span>
+        <span id="lt_cf_count" class="num">0</span>
+      </div>
+      <a href="javascript:;" class="addBtn addBtnDisabled" id="lt_sel_insert">
+        <span class="icon_addcar"></span>
+        添 加
+      </a>
+
+      <div class="sendChoose">
+        <a href="javascript:void(0);" id="lt_sendok" class="sendBtnDisabled">
+          <span class="icon_bet"></span>投注</a>
+      </div>
+    </div>
+
+  </section>
+</div>
+<div id="ui_bet" class="ui_bet">
+  <header class="bet_header">
+    <a href="javascript:;" class="btn_back" id="bet_back" title="返回"></a>
+    <h2 class="name-lottery"> </h2>
+    <div class="ui_history">
+      <div class="m-nav-lott-date">
+        <span class="m-n-data">第<strong class="current_issue ui_color_strong"> </strong>期</span>
+        <span class="count_down m-n-countdown">
+                  <!--  <div class="hour"> </div>
+                    <div class="min"> </div>
+                    <div class="sec"> </div>-->
+                </span>
+      </div>
+    </div>
+  </header>
+  <div class="ui_bet_main">
+    <div class="ui_bet_wrap">
+      <div class="ui_bet_tool">
+        <!-- 机选 -->
+        <span id="lt_random_area">
+                   <!--  <a href="javascript:;" class="lt_random_bets_1"><span class="icon_add2"></span>机选1注</a>
+                     <a href="javascript:;" class="lt_random_bets_5"><span class="icon_add2"></span>机选5注</a>-->
+                </span>
+        <a href="javascript:;" class="delete-all"><span class="icon_trash"></span>清空列表</a>
+      </div>
+      <div class="lotteryBottom">
+        <div class="addList">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td width="100%" id="lt_cf_content">
+                <div class="cleanall" style="display: block;">您还未选择号码</div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="addOrderBox" id="all_addOrderBox">
+      <div class="addOrderLeft">
+
+        <div class="m_funding_box">
+          <a href="javascript:;" class="btn_addstop disable" data-val="1">追中即停</a> <!-- 0 不追号，1追号-->
+          <div class="multipleBox zh_multipleBox">
+            <span class="bei">投</span>
+            <div class="multipleCon re">
+              <a href="javascript:;" class="less_bei z_less_bei"></a>
+              <input type="text" id="id_add_times" value="1" readonly>
+              <a href="javascript:;" class="add_bei z_add_bei"></a>
+            </div>
+            <span class="bei">倍</span>
+          </div>
+          <div class="multipleBox zh_multipleBox">
+            <span class="bei">追</span>
+            <div class="multipleCon re">
+              <a href="javascript:;" class="less_bei z_less_bei"></a>
+              <input type="text" id="id_add_date" value="1" readonly>
+              <a href="javascript:;" class="add_bei z_add_bei"></a>
+            </div>
+            <span class="bei">期</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+<script type="text/javascript" async="" src="js/ga.js"></script>
+<script type="text/javascript" src="js/jquery.dialogUI.js"></script>
+<script type="text/javascript" src="js/jquery.dragdrop.js"></script>
+
+
+<!--消息框代码开始-->
+<script type="text/javascript" src="js/main.js"></script> <!-- 公共方法放在这 -->
+<script type="text/javascript" src="js/velocity.min.js"></script>
+
+<script type="text/javascript" src="js/common.js"></script>
+<!--时时彩js-->
+<script type="text/javascript" src="js/ssc_lottery.js"></script>
+<script type="text/javascript" src="js/youxi_lang_zh.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.main.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.selectarea.js"></script>
+<script type="text/javascript" src="js/m_jquery.youxi.trace.js"></script> <!-- 追号处理js  -->
+<script type="text/javascript" src="js/pushstream.js"></script>
+
+<!--<script type="text/javascript" src="js/coreDesign.js"></script>-->
+<script type="text/javascript" src="js/res.js"></script>
+
+
+<!-- 声音控件-->
+<!-- <div id="soundBox" style="width:1px; height:1px; position:absolute;">
+<embed id="boardcastBox" src="/fl/source/soundBox.swf" loop="false" menu="false" quality="best" width="1" height="1" name="boardcastBox" style="position:absolute; top:-10px;" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="#" flashvars="Ctext=1a3f677c" wmode="window">
+</div> -->
+<!-- <script type="text/javascript" src="/js/nsc/soundBox.js?v=1.17.8.13"></script> -->
+
+<script type="text/javascript">
+    var pushServiceObj = {
+        pushServerHost: '888', // P.888sincai.com
+        pubChannelId: '888',
+        pubToken: '888',
+        userChannelId: '888',
+        pushStatus: '1',
+        pushModule: '888',
+        pushServerStatus: 'good',     //推送服务器状态 good默认服务器正常 warning服务器轮循警告状态 dead服务器挂了
+        pushDelayNum: 0,              //推送重启次数
+        pushDelayMaxNum: 3,           //推送重启最大次数
+        pushDelayTime: '60,120,180'   //每次重启的间隔时间
+    };
+
+    var lottery_key = 'L-1';
+    var sidebar_hover = 'cq_ssc';
+
+    // 元角选单
+    $(function () {
+        $('#lt_funding')
+            .on('click', function () {
+                $(this)
+                    .find('a')
+                    .toggle();
+            });
+    });
+    var radio_start = 0;//0遗漏 ，1冷热
+    //弹窗，号码统计
+    $('#number_count')
+        .click(function () {
+            var radio_checked_0 = '';
+            var radio_checked_1 = '';
+            var radio_checked_2 = '';
+            if (radio_start == 0) {
+                radio_checked_0 = 'checked';
+            } else if (radio_start == 1) {
+                radio_checked_1 = 'checked';
+            } else {
+                radio_checked_2 = 'checked';
+            }
+//            layer.open({
+//                title: '号码统计',
+//                className: 'layer_count',
+//                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">冷热120期</label></p></div>',
+//                btn: ['确定', '取消'],
+//                yes: function () {
+//                    // 需要js/soye/index.js支持
+//                    initSoFun();
+//                    layer.closeAll();
+//                },
+//            });
+            //在这里面输入任何合法的js语句
+            layer.open({
+                type: 1 //Page层类型
+//                ,area: ['500px', '300px']
+//                ,title: '你好，layer。'
+                ,
+                className: 'layer_count',
+                shade: 0.6 //遮罩透明度
+                ,
+                maxmin: true //允许全屏最小化
+                ,
+                anim: 1 //0-6的动画形式，-1不开启
+                ,
+                content: '选择在下方显示对应的数据：<br /><div class="radio"><p><input class="so-radio-tongji" type="radio" id="r01" name="radio-group" ' + radio_checked_0 + '><label for="r01">当前遗漏</label></p><p><input  class="so-radio-tongji" type="radio" id="r02" name="radio-group" ' + radio_checked_1 + '><label for="r02">当前冷热</label></p><p><input  class="so-radio-tongji" type="radio" id="r03" name="radio-group" ' + radio_checked_2 + '><label for="r03">取消显示</label></p></div>'
+                ,
+                btn: ['确定', '取消']
+                , yes: function () {
+                    // 需要js/soye/index.js支持
+                    initSoFun();
+                    layer.closeAll();
+                },
+            });
+        });
+
+</script>
+<!--<script type="text/javascript" src="js/pushservice.js"></script>-->
+<script src="js/soye/index.js"></script>
+</body>
 </html>

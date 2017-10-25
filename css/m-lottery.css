@@ -119,7 +119,7 @@ body { }
 .lotteryView .sp2 li { line-height: 20px; font-size: 14px; width: 90px; height: auto; }
 
 /*pk10*/
-.pk10_left { height: 14.785714rem; display: inline; float: left; background-image: url(../images/lott/lottery_jswf_box-bg.jpg); background-repeat: no-repeat; background-size: 100%; background-position: 0px 29px; }
+/*.pk10_left { height: 14.785714rem; display: inline; float: left; background-image: url(../images/lott/lottery_jswf_box-bg.jpg); background-repeat: no-repeat; background-size: 100%; background-position: 0px 29px; }
 .lotteryView .pk10_left h3.noname { display: none; }
 .lotteryView .pk10_car { margin-top: 0.928571rem; height: 5.357143rem; }
 .lotteryView .pk10_car .nList li { margin: 0px; display: inline; float: left; width: 20%; height: 32px; line-height: 32px; text-indent: -9999px; background-size: 80%; }
@@ -132,13 +132,13 @@ body { }
 .lotteryView .pk10_car .nList li.car_07 { background-image: url("../images/m_c_07.png") }
 .lotteryView .pk10_car .nList li.car_08 { background-image: url("../images/m_c_08.png") }
 .lotteryView .pk10_car .nList li.car_09 { background-image: url("../images/m_c_09.png") }
-.lotteryView .pk10_car .nList li.car_10 { background-image: url("../images/m_c_10.png") }
+.lotteryView .pk10_car .nList li.car_10 { background-image: url("../images/m_c_10.png") }*/
 
 /*.lotteryView .pk10_car .nList li:hover { background-position-y: -32px; }*/
-.lotteryView .pk10_car .nList li.disable { opacity: .5 }
-.lotteryView .pk10_ball ,.lotteryView .jssm_ball{ position: relative; height: 2.5rem; overflow: inherit; }
+/*.lotteryView .pk10_car .nList li.disable { opacity: .5 }
+.lotteryView .pk10_ball ,.lotteryView .jssm_ball{ position: relative; height: 2.5rem; overflow: inherit; }*/
 /*急速赛马*/
-.lotteryView .jssm_ball .nList li.num_01{background: #8B8B8B; }
+/*.lotteryView .jssm_ball .nList li.num_01{background: #8B8B8B; }
 .lotteryView .jssm_ball .nList li.num_02{background: #B7B725; }
 .lotteryView .jssm_ball .nList li.num_03{background: #EF710B; }
 .lotteryView .jssm_ball .nList li.num_04{background: #4BA40F; }
@@ -147,9 +147,9 @@ body { }
 .lotteryView .jssm_ball .nList li.num_07{background: #C33030; }
 .lotteryView .jssm_ball .nList li.num_08{background: #484848; }
 .lotteryView .jssm_ball .nList li.num_09{background: #833C0C; }
-.lotteryView .jssm_ball .nList li.num_10{background: #B642B6; }
+.lotteryView .jssm_ball .nList li.num_10{background: #B642B6; }*/
 /*急速赛马------*/
-.lotteryView .pk10_fast { margin-top: 0.2rem; margin-left: 4.0rem; }
+/*.lotteryView .pk10_fast { margin-top: 0.2rem; margin-left: 4.0rem; }
 .lotteryView .pk10_slow { margin-top: 2.071429rem; margin-left: 4.0rem; }
 .lotteryView .pk10_ball .nList ,.lotteryView .jssm_ball .nList { overflow: visible; position: absolute; }
 .lotteryView .pk10_ball .nList li , .lotteryView .jssm_ball .nList li { margin: 0px 0.8rem; width: 2.5rem; height: 2.5rem; line-height: 2.5rem; float: left; font-weight: bold; font-size: 16px; display: none; cursor: default; border-radius: 50%; color: #fff; }
@@ -165,7 +165,7 @@ body { }
 .lotteryView .pk10_ball .nList li.num_10 {background: #09C508; }
 .lotteryView .pk10_clean .nList li { font-size: 1.0rem; float: left;	/*background-color: red;*/ color: #ccc; background: none; width: 2.5rem; height: 2.5rem; border: 0; margin: 0px 0.8rem; }
 .pk10_right { width: 65px; float: left; }
-.pk10_right .cAll { text-indent: -9999px; margin-left: 5px; width: 2.85rem; height: 2.0rem; display: inline-block; background-image: url(../images/lott/lottery_jswf_btn-clear.png); background-repeat: no-repeat; background-size: 100%; }
+.pk10_right .cAll { text-indent: -9999px; margin-left: 5px; width: 2.85rem; height: 2.0rem; display: inline-block; background-image: url(../images/lott/lottery_jswf_btn-clear.png); background-repeat: no-repeat; background-size: 100%; }*/
 
 /*.pk10_right .cAll:hover { background-position: 0px -51px; }*/
 

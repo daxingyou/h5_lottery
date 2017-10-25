@@ -1,0 +1,440 @@
+@charset "utf-8";
+@import "variable";
+html {
+    -webkit-text-size-adjust: none;
+    background-color: #19222f !important;
+}
+body{
+    width: 100%;
+    min-height: 18rem;
+    padding: 50px;
+    //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
+    font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+}
+body,.warp {
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+*, :after, :before {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+}
+a{
+  color: $bluetext;
+  text-decoration: none !important;
+    // pc_demo用
+    &:hover,&:focus,&:active{
+        text-decoration: none !important;
+    }
+    // h5正式用
+    &.active{}
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+hr{
+    border-top: 1px solid rgba(#464a4e,0.1);
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1.5em;
+}
+
+input,select,button,a{
+    outline: none;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #3c5369;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #3c5369;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #3c5369;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #3c5369;
+}
+// 基礎layout
+#pa_con{
+    width: 10rem;
+    height: 100%;
+    overflow-x: hidden;
+    text-align: center;
+    margin: auto;
+    background: url('../../static/images/bg.jpg');
+    background-size: 100%;
+        min-height: 18rem;
+        .so-right > div:first-child img {
+            right: 0.49rem;
+        }
+}
+#pa_head{
+    overflow: hidden;
+    height: 1.5rem;
+    background-color: #0a1625;
+    color: $bluetext;
+    font-size: .4rem;
+    position: relative;
+    &.index_nav_top{
+        position: fixed;
+        top: 0;
+        z-index: 5;
+        width: 10rem;
+    }
+    &.login{
+        height: auto;
+        background-color: transparent;
+        float: none;
+        >img{
+            width: 100%;
+        }
+    }
+    >*{
+        display: inline-block;
+        float: left;
+    }
+    >.center{
+        text-align: center;
+        padding: .5rem 0;
+        width: calc(100% - 2.96rem);
+        font-weight: 300;
+        color: $bluetext;
+        font-size: .38rem;
+        >img{
+            width: 3.5rem;
+            max-width: 100%;
+            margin-top: -.25rem;
+        }
+        &.logo{
+            width: auto;
+        }
+    }
+    >.left{
+        float: left;
+        width: 1.48rem;
+        //height: 1.48rem;
+        a{
+            display: inline-block;
+            img{
+                width: 100%;
+                margin: 0;
+            }
+            &.btn_leftside{
+                margin-top: .5rem;
+            }
+        }
+    }
+    >.right{
+        float: right;
+        >.so-top-zoushi {
+            // float: right;
+            height: 1.48rem;
+            width: 1.48rem;
+            img {
+                height: 0.6rem;
+                position: relative;
+                top: 0.46rem;
+                left: -0.1rem;
+            }
+        }
+        >a{
+            padding-top: 0.43rem;
+            font-size: .35rem;
+            display: inline-block;
+            color: $bluetext;
+            padding: 0.5rem .35rem 0 0;
+        }
+    }
+}
+// 中間區塊
+.warp{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    color: $bluetext;
+}
+.container {
+    width: 100%;
+}
+
+// footer
+footer.bot_nav{
+    position: fixed;
+    bottom:0;
+    width: 10rem;
+    @include background-image ('bot_nav.jpg',0,#102634);
+    background-size: contain;
+    background-repeat:repeat-x;
+    height: 1.5rem;
+    >ul{
+        text-align: center;
+        overflow: hidden;
+        margin: 0 auto;
+        font-size: 0;
+        border-top: 1px solid #326087;
+        //height: 1.5rem;
+        >li{
+            display: inline-block;
+            font-size: .35rem;
+            text-align: center;
+            width: 25%;
+            padding: .45rem 0 .5rem;
+            height: 1.5rem;
+            &:after{
+                @include pseudo;
+                @include background-image ('bot_nav_line.jpg',0,transparent);
+                width: 2px;
+                height: 1.5rem;
+                //background-repeat: repeat-y;
+            }
+            &.active,&:hover,&:focus{
+                @include background-image ('bot_nav_se.png',0,transparent);
+                height: 0.55rem;
+                a{
+                    text-shadow: 0 5px 10px rgba(0,0,0,.9);
+                }
+            }
+            a{
+                margin-left: 15%;
+                &:before{
+                    @include pseudo;
+                    @include background-image ('icon.png',0,transparent);
+                    width: .5rem;
+                    height: .5rem;
+                    top: .5rem;
+                    left: calc( 30% - .55rem);
+                }
+                &.index{
+                    &:before{
+                        background-position-y: 0;
+                    }
+                }
+                &.trend{
+                    &:before{
+                        background-position-y: -.7rem;
+                    }
+                }
+                &.record{
+                    &:before{
+                        background-position-y: -1.45rem;
+                    }
+                }
+                &.member{
+                    &:before{
+                        background-position-y: -2.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.clearfix {
+    @include clearfix();
+}
+
+// 404
+.text-red{
+    color: $red;
+}
+.text-yellow{
+    color: $yellow;
+}
+.text-default{
+    color: $bluetext;
+}
+.text-l-yellow{
+    color: #fdf19b;
+}
+.text-green{
+    color: $green;
+}
+h2{
+    font-weight: 300;
+}
+//  展開收合效果
+.slide_toggle {
+    text-align: left;
+    color: #ACACAC;
+    cursor: pointer;
+    .panel_title{
+        padding: .5rem 0.7143rem .5rem 1.2rem;
+        font-size: .4rem;
+        height: .25rem;
+        line-height: .25rem;
+        background: url('../../static/images/page/date_bar.png') no-repeat left top;
+        background-size: 100%;
+        span{
+            background-image: url('../../static/images/arrow_up.png');
+            background-size:0.7143rem 0.7143rem;
+            // display: inline-block;
+            width: 0.7rem;
+            height: 0.7rem;
+            position: relative;
+            background-position: 0px 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            // left:1.2rem;
+            top: -.3rem;
+            transition: all .2s;
+            // margin-top: -0.2rem;
+            float: right;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+    .panel {
+        display: none;
+        background-color: rgba(#11161c,.7);
+        border: 1px solid rgba(#23304a,.9);
+        width: 99.5%;
+    }
+    &.active{
+        color: #ccc;
+        .panel_title span{
+            top:-.1rem;
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+            // background-image: url('../images/icon_arrow_up.svg');
+        }
+    }
+}
+//左側選單+投注紀錄logo樣式
+.badge{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 100%;
+    // padding: .5rem;
+    // margin: .2rem .5rem;
+    margin-right: 0.5714rem;
+    // border: 3px solid #ccc;
+    background-image: url('../../static/images/page/logo_bg.png');
+    background-size: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    line-height: 1.8rem;
+    &:before{
+        @include pseudo;
+        //@include background-image ('logo_cqssc.svg',0,transparent);
+        width: 1.15rem;
+        height: 1.45rem;
+        left: 0.575rem;
+        margin-left: -0.43rem;
+        vertical-align: middle;
+
+    }
+    >img{
+        width: 75%;
+        padding-top: .35rem;
+        // height: 3.5rem;
+    }
+    &.lottery_logo_2{
+        &:before{
+            @include background-image ('logo_cqssc.svg',0,transparent);
+        }
+    }
+    &.lottery_logo_4{
+        &:before{
+            @include background-image ('logo_jc11x5.svg',0,transparent);
+        }
+    }
+}
+//投注紀錄的scrollbar
+.boxlist::-webkit-scrollbar {
+    width: 1em;
+}
+.boxlist::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.boxlist::-webkit-scrollbar-thumb {
+  background-color: #0b5c8f;
+  outline: 1px solid #0e121d;
+}
+.boxlist::-webkit-scrollbar-corner{
+background-color: #0e121d;
+}
+
+.bule_bg{
+    display: block;
+    background: url('../images/bg.jpg') repeat-y;
+    width: 100%;
+    background-size: 100%;
+}
+.btn{
+    font-size: .35rem;
+    @include border-radius(.2rem);
+    //@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.5) inset );
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: .5rem 0;
+    >a{
+        display: inline-block;
+        padding: .3rem;
+        width:100%;
+        margin: 0 auto;
+        color: $bluetext;
+    }
+    &.btn_blue{
+        background-image:linear-gradient(#3792cc, #1e4b77);
+    }
+}
+.other_link{
+    font-size: .35rem;
+    >a{
+        color: $bluetext;
+        margin: .2rem;
+        display: inline-block;
+        border-left: 1px solid $normalblue;
+        padding-left: .5rem;
+        &:first-child{
+            border-left: none;
+        }
+        &.text-yellow{
+            color: $yellow;
+            margin: 0;
+            padding: 0;
+            border-left: none;
+        }
+    }
+}
+i.close{
+    display: block;
+    @include background-image ('close.svg',0,transparent);
+    width: .25rem;
+    height: .25rem;
+    position: absolute;
+    right:.3rem;
+    top:.4rem;
+}
+i.eye{
+    display: block;
+    @include background-image ('eye_view.svg',0,transparent);
+    width: .4rem;
+    height: .25rem;
+    position: absolute;
+    right:.3rem;
+    top:.4rem;
+    &.active{
+        @include background-image ('eye_hide.svg',0,transparent);
+    }
+}
+label{
+    &.red{
+        color: #d43939;
+        text-align: left;
+        display: block;
+        margin-top: .2rem;
+    }
+}
