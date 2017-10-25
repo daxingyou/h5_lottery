@@ -89,9 +89,19 @@ function initViewHeight() {
 function initNavChoice() {
     $('.so-con-left li').each(function (i, t) {
         $(t).click(function () {
+            var ifclick = getCookie('ifclick') ;
+            if(ifclick ==true){
+                resetAction() ;
+            }
+            console.log(ifclick)
+            var hasreset = $(this).hasClass('reset_bet') ; // 江西11选5切换时，需要重置投注
+            setCookie('ifclick',hasreset) ;
+            if(hasreset){
+                resetAction() ;
+            }
             $('.so-con-right > div').hide();
-            $('.so-con-left li').attr('class', '');
-            $(this).attr('class', 'active');
+            $('.so-con-left li').removeClass('active');
+            $(this).addClass('active');
             $('#so-item' + i).show();
         })
             .click(0);// 預先載入第一類左側選單的所有內容

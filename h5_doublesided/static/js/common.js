@@ -135,8 +135,8 @@ function getStrParam () {
 /* 全局变量定义 */
 var access_token = ' ';
 var action = {
-    forseti: 'http://122.53.134.66:19091/forseti/',
-    uaa: 'http://122.53.134.66:19091/uaa/',
+    forseti: 'http://121.58.234.210:19091/forseti/',
+    uaa: 'http://121.58.234.210:19091/uaa/',
 };
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
@@ -797,6 +797,7 @@ function submitAction(lotteryid) {
             if (data.err == 'SUCCESS') {  //购买成功
                 initTipPop05(true,3) ;
                 resetAction() ;
+                getMemberBalance() ; // 更新余额
                 return false;
             } else {  //购买失败提示
 
@@ -828,6 +829,7 @@ function submitAction(lotteryid) {
 * 重置投注页，提交表单后调用
 * */
 function resetAction() {
+    console.log('回复的')
     $(".so-con-right p").each(function (i, t) {
         $(this).removeClass('active') ;
         $('.bet-select-num').text('0') ;

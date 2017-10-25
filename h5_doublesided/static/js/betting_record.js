@@ -7,6 +7,7 @@ var mainView = 0;
 $(function () {
     var access_token = getCookie('access_token'); // 取token
     var lotteryname = getCookie('lottery_name');
+    var lotteryid = getCookie('lt_lottid');
     $('.lottery_name').html(lotteryname+'投注记录'); // 彩种名称
 
     var nowDate = new Date();
@@ -15,7 +16,7 @@ $(function () {
         pageSize: 10, // 每页行数
         searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
         statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
-        lotteryId: getCookie('lt_lottid'), // 彩种ID
+        lotteryId: lotteryid , // 彩种ID
         pdate: '' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate(),
     };
 
@@ -176,7 +177,7 @@ $(function () {
                                     '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                     '<div class="prd_num"><span>' + pcode + '</span>期</div>'+
                                     '<div class="item"> '+
-                                    '<div class="badge ssc_badge"></div>' +
+                                    '<div class="badge ssc_badge lottery_logo_'+lotteryid+'"></div>' +
                                     '<div class="lottery_t ssc">' +
                                     '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                     '<div class="status ' + className + '"' + v.orderStatus + '>' +
