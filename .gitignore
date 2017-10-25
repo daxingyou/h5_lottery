@@ -18,3 +18,4 @@ test/unit/coverage
 *.ntvs*
 *.njsproj
 *.sln
+/prepros-6.config
