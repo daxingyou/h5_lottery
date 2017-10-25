@@ -841,3 +841,74 @@ function resetAction() {
         $('.bet-amount').val('0') ;
     })
 }
+
+/*
+* 标签切换
+* */
+
+function changeTab(lotteryid) {
+    $('.tab_three').on('click','li',function () {
+        var val = $(this).data('val') ;
+            $(this).addClass('on').siblings().removeClass('on') ;
+
+           doubleCount(lotteryid,val,'') ;
+    });
+}
+
+/*
+* 近期开奖数据
+* */
+
+function doubleCount(lotteryid,rows,maxtime) {
+    var senddata ={
+        lotteryId : lotteryid ,
+        pcount: rows ,
+        maxUpdateTime: maxtime ,
+    }
+    $.ajax({
+        type: 'get',
+        headers: {
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        url: action.forseti + 'api/openNums/doubleCount',
+        timeout: 600000,
+        data: senddata ,
+        success: function (data) {
+         // console.log(data.data) ;
+            var str ='';
+            for(var i=0;i<data.data.length;i++){
+                var codeArr = data.data[i].winNumber.split(',') ;
+                str +='<li class="past_view">'+
+                    '<ul class="panel">'+
+                   ' <li class="prod" data-status="not_open">'+
+                    '<div class="play_th">'+
+                    '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
+                    '<ul class="double-count">'+
+                   ' <li>'+data.data[i].doubleData.total+'</li>'+
+                   ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                   ' <li>'+data.data[i].doubleData.longer+'</li>'+
+                   ' <li>'+data.data[i].doubleData.doubler+'</li>'+
+                   ' </ul>'+
+                   '</div>'+
+                   ' <ul class="lo_ball double-numbers">';
+                    for (var j = 0; j < codeArr.length; j++) {
+                        str += ' <li>'+codeArr[j]+'</li>' ;
+                    }
+
+                    str += '</ul>'+
+                            '</li>'+
+                            '</ul>'+
+                            '</li>' ;
+            }
+        $('.double-all').html(str) ;
+
+
+        },
+        error: function (res) {  // 错误提示
+
+
+        }
+    });
+}
