@@ -178,6 +178,7 @@ footer.bot_nav{
         overflow: hidden;
         margin: 0 auto;
         font-size: 0;
+        border-top: 1px solid #326087;
         //height: 1.5rem;
         >li{
             display: inline-block;
@@ -192,6 +193,13 @@ footer.bot_nav{
                 width: 2px;
                 height: 1.5rem;
                 //background-repeat: repeat-y;
+            }
+            &.active,&:hover,&:focus{
+                @include background-image ('bot_nav_se.png',0,transparent);
+                height: 0.55rem;
+                a{
+                    text-shadow: 0 5px 10px rgba(0,0,0,.9);
+                }
             }
             a{
                 margin-left: 15%;
@@ -222,9 +230,6 @@ footer.bot_nav{
                     &:before{
                         background-position-y: -2.1rem;
                     }
-                }
-                &.active,&:hover,&:focus{
-                    box-shadow: 0 5px 10px rgba(0,0,0,.9);
                 }
             }
         }
