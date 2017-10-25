@@ -255,7 +255,7 @@ function getPlayTree(gameid) {
                 $(".so-con-right p").each(function (i, t) {
                    var playid = $(this).data('id') ;
                    if(playid == vv.cid){
-                       $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(4)) ; // 每种玩法赔率
+                       $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(3)) ; // 每种玩法赔率
                    }
 
 
