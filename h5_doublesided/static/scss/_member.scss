@@ -254,16 +254,11 @@ fieldset{
             background: rgba(255, 255, 255, 0.07);
             padding: .6em 0;
             position: relative;
-            i{
-                // margin: 0 15px;
-                width: 35px;
-                margin-left: .5rem;
-                &:last-child{
-                    width: 32px;
-                }
-            }
+            // i{
+            //     width: 1rem;
+            //     margin-left: .5rem;
+            // }
             &:nth-child(3){
-                // border-top: none;
                 border-bottom: 1px  solid rgba(255, 255, 255, 0.03);
             }
             a{
@@ -272,9 +267,9 @@ fieldset{
                 width: 100%;
                 &:after{
                     content: '';
-                    background-image: url('../../static/images/btn_icon_right_y.png');
-                    width: 8px;
-                    height: 14px;
+                    background-image: url('../../static/images/btn_icon_right.png');
+                    width: .25rem;
+                    height: 1rem;
                     background-size: 100%;
                     position: absolute;
                     right: 3em;
@@ -283,10 +278,13 @@ fieldset{
                 > div.icon{
                     display: inline-block;
                     margin:0 1em 0 2.2em;
+                    float: left;
                 }
                 span{
                     vertical-align: -webkit-baseline-middle;
                     vertical-align: -moz-middle-with-baseline;
+                    line-height: 1.5rem;
+                    float: left;
                 }
             }
         }

@@ -156,6 +156,8 @@ h2 { font-weight: 300; }
 label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+i { display: inline-block; }
+
 i.icon { width: .4rem; height: .4rem; display: inline-block; vertical-align: middle; }
 
 i.filter { background-image: url("../../static/images/filter.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
@@ -165,6 +167,18 @@ i.close { display: block; background-image: url("../../static/images/close.svg")
 i.eye { display: block; background-image: url("../../static/images/eye_view.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .4rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; }
 
 i.eye.active { background-image: url("../../static/images/eye_hide.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+
+div.icon { width: 1.5rem; height: 1.5rem; margin: 0 auto; border-radius: 100%; color: #000; background-image: url("../../static/images/border_bg.png"); border: 2px solid #277ca5; background-position-x: 50%; background-size: 100% 100%; padding: 1px; }
+
+div.icon > div { background-image: url("../../static/images/border_bg02.png"); color: #fff; width: 100%; background-position-x: 50%; background-size: 150% 100%; -webkit-box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); line-height: 1.5rem; border-radius: 100%; height: 1.5rem; margin: 0 auto; text-align: center; }
+
+div.icon > div > i { line-height: 1.5rem; text-align: center; width: 1rem; height: 1rem; }
+
+i.i_webbank_pay, i.i_scan_qrcode, i.i_bank_transfer { background: url("../../static/images/icon_member.png") no-repeat; background-size: 100%; background-position-y: 0rem; width: 100%; margin-top: .2rem; }
+
+i.i_scan_qrcode { background-position-y: -1rem; margin-top: .15rem; }
+
+i.i_bank_transfer { background-position-y: -2.15rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -529,19 +543,15 @@ fieldset { display: block; margin: .5rem 0 !important; }
 
 .pay_way > ul > li { border-top: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.07); padding: .6em 0; position: relative; }
 
-.pay_way > ul > li i { width: 35px; margin-left: .5rem; }
-
-.pay_way > ul > li i:last-child { width: 32px; }
-
 .pay_way > ul > li:nth-child(3) { border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
 
 .pay_way > ul > li a { color: #fff; display: inline-block; width: 100%; }
 
-.pay_way > ul > li a:after { content: ''; background-image: url("../../static/images/btn_icon_right_y.png"); width: 8px; height: 14px; background-size: 100%; position: absolute; right: 3em; top: 2em; }
+.pay_way > ul > li a:after { content: ''; background-image: url("../../static/images/btn_icon_right.png"); width: .25rem; height: 1rem; background-size: 100%; position: absolute; right: 3em; top: 2em; }
 
-.pay_way > ul > li a > div.icon { display: inline-block; margin: 0 1em 0 2.2em; }
+.pay_way > ul > li a > div.icon { display: inline-block; margin: 0 1em 0 2.2em; float: left; }
 
-.pay_way > ul > li a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; }
+.pay_way > ul > li a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; }
 
 .print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; padding: 1em 0; margin-bottom: 2rem; }
 
