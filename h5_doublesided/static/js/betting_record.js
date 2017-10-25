@@ -175,7 +175,7 @@ $(function () {
                             }
                             if (seadata.searchType === 1) {
                                 li_html = '<li class="bet_data" data-status="not_open">' +
-                                    '<a href="javascript:;" onclick="showBetDetails(this,0)" data-val="' + encodeURI(JSON.stringify(v)) + '">' +
+                                    '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                     '<div class="prd_num"><span>' + pcode + '</span>期</div>'+
                                     '<div class="item"> '+
                                     '<div class="badge ssc_badge"></div>' +

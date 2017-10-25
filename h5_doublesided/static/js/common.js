@@ -336,7 +336,6 @@ function priodDataNewly(gameid) {
                 processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber) ;
 
                 setTimeout(function () {
-                    setCookie("lt_lottid",1);  // 把彩票 lottery id 放在cookie里面
                     $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
                     // 倒计时
                     lt_timer(sys_time,now_time) ;
@@ -796,7 +795,7 @@ function submitAction(lotteryid) {
 
             if (data.err == 'SUCCESS') {  //购买成功
                 initTipPop05(true,3) ;
-
+                resetAction() ;
                 return false;
             } else {  //购买失败提示
 
@@ -820,11 +819,17 @@ function submitAction(lotteryid) {
 
         }
     });
-
-
-
-
+    
 
 }
 
-
+/*
+* 重置投注页，提交表单后调用
+* */
+function resetAction() {
+    $(".so-con-right p").each(function (i, t) {
+        $(this).removeClass('active') ;
+        $('.bet-select-num').text('0') ;
+        $('.bet-amount').val('0') ;
+    })
+}
