@@ -21,7 +21,7 @@ body,.warp {
             box-sizing: inherit;
 }
 a{
-  color: $lightblue;
+  color: $bluetext;
   text-decoration: none !important;
     // pc_demo用
     &:hover,&:focus,&:active{
@@ -78,7 +78,7 @@ input,select,button,a{
     overflow: hidden;
     height: 1.5rem;
     background-color: #0a1625;
-    color: #fff;
+    color: $bluetext;
     font-size: .4rem;
     position: relative;
     &.index_nav_top{
@@ -147,8 +147,8 @@ input,select,button,a{
             padding-top: 0.43rem;
             font-size: .35rem;
             display: inline-block;
-            color: #63a5d6;
-            padding: 0.43rem .35rem 0 0;
+            color: $bluetext;
+            padding: 0.5rem .35rem 0 0;
         }
     }
 }
@@ -170,6 +170,7 @@ footer.bot_nav{
     bottom:0;
     width: 10rem;
     @include background-image ('bot_nav.jpg',0,#102634);
+    background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
     >ul{
@@ -177,18 +178,28 @@ footer.bot_nav{
         overflow: hidden;
         margin: 0 auto;
         font-size: 0;
+        border-top: 1px solid #326087;
+        //height: 1.5rem;
         >li{
             display: inline-block;
             font-size: .35rem;
             text-align: center;
             width: 25%;
-            padding: .35rem 0 .5rem;
+            padding: .45rem 0 .5rem;
+            height: 1.5rem;
             &:after{
                 @include pseudo;
                 @include background-image ('bot_nav_line.jpg',0,transparent);
                 width: 2px;
-                height: 2.3rem;
-                background-repeat: repeat-y;
+                height: 1.5rem;
+                //background-repeat: repeat-y;
+            }
+            &.active,&:hover,&:focus{
+                @include background-image ('bot_nav_se.png',0,transparent);
+                height: 0.55rem;
+                a{
+                    text-shadow: 0 5px 10px rgba(0,0,0,.9);
+                }
             }
             a{
                 margin-left: 15%;
@@ -197,7 +208,7 @@ footer.bot_nav{
                     @include background-image ('icon.png',0,transparent);
                     width: .5rem;
                     height: .5rem;
-                    top: .4rem;
+                    top: .5rem;
                     left: calc( 30% - .55rem);
                 }
                 &.index{
@@ -207,7 +218,7 @@ footer.bot_nav{
                 }
                 &.trend{
                     &:before{
-                        background-position-y: -.65rem;
+                        background-position-y: -.7rem;
                     }
                 }
                 &.record{
