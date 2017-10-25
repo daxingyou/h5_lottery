@@ -879,6 +879,9 @@ function doubleCount(lotteryid,rows,maxtime) {
          // console.log(data.data) ;
             var str ='';
             for(var i=0;i<data.data.length;i++){
+                if(!data.data[i].winNumber){
+                    data.data[i].winNumber='-,-,-,-,-' ;
+                }
                 var codeArr = data.data[i].winNumber.split(',') ;
                 str +='<li class="past_view">'+
                     '<ul class="panel">'+
