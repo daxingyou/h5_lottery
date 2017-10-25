@@ -81,6 +81,11 @@ input,select,button,a{
     color: $bluetext;
     font-size: .4rem;
     position: relative;
+    &:after{
+        display: block;
+        clear: both;
+        content: "";
+    }
     &.index_nav_top{
         position: fixed;
         top: 0;
@@ -113,6 +118,9 @@ input,select,button,a{
         }
         &.logo{
             width: auto;
+        }
+        &.lottery_name{
+            width: calc(100% - 4rem);
         }
     }
     >.left{
@@ -379,6 +387,7 @@ background-color: #0e121d;
     //@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.5) inset );
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     margin: .5rem 0;
+    text-align: center;
     >a{
         display: inline-block;
         padding: .3rem;
@@ -386,8 +395,19 @@ background-color: #0e121d;
         margin: 0 auto;
         color: $bluetext;
     }
+    &.btn_two{
+        width: 40%;
+        >a{
+            width:100%;
+        }
+        display: inline-block;
+        margin: 0 auto;
+    }
     &.btn_blue{
         background-image:linear-gradient(#3792cc, #1e4b77);
+    }
+    &.btn_outline{
+        border: 2px solid $normalblue;
     }
 }
 .other_link{
@@ -409,32 +429,59 @@ background-color: #0e121d;
         }
     }
 }
-i.close{
-    display: block;
-    @include background-image ('close.svg',0,transparent);
-    width: .25rem;
-    height: .25rem;
-    position: absolute;
-    right:.3rem;
-    top:.4rem;
-}
-i.eye{
-    display: block;
-    @include background-image ('eye_view.svg',0,transparent);
-    width: .4rem;
-    height: .25rem;
-    position: absolute;
-    right:.3rem;
-    top:.4rem;
-    &.active{
-        @include background-image ('eye_hide.svg',0,transparent);
-    }
-}
+
 label{
     &.red{
         color: #d43939;
         text-align: left;
         display: block;
         margin-top: .2rem;
+    }
+}
+//下拉選單
+.dropdown_icon{
+    font-size: .35rem;
+    color: $normalblue;
+    line-height: 1.4rem;
+    padding-right: .3rem;
+    cursor: pointer;
+}
+// .dropdown{
+//     position: relative;
+//     width:100%;
+//     height: 5rem;
+// }
+.play_area{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 1.5rem;
+    z-index: 15;
+    background: #212838;
+    width: 100%;
+    border-top: 1px solid #383838;
+    color: $bluetext;
+    text-align: left;
+    padding: .3rem 0;
+    .sort>h5{
+        margin-left: .55rem;
+        margin-bottom: .2rem;
+        color: $normalblue;
+    }
+    ul{
+        width: 90%;
+        margin: 0 auto;
+        >li{
+            display: inline-block;
+            overflow: hidden;
+            margin: .1rem;
+            text-align: center;
+            width: 30%;
+            border: 2px solid $normalblue;
+            a{
+                padding: .15rem .3rem;
+                display: inline-block;
+            }
+        }
     }
 }
