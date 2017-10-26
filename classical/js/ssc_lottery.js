@@ -2817,7 +2817,7 @@ function getMemberBalance() {
         },
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
-        url: action.uaa + '/api/data/member/getMemberBalance',
+        url: action.hermes + 'api/balance/get',
         data: {},
         success: function (res) {
             // var mom = roundAmt(res.data.amount) ;

@@ -137,6 +137,7 @@ var access_token = ' ';
 var action = {
     forseti: 'http://121.58.234.210:19091/forseti/',
     uaa: 'http://121.58.234.210:19091/uaa/',
+    hermes: 'http://121.58.234.210:19091/hermes/',
 };
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
@@ -304,7 +305,7 @@ function getMemberBalance() {
         },
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
-        url: action.uaa + '/api/data/member/getMemberBalance',
+        url: action.hermes + 'api/balance/get',
         data: {},
         success: function (res) {
             // var mom = roundAmt(res.data.amount) ;
