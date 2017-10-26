@@ -992,19 +992,19 @@ function loadRoadAction(lotteryid,maxtime) {
         data: senddata ,
         success: function (data) {
            // console.log(data.data.total_size) ;
-            roadDomAction(data.data.total_size,'road01_1','tiger') ;  // 路珠总和大小
-            roadDomAction(data.data.total_sd,'road01_2','dragon') ;  // 路珠总和单双
-            roadDomAction(data.data.total_lhh,'road01_3','mid') ;  // 路珠龙虎
-            roadDomAction(data.data.size_1,'road02_1 .dx_size','big') ;  // 第一球大小
-            roadDomAction(data.data.sd_1,'road02_1 .ds_dx','mid') ;  // 第一球单双
-            roadDomAction(data.data.size_2,'road02_2 .dx_size','big') ;  // 第二球大小
-            roadDomAction(data.data.sd_2,'road02_2 .ds_dx','mid') ;  // 第二球单双
-            roadDomAction(data.data.size_3,'road02_3 .dx_size','dragon') ;  // 第三球大小
-            roadDomAction(data.data.sd_3,'road02_3 .ds_dx','mid') ;  // 第三球单双
-            roadDomAction(data.data.size_4,'road02_4 .dx_size','dragon') ;  // 第四球大小
-            roadDomAction(data.data.sd_4,'road02_4 .ds_dx','mid') ;  // 第四球单双
-            roadDomAction(data.data.size_5,'road02_5 .dx_size','mid') ;  // 第五球大小
-            roadDomAction(data.data.sd_5,'road02_5 .ds_dx','big') ;  // 第五球单双
+            roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+            roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+            roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+            roadDomAction(data.data.size_1,'road02_1 .dx_size') ;  // 第一球大小
+            roadDomAction(data.data.sd_1,'road02_1 .ds_dx') ;  // 第一球单双
+            roadDomAction(data.data.size_2,'road02_2 .dx_size') ;  // 第二球大小
+            roadDomAction(data.data.sd_2,'road02_2 .ds_dx') ;  // 第二球单双
+            roadDomAction(data.data.size_3,'road02_3 .dx_size') ;  // 第三球大小
+            roadDomAction(data.data.sd_3,'road02_3 .ds_dx') ;  // 第三球单双
+            roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
+            roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
+            roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
+            roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
         },
         error: function (res) {  // 错误提示
 
@@ -1015,13 +1015,34 @@ function loadRoadAction(lotteryid,maxtime) {
 
 /*
 *  路珠总和大小数据处理，resdata 数据，cid 选择器，color 球的颜色
+*  和=蓝mid   龙=紅big  虎=绿tiger  大=紅big   小=绿tiger  单=紅big  双=绿tiger
 * */
-function roadDomAction(resdata,cid,color) {
+function roadDomAction(resdata,cid) {
     var ts = '' ;
     for(var i=0;i<resdata.length;i++){  // 总和大小
         ts +=' <li class="road">'+
             '<ul>' ;
         for(var ii=0;ii<resdata[i].length;ii++){
+            var rescon = resdata[i][ii] ;
+            var color = 'mid' ;
+            switch (rescon) {
+                case '和':
+                    color = 'mid' ;
+                    break;
+                case '龙':
+                case '大':
+                case '单':
+                    color = 'big' ;
+                    break;
+                case '虎':
+                case '小':
+                case '双':
+                    color = 'tiger' ;
+                    break;
+                default :
+                    color = 'mid' ;
+                    break;
+            }
             ts += '<li class="'+color+'">'+resdata[i][ii]+'</li>' ;
         }
         ts += '</ul>'+
