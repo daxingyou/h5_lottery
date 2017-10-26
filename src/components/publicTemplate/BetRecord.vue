@@ -1,0 +1,240 @@
+<template>
+    <div>
+        <div id="pa_con"  class="body">
+            <header id="pa_head">
+                <div class="left">
+                    <a href="javascript:;" onclick="history.go(-1)">
+                        <img src="/static/images/back.png" alt="">
+                    </a>
+                </div>
+                <h2 class="center lottery_name"> </h2>
+                <div class="right">
+                    <div class="dropdown_icon"><i class="icon filter"></i>篩選</div>
+                </div>
+            </header>
+            <div class="dropdown" style="display:none;">
+                <div class="play_area">
+                    <div class="sort">
+                        <h5>遊戲篩選</h5>
+                        <ul>
+                            <li class="active"><a href="javascript:void(0);">全部</a></li>
+                            <li><a href="javascript:void(0);">重庆时时彩</a></li>
+                            <li><a href="javascript:void(0);">江西11選5</a></li>
+                            <li><a href="javascript:void(0);">北京PK10</a></li>
+                            <li><a href="javascript:void(0);">江蘇快3</a></li>
+                            <li><a href="javascript:void(0);">香港六合彩</a></li>
+                        </ul>
+                        <div>
+                            <div class="btn btn_two round btn_outline"><a href="">取消</a></div>
+                            <div class="btn btn_two round btn_blue02"><a href="">確定</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--right menu  -->
+            <div class="so-right">
+                <div>
+                    <img src="/static/images/top/zoushi.png">
+                </div>
+                <div>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="bet_record.html">
+                                    <img src="/static/images/right/1.png">
+                                    <p>投注记录</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="past_view.html">
+                                    <img src="/static/images/right/2.png">
+                                    <p>近期开奖</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="road_beads.html">
+                                    <img src="/static/images/right/3.png">
+                                    <p>路珠</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ds_long.html">
+                                    <img src="/static/images/right/4.png">
+                                    <p>双面长龙</p>
+                                </a>
+                            </li>
+                            <li class="play">
+                                <img src="/static/images/right/5.png">
+                                <p>玩法说明</p>
+                            </li>
+                            <li>
+                                <img src="/static/images/right/6.png">
+                                <p>今日输赢</p>
+                                <div class="so-color">(+11.65)</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="pa_content">
+                <div id="betting_record" class="tab_container tabBox">
+                    <div class="hd recode-tab"> <!-- 投注记录切换tab -->
+                        <ul class="tab tab_mid">
+                            <li class="on"><a href="javascript:;" data-filter="" data-val="1">全部</a></li>
+                            <li><a href="javascript:;" data-filter="not_open" data-val="2">未开奖</a></li>
+                            <li><a href="javascript:;" data-filter="winning" data-val="3">已中奖</a></li>
+                            <li><a href="javascript:;" data-filter="not_win" data-val="4">未中奖</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-container" id="swiper1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="bd">
+                                    <ul class="tab_content tab_content_1 sliding-box">
+                                        <!--列表内容-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <footer id="pa_foot"></footer>
+            <div class="so-shade"></div>
+            <!--玩法说明-->
+            <div class="so-pop-wanfa">
+                <div>
+                    <h2>重庆时时彩玩法说明<a></a></h2>
+                    <div>
+                        <div>
+                            <h3>一、两面玩法</h3>
+                            <p>开奖结果万位、仟位、佰位、拾位或个位数
+                                字为1、3、5、7、9时为“单”，若为0、2、
+                                4、6、8时为“双”，当投注位数单双与开
+                                奖结果的位数单双相符时，即为中奖。
+                                五字和数单双：加总当期开奖结果五个彩球
+                                号码，以其加总值的单双作为开奖依据，当
+                                投注之注项与开奖结果相符时，即为中奖。</p>
+                            <h3>二、1-5 球玩法说明</h3>
+                            <p>开奖结果万位、仟位、佰位、拾位或个位数
+                                字为1、2、3、5、7时为“质数”，若为0、
+                                4、6、8、9时为“合数”，当投注位数质合
+                                与开奖结果的位数质合相符时，即为中奖。
+                                ※举例：投注者购买个位质，当期开奖结果
+                                如为20957（7为质），则视为中奖。开奖结
+                                果万仟位、万佰位、万拾位、万个位、仟佰
+                            </p>
+                            <h3>三、前中后玩法说明</h3>
+                            <p>开奖结果万位、仟位、佰位、拾位或个位数 字为1、2、3、5、7时为“质数”，若为0、 4、6、8、9时为“合数”，当投注位数质</p>
+                        </div>
+                    </div>
+                    <a>确定</a>
+                </div>
+            </div>
+
+        </div>
+        <div id="page1" style="display: none" class="body">
+            <header class="page_header">
+                <a class="btn_back" href="javascript:;" onclick="showMain()" title="返回"></a>
+                <h2>注单详情</h2>
+                <!--撤单下一期再做-->
+                <!--<a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>-->
+            </header>
+            <section class="wraper-page-inner">
+                <div class="bet_dt_area">
+                    <div class="period">
+                        <span>
+                            <b class="lt_ty">重庆时时彩</b>
+                            第
+                            <strong class="periods">20170715086</strong>
+                            期
+                        </span>
+                        <span class="bet_status status_gray">等待开奖 </span>
+                    </div>
+                    <div class="bet_nlist">
+                        <ul>
+                            <li class="b_lt_1" name="b_lt_1">?</li>
+                            <li class="b_lt_1" name="b_lt_1">?</li>
+                            <li class="b_lt_1" name="b_lt_1">?</li>
+                            <li class="b_lt_1" name="b_lt_1">?</li>
+                            <li class="b_lt_1" name="b_lt_1">?</li>
+                        </ul>
+                    </div>
+                    <div class="print_data">
+                        <ul>
+                            <li>
+                                <span>投注时间</span>
+                                <span class="so-betTime">2017-07-14   15:21:33</span>
+                            </li>
+                            <li>
+                                <span>方案编号</span>
+                                <span class="so-orderId">
+                                    ZCQWE1707146548
+                                    <small>(追号方案)</small>
+                                </span>
+                            </li>
+                            <li>
+                                <span>投注金额</span>
+                                <span class="ui_color_yellow so-betAmount">200,002.00</span>
+                            </li>
+                            <li>
+                                <span>我的投注</span>
+                                <span class="so-playName">五星直选_复式</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span class="ui_color_yellow so-betContent">0,1,8,6,3</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="goto_bet">
+                        <a class="lbtn lbtn_info lbtn_md" href="../">前往投注</a>
+                    </div>
+                </div>
+            </section>
+            <div class="so-shade"></div>
+        </div>
+
+    </div>
+  
+</template>
+
+
+
+<script>
+export default {
+  name: 'Index',
+  mounted:function() {
+  },
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
+</script>

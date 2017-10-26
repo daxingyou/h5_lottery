@@ -1,7 +1,7 @@
 window.onload = function () {
     initViewHeight();
     initKuang();
-    initNavChoice();
+   // initNavChoice();
     // initChoiceObj()
     initLeftViewEve();
     initRightViewEve();
@@ -86,30 +86,29 @@ function initViewHeight() {
 }
 
 // 此方法用来控制点击左边nav切换盘面
-function initNavChoice() {
+/*function initNavChoice() {
+    var ifval = '1' ; // 默认 1
     $('.so-con-left li').each(function (i, t) {
         $(t).click(function () {
-            var hasreset = $(this).hasClass('reset_bet') ; // 江西11选5切换时，需要重置投注
-           // setCookie('ifclick',hasreset) ;
-            if(hasreset){
+            var val = $(this).data('val') ;
+            if(val != ifval ){   // 江西11选5切换时，需要重置投注
                 resetAction() ;
             }
+            ifval = val ;
             $('.so-con-right > div').hide();
             $('.so-con-left li').removeClass('active');
             $(this).addClass('active');
             $('#so-item' + i).show();
         })
     }).eq(0).click();
-    TouchSlide({
-        slideCell: '#so-item2',
-    });
+
     //PK10点击左边nav切换盘面
     $('.so-con-left li').on('click',function(){
         var i = $(this).index();
         $(this).addClass('active').siblings().removeClass('active');
         $('#pk10-item' + i).show().siblings().hide();
     }).eq(0).click();
-}
+}*/
 
 // 此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
 /* function initChoiceObj() {

@@ -1,0 +1,258 @@
+<template>
+    <div id="pa_con">
+        <header id="pa_head">
+            <div class="left">
+                <a href="javascript:;" onclick="history.go(-1)">
+                    <img src="/static/images/back.png" alt="">
+                </a>
+            </div>
+            <h2 class="center lottery_name"> </h2>
+            <div class="right">
+                <div class="so-top-zoushi">
+                    <img src="/static/images/top/zoushi.png">
+                </div>
+            </div>
+        </header>
+        <!--right menu  -->
+        <div class="so-right">
+            <div>
+                <img src="/static/images/top/zoushi.png">
+            </div>
+            <div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/publicTemplate/betRecord">
+                                <img src="/static/images/right/1.png">
+                                <p>投注记录</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/publicTemplate/pastView">
+                                <img src="/static/images/right/2.png">
+                                <p>近期开奖</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="road_beads.html">
+                                <img src="/static/images/right/3.png">
+                                <p>路珠</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ds_long.html">
+                                <img src="/static/images/right/4.png">
+                                <p>双面长龙</p>
+                            </a>
+                        </li>
+                        <li class="play">
+                            <img src="/static/images/right/5.png">
+                            <p>玩法说明</p>
+                        </li>
+                        <li>
+                            <img src="/static/images/right/6.png">
+                            <p>今日输赢</p>
+                            <div class="so-color">(+11.65)</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="pa_content">
+            <div id="betting_record" class="tab_container tabBox">
+                <div class="hd">
+                    <ul class="tab tab_mid tab_three">
+                        <li class="on" data-val="30"><a href="javascript:;" data-filter="" >近30期</a></li>
+                        <li  data-val="50"><a href="javascript:;" data-filter="not_open">近50期</a></li>
+                        <li data-val="0"><a href="javascript:;" data-filter="winning" >今日数据</a></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="tab_content double-all">
+                        <!--<li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul class="double-count">
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball double-numbers">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>-->
+
+                       <!-- <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>20170914057</span> 期</div>
+                                        <ul>
+                                            <li>21</li>
+                                            <li>小</li>
+                                            <li>单</li>
+                                            <li>龙</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball">
+                                        <li>6</li>
+                                        <li>7</li>
+                                        <li>3</li>
+                                        <li>5</li>
+                                        <li>2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer id="pa_foot"></footer>
+        <div class="so-shade"></div>
+        <!--玩法说明-->
+        <div class="so-pop-wanfa">
+            <div>
+                <h2>重庆时时彩玩法说明<a></a></h2>
+                <div>
+                    <div>
+                        <h3>一、两面玩法</h3>
+                        <p>开奖结果万位、仟位、佰位、拾位或个位数
+                            字为1、3、5、7、9时为“单”，若为0、2、
+                            4、6、8时为“双”，当投注位数单双与开
+                            奖结果的位数单双相符时，即为中奖。
+                            五字和数单双：加总当期开奖结果五个彩球
+                            号码，以其加总值的单双作为开奖依据，当
+                            投注之注项与开奖结果相符时，即为中奖。</p>
+                        <h3>二、1-5 球玩法说明</h3>
+                        <p>开奖结果万位、仟位、佰位、拾位或个位数
+                            字为1、2、3、5、7时为“质数”，若为0、
+                            4、6、8、9时为“合数”，当投注位数质合
+                            与开奖结果的位数质合相符时，即为中奖。
+                            ※举例：投注者购买个位质，当期开奖结果
+                            如为20957（7为质），则视为中奖。开奖结
+                            果万仟位、万佰位、万拾位、万个位、仟佰
+                        </p>
+                        <h3>三、前中后玩法说明</h3>
+                        <p>开奖结果万位、仟位、佰位、拾位或个位数 字为1、2、3、5、7时为“质数”，若为0、 4、6、8、9时为“合数”，当投注位数质</p>
+                    </div>
+                </div>
+                <a>确定</a>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+
+
+<script>
+export default {
+  name: 'Index',
+  mounted:function() {
+  },
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
+</script>
