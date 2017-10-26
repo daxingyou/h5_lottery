@@ -518,21 +518,20 @@ function initChoiceObj() {
         }
         // 已选注数
         var choosed =  $(".so-con-right p.active").length ;
-
         var pid = _this.parents('ul.tab_content').attr('id') ;
         var paid = '#'+pid ;
-        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
-        // var ifSp = 0 ;
-       // var spArr = [] ; // 二中二，三中三等
-        if(pid){ // 二中二，三中三等
+        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等特殊处理
+
+        checkNumbers(pid,choosed,_this,z_choosed) ;
+   /*     if(pid){ // 二中二，三中三等
             checkNumbers(pid,z_choosed,_this) ;
-           // sessionStorage.setItem(pid,paid) ;
-            var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+            var spchoose = parseInt(z_choosed/xlen) ;
             $('.bet-select-num').text(spchoose) ;
 
         }else{
-            $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
-        }
+           // $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
+            $('.bet-select-num').text(choosed) ;
+        }*/
 
     }) ;
 
@@ -564,71 +563,102 @@ function initNavChoice() {
 }
 
 /*
-* 江西11选5 ,method 玩法，len 长度
+* 江西11选5 ,method 玩法，len 长度，xslen特殊玩法
 * */
-function checkNumbers(method,len,self) {
+function checkNumbers(method,len,self,xslen) {
     switch (method) {
         case 'tab_jx_eze': // 二中二
             xlen = 2 ;
-        if(len>2){
-            initPopFengpan02(3,len-1) ;
-            self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+        if(xslen>2){
+            initPopFengpan02(2,len-1) ;
+            self.click() ;
             return false ;
         }
             break;
         case 'tab_jx_szs': // 三中三
             xlen = 3 ;
-            if(len>3){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>3){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_sizsi': // 四中四
             xlen = 4 ;
-            if(len>4){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>4){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_wzw': // 五中五
             xlen = 5 ;
-            if(len>5){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_lzw': // 六中五
-            if(len>6){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 6 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>6){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_qzw': // 七中五
-            if(len>7){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 7 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>7){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_bzw': // 八中五
-            if(len>8){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 8 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>8){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
-        case 'tab_jx_qez': // 前二组选
-
+        case 'tab_jx_qez': // 前二组选 ，公式 n*(n-1)/2
+            xlen = 2 ;
+            var spchoose = parseInt(xslen*((xslen-1))/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
+                return false ;
+            }
             break;
-        case 'tab_jx_qsz': // 前三组选
-
+        case 'tab_jx_qsz': // 前三组选 ，公式 n*(n-1)*(n-2)/3*2*1
+            xlen = 6 ;
+            var spchoose = parseInt(xslen*((xslen-1))*(xslen-2)/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
+                return false ;
+            }
             break;
         default :
-
+            $('.bet-select-num').text(len) ;
             break;
     }
 
