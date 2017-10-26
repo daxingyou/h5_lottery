@@ -1057,12 +1057,13 @@ function roadDomAction(resdata,cid) {
 }
 
 /*
-*  双面长龙数据，双面长龙页面
+*  双面长龙数据，双面长龙页面 openType open连续开奖，unopen连续未开
 * */
-function loadDoubleLong(lotteryid,maxtime) {
+function loadDoubleLong(lotteryid,maxtime,openty,cla) {
     var senddata ={
         lotteryId : lotteryid ,
         maxUpdateTime: maxtime ,
+        openType:openty,
     }
     $.ajax({
         type: 'get',
@@ -1075,8 +1076,23 @@ function loadDoubleLong(lotteryid,maxtime) {
         timeout: 600000,
         data: senddata ,
         success: function (data) {
-          console.log(data.data) ;
-
+         // console.log(data.data) ;
+            var str = '' ;
+            for(var i=0;i<data.data.length;i++){
+                str +=' <li class="prod" data-status="not_open">'+
+                        '<i class="prd"></i>'+
+                        '<div>'+ data.data[i].groupName +'</div>';
+                        if(Number(data.data[i].playName) >=0 ){
+                             str +=  '<ul class="lo_ball">' ;
+                        }else{
+                            str +=  '<ul class="lo_ball no_open">' ;
+                        }
+                        str += '<li>'+ data.data[i].playName +'</li>'+
+                        '</ul>'+
+                         '<div class="periods text-red">'+ data.data[i].count +'期</div>'+
+                        '</li>' ;
+            }
+            $('.'+cla).html(str) ;
 
         },
         error: function (data) {  // 错误提示
