@@ -843,7 +843,7 @@ function resetAction() {
 }
 
 /*
-* 标签切换
+* 近期开奖标签切换
 * */
 
 function changeTab(lotteryid) {
