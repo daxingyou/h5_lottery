@@ -6,7 +6,7 @@
     clear: both;
 }
 #pk10{
-    .so-in-top{
+    .so-in-top, #pa_head{
         background-image: url(../images/pk10/bg_top.jpg);
         background-size: auto 100%;
     }
@@ -29,17 +29,15 @@
             &:last-child{
                 margin-right: 0px;
             }
-            .pk10_ball{
-                width: 0.65rem;
-                height: 0.58rem;
-            }
         }
     }
     .pk10_top_detail{
         margin-left: 0.1rem;
         li{
+            font-size: 0.3rem;
             width: 0.66rem;
-            margin-top: 0.1rem;
+            line-height: 1.3em;
+            margin-top: 0.07rem;
         }
     }
     .so-main-down{
@@ -71,12 +69,12 @@
         height: auto;
         position: relative;
         h2{
-            background: url(../../static/images/content/panel_header.png) no-repeat;
+            background: url(../images/content/panel_header.png) no-repeat;
             background-size: 100% 100%;
             line-height: 0.9rem;
         }
         > div{
-            background: url(../../static/images/content/panel_body.png) no-repeat;
+            background: url(../images/content/panel_body.png) no-repeat;
             background-size: 100% 100%;
             padding: 3% 3% 3.5%;
             height: auto;
@@ -100,16 +98,68 @@
             width: 100%;
             bottom: 0px;
             clear: both;
-            background: url(../../static/images/content/panel_footer.png) no-repeat;
+            background: url(../images/content/panel_footer.png) no-repeat;
             background-size: 100% 100%;
             height: 0.4rem;
             margin-top: -0.4rem;
         }
         &.style1{
             h2{
-                background-image: url(../../static/images/content/panel_header_1.png);
+                background-image: url(../images/content/panel_header_1.png);
             }
         }
+        .pk10_ball{
+            transform: scale(0.9);
+        }
+    }
+    // 投注紀錄
+    .play_th {
+        ul{
+            margin-top: 0.05rem;
+            li{
+                width: 0.5rem;
+                margin-right: 0.15rem;
+                font-size: 0.3rem;
+                line-height: 1.3em;
+            }
+        }
+    }
+    .lo_ball{
+        margin-left: 0;
+        margin-top: 0.4rem;
+        li{
+            background: none;
+            width: 0.792rem;
+            height: 0.72rem;
+            span{
+                display: block;
+                transform: scale(0.9);
+            }
+        }
+    }
+    // 雙面長龍
+    .ds_long{
+        .prod>div{
+            width: 4rem;
+            &:last-child{
+                width: auto;
+            }
+        }
+        .lo_ball{
+            margin: 0px;
+            li{
+                font-size: 0.5rem;
+                width: auto;
+            }
+            .pk10_ball{
+                transform: scale(1.2);
+                margin-top: 0.25rem;
+            }
+        }
+    }
+    .tab_mid{
+        white-space: nowrap;
+        overflow-x: scroll;
     }
 }
 
@@ -117,7 +167,7 @@
     .pk10_panel{
         width: 7rem;
         height: 5rem;
-        background: url(../../static/images/content/kuang.png) no-repeat;
+        background: url(../images/content/kuang.png) no-repeat;
         background-size: 8.4rem 5rem;
         background-position-x: -1.1rem;
         text-align: center;
@@ -150,10 +200,13 @@
                     &:last-child {
                         float: right;
                     }
+                    .pk10_ball{
+                        margin-top: -0.1rem;
+                    }
                 }
             }
             p.active {
-                background: url(../../static/images/content/changkuang.png) no-repeat;
+                background: url(../images/content/changkuang.png) no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
                 border: solid 0.01rem rgba(0,0,0,0);
@@ -177,73 +230,36 @@
 .pk10_ball{
     display: inline-block;
     vertical-align: middle;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 0.8rem;
+    background: url(../images/pk10/ball.png) no-repeat;
+    background-size: 8.8rem 1.6rem;
+    width: 0.88rem;
     height: 0.8rem;
-    &.num_1{
-        background-image: url(../images/pk10/ball_1.png);
-    }
-    &.num_2{
-        background-image: url(../images/pk10/ball_2.png);
-    }
-    &.num_3{
-        background-image: url(../images/pk10/ball_3.png);
-    }
-    &.num_4{
-        background-image: url(../images/pk10/ball_4.png);
-    }
-    &.num_5{
-        background-image: url(../images/pk10/ball_5.png);
-    }
-    &.num_6{
-        background-image: url(../images/pk10/ball_6.png);
-    }
-    &.num_7{
-        background-image: url(../images/pk10/ball_7.png);
-    }
-    &.num_8{
-        background-image: url(../images/pk10/ball_8.png);
-    }
-    &.num_9{
-        background-image: url(../images/pk10/ball_9.png);
-    }
-    &.num_10{
-        background-image: url(../images/pk10/ball_10.png);
-    }
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -0.88rem;}
+    &.num_3{background-position-x: -1.76rem;}
+    &.num_4{background-position-x: -2.64rem;}
+    &.num_5{background-position-x: -3.52rem;}
+    &.num_6{background-position-x: -4.4rem;}
+    &.num_7{background-position-x: -5.28rem;}
+    &.num_8{background-position-x: -6.16rem;}
+    &.num_9{background-position-x: -7.04rem;}
+    &.num_10{background-position-x: -7.92rem;}
 }
 .pk10_panel .active{
-    .pk10_ball{
-        &.num_1{
-            background-image: url(../images/pk10/ball_1_a.png);
-        }
-        &.num_2{
-            background-image: url(../images/pk10/ball_2_a.png);
-        }
-        &.num_3{
-            background-image: url(../images/pk10/ball_3_a.png);
-        }
-        &.num_4{
-            background-image: url(../images/pk10/ball_4_a.png);
-        }
-        &.num_5{
-            background-image: url(../images/pk10/ball_5_a.png);
-        }
-        &.num_6{
-            background-image: url(../images/pk10/ball_6_a.png);
-        }
-        &.num_7{
-            background-image: url(../images/pk10/ball_7_a.png);
-        }
-        &.num_8{
-            background-image: url(../images/pk10/ball_8_a.png);
-        }
-        &.num_9{
-            background-image: url(../images/pk10/ball_9_a.png);
-        }
-        &.num_10{
-            background-image: url(../images/pk10/ball_10_a.png);
-        }
-    }
+    .pk10_ball{background-position-y: -0.8rem;}
+}
+.pk10_ball.small_ball{
+    background-size: 6.5rem 1.16rem;
+    width: 0.65rem;
+    height: 0.58rem;
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -0.65rem;}
+    &.num_3{background-position-x: -1.3rem;}
+    &.num_4{background-position-x: -1.95rem;}
+    &.num_5{background-position-x: -2.6rem;}
+    &.num_6{background-position-x: -3.25rem;}
+    &.num_7{background-position-x: -3.9rem;}
+    &.num_8{background-position-x: -4.55rem;}
+    &.num_9{background-position-x: -5.2rem;}
+    &.num_10{background-position-x: -5.85rem;}
 }

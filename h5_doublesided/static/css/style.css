@@ -8,7 +8,7 @@
 
 .so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 48%; left: 0.15rem; }
 
-.so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.7); }
+.so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.9); }
 
 .so-con .so-left .so-left-con .so-l-c-top { width: 100%; height: 1.97rem; background: url("../../static/images/left/left-top-bg.png"); background-size: 100%; }
 
@@ -346,11 +346,13 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop-wanfa > div h2 > a { content: ""; display: block; width: 1rem; height: 1rem; float: right; position: absolute; right: 0; top: 0; }
 
-.so-pop-wanfa > div h3 { font-size: .34rem; color: #ffbd00; line-height: .34rem; margin-top: .3rem; margin-bottom: .1rem; text-align: left; }
+.so-pop-wanfa > div h3 { font-size: .43rem; color: #ffbd00; line-height: .43rem; margin-top: .5rem; margin-bottom: .1rem; text-align: left; }
+
+.so-pop-wanfa > div h4 { font-size: .34rem; color: #66c3f2; margin-top: .4rem; margin-bottom: .1rem; text-align: left; }
 
 .so-pop-wanfa > div img { width: 1rem; margin-top: 0.6rem; }
 
-.so-pop-wanfa > div p { display: block; width: 6rem; margin: auto; color: white; font-size: 0.34rem; line-height: 1.5em; text-align: justify; }
+.so-pop-wanfa > div p { display: block; width: 6rem; margin: auto; color: white; font-size: 0.34rem; line-height: 1.5em; text-align: justify; margin-top: 0.15rem; }
 
 .so-pop-wanfa > div > a { display: block; background: url("../images/pop/lan.png") no-repeat; background-size: 100%; width: 2.31rem; height: 0.74rem; text-align: center; margin: auto; margin-top: 0.3rem; line-height: 0.74rem; font-size: 0.34rem; color: white; }
 
@@ -440,4 +442,8 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item2.jc115 .bd .tab_content li { padding-top: 0; }
 
-/*# sourceMappingURL=style.css.map */
+.back_home a { display: inline-block; font-size: 0.34rem; padding: 0.1rem 0.4rem; margin-top: 0.2rem; background: url(../images/left/left-kuang.jpg); background-size: 100% 100%; border-left: 0.03rem solid #424a71; border-right: 0.03rem solid #424a71; border-radius: 1rem; -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.6); box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.6); }
+
+.back_home a span { vertical-align: middle; display: inline-block; margin-right: 0.2rem; height: 0.7rem; line-height: 0.7rem; }
+
+.back_home a span img { height: 100%; }
