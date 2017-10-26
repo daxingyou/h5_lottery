@@ -137,6 +137,7 @@ var access_token = ' ';
 var action = {
     forseti: 'http://121.58.234.210:19091/forseti/',
     uaa: 'http://121.58.234.210:19091/uaa/',
+    hermes: 'http://121.58.234.210:19091/hermes/',
 };
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
@@ -160,7 +161,7 @@ $(function () {
     }, 500) ;
 
     initChoiceObj() ; // 球点击处理
-    initPopEve() ; // 表单提交判断
+    initPopEve(2) ; // 表单提交判断
     initNavChoice() ; // 右边nav 切换处理
 
 })
@@ -304,12 +305,13 @@ function getMemberBalance() {
         },
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
-        url: action.uaa + '/api/data/member/getMemberBalance',
+        url: action.hermes + 'api/balance/get',
         data: {},
         success: function (res) {
-            // var mom = roundAmt(res.data.amount) ;
-            var mom = fortMoney(roundAmt(res.data.amount), 2);
+            var mom = fortMoney(roundAmt(res.data.balance), 2);  // 用户余额
+            var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
             $('.so-in-top-sum').text(mom);
+            $('.today_payoff').html('(\+'+todaymom+'\)');
             $('.user_name').text(getCookie('username'));
             setCookie("membalance", mom);  // 把登录余额放在cookie里面
             // console.log(returnMoney(mom))
@@ -470,16 +472,16 @@ function outTimeSet() {
     });
 }
 
-// 本期投注已结束
+// 本期投注已结束，转至下期提示
 function initBetPop01(closet) {
-        $('.so-bet-end-pop').toggle();
+        $('.modal.m12').toggle();
         $('.so-shade').toggle();
-    $('.so-bet-end-pop').click(function () {
-        $('.so-bet-end-pop').toggle();
+    $('.modal.m12').click(function () {
+        $('.modal.m12').toggle();
         $('.so-shade').toggle();
     });
     setTimeout(function () {
-        $('.so-bet-end-pop,.so-shade').hide() ;
+        $('.modal.m12 ,.so-shade').hide() ;
     },closet*1000) ; // 自动关闭
 }
 
@@ -667,20 +669,24 @@ function checkNumbers(method,len,self,xslen) {
 
 
 //此方法弹出结算框 ,注单数量，添加按钮
-function initPopEve() {
+function initPopEve(closet) {
     $(".so-add").click(function () {
+        var settime = setTimeout(function () {
+            $(".so-shade,.modal.m08").hide() ;
+        },closet*1000) ;
+
         var amount = $('.bet-amount').val() ;  // 获取金额
         var nums = Number($('.bet-select-num').text()) ;  // 获取注数
         if(nums<1){ // 没有选择投注项目
             $('.bet-error-content').html('请选择投注项目') ;
-            $(".so-tip-pop-04").toggle() ;
+            $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
             return false;
         }
 
-        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确
+        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
             $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
-            $(".so-tip-pop-04").toggle() ;
+            $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
             return false;
         }
@@ -699,8 +705,8 @@ function initPopEve() {
     }) ;
 
     // 投注金额提示弹窗关闭
-    $(".so-tip-pop-04").click(function () {
-        $(".so-tip-pop-04").toggle() ;
+    $(".modal.m08").click(function () {
+        $(".modal.m08").toggle() ;
         $(".so-shade").toggle() ;
     }) ;
 }
@@ -709,24 +715,24 @@ function initPopEve() {
 function initTipPop05(flag,closetime,content) {
     // 成功
     if(flag){
-        $('.so-tip-pop-05').toggle();
+        $('.modal.m09').toggle();
         $('.so-shade').toggle();
-        $('.so-tip-pop-05').click(function () {
-            $('.so-tip-pop-05').toggle();
+        $('.modal.m09').click(function () {
+            $('.modal.m09').toggle();
             $('.so-shade').toggle();
         });
     }else{
         // 失败
-        $(".so-tip-pop-06").toggle() ;
+        $(".modal.m10").toggle() ;
         $(".so-shade").toggle() ;
-        $(".so-tip-pop-06").click(function () {
-            $(".so-tip-pop-06").toggle() ;
+        $(".modal.m10").click(function () {
+            $(".modal.m10").toggle() ;
             $(".so-shade").toggle() ;
         });
         $('.submit-error-content').html(content) ; // 投注失败提示
     }
     setTimeout(function () {
-        $('.so-tip-pop-05,.so-shade,.so-tip-pop-06').hide() ;
+        $('.modal.m09,.so-shade, .modal.m10').hide() ;
     },closetime*1000)
 
 }
@@ -965,7 +971,7 @@ function doubleCount(lotteryid,rows,maxtime) {
 
 
         },
-        error: function (res) {  // 错误提示
+        error: function (data) {  // 错误提示
 
 
         }
@@ -1006,7 +1012,7 @@ function loadRoadAction(lotteryid,maxtime) {
             roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
             roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
         },
-        error: function (res) {  // 错误提示
+        error: function (data) {  // 错误提示
 
 
         }
@@ -1050,5 +1056,50 @@ function roadDomAction(resdata,cid) {
     }
     $('#'+cid).html(ts) ;
 
+}
 
+/*
+*  双面长龙数据，双面长龙页面 openType open连续开奖，unopen连续未开
+* */
+function loadDoubleLong(lotteryid,maxtime,openty,cla) {
+    var senddata ={
+        lotteryId : lotteryid ,
+        maxUpdateTime: maxtime ,
+        openType:openty,
+    }
+    $.ajax({
+        type: 'get',
+        headers: {
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        url: action.forseti + 'api/openNums/doubleLong',
+        timeout: 600000,
+        data: senddata ,
+        success: function (data) {
+         // console.log(data.data) ;
+            var str = '' ;
+            for(var i=0;i<data.data.length;i++){
+                str +=' <li class="prod" data-status="not_open">'+
+                        '<i class="prd"></i>'+
+                        '<div>'+ data.data[i].groupName +'</div>';
+                        if(Number(data.data[i].playName) >=0 ){
+                             str +=  '<ul class="lo_ball">' ;
+                        }else{
+                            str +=  '<ul class="lo_ball no_open">' ;
+                        }
+                        str += '<li>'+ data.data[i].playName +'</li>'+
+                        '</ul>'+
+                         '<div class="periods text-red">'+ data.data[i].count +'期</div>'+
+                        '</li>' ;
+            }
+            $('.'+cla).html(str) ;
+
+        },
+        error: function (data) {  // 错误提示
+
+
+        }
+    });
 }

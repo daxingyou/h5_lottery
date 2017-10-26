@@ -173,7 +173,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > h2.noclose { background-image: url("../../static/images/m_top_noclose.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.modal > .m_content > .content { text-align: center; padding: .5rem .8rem; line-height: .6rem; font-size: 0.35rem; }
+.modal > .m_content > .content { text-align: center; line-height: .6rem; font-size: 0.35rem; }
 
 .modal > .m_content > .content.danger { color: #c93030; }
 
@@ -185,7 +185,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .content > div > img:last-child { width: 15%; }
 
-.modal > .m_content > .content > div.playtext { height: 12rem; overflow: scroll; text-align: left; }
+.modal > .m_content > .content > div.playtext { padding: .5rem .8rem; height: 12rem; overflow: scroll; text-align: left; }
 
 .modal > .m_content > .content > div.playtext h3 { font-size: .43rem; color: #ffbd00; line-height: .43rem; margin-top: .5rem; margin-bottom: .1rem; text-align: left; }
 
@@ -197,11 +197,11 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .action { width: 100%; margin: 0 auto; text-align: center; padding: .3rem 0 .6rem; }
 
-.modal > .m_content > .action > a { display: inline-block; width: 2.5rem; height: .7rem; text-align: center; line-height: .7rem; margin: 0 .3rem; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); color: #fff; font-size: .37rem; }
+.modal > .m_content > .action > a { display: inline-block; width: 2.5rem; height: .75rem; text-align: center; line-height: .75rem; margin: 0 .3rem; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); color: #fff; font-size: .37rem; }
 
-.modal > .m_content > .action > a.ok { background-image: url("../../static/images/btn_ok.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.modal > .m_content > .action > a.ok { background-image: url("../../static/images/btn_ok.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 100% 100%; }
 
-.modal > .m_content > .action > a.cancle { background-image: url("../../static/images/btn_cancle.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.modal > .m_content > .action > a.cancle { background-image: url("../../static/images/btn_cancle.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 100% 100%; }
 
 .modal > .m_content:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -21px; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
@@ -754,5 +754,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */

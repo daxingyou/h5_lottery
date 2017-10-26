@@ -2817,11 +2817,11 @@ function getMemberBalance() {
         },
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
-        url: action.uaa + '/api/data/member/getMemberBalance',
+        url: action.hermes + 'api/balance/get',
         data: {},
         success: function (res) {
             // var mom = roundAmt(res.data.amount) ;
-            var mom = fortMoney(roundAmt(res.data.amount), 2);
+            var mom = fortMoney(roundAmt(res.data.balance), 2);
             $('.membalance').text(mom);
             $('.user_name').text(getCookie('username'));
             setCookie('membalance', mom); // 把登录余额放在cookie里面

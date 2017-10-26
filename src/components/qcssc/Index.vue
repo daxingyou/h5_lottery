@@ -1,140 +1,22 @@
 <template>
   <div class="so-con">
     <!--left siderbar  -->
-    <div class="so-left">
-        <div class="so-left-close">
-            <img src="/static/images/left/left808.png">
-        </div>
-        <div class="so-left-con">
-            <div class="so-l-c-top">
-                <div>
-                    <img src="/static/images/left/user.png">
-                </div>
-                 <div>
-                    <p class="user_name"> </p>
-                    <div class="purse">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                        <div class="so-in-top-sum">
 
-                        </div>
-                    </div>
-                    <!-- <p>87348.00</p> -->
-                </div>
-            </div>
-            <div class="so-l-c-con">
-                <div>
-                    <ul>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_hljssc.svg" alt="">
-                            </div>
-                            <!-- <img src="/static/images/left/ball.png"> -->
-                            <p>黑龙江时时彩</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_xjssc.svg">
-                            </div>
-                            <p>新疆时时彩</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_tjssc.svg">
-                            </div>
-                            <p>天津时时彩</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_jc11x5.svg">
-                            </div>
-                            <p>江西11选5</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_gd11x5.svg">
-                            </div>
-                            <p>广东11选5</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_sd11x5.svg">
-                            </div>
-                            <p>山东11选5</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_sixlottery.svg">
-                            </div>
-                            <p>六合彩</p>
-                        </li>
-                        <li>
-                            <div class="badge">
-                                 <img src="/static/images/logo_jxk3.svg">
-                            </div>
-                            <p>江苏快3</p>
-                        </li>
-                        <!-- <li>
-                             <img src="/static/images/left/ball.png">
-                            <p>黑龙江时时彩</p>
-                        </li>  -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--用户导航 so-left -->
+    <UserNavigation el=".so-menu" />
+    
     <!--right menu  -->
-    <div class="so-right">
-        <div>
-            <img src="/static/images/top/zoushi.png">
-        </div>
-        <div>
-            <div>
-                <ul>
-                    <li>
-                        <a href="/publicTemplate/betRecord">
-                            <img src="/static/images/right/1.png">
-                            <p>投注记录</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/publicTemplate/pastView">
-                            <img src="/static/images/right/2.png">
-                            <p>近期开奖</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="road_beads.html">
-                            <img src="/static/images/right/3.png">
-                            <p>路珠</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ds_long.html">
-                            <img src="/static/images/right/4.png">
-                            <p>双面长龙</p>
-                        </a>
-                    </li>
-                    <li class="play">
-                        <img src="/static/images/right/5.png">
-                        <p>玩法说明</p>
-                    </li>
-                    <li>
-                        <img src="/static/images/right/6.png">
-                        <p>今日输赢</p>
-                        <div class="so-color">(+11.65)</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <UserMenu el=".so-top-zoushi"/>
+
     <div class="so-index">
         <div class="so-in-top">
             <ul>
                 <li class="so-menu">
-                    <img src="/static/images/top/icon-menu.png" class="so-top-menu">
-                </li>
+                      <img src="/static/images/top/icon-menu.png" class="so-top-menu">
+                  </li>
+
                 <li>
-                    <img src="/static/images/top/logo_cqssc.png" class="so-top-logo">
+                    <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" @click="showDialog = true">
                 </li>
                 <li class="purse">
                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
@@ -155,7 +37,7 @@
                             第 <span class="last-date"> </span> 期 <!-- 上期 -->
                         </div>
                         <div>
-                             <a href="/qcssc/pastView">
+                             <a href="/publicTemplate/pastView">
                                 <p>
                                     查看往期
                                 </p>
@@ -762,6 +644,17 @@
         </div>
     </div>
 
+    <!-- 确认对话框API
+        text  对话框提示内容
+    -->
+    <InfoDialog v-if="showDialog" text="请您继续投注111"  @close="showDialog = false" />
+
+    <!--自动关闭（闪屏）对话框API
+        text  对话框提示内容
+        type  对话框类型，可以是 static/images/pop/ 目录下任意图片，像title_quantity、title_tip
+        delay 延迟关闭时长（毫秒） 
+    -->
+    <!-- <AutoCloseDialog v-if="showDialog" text="您的余额不足" type="" delay="4000" @close="showDialog = false" /> -->
 
   </div>
 
@@ -771,8 +664,21 @@
 
 
 <script>
+// import common  from '@/components/common'
+import UserNavigation from '@/components/publicTemplate/UserNavigation'
+import UserMenu from '@/components/publicTemplate/UserMenu'
+import InfoDialog from '@/components/publicTemplate/InfoDialog'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+
+
 export default {
   name: 'Index',
+  data () {
+    return {
+        showDialog:false, 
+        msg: 'Welcome to Your Vue.js App'
+    }
+  }, 
   mounted:function() {
     var lotteryid = '2' ; // 彩种id
     var lotteryname = '重庆时时彩' ; // 彩种名称
@@ -787,11 +693,17 @@ export default {
         getSystemTime(lotteryid); // 系统时间
 
     }, 500) ;
+
+    // setTimeout(() => {
+    //     this.showDialog = true;
+    // },3000)
+
   },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    UserNavigation,
+    UserMenu,
+    InfoDialog, 
+    AutoCloseDialog
   }
 }
 </script>

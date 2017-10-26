@@ -8,7 +8,7 @@ $(function () {
     var access_token = getCookie('access_token'); // 取token
     var lotteryname = getCookie('lottery_name');
     var lotteryid = getCookie('lt_lottid');
-    $('.lottery_name').html(lotteryname+'投注记录'); // 彩种名称
+    $('.lottery_name').html(lotteryname+' 投注记录'); // 彩种名称
 
     var nowDate = new Date();
     var seadata = {
