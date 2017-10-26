@@ -308,9 +308,10 @@ function getMemberBalance() {
         url: action.hermes + 'api/balance/get',
         data: {},
         success: function (res) {
-            // var mom = roundAmt(res.data.amount) ;
-            var mom = fortMoney(roundAmt(res.data.amount), 2);
+            var mom = fortMoney(roundAmt(res.data.balance), 2);  // 用户余额
+            var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
             $('.so-in-top-sum').text(mom);
+            $('.today_payoff').html('(\+'+todaymom+'\)');
             $('.user_name').text(getCookie('username'));
             setCookie("membalance", mom);  // 把登录余额放在cookie里面
             // console.log(returnMoney(mom))
