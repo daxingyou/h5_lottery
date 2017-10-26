@@ -183,7 +183,7 @@ $(function () {
                                     '<div class="badge ssc_badge lottery_logo_'+lotteryid+'"></div>' +
                                     '<div class="lottery_t ssc">' +
                                     '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                    '<div class="status ' + className + '"' + v.orderStatus + '>' +
+                                    '<div class="status ' + className + '" >' +
                                     '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
                                     '</div>'+
                                     '</a></li>';

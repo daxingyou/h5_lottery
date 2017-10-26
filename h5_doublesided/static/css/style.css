@@ -8,7 +8,7 @@
 
 .so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 48%; left: 0.15rem; }
 
-.so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.8); }
+.so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.9); }
 
 .so-con .so-left .so-left-con .so-l-c-top { width: 100%; height: 1.97rem; background: url("../../static/images/left/left-top-bg.png"); background-size: 100%; }
 
@@ -425,5 +425,11 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 #so-item2.jc115 .bd .tab_content { padding: 0; }
 
 #so-item2.jc115 .bd .tab_content li { padding-top: 0; }
+
+.back_home a { display: inline-block; font-size: 0.34rem; padding: 0.1rem 0.4rem; margin-top: 0.2rem; background: url(../images/left/left-kuang.jpg); background-size: 100% 100%; border-left: 0.03rem solid #424a71; border-right: 0.03rem solid #424a71; border-radius: 1rem; -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.6); box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.6); }
+
+.back_home a span { vertical-align: middle; display: inline-block; margin-right: 0.2rem; height: 0.7rem; line-height: 0.7rem; }
+
+.back_home a span img { height: 100%; }
 
 /*# sourceMappingURL=style.css.map */

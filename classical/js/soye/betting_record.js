@@ -117,7 +117,7 @@ function getBetRecord() {
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                '<div class="status ' + className + '"' + v.orderStatus + '>' +
+                                '<div class="status ' + className + '" >' +
                                 '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div></a></li>';
                             // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
                         } else {
@@ -126,7 +126,7 @@ function getBetRecord() {
                                 '<div class="badge ssc_badge"></div>' +
                                 '<div class="lottery_t ssc">' +
                                 '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <span style="margin-right: 10px">第' + pcode + '期</span><strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                '<div class="status status0"' + v.orderStatus + '>' +
+                                '<div class="status status0">' +
                                 '<span>' + v.chaseStatusName + '</span>' +
                                 // '<div>' + v.pcode + '期</div></div></a></li>';
                                 '<div style="color: #ffc85d">总' + v.chaseCount + '期</div></div></a></li>';
