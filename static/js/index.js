@@ -3,16 +3,16 @@ window.onload = function () {
     initKuang();
     initNavChoice();
     // initChoiceObj()
-    initLeftViewEve();
-    initRightViewEve();
+    // initLeftViewEve();   //代码已转移至UserNavigation
+    // initRightViewEve();  //代码已转移至UserMenu
     // initPopEve()
     initPopWafa();
-    initPopFengpan01();
+    // initPopFengpan01();
    // initPopFengpan02();
-    initPop01();
-    initTipPop01();
-    initTipPop02();
-    initTipPop03();
+    // initPop01();
+    // initTipPop01();
+    // initTipPop02();
+    // initTipPop03();
     // initTipPop04()
    // initTipPop05();
    // initTipPop06();
@@ -255,16 +255,16 @@ function initPopWafa() {
 
 // demo dialog
 // 本彩种暂停销售
-function initPop01() {
-    $('.so-pop-01-click').click(function () {
-        $('.so-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-    $('.so-pop-01 a').click(function () {
-        $('.so-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-}
+// function initPop01() {
+//     $('.so-pop-01-click').click(function () {
+//         $('.so-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     $('.so-pop-01 a').click(function () {
+//         $('.so-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+// }
 // 本期投注已结束
 /*function initBetPop01() {
     $('.so-bet-end-pop-click').click(function () {
@@ -277,16 +277,16 @@ function initPop01() {
     });
 }*/
 // 投注项目未符合最低条件
-function initPopFengpan01() {
-    $('.so-fengpan-pop-01-click').click(function () {
-        $('.so-fengpan-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-    $('.so-fengpan-pop-01').click(function () {
-        $('.so-fengpan-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-}
+// function initPopFengpan01() {
+//     $('.so-fengpan-pop-01-click').click(function () {
+//         $('.so-fengpan-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     $('.so-fengpan-pop-01').click(function () {
+//         $('.so-fengpan-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+// }
 // 投注项目超过规定数量
 /*function initPopFengpan02() {
     $('.so-fengpan-pop-02-click').click(function () {
@@ -299,39 +299,39 @@ function initPopFengpan01() {
     });
 }*/
 
-// 此期已封盘
-function initTipPop01() {
-    $('.so-tip-pop-01-click').click(function () {
-        $('.so-tip-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-    $('.so-tip-pop-01').click(function () {
-        $('.so-tip-pop-01').toggle();
-        $('.so-shade').toggle();
-    });
-}
-// 余额不足
-function initTipPop02() {
-    $('.so-tip-pop-02-click').click(function () {
-        $('.so-tip-pop-02').toggle();
-        $('.so-shade').toggle();
-    });
-    $('.so-tip-pop-02').click(function () {
-        $('.so-tip-pop-02').toggle();
-        $('.so-shade').toggle();
-    });
-}
-// 请选择投注项目
-function initTipPop03() {
-    $('.so-tip-pop-03-click').click(function () {
-        $('.so-tip-pop-03').toggle();
-        $('.so-shade').toggle();
-    });
-    $('.so-tip-pop-03').click(function () {
-        $('.so-tip-pop-03').toggle();
-        $('.so-shade').toggle();
-    });
-}
+// // 此期已封盘
+// function initTipPop01() {
+//     $('.so-tip-pop-01-click').click(function () {
+//         $('.so-tip-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     $('.so-tip-pop-01').click(function () {
+//         $('.so-tip-pop-01').toggle();
+//         $('.so-shade').toggle();
+//     });
+// }
+// // 余额不足
+// function initTipPop02() {
+//     $('.so-tip-pop-02-click').click(function () {
+//         $('.so-tip-pop-02').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     $('.so-tip-pop-02').click(function () {
+//         $('.so-tip-pop-02').toggle();
+//         $('.so-shade').toggle();
+//     });
+// }
+// // 请选择投注项目
+// function initTipPop03() {
+//     $('.so-tip-pop-03-click').click(function () {
+//         $('.so-tip-pop-03').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     $('.so-tip-pop-03').click(function () {
+//         $('.so-tip-pop-03').toggle();
+//         $('.so-shade').toggle();
+//     });
+// }
 // 请输入投注金额
 /* function initTipPop04() {
     $(".so-tip-pop-04-click").click(function () {
