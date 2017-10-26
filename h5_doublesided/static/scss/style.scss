@@ -1145,7 +1145,7 @@ img.bet_ok {
         }
     }
 }
-.so-pop-wanfa {
+.modal.so-pop-wanfa {
     display: none;
     position: fixed;
     top: 0;
@@ -1154,76 +1154,79 @@ img.bet_ok {
     height: 100%;
     background-color: rgba(0,0,0,0.6);
     z-index: 13;
-    > div {
-        height: 12.96rem;
-        width: 8.22rem;
-        background: url("../images/pop/dakuang.png");
-        background-size: 100%;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        top: 10%;
-        > div {
-            width: 6rem;
-            text-align: center;
-            margin: auto;
-            height: 10rem;
-            overflow: hidden;
-            overflow-y: auto;
-        }
-        h2 {
-            font-size: 0.4rem;
-            color: white;
-            line-height: 1rem;
-            position: relative;
-            letter-spacing: 2px;
-            > a {
-                content: "";
-                display: block;
-                width: 1rem;
-                height: 1rem;
-                float: right;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-        }
-        h3 {
-            font-size: .34rem;
-            color: $yellow;
-            line-height: .34rem;
-            margin-top: .3rem;
-            margin-bottom: .1rem;
-            text-align: left;
-        }
-        img {
-            width: 1rem;
-            margin-top: 0.6rem;
-        }
-        p {
-            display: block;
-            width: 6rem;
-            // text-align: center;
-            margin: auto;
-            color: white;
-            font-size: 0.34rem;
-            line-height: 1.5em;
-            text-align: justify;
-        }
-        > a {
-            display: block;
-            background: url("../images/pop/lan.png") no-repeat;
-            background-size: 100%;
-            width: 2.31rem;
-            height: 0.74rem;
-            text-align: center;
-            margin: auto;
-            margin-top: 0.3rem;
-            line-height: 0.74rem;
-            font-size: 0.34rem;
-            color: white;
-        }
+    >.m_content{
+        top: 5%;
     }
+    // > div {
+    //     height: 12.96rem;
+    //     width: 8.22rem;
+    //     background: url("../images/pop/dakuang.png");
+    //     background-size: 100%;
+    //     margin: auto;
+    //     text-align: center;
+    //     position: relative;
+    //     top: 10%;
+    //     > div {
+    //         width: 6rem;
+    //         text-align: center;
+    //         margin: auto;
+    //         height: 10rem;
+    //         overflow: hidden;
+    //         overflow-y: auto;
+    //     }
+    //     h2 {
+    //         font-size: 0.4rem;
+    //         color: white;
+    //         line-height: 1rem;
+    //         position: relative;
+    //         letter-spacing: 2px;
+    //         > a {
+    //             content: "";
+    //             display: block;
+    //             width: 1rem;
+    //             height: 1rem;
+    //             float: right;
+    //             position: absolute;
+    //             right: 0;
+    //             top: 0;
+    //         }
+    //     }
+        // h3 {
+        //     font-size: .34rem;
+        //     color: $yellow;
+        //     line-height: .34rem;
+        //     margin-top: .3rem;
+        //     margin-bottom: .1rem;
+        //     text-align: left;
+        // }
+        // img {
+        //     width: 1rem;
+        //     margin-top: 0.6rem;
+        // }
+        // p {
+        //     display: block;
+        //     width: 6rem;
+        //     // text-align: center;
+        //     margin: auto;
+        //     color: white;
+        //     font-size: 0.34rem;
+        //     line-height: 1.5em;
+        //     text-align: justify;
+        // }
+        // > a {
+        //     display: block;
+        //     background: url("../images/pop/lan.png") no-repeat;
+        //     background-size: 100%;
+        //     width: 2.31rem;
+        //     height: 0.74rem;
+        //     text-align: center;
+        //     margin: auto;
+        //     margin-top: 0.3rem;
+        //     line-height: 0.74rem;
+        //     font-size: 0.34rem;
+        //     color: white;
+        // }
+    //}
 }
 .purse {
     position: relative;

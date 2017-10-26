@@ -65,6 +65,8 @@ input, select, button, a { outline: none; }
 
 #pa_head > .right > a { padding-top: 0.43rem; font-size: .35rem; display: inline-block; color: #d7e8f0; padding: 0.5rem .35rem 0 0; }
 
+#pa_content { margin-top: 2rem; }
+
 .warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; }
 
 .warp > .content { margin-top: 1.5rem; }
@@ -167,6 +169,8 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > h2 > a { width: 1.5rem; height: .77rem; position: absolute; right: 0; top: 0; }
 
+.modal > .m_content > h2.noclose { background-image: url("../../static/images/m_top_noclose.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+
 .modal > .m_content > .content { text-align: center; padding: .5rem .8rem; line-height: .6rem; font-size: 0.35rem; }
 
 .modal > .m_content > .content.danger { color: #c93030; }
@@ -178,6 +182,10 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 .modal > .m_content > .content > div > img { width: 90%; }
 
 .modal > .m_content > .content > div > img:last-child { width: 15%; }
+
+.modal > .m_content > .content > div.playtext { height: 12rem; overflow: scroll; text-align: left; }
+
+.modal > .m_content > .content > div.playtext h3 { font-size: .34rem; color: #ffbd00; line-height: .34rem; margin-top: .3rem; margin-bottom: .1rem; text-align: left; }
 
 .modal > .m_content > .content > p { text-align: left; }
 

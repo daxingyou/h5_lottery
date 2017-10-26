@@ -336,23 +336,9 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop-xxx div > a { display: block; background: url("../images/pop/lan.png") no-repeat; background-size: 100%; width: 2.31rem; height: 0.74rem; text-align: center; margin: auto; margin-top: 0.3rem; line-height: 0.74rem; font-size: 0.34rem; color: white; }
 
-.so-pop-wanfa { display: none; position: fixed; top: 0; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
+.modal.so-pop-wanfa { display: none; position: fixed; top: 0; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
 
-.so-pop-wanfa > div { height: 12.96rem; width: 8.22rem; background: url("../images/pop/dakuang.png"); background-size: 100%; margin: auto; text-align: center; position: relative; top: 10%; }
-
-.so-pop-wanfa > div > div { width: 6rem; text-align: center; margin: auto; height: 10rem; overflow: hidden; overflow-y: auto; }
-
-.so-pop-wanfa > div h2 { font-size: 0.4rem; color: white; line-height: 1rem; position: relative; letter-spacing: 2px; }
-
-.so-pop-wanfa > div h2 > a { content: ""; display: block; width: 1rem; height: 1rem; float: right; position: absolute; right: 0; top: 0; }
-
-.so-pop-wanfa > div h3 { font-size: .34rem; color: #ffbd00; line-height: .34rem; margin-top: .3rem; margin-bottom: .1rem; text-align: left; }
-
-.so-pop-wanfa > div img { width: 1rem; margin-top: 0.6rem; }
-
-.so-pop-wanfa > div p { display: block; width: 6rem; margin: auto; color: white; font-size: 0.34rem; line-height: 1.5em; text-align: justify; }
-
-.so-pop-wanfa > div > a { display: block; background: url("../images/pop/lan.png") no-repeat; background-size: 100%; width: 2.31rem; height: 0.74rem; text-align: center; margin: auto; margin-top: 0.3rem; line-height: 0.74rem; font-size: 0.34rem; color: white; }
+.modal.so-pop-wanfa > .m_content { top: 5%; }
 
 .purse { position: relative; left: -0.2rem; }
 
