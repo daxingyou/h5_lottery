@@ -146,7 +146,7 @@
                       </div>
                       <p>天津时时彩</p>
                   </li>
-                  <li>
+                  <li @click="go('/qcssc/')">
                       <div class="badge">
                           <img src="static/images/logo_cqssc.svg">
                       </div>
@@ -208,18 +208,26 @@
 export default {
   name: 'Index',
   mounted:function() {
-    TouchSlide({
-        slideCell: "#focus",
-        autoPlay:true,
-    });
-    $("#marquee_snp").slide({ // 文本滚动
-        mainCell: ".bd ul",
-        autoPage: true,
-        effect: "leftMarquee",
-        autoPlay: true,
-        vis: 1,
-        interTime: 50
-    });
+    $(()=>{
+      TouchSlide({
+          slideCell: "#focus",
+          autoPlay:true,
+      });
+      // $("#marquee_snp").slide({ // 文本滚动
+      //     mainCell: ".bd ul",
+      //     autoPage: true,
+      //     effect: "leftMarquee",
+      //     autoPlay: true,
+      //     vis: 1,
+      //     interTime: 50
+      // });
+      
+    })
+  },
+  methods:{
+    go:function(url){
+      window.location = url;
+    }
   },
   data () {
     return {
