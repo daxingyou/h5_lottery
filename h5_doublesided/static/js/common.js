@@ -160,7 +160,7 @@ $(function () {
     }, 500) ;
 
     initChoiceObj() ; // 球点击处理
-    initPopEve() ; // 表单提交判断
+    initPopEve(2) ; // 表单提交判断
     initNavChoice() ; // 右边nav 切换处理
 
 })
@@ -470,16 +470,16 @@ function outTimeSet() {
     });
 }
 
-// 本期投注已结束
+// 本期投注已结束，转至下期提示
 function initBetPop01(closet) {
-        $('.so-bet-end-pop').toggle();
+        $('.modal.m12').toggle();
         $('.so-shade').toggle();
-    $('.so-bet-end-pop').click(function () {
-        $('.so-bet-end-pop').toggle();
+    $('.modal.m12').click(function () {
+        $('.modal.m12').toggle();
         $('.so-shade').toggle();
     });
     setTimeout(function () {
-        $('.so-bet-end-pop,.so-shade').hide() ;
+        $('.modal.m12 ,.so-shade').hide() ;
     },closet*1000) ; // 自动关闭
 }
 
@@ -667,20 +667,24 @@ function checkNumbers(method,len,self,xslen) {
 
 
 //此方法弹出结算框 ,注单数量，添加按钮
-function initPopEve() {
+function initPopEve(closet) {
     $(".so-add").click(function () {
+        var settime = setTimeout(function () {
+            $(".so-shade,.modal.m08").hide() ;
+        },closet*1000) ;
+
         var amount = $('.bet-amount').val() ;  // 获取金额
         var nums = Number($('.bet-select-num').text()) ;  // 获取注数
         if(nums<1){ // 没有选择投注项目
             $('.bet-error-content').html('请选择投注项目') ;
-            $(".so-tip-pop-04").toggle() ;
+            $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
             return false;
         }
 
-        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确
+        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
             $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
-            $(".so-tip-pop-04").toggle() ;
+            $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
             return false;
         }
@@ -699,8 +703,8 @@ function initPopEve() {
     }) ;
 
     // 投注金额提示弹窗关闭
-    $(".so-tip-pop-04").click(function () {
-        $(".so-tip-pop-04").toggle() ;
+    $(".modal.m08").click(function () {
+        $(".modal.m08").toggle() ;
         $(".so-shade").toggle() ;
     }) ;
 }
@@ -709,24 +713,24 @@ function initPopEve() {
 function initTipPop05(flag,closetime,content) {
     // 成功
     if(flag){
-        $('.so-tip-pop-05').toggle();
+        $('.modal.m09').toggle();
         $('.so-shade').toggle();
-        $('.so-tip-pop-05').click(function () {
-            $('.so-tip-pop-05').toggle();
+        $('.modal.m09').click(function () {
+            $('.modal.m09').toggle();
             $('.so-shade').toggle();
         });
     }else{
         // 失败
-        $(".so-tip-pop-06").toggle() ;
+        $(".modal.m10").toggle() ;
         $(".so-shade").toggle() ;
-        $(".so-tip-pop-06").click(function () {
-            $(".so-tip-pop-06").toggle() ;
+        $(".modal.m10").click(function () {
+            $(".modal.m10").toggle() ;
             $(".so-shade").toggle() ;
         });
         $('.submit-error-content').html(content) ; // 投注失败提示
     }
     setTimeout(function () {
-        $('.so-tip-pop-05,.so-shade,.so-tip-pop-06').hide() ;
+        $('.modal.m09,.so-shade, .modal.m10').hide() ;
     },closetime*1000)
 
 }
