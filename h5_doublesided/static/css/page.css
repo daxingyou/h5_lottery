@@ -159,7 +159,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal { display: none; position: fixed; top: 0px; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
 
-.modal > .m_content { width: 80%; margin: 0 auto; color: #fff; background-color: rgba(15, 16, 21, 0.8); border: 1px solid #277ca5; position: relative; top: 25%; }
+.modal > .m_content { width: 80%; margin: 0 auto; color: #fff; background-color: rgba(15, 16, 21, 0.8); border: 2px solid #277ca5; position: relative; top: 25%; }
 
 @media (max-width: 359px) { .modal > .m_content { width: 90%; } }
 
