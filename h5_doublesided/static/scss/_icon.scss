@@ -86,10 +86,12 @@ i.i_bank_transfer{
 i.i_help{
     @extend .i_webbank_pay;
     background-size: 100%;
-    background-position: 0 -10.78rem;
+    background-position: 0 -10.79rem;
     width: 1rem;
-    margin-top: .2rem;
+    //margin-top: .2rem;
     height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
 }
 i.icon_copy{
     @extend .i_webbank_pay;

@@ -423,9 +423,9 @@ label{
         margin-top: .2rem;
     }
 }
-// .content{
-//     margin-top: 2rem;
-// }
+.content{
+    margin-top: 1.5rem;
+}
 
 //modal通用
 .modal{
@@ -466,11 +466,30 @@ label{
                 top: 0;
             }
         }
-        >p{
-            text-align: left;
+        >.content{
+            text-align: center;
             padding: .5rem .8rem;
             line-height: .6rem;
             font-size: 0.35rem;
+            &.danger{
+                color: $red;
+            }
+            &.check{
+                color: $yellow;
+            }
+            >div{
+                margin: 0 auto;
+                text-align: center;
+                >img{
+                    width: 90%;
+                    &:last-child{
+                        width: 15%;
+                    }
+                }
+            }
+            >p{
+                text-align: left;
+            }
         }
         >.action{
             width: 100%;
@@ -498,7 +517,7 @@ label{
         &:after{
             @include pseudo;
             @include background-image ('m_bot.png',0,transparent);
-            bottom: -9px;
+            bottom: -21px;
             top: initial;
             height: .7rem;
             width: 100%;
