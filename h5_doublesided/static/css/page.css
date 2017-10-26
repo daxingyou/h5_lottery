@@ -155,6 +155,30 @@ h2 { font-weight: 300; }
 
 label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem; }
 
+.modal { display: none; position: fixed; top: 0px; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
+
+.modal > .m_content { width: 80%; margin: 0 auto; color: #fff; background-color: rgba(15, 16, 21, 0.8); border: 1px solid #277ca5; position: relative; top: 25%; }
+
+@media (max-width: 359px) { .modal > .m_content { width: 90%; } }
+
+.modal > .m_content.tiny { width: 70%; }
+
+.modal > .m_content > h2 { background-image: url("../../static/images/m_top.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 100%; height: .77rem; font-size: .4rem; text-align: center; line-height: .77rem; }
+
+.modal > .m_content > h2 > a { width: 1.5rem; height: .77rem; position: absolute; right: 0; top: 0; }
+
+.modal > .m_content > p { text-align: left; padding: .5rem .8rem; line-height: .6rem; font-size: 0.35rem; }
+
+.modal > .m_content > .action { width: 100%; margin: 0 auto; text-align: center; padding: .3rem 0 .6rem; }
+
+.modal > .m_content > .action > a { display: inline-block; width: 2.5rem; height: .7rem; text-align: center; line-height: .7rem; margin: 0 .3rem; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); color: #fff; font-size: .37rem; }
+
+.modal > .m_content > .action > a.ok { background-image: url("../../static/images/btn_ok.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+
+.modal > .m_content > .action > a.cancle { background-image: url("../../static/images/btn_cancle.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+
+.modal > .m_content:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -9px; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
@@ -182,7 +206,7 @@ i.i_bank_transfer { background-position-y: -2.15rem; }
 
 i.i_help { background-size: 100%; background-position: 0 -10.78rem; width: 1rem; margin-top: .2rem; height: .5rem; }
 
-i.icon_copy { background-size: 100%; background-position: -12px 92.9%; width: 1rem; height: .5rem; margin-top: 0; vertical-align: middle; }
+i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1rem; height: .5rem; margin-top: 0; vertical-align: middle; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }

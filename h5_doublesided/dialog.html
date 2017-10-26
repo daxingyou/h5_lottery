@@ -5,16 +5,18 @@
     <title>Title</title>
     <link href="static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/page.css" rel="stylesheet" type="text/css">
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <style>
         .so-con >div{
             margin-bottom: .5rem;
             cursor: pointer;
             padding: .3rem 0;
-
+            color: #fff;
         }
         h2.demo{
             margin: 1rem 0;
+            color: #fff;
         }
     </style>
 </head>
@@ -38,6 +40,7 @@
         <div class="so-tip-pop-06-click">下注弹窗_失败</div>
         <div class="so-tip-pop-07-click">帐号名称重复</div>
         <div class="so-tip-pop-08-click">网络连接错误请重试</div>
+        <div class="so-tip-pop-09-click">微信二維碼</div>
 
 
 
@@ -143,8 +146,33 @@
             </div>
         </div>
     </div>
+
+    <!--微信二维码使用步骤-->
+    <div class="modal">
+        <div class="m_content tiny">
+            <h2 class="title">微信二维码使用步骤<a></a></h2>
+            <p class="content">
+                1. 请截屏或长按保存页面上的二维码图片到手机；<br/>
+                2. 打开微信（或支付宝），找到“扫一扫”进入；<br/>
+                3. 进入后点击右上角“从相册选取”，选择最新的二维码图片；<br/>
+                4. 完成支付后，回到网站内检查余额；<br/>
+            </p>
+            <div class="action">
+                <a class="cancle">取消</a><a class="ok">确定</a>
+            </div>
+        </div>
+    </div>
+
 <script src="static/js/jquery-1.7.min.js"></script>
 <script src="static/js/touchslide.1.1.js"></script>
 <script src="static/js/index.js"></script>
+<script>
+    $('.so-tip-pop-09-click').click(function () {
+        $('.modal').toggle();
+    });
+    $('.modal').click(function () {
+        $('.modal').toggle();
+    });
+</script>
 </body>
 </html>
