@@ -100,9 +100,9 @@ function initNavChoice() {
             $('#so-item' + i).show();
         })
     }).eq(0).click();
-    TouchSlide({
+  /*  TouchSlide({
         slideCell: '#so-item2',
-    });
+    });*/
     //PK10点击左边nav切换盘面
     $('.so-con-left li').on('click',function(){
         var i = $(this).index();

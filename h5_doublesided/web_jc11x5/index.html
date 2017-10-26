@@ -8,6 +8,9 @@
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
     <script src="../static/js/flexible_css.debug.js"></script>
     <script src="../static/js/flexible.debug.js"></script>
+    <style>
+        .tab_content:nth-child(n+2){ display: none; }
+    </style>
 </head>
 <body>
 <div class="so-con">
@@ -592,22 +595,22 @@
                 </div>
                 <!-- jc115 连码 -->
                 <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
-                    <div class="hd">
+                    <div class="hd jx11_tab">
                         <ul class="tab tab_mid tab_two">
-                            <li class="on"><a href="javascript:;">一中一</a></li>
-                            <li><a href="javascript:;">二中二</a></li>
-                            <li><a href="javascript:;">三中三</a></li>
-                            <li><a href="javascript:;">四中四</a></li>
-                            <li><a href="javascript:;">五中五</a></li>
-                            <li><a href="javascript:;">六中五</a></li>
-                            <li><a href="javascript:;">七中五</a></li>
-                            <li><a href="javascript:;">八中五</a></li>
-                            <li><a href="javascript:;">前二组选</a></li>
-                            <li><a href="javascript:;">前三组选</a></li>
+                            <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
+                            <li data-tab="2"><a href="javascript:;">二中二</a></li>
+                            <li data-tab="3"><a href="javascript:;">三中三</a></li>
+                            <li data-tab="4"><a href="javascript:;">四中四</a></li>
+                            <li data-tab="5"><a href="javascript:;">五中五</a></li>
+                            <li data-tab="6"><a href="javascript:;">六中五</a></li>
+                            <li data-tab="7"><a href="javascript:;">七中五</a></li>
+                            <li data-tab="8"><a href="javascript:;">八中五</a></li>
+                            <li data-tab="9"><a href="javascript:;">前二组选</a></li>
+                            <li data-tab="10"><a href="javascript:;">前三组选</a></li>
                         </ul>
                     </div>
                     <div class="bd">
-                        <ul class="tab_content">
+                        <ul class="tab_content tab_content_1">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -662,7 +665,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_eze" class="tab_content ">
+                        <ul id="tab_jx_eze" class="tab_content tab_content_2">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -717,7 +720,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_szs" class="tab_content ">
+                        <ul id="tab_jx_szs" class="tab_content tab_content_3">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -772,7 +775,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_sizsi" class="tab_content ">
+                        <ul id="tab_jx_sizsi" class="tab_content tab_content_4">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -827,7 +830,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_wzw" class="tab_content ">
+                        <ul id="tab_jx_wzw" class="tab_content tab_content_5">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -882,7 +885,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_lzw" class="tab_content ">
+                        <ul id="tab_jx_lzw" class="tab_content tab_content_6">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -937,7 +940,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_qzw" class="tab_content ">
+                        <ul id="tab_jx_qzw" class="tab_content tab_content_7">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -992,7 +995,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_bzw" class="tab_content ">
+                        <ul id="tab_jx_bzw" class="tab_content tab_content_8">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -1047,7 +1050,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_qez" class="tab_content ">
+                        <ul id="tab_jx_qez" class="tab_content tab_content_9">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -1102,7 +1105,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul id="tab_jx_qsz" class="tab_content ">
+                        <ul id="tab_jx_qsz" class="tab_content tab_content_10">
                             <li class="select-li">
                                 <div>
                                     <h2>
@@ -1278,7 +1281,7 @@
 
 </div>
 <script src="../static/js/jquery-1.7.min.js"></script>
-<script src="../static/js/touchslide.1.1.js"></script>
+<!--<script src="../static/js/touchslide.1.1.js"></script>-->
 <script src="../static/js/common.js"></script>
 <script src="../static/js/index.js"></script>
 <script>
@@ -1287,9 +1290,7 @@
         var lotteryname = '江西11选5' ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
-        TouchSlide({
-            slideCell: "#so-item2",
-        });
+
         getPlayTree(lotteryid);  // 玩法树，彩种id
         // 确认提交注单
         $('.btn-submit').on('click',function () {
@@ -1300,6 +1301,16 @@
             getSystemTime(lotteryid); // 系统时间
 
         }, 500) ;
+
+        // 连码切换tab
+        $('.jx11_tab').on('click','li',function () {
+            var tab = $(this).data('tab') ;
+            $(this).addClass('on').siblings().removeClass('on') ;
+            $('.tab_content_'+tab).show().siblings().hide() ;
+            resetAction() ;
+
+        });
+
 
     })
 
