@@ -838,7 +838,7 @@ function resetAction() {
     $(".so-con-right p").each(function (i, t) {
         $(this).removeClass('active') ;
         $('.bet-select-num').text('0') ;
-        $('.bet-amount').val('0') ;
+        $('.bet-amount').val('') ;
     })
 }
 

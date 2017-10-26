@@ -1,0 +1,73 @@
+<template>
+    <div id="pa_con" class="so-con warp bule_bg">
+        <header id="pa_head">
+            <div class="left">
+                <a href="/">
+                    <img src="static/images/back.png" alt="">
+                </a>
+            </div>
+            <h2 class="center">注册</h2>
+            <div class="right"></div>
+        </header>
+        <div class="content">
+            <div class="login_area reg">
+                <div align="center">为了您的资金安全，请使用真实资料！</div>
+                <form>
+                    <fieldset>
+                        <div class="form_g account">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入推荐人帐号">
+                            <i class="close"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位帐号</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g account">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入帐号">
+                            <i class="close"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位帐号</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" placeholder="请输入密码">
+                            <i class="eye"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位密码</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" placeholder="请输入确认密码">
+                            <i class="eye active"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位密码</label> -->
+                    </fieldset>
+                </form>
+                <div class="btn btn_blue">
+                    <a href="javascript:;">下一步</a>
+                </div>
+                <div class="other_link">
+                    <span>已有帐号?</span>
+                    <a class="text-yellow" href="login.html">马上登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'Reg',
+  mounted:function() {
+    
+  },
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
+</script>
