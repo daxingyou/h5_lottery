@@ -965,7 +965,7 @@ function doubleCount(lotteryid,rows,maxtime) {
 
 
         },
-        error: function (res) {  // 错误提示
+        error: function (data) {  // 错误提示
 
 
         }
@@ -1006,7 +1006,7 @@ function loadRoadAction(lotteryid,maxtime) {
             roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
             roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
         },
-        error: function (res) {  // 错误提示
+        error: function (data) {  // 错误提示
 
 
         }
@@ -1050,5 +1050,34 @@ function roadDomAction(resdata,cid) {
     }
     $('#'+cid).html(ts) ;
 
+}
 
+/*
+*  双面长龙数据，双面长龙页面
+* */
+function loadDoubleLong(lotteryid,maxtime) {
+    var senddata ={
+        lotteryId : lotteryid ,
+        maxUpdateTime: maxtime ,
+    }
+    $.ajax({
+        type: 'get',
+        headers: {
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        url: action.forseti + 'api/openNums/doubleLong',
+        timeout: 600000,
+        data: senddata ,
+        success: function (data) {
+          console.log(data.data) ;
+
+
+        },
+        error: function (data) {  // 错误提示
+
+
+        }
+    });
 }
