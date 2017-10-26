@@ -182,7 +182,7 @@ i.i_bank_transfer { background-position-y: -2.15rem; }
 
 i.i_help { background-size: 100%; background-position: 0 -10.78rem; width: 1rem; margin-top: .2rem; height: .5rem; }
 
-i.icon_copy { background-size: 100%; background-position: -12px 92.9%; width: 1rem; height: .5rem; }
+i.icon_copy { background-size: 100%; background-position: -12px 92.9%; width: 1rem; height: .5rem; margin-top: 0; vertical-align: middle; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -383,6 +383,8 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area ul > li.active { background-image: -webkit-gradient(linear, left top, left bottom, from(#1c4975), to(#3793cc)); background-image: -webkit-linear-gradient(#1c4975, #3793cc); background-image: -o-linear-gradient(#1c4975, #3793cc); background-image: linear-gradient(#1c4975, #3793cc); text-shadow: 0 5px 2px rgba(0, 0, 0, 0.9); }
 
+#betting_record { margin-top: 1.5rem; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .news { margin-top: 1.5rem; }
 
@@ -575,15 +577,13 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .print_data table tr th li { list-style: none; margin-left: .5em; position: relative; width: 1.5rem; font-size: .35rem; color: #66c3f2; }
 
-.print_data table tr th li:before { content: '•'; font-size: .35rem; display: inline-block; color: #8b8b8b; position: absolute; left: -1.2em; width: 1.5em; height: 18px; }
-
 .print_data table tr td { text-align: left; padding-left: 1em; color: #fff; word-break: break-all; line-height: 2em; width: 11rem; font-size: .35rem; }
 
 @media (max-width: 576px) { .print_data table tr td { line-height: normal; } }
 
 @media (max-width: 359px) { .print_data table tr td { width: 7rem; } }
 
-.print_data .copy_link { color: #fff; text-align: center; display: block; border: 1px solid rgba(255, 255, 255, 0.5); max-width: 50%; margin: 0 auto; -webkit-border-radius: 60px; -moz-border-radius: 60px; -ms-border-radius: 60px; border-radius: 60px; padding: .2rem .5rem; margin-top: 10px; font-size: .35rem; }
+.print_data .copy_link { color: #fff; text-align: center; display: block; border: 1px solid rgba(255, 255, 255, 0.5); max-width: 50%; margin: 0 auto; -webkit-border-radius: 60px; -moz-border-radius: 60px; -ms-border-radius: 60px; border-radius: 60px; padding: .2rem .5rem; margin-top: 10px; font-size: .35rem; vertical-align: middle; }
 
 .bank_transfer { border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 

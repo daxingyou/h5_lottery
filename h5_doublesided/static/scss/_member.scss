@@ -343,18 +343,18 @@ fieldset{
                     width: 1.5rem;
                     font-size: .35rem;
                     color: #66c3f2;
-                    &:before{
-                        content: '•';
-                        font-size: .35rem;
-                        display: inline-block;
-                        color: #8b8b8b;
-                        position: absolute;
-                        left: -1.2em;
-                        width: 1.5em;
-                        // top: 50%;
-                        height: 18px;
-                        // margin-top: -9px;
-                    }
+                    // &:before{
+                    //     content: '•';
+                    //     font-size: .35rem;
+                    //     display: inline-block;
+                    //     color: #8b8b8b;
+                    //     position: absolute;
+                    //     left: -1.2em;
+                    //     width: 1.5em;
+                    //     // top: 50%;
+                    //     height: 18px;
+                    //     // margin-top: -9px;
+                    // }
                 }
             }
             td{
@@ -385,6 +385,7 @@ fieldset{
         padding: .2rem .5rem;
         margin-top: 10px;
         font-size: .35rem;
+        vertical-align: middle;
     }
 
 }
