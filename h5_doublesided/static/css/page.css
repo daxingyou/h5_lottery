@@ -65,7 +65,9 @@ input, select, button, a { outline: none; }
 
 #pa_head > .right > a { padding-top: 0.43rem; font-size: .35rem; display: inline-block; color: #d7e8f0; padding: 0.5rem .35rem 0 0; }
 
-#pa_content { margin-top: 2rem; }
+#pa_content { margin-top: 1.5rem; }
+
+#pa_content #road01 { margin-top: 2rem; }
 
 .warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; }
 
