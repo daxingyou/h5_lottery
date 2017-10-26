@@ -389,7 +389,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; margin-top: .5rem; padding-top: .2rem; }
 
-.road > ul > li { background: url("../../static/images/page/road.png") no-repeat center top; background-size: 100%; width: .8rem; height: .8rem; margin: 0 auto; text-align: center; background-position-y: 0; }
+.road > ul > li { background: url("../../static/images/page/road.png") no-repeat center top; background-size: 100%; width: .8rem; height: .8rem; margin: 0 auto; text-align: center; background-position-y: 0; color: #fff; font-size: 0.35rem; line-height: .6rem; }
 
 .road > ul > li.tiger { background-position-y: 14%; }
 
