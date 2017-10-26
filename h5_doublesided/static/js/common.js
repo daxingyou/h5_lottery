@@ -161,6 +161,7 @@ $(function () {
 
     initChoiceObj() ; // 球点击处理
     initPopEve() ; // 表单提交判断
+    initNavChoice() ; // 右边nav 切换处理
 
 })
 
@@ -187,11 +188,11 @@ function LoginAction() {
         headers: {Authorization: 'Basic d2ViX2FwcDo='},
         url: action.uaa + 'oauth/token',
         // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
-        data: {grant_type: 'password', username: 'mgappid01|admin', password: 'admin'},
+        data: {grant_type: 'password', username: 'mgappid02|admin', password: 'admin'},
         success: function (res) {
             access_token = res.access_token;
             setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-            setCookie("username", "mgappid01|admin");  // 把登录用户名放在cookie里面
+            setCookie("username", "mgappid02|admin");  // 把登录用户名放在cookie里面
         },
         error: function () {
 
@@ -505,7 +506,7 @@ function processCode(issue, lastissue,code,double) {
 
 }
 
-//此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
+//此方法用来控制盘面选择,更新盘面信息后应该重新调用一次，选球处理
 function initChoiceObj() {
     $('.so-con-right').on('click','p',function () {
         var _this =  $(this) ;
@@ -517,92 +518,147 @@ function initChoiceObj() {
         }
         // 已选注数
         var choosed =  $(".so-con-right p.active").length ;
-
         var pid = _this.parents('ul.tab_content').attr('id') ;
         var paid = '#'+pid ;
-        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
-        // var ifSp = 0 ;
-       // var spArr = [] ; // 二中二，三中三等
-        if(pid){ // 二中二，三中三等
+        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等特殊处理
+
+        checkNumbers(pid,choosed,_this,z_choosed) ;
+   /*     if(pid){ // 二中二，三中三等
             checkNumbers(pid,z_choosed,_this) ;
-           // sessionStorage.setItem(pid,paid) ;
-            var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+            var spchoose = parseInt(z_choosed/xlen) ;
             $('.bet-select-num').text(spchoose) ;
 
         }else{
-            $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
-        }
+           // $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
+            $('.bet-select-num').text(choosed) ;
+        }*/
 
     }) ;
 
 }
 
+// 此方法用来控制点击左边nav切换盘面
+function initNavChoice() {
+    var ifval = '1' ; // 默认 1
+    $('.so-con-left li').each(function (i, t) {
+        $(t).click(function () {
+            var val = $(this).data('val') ;
+            if(val != ifval ){   // 江西11选5切换时，需要重置投注
+                resetAction() ;
+            }
+            ifval = val ;
+            $('.so-con-right > div').hide();
+            $('.so-con-left li').removeClass('active');
+            $(this).addClass('active');
+            $('#so-item' + i).show();
+        })
+    }).eq(0).click();
+
+    //PK10点击左边nav切换盘面
+    $('.so-con-left li').on('click',function(){
+        var i = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $('#pk10-item' + i).show().siblings().hide();
+    }).eq(0).click();
+}
+
 /*
-* 江西11选5 ,method 玩法，len 长度
+* 江西11选5 ,method 玩法，len 长度，xslen特殊玩法
 * */
-function checkNumbers(method,len,self) {
+function checkNumbers(method,len,self,xslen) {
     switch (method) {
         case 'tab_jx_eze': // 二中二
             xlen = 2 ;
-        if(len>2){
-            initPopFengpan02(3,len-1) ;
-            self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+        if(xslen>2){
+            initPopFengpan02(2,len-1) ;
+            self.click() ;
             return false ;
         }
             break;
         case 'tab_jx_szs': // 三中三
             xlen = 3 ;
-            if(len>3){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>3){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_sizsi': // 四中四
             xlen = 4 ;
-            if(len>4){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>4){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_wzw': // 五中五
             xlen = 5 ;
-            if(len>5){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_lzw': // 六中五
-            if(len>6){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 6 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>6){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_qzw': // 七中五
-            if(len>7){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 7 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>7){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
         case 'tab_jx_bzw': // 八中五
-            if(len>8){
-                initPopFengpan02(3,len-1) ;
-                self.removeClass('active') ;
+            xlen = 8 ;
+            var spchoose = parseInt(xslen/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>8){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
                 return false ;
             }
             break;
-        case 'tab_jx_qez': // 前二组选
-
+        case 'tab_jx_qez': // 前二组选 ，公式 n*(n-1)/2
+            xlen = 2 ;
+            var spchoose = parseInt(xslen*((xslen-1))/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
+                return false ;
+            }
             break;
-        case 'tab_jx_qsz': // 前三组选
-
+        case 'tab_jx_qsz': // 前三组选 ，公式 n*(n-1)*(n-2)/3*2*1
+            xlen = 6 ;
+            var spchoose = parseInt(xslen*((xslen-1))*(xslen-2)/xlen) ;
+            $('.bet-select-num').text(spchoose) ;
+            if(xslen>5){
+                initPopFengpan02(2,len-1) ;
+                self.click() ;
+                return false ;
+            }
             break;
         default :
-
+            $('.bet-select-num').text(len) ;
             break;
     }
 
@@ -843,7 +899,7 @@ function resetAction() {
 }
 
 /*
-* 标签切换
+* 近期开奖标签切换
 * */
 
 function changeTab(lotteryid) {
@@ -856,7 +912,7 @@ function changeTab(lotteryid) {
 }
 
 /*
-* 近期开奖数据
+* 近期开奖数据，近期开奖页面
 * */
 
 function doubleCount(lotteryid,rows,maxtime) {
@@ -914,4 +970,85 @@ function doubleCount(lotteryid,rows,maxtime) {
 
         }
     });
+}
+
+/*
+* 路珠数据，路珠页面
+* */
+function loadRoadAction(lotteryid,maxtime) {
+    var senddata ={
+        lotteryId : lotteryid ,
+        maxUpdateTime: maxtime ,
+    }
+    $.ajax({
+        type: 'get',
+        headers: {
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        url: action.forseti + 'api/openNums/loadBead',
+        timeout: 600000,
+        data: senddata ,
+        success: function (data) {
+           // console.log(data.data.total_size) ;
+            roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+            roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+            roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+            roadDomAction(data.data.size_1,'road02_1 .dx_size') ;  // 第一球大小
+            roadDomAction(data.data.sd_1,'road02_1 .ds_dx') ;  // 第一球单双
+            roadDomAction(data.data.size_2,'road02_2 .dx_size') ;  // 第二球大小
+            roadDomAction(data.data.sd_2,'road02_2 .ds_dx') ;  // 第二球单双
+            roadDomAction(data.data.size_3,'road02_3 .dx_size') ;  // 第三球大小
+            roadDomAction(data.data.sd_3,'road02_3 .ds_dx') ;  // 第三球单双
+            roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
+            roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
+            roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
+            roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
+        },
+        error: function (res) {  // 错误提示
+
+
+        }
+    });
+}
+
+/*
+*  路珠总和大小数据处理，resdata 数据，cid 选择器，color 球的颜色
+*  和=蓝mid   龙=紅big  虎=绿tiger  大=紅big   小=绿tiger  单=紅big  双=绿tiger
+* */
+function roadDomAction(resdata,cid) {
+    var ts = '' ;
+    for(var i=0;i<resdata.length;i++){  // 总和大小
+        ts +=' <li class="road">'+
+            '<ul>' ;
+        for(var ii=0;ii<resdata[i].length;ii++){
+            var rescon = resdata[i][ii] ;
+            var color = 'mid' ;
+            switch (rescon) {
+                case '和':
+                    color = 'mid' ;
+                    break;
+                case '龙':
+                case '大':
+                case '单':
+                    color = 'big' ;
+                    break;
+                case '虎':
+                case '小':
+                case '双':
+                    color = 'tiger' ;
+                    break;
+                default :
+                    color = 'mid' ;
+                    break;
+            }
+            ts += '<li class="'+color+'">'+resdata[i][ii]+'</li>' ;
+        }
+        ts += '</ul>'+
+            '</li>' ;
+    }
+    $('#'+cid).html(ts) ;
+
+
 }

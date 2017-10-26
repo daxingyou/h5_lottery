@@ -83,3 +83,46 @@ i.i_bank_transfer{
     @extend .i_webbank_pay;
     background-position-y:-2.15rem;
 }
+i.i_help{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    background-position: 0 -10.79rem;
+    width: 1rem;
+    //margin-top: .2rem;
+    height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
+}
+i.icon_copy{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    background-position: 0 -10.12rem;
+    width: 1rem;
+    height: .5rem;
+    margin-top: 0;
+    vertical-align: middle;
+}
+.info_bot i{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    width: 1rem;
+    height: .5rem;
+    &.info01{
+        background-position-y: -3.1rem;
+    }
+    &.info02{
+        background-position-y: -4.1rem;
+    }
+    &.info03{
+        background-position-y: -5.15rem;
+    }
+    &.info04{
+        background-position-y: -6.2rem;
+    }
+    &.info05{
+        background-position-y: -7.2rem;
+    }
+    &.info06{
+        background-position-y: -8.11rem;
+    }
+}

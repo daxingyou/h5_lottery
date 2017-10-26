@@ -10,6 +10,7 @@ body{
     padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+    font: .35rem;
 }
 body,.warp {
     &::-webkit-scrollbar {
@@ -80,8 +81,11 @@ input,select,button,a{
     background-color: #0a1625;
     color: $bluetext;
     font-size: .4rem;
-    position: relative;
-    z-index: 11;
+    // position: relative;
+    // z-index: 11;
+    position: fixed;
+    z-index: 12;
+    width: 10rem;
     &:after{
         display: block;
         clear: both;
@@ -168,10 +172,13 @@ input,select,button,a{
     margin: 0 auto;
     height: auto;
     color: $bluetext;
+    >.content{
+        margin-top: 1.5rem;
+    }
 }
-.container {
-    width: 100%;
-}
+// .container {
+//     width: 100%;
+// }
 
 // footer
 footer.bot_nav{
@@ -182,6 +189,7 @@ footer.bot_nav{
     background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
+    z-index: 11;
     >ul{
         text-align: center;
         overflow: hidden;
@@ -416,5 +424,107 @@ label{
         text-align: left;
         display: block;
         margin-top: .2rem;
+    }
+}
+
+
+//modal通用
+.modal{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 10rem;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 13;
+    >.m_content{
+        width: 80%;
+        margin: 0 auto;
+        color: #fff;
+        background-color: rgba(#0f1015,0.8);
+        border: 1px solid #277ca5;
+        position: relative;
+        top:25%;
+        @include respond-to(ss){
+            width: 90%;
+        }
+        &.tiny{
+            width: 70%;
+        }
+        >h2{
+            @include background-image ('m_top.png',0,transparent);
+            width: 100%;
+            height: .77rem;
+            font-size: .4rem;
+            text-align: center;
+            line-height: .77rem;
+            >a{
+                width: 1.5rem;
+                height: .77rem;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+        >.content{
+            text-align: center;
+            padding: .5rem .8rem;
+            line-height: .6rem;
+            font-size: 0.35rem;
+            &.danger{
+                color: $red;
+            }
+            &.check{
+                color: $yellow;
+            }
+            >div{
+                margin: 0 auto;
+                text-align: center;
+                >img{
+                    width: 90%;
+                    &:last-child{
+                        width: 15%;
+                    }
+                }
+            }
+            >p{
+                text-align: left;
+            }
+        }
+        >.action{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: .3rem 0 .6rem;
+            >a{
+                display: inline-block;
+                width: 2.5rem;
+                height: .7rem;
+                text-align: center;
+                line-height: .7rem;
+                margin: 0 .3rem;
+                text-shadow: 1px 1px 1px rgba(#000,0.5);
+                color: #fff;
+                font-size: .37rem;
+                &.ok{
+                    @include background-image ('btn_ok.png',0,transparent);
+                }
+                &.cancle{
+                    @include background-image ('btn_cancle.png',0,transparent);
+                }
+            }
+        }
+        &:after{
+            @include pseudo;
+            @include background-image ('m_bot.png',0,transparent);
+            bottom: -21px;
+            top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
     }
 }
