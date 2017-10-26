@@ -912,7 +912,7 @@ function changeTab(lotteryid) {
 }
 
 /*
-* 近期开奖数据
+* 近期开奖数据，近期开奖页面
 * */
 
 function doubleCount(lotteryid,rows,maxtime) {
@@ -970,4 +970,64 @@ function doubleCount(lotteryid,rows,maxtime) {
 
         }
     });
+}
+
+/*
+* 路珠数据，路珠页面
+* */
+function loadRoadAction(lotteryid,maxtime) {
+    var senddata ={
+        lotteryId : lotteryid ,
+        maxUpdateTime: maxtime ,
+    }
+    $.ajax({
+        type: 'get',
+        headers: {
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+            // 'sourceType':'2', // 1是pc端，2是h5
+            // 'sideType':'1',  // 1是传统盘，2是双面盘
+        },
+        url: action.forseti + 'api/openNums/loadBead',
+        timeout: 600000,
+        data: senddata ,
+        success: function (data) {
+           // console.log(data.data.total_size) ;
+            roadDomAction(data.data.total_size,'road01_1','tiger') ;  // 路珠总和大小
+            roadDomAction(data.data.total_sd,'road01_2','dragon') ;  // 路珠总和单双
+            roadDomAction(data.data.total_lhh,'road01_3','mid') ;  // 路珠龙虎
+            roadDomAction(data.data.size_1,'road02_1 .dx_size','big') ;  // 第一球大小
+            roadDomAction(data.data.sd_1,'road02_1 .ds_dx','mid') ;  // 第一球单双
+            roadDomAction(data.data.size_2,'road02_2 .dx_size','big') ;  // 第二球大小
+            roadDomAction(data.data.sd_2,'road02_2 .ds_dx','mid') ;  // 第二球单双
+            roadDomAction(data.data.size_3,'road02_3 .dx_size','dragon') ;  // 第三球大小
+            roadDomAction(data.data.sd_3,'road02_3 .ds_dx','mid') ;  // 第三球单双
+            roadDomAction(data.data.size_4,'road02_4 .dx_size','dragon') ;  // 第四球大小
+            roadDomAction(data.data.sd_4,'road02_4 .ds_dx','mid') ;  // 第四球单双
+            roadDomAction(data.data.size_5,'road02_5 .dx_size','mid') ;  // 第五球大小
+            roadDomAction(data.data.sd_5,'road02_5 .ds_dx','big') ;  // 第五球单双
+        },
+        error: function (res) {  // 错误提示
+
+
+        }
+    });
+}
+
+/*
+*  路珠总和大小数据处理，resdata 数据，cid 选择器，color 球的颜色
+* */
+function roadDomAction(resdata,cid,color) {
+    var ts = '' ;
+    for(var i=0;i<resdata.length;i++){  // 总和大小
+        ts +=' <li class="road">'+
+            '<ul>' ;
+        for(var ii=0;ii<resdata[i].length;ii++){
+            ts += '<li class="'+color+'">'+resdata[i][ii]+'</li>' ;
+        }
+        ts += '</ul>'+
+            '</li>' ;
+    }
+    $('#'+cid).html(ts) ;
+
+
 }

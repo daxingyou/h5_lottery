@@ -171,6 +171,9 @@ $(function () {
                                 case 81:
                                     className = 'status04';
                                     break;
+                                case 33: // 和局
+                                    className = 'status00';
+                                    break;
                             }
                             if (seadata.searchType === 1) {
                                 li_html = '<li class="bet_data" data-status="not_open">' +
