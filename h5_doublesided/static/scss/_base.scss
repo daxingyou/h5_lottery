@@ -172,10 +172,13 @@ input,select,button,a{
     margin: 0 auto;
     height: auto;
     color: $bluetext;
+    >.content{
+        margin-top: 1.5rem;
+    }
 }
-.container {
-    width: 100%;
-}
+// .container {
+//     width: 100%;
+// }
 
 // footer
 footer.bot_nav{
@@ -423,9 +426,7 @@ label{
         margin-top: .2rem;
     }
 }
-.content{
-    margin-top: 1.5rem;
-}
+
 
 //modal通用
 .modal{
