@@ -10,6 +10,7 @@ body{
     padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+    font: .35rem;
 }
 body,.warp {
     &::-webkit-scrollbar {
@@ -80,8 +81,11 @@ input,select,button,a{
     background-color: #0a1625;
     color: $bluetext;
     font-size: .4rem;
-    position: relative;
-    z-index: 11;
+    // position: relative;
+    // z-index: 11;
+    position: fixed;
+    z-index: 12;
+    width: 10rem;
     &:after{
         display: block;
         clear: both;
@@ -182,6 +186,7 @@ footer.bot_nav{
     background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
+    z-index: 11;
     >ul{
         text-align: center;
         overflow: hidden;
@@ -418,3 +423,6 @@ label{
         margin-top: .2rem;
     }
 }
+// .content{
+//     margin-top: 2rem;
+// }

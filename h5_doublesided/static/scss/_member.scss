@@ -14,6 +14,7 @@
 fieldset{
     display: block;
     margin: .5rem 0 !important;
+    font-size: .35rem;
 }
 .form_g{
     overflow: hidden;
@@ -22,6 +23,7 @@ fieldset{
     padding: .3rem;
     @include border-radius(.2rem);
     border: 2px solid $normalblue;
+    font-size: .35rem;
     >input{
         background-color: transparent;
         width: calc(93% - .5rem);
@@ -45,6 +47,7 @@ fieldset{
         height: .5rem;
         margin-right: .5rem;
         position: relative;
+        text-align: left;
         &:after{
             @include pseudo;
             width: 1px;
@@ -57,12 +60,19 @@ fieldset{
     &.text{
         >legend{
             background-image: none;
-            width: 1.3rem;
+            width: 1.5rem;
         }
-        input{
+        input,select{
             width: calc(80% - .5rem);
+            background-color: transparent;
+            color: #fff;
+            border:none;
         }
-
+    }
+    &.money{
+        input{
+            color: $yellow;
+        }
     }
 }
 .account{
@@ -103,14 +113,18 @@ fieldset{
 //充值
 .deposit_area{
     @extend .login_area;
-    margin-top: 0;
+    margin-top: 2rem;
+    padding-bottom: 2.5rem;
 }
 .pay_content{
     line-height: 1;
     .step03{
         color: #fff;
-        max-width: 65%;
+        //max-width: 65%;
         margin: 0 auto;
+        background: rgba(17, 22, 28, 0.8);
+        //padding: .5rem 0;
+        border:1px solid #294262;
         @include respond-to('sm') {
             max-width: 85%;
         }
@@ -124,21 +138,28 @@ fieldset{
                 margin-left: 1em;
             }
         }
+        >h5{
+            text-align: left;
+            margin-left: .7rem;
+            font-size: 0.35rem;
+            margin-bottom: .2rem;
+        }
         &.scan_qrcoder{
             font-size: 0;
+            padding: .5rem 0;
             ul{
                 overflow: hidden;
                 width: 95%;
                 margin: 0 auto;
             }
             .btn_pay{
-                @include border-radius(5px);
-                border: 1px solid #fff;
+                @include border-radius(.1rem);
+                border: 1px solid $normalblue;
                 // padding: 15px;
                 // text-align: center;
-                width: 48%;
+                width: 40%;
                 display: inline-block;
-                margin: .5rem 0;
+                margin: .5rem 0 .3rem;
                 padding: 3% 2% 3% 0%;
                 text-align: center;
                 font-size: .35rem;
@@ -146,21 +167,19 @@ fieldset{
                     margin-right: 4%;
                 }
                 &:nth-child(3){
-                    width: 100%;
+                    width: 86%;
                 }
                 &:hover,&:active,&:focus{
-                    -webkit-box-shadow: 0px 0px 15px 0px rgba(247, 241, 222, 0.3);
-                            box-shadow: 0px 0px 15px 0px rgba(247, 241, 222, 0.3);
-                    border: 1px solid #fff;
-                    background-image: url('../../static/images/inner_light.png');
-                    background-size: 100% 100%;
+                    -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
+                    box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
+                    border: 1px solid $lightblue;
                 }
                 a{
                     position: relative;
                     display: block;
                     width: 100%;
                     // padding-left: 15px;
-                    color: #fff;
+                    color: $bluetext;
                     >*{
                         display: inline-block;
                         font-size: .35rem;
@@ -177,15 +196,18 @@ fieldset{
                     }
                 }
                 &.alipay{
+                    margin-top: .1rem;
                     img{
                         max-width: 31.5%;
                         margin: 0 10px;
                     }
-    
                 }
             }
         }
         &.webbank_pay{
+            // background: rgba(17, 22, 28, 0.8);
+             padding: .5rem 0;
+            // border:1px solid #294262;
             label{
                 padding-left: .5rem;
                 margin-bottom: 1rem;
@@ -198,20 +220,20 @@ fieldset{
             }
         }
         &.webbank_pay,&.scan_qrcoder{
-            margin-top: 2rem;
+            //margin-top: 2rem;
         }
         .btn_bank{
-            @include border-radius(5px);
-            border: 1px solid #666;
+            @include border-radius(.1rem);
+            border: 1px solid $normalblue;
             // padding: 15px;
-            margin: .5rem .2rem;
+            margin:.2rem;
             // background: url('../../static/images/info_bank.png') no-repeat;
             background-size: 115%;
-            width: 48%;
+            width: 40%;
             display: inline-block;
             background-position-x: 0.1em;
             padding: 1em 0;
-            font-size: 1rem;
+            font-size: .35rem;
             // max-height: 50px;
             // height: 50px;
             @include respond-to('xs') {
@@ -220,9 +242,9 @@ fieldset{
                 padding: 0;
             }
             &:hover,&:active,&:focus{
-                -webkit-box-shadow: 0 0 20px 0px hsla(44, 62%, 92%, 0.50);
-                        box-shadow: 0 0 20px 0px hsla(44, 62%, 92%, 0.50);
-                border: 1px solid #fff;
+                -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
+                        box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
+                border: 1px solid $lightblue;
                 a{
                     color: #fff;
                 }
@@ -230,8 +252,8 @@ fieldset{
             a{
                 display: block;
                 line-height: 2em;
-                height: 4em;
-                padding: .5em 0;
+                //height: 4em;
+                //padding: .5em 0;
                 text-align: center;
                 @include respond-to('xs') {
                     line-height: 2em;
@@ -239,7 +261,7 @@ fieldset{
                     padding: .5em 0;
                 }
                 img{
-                    width: 1.8rem;
+                    width: .7rem;
                     vertical-align: middle;
                     display: inline-block;
                 }
@@ -250,30 +272,31 @@ fieldset{
 .pay_way{
     >ul{
         >li{
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.07);
-            padding: .6em 0;
+            border-top: 1px solid #334364;
+            border-bottom: 1px solid #25324c;
+            //background: rgba(#11161c, 0.8);
             position: relative;
             // i{
             //     width: 1rem;
             //     margin-left: .5rem;
             // }
             &:nth-child(3){
-                border-bottom: 1px  solid rgba(255, 255, 255, 0.03);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             }
-            a{
+            >a{
                 color: #fff;
                 display: inline-block;
                 width: 100%;
+                padding: 1em 0;
                 &:after{
                     content: '';
                     background-image: url('../../static/images/btn_icon_right.png');
-                    width: .25rem;
-                    height: 1rem;
+                    width: .2rem;
+                    height: 0.37rem;
                     background-size: 100%;
                     position: absolute;
                     right: 3em;
-                    top: 2em;
+                    top: 3em;
                 }
                 > div.icon{
                     display: inline-block;
@@ -285,6 +308,7 @@ fieldset{
                     vertical-align: -moz-middle-with-baseline;
                     line-height: 1.5rem;
                     float: left;
+                    font-size: 0.35rem;
                 }
             }
         }
@@ -296,7 +320,7 @@ fieldset{
     @include border-radius(5px);
     margin: 1em auto;
     padding: 1em 0;
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
     table{
         margin: 0 .9em;
         min-width: 90%;
@@ -309,16 +333,19 @@ fieldset{
             }
             th{
                 text-align: left;
-                width: 80px;
+                width: 1.5rem;
                 font-weight: normal;
                 color: #dddddd;
                 li{
                     list-style: none;
                     margin-left: .5em;
                     position: relative;
+                    width: 1.5rem;
+                    font-size: .35rem;
+                    color: #66c3f2;
                     &:before{
                         content: '•';
-                        font-size: 14px;
+                        font-size: .35rem;
                         display: inline-block;
                         color: #8b8b8b;
                         position: absolute;
@@ -337,6 +364,7 @@ fieldset{
                 word-break: break-all;
                 line-height: 2em;
                 width: 11rem;
+                font-size: .35rem;
                 @include respond-to('sm') {
                     line-height: normal;
                 }
@@ -354,8 +382,44 @@ fieldset{
         max-width: 50%;
         margin: 0 auto;
         @include border-radius(60px);
-        padding: 5px 10px;
+        padding: .2rem .5rem;
         margin-top: 10px;
+        font-size: .35rem;
     }
 
+}
+.bank_transfer{
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    select{
+        &:after{
+            content: '';
+            display: block;
+            background: url('../../static/images/select_down.png') no-repeat;
+            background-position: -6px 86%;
+            background-size: 145%;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 10px;
+            top: 7px;
+        }
+    }
+    input[type=date]{
+        &::-webkit-calendar-picker-indicator{
+            opacity: 0;
+        }
+    }
+}
+.bank_account{
+    font-size: .35rem;
+    h5{
+        text-align: left;
+        margin-left: .2rem;
+    }
+}
+.mini_tip{
+    float: right;
+    margin-top: -.8rem;
+    color: #66c3f2;
 }
