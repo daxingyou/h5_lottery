@@ -10,6 +10,7 @@ body{
     padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+    font: .35rem;
 }
 body,.warp {
     &::-webkit-scrollbar {
@@ -80,7 +81,16 @@ input,select,button,a{
     background-color: #0a1625;
     color: $bluetext;
     font-size: .4rem;
-    position: relative;
+    // position: relative;
+    // z-index: 11;
+    position: fixed;
+    z-index: 12;
+    width: 10rem;
+    &:after{
+        display: block;
+        clear: both;
+        content: "";
+    }
     &.index_nav_top{
         position: fixed;
         top: 0;
@@ -114,6 +124,9 @@ input,select,button,a{
         &.logo{
             width: auto;
         }
+        // &.lottery_name{
+        //     width: calc(100% - 4rem);
+        // }
     }
     >.left{
         float: left;
@@ -173,6 +186,7 @@ footer.bot_nav{
     background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
+    z-index: 11;
     >ul{
         text-align: center;
         overflow: hidden;
@@ -316,10 +330,7 @@ h2{
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 100%;
-    // padding: .5rem;
-    // margin: .2rem .5rem;
     margin-right: 0.5714rem;
-    // border: 3px solid #ccc;
     background-image: url('../../static/images/page/logo_bg.png');
     background-size: 100%;
     overflow: hidden;
@@ -328,31 +339,30 @@ h2{
     line-height: 1.8rem;
     &:before{
         @include pseudo;
-        //@include background-image ('logo_cqssc.svg',0,transparent);
         width: 1.15rem;
         height: 1.45rem;
         left: 0.575rem;
         margin-left: -0.43rem;
-        vertical-align: middle;
-
+        vertical-align: middle
     }
     >img{
         width: 75%;
         padding-top: .35rem;
-        // height: 3.5rem;
     }
+    //重慶時時彩
     &.lottery_logo_2{
         &:before{
             @include background-image ('logo_cqssc.svg',0,transparent);
         }
     }
+    //江西11選5
     &.lottery_logo_4{
         &:before{
             @include background-image ('logo_jc11x5.svg',0,transparent);
         }
     }
 }
-//投注紀錄的scrollbar
+//下注彈窗的scrollbar
 .boxlist::-webkit-scrollbar {
     width: 1em;
 }
@@ -380,54 +390,29 @@ background-color: #0e121d;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     margin: .5rem 0;
     >a{
-        display: inline-block;
+        display: block;
         padding: .3rem;
-        width:100%;
+        //width:100%;
         margin: 0 auto;
         color: $bluetext;
+        text-align: center;
+    }
+    &.btn_two{
+        width: 40%;
+        display: inline-block;
+        margin: 0 auto;
     }
     &.btn_blue{
         background-image:linear-gradient(#3792cc, #1e4b77);
     }
-}
-.other_link{
-    font-size: .35rem;
-    >a{
-        color: $bluetext;
-        margin: .2rem;
-        display: inline-block;
-        border-left: 1px solid $normalblue;
-        padding-left: .5rem;
-        &:first-child{
-            border-left: none;
-        }
-        &.text-yellow{
-            color: $yellow;
-            margin: 0;
-            padding: 0;
-            border-left: none;
-        }
+    &.btn_blue02{
+        background-image:linear-gradient(#1c4975, #3793cc);
     }
-}
-i.close{
-    display: block;
-    @include background-image ('close.svg',0,transparent);
-    width: .25rem;
-    height: .25rem;
-    position: absolute;
-    right:.3rem;
-    top:.4rem;
-}
-i.eye{
-    display: block;
-    @include background-image ('eye_view.svg',0,transparent);
-    width: .4rem;
-    height: .25rem;
-    position: absolute;
-    right:.3rem;
-    top:.4rem;
-    &.active{
-        @include background-image ('eye_hide.svg',0,transparent);
+    &.btn_outline{
+        border: 2px solid $normalblue;
+    }
+    &.round{
+        @include border-radius(.5rem);
     }
 }
 label{
@@ -438,3 +423,6 @@ label{
         margin-top: .2rem;
     }
 }
+// .content{
+//     margin-top: 2rem;
+// }

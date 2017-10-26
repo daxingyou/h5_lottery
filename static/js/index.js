@@ -99,11 +99,16 @@ function initNavChoice() {
             $(this).addClass('active');
             $('#so-item' + i).show();
         })
-            .click(0);// 預先載入第一類左側選單的所有內容
-    });
+    }).eq(0).click();
     TouchSlide({
         slideCell: '#so-item2',
     });
+    //PK10点击左边nav切换盘面
+    $('.so-con-left li').on('click',function(){
+        var i = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $('#pk10-item' + i).show().siblings().hide();
+    }).eq(0).click();
 }
 
 // 此方法用来控制盘面选择,更新盘面信息后应该重新调用一次

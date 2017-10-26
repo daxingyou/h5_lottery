@@ -274,7 +274,7 @@
 
 .so-clear { clear: both; }
 
-.so-shade { display: none; background-color: rgba(0, 0, 0, 0.8); width: 100%; height: 100%; position: fixed; z-index: 10; top: 0; left: 0; }
+.so-shade { display: none; background-color: rgba(0, 0, 0, 0.6); width: 100%; height: 100%; position: fixed; z-index: 10; top: 0; left: 0; }
 
 .so-fengpan-pop { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 10rem; height: 100%; z-index: 13; }
 

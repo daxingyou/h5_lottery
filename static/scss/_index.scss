@@ -149,3 +149,22 @@
         }
     }
 }
+.other_link{
+    font-size: .35rem;
+    >a{
+        color: $bluetext;
+        margin: .2rem;
+        display: inline-block;
+        border-left: 1px solid $normalblue;
+        padding-left: .5rem;
+        &:first-child{
+            border-left: none;
+        }
+        &.text-yellow{
+            color: $yellow;
+            margin: 0;
+            padding: 0;
+            border-left: none;
+        }
+    }
+}
