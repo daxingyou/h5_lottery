@@ -522,12 +522,11 @@ function initChoiceObj() {
         var pid = _this.parents('ul.tab_content').attr('id') ;
         var paid = '#'+pid ;
         var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
-        // var ifSp = 0 ;
-       // var spArr = [] ; // 二中二，三中三等
+        console.log(z_choosed+'返回')
         if(pid){ // 二中二，三中三等
-            checkNumbers(pid,z_choosed,_this) ;
-           // sessionStorage.setItem(pid,paid) ;
-            var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+            checkNumbers(pid,z_choosed,_this,z_choosed) ;
+           // var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+            var spchoose = parseInt(z_choosed/xlen) ;
             $('.bet-select-num').text(spchoose) ;
 
         }else{
@@ -566,7 +565,7 @@ function initNavChoice() {
 /*
 * 江西11选5 ,method 玩法，len 长度
 * */
-function checkNumbers(method,len,self) {
+function checkNumbers(method,len,self,xslen) {
     switch (method) {
         case 'tab_jx_eze': // 二中二
             xlen = 2 ;
@@ -601,6 +600,7 @@ function checkNumbers(method,len,self) {
             }
             break;
         case 'tab_jx_lzw': // 六中五
+            xlen = 6 ;
             if(len>6){
                 initPopFengpan02(3,len-1) ;
                 self.removeClass('active') ;
@@ -608,6 +608,7 @@ function checkNumbers(method,len,self) {
             }
             break;
         case 'tab_jx_qzw': // 七中五
+            xlen = 7 ;
             if(len>7){
                 initPopFengpan02(3,len-1) ;
                 self.removeClass('active') ;
@@ -615,6 +616,7 @@ function checkNumbers(method,len,self) {
             }
             break;
         case 'tab_jx_bzw': // 八中五
+            xlen = 8 ;
             if(len>8){
                 initPopFengpan02(3,len-1) ;
                 self.removeClass('active') ;
@@ -622,10 +624,20 @@ function checkNumbers(method,len,self) {
             }
             break;
         case 'tab_jx_qez': // 前二组选
-
+            xlen = 2 ;
+            xslen = len*(len-1) ;
+            if(len>5){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
             break;
         case 'tab_jx_qsz': // 前三组选
-
+            if(len>5){
+                initPopFengpan02(3,len-1) ;
+                self.removeClass('active') ;
+                return false ;
+            }
             break;
         default :
 
