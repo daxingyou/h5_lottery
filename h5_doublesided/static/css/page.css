@@ -41,7 +41,7 @@ input, select, button, a { outline: none; }
 
 #pa_head.login > img { width: 100%; }
 
-#pa_head > * { display: inline-block; float: left; }
+#pa_head > * { display: inline-block; }
 
 #pa_head > .center { text-align: center; padding: .5rem 0; width: calc(100% - 2.96rem); font-weight: 300; color: #d7e8f0; font-size: .38rem; }
 
@@ -49,7 +49,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.logo { width: auto; }
 
-#pa_head > .left { float: left; width: 1.48rem; }
+#pa_head > .left { float: left; width: 1.2rem; }
 
 #pa_head > .left a { display: inline-block; }
 
@@ -63,7 +63,9 @@ input, select, button, a { outline: none; }
 
 #pa_head > .right > .so-top-zoushi img { height: 0.6rem; position: relative; top: 0.46rem; left: -0.1rem; }
 
-#pa_head > .right > a { padding-top: 0.43rem; font-size: .35rem; display: inline-block; color: #d7e8f0; padding: 0.5rem .35rem 0 0; }
+#pa_head > .right > a { background-image: url("../../static/images/btn.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; font-size: .35rem; display: inline-block; color: #d7e8f0; padding: .3rem; margin-top: .2rem; }
+
+#pa_head > .right > a:last-child { margin-right: .2rem; }
 
 #pa_content { margin-top: 1.5rem; }
 
@@ -249,6 +251,8 @@ i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1r
 .info_bot i.info06 { background-position-y: -8.11rem; }
 
 i.icon-notification { background: url("../../static/images/icon-notification.gif") no-repeat; width: .5rem; height: .5rem; background-size: 100%; margin: -1px 6px 0 0; padding: 0; vertical-align: middle; }
+
+i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -3.5rem; margin-top: .1rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -458,33 +462,27 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .news .hd > ul { position: absolute; bottom: .5rem; overflow: hidden; left: 50%; margin-left: -6%; width: 100%; height: 40px; }
 
-.news .hd > ul > li { float: left; color: #666; width: .2rem; height: .2rem; -webkit-border-radius: 100%; -moz-border-radius: 100%; -ms-border-radius: 100%; border-radius: 100%; background-color: #121216; border: 2px #434c58 solid; margin: 0.05rem; }
+.news .hd > ul > li { float: left; color: #666; width: .2rem; height: .2rem; -webkit-border-radius: 100%; -moz-border-radius: 100%; -ms-border-radius: 100%; border-radius: 100%; background-color: #121216; border: 1px #434c58 solid; margin: 0.05rem; }
 
-.news .hd > ul > li.on { border: 2px #434c58 solid; border-bottom-color: #017ea7; background-color: #06c2ff; }
+.news .hd > ul > li.on { border: 1px #434c58 solid; background-color: #06c2ff; }
 
-.marquee { overflow: hidden; background-color: #11161c; height: .7rem; }
+.marquee { overflow: hidden; background-color: #11161c; line-height: .7rem; height: .7rem; }
 
 .marquee > * { display: inline-block; }
 
 .marquee > .news_title { position: absolute; left: 0; background-color: #11161c; line-height: .6rem; height: .7rem; padding: 0 15px 0 10px; z-index: 1; }
 
-@media (max-width: 576px) { .marquee > .news_title { line-height: 32px; height: 32px; } }
-
 .marquee > .news_title > span { display: inline-block; line-height: .7rem; height: .7rem; vertical-align: middle; }
 
 .marquee > .news_marque { line-height: .7rem; height: .7rem; overflow: hidden; }
 
-@media (max-width: 576px) { .marquee > .news_marque { line-height: 32px; height: 32px; } }
-
 .tempWrap { width: 100% !important; }
 
-.sys-notice { height: .7rem; line-height: .7rem; color: #c79a50; overflow: hidden; position: relative; width: 100%; margin-left: 24%; }
+.sys-notice { height: .7rem; line-height: .7rem; color: #c79a50; overflow: hidden; position: relative; width: 100%; }
 
-@media (max-width: 576px) { .sys-notice { height: 32px; line-height: 32px; } }
+.sys-notice ul { margin: 0; line-height: .7rem; height: .7rem; }
 
-.sys-notice ul { margin: 0; height: .7rem; }
-
-.sys-notice ul li { list-style: none; display: inline-block; }
+.sys-notice ul li { list-style: none; display: inline-block; line-height: .7rem; height: .7rem; }
 
 .sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
 
@@ -498,7 +496,9 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #index_content.content ul > li { display: inline-block; font-size: .35rem; text-align: center; width: 30%; }
 
-#index_content.content > .hotgame_area ul > li { background-image: url("../../static/images/lo_bg.png"); background-size: 100%; margin: .15rem; height: 2.6rem; }
+#index_content.content > .hotgame_area ul { padding: .5rem .3rem; width: 100%; }
+
+#index_content.content > .hotgame_area ul > li { background-image: url("../../static/images/lo_bg.png"); background-size: 100%; margin: .15rem; height: 2.6rem; border: 1px solid transparent; width: 29.5%; }
 
 #index_content.content > .hotgame_area ul > li > .badge { background-image: url("../../static/images/ballbg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 2.6rem; height: 2.1rem; margin-top: -.1rem; border-radius: 0; }
 
@@ -508,13 +508,13 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #index_content.content > .hotgame_area ul > li > .badge.hksixlo { background-position-y: -4rem; }
 
-#index_content.content > .hotgame_area ul > li > .badge.hljssc { background-position-y: -5.95rem; }
+#index_content.content > .hotgame_area ul > li > .badge.hljssc { background-position-y: -6rem; }
 
 #index_content.content > .hotgame_area ul > li > .badge.jxk3 { background-position-y: -10.4rem; }
 
 #index_content.content > .hotgame_area ul > li > .badge.sd11x5 { background-position-y: -8.15rem; }
 
-#index_content.content > .hotgame_area ul > li > .badge.tjssc { background-position-y: -12.6rem; }
+#index_content.content > .hotgame_area ul > li > .badge.tjssc { background-position-y: -12.7rem; }
 
 #index_content.content > .hotgame_area ul > li > .badge.bjpk10 { background-position-y: -15.2rem; }
 
@@ -525,6 +525,10 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 #index_content.content > .hotgame_area ul > li > .badge.gd11x5 { background-position-y: -6.2rem; }
 
 #index_content.content > .hotgame_area ul > li > p { background: -webkit-linear-gradient(#e7df90, #fffec7, #85662d); background: -webkit-gradient(linear, left top, left bottom, from(#e7df90), color-stop(#fffec7), to(#85662d)); background: -o-linear-gradient(#e7df90, #fffec7, #85662d); background: linear-gradient(#e7df90, #fffec7, #85662d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+
+#index_content.content > .hotgame_area ul > li:hover, #index_content.content > .hotgame_area ul > li:focus, #index_content.content > .hotgame_area ul > li.active { border: 1px solid #76accd; -webkit-box-shadow: 0 0 15px 8px rgba(0, 228, 255, 0.5); box-shadow: 0 0 15px 8px rgba(0, 228, 255, 0.5); -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; }
+
+#index_content.content > .hotgame_area ul > li:hover:after, #index_content.content > .hotgame_area ul > li:focus:after, #index_content.content > .hotgame_area ul > li.active:after { content: ''; position: absolute; display: block; top: 0; left: 0; border: 0px solid #76accd; -webkit-box-shadow: 0 0 20px 5px rgba(0, 228, 255, 0.3) inset; box-shadow: 0 0 20px 5px rgba(0, 228, 255, 0.3) inset; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; width: 100%; height: 2.6rem; }
 
 #index_content.content .cooper_area { margin-top: .3rem; margin-bottom: 1rem; }
 
@@ -798,6 +802,14 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .info_bot > ul > li > a:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .2rem; height: 2rem; line-height: 1.5rem; left: initial; right: .5rem; }
 
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
+
+.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .5rem .4rem; text-align: left; border-bottom: 1px solid #122234; border-top: 1px solid #394c5e; }
+
+.message_area .item > .icon { float: left; }
+
+.message_area .item > .content { height: 1.5rem; margin-left: 2rem; font-size: .35rem; }
+
+.message_area .item > .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
 
 /*# sourceMappingURL=all.css.map */
 
