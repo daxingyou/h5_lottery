@@ -1,5 +1,5 @@
 
-window.onload = function () {
+$(function () {
     initViewHeight();
     initKuang();
     initLeftViewEve();
@@ -12,11 +12,14 @@ window.onload = function () {
     initTipPop03();
 
     LoginAction();
+    getLotterys('.all_lottery') ; // 获取彩种
     initChoiceObj() ; // 球点击处理
     initPopEve(2) ; // 表单提交判断
     initNavChoice() ; // 右边nav 切换处理
 
-};
+});
+
+
 
 // 此方法在盘面数据加载完成后调用
 function initKuang() {
