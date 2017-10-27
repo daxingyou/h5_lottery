@@ -747,15 +747,10 @@ function initRightViewEve() {
         } else {
             $('.so-right').attr('class', className + ' active');
         }
-<<<<<<< HEAD
         $('.so-shade, .so-right > div:last-child > div').show();
      /*   $('.so-right > div:last-child > div').slideToggle(500, function () {
         });*/
-=======
-        $('.so-shade').show();
-        $('.so-right > div:last-child > div').toggle(0, function () {
-        });
->>>>>>> e099b4d520e419afa7bf7f8d518afc4c83b1b04f
+
     });
 
 }
