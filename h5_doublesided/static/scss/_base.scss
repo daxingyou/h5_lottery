@@ -112,10 +112,11 @@ input,select,button,a{
     >.center{
         text-align: center;
         padding: .5rem 0;
-        width: calc(100% - 2.96rem);
+        width: calc(100% - 2.4rem);
         font-weight: 300;
         color: $bluetext;
         font-size: .38rem;
+        float: left;
         >img{
             width: 3.5rem;
             max-width: 100%;
@@ -573,8 +574,6 @@ label{
 
 .agent{
     padding: 8% 0;
-    // color: $gray-500;
-    //font-size: 0.35rem;
     table{
         @extend .data;
     }
@@ -583,34 +582,26 @@ label{
         margin-bottom: .3em;
         font-size: 0.35rem;
     }
-    h4{
-        // color: $basetext;
-    }
     section{
         margin: 1.5em 0;
     }
-    .item{
-        padding: 1.3em 0;
-    }
-    ul{
-        overflow: hidden;
-        li {
-            display: inline-block;
-            width: 40%;
-            margin: 0 auto;
-            text-align: center;
-            border: 1px solid #fff;
-            padding: 10px 15px;
-        }
-    }
+    // .item{
+    //     padding: 1.3em 0;
+    // }
+    // ul{
+    //     overflow: hidden;
+    //     li {
+    //         display: inline-block;
+    //         width: 40%;
+    //         margin: 0 auto;
+    //         text-align: center;
+    //         border: 1px solid #fff;
+    //         padding: 10px 15px;
+    //     }
+    // }
     div{
-        // color: $gray-500;
         width: 90%;
         margin: 0 auto;
-        
-        // @include respond-to('sm') {
-        //     width: 90%;
-        // }
     }
 }
 
@@ -657,6 +648,7 @@ label{
         font-weight: 300;
         color: #66c3f2;
         border: 1px solid #66c3f2;
+        font-size: 0.35rem;
         &.tab1{
             margin-right: -10px;
             border-top-left-radius: .2rem;
@@ -668,6 +660,7 @@ label{
         }
     }
 }
+//
 .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
 .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
 .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
@@ -676,56 +669,37 @@ label{
 .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
     display: block;
 }
-
-
-
-//   .tabset > label::after {
-//     content: "";
-//     position: absolute;
-//     left: 15px;
-//     bottom: 10px;
-//     width: 22px;
-//     height: 4px;
-//     background: #8d8d8d;
-//   }
-
-  .tabset > label:hover,
-  .tabset > input:focus + label {
+.tabset > label:hover,
+.tabset > input:focus + label {
     color: #fff;
-  }
-
-  .tabset > label:hover::after,
-  .tabset > input:focus + label::after,
-  .tabset > input:checked + label::after {
+}
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
     background: #06c;
     color: #fff;
-  }
-
-  .tabset > input:checked + label {
+}
+.tabset > input:checked + label {
     margin-bottom: -1px;
     background-color: #277ca5;
     color: #fff;
-  }
-
-  .tab-panel {
+}
+.tab-panel {
     padding: .5rem 0;
     text-align: justify;
-        h4{
-            color: #66c3f2;
-            font-size: .4rem;
-            margin: .2rem 0;
-        }
-  }
-
-  /*
-   Demo purposes only
-  */
-  *,
-  *:before,
-  *:after {
+    h4{
+        color: #66c3f2;
+        font-size: .4rem;
+        margin: .2rem 0;
+    }
+}
+*,
+*:before,
+*:after {
     box-sizing: border-box;
-  }
-
-//   .tabset {
-//     max-width: 65em;
-//   }
+}
+.formlist_area{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}

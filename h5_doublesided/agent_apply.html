@@ -23,70 +23,61 @@
         </header>
         <div class="content">
             <div class="formlist_area">
-                <form class="ui form form-agent">
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 帐号</label>
-                        <input type="text" name="account-name" placeholder="请输入4~15位帐号">
+                    <form>
+                        <fieldset>
+                            <div class="form_g account">
+                                <legend></legend>
+                                <input type="text" placeholder="请输入推荐人帐号">
+                                <i class="close"></i>
+                            </div>
+                            <!-- <label class="red">请输入4~15位帐号</label> -->
+                        </fieldset>
+                        <fieldset>
+                            <div class="form_g text">
+                                <legend>选择银行</legend>
+                                <select name="">
+                                    <option value="">中国工商银行</option>
+                                    <option value="">农业银行</option>
+                                    <option value="">建设银行</option>
+                                    <option value="">招商银行</option>
+                                    <option value="">中信银行</option>
+                                    <option value="">光大银行</option>
+                                </select>
+                                <i class="input_select"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form_g account">
+                                <legend></legend>
+                                <input type="text" placeholder="请输入帐号">
+                                <i class="close"></i>
+                            </div>
+                            <!-- <label class="red">请输入4~15位帐号</label> -->
+                        </fieldset>
+                        <fieldset>
+                            <div class="form_g password">
+                                <legend></legend>
+                                <input type="password" placeholder="请输入密码">
+                                <i class="eye"></i>
+                            </div>
+                            <!-- <label class="red">请输入4~15位密码</label> -->
+                        </fieldset>
+                        <fieldset>
+                            <div class="form_g password">
+                                <legend></legend>
+                                <input type="password" placeholder="请输入验证码">
+                                <img src="static/images/demo_verifi.png" alt="">
+                            </div>
+                            <!-- <label class="red">请输入4~15位密码</label> -->
+                        </fieldset>
+                    </form>
+                    <div>
+                        <input type="checkbox">
+                        我已届满合法博彩年龄，且已阅读并同意《代理注册协议》
                     </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 密码</label>
-                        <input type="password" name="password" placeholder="请输入6~20位密码">
+                    <div class="btn btn_blue">
+                        <a href="agent_apply.html">立即申请</a>
                     </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 确认密码</label>
-                        <input type="password" name="confirm-password" placeholder="请输入6~20位密码">
-                    </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 真实姓名</label>
-                        <input type="text" name="real-name" placeholder="请输入您的真实姓名">
-                    </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 银行卡号</label>
-                        <input type="number" name="phone-number" placeholder="请输入取款银行卡号">
-                    </div>
-                    <div class="field">
-                        <label id="bank">银行名称</label>
-                        <select name="">
-                            <option value="">中国工商银行</option>
-                            <option value="">农业银行</option>
-                            <option value="">建设银行</option>
-                            <option value="">招商银行</option>
-                            <option value="">中信银行</option>
-                            <option value="">光大银行</option>
-                        </select>
-                        <i class="input_select"></i>
-                    </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 开户行地址</label>
-                        <input type="number" name="phone-number" placeholder="请输入开户行地址（如:北京市海淀区xx分行）">
-                    </div>
-                    <div class="field">
-                        <label>
-                            <span class="red">*</span> 手机号</label>
-                        <input type="text" name="phone-number" placeholder="请输入11位手机号码" maxlength="11">
-                    </div>
-                    <div class="field verifi_area">
-                        <label>
-                            <span class="red">*</span> 验证码</label>
-                        <input class="verifi" type="text" name="verifi" placeholder="请输入验证码">
-                        <img class="verifi_img" src="../static/images/demo_verifi.png" alt="">
-                        <i class="icon_verifi"></i>
-                    </div>
-                    <div class="field checkboxes">
-                        <input id="protocol" type="checkbox" name="protocol" checked>
-                        <span class="agent_text">我已届满合法博彩年龄，且已阅读并同意</span>
-                        <a class="agent_modal" href="#agent_modal">《代理注册协议》</a>
-                    </div>
-                    <div class="btn-gold success">
-                        <a href="javascript:void(0);">申请</a>
-                    </div>
-                </form>
                 <div class="tip">
                     <strong>提醒</strong>
                     <ol>

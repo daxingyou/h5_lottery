@@ -43,7 +43,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > * { display: inline-block; }
 
-#pa_head > .center { text-align: center; padding: .5rem 0; width: calc(100% - 2.96rem); font-weight: 300; color: #d7e8f0; font-size: .38rem; }
+#pa_head > .center { text-align: center; padding: .5rem 0; width: calc(100% - 2.4rem); font-weight: 300; color: #d7e8f0; font-size: .38rem; float: left; }
 
 #pa_head > .center > img { width: 3.5rem; max-width: 100%; margin-top: -.25rem; }
 
@@ -213,12 +213,6 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .agent section { margin: 1.5em 0; }
 
-.agent .item { padding: 1.3em 0; }
-
-.agent ul { overflow: hidden; }
-
-.agent ul li { display: inline-block; width: 40%; margin: 0 auto; text-align: center; border: 1px solid #fff; padding: 10px 15px; }
-
 .agent div { width: 90%; margin: 0 auto; }
 
 .data, .agent table { width: 100%; font-weight: 500; margin: 0 0 .8rem; font-size: 0.35rem; }
@@ -238,7 +232,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tabset .tab-panel { display: none; }
 
-.tabset > label { position: relative; display: inline-block; padding: .4rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #66c3f2; border: 1px solid #66c3f2; }
+.tabset > label { position: relative; display: inline-block; padding: .4rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #66c3f2; border: 1px solid #66c3f2; font-size: 0.35rem; }
 
 .tabset > label.tab1 { margin-right: -10px; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 
@@ -256,8 +250,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tab-panel h4 { color: #66c3f2; font-size: .4rem; margin: .2rem 0; }
 
-/* Demo purposes only */
 *, *:before, *:after { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.formlist_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
@@ -888,3 +883,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .password_area > div > .btn:last-child { margin-left: .5rem; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */

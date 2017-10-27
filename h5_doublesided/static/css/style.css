@@ -124,7 +124,7 @@
 
 #so-item0 ul li > div > h2, #so-item0.jc115 ul li ul li > div > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
 
-#so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div { padding: 3%; width: 94%; height: 3.1rem; }
+#so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div { padding: 3%; height: 3.1rem; }
 
 #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 0.01rem #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 3.5%; display: none; }
 
@@ -142,7 +142,7 @@
 
 #so-item1 ul li > div > h2 { color: #ffbd00; font-size: .4rem; line-height: 1.12rem; text-align: left; text-indent: 0.4rem; }
 
-#so-item1 ul li > div > div { padding: 0% 3%; width: 94%; height: 3.1rem; margin-top: -.1rem; }
+#so-item1 ul li > div > div { padding: 0% 3%; height: 3.1rem; margin-top: -.1rem; }
 
 #so-item1 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
 
@@ -156,7 +156,7 @@
 
 #so-item2 ul li > div > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
 
-#so-item2 ul li > div > div { padding: 3%; width: 94%; height: 3.1rem; }
+#so-item2 ul li > div > div { padding: 3%; height: 3.1rem; }
 
 #so-item2 ul li > div > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
 
