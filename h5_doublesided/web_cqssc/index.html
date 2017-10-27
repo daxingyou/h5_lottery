@@ -839,6 +839,8 @@
         var lotteryname = '重庆时时彩' ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
+        LoginAction();
+
         getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
         $('.btn-submit').on('click',function () {
@@ -846,10 +848,12 @@
         }) ;
         setTimeout(function () {
             getSystemTime(lotteryid); // 系统时间
-
+            getMemberBalance(); // 获取用户余额
         }, 500) ;
 
-
+        initChoiceObj() ; // 球点击处理
+        initPopEve(2) ; // 表单提交判断
+        initNavChoice() ; // 右边nav 切换处理
     })
 
 </script>
