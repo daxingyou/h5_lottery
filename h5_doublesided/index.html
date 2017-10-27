@@ -53,7 +53,7 @@
                             </li>
                             <li>
                                 <div class="badge">
-                                        <img src="static/images/logo_cqssc.svg">
+                                       
                                 </div>
                                 <p>重庆时时彩</p>
                             </li>
@@ -121,17 +121,23 @@
                 </div>
 
             </div>
-            <div id="marquee_snp" class="marquee">
-                <div class="speaker">
-                    <img src="static/images/news.png" alt="">
+            <div class="marquee">
+                <div class="news_title">
+                    <i data-v-1f83ba94="" class="icon-notification"></i>
+                    <span>最新消息 : </span>
                 </div>
-                <div class="bd">
-                    <ul>
-                        <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
-                        <!-- <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
-                        <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li> -->
-                    </ul>
+                <div id="marquee_snp" class="bd news_text slideText">
+                    <div class="sys-notice">
+                        <div class="bd">
+                            <ul>
+                                <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
+                                <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
+                                <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div id="index_content" class="content">
@@ -139,53 +145,62 @@
                 <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
                 <ul>
                     <li>
-                        <div class="badge">
-                            <img src="static/images/logo_hljssc.svg">
-                        </div>
-                        <p>黑龙江时时彩</p>
-                    </li>
-                    <li>
-                        <div class="badge">
-                            <img src="static/images/logo_xjssc.svg">
-                        </div>
-                        <p>新疆时时彩</p>
-                    </li>
-                    <li>
-                        <div class="badge">
-                            <img src="static/images/logo_tjssc.svg">
-                        </div>
-                        <p>天津时时彩</p>
-                    </li>
-                    <li>
-                        <div class="badge">
-                            <img src="static/images/logo_cqssc.svg">
+                        <div class="badge cqssc">
                         </div>
                         <p>重庆时时彩</p>
                     </li>
                     <li>
-                        <div class="badge">
-                            <img src="static/images/logo_gd11x5.svg">
+                        <div class="badge jc11x5">
                         </div>
-                        <p>广东11选5</p>
+                        <p>江西11选2</p>
                     </li>
                     <li>
-                        <div class="badge">
-                            <img src="static/images/logo_sd11x5.svg">
+                        <div class="badge hksixlo">
+                        </div>
+                        <p>香港六合彩</p>
+                    </li>
+                    <li>
+                        <div class="badge hljssc">
+                        </div>
+                        <p>黑龙江时时彩</p>
+                    </li>
+                    <li>
+                        <div class="badge jxk3">
+                        </div>
+                        <p>江苏快3</p>
+                    </li>
+                    <li>
+                        <div class="badge sd11x5">
                         </div>
                         <p>山东11选5</p>
                     </li>
                     <li>
-                        <div class="badge">
-                            <img src="static/images/logo_sixlottery.svg">
+                        <div class="badge tjssc">
                         </div>
-                        <p>六合彩</p>
+                        <p>天津时时彩</p>
                     </li>
                     <li>
-                        <div class="badge">
-                            <img src="static/images/logo_jxk3.svg">
+                        <div class="badge bjpk10">
                         </div>
-                        <p>江苏快3</p>
+                        <p>北京PK10</p>
                     </li>
+                    <li>
+                        <div class="badge others">
+                        </div>
+                        <p>其他游戏</p>
+                    </li>
+                    <!-- <li>
+                        <div class="badge xjssc">
+                        </div>
+                        <p>新疆时时彩</p>
+                    </li>
+                    <li>
+                        <div class="badge gd11x5">
+                        </div>
+                        <p>广东11选5</p>
+                    </li> -->
+
+
                 </ul>
             </section>
             <section class="cooper_area">
@@ -213,37 +228,21 @@
     <script src="static/js/touchslide.1.1.js"></script>
     <script src="static/js/index.js"></script>
     <script>
-        TouchSlide({
-            slideCell: "#focus",
-            autoPlay:true,
-        });
-        // $("#marquee_snp").slide({ // 文本滚动
-        //     mainCell: ".bd ul",
-        //     autoPage: true,
-        //     effect: "leftMarquee",
-        //     autoPlay: true,
-        //     vis: 1,
-        //     interTime: 50
-        // });
-
-            
-            // TouchSlide({  // 轮播
-            //     slideCell:"#focus",
-            //     titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-            //     mainCell:".bd ul",
-            //     effect:"leftLoop",
-            //     autoPlay:true,//自动播放
-            //     autoPage:true //自动分页
-            // });
-            $("#marquee_snp").slide({ // 文本滚动
-                mainCell: ".bd ul",
-                autoPage: true,
-                effect: "leftMarquee",
+            TouchSlide({
+                slideCell: "#focus",
                 autoPlay: true,
-                vis: 1,
-                interTime: 50
             });
-            console.log(123);
+            function mar() {
+                $("#marquee_snp").slide({ // 文本滚动
+                    mainCell: ".bd ul",
+                    autoPage: true,
+                    effect: "leftMarquee",
+                    autoPlay: true,
+                    vis: 1,
+                    interTime: 50
+                });
+                //console.log(123);
+            }
     </script>
 </body>
 </html>

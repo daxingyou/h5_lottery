@@ -55,7 +55,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .left a img { width: 100%; margin: 0; }
 
-#pa_head > .left a.btn_leftside { margin-top: .5rem; }
+#pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem; }
 
 #pa_head > .right { float: right; }
 
@@ -247,6 +247,8 @@ i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1r
 .info_bot i.info05 { background-position-y: -7.2rem; }
 
 .info_bot i.info06 { background-position-y: -8.11rem; }
+
+i.icon-notification { background: url("../../static/images/icon-notification.gif") no-repeat; width: .5rem; height: .5rem; background-size: 100%; margin: -1px 6px 0 0; padding: 0; vertical-align: middle; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -460,11 +462,31 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .news .hd > ul > li.on { border: 2px #434c58 solid; border-bottom-color: #017ea7; background-color: #06c2ff; }
 
-.marquee { overflow: hidden; background-color: rgba(17, 22, 28, 0.8); height: .7rem; }
+.marquee { overflow: hidden; background-color: #11161c; height: .7rem; }
 
 .marquee > * { display: inline-block; }
 
-.marquee > .speaker { width: .5rem; }
+.marquee > .news_title { position: absolute; left: 0; background-color: #11161c; line-height: .6rem; height: .7rem; padding: 0 15px 0 10px; z-index: 1; }
+
+@media (max-width: 576px) { .marquee > .news_title { line-height: 32px; height: 32px; } }
+
+.marquee > .news_title > span { display: inline-block; line-height: .7rem; height: .7rem; vertical-align: middle; }
+
+.marquee > .news_marque { line-height: .7rem; height: .7rem; overflow: hidden; }
+
+@media (max-width: 576px) { .marquee > .news_marque { line-height: 32px; height: 32px; } }
+
+.tempWrap { width: 100% !important; }
+
+.sys-notice { height: .7rem; line-height: .7rem; color: #c79a50; overflow: hidden; position: relative; width: 100%; margin-left: 24%; }
+
+@media (max-width: 576px) { .sys-notice { height: 32px; line-height: 32px; } }
+
+.sys-notice ul { margin: 0; height: .7rem; }
+
+.sys-notice ul li { list-style: none; display: inline-block; }
+
+.sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
 
 #index_content.content { margin-top: 0; }
 
@@ -478,7 +500,31 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #index_content.content > .hotgame_area ul > li { background-image: url("../../static/images/lo_bg.png"); background-size: 100%; margin: .15rem; height: 2.6rem; }
 
-#index_content.content > .hotgame_area ul > li > .badge { width: 1.5rem; height: 1.5rem; margin-top: .35rem; }
+#index_content.content > .hotgame_area ul > li > .badge { background-image: url("../../static/images/ballbg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 2.6rem; height: 2.1rem; margin-top: -.1rem; border-radius: 0; }
+
+#index_content.content > .hotgame_area ul > li > .badge.cqssc { background-position-y: 0; }
+
+#index_content.content > .hotgame_area ul > li > .badge.jc11x5 { background-position-y: -2rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.hksixlo { background-position-y: -4rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.hljssc { background-position-y: -5.95rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.jxk3 { background-position-y: -10.4rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.sd11x5 { background-position-y: -8.15rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.tjssc { background-position-y: -12.6rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.bjpk10 { background-position-y: -15.2rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.others { background-position-y: -17.55rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.xjssc { background-position-y: -6.2rem; }
+
+#index_content.content > .hotgame_area ul > li > .badge.gd11x5 { background-position-y: -6.2rem; }
+
+#index_content.content > .hotgame_area ul > li > p { background: -webkit-linear-gradient(#e7df90, #fffec7, #85662d); background: -webkit-gradient(linear, left top, left bottom, from(#e7df90), color-stop(#fffec7), to(#85662d)); background: -o-linear-gradient(#e7df90, #fffec7, #85662d); background: linear-gradient(#e7df90, #fffec7, #85662d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
 
 #index_content.content .cooper_area { margin-top: .3rem; margin-bottom: 1rem; }
 
