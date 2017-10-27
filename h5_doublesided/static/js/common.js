@@ -1039,6 +1039,21 @@ function roadDomAction(resdata,cid) {
 }
 
 /*
+* 路珠标签切换
+* */
+function roadChangeTab() {
+    $('ul.tab_mid li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+        var tab_val = $(this).data('val') ;
+        $('ul.tab0'+tab_val+' li').removeClass('on');
+        $('#road0'+tab_val+' .tab_content_out').removeClass('on');
+        $(this).addClass('on');
+        $("#"+tab_id).addClass('on');
+    });
+}
+
+
+/*
 *  双面长龙数据，双面长龙页面 openType open连续开奖，unopen连续未开
 * */
 function loadDoubleLong(lotteryid,maxtime,openty,cla) {

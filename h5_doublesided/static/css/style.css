@@ -248,13 +248,13 @@
 
 .so-right.close { display: none; }
 
-.so-right { position: fixed; top: 0; left: 0; width: 10rem; z-index: 11; }
+.so-right { display: none; position: fixed; top: 0; left: 0; width: 10rem; z-index: 11; }
 
 .so-right > div:first-child { height: 1.5rem; }
 
 .so-right > div:first-child img { display: block; float: right; position: relative; top: 0.46rem; right: 0.25rem; height: 0.6rem; }
 
-.so-right > div:last-child { overflow: hidden; position: relative; top: 1.1rem; }
+.so-right > div:last-child { overflow: hidden; position: relative; top: -.3rem; }
 
 .so-right > div:last-child > div { display: none; width: 3rem; float: right; position: relative; right: 0.16rem; }
 
