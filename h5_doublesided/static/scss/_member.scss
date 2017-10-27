@@ -382,6 +382,9 @@ fieldset{
                 @include respond-to('ss') {
                     width: 7rem;
                 }
+                &.text-yellow{
+                    color: $yellow;
+                }
             }
         }
     }
@@ -761,7 +764,18 @@ fieldset{
 //帳戶明細
 .ac_detial{
     .ac_data{
-
+        >a{
+            &:after{
+                @include background-image ('btn_icon_right.png',center top,transparent);
+                @include pseudo;
+                width: .2rem;
+                height: .5rem;
+                right: .5rem;
+                left: initial;
+                line-height: 1.5rem;
+                top:1.3rem;
+            }
+        }
     }
 }
 .sta{
@@ -775,8 +789,14 @@ fieldset{
     vertical-align: text-bottom;
     &.sta01{
         border: 1px solid #66c3f2;
-
         color: #66c3f2;
-
+    }
+    &.sta02{
+        border: 1px solid #8b8b8b;
+        color: #8b8b8b;
+    }
+    &.sta03{
+        border: 1px solid #c83e3e;
+        color: #c83e3e;
     }
 }

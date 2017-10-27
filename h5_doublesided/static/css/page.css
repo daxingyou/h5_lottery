@@ -770,6 +770,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 @media (max-width: 359px) { .print_data table tr td { width: 7rem; } }
 
+.print_data table tr td.text-yellow { color: #ffbd00; }
+
 .print_data .copy_link { color: #fff; text-align: center; display: block; border: 1px solid rgba(255, 255, 255, 0.5); max-width: 50%; margin: 0 auto; -webkit-border-radius: 60px; -moz-border-radius: 60px; -ms-border-radius: 60px; border-radius: 60px; padding: .2rem .5rem; margin-top: 10px; font-size: .35rem; vertical-align: middle; }
 
 .bank_transfer { border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
@@ -894,9 +896,15 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password_area > div > .btn:last-child { margin-left: .5rem; }
 
+.ac_detial .ac_data > a:after { background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.3rem; }
+
 .sta { display: inline-block; padding: 0 .2rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin-left: .2rem; font-size: 0.29rem; height: .5rem; line-height: .5rem; vertical-align: text-bottom; }
 
 .sta.sta01 { border: 1px solid #66c3f2; color: #66c3f2; }
+
+.sta.sta02 { border: 1px solid #8b8b8b; color: #8b8b8b; }
+
+.sta.sta03 { border: 1px solid #c83e3e; color: #c83e3e; }
 
 /*# sourceMappingURL=all.css.map */
 
