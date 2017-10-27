@@ -705,10 +705,7 @@
         <a><img style="width: 2rem;" src="../static/images/pop/hui.png"></a>
         <a class="btn-submit"><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
     </div>
-    <!--封盘底部遮挡-->
-     <!-- <div class="so-fengpan">
-        <a>已封盘</a>
-    </div>  -->
+
     <!--玩法说明-->
     <div class="so-pop-wanfa modal">
         <div class="m_content">
@@ -772,6 +769,11 @@
             </div>
         </div>
     </div> -->
+
+    <!--封盘底部遮挡-->
+     <div class="so-fengpan" style="display: none;">
+       <a>已封盘</a>
+   </div>
 
     <!--请输入投注金额-->
     <div class="modal m08">
@@ -839,7 +841,6 @@
         var lotteryname = '重庆时时彩' ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
-        LoginAction();
 
         getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
@@ -851,9 +852,7 @@
             getMemberBalance(); // 获取用户余额
         }, 500) ;
 
-        initChoiceObj() ; // 球点击处理
-        initPopEve(2) ; // 表单提交判断
-        initNavChoice() ; // 右边nav 切换处理
+
 
     })
 

@@ -391,6 +391,7 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
             clearInterval(timerno);
             initBetPop01(3) ;
             outTimeSet() ;
+
             console.log('停止当前期数');
         }
 

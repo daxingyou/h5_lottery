@@ -1200,10 +1200,7 @@
         <a><img style="width: 2rem;" src="../static/images/pop/hui.png"></a>
         <a class="btn-submit"><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
     </div>
-    <!--封盘底部遮挡-->
-     <!-- <div class="so-fengpan">
-        <a>已封盘</a>
-    </div>  -->
+
     <!--玩法说明-->
     <div class="so-pop-wanfa modal">
         <div class="m_content">
@@ -1237,6 +1234,11 @@
             </div>
         </div>
     </div>
+
+    <!--封盘底部遮挡-->
+     <div class="so-fengpan"  style="display: none;">
+       <a>已封盘</a>
+   </div>
 
     <!--请输入投注金额-->
     <div class="modal m08">
@@ -1287,7 +1289,7 @@
                     <img src="../static/images/pop/title_bet_fail.png">
                     <img src="../static/images/page/status03.svg">
                 </div>
-                您的余额不足 <br/>请充值后继续进行！
+                <span class="submit-error-content"> 您的余额不足 <br/>请充值后继续进行！</span>
             </div>
         </div>
     </div>
@@ -1313,7 +1315,6 @@
         var lotteryname = '江西11选5' ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
-        LoginAction();
         getPlayTree(lotteryid);  // 玩法树，彩种id
         // 确认提交注单
         $('.btn-submit').on('click',function () {
@@ -1324,9 +1325,7 @@
             getSystemTime(lotteryid); // 系统时间
             getMemberBalance(); // 获取用户余额
         }, 500) ;
-        initChoiceObj() ; // 球点击处理
-        initPopEve(2) ; // 表单提交判断
-        initNavChoice() ; // 右边nav 切换处理
+
 
         // 连码切换tab
         $('.jx11_tab').on('click','li',function () {
