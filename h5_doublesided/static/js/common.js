@@ -726,7 +726,7 @@ function initPopFengpan02(closet,num) {
 function initRightViewEve() {
     $('.so-right').click(function () {
         var className = $('.so-right').attr('class') || '';
-        $('.so-right > div:last-child > div').slideToggle(500, function () {
+        $('.so-right > div:last-child > div').toggle(0, function () {
             $('.so-right').attr('class', className.replace('active', 'close'));
             $('.so-shade').hide();
         });
@@ -739,7 +739,7 @@ function initRightViewEve() {
             $('.so-right').attr('class', className + ' active');
         }
         $('.so-shade').show();
-        $('.so-right > div:last-child > div').slideToggle(500, function () {
+        $('.so-right > div:last-child > div').toggle(0, function () {
         });
     });
 }
