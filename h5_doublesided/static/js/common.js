@@ -138,6 +138,7 @@ function getStrParam () {
 var access_token = ' ';
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
+var nowover_time; // 当前期数封盘时间
 var next_pcode; // 下一期数销售截止时间
 var sys_time; // 当前系统时间
 var now_day; // 当前日期
@@ -301,14 +302,16 @@ function priodDataNewly(gameid) {
             if(res.data){
                 next_pcode = res.data[0].pcode;  // 下一期数
                 now_pcode = res.data[1].pcode;  // 当前期数
-                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
+                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
+                nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
                 now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
                 processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
 
                 setTimeout(function () {
                     $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
                     // 倒计时
-                    lt_timer(sys_time,now_time) ;
+                    lt_timer(sys_time,now_time,nowover_time) ;
+                    $('.so-fengpan').hide() ;
 
                 }, 100)
             }
@@ -321,12 +324,15 @@ function priodDataNewly(gameid) {
     });
 }
 //倒计时处理
-function lt_timer(start, end) { //服务器开始时间，服务器结束时间
+function lt_timer(start, end,overend) { // start服务器开始时间，end当前期开奖结束时间，overend 封盘结束时间
     var lt_time_leave ;
+    var lt_time_leave_over ;
     if (start == '' || end == '') {
        lt_time_leave = 0;
+       lt_time_leave_over = 0;
     } else {
        lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
+       lt_time_leave_over = (format(overend).getTime() - format(start).getTime()) / 1000;//总秒数
     }
 
     function fftime(n) {
@@ -358,11 +364,11 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
                 // console.log(data) ;
                // sys_time = formatTimeUnlix(data.data); // 更新系统时间
                 lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
+                lt_time_leave_over = (format(nowover_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
 
             }
         });
     }
-
 
     var timerno = window.setInterval(function () {
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
@@ -370,19 +376,25 @@ function lt_timer(start, end) { //服务器开始时间，服务器结束时间
 
         }
 
-        if (lt_time_leave <= 0) { // 倒计时结束
+        if (lt_time_leave <= 0) { // 开奖倒计时结束
             clearInterval(timerno);
             initBetPop01(3) ;
             outTimeSet() ;
-
             console.log('停止当前期数');
+        }
+        if(lt_time_leave_over <= 0){ // 封盘倒计时结束
+            $('.close-time').html('已封盘') ;
+            $('.so-fengpan').show() ;
+            resetAction() ;  //重置已选注单
         }
 
         var oDate = diff(lt_time_leave--);
+        var over_oDate = diff(lt_time_leave_over--);
+
         // 开奖倒计时
         $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
         // 封盘倒计时
-        $('.close-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
+        $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
 
     }, 1000);
 };
@@ -404,21 +416,7 @@ function outTimeSet() {
             processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
             getSystemTime(lotteryid);  // 获取当前系统时间
 
-            if (res.length <= 0) {  // 获取数据失败
-              /*  layer.open({
-                    title: '温馨提示',
-                    className: 'layer_tip',
-                    content: lot_lang.am_s16,
-                    btn: '确定'
-                });*/
-                return false;
-            }
-
             if (res == 'empty') { 	//未到销售时间
-              /*  layer.open({
-                    content: lot_lang.am_s18,
-                    btn: '确定'
-                });*/
                 return false;
             }
 
@@ -469,6 +467,10 @@ function processCode(issue, lastissue,code,double) {
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次，选球处理
 function initChoiceObj() {
     $('.so-con-right').on('click','p',function () {
+        var display = $('.so-fengpan').css('display') ; // 封盘状态
+        if(display == 'block' || display =='inline-block'){ // 判断是否处于封盘状态
+            return false ;
+        }
         var _this =  $(this) ;
         var className = _this.attr("class") || "" ;
         if (className.indexOf("active") >= 0) {
