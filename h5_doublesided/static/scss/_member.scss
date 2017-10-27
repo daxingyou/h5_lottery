@@ -684,3 +684,34 @@ fieldset{
     margin: 0 auto;
     margin-top: 2rem;
 }
+
+//個人中心
+.message_area{
+    .item{
+        overflow: hidden;
+        height: 1.5rem;
+        line-height: .75rem;
+        padding: .5rem .4rem;
+        text-align: left;
+        border-bottom:1px solid #122234;
+        border-top:1px solid #394c5e;
+        >.icon{
+            float: left;
+        }
+        >.content{
+            height: 1.5rem;
+            margin-left: 2rem;
+            font-size: .35rem;
+            >.text{
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                height: 1.3em;
+                line-height: 1.5em;
+            }
+        }
+    }
+}

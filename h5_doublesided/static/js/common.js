@@ -735,7 +735,7 @@ function initPopFengpan02(closet,num) {
 function initRightViewEve() {
     $('.so-right').click(function () {
         var className = $('.so-right').attr('class') || '';
-        $('.so-right > div:last-child > div').slideToggle(500, function () {
+        $('.so-right > div:last-child > div').toggle(0, function () {
             $('.so-right').attr('class', className.replace('active', 'close'));
             $('.so-shade').hide();
         });
@@ -747,9 +747,15 @@ function initRightViewEve() {
         } else {
             $('.so-right').attr('class', className + ' active');
         }
+<<<<<<< HEAD
         $('.so-shade, .so-right > div:last-child > div').show();
      /*   $('.so-right > div:last-child > div').slideToggle(500, function () {
         });*/
+=======
+        $('.so-shade').show();
+        $('.so-right > div:last-child > div').toggle(0, function () {
+        });
+>>>>>>> e099b4d520e419afa7bf7f8d518afc4c83b1b04f
     });
 
 }
