@@ -260,7 +260,7 @@ function getSystemTime(lotteryid) {
 }
 
 // 获取用户余额
-function getMemberBalance() {
+function getMemberBalance(lotteryid) {
     $.ajax({
         type: 'GET',
         headers: {
@@ -269,7 +269,7 @@ function getMemberBalance() {
         // dataType:'json',
         // contentType:"application/json; charset=utf-8",  // json格式传给后端
         url: action.hermes + 'api/balance/get',
-        data: {},
+        data: { lotteryId: lotteryid },
         success: function (res) {
             var mom = fortMoney(roundAmt(res.data.balance), 2);  // 用户余额
             var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
