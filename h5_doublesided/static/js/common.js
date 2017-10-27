@@ -311,8 +311,7 @@ function priodDataNewly(gameid) {
                     $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
                     // 倒计时
                     lt_timer(sys_time,now_time,nowover_time) ;
-                    $('.so-fengpan').hide() ;
-
+                    $('.so-fengpan').hide() ; // 隐藏封盘容器
                 }, 100)
             }
 
@@ -380,12 +379,8 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
             clearInterval(timerno);
             initBetPop01(3) ;
             outTimeSet() ;
+            $('.so-fengpan').hide() ; // 隐藏封盘容器
             console.log('停止当前期数');
-        }
-        if(lt_time_leave_over <= 0){ // 封盘倒计时结束
-            $('.close-time').html('已封盘') ;
-            $('.so-fengpan').show() ;
-            resetAction() ;  //重置已选注单
         }
 
         var oDate = diff(lt_time_leave--);
@@ -393,8 +388,15 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 
         // 开奖倒计时
         $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
-        // 封盘倒计时
-        $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
+        if(lt_time_leave_over <= 0){ // 封盘倒计时结束
+            $('.close-time').html('已封盘') ;
+            $('.so-fengpan').show() ;
+            resetAction() ;  //重置已选注单
+        }else{
+            // 封盘倒计时
+            $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
+        }
+
 
     }, 1000);
 };
