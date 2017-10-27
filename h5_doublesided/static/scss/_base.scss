@@ -125,9 +125,9 @@ input,select,button,a{
         &.logo{
             width: auto;
         }
-        // &.lottery_name{
-        //     width: calc(100% - 4rem);
-        // }
+        &.lottery_name{
+            width: calc(100% - 2.6rem);
+        }
     }
     >.left{
         float: left;
@@ -605,6 +605,17 @@ label{
     }
 }
 
+.agent_check{
+    input[type="checkbox"]{
+        font-size: 0.35rem !important;
+        width: .3rem;
+        height: .3rem;
+        vertical-align: middle;
+    }
+    >a{
+        color: $yellow;
+    }
+}
 .data{
     width: 100%;
     // color: $gray-500;
@@ -693,11 +704,11 @@ label{
         margin: .2rem 0;
     }
 }
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
+// *,
+// *:before,
+// *:after {
+//     box-sizing: border-box;
+// }
 .formlist_area{
     width: 90%;
     margin: 0 auto;

@@ -49,6 +49,8 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.logo { width: auto; }
 
+#pa_head > .center.lottery_name { width: calc(100% - 2.6rem); }
+
 #pa_head > .left { float: left; width: 1.2rem; }
 
 #pa_head > .left a { display: inline-block; }
@@ -215,6 +217,10 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .agent div { width: 90%; margin: 0 auto; }
 
+.agent_check input[type="checkbox"] { font-size: 0.35rem !important; width: .3rem; height: .3rem; vertical-align: middle; }
+
+.agent_check > a { color: #ffbd00; }
+
 .data, .agent table { width: 100%; font-weight: 500; margin: 0 0 .8rem; font-size: 0.35rem; }
 
 .data thead, .agent table thead { background-color: #0a1625; }
@@ -249,8 +255,6 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 .tab-panel { padding: .5rem 0; text-align: justify; }
 
 .tab-panel h4 { color: #66c3f2; font-size: .4rem; margin: .2rem 0; }
-
-*, *:before, *:after { -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .formlist_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
@@ -307,11 +311,17 @@ i.icon-notification { background: url("../../static/images/icon-notification.gif
 
 i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -3.5rem; margin-top: .1rem; }
 
-i.write, i.i_save, i.triangle { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -5.9rem; width: .65rem; height: .3rem; }
+i.write, i.i_save, i.triangle, i.ac { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -5.9rem; width: .65rem; height: .3rem; }
 
 i.i_save { background-position-y: -6.3rem; }
 
 i.triangle { background-position-y: -6.77rem; }
+
+i.ac.ac01 { background-position-y: .1rem; height: 1.2rem; }
+
+i.ac.ac02 { background-position-y: -1.1rem; height: 1.2rem; }
+
+i.ac.ac03 { background-position-y: -2.35rem; height: 1.2rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -545,7 +555,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
 
-#index_content.content { margin-top: 0; }
+#index_content.content { margin-top: 0; padding-bottom: .5rem; }
 
 #index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
 
@@ -557,9 +567,9 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #index_content.content > .hotgame_area ul { padding: .5rem .3rem; width: 100%; }
 
-#index_content.content > .hotgame_area ul > li { background-image: url("../../static/images/lo_bg.png"); background-size: 100%; margin: .15rem; height: 2.6rem; border: 1px solid transparent; width: 29.5%; }
+#index_content.content > .hotgame_area ul > li { background-image: url("../../static/images/lo_bg.png"); background-size: 100%; margin: .15rem; height: 2.6rem; border: 1px solid transparent; width: 29.5%; background-repeat: no-repeat; }
 
-#index_content.content > .hotgame_area ul > li > .badge { background-image: url("../../static/images/ballbg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 2.6rem; height: 2.1rem; margin-top: -.1rem; border-radius: 0; }
+#index_content.content > .hotgame_area ul > li > .badge { background-image: url("../../static/images/ballbg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 2.6rem; height: 2rem; margin-top: -.1rem; border-radius: 0; }
 
 #index_content.content > .hotgame_area ul > li > .badge.cqssc { background-position-y: 0; }
 
@@ -645,6 +655,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .form_g.text > legend { background-image: none; width: 1.8rem; }
 
 .form_g.text input, .form_g.text select { width: calc(75% - .5rem); background-color: transparent; color: #fff; border: none; }
+
+.form_g.text select option { background-color: rgba(18, 21, 30, 0.9); font-size: 0.1rem; }
 
 .form_g.money input { color: #ffbd00; }
 
@@ -881,6 +893,10 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .password_area > div { text-align: center; }
 
 .password_area > div > .btn:last-child { margin-left: .5rem; }
+
+.sta { display: inline-block; padding: 0 .2rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin-left: .2rem; font-size: 0.29rem; height: .5rem; line-height: .5rem; vertical-align: text-bottom; }
+
+.sta.sta01 { border: 1px solid #66c3f2; color: #66c3f2; }
 
 /*# sourceMappingURL=all.css.map */
 

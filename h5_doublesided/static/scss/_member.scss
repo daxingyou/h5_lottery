@@ -70,6 +70,13 @@ fieldset{
             color: #fff;
             border:none;
         }
+        select{
+            option{
+                background-color: rgba(18, 21, 30, 0.9);
+                font-size: 0.1rem;
+                //color: #000;
+            }
+        }
     }
     &.money{
         input{
@@ -748,5 +755,28 @@ fieldset{
                 margin-left: .5rem;
             }
         }
+    }
+}
+
+//帳戶明細
+.ac_detial{
+    .ac_data{
+
+    }
+}
+.sta{
+    display: inline-block;
+    padding: 0 .2rem;
+    @include border-radius(.1rem);
+    margin-left:.2rem;
+    font-size: 0.29rem;
+    height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
+    &.sta01{
+        border: 1px solid #66c3f2;
+
+        color: #66c3f2;
+
     }
 }
