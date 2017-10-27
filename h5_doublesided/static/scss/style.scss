@@ -811,7 +811,7 @@
     display: none;
 }
 .so-right {
-    //display: none;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -831,7 +831,8 @@
     > div:last-child {
         overflow: hidden;
         position: relative;
-        top: 1.1rem;
+        top: -.3rem;
+        // top:1.1rem; 1026 外側
         > div {
             display: none;
             width: 3rem;
