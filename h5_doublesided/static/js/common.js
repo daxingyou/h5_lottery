@@ -747,10 +747,12 @@ function initRightViewEve() {
         } else {
             $('.so-right').attr('class', className + ' active');
         }
-        $('.so-shade').show();
-        $('.so-right > div:last-child > div').toggle(0, function () {
-        });
+        $('.so-shade, .so-right > div:last-child > div').show();
+     /*   $('.so-right > div:last-child > div').slideToggle(500, function () {
+        });*/
+
     });
+
 }
 
 

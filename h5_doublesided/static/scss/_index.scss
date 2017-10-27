@@ -26,11 +26,11 @@
                 height: .2rem;
                 @include border-radius(100%);
                 background-color: #121216;
-                border: 2px #434c58 solid;
+                border: 1px #434c58 solid;
                 margin: 0.05rem;
                 &.on{
-                    border: 2px #434c58 solid;
-                    border-bottom-color:#017ea7;
+                    border: 1px #434c58 solid;
+                    //border-bottom-color:#017ea7;
                     background-color:#06c2ff;
                 }
             }
@@ -40,6 +40,7 @@
 .marquee{
     overflow: hidden;
     background-color: #11161c;
+    line-height: .7rem;
     height: .7rem;
     >*{
         display: inline-block;
@@ -52,10 +53,10 @@
         height: .7rem;
         padding: 0 15px 0 10px;
         z-index: 1;
-        @include respond-to('sm') {
-            line-height: 32px;
-            height: 32px;
-        }
+        // @include respond-to('sm') {
+        //     line-height: 32px;
+        //     height: 32px;
+        // }
         >span{
             display: inline-block;
             line-height: .7rem;
@@ -67,10 +68,10 @@
         line-height: .7rem;
         height: .7rem;
         overflow: hidden;
-        @include respond-to('sm') {
-            line-height: 32px;
-            height: 32px;
-        }
+        // @include respond-to('sm') {
+        //     line-height: 32px;
+        //     height: 32px;
+        // }
     }
 }
 .tempWrap { width: 100% !important; }
@@ -82,17 +83,20 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    margin-left: 24%;
-    @include respond-to('sm') {
-        height: 32px;
-        line-height: 32px;
-    }
+    //margin-left: 24%;
+    // @include respond-to('sm') {
+    //     height: 32px;
+    //     line-height: 32px;
+    // }
     ul {
         margin: 0;
+        line-height: .7rem;
         height: .7rem;
         li {
             list-style: none;
             display: inline-block;
+            line-height: .7rem;
+            height: .7rem;
             .create-time { list-style: none; margin-left: 20px; }
         }
      }
@@ -126,11 +130,16 @@
         }
         >.hotgame_area{
             ul{
+                padding: .5rem .3rem;
+                width: 100%;
                 >li{
                     background-image: url('../../static/images/lo_bg.png');
                     background-size: 100%;
                     margin: .15rem;
                     height: 2.6rem;
+                    border: 1px solid transparent;
+                    width: 29.5%;
+                    //background-position-y: -2px;
                     >.badge{
                         @include background-image ('ballbg.png',0,transparent);
                         width: 2.6rem;
@@ -147,7 +156,7 @@
                             background-position-y: -4rem;
                         }
                         &.hljssc{
-                            background-position-y: -5.95rem;
+                            background-position-y: -6rem;
                         }
                         &.jxk3{
                             background-position-y: -10.4rem;
@@ -156,7 +165,7 @@
                             background-position-y: -8.15rem;
                         }
                         &.tjssc{
-                            background-position-y: -12.6rem;
+                            background-position-y: -12.7rem;
                         }
                         &.bjpk10{
                             background-position-y: -15.2rem;
@@ -177,6 +186,19 @@
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         font-weight: 700;
+                    }
+                    &:hover,&:focus,&.active{
+                        border: 1px solid #76accd;
+                        box-shadow: 0 0 15px 8px rgba(#00e4ff,.5);
+                        @include border-radius(.2rem);
+                        &:after{
+                            @include pseudo;
+                            border: 0px solid #76accd;
+                            box-shadow: 0 0 20px 5px rgba(#00e4ff,.3) inset;
+                            @include border-radius(.2rem);
+                            width: 100%;
+                            height: 2.6rem;
+                        }
                     }
                 }
             }

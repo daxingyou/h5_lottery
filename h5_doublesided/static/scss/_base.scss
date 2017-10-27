@@ -107,7 +107,7 @@ input,select,button,a{
     }
     >*{
         display: inline-block;
-        float: left;
+        //float: left;
     }
     >.center{
         text-align: center;
@@ -130,7 +130,7 @@ input,select,button,a{
     }
     >.left{
         float: left;
-        width: 1.48rem;
+        width: 1.2rem;
         //height: 1.48rem;
         a{
             display: inline-block;
@@ -158,11 +158,17 @@ input,select,button,a{
             }
         }
         >a{
-            padding-top: 0.43rem;
+            @include background-image ('btn.png',0,transparent);
+            //padding-top: 0.43rem;
             font-size: .35rem;
             display: inline-block;
             color: $bluetext;
-            padding: 0.5rem .35rem 0 0;
+            //padding: 0.5rem .35rem 0 0;
+            padding: .3rem;
+            margin-top:.2rem;
+            &:last-child{
+                margin-right: .2rem;
+            }
         }
     }
 }
