@@ -714,3 +714,12 @@ label{
     margin: 0 auto;
     margin-top: 2rem;
 }
+//今日輸贏
+.today_payoff{
+    &.win_payoff{
+        color: $green;
+    }
+    &.lose_payoff{
+        color: $red;
+    }
+}

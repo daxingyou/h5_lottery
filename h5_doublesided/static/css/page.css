@@ -258,6 +258,10 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .formlist_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
+.today_payoff.win_payoff { color: #71c341; }
+
+.today_payoff.lose_payoff { color: #c93030; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
