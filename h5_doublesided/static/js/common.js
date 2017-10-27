@@ -308,7 +308,6 @@ function priodDataNewly(gameid) {
                 processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
 
                 setTimeout(function () {
-                    $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
                     // 倒计时
                     lt_timer(sys_time,now_time,nowover_time) ;
                     $('.so-fengpan').hide() ; // 隐藏封盘容器
@@ -404,7 +403,7 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 // 倒计时结束后处理
 function outTimeSet() {
     // 拉取期数数据
-    var lotteryid = getCookie('lt_lottid') ;
+    var lotteryid = getCookie('lt_lotteryid') ;
     $.ajax({
         type: 'get',
         headers: {

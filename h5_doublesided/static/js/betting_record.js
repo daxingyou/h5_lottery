@@ -7,7 +7,7 @@ var mainView = 0;
 $(function () {
     var access_token = getCookie('access_token'); // 取token
     var lotteryname = getCookie('lottery_name');
-    var lotteryid = getCookie('lt_lottid');
+    var lotteryid = getCookie('lt_lotteryid');
     $('.lottery_name').html(lotteryname+' 投注记录'); // 彩种名称
 
     var nowDate = new Date();
