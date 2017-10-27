@@ -144,28 +144,8 @@ var now_time; // 当前期数销售截止时间
 var next_pcode; // 下一期数销售截止时间
 var sys_time; // 当前系统时间
 var now_day; // 当前日期
-// var dataPlay = {}; // 玩法树数据
-// var dataPlayAll = {}; // 玩法树数据最终组装
 var lotterytype = 0;
 var xlen = 1 ; // 江西11选5 二中二、三中三等
-
-$(function () {
-    LoginAction();
-    setTimeout(function () {
-       // getSystemTime(); // 系统时间
-        // getLotterys('.game-all', '.game-hot'); // 获取彩种
-
-        getMemberBalance(); // 获取用户余额
-
-
-    }, 500) ;
-
-    initChoiceObj() ; // 球点击处理
-    initPopEve(2) ; // 表单提交判断
-    initNavChoice() ; // 右边nav 切换处理
-
-})
-
 
 
 // token 处理
