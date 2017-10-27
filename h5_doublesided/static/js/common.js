@@ -436,17 +436,7 @@ function outTimeSet() {
 
         },
         error: function () {  //失败
-          /*  layer.open({
-                title: '温馨提示',
-                className: 'layer_tip',
-                content: lot_lang.am_s16,
-                btn: ['确定'],
-                yes: function (index) {
-                   // cleanTraceIssue();
-                    layer.close(index);
-                }
-            });
-            */
+
             return false;
         }
     });
@@ -731,6 +721,30 @@ function initPopFengpan02(closet,num) {
        },closet*1000) ;
 
 }
+
+// 此方法用来初始化右菜单的呼出和关闭的点击事件
+function initRightViewEve() {
+    $('.so-right').click(function () {
+        var className = $('.so-right').attr('class') || '';
+        $('.so-right > div:last-child > div').slideToggle(500, function () {
+            $('.so-right').attr('class', className.replace('active', 'close'));
+            $('.so-shade').hide();
+        });
+    });
+    $('.so-top-zoushi').click(function () {
+        var className = $('.so-right').attr('class') || '';
+        if (className.indexOf('close') >= 0) {
+            $('.so-right').attr('class', className.replace('close', 'active'));
+        } else {
+            $('.so-right').attr('class', className + ' active');
+        }
+        $('.so-shade').show();
+        $('.so-right > div:last-child > div').slideToggle(500, function () {
+        });
+    });
+}
+
+
 
 /*
 * 提交表单时，注单处理
