@@ -134,7 +134,7 @@
                     <li>
                         <img src="../static/images/right/6.png">
                         <p>今日输赢</p>
-                        <div class="so-color today_payoff"> </div>
+                        <div class="today_payoff"> </div>
                     </li>
                 </ul>
             </div>
@@ -705,10 +705,7 @@
         <a><img style="width: 2rem;" src="../static/images/pop/hui.png"></a>
         <a class="btn-submit"><img style="width: 2rem;" src="../static/images/pop/lan_text.png"></a>
     </div>
-    <!--封盘底部遮挡-->
-     <!-- <div class="so-fengpan">
-        <a>已封盘</a>
-    </div>  -->
+
     <!--玩法说明-->
     <div class="so-pop-wanfa modal">
         <div class="m_content">
@@ -773,6 +770,11 @@
         </div>
     </div> -->
 
+    <!--封盘底部遮挡-->
+     <div class="so-fengpan" style="display: none;">
+       <a>已封盘</a>
+   </div>
+
     <!--请输入投注金额-->
     <div class="modal m08">
         <div class="m_content">
@@ -822,7 +824,7 @@
                     <img src="../static/images/pop/title_bet_fail.png">
                     <img src="../static/images/page/status03.svg">
                 </div>
-                您的余额不足 <br/>请充值后继续进行！
+                <span class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</span>
             </div>
         </div>
     </div>
@@ -839,7 +841,6 @@
         var lotteryname = '重庆时时彩' ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
-        LoginAction();
 
         getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
@@ -851,9 +852,7 @@
             getMemberBalance(); // 获取用户余额
         }, 500) ;
 
-        initChoiceObj() ; // 球点击处理
-        initPopEve(2) ; // 表单提交判断
-        initNavChoice() ; // 右边nav 切换处理
+
 
     })
 
