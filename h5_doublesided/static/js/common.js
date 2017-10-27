@@ -127,26 +127,18 @@ function getStrParam () {
 
 
 
+
+
+
 /*
 * 公用方法结束
 * */
-
-
-/* 全局变量定义 */
 var access_token = ' ';
-var action = {
-    forseti: 'http://121.58.234.210:19091/forseti/',
-    uaa: 'http://121.58.234.210:19091/uaa/',
-    hermes: 'http://121.58.234.210:19091/hermes/',
-};
 var now_pcode; // 当前期数
 var now_time; // 当前期数销售截止时间
 var next_pcode; // 下一期数销售截止时间
 var sys_time; // 当前系统时间
 var now_day; // 当前日期
-var lotterytype = 0;
-var xlen = 1 ; // 江西11选5 二中二、三中三等
-
 
 // token 处理
 function getAccessToken(access_token) {
@@ -182,7 +174,7 @@ function LoginAction() {
 }
 
 // 获取彩种
-function getLotterys(all, hot) {
+function getLotterys(all) {
     $.ajax({
         type: 'GET',
         url: action.forseti + 'apis/lotterys',
@@ -190,28 +182,17 @@ function getLotterys(all, hot) {
         dataType: 'json',
         success: function (res) {
             var allstr = '';  // 全部彩种
-            var hotstr = '';  // 热门彩种
 
             $.each(res.data, function (i, v) { // 通过 v.cid 跳转到每个彩种
-                allstr += '<a href="javascript:;">' +
-                    '<div class="menu_logo"><img src="' + v.imgUrl + '"></div>' +
-                    ' <div class="menu_name">' +
-                    ' <h2>' + v.name + '</h2>' +
-                    ' <span>' + v.periodDesc + '</span>' +
-                    '</div> </a>';
-                if (v.ifHot == '1') {
-                    hotstr += '<a href="javascript:;">' +
-                        '<div class="menu_logo"><img src="' + v.imgUrl + '"></div>' +
-                        ' <div class="menu_name">' +
-                        ' <h2>' + v.name + '</h2>' +
-                        ' <span>' + v.periodDesc + '</span>' +
-                        '</div> </a>';
-                }
-
+                allstr +=' <li>'+
+                    '<div class="badge">'+
+                    '<img src="'+v.imgUrl+'" alt="">'+
+                    '</div>'+
+                    '<p>'+ v.name +'</p>'+
+                    '</li>' ;
             });
 
             $(all).html(allstr);
-            $(hot).html(hotstr);
 
         },
         error: function () {
@@ -500,15 +481,6 @@ function initChoiceObj() {
         var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等特殊处理
 
         checkNumbers(pid,choosed,_this,z_choosed) ;
-   /*     if(pid){ // 二中二，三中三等
-            checkNumbers(pid,z_choosed,_this) ;
-            var spchoose = parseInt(z_choosed/xlen) ;
-            $('.bet-select-num').text(spchoose) ;
-
-        }else{
-           // $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
-            $('.bet-select-num').text(choosed) ;
-        }*/
 
     }) ;
 
@@ -545,7 +517,7 @@ function initNavChoice() {
 function checkNumbers(method,len,self,xslen) {
     switch (method) {
         case 'tab_jx_eze': // 二中二
-            xlen = 2 ;
+            var xlen = 2 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
         if(xslen>2){
@@ -555,7 +527,7 @@ function checkNumbers(method,len,self,xslen) {
         }
             break;
         case 'tab_jx_szs': // 三中三
-            xlen = 3 ;
+            var xlen = 3 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>3){
@@ -565,7 +537,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_sizsi': // 四中四
-            xlen = 4 ;
+            var xlen = 4 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>4){
@@ -575,7 +547,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_wzw': // 五中五
-            xlen = 5 ;
+            var xlen = 5 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>5){
@@ -585,7 +557,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_lzw': // 六中五
-            xlen = 6 ;
+            var xlen = 6 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>6){
@@ -595,7 +567,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_qzw': // 七中五
-            xlen = 7 ;
+            var xlen = 7 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>7){
@@ -605,7 +577,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_bzw': // 八中五
-            xlen = 8 ;
+            var xlen = 8 ;
             var spchoose = parseInt(xslen/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>8){
@@ -615,7 +587,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_qez': // 前二组选 ，公式 n*(n-1)/2
-            xlen = 2 ;
+            var xlen = 2 ;
             var spchoose = parseInt(xslen*((xslen-1))/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>5){
@@ -625,7 +597,7 @@ function checkNumbers(method,len,self,xslen) {
             }
             break;
         case 'tab_jx_qsz': // 前三组选 ，公式 n*(n-1)*(n-2)/3*2*1
-            xlen = 6 ;
+            var xlen = 6 ;
             var spchoose = parseInt(xslen*((xslen-1))*(xslen-2)/xlen) ;
             $('.bet-select-num').text(spchoose) ;
             if(xslen>5){
