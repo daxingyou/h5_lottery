@@ -1383,8 +1383,8 @@
 <script src="../static/js/index.js"></script>
 <script>
     $(function () {
-        var lotteryid = '4' ; // 彩种id
-        var lotteryname = '江西11选5' ; // 彩种名称
+        var lotteryid = m_lottery_int.s_jxyxw_id ; // 彩种id
+        var lotteryname = m_lottery_int.jxyxw_name ; // 彩种名称
         setCookie('lt_lottid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
         getPlayTree(lotteryid);  // 玩法树，彩种id
@@ -1395,7 +1395,7 @@
 
         setTimeout(function () {
             getSystemTime(lotteryid); // 系统时间
-            getMemberBalance(); // 获取用户余额
+            getMemberBalance(lotteryid); // 获取用户余额
         }, 500) ;
 
 
