@@ -290,8 +290,12 @@ function getMemberBalance() {
         success: function (res) {
             var mom = fortMoney(roundAmt(res.data.balance), 2);  // 用户余额
             var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
-            $('.so-in-top-sum').text(mom);
-            $('.today_payoff').html('(\+'+todaymom+'\)');
+            if(Number(res.data.payoff)>= 0){  // 今日输赢
+                $('.today_payoff').addClass('win_payoff').html('(\+'+todaymom+'\)');
+            }else{
+                $('.today_payoff').addClass('lose_payoff').html('(\-'+todaymom+'\)');
+            }
+            $('.so-in-top-sum').text(mom); // 用户余额
             $('.user_name').text(getCookie('username'));
             setCookie("membalance", mom);  // 把登录余额放在cookie里面
             // console.log(returnMoney(mom))
@@ -436,17 +440,7 @@ function outTimeSet() {
 
         },
         error: function () {  //失败
-          /*  layer.open({
-                title: '温馨提示',
-                className: 'layer_tip',
-                content: lot_lang.am_s16,
-                btn: ['确定'],
-                yes: function (index) {
-                   // cleanTraceIssue();
-                    layer.close(index);
-                }
-            });
-            */
+
             return false;
         }
     });
@@ -651,16 +645,16 @@ function checkNumbers(method,len,self,xslen) {
 //此方法弹出结算框 ,注单数量，添加按钮
 function initPopEve(closet) {
     $(".so-add").click(function () {
-        var settime = setTimeout(function () {
-            $(".so-shade,.modal.m08").hide() ;
-        },closet*1000) ;
-
         var amount = $('.bet-amount').val() ;  // 获取金额
         var nums = Number($('.bet-select-num').text()) ;  // 获取注数
         if(nums<1){ // 没有选择投注项目
             $('.bet-error-content').html('请选择投注项目') ;
             $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
+            var settime = setTimeout(function () {
+                $(".so-shade,.modal.m08").hide() ;
+            },closet*1000) ;
+
             return false;
         }
 
@@ -668,6 +662,10 @@ function initPopEve(closet) {
             $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
             $(".modal.m08").toggle() ;
             $(".so-shade").toggle() ;
+            var settime = setTimeout(function () {
+                $(".so-shade,.modal.m08").hide() ;
+            },closet*1000) ;
+
             return false;
         }
         // 注单金额正确
@@ -731,6 +729,30 @@ function initPopFengpan02(closet,num) {
        },closet*1000) ;
 
 }
+
+// 此方法用来初始化右菜单的呼出和关闭的点击事件
+function initRightViewEve() {
+    $('.so-right').click(function () {
+        var className = $('.so-right').attr('class') || '';
+        $('.so-right > div:last-child > div').slideToggle(500, function () {
+            $('.so-right').attr('class', className.replace('active', 'close'));
+            $('.so-shade').hide();
+        });
+    });
+    $('.so-top-zoushi').click(function () {
+        var className = $('.so-right').attr('class') || '';
+        if (className.indexOf('close') >= 0) {
+            $('.so-right').attr('class', className.replace('close', 'active'));
+        } else {
+            $('.so-right').attr('class', className + ' active');
+        }
+        $('.so-shade').show();
+        $('.so-right > div:last-child > div').slideToggle(500, function () {
+        });
+    });
+}
+
+
 
 /*
 * 提交表单时，注单处理
