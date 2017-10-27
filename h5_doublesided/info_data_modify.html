@@ -1,68 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-        <head>
-                <meta charset="UTF-8">
-                <title>双面盘_充值</title>
-                <link href="static/css/reset.css" rel="stylesheet" type="text/css">
-                <link href="static/css/style.css" rel="stylesheet" type="text/css">
-                <link href="static/css/page.css" rel="stylesheet" type="text/css">
-                <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
-            </head>>
+
+<head>
+    <meta charset="UTF-8">
+    <title>双面盘_帐户管理</title>
+    <link href="static/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/page.css" rel="stylesheet" type="text/css">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+</head>
 <body>
-    <div class="warp">
-        <header class="opacity_full">
-            <div class="top_back">
-                <a href="info.html">
-                    <img class="chevron-left" src="../static/images/btn_back.png" alt="">
-                    返回
+    <div id="pa_con" class="so-con warp bule_bg">
+        <header id="pa_head">
+            <div class="left">
+                <a href="index.html">
+                    <img src="static/images/back.png" alt="">
                 </a>
             </div>
-            <div class="center"> 会员 </div>
-            <div class="other_area"> <a href="notification.html">
-                    <span><em class="dot"></em></span>
-                    <i class="i_mail"></i>
-                </a> </div>
+            <h2 class="center">帐户管理</h2>
+            <div class="right"></div>
         </header>
-        <div class="container content_top">
+        <div class="content">
             <div class="info_area">
-                <div class="info_top info_inner">
+                <div class="info_top">
                     <div class="account">
-                        <h2 class="ui header center aligned">
-                            <div class="portrait">
-                                <div class="portrait_outline"></div>
-                                <div class="user_portrait" style="background-image: url('../static/images/default_portrait_w.png');"></div>
+                        <a href="info_data.html">
+                            <h2 class="ui header center aligned">
+                                <div class="portrait">
+                                    <!-- <div class="portrait_outline"></div> -->
+                                    <div class="user_portrait" style="background-image: url('../../static/images/left/user.png');"></div>
+                                </div>
+                            </h2>
+                            <div class="user_name">
+                                <strong>Elsa001EDKoes2</strong>
+                                <div class="purse">
+                                    <img src="static/images/top/sjinbi.png" class="so-top-sum">
+                                    <div class="so-in-top-sum">
+                                        123456789
+                                    </div>
+                                </div>
                             </div>
-                        </h2>
-                        <div class="user_data">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <li>帐号</li>
-                                    </th>
-                                    <td>Kinlau0203</td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <li>币种</li>
-                                    </th>
-                                    <td>CNY</td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <li>余额</li>
-                                    </th>
-                                    <td class="yellow">¥234.00</td>
-                                </tr>
-                            </thead>
-                        </table>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="info_mid">
                     <div>
-                        <div class="btn-gold"><a href="info_data_lg_password_erro.html">修改登录密码</a></div>
-                        <div class="btn-gold"><a href="info_data_pay_password_erro.html">修改支付密码</a></div>
+                        <div class="btn btn_blue btn_two">
+                            <a href="info_data_lg_password_erro.html">修改登录密码</a>
+                        </div>
+                        <div class="btn btn_blue btn_two">
+                            <a href="info_data_pay_password_erro.html">修改支付密码</a>
+                        </div>
                     </div>
                 </div>
                 <div class="info_account">
@@ -75,6 +63,12 @@
                                         <li>银行卡号</li>
                                     </th>
                                     <td>工商银行 123456123456123456</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <li>开户行</li>
+                                    </th>
+                                    <td>北京市朝阳区朝来分行</td>
                                 </tr>
                                 <tr>
                                     <th>
@@ -95,7 +89,8 @@
                 <div class="info_personal">
                     <div>个人信息
                         <a class="save" href="#">
-                            <i class="i_save"></i><span>保存</span>
+                            <i class="i_save"></i>
+                            <span>保存</span>
                         </a>
                     </div>
                     <div class="print_data">
@@ -133,40 +128,22 @@
 
         </div>
 
-        <div class="footer">
-            <!--左下钱包-->
-            <!-- <div class="purse">
-                    <i class="icon_refresh"></i>
-                    <span class="purse_number">¥ 174,020.00</span>
-            </div> -->
-            <div class="nav">
-                <ul>
-                    <!--tap on为触发手机点击class-->
-                    <li class="tap">
-                        <a href="index.html" title="首页">
-                            <span class="index"></span>首页
-                        </a>
-                    </li>
-                    <li class="tap">
-                        <a href="promo.html" title="优惠">
-                            <span class="promo"></span>优惠
-                        </a>
-                    </li>
-                    <li class="tap">
-                        <a href="javascript:;" title="客服">
-                            <span class="service"></span>客服
-                        </a>
-                    </li>
-                    <li class="tap on">
-                        <!--提示红点-->
-                        <!-- <span><em class="dot"></em></span> -->
-                        <a href="info.html" title="会员">
-                            <span class="info"></span>会员
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <footer class="bot_nav">
+            <ul>
+                <li class="active">
+                    <a class="index" href="javascript:;">首页大厅</a>
+                </li>
+                <li>
+                    <a class="trend" href="javascript:;">开奖走势</a>
+                </li>
+                <li>
+                    <a class="record" href="javascript:;">投注纪录</a>
+                </li>
+                <li>
+                    <a class="member" href="javascript:;">个人中心</a>
+                </li>
+            </ul>
+        </footer>
     </div>
 
     <script src="static/js/jquery-1.7.min.js"></script>

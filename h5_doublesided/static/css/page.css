@@ -207,6 +207,58 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -21px; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
+.agent { padding: 8% 0; }
+
+.agent p { line-height: 1.8em; margin-bottom: .3em; font-size: 0.35rem; }
+
+.agent section { margin: 1.5em 0; }
+
+.agent .item { padding: 1.3em 0; }
+
+.agent ul { overflow: hidden; }
+
+.agent ul li { display: inline-block; width: 40%; margin: 0 auto; text-align: center; border: 1px solid #fff; padding: 10px 15px; }
+
+.agent div { width: 90%; margin: 0 auto; }
+
+.data, .agent table { width: 100%; font-weight: 500; margin: 0 0 .8rem; font-size: 0.35rem; }
+
+.data thead, .agent table thead { background-color: #0a1625; }
+
+.data td, .agent table td, .data th, .agent table th { border: 1px solid #66c3f2; padding: .2rem; text-align: center; }
+
+.data th, .agent table th { color: #66c3f2; }
+
+/*
+ CSS for the main interaction
+*/
+.tabset { text-align: center; }
+
+.tabset > input[type="radio"] { position: absolute; left: -200vw; }
+
+.tabset .tab-panel { display: none; }
+
+.tabset > label { position: relative; display: inline-block; padding: .4rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #66c3f2; border: 1px solid #66c3f2; }
+
+.tabset > label.tab1 { margin-right: -10px; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
+
+.tabset > label.tab2 { border-top-right-radius: .2rem; border-bottom-right-radius: .2rem; }
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child, .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2), .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3), .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4), .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5), .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) { display: block; }
+
+.tabset > label:hover, .tabset > input:focus + label { color: #fff; }
+
+.tabset > label:hover::after, .tabset > input:focus + label::after, .tabset > input:checked + label::after { background: #06c; color: #fff; }
+
+.tabset > input:checked + label { margin-bottom: -1px; background-color: #277ca5; color: #fff; }
+
+.tab-panel { padding: .5rem 0; text-align: justify; }
+
+.tab-panel h4 { color: #66c3f2; font-size: .4rem; margin: .2rem 0; }
+
+/* Demo purposes only */
+*, *:before, *:after { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
@@ -220,7 +272,7 @@ i.eye { display: block; background-image: url("../../static/images/eye_view.svg"
 
 i.eye.active { background-image: url("../../static/images/eye_hide.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-div.icon { width: 1.5rem; height: 1.5rem; margin: 0 auto; border-radius: 100%; color: #000; background-image: url("../../static/images/border_bg.png"); border: 2px solid #277ca5; background-position-x: 50%; background-size: 100% 100%; padding: 1px; }
+div.icon { width: 1.5rem; height: 1.5rem; margin: 0 auto; border-radius: 100%; color: #000; border: 2px solid #277ca5; background-position-x: 50%; background-size: 100% 100%; padding: 1px; }
 
 div.icon > div { background-image: url("../../static/images/border_bg02.png"); color: #fff; width: 100%; background-position-x: 50%; background-size: 150% 100%; -webkit-box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); line-height: 1.5rem; border-radius: 100%; height: 1.5rem; margin: 0 auto; text-align: center; }
 
@@ -250,9 +302,21 @@ i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1r
 
 .info_bot i.info06 { background-position-y: -8.11rem; }
 
+.info_bot i.info07 { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -5.79rem; }
+
+.info_bot i.info08 { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -6.89rem; }
+
+.info_bot i.info09 { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -7.89rem; }
+
 i.icon-notification { background: url("../../static/images/icon-notification.gif") no-repeat; width: .5rem; height: .5rem; background-size: 100%; margin: -1px 6px 0 0; padding: 0; vertical-align: middle; }
 
 i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -3.5rem; margin-top: .1rem; }
+
+i.write, i.i_save, i.triangle { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -5.9rem; width: .65rem; height: .3rem; }
+
+i.i_save { background-position-y: -6.3rem; }
+
+i.triangle { background-position-y: -6.77rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .tab { font-size: 0; }
@@ -565,9 +629,9 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 .other_link > a.text-yellow { color: #ffbd00; margin: 0; padding: 0; border-left: none; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-.login_area, .deposit_area { margin: 0 auto; margin-top: -2.5rem; position: relative; z-index: 11; width: 90%; }
+.login_area, .deposit_area { margin: 0 auto; margin-top: 4.5rem; position: relative; z-index: 12; width: 90%; }
 
-.login_area.reg, .reg.deposit_area { margin-top: .5rem; }
+.login_area.reg, .reg.deposit_area { margin-top: 2rem; }
 
 fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
@@ -597,11 +661,15 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password > img { float: right; margin-top: -.5rem; }
 
-.password.pay_password > legend { background-image: none; width: 1.3rem; }
+.password.pay_password > legend { background-image: none; width: 1.5rem; }
 
 .password.pay_password > input { width: 19%; border-right: 1px solid #256e93; text-align: center; margin: 0 auto; }
 
-.password.pay_password > input:last-child { border-right: none; }
+.password.pay_password > input:last-child { border-right: none; border-right: 1px solid #256e93; }
+
+.password.pay_password > select { width: 15%; display: block; border-right: 1px solid #256e93; text-align: center; text-align-last: center; padding: 0 .1rem; }
+
+.password.pay_password > select:last-child { border-right: none; }
 
 .phone > legend { background-image: url("../../static/images/phone.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
@@ -677,7 +745,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_way > ul > li > a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; font-size: 0.35rem; }
 
-.print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; }
+.print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; overflow: hidden; border-radius: .1rem; }
 
 .print_data table { margin: 0 .9em; min-width: 90%; }
 
@@ -757,11 +825,9 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .user_data table tr td { word-break: break-all; }
 
-.info_account, .info_personal { color: #bcbbb7; width: 65%; margin: 0 auto; margin-top: 20px; }
+.info_account, .info_personal { width: 90%; margin: 0 auto; margin-top: 20px; }
 
-@media (max-width: 576px) { .info_account, .info_personal { width: 80%; } }
-
-.info_account > div, .info_personal > div { margin: 15px 0; color: #c79a50; }
+.info_account > div, .info_personal > div { margin: .5rem 0; text-align: left; }
 
 .info_account > div > a, .info_personal > div > a { float: right; }
 
@@ -769,15 +835,19 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_account > div table, .info_personal > div table { width: 95%; }
 
-.info_account > div table tr, .info_personal > div table tr { padding: 15px 5px 16px 5px; }
+.info_account > div table tr, .info_personal > div table tr { padding: .3rem .1rem; }
 
-.info_personal input { margin: 0; outline: 0; -webkit-appearance: none; line-height: 1.21428571em; padding: .67857143em 1em; font-size: 0.35rem; background: #000; border: 1px solid rgba(34, 36, 38, 0.15); color: #7b7b7b; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; vertical-align: top; }
+.info_account > .text-red { text-align: center; }
+
+.info_personal input { margin: 0; outline: 0; -webkit-appearance: none; line-height: 1.21428571em; padding: .67857143em 1em; font-size: 0.35rem; background: #181e2a; border: 1px solid rgba(34, 36, 38, 0.15); color: #7b7b7b; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; vertical-align: top; }
 
 .info_personal input[type=datetime-local], .info_personal input[type=email], .info_personal input[type=file], .info_personal input[type=number], .info_personal input[type=password], .info_personal input[type=search], .info_personal input[type=tel], .info_personal input[type=text], .info_personal input[type=time], .info_personal input[type=url] { outline: 0; -webkit-appearance: none; line-height: 1.21428571em; padding: .5em 1em; font-size: 0.35rem; background: #10061f; border: 1px solid transparent; color: #7b7b7b; -webkit-border-radius: 8px; -moz-border-radius: 8px; -ms-border-radius: 8px; border-radius: 8px; vertical-align: top; }
 
 .info_personal input[type=datetime-local]:focus, .info_personal input[type=email]:focus, .info_personal input[type=file]:focus, .info_personal input[type=number]:focus, .info_personal input[type=password]:focus, .info_personal input[type=search]:focus, .info_personal input[type=tel]:focus, .info_personal input[type=text]:focus, .info_personal input[type=time]:focus, .info_personal input[type=url]:focus { color: #7b7b7b; background: #121418; -webkit-box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.2); box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.2); border: 1px solid #70706C; }
 
 .info_personal span.erro_text { line-height: 2rem; margin-left: 0.5rem; }
+
+.info_personal .info_data_modify { color: #00B7FF; }
 
 .info_mid { background-image: url("../../static/images/info_mid.jpg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 100%; width: 100%; text-align: center; height: 1.5rem; }
 
@@ -803,13 +873,19 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
-.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .5rem .4rem; text-align: left; border-bottom: 1px solid #122234; border-top: 1px solid #394c5e; }
+.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .4rem; text-align: left; border-bottom: 1px solid #122234; border-top: 1px solid #394c5e; }
 
 .message_area .item > .icon { float: left; }
 
 .message_area .item > .content { height: 1.5rem; margin-left: 2rem; font-size: .35rem; }
 
 .message_area .item > .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
+
+.password_area { width: 90%; margin: 0 auto; }
+
+.password_area > div { text-align: center; }
+
+.password_area > div > .btn:last-child { margin-left: .5rem; }
 
 /*# sourceMappingURL=all.css.map */
 

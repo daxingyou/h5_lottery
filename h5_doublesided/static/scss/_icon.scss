@@ -39,7 +39,7 @@ div.icon{
     margin: 0 auto;
     border-radius: 100%;
     color: #000;
-    background-image: url('../../static/images/border_bg.png');
+    // background-image: url('../../static/images/border_bg.png');
     border: 2px solid #277ca5;
     background-position-x: 50%;
     background-size: 100% 100%;
@@ -124,6 +124,18 @@ i.icon_copy{
     &.info06{
         background-position-y: -8.11rem;
     }
+    &.info07{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y: -5.79rem;
+    }
+    &.info08{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -6.89rem;
+    }
+    &.info09{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -7.89rem;
+    }
 }
 i.icon-notification{
     background:url('../../static/images/icon-notification.gif') no-repeat;
@@ -139,4 +151,18 @@ i.i_mail_status{
     background-size:  100%;
     background-position-y:-3.5rem;
     margin-top: .1rem;
+}
+i.write{
+    @include background-image ('icon_money.png',0,transparent);
+    background-position-y:-5.9rem;
+    width:.65rem;
+    height:.3rem;
+}
+i.i_save{
+    @extend .write;
+    background-position-y:-6.3rem;
+}
+i.triangle{
+    @extend .write;
+    background-position-y:-6.77rem;
 }
