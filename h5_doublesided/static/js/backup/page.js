@@ -32,7 +32,7 @@ $(document).ready(function(){
     });
 });
 
-//篩選
+//筛选
 $( ".dropdown_icon" ).click(function() {
     $( ".dropdown" ).slideToggle( "fast", function() {
     });
