@@ -2645,7 +2645,7 @@ function getAccessToken(access_token) {
         // console.log(access_token)
         return access_token;
     } else {
-        // console.log('从cookie');
+        console.log('从cookie');
         var tmp = getCookie('access_token');
         return tmp;
     }
@@ -2679,7 +2679,7 @@ function LoginAction() {
             setCookie('username', 'mgappid01|admin'); // 把登录用户名放在cookie里面
         },
         error: function (err) {
-            console.log(err);
+           // console.log(err);
         },
     });
 }
@@ -2719,7 +2719,7 @@ function getLotterys(all, hot) {
 
         },
         error: function (err) {
-            console.log(err);
+           // console.log(err);
         },
     });
 }
@@ -2777,13 +2777,12 @@ function getPlayTree(gameid) {
                 });
             });
 
-            console.log(data_label);
-            console.log(dataPlayAll);
-            // console.log(data_label) ;
+           // console.log(data_label);
+           // console.log(dataPlayAll);
 
         },
         error: function (err) {
-            console.log(err);
+           // console.log(err);
         },
     });
 }
