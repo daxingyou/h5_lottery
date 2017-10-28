@@ -915,7 +915,6 @@
         setCookie('lt_lotteryid',lotteryid) ; // 彩种id
         setCookie('lottery_name',lotteryname) ; // 彩种名称
 
-        getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         // 确认提交注单
         $('.btn-submit').on('click',function () {
             submitAction(lotteryid) ;
@@ -923,6 +922,7 @@
         setTimeout(function () {
             getSystemTime(lotteryid); // 系统时间
             getMemberBalance(lotteryid); // 获取用户余额
+            getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         }, 500) ;
 
 
