@@ -444,24 +444,37 @@ function initBetPop01(closet) {
 
 //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码，double 上期开奖统计
 function processCode(issue, lastissue,code,double) {
-    $('.last-date').html(lastissue) ;
-    $('.now-date').html(issue) ;
+    var lotteryid = getCookie('lt_lotteryid') ;
     if (!code) {
-        code = '-,中,奖,开,-';
+        if(lotteryid !='8'){  // 北京pk10
+            code = '-,中,奖,开,-';
+        }
     }
-    var code_arr = code.split(',');
+    if(code){
+        var code_arr = code.split(',');
+    }
     var str = '';
-    //已开奖期号节点,开奖号码
-    for (var i = 0; i < code_arr.length; i++) {
-        str +='<li>'+ code_arr[i] +'</li>' ;
-    }
-    $('.last-open-num ul').html(str) ;
     var dstr ='';
-    dstr +='<li>'+double.total+'</li>' ;
-    dstr +='<li>'+double.sizer+'</li>' ;
-    dstr +='<li>'+double.longer+'</li>' ;
-    dstr +='<li>'+double.doubler+'</li>' ;
-    $('.last-open-dou ul').html(dstr) ;
+    //已开奖期号节点,开奖号码
+    if(lotteryid =='8'){  // 北京pk10
+        $('.last-date').html(lastissue.toString().substr(4, 8)) ;
+        $('.now-date').html(issue.toString().substr(4, 8)) ;
+
+     }else{
+        $('.last-date').html(lastissue) ;
+        $('.now-date').html(issue) ;
+        for (var i = 0; i < code_arr.length; i++) {
+            str +='<li>'+ code_arr[i] +'</li>' ;
+        }
+        dstr +='<li>'+double.total+'</li>' ;
+        dstr +='<li>'+double.sizer+'</li>' ;
+        dstr +='<li>'+double.longer+'</li>' ;
+        dstr +='<li>'+double.doubler+'</li>' ;
+        $('.last-open-num ul').html(str) ;
+        $('.last-open-dou ul').html(dstr) ;
+    }
+
+
 
 }
 
