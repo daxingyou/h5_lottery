@@ -21,8 +21,8 @@ var m_lottery_int = {
     cqssc_name : '重庆时时彩' ,  // 重庆时时彩
     jxyxw_name : '江西11选5' ,  // 江西11选5
     jsks_name : '江苏快3 ' ,  // 江苏快3
-    bjpk_name : '北京pk10' ,  // 北京pk10
-    lhc_name : '六合彩' ,  // 六合彩
+    bjpk_name : '北京PK10' ,  // 北京pk10
+    lhc_name : '香港六合彩' ,  // 六合彩
 
 
 }

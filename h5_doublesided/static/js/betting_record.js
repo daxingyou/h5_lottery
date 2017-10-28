@@ -15,17 +15,37 @@ $(function () {
         page: 1, // 页数，从1开始
         pageSize: 10, // 每页行数
         searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
-        statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
-        lotteryId: lotteryid , // 彩种ID
+        statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中，5和局
+       // lotteryId: lotteryid , // 彩种ID
         pdate: '' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate(),
     };
 
-    //筛选
-    $( ".dropdown_icon" ).click(function() {
-        $( ".dropdown" ).slideToggle( "fast", function() {
+    //筛选下拉单
+    function setMenuAction() {
+        $( ".dropdown_icon,.btn_outline" ).click(function() {
+            $( ".dropdown" ).slideToggle( "fast", function() {
+            });
+            $('.so-shade').fadeToggle("fast", "linear");
         });
-        $('.so-shade').fadeToggle("fast", "linear");
-    });
+        var lottery_name ;
+        $('.play_area').on('click','li',function () {
+            $(this).addClass('active').siblings().removeClass('active') ;
+            var val = $(this).data('val') ;
+            lotteryid = val ;
+            lottery_name = $(this).find('a').text() ;
+        });
+        //确定提交
+        $('.btn_submit').on('click',function () {
+            $('.lottery_name').html(lottery_name+' 投注记录'); // 彩种名称
+            getBetRecord() ;
+            $( ".dropdown" ).slideToggle( "fast", function() {
+            });
+            $('.so-shade').fadeToggle("fast", "linear");
+
+        }) ;
+    }
+
+    setMenuAction() ;
 
 // 标签切换锁
     tableLock = 0;
@@ -137,6 +157,7 @@ $(function () {
         $('.so-zzjz').remove()
         $('.bet-recode-all')
             .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">正在加载...</li>');
+        seadata.lotteryId = lotteryid , // 彩种ID
         $.ajax({
             type: 'post',
             headers: {
