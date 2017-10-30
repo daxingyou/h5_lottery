@@ -677,146 +677,146 @@ function initPopFengpan02(closet,num) {
 
 }
 
-/*
-* 提交表单时，注单处理
-*
-* */
-function doCheckAction() {
-    var bet_num = $('.bet-select-num').text() ; // 总注数
-    var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
-    var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
-    var betstr = '' ;
-    $(".so-con-right p").each(function (i, t) {
-    // 已选择的注单
-    if($(this).hasClass('active')){
-        var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
-        var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
-        var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
-        var total_id = $(this).data('id') ;  // 投注内容玩法id
-        betstr +='<p data-id="'+total_id+'">【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
+// /*
+// * 提交表单时，注单处理
+// *
+// * */
+// function doCheckAction() {
+//     var bet_num = $('.bet-select-num').text() ; // 总注数
+//     var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
+//     var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
+//     var betstr = '' ;
+//     $(".so-con-right p").each(function (i, t) {
+//     // 已选择的注单
+//     if($(this).hasClass('active')){
+//         var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
+//         var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+//         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
+//         var total_id = $(this).data('id') ;  // 投注内容玩法id
+//         betstr +='<p data-id="'+total_id+'">【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
 
-    }
-    });
-    $('.bet-go-list').html(betstr) ;
+//     }
+//     });
+//     $('.bet-go-list').html(betstr) ;
 
-    // 总注数
-    $('.total-bet-num').text(bet_num) ;
-    // 总金额
-    $('.total-bet-mon').text(all_bet_mon) ;
+//     // 总注数
+//     $('.total-bet-num').text(bet_num) ;
+//     // 总金额
+//     $('.total-bet-mon').text(all_bet_mon) ;
 
-}
+// }
 
-/*
-* 表单提交，下注接口,lotteryid 彩种id
-* */
+// /*
+// * 表单提交，下注接口,lotteryid 彩种id
+// * */
 
-function submitAction(lotteryid) {
+// function submitAction(lotteryid) {
 
-    var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
-    // 余额不足提示充值
-    if (monAmt(total_mon) > monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
-        initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
-        return false;
-    }
+//     var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
+//     // 余额不足提示充值
+//     if (monAmt(total_mon) > monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
+//         initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
+//         return false;
+//     }
 
-    var resdata = {
-        'list': [ ],
-        'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
-        'lotteryId': lotteryid ,  //彩种id
-        'operType': 0, //下注类型，1下注
-        'pcode': $('.now-date ').eq(0).text(), //期次20170925013
-        'pdate': now_day, //日期20170925
-        'remark': '无',//备注，可用于测试
-        'source': 'h5', //来源：h5
-        'sourceType':'2', // 1是pc端，2是h5
+//     var resdata = {
+//         'list': [ ],
+//         'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
+//         'lotteryId': lotteryid ,  //彩种id
+//         'operType': 0, //下注类型，1下注
+//         'pcode': $('.now-date ').eq(0).text(), //期次20170925013
+//         'pdate': now_day, //日期20170925
+//         'remark': '无',//备注，可用于测试
+//         'source': 'h5', //来源：h5
+//         'sourceType':'2', // 1是pc端，2是h5
 
-    };
+//     };
 
-    $.each($('.bet-go-list p'), function (i, n) {  // 遍历每笔注单
-        var num_each = 1 ;  // 每单注数
-      //  var time_each = 1 ;  // 每单倍数
-        var total_each = returnMoney($(n).find('.each-mon').text()) ;  // 每单金额
-        var play_each = $(n).data('id');  // 每单玩法
-       // var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
-        var new_num = $(n).find('.each-content').html() ;  //下注内容
+//     $.each($('.bet-go-list p'), function (i, n) {  // 遍历每笔注单
+//         var num_each = 1 ;  // 每单注数
+//       //  var time_each = 1 ;  // 每单倍数
+//         var total_each = returnMoney($(n).find('.each-mon').text()) ;  // 每单金额
+//         var play_each = $(n).data('id');  // 每单玩法
+//        // var play_type = $(n).find('.ui_bet_title').data('type');  // 每单投注模式，元，角，分
+//         var new_num = $(n).find('.each-content').html() ;  //下注内容
 
-        // 下注以对象的形式传递
-        resdata.list.push(
-            {  // 一条数据就是一个方案，一个方案可以有多条下注
-                'betAmount': monAmt(Number(total_each)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
-                'betCount': Number(num_each), //注单数
-                'betMode': 0, //下注模式(预留)
-                'chaseCount': 1, //追号期数(含当期),默认1
-               // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
-               'ifChase': 0 , //是否追号,0不追号，1追号
-                'moneyMode': 'y' ,//付款类型：元y，角j，分f
-                'multiple': Number(total_each), //倍数最少为1
-                'payoff': 0, //派彩
-                'playId': play_each, //玩法
-                'remark': '无'//备注
-            });
+//         // 下注以对象的形式传递
+//         resdata.list.push(
+//             {  // 一条数据就是一个方案，一个方案可以有多条下注
+//                 'betAmount': monAmt(Number(total_each)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+//                 'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
+//                 'betCount': Number(num_each), //注单数
+//                 'betMode': 0, //下注模式(预留)
+//                 'chaseCount': 1, //追号期数(含当期),默认1
+//                // 'chaseWinStop': if_zt ,//是否追中即停，0不追停，1追停
+//                'ifChase': 0 , //是否追号,0不追号，1追号
+//                 'moneyMode': 'y' ,//付款类型：元y，角j，分f
+//                 'multiple': Number(total_each), //倍数最少为1
+//                 'payoff': 0, //派彩
+//                 'playId': play_each, //玩法
+//                 'remark': '无'//备注
+//             });
 
-    });
-   // $('.so-shade').show() ;
-    $.ajax({
-        type: 'POST',
-        headers: {
-            'Authorization': 'bearer  ' + access_token,
-            // 'sourceType':'2', // 1是pc端，2是h5
-            // 'sideType':'1',  // 1是传统盘，2是双面盘
-        },
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
-        url: action.forseti + 'api/orders/betOrder',
-        timeout: 600000,
-        //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
-        data: JSON.stringify(resdata),
-        success: function (data) {
-           // $('.so-shade').hide() ;
-            //解决瞬间提交2次的问题
-           // ajaxSubmitAllow = true;
-            if (data.length <= 0) {
-              /*  layer.open({
-                    title: '温馨提示',
-                    className: 'layer_tip',
-                    content: lot_lang.am_s16,
-                    btn: '确定'
-                });*/
+//     });
+//    // $('.so-shade').show() ;
+//     $.ajax({
+//         type: 'POST',
+//         headers: {
+//             'Authorization': 'bearer  ' + access_token,
+//             // 'sourceType':'2', // 1是pc端，2是h5
+//             // 'sideType':'1',  // 1是传统盘，2是双面盘
+//         },
+//         dataType: 'json',
+//         contentType: 'application/json; charset=utf-8',
+//         url: action.forseti + 'api/orders/betOrder',
+//         timeout: 600000,
+//         //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
+//         data: JSON.stringify(resdata),
+//         success: function (data) {
+//            // $('.so-shade').hide() ;
+//             //解决瞬间提交2次的问题
+//            // ajaxSubmitAllow = true;
+//             if (data.length <= 0) {
+//               /*  layer.open({
+//                     title: '温馨提示',
+//                     className: 'layer_tip',
+//                     content: lot_lang.am_s16,
+//                     btn: '确定'
+//                 });*/
 
-                return false;
-            }
+//                 return false;
+//             }
 
-            if (data.err == 'SUCCESS') {  //购买成功
-                initTipPop05(true,3) ;
-                resetAction() ;
-                // getMemberBalance() ; // 更新余额
-                return false;
-            } else {  //购买失败提示
+//             if (data.err == 'SUCCESS') {  //购买成功
+//                 initTipPop05(true,3) ;
+//                 resetAction() ;
+//                 // getMemberBalance() ; // 更新余额
+//                 return false;
+//             } else {  //购买失败提示
 
-                if(data.data =='' || data.data ==null){ // 平台商不存在
+//                 if(data.data =='' || data.data ==null){ // 平台商不存在
 
-                    initTipPop05(false,3,data.msg) ;
-                }else{   // 各种错误提示
-                    if(data.data.params.ErrInfo !=''){
-                        initTipPop05(false,3,data.data.params.ErrInfo) ;
+//                     initTipPop05(false,3,data.msg) ;
+//                 }else{   // 各种错误提示
+//                     if(data.data.params.ErrInfo !=''){
+//                         initTipPop05(false,3,data.data.params.ErrInfo) ;
 
-                    }
-                }
+//                     }
+//                 }
 
-                return false ;
+//                 return false ;
 
-            }
-        },
-        error: function (res) {  // 错误提示
-            initTipPop05(false,3,'投注失败，请稍后再试') ;
-           // ajaxSubmitAllow = true;
+//             }
+//         },
+//         error: function (res) {  // 错误提示
+//             initTipPop05(false,3,'投注失败，请稍后再试') ;
+//            // ajaxSubmitAllow = true;
 
-        }
-    });
+//         }
+//     });
     
 
-}
+// }
 
 // /*
 // * 重置投注页，提交表单后调用  moved to /src/components/qcssc/index.vue

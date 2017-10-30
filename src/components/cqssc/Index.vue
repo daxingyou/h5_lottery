@@ -22,12 +22,12 @@
                       </li>
 
                     <li>
-                        <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" @click="showDialog">
+                        <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" />
                     </li>
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum">
-                            {{ formatMoney(balanceData.balance)}}
+                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                         </div>
                     </li>
                     <li class="so-top-zoushi">
@@ -172,7 +172,23 @@
                 <div class="so-clear"></div>
             </div>
         </div>
-        <Bet lotteryID="2" />
+        <!--
+        下注组件
+            属性
+                :lotteryID="lotteryID"  彩种id
+                :betSelectedList="betSelectedList"  用户选中的赌注
+                :parentRefs="$refs"   当前页面的引用
+                :balance="balanceData.balance"  帐单值
+                :now_pcode="now_pcode"   期次
+                :next_pcode="next_pcode"   下期期次
+                :now_day="now_day"    日期
+            事件
+                @betSuccess="resetAction" 
+        -->
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" 
+            :betSelectedList="betSelectedList"
+            :parentRefs="$refs"
+            :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
         <!--封盘时给foot加上class:close-->
         <!--<div class="so-foot close">-->
         <!-- <div class="so-foot">
@@ -268,6 +284,8 @@
         -->
         <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
 
+        <BetSuccessfulDialog ref="betSuccessfulDialog" />
+
       </div>
         
         <!--玩法说明对话框
@@ -288,6 +306,8 @@ import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import UserMenu from '@/components/publicTemplate/UserMenu'
 import InfoDialog from '@/components/publicTemplate/InfoDialog'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
+
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
@@ -348,7 +368,18 @@ export default {
     },
   },
   methods:{
+    resetAction:function(){
+        // debugger;
+        this.betSelectedList = [];
+        $(".so-con-right p").removeClass('active');
+        this.getMemberBalance() ; // 更新余额
 
+        // $(".so-con-right p").each(function (i, t) {
+        //     $(this).removeClass('active') ;
+        //     $('.bet-select-num').text('0') ;
+        //     $('.bet-amount').val('') ;
+        // })
+    },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
         var $src = $(e.currentTarget);
@@ -412,20 +443,6 @@ export default {
                 success: (res) => {
                     this.playTreeList = res.data.childrens;
                     resolve(this.playTreeList);
-
-                    // $.each(res.data.childrens,function (i,v) { // 遍历数据
-                    //    // console.log(v) ;
-                    //     $.each(v.childrens,function (j,vv) {
-                    //         $(".so-con-right p").each(function (i, t) {
-                    //            var playid = $(this).data('id') ;
-                    //            if(playid == vv.cid){
-                    //                $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(3)) ; // 每种玩法赔率
-                    //            }
-                    //         });
-
-                    //     }) ;
-                    // }) ;
-
                 },
                 error: function () {
 
@@ -598,65 +615,17 @@ export default {
 
     // 本期投注已结束
     initBetPop01:function(closet) {
-            $('.so-bet-end-pop').toggle();
-            $('.so-shade').toggle();
-        $('.so-bet-end-pop').click(function () {
-            $('.so-bet-end-pop').toggle();
-            $('.so-shade').toggle();
-        });
-        setTimeout(() => {
-            $('.so-bet-end-pop,.so-shade').hide() ;
-        },closet*1000) ; // 自动关闭
-    },
+        this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
 
-
-    /*
-    * 重置投注页，提交表单后调用
-    * */
-    resetAction:function() {
-        $(".so-con-right p").each(function (i, t) {
-            $(this).removeClass('active') ;
-            $('.bet-select-num').text('0') ;
-            $('.bet-amount').val('') ;
-        })
-    },
-
-    //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次 moved to /src/components/qcss/Index.vue，如果其它地方需要，请根据实际情况拷贝复本
-    // initChoiceObj:function() {
-    //     $('.so-con-right').on('click','p',function () {
-    //         var _this =  $(this) ;
-    //         var className = _this.attr("class") || "" ;
-    //         if (className.indexOf("active") >= 0) {
-    //             _this.attr("class", className.replace("active", "")) ;
-    //         } else {
-    //             _this.attr("class", className + " active") ;
-    //         }
-    //         // 已选注数
-    //         var choosed =  $(".so-con-right p.active").length ;
-
-    //         var pid = _this.parents('ul.tab_content').attr('id') ;
-    //         var paid = '#'+pid ;
-    //         var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
-    //         // var ifSp = 0 ;
-    //        // var spArr = [] ; // 二中二，三中三等
-    //         if(pid){ // 二中二，三中三等
-    //             checkNumbers(pid,z_choosed,_this) ;
-    //            // sessionStorage.setItem(pid,paid) ;
-    //             var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
-    //             $('.bet-select-num').text(spchoose) ;
-
-    //         }else{
-    //             $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
-    //         }
-
-    //     }) ;
-
-    // },
-    showDialog:function(){
-        this.$refs.infoDialog.open();
-    },
-    formatMoney:function(val){
-        return this.fortMoney(this.roundAmt(val), 2);
+        // $('.so-bet-end-pop').toggle();
+        // $('.so-shade').toggle();
+        // $('.so-bet-end-pop').click(function () {
+        //     $('.so-bet-end-pop').toggle();
+        //     $('.so-shade').toggle();
+        // });
+        // setTimeout(() => {
+        //     $('.so-bet-end-pop,.so-shade').hide() ;
+        // },closet*1000) ; // 自动关闭
     },
     // 获取用户余额
     getMemberBalance:function (lotteryid) {
@@ -688,6 +657,7 @@ export default {
     }
   },
   components: {
+    BetSuccessfulDialog,
     Bet,
     UserNavigation,
     UserMenu,
@@ -703,26 +673,3 @@ export default {
         display: block;
     }
 </style>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<!--
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
--->
