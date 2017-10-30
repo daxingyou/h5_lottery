@@ -4,7 +4,7 @@ import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Reg from '@/components/Reg'
 // import HksixlotIndex from '@/components/hksixlot/Index'
-// import Jc11x5Index from '@/components/jc11x5/Index'
+ import Jc11x5Index from '@/components/jc11x5/Index'
 // import Pk10Index from '@/components/pk10/Index'
 // import Cqssc from '@/components/Cqssc/Default'
 import CqsscIndex from '@/components/cqssc/Index'
@@ -38,16 +38,16 @@ export default new Router({
     // {
     //   path: '/hksixlot', name: 'hksixlotIndex', component: HksixlotIndex
     // },
-    // {
-    //   path: '/jc11x5/',
-    //   name: 'jc11x5Index',
-    //   component: Jc11x5Index
-    // },
-    // {
-    //   path: '/pk10/',
-    //   name: 'pk10Index',
-    //   component: Pk10Index
-    // },
+    {
+      path: '/jc11x5/',
+      name: 'jc11x5Index',
+      component: Jc11x5Index
+    },
+   /* {
+      path: '/pk10/',
+      name: 'pk10Index',
+      component: Pk10Index
+    },*/
     {
       path: '/cqssc/',
       name: 'cqsscIndex',
