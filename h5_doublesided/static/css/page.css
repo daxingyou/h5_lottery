@@ -646,13 +646,13 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .pk10_ball.small_ball.num_10 { background-position-x: -5.85rem; }
 
-ul.sixball > li { background-image: url("../../static/images/hksix.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 300%; width: 1.1rem; height: 1.1rem; background-position-x: -80px; }
+ul.sixball > li { background-image: url("../../static/images/hksix.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 300%; width: 1.1rem; height: 1.1rem; background-position-x: -1.05rem; }
 
-ul.sixball > li:nth-child(3) { background-position-x: 6px; }
+ul.sixball > li:nth-child(3) { background-position-x: .1rem; }
 
-ul.sixball > li:nth-child(5) { background-position-x: 6px; }
+ul.sixball > li:nth-child(5) { background-position-x: .1rem; }
 
-ul.sixball > li:last-child { background-position-x: -165px; margin-left: .5rem; position: relative; }
+ul.sixball > li:last-child { background-position-x: -2.2rem; margin-left: .5rem; position: relative; }
 
 ul.sixball > li:last-child:before { background-image: url("../../static/images/plus.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .5rem; height: 1.1rem; right: 1.1rem; left: inherit; }
 
