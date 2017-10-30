@@ -273,7 +273,8 @@ function getMemberBalance(lotteryid) {
         data: { lotteryId: lotteryid },
         success: function (res) {
             var mom = fortMoney(roundAmt(res.data.balance), 2);  // 用户余额
-            var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
+            var todaymom = fortMoney(roundAmt((res.data.payoff).toString().replace(/-/g,'')), 2);  // 今日输赢
+           // var todaymom = fortMoney(roundAmt(res.data.payoff), 2);  // 今日输赢
             if(Number(res.data.payoff)>= 0){  // 今日输赢
                 $('.today_payoff').addClass('win_payoff').html('(\+'+todaymom+'\)');
             }else{
