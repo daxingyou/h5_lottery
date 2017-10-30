@@ -672,6 +672,11 @@ fieldset{
 .info_bot{
     text-align: center;
     padding: 2em 0;
+    >.btn_blue{
+        width: 90%;
+        margin: .5rem auto;
+        
+    }
     >ul{
         overflow: hidden;
         padding: 0 5px;

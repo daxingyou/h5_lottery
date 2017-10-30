@@ -160,16 +160,55 @@ input,select,button,a{
             }
         }
         >a{
-            @include background-image ('btn.png',0,transparent);
-            //padding-top: 0.43rem;
+            //@include background-image ('btn.png',0,transparent);
+            background-color: #1a2331;
+            @include border-radius(.1rem);
+            box-shadow: 0 -3px 1px rgba(255,255,255,.3)inset;
             font-size: .35rem;
             display: inline-block;
             color: $bluetext;
-            //padding: 0.5rem .35rem 0 0;
-            padding: .3rem;
+            padding: .2rem;
             margin-top:.2rem;
+            height: .5rem;
+            vertical-align: top;
             &:last-child{
                 margin-right: .2rem;
+            }
+            &.login{
+                background-color: transparent;
+                box-shadow:inherit;
+                position: relative;
+                >i{
+                    @include background-image ('icon.png',0,transparent);
+                    width: .55rem;
+                    height: .5rem;
+                    display: block;
+                    background-position-y: bottom;
+                }
+                >b{
+                    display: block;
+                    background-color: $red;
+                    width: .15rem;
+                    height: .15rem;
+                    @include border-radius(100%);
+                    position: absolute;
+                    top: .2rem;
+                    right: .1rem;
+                }
+            }
+            &.guset{
+                background-color: transparent;
+                box-shadow:inherit;
+                line-height: .5rem;
+                >i{
+                    @include background-image ('signs.svg',0,transparent);
+                    width: .5rem;
+                    height: .5rem;
+                    display: block;
+                    float: left;
+                    margin-right: .1rem;
+                }
+
             }
         }
     }
@@ -178,6 +217,10 @@ input,select,button,a{
     margin-top: 1.5rem;
     #road01{
         margin-top: 2rem;
+    }
+    &.lobby_past_view{
+        margin-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 // 中間區塊

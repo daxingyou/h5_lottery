@@ -167,3 +167,4 @@ function initTipPop03() {
 
 //禁止iossafari瀏覽器出現頁面雙擊放大
 $('body').on('touchend',function(e) { e.preventDefault; });
+
