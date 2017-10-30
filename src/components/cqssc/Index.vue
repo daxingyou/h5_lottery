@@ -341,7 +341,7 @@ export default {
   mounted:function() {
     var lotteryid = this.lotteryID ; // 彩种id
     var lotteryname = '重庆时时彩' ; // 彩种名称
-    this.setCookie('lt_lottid',lotteryid) ; // 彩种id
+    this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
     this.setCookie('lottery_name',lotteryname) ; // 彩种名称
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值

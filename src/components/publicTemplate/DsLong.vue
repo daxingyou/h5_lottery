@@ -162,7 +162,6 @@
 </template>
 
 
-
 <script>
     import Mixin from '@/Mixin'
     export default {
@@ -175,7 +174,7 @@
         }
     },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lottid') ; // 彩种 id
+    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
     this.loadDoubleLong(lotteryid,'','open','clong_open') ; // 连续开奖

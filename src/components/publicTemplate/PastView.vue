@@ -64,7 +64,7 @@ export default {
         }
     },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lottid') ; // 彩种 id
+    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
     // this.changeTab(lotteryid) ;
@@ -139,7 +139,7 @@ export default {
     * */
     changeTab:function (e) {
         // $('.tab_three').on('click','li',(e) => {
-            var lotteryid = this.getCookie('lt_lottid')
+            var lotteryid = this.getCookie('lt_lotteryid')
             var val = $(e.currentTarget).data('val') ;
             $(e.currentTarget).addClass('on').siblings().removeClass('on') ;
             this.doubleCount(lotteryid,val,'') ;
