@@ -3,12 +3,12 @@
 //login,form
 .login_area{
     margin: 0 auto;
-    margin-top: -2.5rem;
+    margin-top: 4.5rem;
     position: relative;
-    z-index: 11;
+    z-index: 12;
     width: 90%;
     &.reg{
-        margin-top: .5rem;
+        margin-top: 2rem;
     }
 }
 fieldset{
@@ -60,13 +60,22 @@ fieldset{
     &.text{
         >legend{
             background-image: none;
-            width: 1.5rem;
+            // width: 1.5rem;
+            width: 1.8rem;
         }
         input,select{
-            width: calc(80% - .5rem);
+            //width: calc(80% - .5rem);
+            width:calc(75% - .5rem);
             background-color: transparent;
             color: #fff;
             border:none;
+        }
+        select{
+            option{
+                background-color: rgba(18, 21, 30, 0.9);
+                font-size: 0.1rem;
+                //color: #000;
+            }
         }
     }
     &.money{
@@ -92,13 +101,25 @@ fieldset{
     &.pay_password{
         >legend{
             background-image: none;
-            width: 1.3rem;
+            width: 1.5rem;
         }
         >input{
             width: 19%;
             border-right:1px solid $normalblue;
             text-align: center;
             margin: 0 auto;
+            &:last-child{
+                border-right: none;
+                border-right:1px solid $normalblue;
+            }
+        }
+        >select{
+            width: 15%;
+            display: block;
+            border-right:1px solid $normalblue;
+            text-align: center;
+            text-align-last: center;
+            padding: 0 .1rem;
             &:last-child{
                 border-right: none;
             }
@@ -319,14 +340,16 @@ fieldset{
     background: rgba(255, 255, 255, 0.08);
     @include border-radius(5px);
     margin: 1em auto;
-    padding: 1em 0;
+    overflow: hidden;
+    border-radius: .1rem;
+    //padding: 1em 0;
     //margin-bottom: 2rem;
     table{
         margin: 0 .9em;
         min-width: 90%;
         tr{
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 10px;
+            border-bottom: 1px solid rgba(#277ca5, 0.9);
+            padding: .3rem;
             display: block;
             &:last-child{
                 border-bottom:none;
@@ -343,18 +366,6 @@ fieldset{
                     width: 1.5rem;
                     font-size: .35rem;
                     color: #66c3f2;
-                    &:before{
-                        content: '•';
-                        font-size: .35rem;
-                        display: inline-block;
-                        color: #8b8b8b;
-                        position: absolute;
-                        left: -1.2em;
-                        width: 1.5em;
-                        // top: 50%;
-                        height: 18px;
-                        // margin-top: -9px;
-                    }
                 }
             }
             td{
@@ -371,6 +382,9 @@ fieldset{
                 @include respond-to('ss') {
                     width: 7rem;
                 }
+                &.text-yellow{
+                    color: $yellow;
+                }
             }
         }
     }
@@ -385,6 +399,7 @@ fieldset{
         padding: .2rem .5rem;
         margin-top: 10px;
         font-size: .35rem;
+        vertical-align: middle;
     }
 
 }
@@ -422,4 +437,366 @@ fieldset{
     float: right;
     margin-top: -.8rem;
     color: #66c3f2;
+}
+
+//個人中心
+.info_area{
+    // margin-top: -15px;
+    @include background-image ('info_topbg.jpg',center top,transparent);
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+.info_top{
+    //width: 65%;
+    //padding: 8% 0;
+    height: 3.3rem;
+    position: relative;
+    margin: 0 auto;
+    @include respond-to('sm') {
+        width: 80%;
+    }
+    .header{
+        width: auto;
+    }
+    .account{
+        width: 55%;
+        margin: 0 auto;
+        position: relative;
+        height: 2rem;
+        padding-top: 1rem;
+        .ui.header:first-child{
+            margin-top: 0;
+        }
+        >a{
+            display: block;
+            //height: 7rem;
+        }
+        > a > h2, > a > .user_data, > h2, > .user_data{
+            float: left;
+            width: 63%;
+            &:first-child{
+                width: 35%;
+                // @include respond-to('sm') {
+                //     width: 35%;
+                // }
+            }
+        }
+        .ui.header>.image:not(.icon):only-child, .ui.header>img:only-child{
+            margin-right: 0;
+        }
+        // .over{
+        //     display: -webkit-box;
+        //     padding-left: 6.5rem;
+        //     margin-top: -1.35rem;
+        //     @include respond-to('sm') {
+        //         padding-left: 4.3rem;
+        //     }
+        //      //要解決金額超出問題
+        // }
+    }
+    &:after{
+        display: block;
+        clear: both;
+        content: "";
+    }
+    &.info_inner{
+        .account{
+            &:after{
+                background: none;
+            }
+        }
+    }
+}
+// .qrcode-img{
+//     background-color: #fff;
+//     padding: 1rem;
+//     max-width: 13.5rem;
+//     min-height: 12.5rem;
+//     margin: 0 auto;
+// }
+.portrait{
+    height: auto;
+    position: relative;
+    .user_portrait{
+        background-size: 100%;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 auto;
+    }
+
+}
+.user_name{
+    position: relative;
+    text-align: left;
+    margin-left: 0;
+    line-height: 1.8em;
+    float: left;
+    margin-top: .2rem;
+    margin-left: .3rem;
+    >strong{
+        display: block;
+        color: #fff;
+        letter-spacing: 1px;
+        font-weight: 500;
+        font-size: .4rem;
+    }
+    >.purse{
+        width: 100%;
+        height: .5rem;
+        top: .1rem;
+        left: 0;
+        .so-top-sum,.so-in-top-sum{
+            position: absolute;
+            top:0;
+        }
+        .so-top-sum{
+            left: 0;
+        }
+        .so-in-top-sum{
+            left:.2rem;
+        }
+    }
+}
+.user_data{
+    color: #fff;
+    table tr{
+        display: block;
+        padding: 5px 0;
+        th li{
+            margin-right: 10px;
+            min-width: 80px;
+        }
+        td{
+            word-break: break-all;
+        }
+    }
+}
+.info_account,.info_personal{
+   //color: $gray-500;
+   width: 90%;
+   margin: 0 auto;
+   margin-top: 20px;
+//    @include respond-to('sm') {
+//     width: 80%;
+//    }
+   > div{
+       margin: .5rem 0;
+       text-align: left;
+       //color: $basetext;
+       > a{
+           float:right;
+           &.save{
+               color: $maingreen;
+           }
+       }
+       table{
+           width: 95%;
+           tr{
+               padding: .3rem .1rem;
+           }
+       }
+   }
+}
+.info_account{
+    >.text-red{
+        text-align: center;
+    }
+}
+.info_personal{
+    input{
+        margin: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        line-height: 1.21428571em;
+        padding: .67857143em 1em;
+        font-size: $font-sm;
+        background:$black;
+        border: 1px solid rgba(34, 36, 38, .15);
+        color: $gray-600;
+        @include border-radius(5px);
+        // width: 90%;
+        vertical-align: top;
+    }
+    input[type=datetime-local],input[type=email],input[type=file],input[type=number],
+    input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url]{
+        // margin: 15px 0;
+        outline: 0;
+        -webkit-appearance: none;
+        line-height: 1.21428571em;
+        padding: .5em 1em;
+        font-size: $font-sm;
+        background:$input_bg_color;
+        border: 1px solid transparent;
+        color: $gray-600;
+        @include border-radius(8px);
+        vertical-align: top;
+        //width: calc(100% - 10px);
+        &:focus{
+            color: #7b7b7b;
+            background: #121418;
+            -webkit-box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.2);
+            border: 1px solid #70706C;
+        }
+    }
+    span.erro_text{
+        line-height: 2rem;
+        margin-left: 0.5rem;
+    }
+    .info_data_modify{
+        color: $lightblue;
+    }
+}
+
+.info_mid{
+    @include background-image ('info_mid.jpg',0,transparent);
+    background-size: 100%;
+    width: 100%;
+    text-align: center;
+    height: 1.5rem;
+    > div{
+        width: 80%;
+        margin: 0 auto;
+        font-size: 0;
+    }
+    .btn_blue{
+        margin-top: .3rem;
+        &:last-child{
+            margin-left: .5rem;
+        }
+        >a{
+            line-height: 25px;
+        }
+    }
+}
+.info_bot{
+    text-align: center;
+    padding: 2em 0;
+    >ul{
+        overflow: hidden;
+        padding: 0 5px;
+        margin: 0 auto;
+        width: 90%;
+        background: rgba(17, 22, 28, 0.8);
+        >li{
+            width: 100%;
+            border: 1px solid #294262;
+            >a{
+                display: block;
+                margin: .1rem;
+                color: $bluetext;
+                font-size: $font-sm;
+                overflow: hidden;
+                height: 1.5rem;
+                line-height: 1.5rem;
+                vertical-align: middle;
+                text-align: left;
+                padding: .3rem .2rem;
+                position: relative;
+                .icon{
+                    margin-bottom: 10px;
+                    float: left;
+                    margin-right: .5rem;
+                }
+                &:after{
+                    @include pseudo;
+                    @include background-image ('btn_icon_right.png',0,transparent);
+                    width: .2rem;
+                    height: 2rem;
+                    line-height: 1.5rem;
+                    left: initial;
+                    right: .5rem;
+                }
+            }
+        }
+    }
+}
+//提款
+.withdrawals_area{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+//個人中心
+.message_area{
+    .item{
+        overflow: hidden;
+        height: 1.5rem;
+        line-height: .75rem;
+        padding: .4rem;
+        text-align: left;
+        border-bottom:1px solid #122234;
+        border-top:1px solid #394c5e;
+        >.icon{
+            float: left;
+        }
+        >.content{
+            height: 1.5rem;
+            margin-left: 2rem;
+            font-size: .35rem;
+            >.text{
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                height: 1.3em;
+                line-height: 1.5em;
+            }
+        }
+    }
+}
+.password_area{
+    width: 90%;
+    margin: 0 auto;
+    >div{
+        text-align: center;
+        >.btn{
+            &:last-child{
+                margin-left: .5rem;
+            }
+        }
+    }
+}
+
+//帳戶明細
+.ac_detial{
+    .ac_data{
+        >a{
+            &:after{
+                @include background-image ('btn_icon_right.png',center top,transparent);
+                @include pseudo;
+                width: .2rem;
+                height: .5rem;
+                right: .5rem;
+                left: initial;
+                line-height: 1.5rem;
+                top:1.3rem;
+            }
+        }
+    }
+}
+.sta{
+    display: inline-block;
+    padding: 0 .2rem;
+    @include border-radius(.1rem);
+    margin-left:.2rem;
+    font-size: 0.29rem;
+    height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
+    &.sta01{
+        border: 1px solid #66c3f2;
+        color: #66c3f2;
+    }
+    &.sta02{
+        border: 1px solid #8b8b8b;
+        color: #8b8b8b;
+    }
+    &.sta03{
+        border: 1px solid #c83e3e;
+        color: #c83e3e;
+    }
 }

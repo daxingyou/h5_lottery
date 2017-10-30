@@ -2,8 +2,8 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
+    /* font-size: 100%; */
+    /* font: inherit; */
     vertical-align: baseline;
     outline: 0;
     font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;

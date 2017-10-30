@@ -6,10 +6,12 @@ import Reg from '@/components/Reg'
 // import HksixlotIndex from '@/components/hksixlot/Index'
 // import Jc11x5Index from '@/components/jc11x5/Index'
 // import Pk10Index from '@/components/pk10/Index'
-// import Qcssc from '@/components/qcssc/Default'
-import QcsscIndex from '@/components/qcssc/Index'
+// import Cqssc from '@/components/Cqssc/Default'
+import CqsscIndex from '@/components/cqssc/Index'
 import PastView from '@/components/publicTemplate/PastView'
 import BetRecord from '@/components/publicTemplate/BetRecord'
+import RoadBeads from '@/components/publicTemplate/RoadBeads'
+import DsLong from '@/components/publicTemplate/DsLong'
 
 
 Vue.use(Router)
@@ -47,12 +49,14 @@ export default new Router({
     //   component: Pk10Index
     // },
     {
-      path: '/qcssc/',
-      name: 'qcsscIndex',
-      component: QcsscIndex
+      path: '/cqssc/',
+      name: 'cqsscIndex',
+      component: CqsscIndex
     }, 
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
-
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
+    { path: '/publicTemplate/roadBeads', name:'roadBeads', component: RoadBeads },
+    { path: '/publicTemplate/dsLong', name:'dsLong', component: DsLong },
+
   ]
 })

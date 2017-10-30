@@ -1,10 +1,10 @@
 <template>
-    <div class="popup so-pop-xxx so-pop-01 publicDialog">
+    <div v-if="show" class="popup so-pop-xxx so-pop-01 publicDialog">
         <div>
-            <h2>提示<a @click="$emit('close')"></a></h2>
+            <h2>提示<a @click="close"></a></h2>
             <img src="/static/images/page/status03.svg">
             <p>{{text}}</p>
-            <a @click="$emit('close')">确定</a>
+            <a @click="close">确定</a>
         </div>
     </div>
 
@@ -16,11 +16,20 @@
 export default {
   name: 'InfoDialog',
   props:['text'],
-  mounted:function() {
+  methods:{
+    //打开弹窗
+    open:function(text){
+        this.text = text;
+        this.show = true;
+    },
+    //关闭弹窗
+    close:function(e){
+      this.show = false;
+    }
   },
   data () {
     return {
-        // show:true,
+        show:false,
         // text:'请设置消息.'
     }
   }

@@ -23,25 +23,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="road_beads.html">
+                        <a href="/publicTemplate/roadBeads">
                             <img src="/static/images/right/3.png">
                             <p>路珠</p>
                         </a>
                     </li>
                     <li>
-                        <a href="ds_long.html">
+                        <a href="/publicTemplate/dsLong">
                             <img src="/static/images/right/4.png">
                             <p>双面长龙</p>
                         </a>
                     </li>
-                    <li class="play">
+                    <li class="play" @click="play">
                         <img src="/static/images/right/5.png">
                         <p>玩法说明</p>
                     </li>
                     <li>
                         <img src="/static/images/right/6.png">
                         <p>今日输赢</p>
-                        <div class="so-color">(+11.65)</div>
+                        <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'-')}}{{fortMoney(roundAmt(payoff))}})</div>
                     </li>
                 </ul>
             </div>
@@ -53,9 +53,11 @@
 
 
 <script>
+import Mixin from '@/Mixin'
 export default {
   name: 'UserMenu',
-  props:['el'],
+  mixins:[Mixin],
+  props:['el', 'payoff'],
   mounted:function() {
     $(this.el).on('click', ()=>{
       this.show = true;
@@ -82,6 +84,11 @@ export default {
 
   },
   methods:{
+    play:function(e){
+        this.$emit('play')
+        // debugger;
+        // console.log('play0')
+    },
     close:function(e){
       this.show = false;
     }

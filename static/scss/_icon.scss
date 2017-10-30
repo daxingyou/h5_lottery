@@ -39,7 +39,7 @@ div.icon{
     margin: 0 auto;
     border-radius: 100%;
     color: #000;
-    //background-image: url('../../static/images/border_bg.png');
+    // background-image: url('../../static/images/border_bg.png');
     border: 2px solid #277ca5;
     background-position-x: 50%;
     background-size: 100% 100%;
@@ -63,7 +63,6 @@ div.icon{
             text-align: center;
             width: 1rem;
             height:1rem;
-            
         }
     }
 }
@@ -86,16 +85,99 @@ i.i_bank_transfer{
 i.i_help{
     @extend .i_webbank_pay;
     background-size: 100%;
-    background-position: 0 -10.78rem;
+    background-position: 0 -10.79rem;
     width: 1rem;
-    margin-top: .2rem;
+    //margin-top: .2rem;
     height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
 }
 i.icon_copy{
     @extend .i_webbank_pay;
     background-size: 100%;
-    background-position: -12px 92.9%;
+    background-position: 0 -10.12rem;
     width: 1rem;
     height: .5rem;
-
+    margin-top: 0;
+    vertical-align: middle;
+}
+.info_bot i{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    width: 1rem;
+    height: .5rem;
+    &.info01{
+        background-position-y: -3.1rem;
+    }
+    &.info02{
+        background-position-y: -4.1rem;
+    }
+    &.info03{
+        background-position-y: -5.15rem;
+    }
+    &.info04{
+        background-position-y: -6.2rem;
+    }
+    &.info05{
+        background-position-y: -7.2rem;
+    }
+    &.info06{
+        background-position-y: -8.11rem;
+    }
+    &.info07{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y: -5.79rem;
+    }
+    &.info08{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -6.89rem;
+    }
+    &.info09{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -7.89rem;
+    }
+}
+i.icon-notification{
+    background:url('../../static/images/icon-notification.gif') no-repeat;
+    width: .5rem;
+    height:.5rem;
+    background-size: 100%;
+    margin: -1px 6px 0 0;
+    padding: 0;
+    vertical-align: middle;
+}
+i.i_mail_status{
+    background:url('../../static/images/icon_money.png') no-repeat;
+    background-size:  100%;
+    background-position-y:-3.5rem;
+    margin-top: .1rem;
+}
+i.write{
+    @include background-image ('icon_money.png',0,transparent);
+    background-position-y:-5.9rem;
+    width:.65rem;
+    height:.3rem;
+}
+i.i_save{
+    @extend .write;
+    background-position-y:-6.3rem;
+}
+i.triangle{
+    @extend .write;
+    background-position-y:-6.77rem;
+}
+i.ac{
+    @extend .write;
+    &.ac01{
+        background-position-y:.1rem;
+        height: 1.2rem;
+    }
+    &.ac02{
+        background-position-y:-1.1rem;
+        height: 1.2rem;
+    }
+    &.ac03{
+        background-position-y:-2.35rem;
+        height: 1.2rem;
+    }
 }
