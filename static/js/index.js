@@ -243,7 +243,7 @@ function initRightViewEve() {
 
 // 此方法弹出遊戲說明
 function initPopWafa() {
-    $('.play').click(function () {
+    $('.r_play').click(function () {
         $('.so-pop-wanfa').toggle();
         $('.so-shade').toggle();
     });
