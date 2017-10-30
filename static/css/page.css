@@ -3,7 +3,7 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
-body { width: 100%; min-height: 18rem; padding: 50px; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
 
@@ -51,7 +51,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.lottery_name { width: calc(100% - 2.6rem); }
 
-#pa_head > .left { float: left; width: 1.2rem; }
+#pa_head > .left { float: left; width: 1.2rem; height: 1rem; }
 
 #pa_head > .left a { display: inline-block; }
 
@@ -261,6 +261,24 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 .today_payoff.win_payoff { color: #71c341; }
 
 .today_payoff.lose_payoff { color: #c93030; }
+
+.notfound { background-image: url("../../static/images/status.jpg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: cover; text-align: center; margin: 0 auto; width: 100%; height: 100%; background-attachment: fixed; min-height: 18rem; padding-bottom: 2em; }
+
+.notfound i { margin-left: 6px; }
+
+.notfound h1 { background-image: url("../../static/images/404_light.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 70%; height: 3rem; margin: 0 auto; padding-top: 4rem; font-size: 2.7rem; font-weight: 700; color: #fff; text-shadow: 1px 3px 0px #000; }
+
+.notfound h2 { padding-top: 4rem; margin: 0 auto; text-align: center; }
+
+.notfound div { font-size: 0.4rem; color: #aaa; margin-top: 1.5em; }
+
+.notfound h3 { font-size: 0.45rem; color: #fff; font-weight: 300; line-height: 1.8em; margin-top: .5em; text-shadow: 1px 3px 0px #000; }
+
+img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; margin-left: auto; }
+
+@media (max-width: 576px) { img.fixbot { left: 0; margin-left: auto; } }
+
+@media screen and (orientation: landscape) { img.fixbot { position: relative; } }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
@@ -518,7 +536,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area ul { width: 90%; margin: 0 auto; }
 
-.play_area ul > li { display: inline-block; overflow: hidden; margin: .1rem; text-align: center; width: 30%; border: 2px solid #256e93; }
+.play_area ul > li { display: inline-block; overflow: hidden; margin: .1rem; text-align: center; width: 29%; border: 2px solid #256e93; }
 
 .play_area ul > li a { padding: .2rem .3rem; display: block; font-size: .35rem; }
 
@@ -818,7 +836,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .portrait .user_portrait { background-size: 100%; width: 1.5rem; height: 1.5rem; margin: 0 auto; }
 
-.user_name { position: relative; text-align: left; margin-left: 0; line-height: 1.8em; float: left; margin-top: .2rem; margin-left: .3rem; }
+.user_name { position: relative; text-align: left; margin-left: 0; line-height: 1.8em; float: left; margin-top: .2rem; }
 
 .user_name > strong { display: block; color: #fff; letter-spacing: 1px; font-weight: 500; font-size: .4rem; }
 
