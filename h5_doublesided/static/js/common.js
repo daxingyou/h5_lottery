@@ -458,11 +458,11 @@ function processCode(issue, lastissue,code,double) {
     //已开奖期号节点,开奖号码
     if(lotteryid =='8'){  // 北京pk10
         $('.last-date').html(lastissue.toString().substr(4, 8)) ;
-        $('.now-date').html(issue.toString().substr(4, 8)) ;
+        $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue) ;
 
      }else{
         $('.last-date').html(lastissue) ;
-        $('.now-date').html(issue) ;
+        $('.now-date').html(issue).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
             str +='<li>'+ code_arr[i] +'</li>' ;
         }
@@ -800,7 +800,7 @@ function submitAction(lotteryid) {
         'amount': monAmt(total_mon),  //总金额，此金额=所有注单总金额
         'lotteryId': lotteryid ,  //彩种id
         'operType': 0, //下注类型，1下注
-        'pcode': $('.now-date ').eq(0).text(), //期次20170925013
+        'pcode': $('.now-date ').eq(0).data('date'), //期次20170925013
         'pdate': now_day, //日期20170925
         'remark': '无',//备注，可用于测试
         'source': 'h5', //来源：h5
