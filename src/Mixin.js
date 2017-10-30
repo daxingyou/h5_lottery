@@ -169,7 +169,14 @@ var MyMixin = {
                 t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
             }
             return t.split("").reverse().join("") + "." + r;
-        }
+        },
+         ifLogined() { // 判断是否登录
+                if (this.getCookie('username') && this.getCookie('access_token')) {
+                    return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
+                } else {
+                    return false;
+                }
+            },
     }
 };
 export default MyMixin;

@@ -4,7 +4,7 @@
         <!--left siderbar  -->
 
         <!--用户导航 so-left -->
-        <UserNavigation el=".so-menu" />
+        <UserNavigation el=".so-menu" ref="navone"/>
         
         <!--right menu  
             属性
@@ -328,7 +328,9 @@ export default {
 
         betSelectedList:[],   //用户选中的注数
         playTreeList:[], //玩法树
-        lotteryID:2
+        lotteryID:2,
+        allLottery:{} ,
+        gameHref:{} ,
     }
   }, 
   created:function(){
@@ -341,6 +343,9 @@ export default {
     var lotteryname = '重庆时时彩' ; // 彩种名称
     this.setCookie('lt_lottid',lotteryid) ; // 彩种id
     this.setCookie('lottery_name',lotteryname) ; // 彩种名称
+    this.allLottery = this.$refs.navone.getLotterys() ;
+    this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+
     setTimeout(() => {
         // 系统时间
         this.getSystemTime(lotteryid).then((sys_time)=>{
