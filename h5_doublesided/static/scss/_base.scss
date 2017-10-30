@@ -741,31 +741,34 @@ label{
         margin-left: 6px;
     }
     h1 {
-        max-width: 50%;
+        @include background-image ('404_light.svg',0,transparent);
+        width: 70%;
+        height: 3rem;
         margin: 0 auto;
-        padding-bottom: 1.5rem;
-        margin-top: -.5em;
+        padding-top:4rem;
+        font-size: 2.7rem;
+        font-weight:700;
+        color: #fff;
+        text-shadow: 1px 3px 0px #000;
     }
     h2{
-        max-width: 20%;
+        //max-width: 20%;
+        padding-top:4rem;
         margin: 0 auto;
-        margin: 1em auto 2em;
+        text-align: center;
     }
     div{
-        // font-size: $font-sm;
-        color: $basetext;
+        font-size: 0.4rem;
+        color: #aaa;
         margin-top: 1.5em;
-        &.big{
-            // font-size: $font-lg;
-            margin-top: 3rem;
-        }
     }
     h3{
-        // font-size: $font-lg;
+        font-size: 0.45rem;
+        color: #fff;
         font-weight: 300;
-        // color: $basetext;
-        line-height: 1.5em;
+        line-height: 1.8em;
         margin-top: .5em;
+        text-shadow: 1px 3px 0px #000;
     }
 }
 img.fixbot{
@@ -775,10 +778,6 @@ img.fixbot{
     width: 100%;
     left: 0;
     margin-left: auto;
-    // @include respond-to('xl') {
-    //     left: 50%;
-    //     margin-left: -300px;
-    // }
     @include respond-to('sm') {
         left: 0;
         margin-left: auto;
@@ -786,13 +785,4 @@ img.fixbot{
     @media screen and  (orientation:landscape) {
         position: relative;
     }
-}
-img.fixbot02{
-    @extend .fixbot;
-    @include respond-to('ss') {
-        width: 100%;
-        left: 0;
-        margin-left: 0;
-    }
-
 }

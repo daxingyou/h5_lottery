@@ -266,23 +266,19 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .notfound i { margin-left: 6px; }
 
-.notfound h1 { max-width: 50%; margin: 0 auto; padding-bottom: 1.5rem; margin-top: -.5em; }
+.notfound h1 { background-image: url("../../static/images/404_light.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 70%; height: 3rem; margin: 0 auto; padding-top: 4rem; font-size: 2.7rem; font-weight: 700; color: #fff; text-shadow: 1px 3px 0px #000; }
 
-.notfound h2 { max-width: 20%; margin: 0 auto; margin: 1em auto 2em; }
+.notfound h2 { padding-top: 4rem; margin: 0 auto; text-align: center; }
 
-.notfound div { color: #c79a50; margin-top: 1.5em; }
+.notfound div { font-size: 0.4rem; color: #aaa; margin-top: 1.5em; }
 
-.notfound div.big { margin-top: 3rem; }
+.notfound h3 { font-size: 0.45rem; color: #fff; font-weight: 300; line-height: 1.8em; margin-top: .5em; text-shadow: 1px 3px 0px #000; }
 
-.notfound h3 { font-weight: 300; line-height: 1.5em; margin-top: .5em; }
+img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; margin-left: auto; }
 
-img.fixbot, img.fixbot02 { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; margin-left: auto; }
+@media (max-width: 576px) { img.fixbot { left: 0; margin-left: auto; } }
 
-@media (max-width: 576px) { img.fixbot, img.fixbot02 { left: 0; margin-left: auto; } }
-
-@media screen and (orientation: landscape) { img.fixbot, img.fixbot02 { position: relative; } }
-
-@media (max-width: 359px) { img.fixbot02 { width: 100%; left: 0; margin-left: 0; } }
+@media screen and (orientation: landscape) { img.fixbot { position: relative; } }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
