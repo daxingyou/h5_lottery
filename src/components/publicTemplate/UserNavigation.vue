@@ -11,11 +11,11 @@
               <img src="/static/images/left/user.png">
           </div>
            <div>
-              <p class="user_name">{{getCookie('username')}}</p>
-              <div class="purse">
+              <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
+              <div class="purse"  v-if="haslogin">
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                  <div class="so-in-top-sum">
-                      {{ fortMoney(roundAmt($parent.balanceData.balance), 2)}}
+                  <div class="so-in-top-sum" >
+                      {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                   </div>
               </div>
           </div>
@@ -51,6 +51,7 @@ export default {
 
  data :function() {
         return {
+            haslogin :false ,
             showNavigation:false ,
             allLottery:{},
             gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jxsyxw"}, // 对应彩种的id
@@ -60,7 +61,11 @@ export default {
 
   } ,
   mounted:function() {
-
+      this.haslogin = this.ifLogined() ;
+       if(this.haslogin){  // 只有登录状态才需要调余额
+          this.getMemberBalance() ;
+       }
+      console.log(this.haslogin) ;
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
     }) ;
@@ -96,6 +101,31 @@ export default {
               return resdata ;
 
          /* })*/
+      },
+      // 获取用户余额
+      getMemberBalance:function (lotteryid) {
+          return new Promise((resolve)=>{
+              $.ajax({
+                  type: 'GET',
+                  headers: {
+                      "Authorization": "bearer  " + this.getAccessToken(access_token),
+                  },
+                  // dataType:'json',
+                  // contentType:"application/json; charset=utf-8",  // json格式传给后端
+                  url: action.hermes + 'api/balance/get',
+                  data: { lotteryId: lotteryid },
+                  success: (res) => {
+                      this.balanceData = res.data;
+                      var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
+                      this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
+                      resolve();
+                  },
+                  error: function () {
+
+                  }
+              });
+
+          })
       },
 
   },

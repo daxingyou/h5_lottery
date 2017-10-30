@@ -12,7 +12,7 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login">登录</a>
+              <a href="/login" v-show="!haslogin">登录</a>
               <a href="/reg">注册</a>
               <a href="javascript:;">试玩</a>
           </div>
@@ -143,6 +143,7 @@ export default {
     },
   data :function() {
         return {
+            haslogin:true ,
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
@@ -153,10 +154,9 @@ export default {
 
     },
   mounted:function() {
-    this.LoginAction();
-    this.getMemberBalance() ;
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+    this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
 
     $(()=>{
       TouchSlide({
@@ -177,49 +177,6 @@ export default {
 
   },
   methods:{
-    // 登录接口 moved to 主页/index.vue
-    LoginAction:function() {
-        $.ajax({
-            type: 'post',
-            headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            url: action.uaa + 'oauth/token',
-            data: {grant_type: 'password', username: 'bcappid02|admin', password: 'admin'},
-            success: (res) => {
-                this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-                this.setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
-                console.log('login successed.')
-            },
-            error: function () {
-
-            }
-        });
-    },
-      // 获取用户余额
-      getMemberBalance:function (lotteryid) {
-          return new Promise((resolve)=>{
-              $.ajax({
-                  type: 'GET',
-                  headers: {
-                      "Authorization": "bearer  " + this.getAccessToken(access_token),
-                  },
-                  // dataType:'json',
-                  // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                  url: action.hermes + 'api/balance/get',
-                  data: { lotteryId: lotteryid },
-                  success: (res) => {
-                      this.balanceData = res.data;
-                      var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
-                      this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
-                      resolve();
-                  },
-                  error: function () {
-
-                  }
-              });
-
-          })
-      },
-
       // 链接跳转
     go:function(url){
       window.location = url;
