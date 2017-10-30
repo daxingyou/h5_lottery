@@ -24,11 +24,13 @@
       <div class="so-l-c-con">
           <div>
               <ul>
-                  <li v-for="lottery in allLottery">
-                      <div class="badge">
-                           <img :src="lottery.imgUrl" alt="">
-                      </div>
-                      <p>{{lottery.name}}</p>
+                  <li v-for="lottery in $parent.allLottery">
+                      <a :href="'/'+$parent.gameHref[lottery.cid]">
+                          <div class="badge">
+                               <img :src="lottery.imgUrl" alt="">
+                          </div>
+                          <p>{{lottery.name}}</p>
+                      </a>
                   </li>
 
               </ul>
@@ -47,14 +49,15 @@ export default {
   name: 'InfoDialog',
   mixins:[Mixin],
   props:['el'],
+
  data :function() {
         return {
             showNavigation:false ,
-            allLottery: {},
+
         }
     },
   created:function () {
-      this.getLotterys() ;
+
   } ,
   mounted:function() {
     $(this.el).on('click', ()=>{
@@ -67,21 +70,7 @@ export default {
     close:function(e){
       this.showNavigation = false;
     },
-      // 获取彩种
-    getLotterys:function() {
-         $.ajax({
-            type: 'GET',
-            url: action.forseti + 'apis/lotterys',
-            data: {},
-            dataType: 'json',
-            success:(res)=> {
-                this.allLottery = res && res.data;  // 全部彩种,通过 v.cid 跳转到每个彩种
-            },
-            error: function () {
 
-            }
-        });
-}
 
   },
 
