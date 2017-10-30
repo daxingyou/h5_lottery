@@ -168,3 +168,10 @@ function initTipPop03() {
 //禁止iossafari瀏覽器出現頁面雙擊放大
 $('body').on('touchend',function(e) { e.preventDefault; });
 
+//切換表格眼睛
+$(function () {
+    $(".eye").on("click", function () {
+        $(".eye").toggleClass("active", 1000);
+    });
+});
+

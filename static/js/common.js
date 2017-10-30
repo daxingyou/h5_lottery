@@ -676,6 +676,12 @@ function initPopFengpan02(closet,num) {
        },closet*1000) ;
 
 }
+//切換表格眼睛
+$(function () {
+    $(".eye").on("click", function () {
+        $(".eye").toggleClass("active", 1000);
+    });
+});
 
 // /*
 // * 提交表单时，注单处理

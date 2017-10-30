@@ -22,6 +22,12 @@
       </div>
       <div class="so-l-c-con">
           <div>
+                <div class="back_home">
+                    <a href="/">
+                        <span><img src="/static/images/left/icon_home.png"></span>
+                        <span>返回竞彩大厅</span>
+                    </a>
+                </div>
               <ul>
                   <li v-for="lottery in allLottery">
                       <a :href="'/'+gameHref[lottery.cid]">

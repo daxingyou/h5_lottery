@@ -299,9 +299,9 @@ i.icon { width: .4rem; height: .4rem; display: inline-block; vertical-align: mid
 
 i.filter { background-image: url("../../static/images/filter.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-i.close { display: block; background-image: url("../../static/images/close.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .25rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; }
+i.close { display: block; background-image: url("../../static/images/close.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .25rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; cursor: pointer; }
 
-i.eye { display: block; background-image: url("../../static/images/eye_view.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .4rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; }
+i.eye { display: block; background-image: url("../../static/images/eye_view.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .4rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; cursor: pointer; }
 
 i.eye.active { background-image: url("../../static/images/eye_hide.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 

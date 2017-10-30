@@ -20,6 +20,7 @@ i.close{
     position: absolute;
     right:.3rem;
     top:.4rem;
+    cursor: pointer;
 }
 i.eye{
     display: block;
@@ -29,6 +30,7 @@ i.eye{
     position: absolute;
     right:.3rem;
     top:.4rem;
+    cursor: pointer;
     &.active{
         @include background-image ('eye_hide.svg',0,transparent);
     }
