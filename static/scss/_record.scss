@@ -575,10 +575,10 @@ i.prd{
             &:before{
                 content: '大 / 小';
                 display: block;
-                position: fixed;
+                position: absolute;
                 color: #666;
-                top:53%;
-                left: 3%;
+                top:0;
+                left: 1%;
                 font-size: .25rem;
             }
         }
@@ -586,11 +586,11 @@ i.prd{
             &:before{
                 content: '单 / 双';
                 display: block;
-                position: fixed;
+                position: absolute;
                 color: #666;
                 //top:50%;
-                top:79.4%;
-                left: 3%;
+                top:0;
+                left: 1%;
                 font-size: .25rem;
             }
         }
@@ -793,15 +793,15 @@ ul.sixball{
         background-size: 300%;
         width: 1.1rem;
         height: 1.1rem;
-        background-position-x: -80px;
+        background-position-x: -1.05rem;
         &:nth-child(3){
-            background-position-x: 6px;
+            background-position-x: .1rem;
         }
         &:nth-child(5){
-            background-position-x: 6px;
+            background-position-x: .1rem;
         }
         &:last-child{
-            background-position-x: -165px;
+            background-position-x: -2.2rem;
             margin-left: .5rem;
             position: relative;
             &:before{

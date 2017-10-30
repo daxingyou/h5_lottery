@@ -226,7 +226,7 @@
 
 .so-foot > div:last-child > div img { width: 1.2rem; position: relative; top: 0.8rem; }
 
-.so-foot > div:last-child > div p { color: #fff; font-size: 0.36rem; position: relative; top: 0.9rem; }
+.so-foot > div:last-child > div p { color: #fff; font-size: 0.36rem; position: relative; top: 2.2rem; }
 
 .so-foot.close > div:first-child { background-color: #404040; }
 
@@ -431,3 +431,5 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 .back_home a span { vertical-align: middle; display: inline-block; margin-right: 0.2rem; height: 0.7rem; line-height: 0.7rem; }
 
 .back_home a span img { height: 100%; }
+
+/*# sourceMappingURL=style.css.map */
