@@ -2,7 +2,7 @@
   <div id="pa_con" class="so-con warp bule_bg">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
-      <UserNavigation el=".btn_leftside" />
+      <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
 
       <header id="pa_head" class="index_nav_top">
           <div class="left">
@@ -144,14 +144,20 @@ export default {
   data :function() {
         return {
             balanceData:{},
-            allLottery:{},
-            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jxsyxw"}, // 对应彩种的id
+            allLottery:{} ,
+            gameHref:{} ,
+
         }
+    },
+    created:function () {
+
     },
   mounted:function() {
     this.LoginAction();
     this.getMemberBalance() ;
-    this.getLotterys() ;
+    this.allLottery = this.$refs.navone.getLotterys() ;
+    this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+
     $(()=>{
       TouchSlide({
           slideCell: "#focus",
@@ -167,6 +173,8 @@ export default {
       // });
       
     })
+
+
   },
   methods:{
     // 登录接口 moved to 主页/index.vue
@@ -211,21 +219,7 @@ export default {
 
           })
       },
-      // 获取彩种
-      getLotterys:function() {
-          $.ajax({
-              type: 'GET',
-              url: action.forseti + 'apis/lotterys',
-              data: {},
-              dataType: 'json',
-              success:(res)=> {
-                  this.allLottery = res && res.data;  // 全部彩种,通过 v.cid 跳转到每个彩种
-              },
-              error: function () {
 
-              }
-          });
-      },
       // 链接跳转
     go:function(url){
       window.location = url;

@@ -39,13 +39,15 @@
 <script>
 export default {
   name: 'Login',
+  data: function() {
+        return {
+
+        }
+    },
   mounted:function() {
     
   },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+
+
 }
 </script>
