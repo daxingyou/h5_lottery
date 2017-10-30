@@ -7,62 +7,14 @@
                 </a>
             </div>
             <h2 class="center lottery_name"> </h2>
-          <!--  <div class="right">
-                <div class="so-top-zoushi">
-                    <img src="/static/images/top/zoushi.png">
-                </div>
-            </div>-->
+
         </header>
-        <!--right menu  -->
-        <div class="so-right">
-            <div>
-                <img src="/static/images/top/zoushi.png">
-            </div>
-           <!-- <div>
-                <div>
-                    <ul>
-                        <li>
-                            <a href="bet_record.html">
-                                <img src="/static/images/right/1.png">
-                                <p>投注记录</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="past_view.html">
-                                <img src="/static/images/right/2.png">
-                                <p>近期开奖</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="road_beads.html">
-                                <img src="/static/images/right/3.png">
-                                <p>路珠</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ds_long.html">
-                                <img src="/static/images/right/4.png">
-                                <p>双面长龙</p>
-                            </a>
-                        </li>
-                        <li class="play">
-                            <img src="/static/images/right/5.png">
-                            <p>玩法说明</p>
-                        </li>
-                        <li>
-                            <img src="/static/images/right/6.png">
-                            <p>今日输赢</p>
-                            <div class="so-color">(+11.65)</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
-        </div>
+
         <div id="pa_content">
             <div id="betting_record" class="tab_container tabBox">
                 <div class="hd">
                     <ul class="tab tab_mid tab_two">
-                        <li class="on"><a href="javascript:;" data-filter="">连续开奖</a></li>
+                        <li class="on"><a href="javascript:;" data-filter="open">连续开奖</a></li>
                         <li><a href="javascript:;" data-filter="not_open">连续未开</a></li>
                     </ul>
                 </div>
@@ -212,14 +164,25 @@
 
 
 <script>
-export default {
-  name: 'Index',
+    import Mixin from '@/Mixin'
+    export default {
+    name: 'dslong',
+    mixins:[Mixin],
+    data :function() {
+        return {
+            // roadbeads:{} ,
+
+        }
+    },
   mounted:function() {
-    var lotteryid = getCookie('lt_lottid') ; // 彩种 id
-    var lotteryname = getCookie('lottery_name') ; // 彩种 名称
+    var lotteryid = this.getCookie('lt_lottid') ; // 彩种 id
+    var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
     this.loadDoubleLong(lotteryid,'','open','clong_open') ; // 连续开奖
     this.loadDoubleLong(lotteryid,'','unopen','clong_notopen') ; // 连续未开奖
+     TouchSlide({
+          slideCell: "#betting_record",
+      });
   },
   methods:{
 
@@ -235,7 +198,7 @@ export default {
         $.ajax({
             type: 'get',
             headers: {
-                'Authorization': 'bearer  ' + getAccessToken(access_token) ,
+                'Authorization': 'bearer  ' + this.getAccessToken(access_token) ,
                 // 'sourceType':'2', // 1是pc端，2是h5
                 // 'sideType':'1',  // 1是传统盘，2是双面盘
             },
@@ -269,10 +232,6 @@ export default {
         });
     }
   },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+
 }
 </script>
