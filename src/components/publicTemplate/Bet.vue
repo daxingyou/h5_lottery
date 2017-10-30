@@ -33,9 +33,9 @@
                    <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
                 </div>
             </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{$parent.betSelectedList.length}}</span> 总金额：<span class="total-bet-mon">{{$parent.betSelectedList.length*betAmount}}</span></p>
+            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{$parent.betSelectedList.length}}</span> 总金额：<span class="total-bet-mon">{{totalAmount}}</span></p>
             <a @click="closeListDialog"><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit" @click="submitAction(this.lotteryID)"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
+            <a class="btn-submit" @click="submitAction(lotteryID)"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
         </div>
         <!--封盘底部遮挡-->
          <!-- <div class="so-fengpan">
@@ -86,14 +86,19 @@ import Mixin from '@/Mixin'
 
 export default {
     name: 'Index',
-    props:['lotteryID'],
+    props:['lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode'],
     mixins:[Mixin],
     data () {
         return {
-            betAmount:0, //投注金额
+            betAmount:'', //投注金额
             betGoList:[],
             // shadeStatus:false,
             showList:false
+        }
+    },
+    computed:{
+        totalAmount:function(){
+            return this.$parent.betSelectedList.length * this.betAmount
         }
     },
     mounted:function() {
@@ -103,42 +108,179 @@ export default {
         // }) ;
     },
     methods:{
-        
         /*
-        * 提交表单时，注单处理
-        *
+        * 重置投注页，提交表单后调用
         * */
-        // doCheckAction:function (e) {
-            // var $that = $(e.currentTarget);
-            // var bet_num = $('.bet-select-num').text() ; // 总注数
-            // var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
-            // var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
-            // var betstr = '' ;
+        resetAction:function() {
+            this.$emit('betSuccess');
+            this.betAmount = '';
+            this.showList = false;
             // $(".so-con-right p").each(function (i, t) {
-            //     // 已选择的注单
-            //     if($that.hasClass('active')){
-            //         var total_title = $that.parents('.select-li').find('h2').text() ;  // 大标题
-            //         var total_con = $that.find('span:nth-child(1)').text() ;  // 投注内容
-            //         var total_mon = $that.find('span:nth-child(2)').text() ;  // 投注内容赔率
-            //         var total_id = $that.data('id') ;  // 投注内容玩法id
-            //         var total_type = $that.data('type') ;  // 投注内容玩法类型，组合是 zu_he
-            //         if(total_type){
-            //             betstr +='<p data-id="'+total_id+'" data-type="'+total_type+'">【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
-            //         }else{
-            //             betstr +='<p data-id="'+total_id+'" >【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
-            //         }
+            //     $(this).removeClass('active') ;
+            //     $('.bet-select-num').text('0') ;
+            //     $('.bet-amount').val('') ;
+            // })
+        },
 
+        /*
+        * 表单提交，下注接口,lotteryid 彩种id
+        * */
 
-            //     }
-            // });
-            // $('.bet-go-list').html(betstr) ;
+        submitAction:function(lotteryid) {
 
-            // // 总注数
-            // $('.total-bet-num').text(bet_num) ;
-            // // 总金额
-            // $('.total-bet-mon').text(all_bet_mon) ;
+            // var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
+            const total_mon = this.monAmt(this.totalAmount);
+            // 余额不足提示充值
+            // if (this.monAmt(total_mon) > this.monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
+            if (total_mon > this.balance) {
+                // initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
+                console.log('您的余额不足<br/>请充值后继续进行！')
+                return false;
+            }
+            var resdata = {
+                'list': [ ],
+                'amount': total_mon,  //总金额，此金额=所有注单总金额
+                'lotteryId': this.lotteryID ,  //彩种id
+                'operType': 0, //下注类型，1下注
+                // 'pcode': $('.now-date ').eq(0).text(), //期次20170925013
+                'pcode':this.now_pcode,
+                'pdate': this.now_day, //日期20170925
+                'remark': '无',//备注，可用于测试
+                'source': 'h5', //来源：h5
+                'sourceType':'2', // 1是pc端，2是h5
 
-        // },
+            };
+            this.doSubmitAction(resdata.list) ;
+            $.ajax({
+                type: 'POST',
+                headers: {
+                    "Authorization": "bearer  " + this.getAccessToken(access_token),
+                    // 'sourceType':'2', // 1是pc端，2是h5
+                    // 'sideType':'1',  // 1是传统盘，2是双面盘
+                },
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                url: action.forseti + 'api/orders/betOrder',
+                timeout: 600000,
+                //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
+                data: JSON.stringify(resdata),
+                success: (data) => {
+
+                    //解决瞬间提交2次的问题
+                   // ajaxSubmitAllow = true;
+                    if (data.length <= 0) {
+                        return false;
+                    }
+
+                    if (data.err == 'SUCCESS') {  //购买成功
+                        // initTipPop05(true,3) ;
+                        // this.$parent.$refs.autoCloseDialog.open('购买成功')
+                        this.$parent.$refs.betSuccessfulDialog.open('购买成功')
+                        this.resetAction() ;
+                        // getMemberBalance() ; // 更新余额
+                        return false;
+                    } else {  //购买失败提示
+
+                        if(data.data =='' || data.data ==null){ // 平台商不存在
+                            this.$parent.$refs.autoCloseDialog.open(data.msg)
+                            // initTipPop05(false,3,data.msg) ;
+                        }else{   // 各种错误提示
+                            if(data.data.params.ErrInfo !=''){
+                                // initTipPop05(false,3,data.data.params.ErrInfo) ;
+                                this.$parent.$refs.autoCloseDialog.open(data.data.params.ErrInfo)
+
+                            }
+                        }
+
+                        return false ;
+
+                    }
+                },
+                error: function (res) {  // 错误提示
+                    // initTipPop05(false,3,'投注失败，请稍后再试') ;
+                    this.$parent.$refs.autoCloseDialog.open('投注失败，请稍后再试')
+                   // ajaxSubmitAllow = true;
+
+                }
+            });
+            
+
+        },
+
+        /*
+        * 表单提交数据处理
+        * */
+        doSubmitAction:function(list) {
+            this.$parent.betSelectedList.forEach((item, i)=>{
+                list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
+                    'betAmount': this.monAmt(Number(this.betAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                    'betContent': item.name,     //new_num.toString(),//下注内容，如1,5,8,3,7
+                    'betCount':1,         //Number(num_each), //注单数
+                    'betMode': 0, //下注模式(预留)
+                    'chaseCount': 1, //追号期数(含当期),默认1
+                    'ifChase': 0 , //是否追号,0不追号，1追号
+                    'moneyMode': 'y' ,//付款类型：元y，角j，分f
+                    'multiple': Number(this.betAmount),         //Number(total_each), //倍数最少为1
+                    'payoff': 0, //派彩
+                    'playId': item.cid,  //play_each, //玩法
+                    'remark': '无'//备注
+                });
+            });
+            return false;
+            
+
+            //-----------------
+
+        //     var zuArr = [] ;
+        //     var gametype ;
+        //     var zu_play ;
+        //     $.each($('.bet-go-list p'), function (i, n) {  // 遍历每笔注单
+        //         var num_each = 1 ;  // 每单注数
+        //         var total_each = returnMoney($(n).find('.each-mon').text()) ;  // 每单金额
+        //         var play_each = $(n).data('id');  // 每单玩法
+        //         var play_type = $(n).data('type');  // 每单玩法类型
+        //         var new_num = $(n).find('.each-content').html() ;  //下注内容
+        //         gametype = play_type ; // 组合玩法
+        //         zu_play = play_each ; // 组合玩法
+        //         zuArr.push(new_num) ;  // 组合玩法
+        //         if(!gametype){
+        //             // 下注以对象的形式传递
+        //             list.push(
+        //                 {  // 一条数据就是一个方案，一个方案可以有多条下注
+        //                     'betAmount': this.monAmt(Number(total_each)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+        //                     'betContent': new_num.toString(),//下注内容，如1,5,8,3,7
+        //                     'betCount': Number(num_each), //注单数
+        //                     'betMode': 0, //下注模式(预留)
+        //                     'chaseCount': 1, //追号期数(含当期),默认1
+        //                     'ifChase': 0 , //是否追号,0不追号，1追号
+        //                     'moneyMode': 'y' ,//付款类型：元y，角j，分f
+        //                     'multiple': Number(total_each), //倍数最少为1
+        //                     'payoff': 0, //派彩
+        //                     'playId': play_each, //玩法
+        //                     'remark': '无'//备注
+        //                 });
+        //         }
+
+        //     });
+        //     if(gametype =='zu_he'){
+        //         list.push(
+        //             {  // 一条数据就是一个方案，一个方案可以有多条下注
+        //                 'betAmount': this.monAmt(Number($('.total-bet-mon').text())), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+        //                 'betContent': zuArr.toString(),//下注内容，如1,5,8,3,7
+        //                 'betCount': Number($('.total-bet-num').text()), //注单数
+        //                 'betMode': 0, //下注模式(预留)
+        //                 'chaseCount': 1, //追号期数(含当期),默认1
+        //                 'ifChase': 0 , //是否追号,0不追号，1追号
+        //                 'moneyMode': 'y' ,//付款类型：元y，角j，分f
+        //                 'multiple': Number($('.each-mon').eq(0).text()), //倍数最少为1
+        //                 'payoff': 0, //派彩
+        //                 'playId': zu_play , //玩法
+        //                 'remark': '无'//备注
+        //             });
+        //     }
+
+        },
+
         startBet:function(e){
             var amount = this.betAmount;  // 获取金额
             var nums = this.$parent.betSelectedList.length;
