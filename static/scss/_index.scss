@@ -284,3 +284,93 @@
         }
     }
 }
+.so-con .so-left .so-left-con .so-l-c-con{
+    &.indexside{
+        ul{
+            margin-top: .5rem;
+        }
+        li{
+            background-image: none;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            vertical-align: middle;
+            border-right:1px solid #dde2e6;
+            //border-bottom:1px solid #dde2e6;
+            width: 3rem;
+            margin: 0.3rem 0.25rem;
+            &:nth-child(even){
+                border-right:none;
+                // &:after{
+                //     @include pseudo;
+                //     width: 100%;
+                //     border-bottom:1px solid #dde2e6;
+                // }
+            }
+            &:nth-child(odd){
+                padding-right: .2rem;
+            }
+            @include respond-to('ss'){
+                width: 3.2rem;
+            }
+            .icon{
+                float: left;
+            }
+        }
+    }
+}
+//右側選單icon
+.right_menu{
+    >li{
+        &:before{
+            @include pseudo();
+            @include background-image ('right_icon.png',0,transparent);
+            background-image: url('../../../static/images/right_icon.png');
+            width: .7rem;
+            height: 1.38rem;
+            line-height: 1.38rem;
+            margin-left: .2rem;
+            background-position-x: 0;
+        }
+        &.r_record{
+            &:before{
+                background-position-y: -.9rem;
+            }
+        }
+        &.r_pastview{
+            &:before{
+                background-position-y: -2.2rem;
+            }
+        }
+        &.r_roadbeads{
+            &:before{
+                background-position-y: -3.6rem;
+            }
+        }
+        &.r_long{
+            &:before{
+                background-position-y: -4.9rem;
+            }
+        }
+        &.r_play{
+            &:before{
+                background-position-y: -6.3rem;
+            }
+        }
+        &.r_today{
+            &:before{
+                background-position-y: -7.6rem;
+            }
+        }
+    }
+}
+// .right_menu_icon{
+//     @include background-image ('right_icon.png',0,transparent);
+//     background-image: url('../../../static/images/right_icon.png');
+//     width: .7rem;
+//     height: 1rem;
+//     line-height: 1rem;
+//     margin-left: .2rem;
+//     background-position-y: .3rem;
+//     position: relative;
+//     z-index: 50;
+// }

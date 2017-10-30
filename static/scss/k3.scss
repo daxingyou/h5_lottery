@@ -1,0 +1,280 @@
+@import "variable";
+
+.k3_clear:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+#k3{
+    .so-in-top, #pa_head{
+        background-image: url(../images/k3/bg_top.jpg);
+        background-size: auto 100%;
+    }
+    .so-m-t-left{
+        width: 3rem;
+        div:first-child{
+            width: 3rem;
+            white-space: nowrap;
+        }
+    }
+    .so-m-t-right{
+        width: 7rem;
+        > div{
+            float: none;
+        }
+    }
+    .last-open-num{
+        float: none;
+    }
+    .k3_top_number{
+        text-align: right;
+        margin-right: 0.2rem;
+        li{
+            background: none;
+            float: none;
+            display: inline-block;
+            // width: 1rem;
+            width: auto;
+            height: auto;
+            margin-right: 0.07rem;
+            // &:last-child{
+            //     margin-right: 0px;
+            // }
+        }
+    }
+    .k3_top_detail{
+        margin-left: 0.1rem;
+        text-align: right;
+        li{
+            font-size: 0.3rem;
+            width: 0.66rem;
+            // line-height: 1.3em;
+            margin-top: 0.07rem;
+            float: none;
+            display: inline-block;
+        }
+    }
+    .so-main-down{
+        li{
+            white-space: nowrap;
+            &:first-child{
+                p{
+                    width: 3rem;
+                    margin-right: 0.12rem;
+                }
+            }
+            i{
+                margin-top: 0.18rem;
+                margin-left: 0;
+                vertical-align: middle;
+            }
+            a{
+                margin-top: 0.15rem;
+                margin-right: 0.1rem;
+            }
+        }
+    }
+    //重寫面版
+    .select-li{
+        height: auto;
+        padding-top: 0.3rem;
+    }
+    .k3_panel{
+        background: none;
+        height: auto;
+        position: relative;
+        h2{
+            background: url(../images/content/panel_header.png) no-repeat;
+            background-size: 100% 100%;
+            line-height: 0.9rem;
+        }
+        > div{
+            background: url(../images/content/panel_body.png) no-repeat;
+            background-size: 100% 100%;
+            padding: 3% 3% 3.5%;
+            height: auto;
+            margin: 0px auto;
+            p{
+                margin: 2%;
+                span:last-child{
+                    padding-left: 0rem;
+                }
+            }
+            &:after{
+                content: '';
+                display: table;
+                clear: both;
+            }
+        }
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+            clear: both;
+            background: url(../images/content/panel_footer.png) no-repeat;
+            background-size: 100% 100%;
+            height: 0.4rem;
+            margin-top: -0.4rem;
+        }
+        &.style1{
+            h2{
+                background-image: url(../images/content/panel_header_1.png);
+            }
+        }
+    }
+    // 投注紀錄
+    .play_th {
+        ul{
+            margin-top: 0.05rem;
+            li{
+                width: 0.5rem;
+                margin-right: 0.15rem;
+                font-size: 0.3rem;
+                line-height: 1.3em;
+            }
+        }
+    }
+    .lo_ball{
+        margin-left: 0;
+        margin-top: 0.4rem;
+        li{
+            background: none;
+            width: 0.792rem;
+            height: 0.72rem;
+            span{
+                display: block;
+            }
+        }
+    }
+    // 雙面長龍
+    .ds_long{
+        .prod>div{
+            width: 4rem;
+            &:last-child{
+                width: auto;
+            }
+        }
+        .lo_ball{
+            margin: 0px;
+            li{
+                font-size: 0.5rem;
+                width: auto;
+            }
+            .k3_dice{
+                margin-top: 0.25rem;
+            }
+        }
+    }
+    .tab_mid{
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+}
+
+.k3_item ul li {
+    .k3_panel{
+        width: 7rem;
+        height: 5rem;
+        background: url(../images/content/kuang.png) no-repeat;
+        background-size: 8.4rem 5rem;
+        background-position-x: -1.1rem;
+        text-align: center;
+        margin: auto;
+        > h2 {
+            color: #ffffff;
+            font-size: .4rem;
+            line-height: 1.12rem;
+        }
+        > div {
+            padding: 3%;
+            width: 94%;
+            height: 3.1rem;
+            p {
+                float: left;
+                border: solid 0.01rem #277ca5;
+                // height: 1.2rem;
+                width: 3rem;
+                margin-bottom: 4%;
+                margin-left: 3.5%;
+                // display: none;
+                >span {
+                    color: $bluetext;
+                    font-size: .34rem;
+                    display: block;
+                    float: left;
+                    padding: 0.15rem 0.2rem ;
+                    line-height: 0.5rem;
+                    &:last-child {
+                        float: right;
+                    }
+                }
+                .k3_dice{
+                    border: 0.01rem solid transparent;
+                    margin-left: 0.06rem;
+                }
+            }
+            p.active {
+                background: url(../images/content/changkuang.png) no-repeat;
+                background-size: 3.06rem 100%;
+                background-position: -0.01rem;
+                border: solid 0.01rem rgba(0,0,0,0);
+                >span {
+                    &:first-child {
+                        color: #010101;
+                    }
+                    &:last-child {
+                        color: #ab0000;
+                    }
+                }
+                .k3_dice{
+                    border-color: #403720;
+                }
+            }
+        }
+    }
+    .so-con-span-short{
+        width: 3rem !important;
+        background-size: 3.06rem 0.9rem;
+    }
+}
+#k3-item0 .select-li p > span:last-child{
+    padding-top: 0.4rem;
+}
+#k3-item2 .select-li:last-child p{
+    width: 96% !important;
+    background-size: 100% 100%;
+}
+#k3-item2 .select-li:last-child p:last-child span{
+    line-height: 0.54rem;
+}
+// k3 dice
+.k3_dice{
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    background: url(../images/k3/dice.png) no-repeat;
+    background-size: 6rem 1rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.1rem;
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -1rem;}
+    &.num_3{background-position-x: -2rem;}
+    &.num_4{background-position-x: -3rem;}
+    &.num_5{background-position-x: -4rem;}
+    &.num_6{background-position-x: -5rem;}
+}
+.k3_dice.small_dice{
+    background-size: 3rem 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.05rem;
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -0.5rem;}
+    &.num_3{background-position-x: -1rem;}
+    &.num_4{background-position-x: -1.5rem;}
+    &.num_5{background-position-x: -2rem;}
+    &.num_6{background-position-x: -2.5rem;}
+}

@@ -181,3 +181,24 @@ i.ac{
         height: 1.2rem;
     }
 }
+i.index_s{
+    @include background-image ('icon_money.png',0,transparent);
+    &.index_s01{
+        background-position-y:.1rem;
+        height: 1.2rem;
+    }
+    &.index_s02{
+        background-position-y:-1.1rem;
+        height: 1.2rem;
+    }
+    &.index_s03{
+        @include background-image ('icon_member.png',0,transparent);
+        background-position-y: -4.1rem;
+        margin-top: .2rem;
+    }
+    &.index_s04{
+        @extend .index_s03;
+        background-position-y: -7.2rem;
+        margin-top: .2rem;
+    }
+}

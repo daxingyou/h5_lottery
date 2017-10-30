@@ -250,15 +250,55 @@
     margin: .15rem 0;
     >.panel{
         >li{
-            background-image: url('../../static/images/page/past_bg.png');
-            background-repeat: no-repeat;
-            background-size: 100%;
-            height: 2.4rem;
+            //background-image: url('../../static/images/page/past_bg.png');
+            // background:-webkit-linear-gradient(#212637,#384465);
+            // background: linear-gradient(#212637,#384465);
+            @include border-radius(.2rem);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#90bff6), to(#5d76c4));
+            background-image: -webkit-linear-gradient(#90bff6, #5d76c4);
+            background-image: -moz-linear-gradient(#90bff6, #5d76c4),-moz-linear-gradient(#90bff6, #5d76c4);
+            background-image: -o-linear-gradient(#90bff6, #5d76c4),-o-linear-gradient(#90bff6, #5d76c4);
+            background-image: linear-gradient(#90bff6, #5d76c4),linear-gradient(#90bff6, #5d76c4);
+            border-top: 2px solid #90bff6;
+            border-bottom: 2px solid #5d76c4;
+            -moz-background-size:2px 100%;
+            background-size:2px 100%;
+            background-position:0 0, 100% 0;
+            background-repeat:no-repeat;
+            // background-repeat: no-repeat;
+            // background-size: 100%;
+            position: relative;
+            min-height: 2.4rem;
+            height:auto;
+            overflow: hidden;
+            &:before{
+                @include pseudo;
+                background:-webkit-linear-gradient(#212637,#384465);
+                background: linear-gradient(#212637,#384465);
+                height: 100%;
+                width: 99.9%;
+                z-index: 0;
+                border-radius: .2rem;
+            }
+            &:after{
+                @include pseudo;
+                @include background-image ('past_bg.png',0,transparent);
+                background-position-y: bottom;
+                right: -2.2rem;
+                left:inherit;
+                top:inherit;
+                width: 35%;
+                height: 1.5rem;
+                bottom: -.1rem;
+            }
         }
     }
 }
 .play_th{
     overflow: hidden;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
     >*{
         display: inline-block;
     }
@@ -305,7 +345,7 @@
     }
 }
 ul.lo_ball{
-    margin-left: -1rem;
+    //margin-left: -1rem;
     // width: 2.5rem;
     text-align: center;
     //margin: 0 auto;
@@ -630,4 +670,149 @@ i.prd{
 }
 #betting_record{
     margin-top: 1.5rem;
+}
+.lobby_past_view{
+    .prd_num{
+        color: #fff;
+
+        >span{
+            font-size: .4rem;
+        }
+    }
+    .prd_num02{
+        color: $bluetext;
+        margin-top: .1rem;
+    }
+    .time{
+        background-color: #0b1723;
+        @include border-radius(.4rem);
+        color: $bluetext;
+        padding: .1rem .15rem;
+        border:1px solid #233044;
+        margin-top: .1rem;
+    }
+    .panel{
+        ul{
+            text-align: center;
+            margin: .5rem auto .3rem;
+            height: 1.1rem;
+        }
+    }
+    .pk10_top_number{
+        margin: .7rem auto 0 !important;
+    }
+}
+.function_btn{
+    position: relative;
+    >a{
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        @include border-radius(.4rem);
+        padding: .1rem;
+        margin: .3rem auto;
+        >i{
+            width: .4rem;
+            height: .5rem;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: .5rem;
+            margin-right: .1rem;
+        }
+        &.bell{
+            //border: 1px solid #66c3f2;
+            color: #66c3f2;
+            >i{
+                @include background-image ('bell.svg',0,transparent);
+            }
+        }
+        &.check{
+            color: #fff;
+            >i{
+                @include background-image ('check_w.svg',0,transparent);
+            }
+        }
+    }
+}
+
+// pk10 ball
+.pk10_top_number{
+    li{
+        background: none;
+        //float: left;
+        display: inline-block;
+        width: 0.65rem;
+        height: auto;
+        margin-right: 0.07rem;
+        &:last-child{
+            margin-right: 0px;
+        }
+    }
+}
+.pk10_ball{
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../images/pk10/ball.png) no-repeat;
+    background-size: 8.8rem 1.6rem;
+    width: 0.88rem;
+    height: 0.8rem;
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -0.88rem;}
+    &.num_3{background-position-x: -1.76rem;}
+    &.num_4{background-position-x: -2.64rem;}
+    &.num_5{background-position-x: -3.52rem;}
+    &.num_6{background-position-x: -4.4rem;}
+    &.num_7{background-position-x: -5.28rem;}
+    &.num_8{background-position-x: -6.16rem;}
+    &.num_9{background-position-x: -7.04rem;}
+    &.num_10{background-position-x: -7.92rem;}
+}
+.pk10_panel .active{
+    .pk10_ball{background-position-y: -0.8rem;}
+}
+.pk10_ball.small_ball{
+    background-size: 6.5rem 1.16rem;
+    width: 0.65rem;
+    height: 0.58rem;
+    &.num_1{ background-position-x: 0;}
+    &.num_2{ background-position-x: -0.65rem;}
+    &.num_3{background-position-x: -1.3rem;}
+    &.num_4{background-position-x: -1.95rem;}
+    &.num_5{background-position-x: -2.6rem;}
+    &.num_6{background-position-x: -3.25rem;}
+    &.num_7{background-position-x: -3.9rem;}
+    &.num_8{background-position-x: -4.55rem;}
+    &.num_9{background-position-x: -5.2rem;}
+    &.num_10{background-position-x: -5.85rem;}
+}
+
+//香港六合彩
+ul.sixball{
+    >li{
+        @include background-image ('hksix.png',0,transparent);
+        background-size: 300%;
+        width: 1.1rem;
+        height: 1.1rem;
+        background-position-x: -80px;
+        &:nth-child(3){
+            background-position-x: 6px;
+        }
+        &:nth-child(5){
+            background-position-x: 6px;
+        }
+        &:last-child{
+            background-position-x: -165px;
+            margin-left: .5rem;
+            position: relative;
+            &:before{
+                @include background-image ('plus.svg',0,transparent);
+                @include pseudo;
+                width: .5rem;
+                height: 1.1rem;
+                right: 1.1rem;
+                left: inherit;
+            }
+        }
+    }
+
 }
