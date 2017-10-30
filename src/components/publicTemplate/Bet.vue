@@ -4,7 +4,7 @@
         <!--<div class="so-foot close">-->
         <div class="so-foot">
             <div>
-                <p>已选中<span class="bet-select-num">{{$parent.betSelectedList.length}}</span>注</p>
+                <p>已选中<span class="bet-select-num">{{betSelectedList && betSelectedList.length}}</span>注</p>
             </div>
             <!-- <div>
                 <input placeholder="输入金额" type="number">
@@ -29,11 +29,11 @@
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                    <p :data-id="item.cid" data-type="" v-for="item in $parent.betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>' ;
+                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>' ;
                    <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
                 </div>
             </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{$parent.betSelectedList.length}}</span> 总金额：<span class="total-bet-mon">{{totalAmount}}</span></p>
+            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{betSelectedList.length}}</span> 总金额：<span class="total-bet-mon">{{totalAmount}}</span></p>
             <a @click="closeListDialog"><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
             <a class="btn-submit" @click="submitAction(lotteryID)"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
         </div>
@@ -86,7 +86,8 @@ import Mixin from '@/Mixin'
 
 export default {
     name: 'Index',
-    props:['lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode'],
+    props:['betSelectedList',
+        'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode'],
     mixins:[Mixin],
     data () {
         return {
@@ -98,7 +99,7 @@ export default {
     },
     computed:{
         totalAmount:function(){
-            return this.$parent.betSelectedList.length * this.betAmount
+            return this.betSelectedList.length * this.betAmount
         }
     },
     mounted:function() {
@@ -174,20 +175,20 @@ export default {
 
                     if (data.err == 'SUCCESS') {  //购买成功
                         // initTipPop05(true,3) ;
-                        // this.$parent.$refs.autoCloseDialog.open('购买成功')
-                        this.$parent.$refs.betSuccessfulDialog.open('购买成功')
+                        // this.parentRefs.autoCloseDialog.open('购买成功')
+                        this.parentRefs.betSuccessfulDialog.open('购买成功')
                         this.resetAction() ;
                         // getMemberBalance() ; // 更新余额
                         return false;
                     } else {  //购买失败提示
 
                         if(data.data =='' || data.data ==null){ // 平台商不存在
-                            this.$parent.$refs.autoCloseDialog.open(data.msg)
+                            this.parentRefs.autoCloseDialog.open(data.msg)
                             // initTipPop05(false,3,data.msg) ;
                         }else{   // 各种错误提示
                             if(data.data.params.ErrInfo !=''){
                                 // initTipPop05(false,3,data.data.params.ErrInfo) ;
-                                this.$parent.$refs.autoCloseDialog.open(data.data.params.ErrInfo)
+                                this.parentRefs.autoCloseDialog.open(data.data.params.ErrInfo)
 
                             }
                         }
@@ -198,7 +199,7 @@ export default {
                 },
                 error: function (res) {  // 错误提示
                     // initTipPop05(false,3,'投注失败，请稍后再试') ;
-                    this.$parent.$refs.autoCloseDialog.open('投注失败，请稍后再试')
+                    this.parentRefs.autoCloseDialog.open('投注失败，请稍后再试')
                    // ajaxSubmitAllow = true;
 
                 }
@@ -211,7 +212,7 @@ export default {
         * 表单提交数据处理
         * */
         doSubmitAction:function(list) {
-            this.$parent.betSelectedList.forEach((item, i)=>{
+            this.betSelectedList.forEach((item, i)=>{
                 list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
                     'betAmount': this.monAmt(Number(this.betAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
                     'betContent': item.name,     //new_num.toString(),//下注内容，如1,5,8,3,7
@@ -283,15 +284,15 @@ export default {
 
         startBet:function(e){
             var amount = this.betAmount;  // 获取金额
-            var nums = this.$parent.betSelectedList.length;
+            var nums = this.betSelectedList.length;
             const closet = 4;
             if(nums<1){ // 没有选择投注项目
-                this.$parent.$refs.autoCloseDialog.open('请选择投注项目')
+                this.parentRefs.autoCloseDialog.open('请选择投注项目')
                 return false;
             }
 
             if(!amount || !this.isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
-                this.$parent.$refs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0')
+                this.parentRefs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0')
                 return false;
             }
             // 注单金额正确

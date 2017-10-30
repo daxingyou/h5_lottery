@@ -22,7 +22,7 @@
                       </li>
 
                     <li>
-                        <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" @click="$refs.infoDialog.open('test')">
+                        <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" />
                     </li>
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
@@ -172,7 +172,22 @@
                 <div class="so-clear"></div>
             </div>
         </div>
+        <!--
+        下注组件
+            属性
+                :lotteryID="lotteryID"  彩种id
+                :betSelectedList="betSelectedList"  用户选中的赌注
+                :parentRefs="$refs"   当前页面的引用
+                :balance="balanceData.balance"  帐单值
+                :now_pcode="now_pcode"   期次
+                :next_pcode="next_pcode"   下期期次
+                :now_day="now_day"    日期
+            事件
+                @betSuccess="resetAction" 
+        -->
         <Bet :lotteryID="lotteryID" @betSuccess="resetAction" 
+            :betSelectedList="betSelectedList"
+            :parentRefs="$refs"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
         <!--封盘时给foot加上class:close-->
         <!--<div class="so-foot close">-->
