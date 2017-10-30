@@ -163,7 +163,8 @@ input,select,button,a{
             //@include background-image ('btn.png',0,transparent);
             background-color: #1a2331;
             @include border-radius(.1rem);
-            box-shadow: 0 -3px 1px rgba(255,255,255,.3)inset;
+            border-bottom: 1px solid #fff;
+            box-shadow: 0 1px 5px rgba(0,0,0,.6);
             font-size: .35rem;
             display: inline-block;
             color: $bluetext;
