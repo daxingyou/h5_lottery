@@ -110,7 +110,7 @@
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild)">
+                                        <p :data-id="itemChild.cid" :class="([21605,21606,21607].includes(itemChild.cid) && 'so-con-span-short')" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                             <span>{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
@@ -123,7 +123,7 @@
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild)">
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                             <span>{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
@@ -140,7 +140,7 @@
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild)">
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                             <span>{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
@@ -158,7 +158,7 @@
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild)">
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
                                             <span>{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
@@ -350,10 +350,11 @@ export default {
   methods:{
 
     //当用户选择球时，保存相应数据
-    betSelect:function(e, item){
+    betSelect:function(e, item, parentItem){
         var $src = $(e.currentTarget);
             if ($src.prop('class').indexOf('active') < 0){
                 $src.addClass('active');
+                item.parentItem = parentItem;
                 this.betSelectedList.push(item);
             }else{
                 $src.removeClass('active');
@@ -696,6 +697,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+    #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
+        display: block;
+    }
+</style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!--
