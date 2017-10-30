@@ -580,6 +580,8 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .lobby_past_view .panel ul { text-align: center; margin: .5rem auto .3rem; height: 1.1rem; }
 
+.lobby_past_view .pk10_top_number { margin: .7rem auto 0 !important; }
+
 .function_btn { position: relative; }
 
 .function_btn > a { display: inline-block; width: 30%; text-align: center; -webkit-border-radius: 0.4rem; -moz-border-radius: 0.4rem; -ms-border-radius: 0.4rem; border-radius: 0.4rem; padding: .1rem; margin: .3rem auto; }
@@ -593,8 +595,6 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 .function_btn > a.check { color: #fff; }
 
 .function_btn > a.check > i { background-image: url("../../static/images/check_w.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
-
-.pk10_top_number { margin: .7rem auto 0 !important; }
 
 .pk10_top_number li { background: none; display: inline-block; width: 0.65rem; height: auto; margin-right: 0.07rem; }
 
