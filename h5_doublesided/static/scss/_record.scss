@@ -575,10 +575,10 @@ i.prd{
             &:before{
                 content: '大 / 小';
                 display: block;
-                position: fixed;
+                position: absolute;
                 color: #666;
-                top:53%;
-                left: 3%;
+                top:0;
+                left: 1%;
                 font-size: .25rem;
             }
         }
@@ -586,11 +586,11 @@ i.prd{
             &:before{
                 content: '单 / 双';
                 display: block;
-                position: fixed;
+                position: absolute;
                 color: #666;
                 //top:50%;
-                top:79.4%;
-                left: 3%;
+                top:0;
+                left: 1%;
                 font-size: .25rem;
             }
         }

@@ -540,9 +540,9 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road02_1 > ul, #road02_2 > ul, #road02_3 > ul, #road02_4 > ul, #road02_5 > ul { position: relative; }
 
-#road02_1 > ul:first-child:before, #road02_2 > ul:first-child:before, #road02_3 > ul:first-child:before, #road02_4 > ul:first-child:before, #road02_5 > ul:first-child:before { content: '大 / 小'; display: block; position: fixed; color: #666; top: 53%; left: 3%; font-size: .25rem; }
+#road02_1 > ul:first-child:before, #road02_2 > ul:first-child:before, #road02_3 > ul:first-child:before, #road02_4 > ul:first-child:before, #road02_5 > ul:first-child:before { content: '大 / 小'; display: block; position: absolute; color: #666; top: 0; left: 1%; font-size: .25rem; }
 
-#road02_1 > ul:last-child:before, #road02_2 > ul:last-child:before, #road02_3 > ul:last-child:before, #road02_4 > ul:last-child:before, #road02_5 > ul:last-child:before { content: '单 / 双'; display: block; position: fixed; color: #666; top: 79.4%; left: 3%; font-size: .25rem; }
+#road02_1 > ul:last-child:before, #road02_2 > ul:last-child:before, #road02_3 > ul:last-child:before, #road02_4 > ul:last-child:before, #road02_5 > ul:last-child:before { content: '单 / 双'; display: block; position: absolute; color: #666; top: 0; left: 1%; font-size: .25rem; }
 
 .grey_text { margin-left: 1.2rem; padding: .1rem 0; }
 
