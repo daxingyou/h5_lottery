@@ -12,7 +12,7 @@
             </div> -->
             <div>
                 <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
+                    <input placeholder="输入金额" type="number" class="bet-amount" v-model="betAmount">
                     <input type="reset" value="重置">
                 </form>
             </div>
@@ -23,24 +23,17 @@
                 </div>
             </div>
         </div>
-        <div v-if="closeListStatus" class="so-shade"></div>
-        <div v-if="closeListStatus" class="so-pop">
+        <div v-if="showList" class="so-shade"></div>
+        <div v-if="showList" class="so-pop">
             <h2>下注清单<a @click="closeListDialog"></a></h2>
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                   <!-- <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>-->
+                    <p :data-id="item.cid" data-type="" v-for="item in $parent.betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>' ;
+                   <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
                 </div>
             </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
+            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{$parent.betSelectedList.length}}</span> 总金额：<span class="total-bet-mon">{{$parent.betSelectedList.length*betAmount}}</span></p>
             <a @click="closeListDialog"><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
             <a class="btn-submit" @click="submitAction(this.lotteryID)"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
         </div>
@@ -93,13 +86,14 @@ import Mixin from '@/Mixin'
 
 export default {
     name: 'Index',
-    props:['lotteryID', 'submit'],
+    props:['lotteryID'],
     mixins:[Mixin],
     data () {
         return {
+            betAmount:0, //投注金额
             betGoList:[],
             // shadeStatus:false,
-            closeListStatus:false
+            showList:false
         }
     },
     mounted:function() {
@@ -109,41 +103,12 @@ export default {
         // }) ;
     },
     methods:{
-
+        
         /*
         * 提交表单时，注单处理
         *
         * */
-        doCheckAction:function (e) {
-
-// amount
-// :
-// 2200
-// list
-// :
-// [{betAmount: 1100, betContent: "总和单", betCount: 1, betMode: 0, chaseCount: 1, ifChase: 0,…},…]
-// lotteryId
-// :
-// 2
-// operType
-// :
-// 0
-// pcode
-// :
-// "20171028090"
-// pdate
-// :
-// "20171028"
-// remark
-// :
-// "无"
-// source
-// :
-// "h5"
-// sourceType
-// :
-// "2"
-            
+        // doCheckAction:function (e) {
             // var $that = $(e.currentTarget);
             // var bet_num = $('.bet-select-num').text() ; // 总注数
             // var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
@@ -173,58 +138,35 @@ export default {
             // // 总金额
             // $('.total-bet-mon').text(all_bet_mon) ;
 
-        },
+        // },
         startBet:function(e){
-            // debugger;
-            var amount = $('.bet-amount').val() ;  // 获取金额
-            var nums = Number($('.bet-select-num').text()) ;  // 获取注数
+            var amount = this.betAmount;  // 获取金额
+            var nums = this.$parent.betSelectedList.length;
             const closet = 4;
             if(nums<1){ // 没有选择投注项目
                 this.$parent.$refs.autoCloseDialog.open('请选择投注项目')
-                // $('.bet-error-content').html('请选择投注项目') ;
-                // $(".modal.m08").toggle() ;
-                // $(".so-shade").toggle() ;
-                // var settime = setTimeout(function () {
-                //     $(".so-shade,.modal.m08").hide() ;
-                // },closet*1000) ;
-
                 return false;
             }
 
             if(!amount || !this.isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
                 this.$parent.$refs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0')
-                // $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
-                // $(".modal.m08").toggle() ;
-                // $(".so-shade").toggle() ;
-                // var settime = setTimeout(function () {
-                //     $(".so-shade,.modal.m08").hide() ;
-                // },closet*1000) ;
-
                 return false;
             }
             // 注单金额正确
-            this.closeListStatus = true;
-            // $(".so-pop").toggle() ;
-            // $(".so-shade").toggle() ;
-            
-            this.doCheckAction(e) ;  // 注单结算
+            this.showList = true;
         },
         closeListDialog:function(){
-            this.closeListStatus = false;
-            // $(".so-pop").toggle() ;
-            // $(".so-shade").toggle() ;
+            this.showList = false;
         },
         //此方法弹出结算框 ,注单数量，添加按钮
-        initPopEve:function(closet) {
-            // $(".so-add").click(function () {// }) ;
+        // initPopEve:function(closet) {
+        //     // 投注金额提示弹窗关闭
+        //     $(".modal.m08").click(function () {
+        //         $(".modal.m08").toggle() ;
+        //         $(".so-shade").toggle() ;
+        //     }) ;
 
-            // 投注金额提示弹窗关闭
-            $(".modal.m08").click(function () {
-                $(".modal.m08").toggle() ;
-                $(".so-shade").toggle() ;
-            }) ;
-
-        }
+        // }
     }
 }
 </script>
