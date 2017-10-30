@@ -38,7 +38,7 @@
             float: left;
             border-left: solid 0.03rem #293454;
             border-right: solid 0.03rem #293454;
-            background-color: rgba(17,22,28,0.7);
+            background-color: rgba(17,22,28,0.9);
             .so-l-c-top {
                 width: 100%;
                 height: 1.97rem;
@@ -350,7 +350,6 @@
                     font-size: 0.4rem;
                     line-height: 1.3rem;
                     text-align: center;
-                    background: url("../images/content/nav-bg.png") no-repeat;
                     background-position-y: -1.5rem;
                 }
                 li.active {
@@ -435,7 +434,7 @@
         }
         > div {
             padding: 3%;
-            width: 94%;
+            //width: 94%;
             height: 3.1rem;
             p {
                 float: left;
@@ -493,7 +492,7 @@
         }
         > div {
             padding: 0% 3%;
-            width: 94%;
+            //width: 94%;
             height: 3.1rem;
             margin-top: -.1rem;
             p {
@@ -569,7 +568,7 @@
         }
         > div {
             padding: 3%;
-            width: 94%;
+            //width: 94%;
             height: 3.1rem;
             p.active {
                 background: url(../images/content/changkuang.png) no-repeat;
@@ -811,6 +810,7 @@
     display: none;
 }
 .so-right {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -830,7 +830,8 @@
     > div:last-child {
         overflow: hidden;
         position: relative;
-        top: 1.1rem;
+        top: -.3rem;
+        // top:1.1rem; 1026 外側
         > div {
             display: none;
             width: 3rem;
@@ -870,7 +871,7 @@
                     top: 0.4rem;
                 }
                 > div {
-                    color: $green;
+                    //color: $green;
                     text-align: right;
                     margin-right: 0.3rem;
                     font-size: 0.34rem;
@@ -1144,7 +1145,7 @@ img.bet_ok {
         }
     }
 }
-.so-pop-wanfa {
+.modal.so-pop-wanfa {
     display: none;
     position: fixed;
     top: 0;
@@ -1153,76 +1154,79 @@ img.bet_ok {
     height: 100%;
     background-color: rgba(0,0,0,0.6);
     z-index: 13;
-    > div {
-        height: 12.96rem;
-        width: 8.22rem;
-        background: url("../images/pop/dakuang.png");
-        background-size: 100%;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        top: 10%;
-        > div {
-            width: 6rem;
-            text-align: center;
-            margin: auto;
-            height: 10rem;
-            overflow: hidden;
-            overflow-y: auto;
-        }
-        h2 {
-            font-size: 0.4rem;
-            color: white;
-            line-height: 1rem;
-            position: relative;
-            letter-spacing: 2px;
-            > a {
-                content: "";
-                display: block;
-                width: 1rem;
-                height: 1rem;
-                float: right;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-        }
-        h3 {
-            font-size: .34rem;
-            color: $yellow;
-            line-height: .34rem;
-            margin-top: .3rem;
-            margin-bottom: .1rem;
-            text-align: left;
-        }
-        img {
-            width: 1rem;
-            margin-top: 0.6rem;
-        }
-        p {
-            display: block;
-            width: 6rem;
-            // text-align: center;
-            margin: auto;
-            color: white;
-            font-size: 0.34rem;
-            line-height: 1.5em;
-            text-align: justify;
-        }
-        > a {
-            display: block;
-            background: url("../images/pop/lan.png") no-repeat;
-            background-size: 100%;
-            width: 2.31rem;
-            height: 0.74rem;
-            text-align: center;
-            margin: auto;
-            margin-top: 0.3rem;
-            line-height: 0.74rem;
-            font-size: 0.34rem;
-            color: white;
-        }
+    >.m_content{
+        top: 5%;
     }
+    // > div {
+    //     height: 12.96rem;
+    //     width: 8.22rem;
+    //     background: url("../images/pop/dakuang.png");
+    //     background-size: 100%;
+    //     margin: auto;
+    //     text-align: center;
+    //     position: relative;
+    //     top: 10%;
+    //     > div {
+    //         width: 6rem;
+    //         text-align: center;
+    //         margin: auto;
+    //         height: 10rem;
+    //         overflow: hidden;
+    //         overflow-y: auto;
+    //     }
+    //     h2 {
+    //         font-size: 0.4rem;
+    //         color: white;
+    //         line-height: 1rem;
+    //         position: relative;
+    //         letter-spacing: 2px;
+    //         > a {
+    //             content: "";
+    //             display: block;
+    //             width: 1rem;
+    //             height: 1rem;
+    //             float: right;
+    //             position: absolute;
+    //             right: 0;
+    //             top: 0;
+    //         }
+    //     }
+        // h3 {
+        //     font-size: .34rem;
+        //     color: $yellow;
+        //     line-height: .34rem;
+        //     margin-top: .3rem;
+        //     margin-bottom: .1rem;
+        //     text-align: left;
+        // }
+        // img {
+        //     width: 1rem;
+        //     margin-top: 0.6rem;
+        // }
+        // p {
+        //     display: block;
+        //     width: 6rem;
+        //     // text-align: center;
+        //     margin: auto;
+        //     color: white;
+        //     font-size: 0.34rem;
+        //     line-height: 1.5em;
+        //     text-align: justify;
+        // }
+        // > a {
+        //     display: block;
+        //     background: url("../images/pop/lan.png") no-repeat;
+        //     background-size: 100%;
+        //     width: 2.31rem;
+        //     height: 0.74rem;
+        //     text-align: center;
+        //     margin: auto;
+        //     margin-top: 0.3rem;
+        //     line-height: 0.74rem;
+        //     font-size: 0.34rem;
+        //     color: white;
+        // }
+    //}
 }
 .purse {
     position: relative;
@@ -1493,6 +1497,33 @@ img.bet_ok {
             padding: 0;
             li{
                 padding-top: 0;
+            }
+        }
+    }
+}
+
+// 右側選單增加返回競彩大廳按鈕
+.back_home{
+    a{
+        display: inline-block;
+        font-size: 0.34rem;
+        padding: 0.1rem 0.4rem;
+        margin-top: 0.2rem;
+        // background-color: rgba(36, 47, 71, 0.9);
+        background: url(../images/left/left-kuang.jpg);
+        background-size: 100% 100%;
+        border-left: 0.03rem solid #424a71;
+        border-right: 0.03rem solid #424a71;
+        border-radius: 1rem;
+        box-shadow: 0px 1px 6px rgba(0,0,0,0.6);
+        span{
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 0.2rem;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            img{
+                height: 100%;
             }
         }
     }

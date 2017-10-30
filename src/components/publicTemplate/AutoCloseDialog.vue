@@ -1,5 +1,5 @@
 <template>
-    <div class="popup so-tip-pop so-tip-pop-01 publicDialog" @click="$emit('close')">
+    <div v-if="show" class="popup so-tip-pop so-tip-pop-01 publicDialog" @click="close">
         <div>
             <img :src="'/static/images/pop/'+ (type||'title_tip') +'.png'">
             <img src="/static/images/page/status03.svg">
@@ -13,14 +13,27 @@
 <script>
 export default {
   name: 'AutoCloseDialog',
-  props:['text', 'type', 'delay'],
-  mounted:function() {
-    setTimeout((function() {
-      this.$emit('close');
-    }).bind(this),this.delay);
-  },
+  props:['text', 'type'],
   data () {
     return {
+      delay:2000,
+      show:false,
+    }
+  },
+  mounted:function() {
+
+  },
+  methods:{
+    //打开弹窗
+    open:function(text, title_tip){
+      this.type = title_tip;
+      this.text = text;
+      this.show = true;
+      setTimeout(() => this.show = false, this.delay);
+    },
+    //关闭弹窗
+    close:function(e){
+      this.show = false;
     }
   }
 }

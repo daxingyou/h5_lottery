@@ -12,7 +12,7 @@
               <img src="/static/images/left/user.png">
           </div>
            <div>
-              <p class="user_name"> </p>
+              <p class="user_name">{{getCookie('username')}}</p>
               <div class="purse">
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum">
@@ -89,8 +89,10 @@
 
 
 <script>
+import Mixin from '@/Mixin'
 export default {
   name: 'InfoDialog',
+  mixins:[Mixin],
   props:['el'],
   mounted:function() {
     $(this.el).on('click', ()=>{

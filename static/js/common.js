@@ -3,126 +3,126 @@
 * 公用方法开始
 * */
 
-// 设置cookie
-function setCookie (name, value, expire, path) {
-    var curdate = new Date();
-    var cookie = name + '=' + encodeURIComponent(value) + '; ';
-    if (expire != undefined || expire == 0) {
-        if (expire == -1) {
-            expire = 366 * 86400 * 1000;// 保存一年
-        } else {
-            expire = parseInt(expire);
-        }
-        curdate.setTime(curdate.getTime() + expire);
-        cookie += 'expires=' + curdate.toUTCString() + '; ';
-    }
-    path = path || '/';
-    cookie += 'path=' + path;
-    document.cookie = cookie;
-}
+// // 设置cookie moved to /src/Maxin.js
+// function setCookie (name, value, expire, path) {
+//     var curdate = new Date();
+//     var cookie = name + '=' + encodeURIComponent(value) + '; ';
+//     if (expire != undefined || expire == 0) {
+//         if (expire == -1) {
+//             expire = 366 * 86400 * 1000;// 保存一年
+//         } else {
+//             expire = parseInt(expire);
+//         }
+//         curdate.setTime(curdate.getTime() + expire);
+//         cookie += 'expires=' + curdate.toUTCString() + '; ';
+//     }
+//     path = path || '/';
+//     cookie += 'path=' + path;
+//     document.cookie = cookie;
+// }
 
-// 获取cookie
-function getCookie (name) {
-    var re = '(?:; )?' + encodeURIComponent(name) + '=([^;]*);?';
-    re = new RegExp(re);
-    if (re.test(document.cookie)) {
-        return decodeURIComponent(RegExp.$1);
-    }
-    return '';
-}
+// // 获取cookie moved to /src/Maxin.js
+// function getCookie (name) {
+//     var re = '(?:; )?' + encodeURIComponent(name) + '=([^;]*);?';
+//     re = new RegExp(re);
+//     if (re.test(document.cookie)) {
+//         return decodeURIComponent(RegExp.$1);
+//     }
+//     return '';
+// }
 
-// 时间戳转换
-function formatTimeUnlix (v) {
-    if (v == null) {
-        return '';
-    }
-    var date = new Date(v);
-    var year = date.getFullYear();
-    var month = (date.getMonth() + 1 < 10) ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
-    var day = (date.getDate() < 10) ? '0' + date.getDate() : date.getDate();
-    var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
-    var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
-    var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-    return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-}
-// 格式化时间
-function formatTime (date) {
-    var year = date.getFullYear(),
-        month = date.getMonth() + 1,
-        day = date.getDate(),
-        hour = date.getHours(),
-        minutes = date.getMinutes();
-    month = month > 9 ? month : '0' + month;
-    day = day > 9 ? day : '0' + day;
-    hour = hour > 9 ? hour : '0' + hour;
-    minutes = minutes > 9 ? minutes : '0' + minutes;
-    return month + '-' + day + ' ' + hour + ':' + minutes;
-}
+// // 时间戳转换 moved to /src/Maxin.js
+// function formatTimeUnlix (v) {
+//     if (v == null) {
+//         return '';
+//     }
+//     var date = new Date(v);
+//     var year = date.getFullYear();
+//     var month = (date.getMonth() + 1 < 10) ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+//     var day = (date.getDate() < 10) ? '0' + date.getDate() : date.getDate();
+//     var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
+//     var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
+//     var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
+//     return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+// }
+// // 格式化时间 moved to /src/Maxin.js
+// function formatTime (date) {
+//     var year = date.getFullYear(),
+//         month = date.getMonth() + 1,
+//         day = date.getDate(),
+//         hour = date.getHours(),
+//         minutes = date.getMinutes();
+//     month = month > 9 ? month : '0' + month;
+//     day = day > 9 ? day : '0' + day;
+//     hour = hour > 9 ? hour : '0' + hour;
+//     minutes = minutes > 9 ? minutes : '0' + minutes;
+//     return month + '-' + day + ' ' + hour + ':' + minutes;
+// }
 
-// 金额转换,分转成元
-function roundAmt (v) {
-    return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
-}
+// // 金额转换,分转成元 moved to /src/Maxin.js
+// function roundAmt (v) {
+//     return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
+// }
 
-// 金额转换，支持实数, 元转成分
-function monAmt (v) {
-    return /^[-+]?\d+(\.\d*)?$/.test(v) ? v * 100 : '';
-}
+// // 金额转换，支持实数, 元转成分  moved to /src/Maxin.js
+// function monAmt (v) {
+//     return /^[-+]?\d+(\.\d*)?$/.test(v) ? v * 100 : '';
+// }
 
-/*
- * 数字转换，显示千位符，s 要转换的数字，n 保留n位小数
- * */
-function fortMoney(s, n) {
-    n = n > 0 && n <= 20 ? n : 2;
-    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
-    var l = s.split(".")[0].split("").reverse(),
-        r = s.split(".")[1];
-    t = "";
-    for(i = 0; i < l.length; i ++ ){
-        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
-    }
-    return t.split("").reverse().join("") + "." + r;
-}
-/*
- * 数字转千分位
- * */
-function formatNumber (num) {
-    return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
-}
+// /*
+//  * 数字转换，显示千位符，s 要转换的数字，n 保留n位小数  moved to /src/Maxin.js
+//  * */
+// function fortMoney(s, n) {
+//     n = n > 0 && n <= 20 ? n : 2;
+//     s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+//     var l = s.split(".")[0].split("").reverse(),
+//         r = s.split(".")[1];
+//     t = "";
+//     for(i = 0; i < l.length; i ++ ){
+//         t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+//     }
+//     return t.split("").reverse().join("") + "." + r;
+// }
+// /*
+//  * 数字转千分位 moved
+//  * */
+// function formatNumber (num) {
+//     return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+// }
 
-/*
- * 还原金额，去除逗号
- * */
-function returnMoney(s) {
-    return parseFloat(s.replace(/[^\d\.-]/g, ""));
-}
+// /*
+//  * 还原金额，去除逗号 moved to /src/Maxin.js
+//  * */
+// function returnMoney(s) {
+//     return parseFloat(s.replace(/[^\d\.-]/g, ""));
+// }
 
-/*
- *  正整数判断，不包含零
- * */
+// /*
+//  *  正整数判断，不包含零 moved to /src/Maxin.js
+//  * */
 
-function  isPositiveNum(num) {
-    //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
-    var re=/^[0-9]*$/;
-    return re.test(num);
-}
+// function  isPositiveNum(num) {
+//     //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
+//     var re=/^[0-9]*$/;
+//     return re.test(num);
+// }
 
 
-/**
- * 解析URL参数
- */
-function getStrParam () {
-    var url = location.search; // 获取url中"?"符后的字串
-    var param = {};
-    if (url.indexOf('?') != -1) {
-        var str = url.substr(1);
-        strs = str.split('&');
-        for (var i = 0; i < strs.length; i++) {
-            param[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
-        }
-    }
-    return param;
-}
+// /**
+//  * 解析URL参数 moved to /src/Maxin.js
+//  */
+// function getStrParam () {
+//     var url = location.search; // 获取url中"?"符后的字串
+//     var param = {};
+//     if (url.indexOf('?') != -1) {
+//         var str = url.substr(1);
+//         strs = str.split('&');
+//         for (var i = 0; i < strs.length; i++) {
+//             param[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+//         }
+//     }
+//     return param;
+// }
 
 
 
@@ -144,61 +144,57 @@ var now_time; // 当前期数销售截止时间
 var next_pcode; // 下一期数销售截止时间
 var sys_time; // 当前系统时间
 var now_day; // 当前日期
-// var dataPlay = {}; // 玩法树数据
-// var dataPlayAll = {}; // 玩法树数据最终组装
-var lotterytype = 0;
-var xlen = 1 ; // 江西11选5 二中二、三中三等
 
 $(function () {
-    LoginAction();
+    // LoginAction();
     setTimeout(function () {
        // getSystemTime(); // 系统时间
         // getLotterys('.game-all', '.game-hot'); // 获取彩种
 
-        getMemberBalance(); // 获取用户余额
+        // getMemberBalance(); // 获取用户余额
 
 
     }, 500) ;
 
-    initChoiceObj() ; // 球点击处理
-    initPopEve() ; // 表单提交判断
+    // initChoiceObj() ; // 球点击处理
+    // initPopEve() ; // 表单提交判断
 
 })
 
 
 
-// token 处理
-function getAccessToken(access_token) {
-    if (access_token && access_token.length > 10) {
-        // console.log(access_token)
-        return access_token;
-    } else {
-        console.log('从cookie');
-        var tmp = getCookie("access_token");
-        return tmp;
-    }
+// // token 处理  moved to /src/Maxin.js
+// function getAccessToken(access_token) {
+//     if (access_token && access_token.length > 10) {
+//         // console.log(access_token)
+//         return access_token;
+//     } else {
+//         console.log('从cookie');
+//         var tmp = getCookie("access_token");
+//         return tmp;
+//     }
 
-}
+// }
 
 
-// 登录接口
-function LoginAction() {
-    $.ajax({
-        type: 'post',
-        headers: {Authorization: 'Basic d2ViX2FwcDo='},
-        url: action.uaa + 'oauth/token',
-        // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
-        data: {grant_type: 'password', username: 'bcappid02|admin', password: 'admin'},
-        success: function (res) {
-            access_token = res.access_token;
-            setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-            setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
-        },
-        error: function () {
+// // 登录接口  moved to 主页/src/components/index.vue
+// function LoginAction() {
+//     $.ajax({
+//         type: 'post',
+//         headers: {Authorization: 'Basic d2ViX2FwcDo='},
+//         url: action.uaa + 'oauth/token',
+//         // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
+//         data: {grant_type: 'password', username: 'bcappid02|admin', password: 'admin'},
+//         success: function (res) {
+//             access_token = res.access_token;
+//             setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
+//             setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
+//         },
+//         error: function () {
 
-        }
-    });
-}
+//         }
+//     });
+// }
 
 // 获取彩种
 function getLotterys(all, hot) {
@@ -239,304 +235,294 @@ function getLotterys(all, hot) {
     });
 }
 
-// 玩法树
-function getPlayTree(gameid) {
-    $.ajax({
-        type: 'get',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        url: action.forseti + 'api/playsTree',
-        data: {lotteryId: gameid,}, // 当前彩种id
-        success: function (res) {
+// // 玩法树 
+// function getPlayTree(gameid) {
+//     $.ajax({
+//         type: 'get',
+//         headers: {
+//             "Authorization": "bearer  " + getAccessToken(access_token),
+//         },
+//         url: action.forseti + 'api/playsTree',
+//         data: {lotteryId: gameid,}, // 当前彩种id
+//         success: function (res) {
 
-        $.each(res.data.childrens,function (i,v) { // 遍历数据
-           // console.log(v) ;
-            $.each(v.childrens,function (j,vv) {
-                $(".so-con-right p").each(function (i, t) {
-                   var playid = $(this).data('id') ;
-                   if(playid == vv.cid){
-                       $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(3)) ; // 每种玩法赔率
-                   }
-
-
-                });
-              //  console.log(vv.cid) ;
-
-            }) ;
-        }) ;
-
-        },
-        error: function () {
-
-        }
-    });
-}
+//         $.each(res.data.childrens,function (i,v) { // 遍历数据
+//            // console.log(v) ;
+//             $.each(v.childrens,function (j,vv) {
+//                 $(".so-con-right p").each(function (i, t) {
+//                    var playid = $(this).data('id') ;
+//                    if(playid == vv.cid){
+//                        $(this).find('.bet-times').text((Number(vv.oddsData.payoff)/10000).toFixed(3)) ; // 每种玩法赔率
+//                    }
 
 
-// 获取系统时间，lotteryid 彩种id
-function getSystemTime(lotteryid) {
-    $.ajax({
-        type: 'get',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        url: action.forseti + 'apis/serverCurrentTime',
-        data: {},
-        success: function (res) {
-            sys_time = formatTimeUnlix(res.data);
+//                 });
+//               //  console.log(vv.cid) ;
 
-            priodDataNewly(lotteryid); // 最近5期开奖，获取系统时间后再调用
+//             }) ;
+//         }) ;
 
-        },
-        error: function () {
+//         },
+//         error: function () {
 
-        }
-    });
-}
-
-// 获取用户余额
-function getMemberBalance() {
-    $.ajax({
-        type: 'GET',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        // dataType:'json',
-        // contentType:"application/json; charset=utf-8",  // json格式传给后端
-        url: action.uaa + '/api/data/member/getMemberBalance',
-        data: {},
-        success: function (res) {
-            // var mom = roundAmt(res.data.amount) ;
-            var mom = fortMoney(roundAmt(res.data.amount), 2);
-            $('.so-in-top-sum').text(mom);
-            $('.user_name').text(getCookie('username'));
-            setCookie("membalance", mom);  // 把登录余额放在cookie里面
-            // console.log(returnMoney(mom))
-        },
-        error: function () {
-
-        }
-    });
-}
-// 最新开奖期数
-function priodDataNewly(gameid) {
-    $.ajax({
-        type: 'get',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        url: action.forseti + 'api/priodDataNewly',
-        data: {lotteryId: gameid,},
-        success: function (res) {
-            if(res.data){
-                next_pcode = res.data[0].pcode;  // 下一期数
-                now_pcode = res.data[1].pcode;  // 当前期数
-                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数
-                now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-
-                setTimeout(function () {
-                    $('.name-lottery').html($.lt_lotteryName); // 当前彩种名称
-                    // 倒计时
-                    lt_timer(sys_time,now_time) ;
-
-                }, 100)
-            }
+//         }
+//     });
+// }
 
 
-        },
-        error: function () {
+// // 获取系统时间，lotteryid 彩种id moved to /src/Maxin.js
+// function getSystemTime(lotteryid) {
+//     $.ajax({
+//         type: 'get',
+//         headers: {
+//             "Authorization": "bearer  " + getAccessToken(access_token),
+//         },
+//         url: action.forseti + 'apis/serverCurrentTime',
+//         data: {},
+//         success: function (res) {
+//             sys_time = formatTimeUnlix(res.data);
 
-        }
-    });
-}
-//倒计时处理
-function lt_timer(start, end) { //服务器开始时间，服务器结束时间
-    var lt_time_leave ;
-    if (start == '' || end == '') {
-       lt_time_leave = 0;
-    } else {
-       lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
-    }
+//             priodDataNewly(lotteryid); // 最近5期开奖，获取系统时间后再调用
 
-    function fftime(n) {
-        return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
-    }
+//         },
+//         error: function () {
 
-    function format(dateStr) {//格式化时间
-        return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
-    }
+//         }
+//     });
+// }
 
-    function diff(t) {//根据时间差返回相隔时间
-        return t > 0 ? {
-            day: Math.floor(t / 86400),
-            hour: Math.floor(t % 86400 / 3600),
-            minute: Math.floor(t % 3600 / 60),
-            second: Math.floor(t % 60)
-        } : {day: 0, hour: 0, minute: 0, second: 0};
-    }
-    function _getSystemTime() { // 获取系统时间
-        $.ajax({
-            type: 'get',
-            url: action.forseti + 'apis/serverCurrentTime',
-            headers: {
-                'Authorization': 'bearer  ' + access_token
-            },
-            timeout: 30000,
-            data: {} ,
-            success: function (data) { //成功
-                // console.log(data) ;
-               // sys_time = formatTimeUnlix(data.data); // 更新系统时间
-                lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
+// // 获取用户余额  moved to /src/components/qcssc/index.vue
+// function getMemberBalance() {
+//     $.ajax({
+//         type: 'GET',
+//         headers: {
+//             "Authorization": "bearer  " + getAccessToken(access_token),
+//         },
+//         // dataType:'json',
+//         // contentType:"application/json; charset=utf-8",  // json格式传给后端
+//         url: action.uaa + '/api/data/member/getMemberBalance',
+//         data: {},
+//         success: function (res) {
+//             // var mom = roundAmt(res.data.amount) ;
+//             var mom = fortMoney(roundAmt(res.data.amount), 2);
+//             $('.so-in-top-sum').text(mom);
+//             $('.user_name').text(getCookie('username'));
+//             setCookie("membalance", mom);  // 把登录余额放在cookie里面
+//             // console.log(returnMoney(mom))
+//         },
+//         error: function () {
 
-            }
-        });
-    }
+//         }
+//     });
+// }
+
+// // 最新开奖期数  moved to /src/components/qcssc/index.vue
+// function priodDataNewly(gameid) {
+//     $.ajax({
+//         type: 'get',
+//         headers: {
+//             "Authorization": "bearer  " + getAccessToken(access_token),
+//         },
+//         url: action.forseti + 'api/priodDataNewly',
+//         data: {lotteryId: gameid,},
+//         success: function (res) {
+//             if(res.data){
+//                 next_pcode = res.data[0].pcode;  // 下一期数
+//                 now_pcode = res.data[1].pcode;  // 当前期数
+//                 now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
+//                 nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+//                 now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
+//                 processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+
+//                 setTimeout(function () {
+//                     // 倒计时
+//                     lt_timer(sys_time,now_time,nowover_time) ;
+//                     $('.so-fengpan').hide() ; // 隐藏封盘容器
+//                 }, 100)
+//             }
 
 
-    var timerno = window.setInterval(function () {
-        if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
-            _getSystemTime();
+//         },
+//         error: function () {
 
-        }
+//         }
+//     });
+// }
+// //倒计时处理  moved to /src/components/qcssc/index.vue
+// function lt_timer(start, end,overend) { // start服务器开始时间，end当前期开奖结束时间，overend 封盘结束时间
+//     var lt_time_leave ;
+//     var lt_time_leave_over ;
+//     if (start == '' || end == '') {
+//        lt_time_leave = 0;
+//        lt_time_leave_over = 0;
+//     } else {
+//        lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
+//        lt_time_leave_over = (format(overend).getTime() - format(start).getTime()) / 1000;//总秒数
+//     }
 
-        if (lt_time_leave <= 0) { // 倒计时结束
-            clearInterval(timerno);
-            initBetPop01(3) ;
-            outTimeSet() ;
-            console.log('停止当前期数');
-        }
+//     function fftime(n) {
+//         return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
+//     }
 
-        var oDate = diff(lt_time_leave--);
-        // 开奖倒计时
-        $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
-        // 封盘倒计时
-        $('.close-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
+//     function format(dateStr) {//格式化时间
+//         return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
+//     }
 
-    }, 1000);
-};
+//     function diff(t) {//根据时间差返回相隔时间
+//         return t > 0 ? {
+//             day: Math.floor(t / 86400),
+//             hour: Math.floor(t % 86400 / 3600),
+//             minute: Math.floor(t % 3600 / 60),
+//             second: Math.floor(t % 60)
+//         } : {day: 0, hour: 0, minute: 0, second: 0};
+//     }
+//     function _getSystemTime() { // 获取系统时间
+//         $.ajax({
+//             type: 'get',
+//             url: action.forseti + 'apis/serverCurrentTime',
+//             headers: {
+//                 'Authorization': 'bearer  ' + access_token
+//             },
+//             timeout: 30000,
+//             data: {} ,
+//             success: function (data) { //成功
+//                 // console.log(data) ;
+//                // sys_time = formatTimeUnlix(data.data); // 更新系统时间
+//                 lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
+//                 lt_time_leave_over = (format(nowover_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
 
-// 倒计时结束后处理
-function outTimeSet() {
-    // 拉取期数数据
-    var lotteryid = getCookie('lt_lottid') ;
-    $.ajax({
-        type: 'get',
-        headers: {
-            "Authorization": "bearer  " + getAccessToken(access_token),
-        },
-        url: action.forseti + 'api/priodDataNewly',
-        data: { lotteryId: lotteryid },
-        success: function (res) {  //成功
-            console.log('拉取期数成功');
-            // 开奖数据处理
-            processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-            getSystemTime(lotteryid);  // 获取当前系统时间
+//             }
+//         });
+//     }
 
-            if (res.length <= 0) {  // 获取数据失败
-              /*  layer.open({
-                    title: '温馨提示',
-                    className: 'layer_tip',
-                    content: lot_lang.am_s16,
-                    btn: '确定'
-                });*/
-                return false;
-            }
+//     var timerno = window.setInterval(function () {
+//         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
+//             _getSystemTime();
 
-            if (res == 'empty') { 	//未到销售时间
-              /*  layer.open({
-                    content: lot_lang.am_s18,
-                    btn: '确定'
-                });*/
-                return false;
-            }
+//         }
 
-        },
-        error: function () {  //失败
-          /*  layer.open({
-                title: '温馨提示',
-                className: 'layer_tip',
-                content: lot_lang.am_s16,
-                btn: ['确定'],
-                yes: function (index) {
-                   // cleanTraceIssue();
-                    layer.close(index);
-                }
-            });
-            */
-            return false;
-        }
-    });
-}
+//         if (lt_time_leave <= 0) { // 开奖倒计时结束
+//             clearInterval(timerno);
+//             initBetPop01(3) ;
+//             outTimeSet() ;
+//             $('.so-fengpan').hide() ; // 隐藏封盘容器
+//             console.log('停止当前期数');
+//         }
 
-// 本期投注已结束
-function initBetPop01(closet) {
-        $('.so-bet-end-pop').toggle();
-        $('.so-shade').toggle();
-    $('.so-bet-end-pop').click(function () {
-        $('.so-bet-end-pop').toggle();
-        $('.so-shade').toggle();
-    });
-    setTimeout(function () {
-        $('.so-bet-end-pop,.so-shade').hide() ;
-    },closet*1000) ; // 自动关闭
-}
+//         var oDate = diff(lt_time_leave--);
+//         var over_oDate = diff(lt_time_leave_over--);
 
-//  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码，double 上期开奖统计
-function processCode(issue, lastissue,code,double) {
-    $('.last-date').html(lastissue) ;
-    $('.now-date').html(issue) ;
-    if (!code) {
-        code = '-,中,奖,开,-';
-    }
-    var code_arr = code.split(',');
-    var str = '';
-    //已开奖期号节点,开奖号码
-    for (var i = 0; i < code_arr.length; i++) {
-        str +='<li>'+ code_arr[i] +'</li>' ;
-    }
-    $('.last-open-num ul').html(str) ;
-    var dstr ='';
-    dstr +='<li>'+double.total+'</li>' ;
-    dstr +='<li>'+double.sizer+'</li>' ;
-    dstr +='<li>'+double.longer+'</li>' ;
-    dstr +='<li>'+double.doubler+'</li>' ;
-    $('.last-open-dou ul').html(dstr) ;
+//         // 开奖倒计时
+//         $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
+//         if(lt_time_leave_over <= 0){ // 封盘倒计时结束
+//             $('.close-time').html('已封盘') ;
+//             $('.so-fengpan').show() ;
+//             resetAction() ;  //重置已选注单
+//         }else{
+//             // 封盘倒计时
+//             $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
+//         }
 
-}
 
-//此方法用来控制盘面选择,更新盘面信息后应该重新调用一次
-function initChoiceObj() {
-    $('.so-con-right').on('click','p',function () {
-        var _this =  $(this) ;
-        var className = _this.attr("class") || "" ;
-        if (className.indexOf("active") >= 0) {
-            _this.attr("class", className.replace("active", "")) ;
-        } else {
-            _this.attr("class", className + " active") ;
-        }
-        // 已选注数
-        var choosed =  $(".so-con-right p.active").length ;
+//     }, 1000);
+// };
 
-        var pid = _this.parents('ul.tab_content').attr('id') ;
-        var paid = '#'+pid ;
-        var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
-        // var ifSp = 0 ;
-       // var spArr = [] ; // 二中二，三中三等
-        if(pid){ // 二中二，三中三等
-            checkNumbers(pid,z_choosed,_this) ;
-           // sessionStorage.setItem(pid,paid) ;
-            var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
-            $('.bet-select-num').text(spchoose) ;
+// // 倒计时结束后处理  moved to /src/components/qcssc/index.vue
+// function outTimeSet() {
+//     // 拉取期数数据
+//     var lotteryid = getCookie('lt_lotteryid') ;
+//     $.ajax({
+//         type: 'get',
+//         headers: {
+//             "Authorization": "bearer  " + getAccessToken(access_token),
+//         },
+//         url: action.forseti + 'api/priodDataNewly',
+//         data: { lotteryId: lotteryid },
+//         success: function (res) {  //成功
+//             console.log('拉取期数成功');
+//             // 开奖数据处理
+//             processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+//             getSystemTime(lotteryid);  // 获取当前系统时间
 
-        }else{
-            $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
-        }
+//             if (res == 'empty') {   //未到销售时间
+//                 return false;
+//             }
 
-    }) ;
+//         },
+//         error: function () {  //失败
 
-}
+//             return false;
+//         }
+//     });
+// }
+
+// // 本期投注已结束  moved to /src/components/qcssc/index.vue
+// function initBetPop01(closet) {
+//         $('.so-bet-end-pop').toggle();
+//         $('.so-shade').toggle();
+//     $('.so-bet-end-pop').click(function () {
+//         $('.so-bet-end-pop').toggle();
+//         $('.so-shade').toggle();
+//     });
+//     setTimeout(function () {
+//         $('.so-bet-end-pop,.so-shade').hide() ;
+//     },closet*1000) ; // 自动关闭
+// }
+
+// //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码，double 上期开奖统计  moved to /src/components/qcssc/index.vue
+// function processCode(issue, lastissue,code,double) {
+//     $('.last-date').html(lastissue) ;
+//     $('.now-date').html(issue) ;
+//     if (!code) {
+//         code = '-,中,奖,开,-';
+//     }
+//     var code_arr = code.split(',');
+//     var str = '';
+//     //已开奖期号节点,开奖号码
+//     for (var i = 0; i < code_arr.length; i++) {
+//         str +='<li>'+ code_arr[i] +'</li>' ;
+//     }
+//     $('.last-open-num ul').html(str) ;
+//     var dstr ='';
+//     dstr +='<li>'+double.total+'</li>' ;
+//     dstr +='<li>'+double.sizer+'</li>' ;
+//     dstr +='<li>'+double.longer+'</li>' ;
+//     dstr +='<li>'+double.doubler+'</li>' ;
+//     $('.last-open-dou ul').html(dstr) ;
+
+// }
+
+// //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次 moved to /src/components/qcss/Index.vue，如果其它地方需要，请根据实际情况拷贝复本
+// function initChoiceObj() {
+//     $('.so-con-right').on('click','p',function () {
+//         var _this =  $(this) ;
+//         var className = _this.attr("class") || "" ;
+//         if (className.indexOf("active") >= 0) {
+//             _this.attr("class", className.replace("active", "")) ;
+//         } else {
+//             _this.attr("class", className + " active") ;
+//         }
+//         // 已选注数
+//         var choosed =  $(".so-con-right p.active").length ;
+
+//         var pid = _this.parents('ul.tab_content').attr('id') ;
+//         var paid = '#'+pid ;
+//         var z_choosed =  $(paid+' p.active').length ; // 二中二，三中三等
+//         // var ifSp = 0 ;
+//        // var spArr = [] ; // 二中二，三中三等
+//         if(pid){ // 二中二，三中三等
+//             checkNumbers(pid,z_choosed,_this) ;
+//            // sessionStorage.setItem(pid,paid) ;
+//             var spchoose = parseInt(z_choosed/xlen)+(choosed-z_choosed) ;
+//             $('.bet-select-num').text(spchoose) ;
+
+//         }else{
+//             $('.bet-select-num').text(choosed-parseInt(z_choosed/2)) ;
+//         }
+
+//     }) ;
+
+// }
 
 /*
 * 江西11选5 ,method 玩法，len 长度
@@ -611,44 +597,44 @@ function checkNumbers(method,len,self) {
 
 
 
-//此方法弹出结算框 ,注单数量，添加按钮
-function initPopEve() {
-    $(".so-add").click(function () {
-        var amount = $('.bet-amount').val() ;  // 获取金额
-        var nums = Number($('.bet-select-num').text()) ;  // 获取注数
-        if(nums<1){ // 没有选择投注项目
-            $('.bet-error-content').html('请选择投注项目') ;
-            $(".so-tip-pop-04").toggle() ;
-            $(".so-shade").toggle() ;
-            return false;
-        }
+// //此方法弹出结算框 ,注单数量，添加按钮 moved to /src/components/publicTemplate/bet.vue
+// function initPopEve() {
+//     $(".so-add").click(function () {
+//         var amount = $('.bet-amount').val() ;  // 获取金额
+//         var nums = Number($('.bet-select-num').text()) ;  // 获取注数
+//         if(nums<1){ // 没有选择投注项目
+//             $('.bet-error-content').html('请选择投注项目') ;
+//             $(".so-tip-pop-04").toggle() ;
+//             $(".so-shade").toggle() ;
+//             return false;
+//         }
 
-        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确
-            $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
-            $(".so-tip-pop-04").toggle() ;
-            $(".so-shade").toggle() ;
-            return false;
-        }
-        // 注单金额正确
-        $(".so-pop").toggle() ;
-        $(".so-shade").toggle() ;
+//         if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确
+//             $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
+//             $(".so-tip-pop-04").toggle() ;
+//             $(".so-shade").toggle() ;
+//             return false;
+//         }
+//         // 注单金额正确
+//         $(".so-pop").toggle() ;
+//         $(".so-shade").toggle() ;
 
-        doCheckAction() ;  // 注单结算
+//         doCheckAction() ;  // 注单结算
 
-    }) ;
+//     }) ;
 
-    // 关闭当前窗口
-    $(".so-pop a").click(function () {
-        $(".so-pop").toggle() ;
-        $(".so-shade").toggle() ;
-    }) ;
+//     // 关闭当前窗口
+//     $(".so-pop a").click(function () {
+//         $(".so-pop").toggle() ;
+//         $(".so-shade").toggle() ;
+//     }) ;
 
-    // 投注金额提示弹窗关闭
-    $(".so-tip-pop-04").click(function () {
-        $(".so-tip-pop-04").toggle() ;
-        $(".so-shade").toggle() ;
-    }) ;
-}
+//     // 投注金额提示弹窗关闭
+//     $(".so-tip-pop-04").click(function () {
+//         $(".so-tip-pop-04").toggle() ;
+//         $(".so-shade").toggle() ;
+//     }) ;
+// }
 
 // 下注弹窗_成功，失败 ,closetime 关闭时间
 function initTipPop05(flag,closetime,content) {
@@ -804,7 +790,7 @@ function submitAction(lotteryid) {
             if (data.err == 'SUCCESS') {  //购买成功
                 initTipPop05(true,3) ;
                 resetAction() ;
-                getMemberBalance() ; // 更新余额
+                // getMemberBalance() ; // 更新余额
                 return false;
             } else {  //购买失败提示
 
@@ -832,29 +818,29 @@ function submitAction(lotteryid) {
 
 }
 
-/*
-* 重置投注页，提交表单后调用
-* */
-function resetAction() {
-    $(".so-con-right p").each(function (i, t) {
-        $(this).removeClass('active') ;
-        $('.bet-select-num').text('0') ;
-        $('.bet-amount').val('') ;
-    })
-}
+// /*
+// * 重置投注页，提交表单后调用  moved to /src/components/qcssc/index.vue
+// * */
+// function resetAction() {
+//     $(".so-con-right p").each(function (i, t) {
+//         $(this).removeClass('active') ;
+//         $('.bet-select-num').text('0') ;
+//         $('.bet-amount').val('') ;
+//     })
+// }
 
-/*
-* 标签切换
-* */
+// /*
+// * 标签切换
+// * */
 
-function changeTab(lotteryid) {
-    $('.tab_three').on('click','li',function () {
-        var val = $(this).data('val') ;
-            $(this).addClass('on').siblings().removeClass('on') ;
+// function changeTab(lotteryid) {
+//     $('.tab_three').on('click','li',function () {
+//         var val = $(this).data('val') ;
+//             $(this).addClass('on').siblings().removeClass('on') ;
 
-           doubleCount(lotteryid,val,'') ;
-    });
-}
+//            doubleCount(lotteryid,val,'') ;
+//     });
+// }
 
 /*
 * 近期开奖数据

@@ -633,7 +633,7 @@ function checkNumbers(method,len,self,xslen) {
 
 
 
-//此方法弹出结算框 ,注单数量，添加按钮
+//此方法弹出结算框 ,注单数量，添加按钮  moved to /src/components/publicTemplate/bet.vue
 function initPopEve(closet) {
     $(".so-add").click(function () {
         var amount = $('.bet-amount').val() ;  // 获取金额

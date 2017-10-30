@@ -146,7 +146,7 @@
                       </div>
                       <p>天津时时彩</p>
                   </li>
-                  <li @click="go('/qcssc/')">
+                  <li @click="go('/cqssc/')">
                       <div class="badge">
                           <img src="static/images/logo_cqssc.svg">
                       </div>
@@ -205,9 +205,12 @@
 
 
 <script>
+import Mixin from '@/Mixin'
 export default {
   name: 'Index',
+  mixins:[Mixin],
   mounted:function() {
+    this.LoginAction();
     $(()=>{
       TouchSlide({
           slideCell: "#focus",
@@ -225,6 +228,24 @@ export default {
     })
   },
   methods:{
+    // 登录接口 moved to 主页/index.vue
+    LoginAction:function() {
+        $.ajax({
+            type: 'post',
+            headers: {Authorization: 'Basic d2ViX2FwcDo='},
+            url: action.uaa + 'oauth/token',
+            data: {grant_type: 'password', username: 'bcappid02|admin', password: 'admin'},
+            success: (res) => {
+                // this.access_token = res.access_token;
+                this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
+                this.setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
+                console.log('login successed.')
+            },
+            error: function () {
+
+            }
+        });
+    },
     go:function(url){
       window.location = url;
     }
