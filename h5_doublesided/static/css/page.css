@@ -3,7 +3,7 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
-body { width: 100%; min-height: 18rem; padding: 50px; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
 
@@ -262,6 +262,28 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .today_payoff.lose_payoff { color: #c93030; }
 
+.notfound { background-image: url("../../static/images/status.jpg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: cover; text-align: center; margin: 0 auto; width: 100%; height: 100%; background-attachment: fixed; min-height: 18rem; padding-bottom: 2em; }
+
+.notfound i { margin-left: 6px; }
+
+.notfound h1 { max-width: 50%; margin: 0 auto; padding-bottom: 1.5rem; margin-top: -.5em; }
+
+.notfound h2 { max-width: 20%; margin: 0 auto; margin: 1em auto 2em; }
+
+.notfound div { color: #c79a50; margin-top: 1.5em; }
+
+.notfound div.big { margin-top: 3rem; }
+
+.notfound h3 { font-weight: 300; line-height: 1.5em; margin-top: .5em; }
+
+img.fixbot, img.fixbot02 { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; margin-left: auto; }
+
+@media (max-width: 576px) { img.fixbot, img.fixbot02 { left: 0; margin-left: auto; } }
+
+@media screen and (orientation: landscape) { img.fixbot, img.fixbot02 { position: relative; } }
+
+@media (max-width: 359px) { img.fixbot02 { width: 100%; left: 0; margin-left: 0; } }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
@@ -518,7 +540,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area ul { width: 90%; margin: 0 auto; }
 
-.play_area ul > li { display: inline-block; overflow: hidden; margin: .1rem; text-align: center; width: 30%; border: 2px solid #256e93; }
+.play_area ul > li { display: inline-block; overflow: hidden; margin: .1rem; text-align: center; width: 29%; border: 2px solid #256e93; }
 
 .play_area ul > li a { padding: .2rem .3rem; display: block; font-size: .35rem; }
 
