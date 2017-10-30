@@ -16,68 +16,21 @@
               <div class="purse">
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum">
-
+                      {{ fortMoney(roundAmt($parent.balanceData.balance), 2)}}
                   </div>
               </div>
-              <!-- <p>87348.00</p> -->
           </div>
       </div>
       <div class="so-l-c-con">
           <div>
               <ul>
-                  <li>
+                  <li v-for="lottery in allLottery">
                       <div class="badge">
-                           <img src="/static/images/logo_hljssc.svg" alt="">
+                           <img :src="lottery.imgUrl" alt="">
                       </div>
-                      <!-- <img src="/static/images/left/ball.png"> -->
-                      <p>黑龙江时时彩</p>
+                      <p>{{lottery.name}}</p>
                   </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_xjssc.svg">
-                      </div>
-                      <p>新疆时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_tjssc.svg">
-                      </div>
-                      <p>天津时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_jc11x5.svg">
-                      </div>
-                      <p>江西11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_gd11x5.svg">
-                      </div>
-                      <p>广东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_sd11x5.svg">
-                      </div>
-                      <p>山东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_sixlottery.svg">
-                      </div>
-                      <p>六合彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                           <img src="/static/images/logo_jxk3.svg">
-                      </div>
-                      <p>江苏快3</p>
-                  </li>
-                  <!-- <li>
-                       <img src="/static/images/left/ball.png">
-                      <p>黑龙江时时彩</p>
-                  </li>  -->
+
               </ul>
           </div>
       </div>
@@ -94,35 +47,44 @@ export default {
   name: 'InfoDialog',
   mixins:[Mixin],
   props:['el'],
+ data :function() {
+        return {
+            showNavigation:false ,
+            allLottery: {},
+        }
+    },
+  created:function () {
+      this.getLotterys() ;
+  } ,
   mounted:function() {
     $(this.el).on('click', ()=>{
       this.showNavigation = true;
-    })
-    // $('.so-left-close').click(function () {
-    //     var className = $('.so-left').attr('class') || '';
-    //     $('.so-left').attr('class', className.replace('active', 'close'));
-    //     $('.so-shade').hide();// .fadeOut(2000)
-    // });
-    // $('.so-menu').click(function () {
-    //     var className = $('.so-left').attr('class') || '';
-    //     if (className.indexOf('close') >= 0) {
-    //         $('.so-left').attr('class', className.replace('close', 'active'));
-    //     } else {
-    //         $('.so-left').attr('class', className + ' active');
-    //     }
-    //     $('.so-shade').show();
-    // });
+    }) ;
+
   },
   methods:{
+      // 关闭侧滑栏
     close:function(e){
       this.showNavigation = false;
-    }
+    },
+      // 获取彩种
+    getLotterys:function() {
+         $.ajax({
+            type: 'GET',
+            url: action.forseti + 'apis/lotterys',
+            data: {},
+            dataType: 'json',
+            success:(res)=> {
+                this.allLottery = res && res.data;  // 全部彩种,通过 v.cid 跳转到每个彩种
+            },
+            error: function () {
+
+            }
+        });
+}
+
   },
-  data () {
-    return {
-      showNavigation:false
-    }
-  }
+
 }
 </script>
 <style scoped>
