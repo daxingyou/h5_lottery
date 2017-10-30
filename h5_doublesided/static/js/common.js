@@ -521,11 +521,12 @@ function initNavChoice() {
         })
     }).eq(0).click();
 
-    //PK10点击左边nav切换盘面
+    //PK10、快3 点击左边nav切换盘面
     $('.so-con-left li').on('click',function(){
         var i = $(this).index();
         $(this).addClass('active').siblings().removeClass('active');
         $('#pk10-item' + i).show().siblings().hide();
+        $('#k3-item' + i).show().siblings().hide();
     }).eq(0).click();
 }
 
