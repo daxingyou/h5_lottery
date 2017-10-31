@@ -1437,7 +1437,8 @@
             var lotteryname = getCookie('lottery_name') ; // 彩种 名称
             $('.lottery_name').html(lotteryname+' 路珠') ;
             if(lotteryid == '4'){ // 江西11选5
-                $('.jxsyxw_tab').show() ;
+                $('.jxsyxw_tab').show();
+                $('.hd ul').removeClass('tab_three');
             }
             loadRoadAction(lotteryid,'') ;
 
