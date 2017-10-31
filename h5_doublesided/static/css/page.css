@@ -408,7 +408,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .hd { margin-bottom: .3rem; }
 
-.tab_content { padding: 0 0.3rem; }
+.tab_content { padding: 0 0.3rem; margin-top: 1.5rem; }
 
 .bet_day { border-bottom: none; }
 
@@ -480,13 +480,13 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 ul.lo_ball { text-align: center; margin-top: .1rem; }
 
-ul.lo_ball > li { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: inline-block; width: 1.1rem; height: 1.1rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.1rem; text-indent: 0.1rem; background-position: 0.05rem; }
+ul.lo_ball > li { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.1rem; background-position: 0.05rem 0.01rem; display: inline-block; width: 1.1rem; height: 1.1rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.1rem; text-indent: 0.1rem; }
 
 ul.no_open > li { background-image: url("../../static/images/content/duankaung.png"); background-repeat: no-repeat; background-size: 2.1rem; color: #000; width: auto; font-size: 0.4rem; min-width: 2rem; }
 
 i.prd { background-image: url("../../static/images/page/icon_pn.png"); background-position-y: .15rem; background-repeat: no-repeat; background-size: 100%; height: .6rem; width: .5rem; display: inline-block; line-height: .3rem; vertical-align: inherit; }
 
-.ds_long { padding: .2rem 0; color: #fff; }
+.ds_long { padding: .2rem 0; color: #fff; margin-top: 1.5rem; }
 
 .ds_long ul.lo_ball { width: 2.5rem; }
 
@@ -514,7 +514,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
-#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; }
+#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
 
 #road01 .tab_content_out, #road02 .tab_content_out { display: none; }
 
@@ -657,6 +657,8 @@ ul.sixball > li:nth-child(5) { background-position-x: .1rem; }
 ul.sixball > li:last-child { background-position-x: -2.2rem; margin-left: .5rem; position: relative; }
 
 ul.sixball > li:last-child:before { background-image: url("../../static/images/plus.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .5rem; height: 1.1rem; right: 1.1rem; left: inherit; }
+
+.double-all { margin-top: 3rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .news { margin-top: 1.5rem; }
