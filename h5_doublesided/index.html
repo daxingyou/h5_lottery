@@ -95,7 +95,8 @@
             <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
             <div class="right">
                 <a href="login.html" class="login_div">登录</a>
-                <a href="reg.html">注册</a>
+               <!-- <a onclick="clearAllCookie()" class="loginout_div" style="display: none;">退出</a>-->
+                <a href="lobbyTemplate/reg.html">注册</a>
                 <a href="login_guest.html">试玩</a>
             </div>
         </header>
@@ -223,9 +224,10 @@
         $(function () {
             getLotterys('.lobby_all_lottery') ; // 彩种
             var islogin = ifLogined() ;  // 判断用户是否登录
-            if(islogin){
+           /* if(islogin){
                 $('.login_div').hide() ;
-            }
+                $('.loginout_div').show() ;
+            }*/
             TouchSlide({
                 slideCell: "#focus",
                 autoPlay: true,

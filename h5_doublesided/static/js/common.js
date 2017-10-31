@@ -32,7 +32,9 @@ function getCookie (name) {
 }
 //清除所有cookie函数
 function clearAllCookie() {
+    console.log('发的货款')
     var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    console.log(keys)
     if(keys) {
         for(var i = keys.length; i--;)
             document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
@@ -190,22 +192,22 @@ function getLotterys(all) {
                 switch (lotteryid) {
                     case '1':  // 重庆时时彩传统盘
                        // hrefUrl = '../web_cqssc' ;
-                        hrefUrl = 'web_cqssc' ;
+                        hrefUrl = 'web_cqssc/index.html' ;
                         break;
                     case '2':  // 重庆时时彩双面盘
-                        hrefUrl = 'web_cqssc' ;
+                        hrefUrl = 'web_cqssc/index.html' ;
                         break;
                     case '3':  // 江西11选5传统盘
-                        hrefUrl = 'web_jc11x5' ;
+                        hrefUrl = 'web_jc11x5/index.html' ;
                         break;
                     case '4':  // 江西11选5双面盘
-                        hrefUrl = 'web_jc11x5' ;
+                        hrefUrl = 'web_jc11x5/index.html' ;
                         break;
                     case '7':  // 北京pk10传统盘
-                        hrefUrl = 'web_pk10' ;
+                        hrefUrl = 'web_pk10/index.html' ;
                         break;
                     case '8':  // 北京pk10双面盘
-                        hrefUrl = 'web_pk10' ;
+                        hrefUrl = 'web_pk10/index.html' ;
                         break;
                     default:
                         hrefUrl = '' ;
