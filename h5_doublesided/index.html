@@ -6,7 +6,15 @@
     <link href="static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/css/page.css" rel="stylesheet" type="text/css">
-    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script src="static/js/flexible_css.js"></script> <script src="static/js/flexible.debug.js"></script>
+    <style>
+        a.to_lottery {
+            position: relative;
+            z-index: 9;
+            display: inline-block;
+        }
+       /* #index_content.content > .hotgame_area ul > li > .badge{ background-image: none;}*/
+    </style>
 </head>
 <body>
     <div id="pa_con" class="so-con warp bule_bg">
@@ -135,8 +143,8 @@
         <div id="index_content" class="content">
             <section class="hotgame_area">
                 <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
-                <ul>
-                    <li>
+                <ul class="lobby_all_lottery">
+                  <!--  <li>
                         <div class="badge cqssc">
                         </div>
                         <p>重庆时时彩</p>
@@ -180,18 +188,7 @@
                         <div class="badge others">
                         </div>
                         <p>其他游戏</p>
-                    </li>
-                    <!-- <li>
-                        <div class="badge xjssc">
-                        </div>
-                        <p>新疆时时彩</p>
-                    </li>
-                    <li>
-                        <div class="badge gd11x5">
-                        </div>
-                        <p>广东11选5</p>
-                    </li> -->
-
+                    </li>-->
 
                 </ul>
             </section>
@@ -219,38 +216,47 @@
 
     <script src="static/js/jquery-1.7.min.js"></script>
     <script src="static/js/touchslide.1.1.js"></script>
+    <script src="static/js/config.js"></script>
     <script src="static/js/common.js"></script>
     <script>
-        TouchSlide({
-            slideCell: "#focus",
-            autoPlay: true,
-        });
-        function mar() {
-            $("#marquee_snp").slide({ // 文本滚动
-                mainCell: ".bd ul",
-                autoPage: true,
-                effect: "leftMarquee",
+        $(function () {
+            getLotterys('.lobby_all_lottery') ; // 彩种
+
+            TouchSlide({
+                slideCell: "#focus",
                 autoPlay: true,
-                vis: 1,
-                interTime: 50
             });
-            //console.log(123);
-        }
-        //首頁側邊
-        $('.so-left-close').click(function () {
-            var className = $('.so-left').attr('class') || '';
-            $('.so-left').attr('class', className.replace('active', 'close'));
-            $('.so-shade').hide();
-        });
-        $('.index_side').click(function () {
-            var className = $('.so-left').attr('class') || '';
-            if (className.indexOf('close') >= 0) {
-                $('.so-left').attr('class', className.replace('close', 'active'));
-            } else {
-                $('.so-left').attr('class', className + ' active');
-            }
-            $('.so-shade').show();
-        });
+           /* function mar() {
+                $("#marquee_snp").slide({ // 文本滚动
+                    mainCell: ".bd ul",
+                    autoPage: true,
+                    effect: "leftMarquee",
+                    autoPlay: true,
+                    vis: 1,
+                    interTime: 50
+                });
+
+            }*/
+            //首页侧边
+            $('.so-left-close').click(function () {
+                var className = $('.so-left').attr('class') || '';
+                $('.so-left').attr('class', className.replace('active', 'close'));
+                $('.so-shade').hide();
+            });
+            $('.index_side').click(function () {
+                var className = $('.so-left').attr('class') || '';
+                if (className.indexOf('close') >= 0) {
+                    $('.so-left').attr('class', className.replace('close', 'active'));
+                } else {
+                    $('.so-left').attr('class', className + ' active');
+                }
+                $('.so-shade').show();
+            });
+
+
+
+        })
+
     </script>
 </body>
 </html>
