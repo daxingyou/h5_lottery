@@ -85,7 +85,7 @@ input, select, button, a {
   #pa_head.index_nav_top {
     position: fixed;
     top: 0;
-    z-index: 5;
+    z-index: 50;
     width: 10rem; }
   #pa_head.login {
     height: auto;
@@ -995,7 +995,12 @@ i.index_s {
 
 .tab_mid {
   color: #d7e8f0;
-  background-color: rgba(0, 0, 0, 0.15); }
+  background-color: rgba(0, 0, 0, 0.15);
+  position: fixed;
+  left: 0;
+  top: 1.5rem;
+  width: 100%;
+  z-index: 5; }
   .tab_mid > li {
     display: inline-block;
     width: 25%;
@@ -1024,7 +1029,8 @@ i.index_s {
   margin-bottom: .3rem; }
 
 .tab_content {
-  padding: 0 0.3rem; }
+  padding: 0 0.3rem;
+  margin-top: 1.5rem; }
 
 .bet_day {
   border-bottom: none; }
@@ -1224,9 +1230,9 @@ ul.lo_ball {
   text-align: center;
   margin-top: .1rem; }
   ul.lo_ball > li {
-    background-image: url("../../static/images/content/qiu.png");
-    background-repeat: no-repeat;
+    background: url("../../static/images/content/qui02.png") no-repeat;
     background-size: 1.1rem;
+    background-position: 0.05rem 0.01rem;
     display: inline-block;
     width: 1.1rem;
     height: 1.1rem;
@@ -1234,8 +1240,7 @@ ul.lo_ball {
     font-size: 0.6rem;
     text-align: center;
     line-height: 1.1rem;
-    text-indent: 0.1rem;
-    background-position: 0.05rem; }
+    text-indent: 0.1rem; }
 
 ul.no_open > li {
   background-image: url("../../static/images/content/duankaung.png");
@@ -1259,7 +1264,8 @@ i.prd {
 
 .ds_long {
   padding: .2rem 0;
-  color: #fff; }
+  color: #fff;
+  margin-top: 1.5rem; }
   .ds_long ul.lo_ball {
     width: 2.5rem; }
     .ds_long ul.lo_ball.two {
@@ -1309,8 +1315,11 @@ i.prd {
   margin: .2rem;
   font-size: .4rem;
   overflow: hidden; }
-  #road01 > .tab_mid, #road02 > .tab_mid {
-    background-color: rgba(0, 0, 0, 0.15); }
+  #road01 .tab_mid, #road02 .tab_mid {
+    background-color: rgba(0, 0, 0, 0.15);
+    position: relative;
+    top: inherit;
+    left: inherit; }
   #road01 .hd, #road02 .hd {
     margin-bottom: .2rem; }
   #road01 .bd, #road02 .bd {
@@ -1326,7 +1335,8 @@ i.prd {
     min-height: 4.3rem;
     padding: 0;
     display: block;
-    text-align: right; }
+    text-align: right;
+    margin-top: 0; }
   #road01 .tab_content_out, #road02 .tab_content_out {
     display: none; }
     #road01 .tab_content_out.on, #road02 .tab_content_out.on {
@@ -1617,6 +1627,9 @@ ul.sixball > li {
       height: 1.1rem;
       right: 1.1rem;
       left: inherit; }
+
+.double-all {
+  margin-top: 3rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .news {

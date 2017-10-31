@@ -201,7 +201,7 @@ function getLotterys(all, hot) {
     $.ajax({
         type: 'GET',
         url: action.forseti + 'apis/lotterys',
-        data: {},
+        data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
         dataType: 'json',
         success: function (res) {
             var allstr = '';  // 全部彩种
