@@ -1,135 +1,243 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-.pk10_clear:after { content: ''; display: table; clear: both; }
-
-#pk10 .so-in-top, #pk10 #pa_head { background-image: url(../images/pk10/bg_top.jpg); background-size: auto 100%; }
-
-#pk10 .so-m-t-left { width: 2.5rem; }
-
-#pk10 .so-m-t-left div:first-child { width: 2.3rem; }
-
-#pk10 .so-m-t-right { width: 7.5rem; }
-
-#pk10 .pk10_top_number li { background: none; float: left; width: 0.65rem; height: auto; margin-right: 0.07rem; }
-
-#pk10 .pk10_top_number li:last-child { margin-right: 0px; }
-
-#pk10 .pk10_top_detail { margin-left: 0.1rem; }
-
-#pk10 .pk10_top_detail li { font-size: 0.3rem; width: 0.66rem; margin-top: 0.07rem; }
-
-#pk10 .so-main-down li:first-child p { width: 2.3rem; margin-right: 0.12rem; }
-
-#pk10 .so-main-down li i { margin-top: 0.18rem; margin-left: 0; vertical-align: middle; }
-
-#pk10 .so-main-down li a { margin-top: 0.15rem; margin-right: 0.1rem; }
-
-#pk10 .select-li { height: auto; padding-top: 0.3rem; }
-
-#pk10 .pk10_panel { background: none; height: auto; position: relative; }
-
-#pk10 .pk10_panel h2 { background: url(../images/content/panel_header.png) no-repeat; background-size: 100% 100%; line-height: 0.9rem; }
-
-#pk10 .pk10_panel > div { background: url(../images/content/panel_body.png) no-repeat; background-size: 100% 100%; padding: 3% 3% 3.5%; height: auto; margin: 0px auto; }
-
-#pk10 .pk10_panel > div p { margin: 2%; }
-
-#pk10 .pk10_panel > div p span:last-child { padding-left: 0rem; }
-
-#pk10 .pk10_panel > div:after { content: ''; display: table; clear: both; }
-
-#pk10 .pk10_panel:after { content: ''; display: block; position: absolute; width: 100%; bottom: 0px; clear: both; background: url(../images/content/panel_footer.png) no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; }
-
-#pk10 .pk10_panel.style1 h2 { background-image: url(../images/content/panel_header_1.png); }
-
-#pk10 .pk10_panel .pk10_ball { -webkit-transform: scale(0.9); -ms-transform: scale(0.9); transform: scale(0.9); }
-
-#pk10 .play_th ul { margin-top: 0.05rem; }
-
-#pk10 .play_th ul li { width: 0.5rem; margin-right: 0.15rem; font-size: 0.3rem; line-height: 1.3em; }
-
-#pk10 .lo_ball { margin-left: 0; margin-top: 0.4rem; }
-
-#pk10 .lo_ball li { background: none; width: 0.792rem; height: 0.72rem; }
-
-#pk10 .lo_ball li span { display: block; -webkit-transform: scale(0.9); -ms-transform: scale(0.9); transform: scale(0.9); }
-
-#pk10 .ds_long .prod > div { width: 4rem; }
-
-#pk10 .ds_long .prod > div:last-child { width: auto; }
-
-#pk10 .ds_long .lo_ball { margin: 0px; }
-
-#pk10 .ds_long .lo_ball li { font-size: 0.5rem; width: auto; }
-
-#pk10 .ds_long .lo_ball .pk10_ball { -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); margin-top: 0.25rem; }
-
-#pk10 .tab_mid { white-space: nowrap; overflow-x: scroll; }
-
-.pk10_item ul li .pk10_panel { width: 7rem; height: 5rem; background: url(../images/content/kuang.png) no-repeat; background-size: 8.4rem 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
-
-.pk10_item ul li .pk10_panel > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
-
-.pk10_item ul li .pk10_panel > div { padding: 3%; width: 94%; height: 3.1rem; }
-
-.pk10_item ul li .pk10_panel > div p { float: left; border: solid 0.01rem #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 3.5%; }
-
-.pk10_item ul li .pk10_panel > div p > span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding-left: .25rem; padding-right: .2rem; line-height: 0.9rem; }
-
-.pk10_item ul li .pk10_panel > div p > span:last-child { float: right; }
-
-.pk10_item ul li .pk10_panel > div p > span .pk10_ball { margin-top: -0.1rem; }
-
-.pk10_item ul li .pk10_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
-
-.pk10_item ul li .pk10_panel > div p.active > span:first-child { color: #010101; }
-
-.pk10_item ul li .pk10_panel > div p.active > span:last-child { color: #ab0000; }
-
-.pk10_item ul li .so-con-span-short { width: 3rem !important; background-size: 3.06rem 0.9rem; }
-
-.pk10_ball { display: inline-block; vertical-align: middle; background: url(../images/pk10/ball.png) no-repeat; background-size: 8.8rem 1.6rem; width: 0.88rem; height: 0.8rem; }
-
-.pk10_ball.num_1 { background-position-x: 0; }
-
-.pk10_ball.num_2 { background-position-x: -0.88rem; }
-
-.pk10_ball.num_3 { background-position-x: -1.76rem; }
-
-.pk10_ball.num_4 { background-position-x: -2.64rem; }
-
-.pk10_ball.num_5 { background-position-x: -3.52rem; }
-
-.pk10_ball.num_6 { background-position-x: -4.4rem; }
-
-.pk10_ball.num_7 { background-position-x: -5.28rem; }
-
-.pk10_ball.num_8 { background-position-x: -6.16rem; }
-
-.pk10_ball.num_9 { background-position-x: -7.04rem; }
-
-.pk10_ball.num_10 { background-position-x: -7.92rem; }
-
-.pk10_panel .active .pk10_ball { background-position-y: -0.8rem; }
-
-.pk10_ball.small_ball { background-size: 6.5rem 1.16rem; width: 0.65rem; height: 0.58rem; }
-
-.pk10_ball.small_ball.num_1 { background-position-x: 0; }
-
-.pk10_ball.small_ball.num_2 { background-position-x: -0.65rem; }
-
-.pk10_ball.small_ball.num_3 { background-position-x: -1.3rem; }
-
-.pk10_ball.small_ball.num_4 { background-position-x: -1.95rem; }
-
-.pk10_ball.small_ball.num_5 { background-position-x: -2.6rem; }
-
-.pk10_ball.small_ball.num_6 { background-position-x: -3.25rem; }
-
-.pk10_ball.small_ball.num_7 { background-position-x: -3.9rem; }
-
-.pk10_ball.small_ball.num_8 { background-position-x: -4.55rem; }
-
-.pk10_ball.small_ball.num_9 { background-position-x: -5.2rem; }
-
-.pk10_ball.small_ball.num_10 { background-position-x: -5.85rem; }
+.pk10_clear:after {
+  content: '';
+  display: table;
+  clear: both; }
+
+#pk10 .so-in-top, #pk10 #pa_head {
+  background-image: url(../images/pk10/bg_top.jpg);
+  background-size: auto 100%; }
+
+#pk10 .so-m-t-left {
+  width: 2.5rem; }
+  #pk10 .so-m-t-left div:first-child {
+    width: 2.3rem; }
+
+#pk10 .so-m-t-right {
+  width: 7.5rem; }
+
+#pk10 .pk10_top_number li {
+  background: none;
+  float: left;
+  width: 0.65rem;
+  height: auto;
+  margin-right: 0.07rem; }
+  #pk10 .pk10_top_number li:last-child {
+    margin-right: 0px; }
+
+#pk10 .pk10_top_detail {
+  margin-left: 0.1rem; }
+  #pk10 .pk10_top_detail li {
+    font-size: 0.3rem;
+    width: 0.66rem;
+    margin-top: 0.07rem; }
+
+#pk10 .so-main-down li:first-child p {
+  width: 2.3rem;
+  margin-right: 0.12rem; }
+
+#pk10 .so-main-down li i {
+  margin-top: 0.18rem;
+  margin-left: 0;
+  vertical-align: middle; }
+
+#pk10 .so-main-down li a {
+  margin-top: 0.15rem;
+  margin-right: 0.1rem; }
+
+#pk10 .select-li {
+  height: auto;
+  padding-top: 0.3rem; }
+
+#pk10 .pk10_panel {
+  background: none;
+  height: auto;
+  position: relative; }
+  #pk10 .pk10_panel h2 {
+    background: url(../images/content/panel_header.png) no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
+  #pk10 .pk10_panel > div {
+    background: url(../images/content/panel_body.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 3% 3% 3.5%;
+    height: auto;
+    margin: 0px auto; }
+    #pk10 .pk10_panel > div p {
+      margin: 2%; }
+      #pk10 .pk10_panel > div p span:last-child {
+        padding-left: 0rem; }
+    #pk10 .pk10_panel > div:after {
+      content: '';
+      display: table;
+      clear: both; }
+  #pk10 .pk10_panel:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    clear: both;
+    background: url(../images/content/panel_footer.png) no-repeat;
+    background-size: 100% 100%;
+    height: 0.4rem;
+    margin-top: -0.4rem; }
+  #pk10 .pk10_panel.style1 h2 {
+    background-image: url(../images/content/panel_header_1.png); }
+  #pk10 .pk10_panel .pk10_ball {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9); }
+
+#pk10 .play_th ul {
+  margin-top: 0.05rem; }
+  #pk10 .play_th ul li {
+    width: 0.5rem;
+    margin-right: 0.15rem;
+    font-size: 0.3rem;
+    line-height: 1.3em; }
+
+#pk10 .lo_ball {
+  margin-left: 0;
+  margin-top: 0.4rem; }
+  #pk10 .lo_ball li {
+    background: none;
+    width: 0.792rem;
+    height: 0.72rem; }
+    #pk10 .lo_ball li span {
+      display: block;
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      transform: scale(0.9); }
+
+#pk10 .ds_long .prod > div {
+  width: 4rem; }
+  #pk10 .ds_long .prod > div:last-child {
+    width: auto; }
+
+#pk10 .ds_long .lo_ball {
+  margin: 0px; }
+  #pk10 .ds_long .lo_ball li {
+    font-size: 0.5rem;
+    width: auto; }
+  #pk10 .ds_long .lo_ball .pk10_ball {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    margin-top: 0.25rem; }
+
+#pk10 .tab_mid {
+  white-space: nowrap;
+  overflow-x: scroll; }
+
+.pk10_item ul li .pk10_panel {
+  width: 7rem;
+  height: 5rem;
+  background: url(../images/content/kuang.png) no-repeat;
+  background-size: 8.4rem 5rem;
+  background-position-x: -1.1rem;
+  text-align: center;
+  margin: auto; }
+  .pk10_item ul li .pk10_panel > h2 {
+    color: #ffffff;
+    font-size: .4rem;
+    line-height: 1.12rem; }
+  .pk10_item ul li .pk10_panel > div {
+    padding: 3%;
+    width: 94%;
+    height: 3.1rem; }
+    .pk10_item ul li .pk10_panel > div p {
+      float: left;
+      border: solid 0.01rem #277ca5;
+      height: 0.85rem;
+      width: 3rem;
+      margin-bottom: 4%;
+      margin-left: 3.5%; }
+      .pk10_item ul li .pk10_panel > div p > span {
+        color: #d7e8f0;
+        font-size: .34rem;
+        display: block;
+        float: left;
+        padding-left: .25rem;
+        padding-right: .2rem;
+        line-height: 0.9rem; }
+        .pk10_item ul li .pk10_panel > div p > span:last-child {
+          float: right; }
+        .pk10_item ul li .pk10_panel > div p > span .pk10_ball {
+          margin-top: -0.1rem; }
+    .pk10_item ul li .pk10_panel > div p.active {
+      background: url(../images/content/changkuang.png) no-repeat;
+      background-size: 3.06rem 0.9rem;
+      background-position: -0.01rem;
+      border: solid 0.01rem transparent; }
+      .pk10_item ul li .pk10_panel > div p.active > span:first-child {
+        color: #010101; }
+      .pk10_item ul li .pk10_panel > div p.active > span:last-child {
+        color: #ab0000; }
+
+.pk10_item ul li .so-con-span-short {
+  width: 3rem !important;
+  background-size: 3.06rem 0.9rem; }
+
+.pk10_ball {
+  display: inline-block;
+  vertical-align: middle;
+  background: url(../images/pk10/ball.png) no-repeat;
+  background-size: 8.8rem 1.6rem;
+  width: 0.88rem;
+  height: 0.8rem; }
+  .pk10_ball.num_00, .pk10_ball.num_20 {
+    background: url(../images/pk10/ball_0.png) no-repeat center center;
+    background-size: 0.88rem 0.8rem; }
+  .pk10_ball.num_01 {
+    background-position-x: 0; }
+  .pk10_ball.num_02 {
+    background-position-x: -0.88rem; }
+  .pk10_ball.num_03 {
+    background-position-x: -1.76rem; }
+  .pk10_ball.num_04 {
+    background-position-x: -2.64rem; }
+  .pk10_ball.num_05 {
+    background-position-x: -3.52rem; }
+  .pk10_ball.num_06 {
+    background-position-x: -4.4rem; }
+  .pk10_ball.num_07 {
+    background-position-x: -5.28rem; }
+  .pk10_ball.num_08 {
+    background-position-x: -6.16rem; }
+  .pk10_ball.num_09 {
+    background-position-x: -7.04rem; }
+  .pk10_ball.num_10 {
+    background-position-x: -7.92rem; }
+
+.pk10_panel .active .pk10_ball {
+  background-position-y: -0.8rem; }
+
+.pk10_ball.small_ball {
+  background-size: 6.5rem 1.16rem;
+  width: 0.65rem;
+  height: 0.58rem; }
+  .pk10_ball.small_ball.num_00, .pk10_ball.small_ball.num_20 {
+    background: url(../images/pk10/ball_0.png) no-repeat center center;
+    background-size: 0.65rem 0.58rem; }
+  .pk10_ball.small_ball.num_01 {
+    background-position-x: 0; }
+  .pk10_ball.small_ball.num_02 {
+    background-position-x: -0.65rem; }
+  .pk10_ball.small_ball.num_03 {
+    background-position-x: -1.3rem; }
+  .pk10_ball.small_ball.num_04 {
+    background-position-x: -1.95rem; }
+  .pk10_ball.small_ball.num_05 {
+    background-position-x: -2.6rem; }
+  .pk10_ball.small_ball.num_06 {
+    background-position-x: -3.25rem; }
+  .pk10_ball.small_ball.num_07 {
+    background-position-x: -3.9rem; }
+  .pk10_ball.small_ball.num_08 {
+    background-position-x: -4.55rem; }
+  .pk10_ball.small_ball.num_09 {
+    background-position-x: -5.2rem; }
+  .pk10_ball.small_ball.num_10 {
+    background-position-x: -5.85rem; }

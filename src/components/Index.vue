@@ -56,11 +56,15 @@
           <section class="hotgame_area">
               <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
               <ul>
-                  <li v-for="lottery in allLottery" v-if="lottery.ifHot==1" @click="go(gameHref[lottery.cid])">
+                   <!-- @click="go(gameHref[lottery.cid])" -->
+                  <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">
+                    <router-link v-bind:to="'/'+gameHref[lottery.cid]">
                       <div >
                           <img :src="lottery.imgUrl">
                       </div>
                       <p>{{lottery.name}}</p>
+                    </router-link>
+                      
                   </li>
                 <!--  <li>
                       <div class="badge">

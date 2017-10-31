@@ -1,9 +1,9 @@
 <template>
     <div v-if="show" class="popup so-tip-pop so-tip-pop-01 publicDialog" @click="close">
         <div>
-            <img :src="'/static/images/pop/'+ (type||'title_tip') +'.png'">
+            <img :src="'/static/images/pop/'+ (typeStr ||'title_tip') +'.png'">
             <img src="/static/images/page/status03.svg">
-            <p>{{text}}</p>
+            <p>{{content}}</p>
         </div>
     </div>
 
@@ -18,16 +18,18 @@ export default {
     return {
       delay:2000,
       show:false,
+      content:'',
+      typeStr:'',
     }
   },
   mounted:function() {
-
+    this.typeStr = type;
   },
   methods:{
     //打开弹窗
     open:function(text, title_tip){
-      this.type = title_tip;
-      this.text = text;
+      this.content = text;
+      this.typeStr = title_tip;
       this.show = true;
       setTimeout(() => this.show = false, this.delay);
     },

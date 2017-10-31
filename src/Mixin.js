@@ -9,10 +9,53 @@
 var MyMixin = {
     data:function(){
         return {
+            forseti: 'http://121.58.234.210:19091/forseti/',
+            uaa: 'http://121.58.234.210:19091/uaa/',
+            hermes: 'http://121.58.234.210:19091/hermes/',
             // access_token:' ', 
         }
     },
     methods:{
+
+        ajax(userConfig){
+            let config = {
+                type: 'get',
+                headers: {
+                    "Authorization": "bearer  " + this.getAccessToken(''),
+                }
+            }
+            config = Object.assign(config, userConfig);
+            Object.assign()
+            // $.ajax({
+            //     type: 'get',
+            //     headers: {
+            //         "Authorization": "bearer  " + this.getAccessToken(access_token),
+            //     },
+            //     url: action.forseti + 'api/priodDataNewly',
+            //     data: { lotteryId: lotteryid },
+            //     success: (res) => {  //成功
+            //         console.log('拉取期数成功');
+            //         // 开奖数据处理
+            //         this.processCode( 
+            //             res.data[1].pcode, 
+            //             res.data[2].pcode, 
+            //             res.data[2].winNumber,
+            //             res.data[2].doubleData
+            //         ) ;
+            //         this.getSystemTime(lotteryid);  // 获取当前系统时间
+
+            //         if (res == 'empty') {   //未到销售时间
+            //             return false;
+            //         }
+
+            //     },
+            //     error: function () {  //失败
+
+            //         return false;
+            //     }
+            // });
+        },
+        
 
         //格式化赔率
         payoffFormat(val){
@@ -20,11 +63,11 @@ var MyMixin = {
         },
         /* 获取系统时间，lotteryid 彩种id moved to /src/Maxin.js
             调用方式
-                this.getSystemTime([lotteryid]).then((sys_time)=>{
+                this.getSystemTime().then((sys_time)=>{
                     //代码
                 })
         */
-        getSystemTime(lotteryid) { 
+        getSystemTime() { 
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
@@ -36,8 +79,6 @@ var MyMixin = {
                     success: (res) => {
                         sys_time = this.formatTimeUnlix(res.data);
                         resolve(sys_time);
-                        // priodDataNewly(lotteryid); // 最近5期开奖，获取系统时间后再调用  
-
                     },
                     error: function () {
 

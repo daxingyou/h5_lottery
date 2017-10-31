@@ -86,7 +86,7 @@ import Mixin from '@/Mixin'
 
 export default {
     name: 'Index',
-    props:['betSelectedList',
+    props:['betSelectedList', 'parentRefs',
         'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode'],
     mixins:[Mixin],
     data () {

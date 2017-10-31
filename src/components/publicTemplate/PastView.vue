@@ -19,6 +19,25 @@
                 </div>
                 <div class="bd">
                     <ul class="tab_content double-all">
+                        <li class="past_view">
+                            <ul class="panel">
+                                <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
+                                    <div class="play_th">
+                                        <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
+                                        <ul class="double-count">
+                                            <li>{{list.doubleData.doubler}}</li>
+                                            <li>{{list.doubleData.longer}}</li>
+                                            <li>{{list.doubleData.sizer}}</li>
+                                            <li>{{list.doubleData.total}}</li>
+                                        </ul>
+                                    </div>
+                                    <ul class="lo_ball double-numbers">
+                                        <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -38,8 +57,14 @@ import Mixin from '@/Mixin'
 export default {
   name: 'Index',
   mixins:[Mixin],
+    data :function() {
+        return {
+            pastView:{} ,
+
+        }
+    },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lottid') ; // 彩种 id
+    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
     // this.changeTab(lotteryid) ;
@@ -68,13 +93,14 @@ export default {
             data: senddata ,
             success: (data) => {
              // console.log(data.data) ;
-                var str ='';
+               // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
                         data.data[i].winNumber='-,-,-,-,-' ;
                     }
-                    var codeArr = data.data[i].winNumber.split(',') ;
-                    str +='<li class="past_view">'+
+
+                  //  var codeArr = data.data[i].winNumber.split(',') ;
+                   /* str +='<li class="past_view">'+
                         '<ul class="panel">'+
                        ' <li class="prod" data-status="not_open">'+
                         '<div class="play_th">'+
@@ -95,8 +121,10 @@ export default {
                                 '</li>'+
                                 '</ul>'+
                                 '</li>' ;
+                    */
                 }
-                $('.double-all').html(str) ;
+                this.pastView = data.data ;
+               // $('.double-all').html(str) ;
 
 
             },
@@ -111,7 +139,7 @@ export default {
     * */
     changeTab:function (e) {
         // $('.tab_three').on('click','li',(e) => {
-            var lotteryid = this.getCookie('lt_lottid')
+            var lotteryid = this.getCookie('lt_lotteryid')
             var val = $(e.currentTarget).data('val') ;
             $(e.currentTarget).addClass('on').siblings().removeClass('on') ;
             this.doubleCount(lotteryid,val,'') ;

@@ -3,7 +3,7 @@
         <div>
             <h2>提示<a @click="close"></a></h2>
             <img src="/static/images/page/status03.svg">
-            <p>{{text}}</p>
+            <p>{{content}}</p>
             <a @click="close">确定</a>
         </div>
     </div>
@@ -16,10 +16,13 @@
 export default {
   name: 'InfoDialog',
   props:['text'],
+  mounted:function(){
+    this.content = this.text;
+  },
   methods:{
     //打开弹窗
     open:function(text){
-        this.text = text;
+        this.content = text;
         this.show = true;
     },
     //关闭弹窗
@@ -29,6 +32,7 @@ export default {
   },
   data () {
     return {
+        content:'',
         show:false,
         // text:'请设置消息.'
     }

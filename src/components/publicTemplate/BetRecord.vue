@@ -9,73 +9,29 @@
                 </div>
                 <h2 class="center lottery_name"> </h2>
                 <div class="right">
-                    <div class="dropdown_icon"><i class="icon filter"></i>篩選</div>
+                    <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
                 </div>
             </header>
             <div class="dropdown" style="display:none;">
                 <div class="play_area">
                     <div class="sort">
-                        <h5>遊戲篩選</h5>
+                        <h5>游戏筛选</h5>
                         <ul>
-                            <li class="active"><a href="javascript:void(0);">全部</a></li>
-                            <li><a href="javascript:void(0);">重庆时时彩</a></li>
-                            <li><a href="javascript:void(0);">江西11選5</a></li>
-                            <li><a href="javascript:void(0);">北京PK10</a></li>
-                            <li><a href="javascript:void(0);">江蘇快3</a></li>
-                            <li><a href="javascript:void(0);">香港六合彩</a></li>
+                            <li class="active" data-val="0"><a href="javascript:void(0);">全部</a></li>
+                            <li data-val="2"><a href="javascript:void(0);">重庆时时彩</a></li>
+                            <li data-val="4"><a href="javascript:void(0);">江西11选5</a></li>
+                            <li data-val="8"><a href="javascript:void(0);">北京PK10</a></li>
+                            <li data-val="6"><a href="javascript:void(0);">江苏快3</a></li>
+                            <li data-val="10"><a href="javascript:void(0);">香港六合彩</a></li>
                         </ul>
                         <div>
-                            <div class="btn btn_two round btn_outline"><a href="">取消</a></div>
-                            <div class="btn btn_two round btn_blue02"><a href="">確定</a></div>
+                            <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                            <div class="btn btn_two round btn_blue02 btn_submit"><a href="javascript:;">确定</a></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--right menu  -->
-            <div class="so-right">
-                <div>
-                    <img src="/static/images/top/zoushi.png">
-                </div>
-                <div>
-                    <div>
-                        <ul>
-                            <li>
-                                <a href="bet_record.html">
-                                    <img src="/static/images/right/1.png">
-                                    <p>投注记录</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="past_view.html">
-                                    <img src="/static/images/right/2.png">
-                                    <p>近期开奖</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="road_beads.html">
-                                    <img src="/static/images/right/3.png">
-                                    <p>路珠</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="ds_long.html">
-                                    <img src="/static/images/right/4.png">
-                                    <p>双面长龙</p>
-                                </a>
-                            </li>
-                            <li class="play">
-                                <img src="/static/images/right/5.png">
-                                <p>玩法说明</p>
-                            </li>
-                            <li>
-                                <img src="/static/images/right/6.png">
-                                <p>今日输赢</p>
-                                <div class="so-color">(+11.65)</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
             <div id="pa_content">
                 <div id="betting_record" class="tab_container tabBox">
                     <div class="hd recode-tab"> <!-- 投注记录切换tab -->
@@ -126,36 +82,7 @@
             </div>
             <footer id="pa_foot"></footer>
             <div class="so-shade"></div>
-            <!--玩法说明-->
-            <div class="so-pop-wanfa">
-                <div>
-                    <h2>重庆时时彩玩法说明<a></a></h2>
-                    <div>
-                        <div>
-                            <h3>一、两面玩法</h3>
-                            <p>开奖结果万位、仟位、佰位、拾位或个位数
-                                字为1、3、5、7、9时为“单”，若为0、2、
-                                4、6、8时为“双”，当投注位数单双与开
-                                奖结果的位数单双相符时，即为中奖。
-                                五字和数单双：加总当期开奖结果五个彩球
-                                号码，以其加总值的单双作为开奖依据，当
-                                投注之注项与开奖结果相符时，即为中奖。</p>
-                            <h3>二、1-5 球玩法说明</h3>
-                            <p>开奖结果万位、仟位、佰位、拾位或个位数
-                                字为1、2、3、5、7时为“质数”，若为0、
-                                4、6、8、9时为“合数”，当投注位数质合
-                                与开奖结果的位数质合相符时，即为中奖。
-                                ※举例：投注者购买个位质，当期开奖结果
-                                如为20957（7为质），则视为中奖。开奖结
-                                果万仟位、万佰位、万拾位、万个位、仟佰
-                            </p>
-                            <h3>三、前中后玩法说明</h3>
-                            <p>开奖结果万位、仟位、佰位、拾位或个位数 字为1、2、3、5、7时为“质数”，若为0、 4、6、8、9时为“合数”，当投注位数质</p>
-                        </div>
-                    </div>
-                    <a>确定</a>
-                </div>
-            </div>
+
 
         </div>
         <div id="page1" style="display: none" class="body">
@@ -168,12 +95,12 @@
             <section class="wraper-page-inner">
                 <div class="bet_dt_area">
                     <div class="period">
-                        <span>
-                            <b class="lt_ty">重庆时时彩</b>
-                            第
-                            <strong class="periods">20170715086</strong>
-                            期
-                        </span>
+                    <span>
+                        <b class="lt_ty">重庆时时彩</b>
+                        第
+                        <strong class="periods">20170715086</strong>
+                        期
+                    </span>
                         <span class="bet_status status_gray">等待开奖 </span>
                     </div>
                     <div class="bet_nlist">
@@ -194,13 +121,13 @@
                             <li>
                                 <span>方案编号</span>
                                 <span class="so-orderId">
-                                    ZCQWE1707146548
-                                    <small>(追号方案)</small>
-                                </span>
+
+                                <small>(追号方案)</small>
+                            </span>
                             </li>
                             <li>
                                 <span>投注金额</span>
-                                <span class="ui_color_yellow so-betAmount">200,002.00</span>
+                                <span class="ui_color_yellow so-betAmount"> </span>
                             </li>
                             <li>
                                 <span>我的投注</span>
@@ -208,7 +135,7 @@
                             </li>
                             <li>
                                 <span></span>
-                                <span class="ui_color_yellow so-betContent">0,1,8,6,3</span>
+                                <span class="ui_color_yellow so-betContent"> </span>
                             </li>
                         </ul>
                     </div>
@@ -218,6 +145,8 @@
                 </div>
             </section>
             <div class="so-shade"></div>
+
+
         </div>
 
     </div>
@@ -225,16 +154,367 @@
 </template>
 
 
-
 <script>
-export default {
-  name: 'Index',
-  mounted:function() {
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    import Mixin from '@/Mixin'
+    import '../../../static/js/swiper-3.4.2.jquery.min.js'
+  //  import '../../../static/js/betting_record.js'
+    export default {
+        name: 'dslong',
+        mixins:[Mixin],
+        data :function() {
+            return {
+                seadata:{},
+                lotteryid:'',
+            }
+        },
+        mounted:function() {
+            // var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+            this.lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+            var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
+            $('.lottery_name').html(lotteryname+' 投注记录') ;
+
+            var mainView = 0;
+            var nowDate = new Date();
+           this.seadata = {
+                page: 1, // 页数，从1开始
+                pageSize: 10, // 每页行数
+                searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
+                statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中，5和局
+                // lotteryId: lotteryid , // 彩种ID
+                pdate: '' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate(),
+            };
+            // 标签切换锁
+            var tableLock = 0;
+           // 投注详情
+            var touzhuXQ = {};
+
+           // 下拉加载
+            var restr = '';// 网页html缓存
+            var lock = 0;
+            var soyeScroll = new soyeScroll('.bet_data') ;
+            soyeScroll.init(function () {
+                if (this.lock === 0) {
+                    this.lock = 1;
+                    restr = '';
+                    this.getBetRecord(); // 投注记录
+                }
+            });
+
+            var ding = 0;
+            var mySwiperRecode = new Swiper('#swiper1', {
+                // autoplay: 5000,//可选选项，自动滑动
+                onSlideChangeStart: function (swiper) {
+                    var index = swiper.activeIndex
+                    this.seadata.statusType = index + 1
+                    this.seadata.page = 1
+                    this.initView()
+                    $('#betting_record .recode-tab .tab_mid  li').each(function (i, t) {
+                        if (i === index) {
+                            $(t).addClass('on')
+                                .siblings()
+                                .removeClass('on');
+                        }
+                    })
+                },
+            })
+            var mySwiperTrack = null;
+
+
+            this.setMenuAction() ;
+            this.initView() ;
+            this.changeTabRecord() ;
+
+        },
+        methods:{
+            //筛选下拉单
+       setMenuAction:function () {
+        $( ".dropdown_icon,.btn_outline" ).click(function() {
+            $( ".dropdown" ).slideToggle( "fast", function() {
+            });
+            $('.so-shade').fadeToggle("fast", "linear");
+        });
+        var lottery_name ;
+        $('.play_area').on('click','li',function () {
+            $(this).addClass('active').siblings().removeClass('active') ;
+            var val = $(this).data('val') ;
+            this.lotteryid = val ;
+            lottery_name = $(this).find('a').text() ;
+        });
+        //确定提交
+        $('.btn_submit').on('click',function () {
+            $('.lottery_name').html(lottery_name+' 投注记录'); // 彩种名称
+            this.getBetRecord() ;
+            $( ".dropdown" ).slideToggle( "fast", function() {
+            });
+            $('.so-shade').fadeToggle("fast", "linear");
+
+        }) ;
+    },
+            // 下拉加载更多
+     soyeScroll:function(selector) {
+        this.selector = selector;
+        this.init = function (cb) {
+            var selector = this.selector;
+            var that = this;
+            var arr = selector.split(' ');
+            selector = arr.join('');
+            var doc = '';
+            if (selector.indexOf('.') === 0) {
+                selector = selector.substring(1, selector.length);
+                doc = document.getElementsByClassName(selector);
+                if (doc === null) {
+                    console.error('soyeScroll errorMsg: this class is undefined!');
+                    return;
+                }
+                doc = doc[doc.length - 1];
+                // console.log(thisHeight + ':' + thisX);
+                window.onscroll = function () {
+                    var thisClientHeight = document.body.clientHeight;
+                    var thisScrollHeight = document.body.scrollHeight;
+                    // console.log(thisScrollHeight + ':' + (thisClientHeight + that.getScrollTop()));
+                    if (thisScrollHeight - 100 <= (thisClientHeight + that.getScrollTop())) {
+                        cb();
+                    }
+                };
+            } else if (selector.indexOf('#') === 0) {
+                selector = selector.substring(1, selector.length);
+                doc = document.getElementById(selector);
+                if (doc === null) {
+                    console.error('soyeScroll errorMsg: this id is undefined!');
+                    return;
+                }
+                var thisHeight = doc.style.height;
+                var thisX = doc.getBoundingClientRect().left;
+                // console.log(thisHeight + ':' + thisX);
+            }
+        };
+        this.getScrollTop = function () {
+            var scrollTop = 0;
+            var bodyScrollTop = 0;
+            var documentScrollTop = 0;
+            if (document.body) {
+                bodyScrollTop = document.body.scrollTop;
+            }
+            if (document.documentElement) {
+                documentScrollTop = document.documentElement.scrollTop;
+            }
+            scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+            return scrollTop;
+        };
+    },
+       initView:function() {
+        $('.tab_content').html('');
+        var nowDate = new Date();
+        var restr = '';
+        for (var i = 0; i < 3; i++) {
+            var pdate = '' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日';
+            var first_li = '';
+            if (i === 0) {
+                first_li = 'first_li';
+            }
+            restr += '<li class="slide_toggle bet_day new_bet_day ' + first_li + '" data-page="1" data-val="' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate() + '">' +
+                '<div class="panel_title"> <strong class="title-data">' + pdate + '</strong><span></span> </div>' +
+                '<ul class="panel bet-recode-all"></ul></li>';
+            nowDate.setDate(nowDate.getDate() - 1);
+        }
+        $('.tab_content')
+            .append(restr);
+        var DateclassName = '';
+        if (this.seadata.searchType === 1) {
+            DateclassName = '.tab_content_1 .slide_toggle'
+        } else {
+            DateclassName = '.tab_track_1 .slide_toggle'
+        }
+        $(DateclassName).each(function (i, t) {
+            if ($(t).attr('class')
+                    .indexOf('active') < 0 && i % 3 === 0) {
+                $(t).addClass('active')
+                    .siblings()
+                    .removeClass('active');
+                $(t).find('ul')
+                    .show();
+                $(t).siblings()
+                    .find('ul')
+                    .hide();
+            }
+        });
+        this.getBetRecord();
+        this.initDateMeun();
+    },
+
+       getBetRecord:function() {
+        $('.so-zzjz').remove()
+        $('.bet-recode-all')
+            .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">正在加载...</li>');
+        this.seadata.lotteryId = this.lotteryid , // 彩种ID
+            $.ajax({
+                type: 'post',
+                headers: {
+                    'Authorization': 'bearer ' +  this.getAccessToken(access_token) ,
+                },
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8', // json格式传给后端
+                url: action.forseti + 'api/orders/orderList',
+                data: JSON.stringify(this.seadata), // json格式
+                success: function (res) {
+                    $('.so-zzjz').remove();
+                    var data = res.data.rows;
+                    if (data.length === 0) {
+                        $('.bet-recode-all')
+                            .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>');
+                    } else {
+                        lock = 0;
+                    }
+                    // console.log(seadata.pdate + '[' + seadata.page + ']');
+                    $('.new_bet_day').each(function (i, t) {
+                        touzhuXQ = data;
+                        $.each(data, function (j, v) {
+                            if ($(t).data('val') === v.pdate) {
+                                var jsonStr = '';
+                                var li_html = '';
+                                // var pcode = ('' + v.pcode).substring(8, 11);
+                                var pcode = ('' + v.pcode).substring(0, 11);
+                                var className = 'status0';
+                                var payoff = ''
+                                switch (parseInt(v.orderStatus)) {
+                                    case 32:
+                                        className = 'status02';
+                                        payoff = fortMoney(roundAmt(v.payoff), 2) + '元'
+                                        break;
+                                    case 4:
+                                    case 5:
+                                    case 6:
+                                    case 71:
+                                    case 81:
+                                        className = 'status04';
+                                        break;
+                                    case 33: // 和局
+                                        className = 'status00';
+                                        break;
+                                }
+                                if (this.seadata.searchType === 1) {
+                                    li_html = '<li class="bet_data" data-status="not_open">' +
+                                        '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
+                                        '<div class="prd_num"><span>' + pcode + '</span>期</div>'+
+                                        '<div class="item"> '+
+                                        '<div class="badge ssc_badge lottery_logo_'+this.lotteryid+'"></div>' +
+                                        '<div class="lottery_t ssc">' +
+                                        '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                        '<div class="status ' + className + '" >' +
+                                        '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                        '</div>'+
+                                        '</a></li>';
+                                    // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
+                                }
+                                $(t).find('ul')
+                                    .append(li_html);
+                            }
+                        });
+                    });
+                    this.seadata.page++;
+                },
+                error: function () {
+                    // error
+                },
+            });
+    },
+ // 标签切换
+      changeTabRecord:function () {
+          $('#tabs > div').click(function () {
+              $(this).addClass('active')
+                  .siblings()
+                  .removeClass('active');
+              if ($(this).index()) {
+                  // 追号
+                  $('#betting_record').hide()
+                  $('#trace_record').show()
+                  this.seadata.searchType = 2;
+                  this.seadata.page = 1;// 页数，从1开始
+                  // initZhuihao()
+              } else {
+                  // 投注
+                  $('#betting_record').show()
+                  $('#trace_record').hide()
+                  seadata.searchType = 1;
+                  seadata.page = 1;// 页数，从1开始
+              }
+              restr = '';// 网页html缓存
+              this.initView()
+          });
+          $('.tab_mid > li').click(function () {
+              $(this).addClass('on')
+                  .siblings()
+                  .removeClass('on');
+              var num = parseInt($(this).index(), 10);
+              switch (num) {
+                  case 0:
+                      this.seadata.statusType = 1
+                      if (this.seadata.searchType === 1) {
+                          mySwiperRecode.slideTo(0, 200, false);
+                      } else {
+                          mySwiperTrack.slideTo(0, 200, false);
+                      }
+                      break
+                  case 1:
+                      this.seadata.statusType = 2
+                      if (this.seadata.searchType === 1) {
+                          mySwiperRecode.slideTo(1, 200, false);
+                      } else {
+                          mySwiperTrack.slideTo(1, 200, false);
+                      }
+                      break
+                  case 2:
+                      seadata.statusType = 3
+                      if (seadata.searchType === 1) {
+                          mySwiperRecode.slideTo(2, 200, false);
+                      } else {
+                          mySwiperTrack.slideTo(2, 200, false);
+                      }
+                      break
+                  case 3:
+                      this.seadata.statusType = 4
+                      if (this.seadata.searchType === 1) {
+                          mySwiperRecode.slideTo(3, 200, false);
+                      } else {
+                          mySwiperTrack.slideTo(3, 200, false);
+                      }
+                      break
+              }
+              this.seadata.page = 1
+              this.initView()
+          });
+
+      },
+// 日期标签
+     initDateMeun:function() {
+        $('.tab_content .slide_toggle').each(function (i, t) {
+            $(t).unbind('click');
+            $(t).click(function () {
+                this.seadata.page = 1;
+                if ($(this).attr('class')
+                        .indexOf('active') < 0) {
+                    $(this).addClass('active')
+                        .siblings()
+                        .removeClass('active');
+                    $(this).find('ul')
+                        .show();
+                    $(this).siblings()
+                        .find('ul')
+                        .hide();
+                    this.seadata.pdate = $(this).data('val');
+                    this.getBetRecord(); // 投注记录
+                } else {
+                    $(this).removeClass('active');
+                    $(this).find('ul')
+                        .hide();
+                }
+            });
+        });
+    },
+
+
+
+        },
+
     }
-  }
-}
 </script>
