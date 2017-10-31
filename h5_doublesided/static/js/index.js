@@ -11,7 +11,7 @@ $(function () {
     initTipPop02();
     initTipPop03();
 
-    LoginAction();
+
     getLotterys('.all_lottery') ; // 获取彩种
     initChoiceObj() ; // 球点击处理
     initPopEve(2) ; // 表单提交判断
