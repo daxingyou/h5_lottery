@@ -175,9 +175,12 @@ function LoginAction() {
         }
     });
 }
-
+function fdfgfg() {
+    alert('hfdjk ')
+}
 // 获取彩种
 function getLotterys(all) {
+
     $.ajax({
         type: 'GET',
         url: action.forseti + 'apis/lotterys',
@@ -187,12 +190,45 @@ function getLotterys(all) {
             var allstr = '';  // 全部彩种
 
             $.each(res.data, function (i, v) { // 通过 v.cid 跳转到每个彩种
-                allstr +=' <li>'+
-                    '<div class="badge">'+
+                var lotteryid = v.cid.toString() ;  // 要转换字符串
+                var hrefUrl = '' ;
+                switch (lotteryid) {
+                    case '1':  // 重庆时时彩传统盘
+                       // hrefUrl = '../web_cqssc' ;
+                        hrefUrl = 'web_cqssc' ;
+                        break;
+                    case '2':  // 重庆时时彩双面盘
+                        hrefUrl = 'web_cqssc' ;
+                        break;
+                    case '3':  // 江西11选5传统盘
+                        hrefUrl = 'web_jc11x5' ;
+                        break;
+                    case '4':  // 江西11选5双面盘
+                        hrefUrl = 'web_jc11x5' ;
+                        break;
+                    case '7':  // 北京pk10传统盘
+                        hrefUrl = 'web_pk10' ;
+                        break;
+                    case '8':  // 北京pk10双面盘
+                        hrefUrl = 'web_pk10' ;
+                        break;
+                    default:
+                        hrefUrl = '' ;
+                        break ;
+                }
+                allstr += ' <li >' ;
+                        if(all =='.lobby_all_lottery'){  // 大厅首页情况下 跳转
+                            allstr += ' <a class="to_lottery" href="'+hrefUrl+'"> ' ;
+                        }else{  // 各彩种 跳转
+                            allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> ' ;
+                        }
+                allstr += '<div class="badge">'+
                     '<img src="'+v.imgUrl+'" alt="">'+
                     '</div>'+
+                    '</a> '+
                     '<p>'+ v.name +'</p>'+
                     '</li>' ;
+
             });
 
             $(all).html(allstr);
