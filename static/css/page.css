@@ -514,7 +514,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
-#road01 .tab_content, #road02 .tab_content { overflow: auto; white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; }
+#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; }
 
 #road01 .tab_content_out, #road02 .tab_content_out { display: none; }
 

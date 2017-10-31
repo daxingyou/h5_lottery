@@ -406,7 +406,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
-#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; }
+#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ }
 
 #so-item2.jc115 > .hd ul.tab_mid { background-color: transparent; border-radius: 100px; }
 
@@ -427,5 +427,3 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 .back_home a span { vertical-align: middle; display: inline-block; margin-right: 0.2rem; height: 0.7rem; line-height: 0.7rem; }
 
 .back_home a span img { height: 100%; }
-
-/*# sourceMappingURL=style.css.map */
