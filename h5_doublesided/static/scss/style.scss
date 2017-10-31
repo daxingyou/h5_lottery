@@ -236,9 +236,11 @@
                     div:first-child {
                         ul li {
                             float: right;
-                            background: url(../images/main/qiu.png) no-repeat;
-                            background-size: 1.1rem;
-                            background-position: 0.15rem;
+                            background: url('../../static/images/content/qui02.png') no-repeat;
+                            // background-size: 1.1rem;
+                            // background-position: 0.15rem;
+                            background-size: 1.2rem;
+                            background-position: 0.1rem 0.09rem;
                             display: block;
                             width: 1.3rem;
                             height: 1.3rem;
@@ -508,7 +510,12 @@
                 //display: none;
                 padding-bottom: .2rem;
                 span:first-child {
-                    background: url("../images/content/zhunxing.png") no-repeat;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem -1.22rem;
+                    // background: url("../images/content/zhunxing.png") no-repeat;
                     //background-position: 0.33rem -0.01rem;
                     // background-size: 0.85rem;
                     // display: block;
@@ -517,8 +524,8 @@
                     // font-size: 0.52rem;
                     // line-height: .8rem;
                     // color: #fffbe2;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -539,12 +546,12 @@
             }
             p.active {
                 span:first-child {
-                    background: url("../images/content/qiu.png") no-repeat;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
                     // background-position: 0.28rem -0.06rem;
                     // background-size: 0.96rem;
                     // font-size: 0.52rem;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem 0.09rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1522,6 +1529,9 @@ img.bet_ok {
             width: 100% !important;
             overflow:auto;/* winphone8和android4+ */
             -webkit-overflow-scrolling: touch; /* ios5+ */
+            position: relative;
+            top:inherit;
+            left: inherit;
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;

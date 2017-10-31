@@ -78,7 +78,7 @@
 
 .so-con .so-in-main > div .so-main-top .so-m-t-right { width: 6.58rem; height: 100%; }
 
-.so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li { float: right; background: url(../images/main/qiu.png) no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+.so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li { float: right; background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 .so-con .so-in-main > div .so-main-top .so-m-t-right div:last-child ul { margin-left: 0.4rem; }
 
@@ -146,11 +146,11 @@
 
 #so-item1 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; padding-bottom: .2rem; }
 
-#so-item1 ul li > div > div p span:first-child { background: url("../images/content/zhunxing.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
-#so-item1 ul li > div > div p.active span:first-child { background: url("../images/content/qiu.png") no-repeat; background-size: 1.1rem; background-position: 0.15rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item2 ul li > div { width: 7rem; height: 4.74rem; background: url(../images/content/kuang.png) no-repeat; background-size: 8.4rem 4.84rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
 
@@ -406,7 +406,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 #so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
-#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ }
+#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; }
 
 #so-item2.jc115 > .hd ul.tab_mid { background-color: transparent; border-radius: 100px; }
 
@@ -427,3 +427,5 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 .back_home a span { vertical-align: middle; display: inline-block; margin-right: 0.2rem; height: 0.7rem; line-height: 0.7rem; }
 
 .back_home a span img { height: 100%; }
+
+/*# sourceMappingURL=style.css.map */
