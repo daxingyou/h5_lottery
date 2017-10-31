@@ -1519,7 +1519,8 @@ img.bet_ok {
         ul{
             white-space: nowrap;
             width: 100% !important;
-            overflow: auto;
+            overflow:auto;/* winphone8和android4+ */
+            -webkit-overflow-scrolling: touch; /* ios5+ */
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;

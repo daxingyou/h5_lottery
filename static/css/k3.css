@@ -48,13 +48,11 @@
 
 #k3 .k3_panel.style1 h2 { background-image: url(../images/content/panel_header_1.png); }
 
-#k3 .play_th ul { margin-top: 0.05rem; }
-
-#k3 .play_th ul li { width: 0.5rem; margin-right: 0.15rem; font-size: 0.3rem; line-height: 1.3em; }
+#k3 .play_th ul { margin-top: 0.05rem; float: right; }
 
 #k3 .lo_ball { margin-left: 0; margin-top: 0.4rem; }
 
-#k3 .lo_ball li { background: none; width: 0.792rem; height: 0.72rem; }
+#k3 .lo_ball li { background: none; width: 1rem; height: 1rem; margin: 0px 0.3rem; }
 
 #k3 .lo_ball li span { display: block; }
 
