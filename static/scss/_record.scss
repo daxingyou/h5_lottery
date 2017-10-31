@@ -108,6 +108,7 @@
 .tab_content{
     // margin: 0 .8rem;
     padding: 0 0.3rem;
+    margin-top: 1.5rem;
 }
 .bet_day{
     // border: 1px solid #DDE2E6;
@@ -357,8 +358,8 @@ ul.lo_ball{
     margin-top: .1rem;
     >li{
         background: url('../../static/images/content/qui02.png') no-repeat;
-        background-size: 1.2rem;
-        background-position: 0.1rem 0.09rem;
+        background-size: 1.1rem;
+        background-position: 0.05rem 0.01rem;
         // background-image: url('../../static/images/content/qiu.png');
         // background-repeat: no-repeat;
         // background-size: 1.1rem;
@@ -370,7 +371,7 @@ ul.lo_ball{
         text-align: center;
         line-height: 1.1rem;
         text-indent: 0.1rem;
-        background-position: 0.05rem;
+        //background-position: 0.05rem;
     }
 }
 ul.no_open{
@@ -399,6 +400,7 @@ i.prd{
 .ds_long{
     padding: .2rem 0;
     color: #fff;
+    margin-top: 1.5rem;
     ul.lo_ball{
         width: 2.5rem;
         &.two{ //寫js去判斷內容物數量超過1增加這個class
@@ -487,6 +489,7 @@ i.prd{
         padding: 0;
         display: block;
         text-align: right;
+        margin-top: 0;
     }
     .tab_content_out{
         display: none;
@@ -827,4 +830,7 @@ ul.sixball{
         }
     }
 
+}
+.double-all{
+    margin-top: 3rem;
 }
