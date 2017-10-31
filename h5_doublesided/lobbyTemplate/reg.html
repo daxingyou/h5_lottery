@@ -75,8 +75,9 @@
     <script>
         //切換表格眼睛
         $(function () {
-            $(".eye").on("click", function () {
-                $(".eye").toggleClass("active", 1000);
+            $(".password .eye").on("click", function () {
+                $(this).toggleClass("active", 1000);
+                $('.password input').attr('type','text');
             });
         });
     </script>
