@@ -97,7 +97,7 @@ export default {
                   type: 'GET',
                   async:false,
                   url: action.forseti + 'apis/lotterys',
-                  data: {},
+                  data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
                   dataType: 'json',
                   success:(res)=> {
                       this.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
