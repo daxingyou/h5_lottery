@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; overflow: hidden !important; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; }
 
 body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 

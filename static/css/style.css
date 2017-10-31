@@ -120,7 +120,7 @@
 
 .so-in-top-sum { color: #fdf19b; text-align: center; z-index: 2; display: block; margin-top: -0.04rem; font-size: .32rem; border: solid 0.02rem #2d3755; background-color: #0d141c; border-left: hidden; border-radius: 0.1rem; padding-right: 0.1rem; position: relative; left: 1rem; padding: .05rem .1rem .05rem .4rem; top: -.03rem; }
 
-#so-item0 ul li > div, #so-item0.jc115 ul li ul li > div { width: 7rem; height: 5rem; background: url(../../static/images/content/kuang.png) no-repeat; background-size: 8.4rem 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
+#so-item0 ul li > div, #so-item0.jc115 ul li ul li > div { width: 7rem; height: 5rem; background: url("../../static/images/content/kuang.png") no-repeat; background-size: 8.4rem 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
 
 #so-item0 ul li > div > h2, #so-item0.jc115 ul li ul li > div > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
 
@@ -132,7 +132,7 @@
 
 #so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child { float: right; }
 
-#so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active { background: url(../../static/images/content/changkuang.png) no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
+#so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active { background-color: #e5a52f; border: solid 0.01rem transparent; }
 
 #so-item0 ul li > div > div p.active > span:first-child, #so-item0.jc115 ul li ul li > div > div p.active > span:first-child { color: #010101; }
 
