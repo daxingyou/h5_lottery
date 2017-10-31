@@ -341,7 +341,6 @@
             height: 100%;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            -webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
             > ul {
                 li {
@@ -369,7 +368,6 @@
             //overflow-y: auto;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            -webkit-overflow-scrolling: auto;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;
