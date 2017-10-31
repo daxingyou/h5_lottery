@@ -3,6 +3,8 @@
 html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
+    height: 100% !important;
+    overflow: hidden !important;
 }
 body{
     width: 100%;
@@ -84,7 +86,7 @@ input,select,button,a{
     // position: relative;
     // z-index: 11;
     position: fixed;
-    z-index: 13;
+    z-index: 50;
     width: 10rem;
     &:after{
         display: block;

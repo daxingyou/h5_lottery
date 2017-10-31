@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; overflow: hidden !important; }
 
 body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
@@ -31,7 +31,7 @@ input, select, button, a { outline: none; }
 
 #pa_con .so-right > div:first-child img { right: 0.49rem; }
 
-#pa_head { overflow: hidden; height: 1.5rem; background-color: #0a1625; color: #d7e8f0; font-size: .4rem; position: fixed; z-index: 13; width: 10rem; }
+#pa_head { overflow: hidden; height: 1.5rem; background-color: #0a1625; color: #d7e8f0; font-size: .4rem; position: fixed; z-index: 50; width: 10rem; }
 
 #pa_head:after { display: block; clear: both; content: ""; }
 

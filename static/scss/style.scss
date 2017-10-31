@@ -211,6 +211,7 @@
                         line-height: 1.4rem;
                         text-align: right;
                         margin-right: 0.12rem;
+                        white-space: nowrap;
                     }
                     div:last-child {
                         p {
@@ -339,6 +340,8 @@
             background-color: #19222f;
             height: 100%;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
             > ul {
                 li {
@@ -365,6 +368,8 @@
             height: 100%;
             //overflow-y: auto;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;
