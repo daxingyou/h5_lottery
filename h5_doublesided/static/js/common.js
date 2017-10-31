@@ -1108,10 +1108,8 @@ function loadRoadAction(lotteryid,maxtime) {
         timeout: 600000,
         data: senddata ,
         success: function (data) {
-           // console.log(data.data.total_size) ;
-            roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小  (pk10 冠亚和大小)
-            roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双  (pk10 冠亚和单双)
-            roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+          // console.log(data.data.size_5) ;
+
             roadDomAction(data.data.size_1,'road02_1 .dx_size') ;  // 第一球大小 (pk10 冠军)
             roadDomAction(data.data.sd_1,'road02_1 .ds_dx') ;  // 第一球单双 (pk10 冠军)
             roadDomAction(data.data.size_2,'road02_2 .dx_size') ;  // 第二球大小 (pk10 亚军)
@@ -1123,6 +1121,8 @@ function loadRoadAction(lotteryid,maxtime) {
             roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
             roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
             if(lotteryid == '8'){  // 北京pk 10
+                roadDomAction(data.data.top2_size,'road01_1') ;  // (pk10 冠亚和大小)
+                roadDomAction(data.data.top2_sd,'road01_2') ;  // (pk10 冠亚和单双)
                 roadDomAction(data.data.size_6,'road02_6 .dx_size') ;  // (pk10 第六名)
                 roadDomAction(data.data.sd_6,'road02_6 .ds_dx') ;  // (pk10 第六名)
                 roadDomAction(data.data.size_7,'road02_7 .dx_size') ;  // (pk10 第七名)
@@ -1133,6 +1133,15 @@ function loadRoadAction(lotteryid,maxtime) {
                 roadDomAction(data.data.sd_9,'road02_9 .ds_dx') ;  // (pk10 第九名)
                 roadDomAction(data.data.size_10,'road02_10 .dx_size') ;  // (pk10 第十名)
                 roadDomAction(data.data.sd_10,'road02_10 .ds_dx') ;  // (pk10 第十名)
+            }else if(lotteryid == '4'){ // 江西11选5
+                roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+                roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+                roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+                roadDomAction(data.data.totalEnd_size,'road01_4') ;  // 总和尾大小
+            }else{
+                roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+                roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+                roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
             }
 
 
@@ -1250,9 +1259,3 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
     });
 }
 
-/*
-* 解决iOS浏览器touch+click事件延迟，需载入fastclick.js
-* */
-$(function() {
-    FastClick.attach(document.body);
-});

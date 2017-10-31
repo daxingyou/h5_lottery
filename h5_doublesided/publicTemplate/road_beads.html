@@ -17,6 +17,7 @@
         #road01 {
             margin-top: 2rem;
         }
+
     </style>
 </head>
 <body>
@@ -41,6 +42,7 @@
                 <ul class="tab tab01 tab_mid tab_three">
                     <li class="on" data-tab="road01_1" data-val="1"><a href="javascript:;">总和大小</a></li>
                     <li data-tab="road01_2" data-val="1"><a href="javascript:;">总和单双</a></li>
+                    <li data-tab="road01_4" data-val="1" class="jxsyxw_tab" style="display: none ;"><a href="javascript:;">总和尾大小</a></li>
                     <li data-tab="road01_3" data-val="1"><a href="javascript:;">龙 虎</a></li>
                 </ul>
             </div>
@@ -351,6 +353,7 @@
                         </ul>
                     </li>-->
                 </ul>
+                <ul id="road01_4" class="tab_content tab_content_out"> </ul>
             </div>
         </div>
         <div id="road02" class="tab_container tabBox">
@@ -1425,6 +1428,7 @@
     </div>
     <script src="../static/js/jquery-1.7.min.js"></script>
     <script src="../static/js/config.js"></script>
+    <script src="../static/js/fastclick.js"></script>
     <script src="../static/js/common.js"></script>
 
     <script>
@@ -1432,6 +1436,9 @@
             var lotteryid = getCookie('lt_lotteryid') ; // 彩种 id
             var lotteryname = getCookie('lottery_name') ; // 彩种 名称
             $('.lottery_name').html(lotteryname+' 路珠') ;
+            if(lotteryid == '4'){ // 江西11选5
+                $('.jxsyxw_tab').show() ;
+            }
             loadRoadAction(lotteryid,'') ;
 
             // 标签切换
