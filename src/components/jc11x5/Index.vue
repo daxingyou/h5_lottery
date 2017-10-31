@@ -1242,7 +1242,7 @@
                         <img src="/static/images/pop/title_end.png">
                         <img src="/static/images/page/status03.svg">
                     </div>
-                    请至下期继续投注
+                    <span>请至下期继续投注</span>
                 </div>
             </div>
         </div>

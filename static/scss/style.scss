@@ -11,7 +11,7 @@
         width: 8.7rem;
         height: 100%;
         position: fixed;
-        z-index: 11;
+        z-index: 51;
         top: 0;
         left: -100%;
         //animation: so-left 1s;
@@ -236,9 +236,11 @@
                     div:first-child {
                         ul li {
                             float: right;
-                            background: url(../images/main/qiu.png) no-repeat;
-                            background-size: 1.1rem;
-                            background-position: 0.15rem;
+                            background: url('../../static/images/content/qui02.png') no-repeat;
+                            // background-size: 1.1rem;
+                            // background-position: 0.15rem;
+                            background-size: 1.2rem;
+                            background-position: 0.1rem 0.09rem;
                             display: block;
                             width: 1.3rem;
                             height: 1.3rem;
@@ -341,7 +343,7 @@
             height: 100%;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            -webkit-overflow-scrolling: auto;
+           //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
             > ul {
                 li {
@@ -369,7 +371,7 @@
             //overflow-y: auto;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            -webkit-overflow-scrolling: auto;
+            //-webkit-overflow-scrolling: auto;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;
@@ -384,15 +386,25 @@
                 // background-size: 100%;
                 >li {
                     display: block;
-                    height: 4.98rem;
+                    //height: 4.98rem;
                     // background: url('../images/content/li-bg.jpg') no-repeat;
                     // background-size: 100%;
-                    padding-top: 0.2rem;
-                    > div:after {
-                        content: "";
-                        display: block;
-                        clear: both;
-                    }
+                    padding-top: 0.5rem;
+                    // > div:after {
+                    //     // content: "";
+                    //     // display: block;
+                    //     // clear: both;
+                    //     content: '';
+                    //     display: block;
+                    //     position: absolute;
+                    //     width: 7rem;
+                    //     bottom: -3px;
+                    //     clear: both;
+                    //     background: url('../images/content/panel_footer.png') no-repeat;
+                    //     background-size: 100% 100%;
+                    //     height: 0.4rem;
+                    //     margin-top: -0.4rem;
+                    // }
                 }
             }
         }
@@ -426,28 +438,37 @@
 #so-item0 ul li {
     > div {
         width: 7rem;
-        height: 5rem;
-        background: url('../../static/images/content/kuang.png') no-repeat;
-        background-size: 8.4rem 5rem;
-        background-position-x: -1.1rem;
+        //height: 5rem;
+        //background: url('../../static/images/content/kuang.png') no-repeat;
+        // background-size: 8.4rem 5rem;
+        // background-position-x: -1.1rem;
         text-align: center;
         margin: auto;
         > h2 {
             color: #ffffff;
             font-size: .4rem;
             line-height: 1.12rem;
+            background: url('../images/content/panel_header.png') no-repeat;
+            background-size: 100% 100%;
+            line-height: 0.9rem;
         }
         > div {
-            padding: 3%;
+            //padding: 3%;
             //width: 94%;
-            height: 3.1rem;
+            //height: 3.1rem;
+            background: url('../images/content/panel_body.png') no-repeat;
+            background-size: 100% 100%;
+            padding: 4% 0 3.5%;
+            height: auto;
+            margin: 0px auto;
+            overflow: hidden;
             p {
                 float: left;
                 border: solid 0.01rem #277ca5;
                 height: 0.85rem;
                 width: 3rem;
                 margin-bottom: 4%;
-                margin-left: 3.5%;
+                margin-left: 4.5%;
                 display: none;
                 span {
                     color: $bluetext;
@@ -463,10 +484,10 @@
                 }
             }
             p.active {
-                // background: url('../../static/images/content/changkuang.png') no-repeat;
-                // background-size: 3.06rem 0.9rem;
-                // background-position: -0.01rem;
-                background-color: #e5a52f;
+                background: url('../../static/images/content/changkuang.png') no-repeat;
+                background-size: 3.06rem 0.9rem;
+                background-position: -0.01rem;
+                // background-color: #e5a52f;
                 border: solid 0.01rem rgba(0,0,0,0);
                 >span {
                     &:first-child {
@@ -477,16 +498,32 @@
                     }
                 }
             }
+            &:after {
+                // content: "";
+                // display: block;
+                // clear: both;
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7rem;
+                bottom: -3px;
+                clear: both;
+                background: url('../images/content/panel_footer.png') no-repeat;
+                background-size: 100% 100%;
+                height: 0.4rem;
+                margin-top: -0.4rem;
+            }
         }
+
     }
 }
 #so-item1 ul li {
     > div {
         width: 7rem;
-        height: 5rem;
-        background: url(../images/content/item1kuang.png) no-repeat;
-        background-size: 7.3rem 5rem;
-        background-position-x: -0.15rem;
+        //height: 5rem;
+        //background: url(../images/content/item1kuang.png) no-repeat;
+        // background-size: 7.3rem 5rem;
+        // background-position-x: -0.15rem;
         text-align: center;
         margin: auto;
         > h2 {
@@ -495,12 +532,22 @@
             line-height: 1.12rem;
             text-align: left;
             text-indent: 0.4rem;
+            background: url('../images/content/panel_header_1.png') no-repeat;
+            background-size: 100% 100%;
+            line-height: 0.9rem;
         }
         > div {
-            padding: 0% 3%;
+            //padding: 0% 3%;
             //width: 94%;
-            height: 3.1rem;
-            margin-top: -.1rem;
+            //height: 3.1rem;
+            // margin-top: -.1rem;
+            background: url('../images/content/panel_body.png') no-repeat;
+            background-size: 100% 100%;
+            padding: 3% 0 3%;
+            height: auto;
+            margin: 0px auto;
+            overflow: hidden;
+            padding-left: .2rem;
             p {
                 float: left;
                 height: 1.65rem;
@@ -508,7 +555,12 @@
                 //display: none;
                 padding-bottom: .2rem;
                 span:first-child {
-                    background: url("../images/content/zhunxing.png") no-repeat;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem -1.22rem;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    // background: url("../images/content/zhunxing.png") no-repeat;
                     //background-position: 0.33rem -0.01rem;
                     // background-size: 0.85rem;
                     // display: block;
@@ -517,8 +569,8 @@
                     // font-size: 0.52rem;
                     // line-height: .8rem;
                     // color: #fffbe2;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -539,12 +591,12 @@
             }
             p.active {
                 span:first-child {
-                    background: url("../images/content/qiu.png") no-repeat;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
                     // background-position: 0.28rem -0.06rem;
                     // background-size: 0.96rem;
                     // font-size: 0.52rem;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem 0.09rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -555,29 +607,55 @@
                     text-indent: 0.1rem;
                 }
             }
+            &:after {
+                // content: "";
+                // display: block;
+                // clear: both;
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7rem;
+                bottom: -3px;
+                clear: both;
+                background: url('../images/content/panel_footer.png') no-repeat;
+                background-size: 100% 100%;
+                height: 0.4rem;
+                margin-top: -0.4rem;
+                overflow: hidden;
+                margin-left: -.2rem;
+            }
         }
     }
 }
 #so-item2 ul li {
     > div {
         width: 7rem;
-        height: 4.74rem;
-        background: url(../images/content/kuang.png) no-repeat;
-        background-size: 8.4rem 4.84rem;
-        background-position-x: -1.1rem;
+        //height: 4.74rem;
+       // background: url(../images/content/kuang.png) no-repeat;
+        // background-size: 8.4rem 4.84rem;
+        // background-position-x: -1.1rem;
         text-align: center;
         margin: auto;
         > h2 {
             color: #ffffff;
             font-size: .4rem;
             line-height: 1.12rem;
+            background: url('../images/content/panel_header.png') no-repeat;
+            background-size: 100% 100%;
+            line-height: 0.9rem;
         }
         > div {
-            padding: 3%;
+            //padding: 3%;
             //width: 94%;
-            height: 3.1rem;
+            //height: 3.1rem;
+            background: url('../images/content/panel_body.png') no-repeat;
+            background-size: 100% 100%;
+            padding: 3% 0 3%;
+            height: auto;
+            margin: 0px auto;
+            overflow: hidden;
             p.active {
-                background: url(../images/content/changkuang.png) no-repeat;
+                background: url('../images/content/changkuang.png') no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
                 border: solid 0.01rem rgba(0,0,0,0);
@@ -614,6 +692,23 @@
                     }
                 }
             }
+            &:after {
+                // content: "";
+                // display: block;
+                // clear: both;
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7rem;
+                bottom: -3px;
+                clear: both;
+                background: url('../images/content/panel_footer.png') no-repeat;
+                background-size: 100% 100%;
+                height: 0.4rem;
+                margin-top: -0.4rem;
+                overflow: hidden;
+                margin-left: -.2rem;
+            }
         }
     }
 }
@@ -622,7 +717,7 @@
     > div {
         width: 7rem;
         height: 3.74rem;
-        background: url(../../static/images/content/kuang.png) no-repeat;
+        //background: url(../../static/images/content/kuang.png) no-repeat;
         background-size: 8.4rem 3.74rem;
         background-position-x: -1.1rem;
         text-align: center;
@@ -1298,24 +1393,24 @@ img.bet_ok {
 #so-item0.jc115 ul li {
     @extend #so-item0;
     &.first_ball{
-        margin-top: 1.5rem;
+       // margin-top: 1.5rem;
     }
     &:first-child{
         >div{
-            background-size: 8.4rem 6.5rem;
-            height: 6.5rem;
+            // background-size: 8.4rem 6.5rem;
+            // height: 6.5rem;
             >h2{
-                line-height: 1.5rem;
+                //line-height: 1.5rem;
             }
             >div{
-                padding: 2% 3%;
+                //padding: 2% 3%;
             }
         }
 
     }
     > div {
         > div {
-            padding: 3%;
+            //padding: 3%;
             min-height: 2.1rem;
             p {
                 span {
@@ -1348,23 +1443,34 @@ img.bet_ok {
 }
 #so-item1.jc115 ul li {
     // margin-top: 1.7rem;
-    height: 6.6rem;
+    //height: 6.6rem;
     &:first-child{
         margin-top:0;
     }
     > div {
-        width: 100%;
-        height: 6.74rem;
-        background: url('../images/content/jc115_ball_bg.png') no-repeat;
-        background-size: 110% 6.84rem;
-        background-position-x: -0.9rem;
+        width: 7rem;
+       //width: 100%;
+        //height: 6.74rem;
+        //background: url('../images/content/jc115_ball_bg.png') no-repeat;
+        // background-size: 110% 6.84rem;
+        // background-position-x: -0.9rem;
         text-align: center;
         margin: auto;
+       
         > h2 {
-            padding-left: 3%;
+            //padding-left: 3%;
+            // background: url('../images/content/panel_header_1.png') no-repeat;
+            // background-size: 100% 100%;
+            // line-height: 0.9rem;
         }
         > div {
-            padding-left: 5%;
+            //padding-left: 5%;
+            // background: url('../images/content/panel_body.png') no-repeat;
+            // background-size: 100% 100%;
+            // padding: 3% 3% 0;
+            // height: auto;
+            // margin: 0px auto;
+            // overflow: hidden;
             p {
                 float: left;
                 height: 1.65rem;
@@ -1372,9 +1478,12 @@ img.bet_ok {
                 display: none;
                 padding-bottom: .2rem;
                 span:first-child {
-                    background: url("../images/content/zhunxing.png") no-repeat;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background: url("../images/content/zhunxing.png") no-repeat;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem -1.22rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1395,9 +1504,12 @@ img.bet_ok {
             }
             p.active {
                 span:first-child {
-                    background: url("../images/content/qiu.png") no-repeat;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background: url("../images/content/qiu.png") no-repeat;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem 0.09rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1416,16 +1528,16 @@ img.bet_ok {
 }
 #so-item2.jc115 ul li {
     // margin-top: 1.7rem;
-    height: 6.6rem;
+    //height: 6.6rem;
     &:first-child{
         margin-top:0;
     }
     > div {
-        width: 100%;
-        height: 6.74rem;
-        background: url('../images/content/jc115_ball_bg.png') no-repeat;
-        background-size: 110% 6.84rem;
-        background-position-x: -0.9rem;
+        width: 7rem;
+       // height: 6.74rem;
+        //background: url('../images/content/jc115_ball_bg.png') no-repeat;
+        // background-size: 110% 6.84rem;
+        // background-position-x: -0.9rem;
         // width: 7.4rem;
         // height: 7.74rem;
         // background: url(../images/content/jc115_ball_bg.png) no-repeat;
@@ -1434,16 +1546,19 @@ img.bet_ok {
         text-align: center;
         margin: auto;
         > h2 {
-            padding-left: 3%;
+            //padding-left: 3%;
             color: $yellow;
             font-size: .4rem;
             line-height: 1.12rem;
             text-align: left;
             text-indent: 0.4rem;
+            background: url('../images/content/panel_header_1.png') no-repeat;
+            background-size: 100% 100%;
+            line-height: 0.9rem;
         }
         > div {
             padding: 0 3%;
-            padding-left: 5%;
+            //padding-left: 5%;
             p {
                 float: left;
                 height: 1.65rem;
@@ -1455,9 +1570,12 @@ img.bet_ok {
                 margin-bottom: 0;
                 margin-left: 0;
                 span:first-child {
-                    background: url("../images/content/zhunxing.png") no-repeat;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background: url("../images/content/zhunxing.png") no-repeat;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem -1.22rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1482,9 +1600,12 @@ img.bet_ok {
                 background: none;
                 border:none;
                 span:first-child {
-                    background: url("../images/content/qiu.png") no-repeat;
-                    background-size: 1.1rem;
-                    background-position: 0.15rem;
+                    // background: url("../images/content/qiu.png") no-repeat;
+                    // background-size: 1.1rem;
+                    // background-position: 0.15rem;
+                    background: url('../../static/images/content/qui02.png') no-repeat;
+                    background-size: 1.2rem;
+                    background-position: 0.1rem 0.09rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
@@ -1522,6 +1643,9 @@ img.bet_ok {
             width: 100% !important;
             overflow:auto;/* winphone8和android4+ */
             -webkit-overflow-scrolling: touch; /* ios5+ */
+            position: relative;
+            top:inherit;
+            left: inherit;
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;
@@ -1549,6 +1673,7 @@ img.bet_ok {
     .bd{
         .tab_content{
             padding: 0;
+            margin-top: .3rem;
             li{
                 padding-top: 0;
             }
