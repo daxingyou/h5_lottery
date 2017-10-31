@@ -211,6 +211,7 @@
                         line-height: 1.4rem;
                         text-align: right;
                         margin-right: 0.12rem;
+                        white-space: nowrap;
                     }
                     div:last-child {
                         p {
@@ -339,6 +340,8 @@
             background-color: #19222f;
             height: 100%;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
             > ul {
                 li {
@@ -365,6 +368,8 @@
             height: 100%;
             //overflow-y: auto;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: auto;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;
@@ -422,7 +427,7 @@
     > div {
         width: 7rem;
         height: 5rem;
-        background: url(../../static/images/content/kuang.png) no-repeat;
+        background: url('../../static/images/content/kuang.png') no-repeat;
         background-size: 8.4rem 5rem;
         background-position-x: -1.1rem;
         text-align: center;
@@ -458,9 +463,10 @@
                 }
             }
             p.active {
-                background: url(../../static/images/content/changkuang.png) no-repeat;
-                background-size: 3.06rem 0.9rem;
-                background-position: -0.01rem;
+                // background: url('../../static/images/content/changkuang.png') no-repeat;
+                // background-size: 3.06rem 0.9rem;
+                // background-position: -0.01rem;
+                background-color: #e5a52f;
                 border: solid 0.01rem rgba(0,0,0,0);
                 >span {
                     &:first-child {
@@ -755,7 +761,7 @@
                 color: #fff;
                 font-size: 0.36rem;
                 position: relative;
-                top: 1.8rem;
+                top: 2.1rem;
             }
         }
     }
@@ -1011,27 +1017,50 @@ img.bet_ok {
     display: none;
     position: fixed;
     z-index: 13;
-    background: url("../images/pop/popkuang.png") no-repeat;
-    background-size: 100%;
-    text-align: center;
-    width: 8.2rem;
-    height: 7.6rem;
-    top: 25%;
-    left: 0.9rem;
-    h2 {
-        line-height: 1.1rem;
-        color: #ffffff;
+    // background: url("../images/pop/popkuang.png") no-repeat;
+    // background-size: 100%;
+    // text-align: center;
+    // width: 8.2rem;
+    // height: 7.6rem;
+    // top: 25%;
+    // left: 0.9rem;
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+    background-color: rgba(#0f1015,0.8);
+    border: 2px solid #277ca5;
+    // position: relative;
+    top:25%;
+    left: 50%;
+    margin-left: -40%;
+    &:after{
+        @include pseudo;
+        @include background-image ('m_bot.png',0,transparent);
+        bottom: -.15rem;
+        top: initial;
+        height: .7rem;
+        width: 100%;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: -50%;
+    }
+    >h2{
+        @include background-image ('m_top.png',0,transparent);
+        width: 100%;
+        height: .82rem;
         font-size: .4rem;
-        position: relative;
-        left: 0.5rem;
-        a {
-            content: "";
-            display: block;
-            width: 1rem;
-            height: 1rem;
-            float: right;
-            position: relative;
-            right: 0.7rem;
+        text-align: center;
+        line-height: .82rem;
+        margin-top: -.05rem;
+        >a{
+            width: 1.5rem;
+            height: .82rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        &.noclose{
+            @include background-image ('m_top_noclose.png',0,transparent);
         }
     }
     > p {
@@ -1052,7 +1081,7 @@ img.bet_ok {
             height: 3.1rem;
             p {
                 display: block;
-                background: url(../images/pop/local_video_list_bottom_light_down.png) no-repeat;
+                background: url('../images/bottom_line.png') no-repeat;
                 background-size: 100% auto;
                 background-position-y: 0.5rem;
                 height: 1rem;
@@ -1070,83 +1099,105 @@ img.bet_ok {
         color: white;
         font-size: .34rem;
         line-height: 1rem;
-        background: url(../images/pop/local_video_list_bottom_light.png) no-repeat;
-        background-size: 100% auto;
-        background-position-y: 0.05rem;
-        margin-top: 0.3rem;
+        -ms-transform: rotate(-360deg); /* IE 9 */
+        -webkit-transform: rotate(-360deg); /* Chrome, Safari, Opera */
+        transform: rotate(-360deg);
+        //margin-top: 0.3rem;
         span {
             color: $yellow;
         }
+        &:before{
+            @include pseudo;
+            background: url('../images/bottom_line.png') no-repeat;
+            background-size: 100% auto;
+            background-position-y: -0.25rem;
+            -ms-transform: rotate(360deg); /* IE 9 */
+            -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+            transform: rotate(360deg);
+            width: 100%;
+            height: 1rem;
+        }
     }
+
     a {
         margin: 0.1rem;
         width: 2.31rem;
         height: .7rem;
         display: inline-block;
-    }
-}
-.so-pop-xxx {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 10rem;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 13;
-    div {
-        height: 5.55rem;
-        width: 8.22rem;
-        background: url("../images/pop/popkuang3.png");
-        background-size: 100%;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        top: 25%;
-        h2 {
-            font-size: 0.4rem;
-            color: white;
-            line-height: 1rem;
-            >a {
-                content: "";
-                display: block;
-                width: 1rem;
-                height: 1rem;
-                float: right;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+        line-height: .7rem;
+        margin-bottom: .5rem;
+        &.ok{
+            @include background-image ('btn_ok.png',0,transparent);
+            background-size: 100% 100%;
         }
-        img {
-            width: 1rem;
-            margin-top: 0.5rem;
-        }
-        p {
-            display: block;
-            width: 6rem;
-            text-align: center;
-            margin: auto;
-            color: $red;
-            font-size: 0.34rem;
-            margin-top: 0.4rem;
-            line-height: 1.5em;
-        }
-        >a {
-            display: block;
-            background: url("../images/pop/lan.png") no-repeat;
-            background-size: 100%;
-            width: 2.31rem;
-            height: 0.74rem;
-            text-align: center;
-            margin: auto;
-            margin-top: 0.3rem;
-            line-height: 0.74rem;
-            font-size: 0.34rem;
-            color: white;
+        &.cancle{
+            @include background-image ('btn_cancle.png',0,transparent);
+            background-size: 100% 100%;
         }
     }
 }
+// .so-pop-xxx {
+//     display: none;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 10rem;
+//     height: 100%;
+//     background-color: rgba(0,0,0,0.6);
+//     z-index: 13;
+//     div {
+//         height: 5.55rem;
+//         width: 8.22rem;
+//         background: url("../images/pop/popkuang3.png");
+//         background-size: 100%;
+//         margin: auto;
+//         text-align: center;
+//         position: relative;
+//         top: 25%;
+//         h2 {
+//             font-size: 0.4rem;
+//             color: white;
+//             line-height: 1rem;
+//             >a {
+//                 content: "";
+//                 display: block;
+//                 width: 1rem;
+//                 height: 1rem;
+//                 float: right;
+//                 position: absolute;
+//                 right: 0;
+//                 top: 0;
+//             }
+//         }
+//         img {
+//             width: 1rem;
+//             margin-top: 0.5rem;
+//         }
+//         p {
+//             display: block;
+//             width: 6rem;
+//             text-align: center;
+//             margin: auto;
+//             color: $red;
+//             font-size: 0.34rem;
+//             margin-top: 0.4rem;
+//             line-height: 1.5em;
+//         }
+//         >a {
+//             display: block;
+//             background: url("../images/pop/lan.png") no-repeat;
+//             background-size: 100%;
+//             width: 2.31rem;
+//             height: 0.74rem;
+//             text-align: center;
+//             margin: auto;
+//             margin-top: 0.3rem;
+//             line-height: 0.74rem;
+//             font-size: 0.34rem;
+//             color: white;
+//         }
+//     }
+// }
 .modal.so-pop-wanfa {
     display: none;
     position: fixed;
@@ -1469,7 +1520,8 @@ img.bet_ok {
         ul{
             white-space: nowrap;
             width: 100% !important;
-            overflow: auto;
+            overflow:auto;/* winphone8和android4+ */
+            -webkit-overflow-scrolling: touch; /* ios5+ */
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;

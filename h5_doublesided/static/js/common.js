@@ -30,6 +30,14 @@ function getCookie (name) {
     }
     return '';
 }
+//清除所有cookie函数
+function clearAllCookie() {
+    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    if(keys) {
+        for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+    }
+}
 
 // 时间戳转换
 function formatTimeUnlix (v) {
@@ -156,35 +164,22 @@ function getAccessToken(access_token) {
 
 }
 
-
-// 登录接口
-function LoginAction() {
-    $.ajax({
-        type: 'post',
-        headers: {Authorization: 'Basic d2ViX2FwcDo='},
-        url: action.uaa + 'oauth/token',
-        // data: { grant_type :'password',username :'mgappid01|frank456',password :'frank456' } ,
-        data: {grant_type: 'password', username: 'bcappid02|admin', password: 'admin'},
-        success: function (res) {
-            access_token = res.access_token;
-            setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-            setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
-        },
-        error: function () {
-
-        }
-    });
+// 判断用户是否登录
+function ifLogined() { // 判断是否登录
+    if (this.getCookie('username') && this.getCookie('access_token')) {
+        return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
+    } else {
+        return false;
+    }
 }
-function fdfgfg() {
-    alert('hfdjk ')
-}
+
 // 获取彩种
 function getLotterys(all) {
 
     $.ajax({
         type: 'GET',
         url: action.forseti + 'apis/lotterys',
-        data: {},
+        data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
         dataType: 'json',
         success: function (res) {
             var allstr = '';  // 全部彩种
@@ -391,7 +386,7 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
             type: 'get',
             url: action.forseti + 'apis/serverCurrentTime',
             headers: {
-                'Authorization': 'bearer  ' + access_token
+                'Authorization': 'bearer  ' + getAccessToken(access_token) ,
             },
             timeout: 30000,
             data: {} ,
@@ -884,7 +879,7 @@ function submitAction(lotteryid) {
     $.ajax({
         type: 'POST',
         headers: {
-            'Authorization': 'bearer  ' + access_token,
+            'Authorization': 'bearer  ' + getAccessToken(access_token) ,
             // 'sourceType':'2', // 1是pc端，2是h5
             // 'sideType':'1',  // 1是传统盘，2是双面盘
         },

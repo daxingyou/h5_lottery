@@ -219,7 +219,8 @@ hr {
  */
 
 pre {
-  overflow: auto;
+    overflow:auto;/* winphone8和android4+ */
+    -webkit-overflow-scrolling: touch; /* ios5+ */
 }
 
 /**
@@ -397,7 +398,8 @@ legend {
  */
 
 textarea {
-  overflow: auto;
+    overflow:auto;/* winphone8和android4+ */
+    -webkit-overflow-scrolling: touch; /* ios5+ */
 }
 
 /**

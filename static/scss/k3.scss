@@ -1,3 +1,4 @@
+@charset "utf-8";
 @import "variable";
 
 .k3_clear:after{
@@ -128,12 +129,13 @@
     .play_th {
         ul{
             margin-top: 0.05rem;
-            li{
-                width: 0.5rem;
-                margin-right: 0.15rem;
-                font-size: 0.3rem;
-                line-height: 1.3em;
-            }
+            float: right;
+            // li{
+            //     width: 0.5rem;
+            //     margin-right: 0.15rem;
+            //     font-size: 0.3rem;
+            //     line-height: 1.3em;
+            // }
         }
     }
     .lo_ball{
@@ -141,8 +143,9 @@
         margin-top: 0.4rem;
         li{
             background: none;
-            width: 0.792rem;
-            height: 0.72rem;
+            width: 1rem;
+            height: 1rem;
+            margin: 0px 0.3rem;
             span{
                 display: block;
             }

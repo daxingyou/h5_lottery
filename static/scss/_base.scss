@@ -3,6 +3,8 @@
 html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
+    height: 100% !important;
+    //overflow: hidden !important;
 }
 body{
     width: 100%;
@@ -84,7 +86,7 @@ input,select,button,a{
     // position: relative;
     // z-index: 11;
     position: fixed;
-    z-index: 13;
+    z-index: 50;
     width: 10rem;
     &:after{
         display: block;
@@ -491,7 +493,7 @@ label{
 .modal{
     display: none;
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 10rem;
     height: 100%;
@@ -518,6 +520,7 @@ label{
             font-size: .4rem;
             text-align: center;
             line-height: .77rem;
+            margin-top: -.05rem;
             >a{
                 width: 1.5rem;
                 height: .77rem;
@@ -543,7 +546,9 @@ label{
                 margin: 0 auto;
                 text-align: center;
                 >img{
-                    width: 90%;
+                    width: 80%;
+                    display: block;
+                    margin: 0 auto;
                     &:last-child{
                         width: 15%;
                     }
@@ -577,6 +582,10 @@ label{
             >p{
                 text-align: left;
             }
+            >span{
+                display: inline-block;
+                margin: .5rem 0;
+            }
         }
         >.action{
             width: 100%;
@@ -606,7 +615,7 @@ label{
         &:after{
             @include pseudo;
             @include background-image ('m_bot.png',0,transparent);
-            bottom: -21px;
+            bottom: -.15rem;
             top: initial;
             height: .7rem;
             width: 100%;
