@@ -40,7 +40,7 @@
                     <div class="so-main-top">
                         <div class="so-m-t-left">
                             <div>
-                                第 <span class="last-date"> </span> 期 <!-- 上期 -->
+                                第 <span class="last-date">{{previous_pcode}}</span> 期 <!-- 上期 -->
                             </div>
                             <div>
                                  <a href="/publicTemplate/pastView">
@@ -53,6 +53,7 @@
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul>
+                                    <li v-for="item in winNumber.split(',')">{{item}}</li>
                                    <!-- <li>8</li>
                                     <li>7</li>
                                     <li>6</li>
@@ -62,6 +63,10 @@
                             </div>
                             <div class="last-open-dou">
                                 <ul>
+                                    <li>{{lastTermStatic.total}}</li>' ;
+                                    <li>{{lastTermStatic.sizer}}</li>' ;
+                                    <li>{{lastTermStatic.longer}}</li>' ;
+                                    <li>{{lastTermStatic.doubler}}</li>
                                   <!--  <li>21</li>
                                     <li>小</li>
                                     <li>单</li>
@@ -70,11 +75,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="so-main-down">
+                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                        @countdownOver="playLottery"
+                        @entertainCountdownOver="entertain"
+                        :now_pcode="now_pcode"
+                        :start="sys_time" :end="now_time" :overend="nowover_time" />
+                    <!-- <div class="so-main-down">
                         <ul>
                             <li>
                                 <p>
-                                    第 <span class="now-date"> </span> 期  <!-- 当前期 -->
+                                    第 <span class="now-date">{{now_pcode}}</span> 期  
                                 </p>
                             </li>
                             <li>
@@ -88,7 +98,7 @@
                                 <a class="open-time">00:00</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="so-in-con">
@@ -231,9 +241,9 @@
         </div> -->
 
         <!--封盘底部遮挡-->
-         <!-- <div class="so-fengpan">
+         <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
-        </div>  -->
+        </div> 
 
         <!--请输入投注金额-->
         <div class="popup so-tip-pop so-tip-pop-04">
@@ -273,7 +283,7 @@
         <!-- 确认对话框API
             text  对话框提示内容
         -->
-        <InfoDialog ref="infoDialog" text="请您继续投注111" />
+        <InfoDialog ref="infoDialog" text="请您继续投注" />
 
         <!--自动关闭（闪屏）对话框API
             属性
@@ -307,6 +317,7 @@ import UserMenu from '@/components/publicTemplate/UserMenu'
 import InfoDialog from '@/components/publicTemplate/InfoDialog'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
+import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
@@ -315,24 +326,99 @@ import Mixin from '@/Mixin'
 export default {
   name: 'Index',
   mixins:[Mixin],
+  components: {
+    CountdownTimer,
+    BetSuccessfulDialog,
+    Bet,
+    UserNavigation,
+    UserMenu,
+    InfoDialog, 
+    AutoCloseDialog,
+    PlayDialog
+  }, 
   data () {
     return {
         
-        now_pcode:0,  // 当前期数
         now_time:'',  // 当前期数销售截止时间
         nowover_time:'',  // 当前期数封盘时间
-        next_pcode:'',  // 下一期数销售截止时间
-        sys_time:'',  // 当前系统时间
+
+        next_pcode:'',  // 下一期数
+        now_pcode:0,  // 当前期数
+        previous_pcode:'',//上一期期数
+
+        winNumber:'',    //上期开奖号
+        lastTermStatic:'',  //上期开奖数据统计
+
+        sys_time :'',  // 当前系统时间
         now_day:'',  // 当前日期
         balanceData:{},
 
+        entertainStatus:false,
         betSelectedList:[],   //用户选中的注数
         playTreeList:[], //玩法树
         lotteryID:2,
         allLottery:{} ,
         gameHref:{} ,
+        testPriodDataNewlyData:{
+          "data" : [ {
+            "version" : 0,
+            "cid" : 22225,
+            "lotteryId" : 2,
+            "pcode" : 20171030083,
+            "startTime" : 1509363600000,
+            "endTime" : 1509364200000,
+            "status" : 0,
+            "pdate" : 20171030,
+            "prizeCloseTime" : 1509364155000,
+            "nextInterval" : 600,
+            "doubleData" : {
+              "doubler" : "-",
+              "longer" : "-",
+              "sizer" : "-",
+              "total" : "-"
+            }
+          }, {
+            "version" : 0,
+            "cid" : 22224,
+            "lotteryId" : 2,
+            "pcode" : 20171030082,
+            "startTime" : 1509363000000,
+            "endTime" : 1509363559999,      //1509363700000
+            "status" : 0,
+            "pdate" : 20171030,
+            "prizeCloseTime" : 1509363555000,
+            "nextInterval" : 600,
+            "doubleData" : {
+              "doubler" : "-",
+              "longer" : "-",
+              "sizer" : "-",
+              "total" : "-"
+            }
+          }, {
+            "version" : 0,
+            "cid" : 22223,
+            "lotteryId" : 2,
+            "pcode" : 20171030081,
+            "startTime" : 1509362400000,
+            "endTime" : 1509363000000,
+            "status" : 0,
+            "pdate" : 20171030,
+            "prizeCloseTime" : 1509362955000,
+            "nextInterval" : 600,
+            "winNumber" : "3,9,5,0,2",
+            "doubleData" : {
+              "doubler" : "单",
+              "longer" : "虎",
+              "sizer" : "小",
+              "total" : "19"
+            }
+          } ],
+          "err" : "SUCCESS",
+          "msg" : "",
+          "maxUpdateTime" : 1509363282484
+        }
     }
-  }, 
+  },
   created:function(){
     this.getMemberBalance().then(()=>{
         this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
@@ -347,93 +433,87 @@ export default {
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
 
     setTimeout(() => {
-        // 系统时间
-        this.getSystemTime(lotteryid).then((sys_time)=>{
-            this.priodDataNewly(lotteryid, sys_time)
-        }); 
- 
+        this.timerBegin();
     }, 500) ;
 
   },
   computed:{
     doubleSideList:function(){
-        return this.playTreeList.filter((item,i)=>{
-            return item.parentId == 21000;
-        });
+        return this.getListByParentID(21000); 
     },
     oneToFiveList:function(){
-        return this.playTreeList.filter((item,i)=>{
-            return item.parentId == 22000;
-        });
+        return this.getListByParentID(22000); 
     },
     frontCenterBackList:function(){
-        return this.playTreeList.filter((item,i)=>{
-            return item.parentId == 23000;
-        });
+        return this.getListByParentID(23000);
     },
   },
   methods:{
+    getListByParentID:function(parentID){
+        return this.playTreeList.filter((item,i)=>{
+            return item.parentId == parentID;
+        });
+    },
+    //开奖倒计时结束后处理
+    playLottery:function(){
+        this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+        this.timerBegin();
+    },
+    //封盘倒计时结束后处理
+    entertain:function(){
+        this.entertainStatus = true;
+        this.resetAction();
+    },
+    timerBegin:function(){
+        this.getSystemTime().then((sys_time)=>{
+            // sys_time = '2017-10-30 19:41:32';
+            // sys_time = '2017-10-30 19:39:10';
+            this.sys_time = sys_time;
+            this.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+                this.next_pcode = res.data[0].pcode;  // 下期期数
+                this.now_pcode = res.data[1].pcode;  // 当前期数
+                this.previous_pcode = res.data[2].pcode;  // 上期期数
+                // 当前期数时间
+                this.now_time = this.formatTimeUnlix(res.data[1].endTime);  
+                // 当前期封盘时间
+                this.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);  
+                // 当天日期
+                this.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                let code = res.data[2].winNumber;
+                //code 上期开奖号码
+                if (!code) {
+                    code = '-,中,奖,开,-';
+                }
+                this.winNumber = code;
+                //上期开奖统计
+                this.lastTermStatic = res.data[2].doubleData;
+
+                // this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                this.$refs.countdownTimer && this.$refs.countdownTimer.timerInit();
+            });
+        }); 
+        this.entertainStatus = false;
+    },
     resetAction:function(){
-        // debugger;
         this.betSelectedList = [];
         $(".so-con-right p").removeClass('active');
         this.getMemberBalance() ; // 更新余额
-
-        // $(".so-con-right p").each(function (i, t) {
-        //     $(this).removeClass('active') ;
-        //     $('.bet-select-num').text('0') ;
-        //     $('.bet-amount').val('') ;
-        // })
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
+        if (this.entertainStatus){
+            return false;
+        }
         var $src = $(e.currentTarget);
-            if ($src.prop('class').indexOf('active') < 0){
-                $src.addClass('active');
-                item.parentItem = parentItem;
-                this.betSelectedList.push(item);
-            }else{
-                $src.removeClass('active');
-                this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
-            }
-            
-            console.log(this.betSelectedList)
-
+        if ($src.prop('class').indexOf('active') < 0){
+            $src.addClass('active');
+            item.parentItem = parentItem;
+            this.betSelectedList.push(item);
+        }else{
+            $src.removeClass('active');
+            this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
+        }
     },
-    //响应Bet组件的开始下注动作，这是一个回调函数
-    // startBet:function(){
-        // return '111';
-        // var $that = $(e.currentTarget);
-        // var bet_num = $('.bet-select-num').text() ; // 总注数
-        // const bet_num = this.betSelectedNum;
-        // var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额，在bet模块取
-        // var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额，在bet模块计算
-
-        // var betstr = '' ;
-        // $(".so-con-right p").each(function (i, t) {
-        //     // 已选择的注单
-        //     if($that.hasClass('active')){
-        //         var total_title = $that.parents('.select-li').find('h2').text() ;  // 大标题
-        //         var total_con = $that.find('span:nth-child(1)').text() ;  // 投注内容
-        //         var total_mon = $that.find('span:nth-child(2)').text() ;  // 投注内容赔率
-        //         var total_id = $that.data('id') ;  // 投注内容玩法id
-        //         var total_type = $that.data('type') ;  // 投注内容玩法类型，组合是 zu_he
-        //         if(total_type){
-        //             betstr +='<p data-id="'+total_id+'" data-type="'+total_type+'">【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
-        //         }else{
-        //             betstr +='<p data-id="'+total_id+'" >【<span class="each-title">'+ total_title +'</span>-<span class="each-content">'+ total_con +'</span>】 @ <span class="each-times">'+ total_mon+'</span> x <span class="each-mon"> '+ bet_mon +'</span></p>' ;
-        //         }
-
-
-        //     }
-        // });
-        // $('.bet-go-list').html(betstr) ;
-
-        // // 总注数
-        // $('.total-bet-num').text(bet_num) ;
-        // // 总金额
-        // $('.total-bet-mon').text(all_bet_mon) ;
-    // },
     
     // 玩法树
     loadPlayTree:function(gameid) {
@@ -456,182 +536,33 @@ export default {
         });
         
     },
+
     // 最新开奖期数
     priodDataNewly:function(gameid, sys_time) {
-        $.ajax({
-            type: 'get',
-            headers: {
-                "Authorization": "bearer  " + this.getAccessToken(access_token),
-            },
-            url: action.forseti + 'api/priodDataNewly',
-            data: {lotteryId: gameid,},
-            success: (res) => {
-                if(res.data){
-                    this.next_pcode = res.data[0].pcode;  // 下一期数
-                    this.now_pcode = res.data[1].pcode;  // 当前期数
-                    this.now_time = this.formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
-                    this.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-                    this.now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-                    this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-
-                    setTimeout(() => {
-                        // 倒计时
-                        this.lt_timer(sys_time,this.now_time,this.nowover_time) ;
-                        $('.so-fengpan').hide() ; // 隐藏封盘容器
-                    }, 100)
-                }
-
-
-            },
-            error: function () {
-
-            }
-        });
-    },
-    //倒计时处理
-    lt_timer:function(start, end,overend) { // start服务器开始时间，end当前期开奖结束时间，overend 封盘结束时间
-        var lt_time_leave ;
-        var lt_time_leave_over ;
-        if (start == '' || end == '') {
-           lt_time_leave = 0;
-           lt_time_leave_over = 0;
-        } else {
-           lt_time_leave = (format(end).getTime() - format(start).getTime()) / 1000;//总秒数
-           lt_time_leave_over = (format(overend).getTime() - format(start).getTime()) / 1000;//总秒数
-        }
-
-        function fftime(n) {
-            return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
-        }
-
-        function format(dateStr) {//格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
-        }
-
-        function diff(t) {//根据时间差返回相隔时间
-            return t > 0 ? {
-                day: Math.floor(t / 86400),
-                hour: Math.floor(t % 86400 / 3600),
-                minute: Math.floor(t % 3600 / 60),
-                second: Math.floor(t % 60)
-            } : {day: 0, hour: 0, minute: 0, second: 0};
-        }
-        function _getSystemTime() { // 获取系统时间
+        return new Promise((resolve)=>{
+            // const res = this.testPriodDataNewlyData;
             $.ajax({
                 type: 'get',
-                url: action.forseti + 'apis/serverCurrentTime',
                 headers: {
-                    'Authorization': 'bearer  ' + access_token
+                    "Authorization": "bearer  " + this.getAccessToken(access_token),
                 },
-                timeout: 30000,
-                data: {} ,
-                success: (data) => { //成功
-                    // console.log(data) ;
-                   // sys_time = this.formatTimeUnlix(data.data); // 更新系统时间
-                    lt_time_leave = (format(this.now_time).getTime() - format(this.formatTimeUnlix(data.data)).getTime()) / 1000 ;
-                    lt_time_leave_over = (format(this.nowover_time).getTime() - format(this.formatTimeUnlix(data.data)).getTime()) / 1000 ;
+                url: action.forseti + 'api/priodDataNewly',
+                data: {lotteryId: gameid,},
+                success: (function(res) {
+                    if(res.data){
+                        resolve(res);
+                        
+                    }
+                }).bind(this),
+                error: function () {
 
                 }
             });
-        }
-
-        var timerno = window.setInterval(() => {
-            if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
-                _getSystemTime();
-
-            }
-
-            if (lt_time_leave <= 0) { // 开奖倒计时结束
-                clearInterval(timerno);
-                this.initBetPop01(3) ;
-                this.outTimeSet() ;
-                $('.so-fengpan').hide() ; // 隐藏封盘容器
-                console.log('停止当前期数');
-            }
-
-            var oDate = diff(lt_time_leave--);
-            var over_oDate = diff(lt_time_leave_over--);
-
-            // 开奖倒计时
-            $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
-            if(lt_time_leave_over <= 0){ // 封盘倒计时结束
-                $('.close-time').html('已封盘') ;
-                $('.so-fengpan').show() ;
-                this.resetAction() ;  //重置已选注单
-            }else{
-                // 封盘倒计时
-                $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
-            }
-
-
-        }, 1000);
-    },
-    //  开奖数据处理 ,issue 当前期数，lastissue 上期期数，code 上期开奖号码，double 上期开奖统计 
-    processCode:function(issue, lastissue,code,double) {
-        $('.last-date').html(lastissue) ;
-        $('.now-date').html(issue) ;
-        if (!code) {
-            code = '-,中,奖,开,-';
-        }
-        var code_arr = code.split(',');
-        var str = '';
-        //已开奖期号节点,开奖号码
-        for (var i = 0; i < code_arr.length; i++) {
-            str +='<li>'+ code_arr[i] +'</li>' ;
-        }
-        $('.last-open-num ul').html(str) ;
-        var dstr ='';
-        dstr +='<li>'+double.total+'</li>' ;
-        dstr +='<li>'+double.sizer+'</li>' ;
-        dstr +='<li>'+double.longer+'</li>' ;
-        dstr +='<li>'+double.doubler+'</li>' ;
-        $('.last-open-dou ul').html(dstr) ;
-
-    },
-
-    // 倒计时结束后处理
-    outTimeSet:function() {
-        // 拉取期数数据
-        var lotteryid = this.getCookie('lt_lotteryid') ;
-        $.ajax({
-            type: 'get',
-            headers: {
-                "Authorization": "bearer  " + this.getAccessToken(access_token),
-            },
-            url: action.forseti + 'api/priodDataNewly',
-            data: { lotteryId: lotteryid },
-            success: (res) => {  //成功
-                console.log('拉取期数成功');
-                // 开奖数据处理
-                this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-                this.getSystemTime(lotteryid);  // 获取当前系统时间
-
-                if (res == 'empty') {   //未到销售时间
-                    return false;
-                }
-
-            },
-            error: function () {  //失败
-
-                return false;
-            }
         });
+        
     },
-
-    // 本期投注已结束
-    initBetPop01:function(closet) {
-        this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
-
-        // $('.so-bet-end-pop').toggle();
-        // $('.so-shade').toggle();
-        // $('.so-bet-end-pop').click(function () {
-        //     $('.so-bet-end-pop').toggle();
-        //     $('.so-shade').toggle();
-        // });
-        // setTimeout(() => {
-        //     $('.so-bet-end-pop,.so-shade').hide() ;
-        // },closet*1000) ; // 自动关闭
-    },
+    
+    
     // 获取用户余额
     getMemberBalance:function (lotteryid) {
         return new Promise((resolve)=>{
@@ -660,15 +591,7 @@ export default {
     play:function(){
         this.$refs.playDialog.open()
     }
-  },
-  components: {
-    BetSuccessfulDialog,
-    Bet,
-    UserNavigation,
-    UserMenu,
-    InfoDialog, 
-    AutoCloseDialog,
-    PlayDialog
+
   }
 }
 </script>
