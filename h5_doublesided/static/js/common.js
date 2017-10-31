@@ -1016,13 +1016,14 @@ function doubleCount(lotteryid,rows,maxtime) {
                     '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
                     '<ul class="double-count">' ;
                 if(lotteryid == '8') {  // 北京pk10
+                    console.log('发给')
                    str += ' <li>'+data.data[i].doubleData.top2_total+'</li>'+
                     ' <li>'+data.data[i].doubleData.top2_sizer+'</li>'+
                     ' <li>'+data.data[i].doubleData.top2_doubler+'</li>'+
-                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' ;
-                    ' <li>'+data.data[i].doubleData.lh_4+'</li>' ;
-                    ' <li>'+data.data[i].doubleData.lh_3+'</li>' ;
-                    ' <li>'+data.data[i].doubleData.lh_2+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                    ' <li>'+data.data[i].doubleData.lh_4+'</li>' +
+                    ' <li>'+data.data[i].doubleData.lh_3+'</li>' +
+                    ' <li>'+data.data[i].doubleData.lh_2+'</li>' +
                     ' <li>'+data.data[i].doubleData.lh_1+'</li>' ;
                 }else{
                    str += ' <li>'+data.data[i].doubleData.total+'</li>'+
@@ -1048,8 +1049,11 @@ function doubleCount(lotteryid,rows,maxtime) {
                             '</ul>'+
                             '</li>' ;
             }
-        $('.double-all').html(str) ;
-
+          $('.double-all').html(str) ;
+            if(lotteryid =='8'){
+                $('.pk10_css').attr('href','../static/css/pk10.css') ;
+                $('body').attr('id','pk10') ;
+            }
 
         },
         error: function (data) {  // 错误提示
