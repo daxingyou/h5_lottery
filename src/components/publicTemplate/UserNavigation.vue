@@ -23,19 +23,25 @@
       <div class="so-l-c-con">
           <div>
                 <div class="back_home">
-                    <a href="/">
-                        <span><img src="/static/images/left/icon_home.png"></span>
+                  <router-link v-bind:to="'/'">
+                    <span><img src="/static/images/left/icon_home.png"></span>
                         <span>返回竞彩大厅</span>
-                    </a>
+                  </router-link>
                 </div>
               <ul>
                   <li v-for="lottery in allLottery">
-                      <a :href="'/'+gameHref[lottery.cid]">
+                    <router-link v-bind:to="'/'+gameHref[lottery.cid]">
+                      <div class="badge">
+                           <img :src="lottery.imgUrl" alt="">
+                      </div>
+                      <p>{{lottery.name}}</p>
+                    </router-link>
+                      <!-- <a :href="'/'+gameHref[lottery.cid]">
                           <div class="badge">
                                <img :src="lottery.imgUrl" alt="">
                           </div>
                           <p>{{lottery.name}}</p>
-                      </a>
+                      </a> -->
                   </li>
 
               </ul>
