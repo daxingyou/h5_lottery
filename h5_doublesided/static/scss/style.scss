@@ -427,7 +427,7 @@
     > div {
         width: 7rem;
         height: 5rem;
-        background: url(../../static/images/content/kuang.png) no-repeat;
+        background: url('../../static/images/content/kuang.png') no-repeat;
         background-size: 8.4rem 5rem;
         background-position-x: -1.1rem;
         text-align: center;
@@ -463,9 +463,10 @@
                 }
             }
             p.active {
-                background: url(../../static/images/content/changkuang.png) no-repeat;
-                background-size: 3.06rem 0.9rem;
-                background-position: -0.01rem;
+                // background: url('../../static/images/content/changkuang.png') no-repeat;
+                // background-size: 3.06rem 0.9rem;
+                // background-position: -0.01rem;
+                background-color: #e5a52f;
                 border: solid 0.01rem rgba(0,0,0,0);
                 >span {
                     &:first-child {
