@@ -9,7 +9,7 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入帐号" v-model="username">
+                            <input type="text" placeholder="请输入帐号" v-model="username" >
                             <i class="close"></i>
                         </div>
                         <label class="red">请输入4~15位帐号</label>
@@ -48,7 +48,7 @@ export default {
         }
     },
   mounted:function() {
-
+        this.username = 'bcappid02|admin' ;
   },
   methods: {
     // 登录接口 moved to 主页/index.vue
