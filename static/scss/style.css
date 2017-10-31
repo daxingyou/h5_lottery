@@ -160,7 +160,8 @@
           font-size: 0.34rem;
           line-height: 1.4rem;
           text-align: right;
-          margin-right: 0.12rem; }
+          margin-right: 0.12rem;
+          white-space: nowrap; }
         .so-con .so-in-main > div .so-main-top .so-m-t-left div:last-child p {
           display: block;
           background: url(../images/main/ckwq.png);
@@ -263,6 +264,8 @@
     background-color: #19222f;
     height: 100%;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
     padding-bottom: .8rem; }
     .so-con .so-in-con .so-con-left > ul li {
       display: block;
@@ -282,7 +285,9 @@
     width: 7.5rem;
     float: left;
     height: 100%;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto; }
     .so-con .so-in-con .so-con-right > div {
       padding-bottom: 2rem; }
     .so-con .so-in-con .so-con-right > div.active {
@@ -324,7 +329,7 @@
 #so-item0 ul li > div, #so-item0.jc115 ul li ul li > div {
   width: 7rem;
   height: 5rem;
-  background: url(../../static/images/content/kuang.png) no-repeat;
+  background: url("../../static/images/content/kuang.png") no-repeat;
   background-size: 8.4rem 5rem;
   background-position-x: -1.1rem;
   text-align: center;
@@ -355,9 +360,7 @@
         #so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child {
           float: right; }
     #so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active {
-      background: url(../../static/images/content/changkuang.png) no-repeat;
-      background-size: 3.06rem 0.9rem;
-      background-position: -0.01rem;
+      background-color: #e5a52f;
       border: solid 0.01rem rgba(0, 0, 0, 0); }
       #so-item0 ul li > div > div p.active > span:first-child, #so-item0.jc115 ul li ul li > div > div p.active > span:first-child {
         color: #010101; }
@@ -1115,7 +1118,10 @@ img.bet_ok {
   #so-item2.jc115 > .hd ul {
     white-space: nowrap;
     width: 100% !important;
-    overflow: auto; }
+    overflow: auto;
+    /* winphone8和android4+ */
+    -webkit-overflow-scrolling: touch;
+    /* ios5+ */ }
     #so-item2.jc115 > .hd ul.tab_mid {
       background-color: transparent;
       border-radius: 100px; }
