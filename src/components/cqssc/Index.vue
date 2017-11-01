@@ -104,9 +104,12 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li class="active">两面</li>
-                        <li>1-5球</li>
-                        <li>前中后</li>
+
+    
+
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+<!--                         <li>1-5球</li>
+                        <li>前中后</li> -->
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
@@ -359,6 +362,8 @@ export default {
         lotteryID:2,
         allLottery:{} ,
         gameHref:{} ,
+        kinds:['两面', '1-5球', '前中后'],
+
         testPriodDataNewlyData:{
           "data" : [ {
             "version" : 0,
@@ -423,6 +428,9 @@ export default {
     this.getMemberBalance().then(()=>{
         this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
     });
+
+
+
   },
   mounted:function() {
     var lotteryid = this.lotteryID ; // 彩种id
@@ -449,6 +457,14 @@ export default {
     },
   },
   methods:{
+    switchTab:function(e){
+        const $src = $(e.currentTarget);
+        const index = $src.index();
+        const $tabs = $('.so-con-right > div');
+        $tabs.hide();
+        $tabs.eq(index).show();
+        $src.addClass('active').siblings().removeClass('active')
+    },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
             return item.parentId == parentID;
@@ -521,9 +537,9 @@ export default {
             $.ajax({
                 type: 'get',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
+                    "Authorization": "bearer  " + this.getAccessToken,
                 },
-                url: action.forseti + 'api/playsTree',
+                url: this.action.forseti + 'api/playsTree',
                 data: {lotteryId: gameid,}, // 当前彩种id
                 success: (res) => {
                     this.playTreeList = res.data.childrens;
@@ -544,9 +560,9 @@ export default {
             $.ajax({
                 type: 'get',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
+                    "Authorization": "bearer  " + this.getAccessToken,
                 },
-                url: action.forseti + 'api/priodDataNewly',
+                url: this.action.forseti + 'api/priodDataNewly',
                 data: {lotteryId: gameid,},
                 success: (function(res) {
                     if(res.data){
@@ -569,11 +585,11 @@ export default {
             $.ajax({
                 type: 'GET',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
+                    "Authorization": "bearer  " + this.getAccessToken,
                 },
                 // dataType:'json',
                 // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                url: action.hermes + 'api/balance/get',
+                url: this.action.hermes + 'api/balance/get',
                 data: { lotteryId: lotteryid },
                 success: (res) => {
                     this.balanceData = res.data;

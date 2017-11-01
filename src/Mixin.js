@@ -9,19 +9,28 @@
 var MyMixin = {
     data:function(){
         return {
-            forseti: 'http://121.58.234.210:19091/forseti/',
-            uaa: 'http://121.58.234.210:19091/uaa/',
-            hermes: 'http://121.58.234.210:19091/hermes/',
-            // access_token:' ', 
+            action:{
+                forseti: 'http://121.58.234.210:19091/forseti/',
+                uaa: 'http://121.58.234.210:19091/uaa/',
+                hermes: 'http://121.58.234.210:19091/hermes/',
+            },
         }
     },
+    computed:{
+        // token 处理
+        getAccessToken:function() {
+            return this.getCookie("access_token");
+        },
+    },
+    // getAccessToken   methods:{
+
     methods:{
 
         ajax(userConfig){
             let config = {
                 type: 'get',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(''),
+                    "Authorization": "bearer  " + this.getAccessToken,
                 }
             }
             config = Object.assign(config, userConfig);
@@ -29,9 +38,9 @@ var MyMixin = {
             // $.ajax({
             //     type: 'get',
             //     headers: {
-            //         "Authorization": "bearer  " + this.getAccessToken(access_token),
+            //         "Authorization": "bearer  " + this.getAccessToken,
             //     },
-            //     url: action.forseti + 'api/priodDataNewly',
+            //     url: this.action.forseti + 'api/priodDataNewly',
             //     data: { lotteryId: lotteryid },
             //     success: (res) => {  //成功
             //         console.log('拉取期数成功');
@@ -72,12 +81,12 @@ var MyMixin = {
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken(access_token),
+                        "Authorization": "bearer  " + this.getAccessToken,
                     },
-                    url: action.forseti + 'apis/serverCurrentTime',
+                    url: this.action.forseti + 'apis/serverCurrentTime',
                     data: {},
                     success: (res) => {
-                        sys_time = this.formatTimeUnlix(res.data);
+                        const sys_time = this.formatTimeUnlix(res.data);
                         resolve(sys_time);
                     },
                     error: function () {
@@ -86,19 +95,6 @@ var MyMixin = {
                 });
 
             })
-        },
-
-        // token 处理
-        getAccessToken(access_token) {
-            if (access_token && access_token.length > 10) {
-                // console.log(access_token)
-                return access_token;
-            } else {
-                // console.log('从cookie');
-                var tmp = this.getCookie("access_token");
-                return tmp;
-            }
-
         },
 
         // 时间戳转换
@@ -212,12 +208,12 @@ var MyMixin = {
             return t.split("").reverse().join("") + "." + r;
         },
          ifLogined() { // 判断是否登录
-                if (this.getCookie('username') && this.getCookie('access_token')) {
-                    return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
-                } else {
-                    return false;
-                }
-            },
+            if (this.getCookie('username') && this.getCookie('access_token')) {
+                return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
+            } else {
+                return false;
+            }
+        },
     }
 };
 export default MyMixin;

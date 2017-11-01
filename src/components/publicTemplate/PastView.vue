@@ -84,11 +84,11 @@ export default {
         $.ajax({
             type: 'get',
             headers: {
-                'Authorization': 'bearer  ' + this.getAccessToken(access_token) ,
+                'Authorization': 'bearer  ' + this.getAccessToken ,
                 // 'sourceType':'2', // 1是pc端，2是h5
                 // 'sideType':'1',  // 1是传统盘，2是双面盘
             },
-            url: action.forseti + 'api/openNums/doubleCount',
+            url: this.action.forseti + 'api/openNums/doubleCount',
             timeout: 600000,
             data: senddata ,
             success: (data) => {

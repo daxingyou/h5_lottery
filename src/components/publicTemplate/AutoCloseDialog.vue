@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted:function() {
-    this.typeStr = type;
+    this.typeStr = this.type;
   },
   methods:{
     //打开弹窗

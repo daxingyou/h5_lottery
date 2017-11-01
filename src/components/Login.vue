@@ -69,7 +69,7 @@ export default {
         $.ajax({
             type: 'post',
             headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            url: action.uaa + 'oauth/token',
+            url: this.action.uaa + 'oauth/token',
             data: logindata ,
             success: (res) => {
                 this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
