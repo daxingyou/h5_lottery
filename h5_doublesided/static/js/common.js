@@ -696,11 +696,6 @@ function initPopEve(closet,content) {
     var settime = setTimeout(function () {
         $(".so-shade,.modal.m08").hide() ;
     },closet*1000) ;
-    // 关闭当前窗口
-    $(".so-pop a").click(function () {
-        $(".so-pop").toggle() ;
-        $(".so-shade").toggle() ;
-    }) ;
     // 投注金额提示弹窗关闭
     $(".modal.m08").click(function () {
         $(".modal.m08").toggle() ;
@@ -721,6 +716,14 @@ function betActionSubmit() {
             initPopEve(2,'请输入整数的投注金额，金额不能为0') ;
             return false;
         }
+        $(".so-pop").toggle() ;
+        $(".so-shade").toggle() ;
+        // 关闭当前窗口
+        $(".so-pop a").click(function () {
+            $(".so-pop").hide() ;
+            $(".so-shade").hide() ;
+        }) ;
+
         doCheckAction() ;  // 注单结算
     })
 
