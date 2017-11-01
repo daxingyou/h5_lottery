@@ -572,6 +572,8 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #betting_record { margin-top: 1.5rem; }
 
+#betting_record.ac_detial_area { margin-top: 3rem; }
+
 .lobby_past_view .prd_num { color: #fff; }
 
 .lobby_past_view .prd_num > span { font-size: .4rem; }

@@ -707,7 +707,7 @@
                 height: 0.4rem;
                 margin-top: -0.4rem;
                 overflow: hidden;
-                margin-left: -.2rem;
+                //margin-left: -.2rem;
             }
         }
     }
@@ -1301,7 +1301,7 @@ img.bet_ok {
     width: 10rem;
     height: 100%;
     background-color: rgba(0,0,0,0.6);
-    z-index: 13;
+    z-index: 50;
     >.m_content{
         top: 5%;
     }
