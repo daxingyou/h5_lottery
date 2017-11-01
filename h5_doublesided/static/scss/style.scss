@@ -371,7 +371,7 @@
             //overflow-y: auto;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            -webkit-overflow-scrolling: auto;
+            //-webkit-overflow-scrolling: auto;
             > div {
                 // display: none; //更改載入方式
                 padding-bottom: 2rem;

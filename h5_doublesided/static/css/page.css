@@ -139,7 +139,7 @@ h2 { font-weight: 300; }
 
 .slide_toggle.active .panel_title span { top: -.1rem; -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg); -ms-transform: rotate(360deg); transform: rotate(360deg); }
 
-.badge { width: 1.8rem; height: 1.8rem; border-radius: 100%; margin-right: 0.5714rem; background-image: url("../../static/images/page/logo_bg.png"); background-size: 100%; overflow: hidden; margin: 0 auto; position: relative; line-height: 1.8rem; }
+.badge { width: 2rem; height: 2rem; border-radius: 100%; margin-right: 0.5714rem; overflow: hidden; margin: 0 auto; position: relative; line-height: 1.8rem; margin-top: .3rem; }
 
 .badge:before { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1.15rem; height: 1.45rem; left: 0.575rem; margin-left: -0.43rem; vertical-align: middle; }
 
@@ -804,6 +804,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 .hotgame_area .badge > img { width: 100%; padding-top: .15rem; }
 
 .hotgame_area .badge:after { display: none; }
+
+.countdown { line-height: .5rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .login_area, .deposit_area { margin: 0 auto; margin-top: 4.5rem; position: relative; z-index: 50; width: 90%; }

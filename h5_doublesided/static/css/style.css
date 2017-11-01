@@ -106,7 +106,7 @@
 
 .so-con .so-in-con .so-con-left > ul li.active { background: url(../images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
 
-.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-overflow-scrolling: auto; }
+.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 
 .so-con .so-in-con .so-con-right > div { padding-bottom: 2rem; }
 

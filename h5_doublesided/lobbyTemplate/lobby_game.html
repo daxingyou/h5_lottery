@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>双面盘_遊戲大廳</title>
+    <title>双面盘_游戏大厅</title>
     <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
@@ -89,75 +89,95 @@
                 <!-- <a href="login.html">登录</a>
                 <a href="reg.html">注册</a> -->
                 <a class="login" href="info.html"><i></i></a>
-                <!-- <a class="guset" href="info_guest.html"><i></i>遊客</a> -->
+                <!-- <a class="guset" href="info_guest.html"><i></i>游客</a> -->
                 <a href="javascript:;">退出</a>
             </div>
         </header>
         <div id="index_content" class="content">
-            <section class="hotgame_area">
+            <section class="hotgame_area lobby_game">
                 <h3><img src="../static/images/title_hotgame.png" alt="热门游戏"></h3>
                 <ul>
                     <li>
-                        <div class="badge cqssc">
-                        </div>
-                        <p>重庆时时彩</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge cqssc">
+                            </div>
+                            <p>重庆时时彩</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge jc11x5">
-                        </div>
-                        <p>江西11选2</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge jc11x5">
+                            </div>
+                            <p>江西11选2</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge hksixlo">
-                        </div>
-                        <p>香港六合彩</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge hksixlo">
+                            </div>
+                            <p>香港六合彩</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge hljssc">
-                        </div>
-                        <p>黑龙江时时彩</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge hljssc">
+                            </div>
+                            <p>黑龙江时时彩</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge jxk3">
-                        </div>
-                        <p>江苏快3</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge jxk3">
+                            </div>
+                            <p>江苏快3</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge sd11x5">
-                        </div>
-                        <p>山东11选5</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge sd11x5">
+                            </div>
+                            <p>山东11选5</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge tjssc">
-                        </div>
-                        <p>天津时时彩</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge tjssc">
+                            </div>
+                            <p>天津时时彩</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge bjpk10">
-                        </div>
-                        <p>北京PK10</p>
-                        <div class="countdown">00:00:00</div>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge bjpk10">
+                            </div>
+                            <p>北京PK10</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
                     </li>
                     <li>
-                        <div class="badge others">
-                        </div>
-                        <p>其他游戏</p>
-                        <div class="countdown">00:00:00</div>
-                    </li>
+                        <a class="to_lottery" href="javascript:;">
+                            <div class="badge others">
+                            </div>
+                            <p>返回大厅</p>
+                            <div class="countdown">00:00:00</div>
+                        </a>
+                   </li>
                     <!-- <li>
+                        <a href="">
                         <div class="badge xjssc">
                         </div>
                         <p>新疆时时彩</p>
                     </li>
                     <li>
-                        <div class="badge gd11x5">
+
+</a>                        <div class="badge gd11x5">
                         </div>
                         <p>广东11选5</p>
                     </li> -->
@@ -196,7 +216,7 @@
             });
             //console.log(123);
         }
-        //首頁側邊
+        //首页侧边
         $('.so-left-close').click(function () {
             var className = $('.so-left').attr('class') || '';
             $('.so-left').attr('class', className.replace('active', 'close'));
