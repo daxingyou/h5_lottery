@@ -374,3 +374,15 @@
 //     position: relative;
 //     z-index: 50;
 // }
+.to_lottery{
+    .badge{
+        background: none;
+        >img{
+            width: 100%;
+            padding-top: .15rem;
+        }
+        &:after{
+            display: none;
+        }
+    }
+}
