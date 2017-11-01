@@ -32,7 +32,6 @@ function getCookie (name) {
 }
 //清除所有cookie函数
 function clearAllCookie() {
-    console.log('发的货款')
     var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
     console.log(keys)
     if(keys) {
@@ -331,8 +330,8 @@ function getMemberBalance(lotteryid) {
         }
     });
 }
-// 最新开奖期数
-function priodDataNewly(gameid) {
+// 最新开奖期数 ，timer 倒计时 参数
+function priodDataNewly(gameid,timer) {
     $.ajax({
         type: 'get',
         headers: {
@@ -342,18 +341,23 @@ function priodDataNewly(gameid) {
         data: {lotteryId: gameid,},
         success: function (res) {
             if(res.data){
-                next_pcode = res.data[0].pcode;  // 下一期数
-                now_pcode = res.data[1].pcode;  // 当前期数
-                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
-                nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-                now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                if(timer =='timer'){
+                    processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                }else{
+                    next_pcode = res.data[0].pcode;  // 下一期数
+                    now_pcode = res.data[1].pcode;  // 当前期数
+                    now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
+                    nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+                    now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
+                    processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
 
-                setTimeout(function () {
-                    // 倒计时
-                    lt_timer(sys_time,now_time,nowover_time) ;
-                    $('.so-fengpan').hide() ; // 隐藏封盘容器
-                }, 100)
+                    setTimeout(function () {
+                        // 倒计时
+                        lt_timer(sys_time,now_time,nowover_time) ;
+                        $('.so-fengpan').hide() ; // 隐藏封盘容器
+                    }, 100)
+                }
+
             }
 
 
@@ -419,9 +423,15 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
     var timerno = window.setInterval(function () {
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
             _getSystemTime();
-
         }
 
+        if( (lt_time_leave >=420 && lt_time_leave <=540 && lt_time_leave % 10 ==0) || (lt_time_leave >=120 && lt_time_leave <=240 && lt_time_leave % 10 ==0 )){ // 10,秒一次请求开奖数据
+            var hasnum = Number($('.last-open-num li:nth-child(1)').data('val')) ; // 判断是否已经拉取期数成功
+            if(hasnum < 0){
+                priodDataNewly(getCookie('lt_lotteryid'),'timer') ;
+            }
+
+        }
         if (lt_time_leave <= 0) { // 开奖倒计时结束
             clearInterval(timerno);
             initBetPop01(3) ;
@@ -438,7 +448,7 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
         if(lt_time_leave_over <= 0){ // 封盘倒计时结束
             $('.close-time').html('已封盘') ;
             $('.so-fengpan').show() ;
-            resetAction() ;  //重置已选注单
+           // resetAction() ;  //重置已选注单
         }else{
             // 封盘倒计时
             $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
@@ -510,7 +520,7 @@ function processCode(issue, lastissue,code,double) {
         $('.last-date').html(lastissue.toString().substr(4, 8)) ;
         $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
-            str +='<li><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
+            str +='<li data-val="'+code_arr[i] +'"><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
         }
         dstr +='<li>'+double.top2_total+'</li>' ;
         dstr +='<li>'+double.top2_sizer+'</li>' ;
@@ -524,7 +534,7 @@ function processCode(issue, lastissue,code,double) {
         $('.last-date').html(lastissue) ;
         $('.now-date').html(issue).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
-            str +='<li>'+ code_arr[i] +'</li>' ;
+            str +='<li data-val="'+code_arr[i] +'">'+ code_arr[i] +'</li>' ;
         }
         dstr +='<li>'+double.total+'</li>' ;
         dstr +='<li>'+double.sizer+'</li>' ;
@@ -540,10 +550,10 @@ function processCode(issue, lastissue,code,double) {
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次，选球处理
 function initChoiceObj() {
     $('.so-con-right').on('click','p',function () {
-        var display = $('.so-fengpan').css('display') ; // 封盘状态
+       /* var display = $('.so-fengpan').css('display') ; // 封盘状态 ，改成可以点击
         if(display == 'block' || display =='inline-block'){ // 判断是否处于封盘状态
             return false ;
-        }
+        }*/
         var _this =  $(this) ;
         var className = _this.attr("class") || "" ;
         if (className.indexOf("active") >= 0) {
