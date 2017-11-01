@@ -6,13 +6,17 @@ $('.user_name').text(username); // 用户名
 $('.so-membalance').html(membalance); // 余额
 
 var nowDate = new Date();
+var year = nowDate.getYear() + 1900
+var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
+var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
+var newpdate = '' + year + mon + day
 var seadata = {
     page: 1, // 页数，从1开始
     pageSize: 10, // 每页行数
     searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
     statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
     lotteryId: getCookie('lt_lottid'), // 彩种ID
-    pdate: '' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate(),
+    pdate: newpdate,
 };
 
 // 标签切换锁
