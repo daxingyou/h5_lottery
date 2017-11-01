@@ -12,7 +12,7 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login" v-show="!haslogin">登录</a>
+              <a href="/login">登录</a> <!--   v-show="!haslogin" -->
               <a href="/reg">注册</a>
               <a href="javascript:;">试玩</a>
           </div>
