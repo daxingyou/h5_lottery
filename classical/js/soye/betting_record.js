@@ -6,13 +6,17 @@ $('.user_name').text(username); // 用户名
 $('.so-membalance').html(membalance); // 余额
 
 var nowDate = new Date();
+var year = nowDate.getYear() + 1900
+var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
+var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
+var newpdate = '' + year + mon + day
 var seadata = {
     page: 1, // 页数，从1开始
     pageSize: 10, // 每页行数
     searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
     statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中
     lotteryId: getCookie('lt_lottid'), // 彩种ID
-    pdate: '' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate(),
+    pdate: newpdate,
 };
 
 // 标签切换锁
@@ -31,12 +35,16 @@ function initView() {
     var nowDate = new Date();
     var restr = '';
     for (var i = 0; i < 3; i++) {
+        var year = nowDate.getYear() + 1900
+        var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
+        var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
+        var newpdate = '' + year + mon + day
         pdate = '' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日';
         var first_li = '';
         if (i === 0) {
             first_li = 'first_li';
         }
-        restr += '<li class="slide_toggle bet_day new_bet_day ' + first_li + '" data-page="1" data-val="' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate() + '">' +
+        restr += '<li class="slide_toggle bet_day new_bet_day ' + first_li + '" data-page="1" data-val="' + newpdate + '">' +
             '<div class="panel_title"> <strong class="title-data">' + pdate + '</strong><span></span> </div>' +
             '<ul class="panel bet-recode-all"></ul></li>';
         nowDate.setDate(nowDate.getDate() - 1);
@@ -221,6 +229,7 @@ function initDateMeun() {
     $('.tab_content .slide_toggle').each(function (i, t) {
         $(t).unbind('click');
         $(t).click(function () {
+            $('.bet-recode-all').find('li').remove();
             seadata.page = 1;
             if ($(this).attr('class')
                     .indexOf('active') < 0) {

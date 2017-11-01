@@ -266,7 +266,8 @@ function getPlayTree(gameid) {
 
         },
         error: function () {
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
         }
     });
 }
@@ -287,8 +288,9 @@ function getSystemTime(lotteryid) {
             priodDataNewly(lotteryid); // 最近5期开奖，获取系统时间后再调用
 
         },
-        error: function () {
-
+        error: function (res) {
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
         }
     });
 }
@@ -319,7 +321,8 @@ function getMemberBalance(lotteryid) {
             // console.log(returnMoney(mom))
         },
         error: function () {
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
         }
     });
 }
@@ -351,7 +354,8 @@ function priodDataNewly(gameid) {
 
         },
         error: function () {
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
         }
     });
 }
@@ -398,7 +402,12 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
                 lt_time_leave = (format(now_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
                 lt_time_leave_over = (format(nowover_time).getTime() - format(formatTimeUnlix(data.data)).getTime()) / 1000 ;
 
+            },
+            error:function () {
+                initPopEve(2,'您的登录已过期，请重新登录') ;
+                return false ;
             }
+
         });
     }
 
@@ -457,8 +466,8 @@ function outTimeSet() {
 
         },
         error: function () {  //失败
-
-            return false;
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
         }
     });
 }
@@ -680,50 +689,44 @@ function checkNumbers(method,len,self,xslen) {
 
 
 //此方法弹出结算框 ,注单数量，添加按钮  moved to /src/components/publicTemplate/bet.vue
-function initPopEve(closet) {
-    $(".so-add").click(function () {
-        var amount = $('.bet-amount').val() ;  // 获取金额
-        var nums = Number($('.bet-select-num').text()) ;  // 获取注数
-        if(nums<1){ // 没有选择投注项目
-            $('.bet-error-content').html('请选择投注项目') ;
-            $(".modal.m08").toggle() ;
-            $(".so-shade").toggle() ;
-            var settime = setTimeout(function () {
-                $(".so-shade,.modal.m08").hide() ;
-            },closet*1000) ;
-
-            return false;
-        }
-
-        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
-            $('.bet-error-content').html('请输入整数的投注金额，金额不能为0') ;
-            $(".modal.m08").toggle() ;
-            $(".so-shade").toggle() ;
-            var settime = setTimeout(function () {
-                $(".so-shade,.modal.m08").hide() ;
-            },closet*1000) ;
-
-            return false;
-        }
-        // 注单金额正确
-        $(".so-pop").toggle() ;
-        $(".so-shade").toggle() ;
-
-        doCheckAction() ;  // 注单结算
-
-    }) ;
-
-    // 关闭当前窗口
-    $(".so-pop a").click(function () {
-        $(".so-pop").toggle() ;
-        $(".so-shade").toggle() ;
-    }) ;
-
+function initPopEve(closet,content) {
+    $('.bet-error-content').html(content) ;
+    $(".modal.m08").toggle() ;
+    $(".so-shade").toggle() ;
+    var settime = setTimeout(function () {
+        $(".so-shade,.modal.m08").hide() ;
+    },closet*1000) ;
     // 投注金额提示弹窗关闭
     $(".modal.m08").click(function () {
         $(".modal.m08").toggle() ;
         $(".so-shade").toggle() ;
     }) ;
+}
+
+// 触发下注按钮
+function betActionSubmit() {
+    $(".so-add").click(function () {
+        var amount = $('.bet-amount').val() ;  // 获取金额
+        var nums = Number($('.bet-select-num').text()) ;  // 获取注数
+        if(nums<1){ // 没有选择投注项目
+            initPopEve(2,'请选择投注项目') ;
+            return false;
+        }
+        if(!amount || !isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
+            initPopEve(2,'请输入整数的投注金额，金额不能为0') ;
+            return false;
+        }
+        $(".so-pop").toggle() ;
+        $(".so-shade").toggle() ;
+        // 关闭当前窗口
+        $(".so-pop a").click(function () {
+            $(".so-pop").hide() ;
+            $(".so-shade").hide() ;
+        }) ;
+
+        doCheckAction() ;  // 注单结算
+    })
+
 }
 
 // 下注弹窗_成功，失败 ,closetime 关闭时间
@@ -923,7 +926,7 @@ function submitAction(lotteryid) {
         error: function (res) {  // 错误提示
             initTipPop05(false,3,'投注失败，请稍后再试') ;
            // ajaxSubmitAllow = true;
-
+            return false ;
         }
     });
     
@@ -1085,7 +1088,8 @@ function doubleCount(lotteryid,rows,maxtime) {
 
         },
         error: function (data) {  // 错误提示
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
 
         }
     });
@@ -1149,7 +1153,8 @@ function loadRoadAction(lotteryid,maxtime) {
 
         },
         error: function (data) {  // 错误提示
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
 
         }
     });
@@ -1255,7 +1260,8 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
 
         },
         error: function (data) {  // 错误提示
-
+            initPopEve(2,'您的登录已过期，请重新登录') ;
+            return false ;
 
         }
     });
