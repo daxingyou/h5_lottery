@@ -14,6 +14,64 @@ var MyMixin = {
                 uaa: 'http://121.58.234.210:19091/uaa/',
                 hermes: 'http://121.58.234.210:19091/hermes/',
             },
+            testPriodDataNewlyData:{
+              "data" : [ {
+                "version" : 0,
+                "cid" : 22225,
+                "lotteryId" : 2,
+                "pcode" : 20171030083,
+                "startTime" : 1509363600000,
+                "endTime" : 1509364200000,
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509364155000,
+                "nextInterval" : 600,
+                "doubleData" : {
+                  "doubler" : "-",
+                  "longer" : "-",
+                  "sizer" : "-",
+                  "total" : "-"
+                }
+              }, {
+                "version" : 0,
+                "cid" : 22224,
+                "lotteryId" : 2,
+                "pcode" : 20171030082,
+                "startTime" : 1509363000000,
+                "endTime" : 1509363559999,      //1509363700000
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509363555000,
+                "nextInterval" : 600,
+                "doubleData" : {
+                  "doubler" : "-",
+                  "longer" : "-",
+                  "sizer" : "-",
+                  "total" : "-"
+                }
+              }, {
+                "version" : 0,
+                "cid" : 22223,
+                "lotteryId" : 2,
+                "pcode" : 20171030081,
+                "startTime" : 1509362400000,
+                "endTime" : 1509363000000,
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509362955000,
+                "nextInterval" : 600,
+                "winNumber" : "3,9,5,0,2",
+                "doubleData" : {
+                  "doubler" : "单",
+                  "longer" : "虎",
+                  "sizer" : "小",
+                  "total" : "19"
+                }
+              } ],
+              "err" : "SUCCESS",
+              "msg" : "",
+              "maxUpdateTime" : 1509363282484
+            }
         }
     },
     computed:{
@@ -93,11 +151,11 @@ var MyMixin = {
             });
             
         },
-        
+
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
             return new Promise((resolve)=>{
-                // const res = this.testPriodDataNewlyData;
+                const res = this.testPriodDataNewlyData;
                 $.ajax({
                     type: 'get',
                     headers: {
@@ -108,6 +166,9 @@ var MyMixin = {
                     success: (function(res) {
                         if(res.data){
                             resolve(res);
+                            // setTimeout(()=>{
+                                
+                            // },500)
                             
                         }
                     }).bind(this),
