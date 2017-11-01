@@ -10,7 +10,11 @@
 
 .so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.9); }
 
-.so-con .so-left .so-left-con .so-l-c-top { width: 100%; height: 1.97rem; background: url("../../static/images/left/left-top-bg.png"); background-size: 100%; }
+.so-con .so-left .so-left-con .so-l-c-top { width: 100%; height: 1.97rem; position: relative; }
+
+.so-con .so-left .so-left-con .so-l-c-top:before { content: ''; position: absolute; display: block; top: 0; left: 0; background: -webkit-linear-gradient(#212637, #384465); background: -webkit-gradient(linear, left top, left bottom, from(#212637), to(#384465)); background: -o-linear-gradient(#212637, #384465); background: linear-gradient(#212637, #384465); height: 1.97rem; width: 99.9%; z-index: 0; }
+
+.so-con .so-left .so-left-con .so-l-c-top:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/past_bg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: bottom; right: -1.7rem; left: inherit; top: inherit; width: 35%; height: 1rem; bottom: -.1rem; }
 
 .so-con .so-left .so-left-con .so-l-c-top > div { float: left; height: 100%; }
 
@@ -78,7 +82,7 @@
 
 .so-con .so-in-main > div .so-main-top .so-m-t-right { width: 6.58rem; height: 100%; }
 
-.so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li { float: right; background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+.so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li { float: left; background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 .so-con .so-in-main > div .so-main-top .so-m-t-right div:last-child ul { margin-left: 0.4rem; }
 
@@ -100,7 +104,7 @@
 
 .so-con .so-in-con > div:after { content: ""; display: block; clear: both; }
 
-.so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: .8rem; }
+.so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-overflow-scrolling: auto; padding-bottom: .8rem; }
 
 .so-con .so-in-con .so-con-left > ul li { display: block; width: 100%; height: 1.25rem; border-bottom: solid .02rem #293454; color: #ffffff; font-size: 0.4rem; line-height: 1.3rem; text-align: center; background-position-y: -1.5rem; }
 
@@ -174,7 +178,7 @@
 
 #so-item2 ul li > div > div p > span:last-child { float: right; }
 
-#so-item2 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("../images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; margin-left: -.2rem; }
+#so-item2 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("../images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; }
 
 #so-item0 ul li.first_ball, #so-item0 ul li.sec_ball { height: 3.74rem; }
 
@@ -334,7 +338,7 @@ img.bet_ok { position: absolute; width: 100%; top: 0; left: 0; z-index: 1; }
 
 .so-pop a.cancle { background-image: url("../../static/images/btn_cancle.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-size: 100% 100%; }
 
-.modal.so-pop-wanfa { display: none; position: fixed; top: 0; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 13; }
+.modal.so-pop-wanfa { display: none; position: fixed; top: 0; left: 0; width: 10rem; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 50; }
 
 .modal.so-pop-wanfa > .m_content { top: 5%; }
 

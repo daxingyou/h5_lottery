@@ -134,12 +134,18 @@
                 padding: .5rem .3rem;
                 width: 100%;
                 >li{
-                    background-image: url('../../static/images/lo_bg.png');
-                    background-size: 100%;
+                    // background-image: url('../../static/images/lo_bg.png');
+                    // background-size: 100%;
+                    background-color: rgba(#000,.3);
+                    border-bottom: 2px solid rgba(238, 238, 238, 0.62);
+                    border-top:1px solid #436689;
+                    @include border-radius(.1rem);
                     margin: .15rem;
-                    height: 2.6rem;
-                    border: 1px solid transparent;
-                    width: 29.5%;
+                    min-height: 2.6rem;
+                    height: auto;
+                    padding-bottom: .2rem;
+                    //border: 1px solid transparent;
+                    width: 30%;
                     background-repeat: no-repeat;
                     //background-position-y: -2px;
                     >.badge{
@@ -374,3 +380,21 @@
 //     position: relative;
 //     z-index: 50;
 // }
+.hotgame_area{
+    .badge{
+        background: none;
+        width: 2.8rem;
+        @include border-radius(0);
+        height: 2.1rem;
+        >img{
+            width: 100%;
+            padding-top: .15rem;
+        }
+        &:after{
+            display: none;
+        }
+    }
+}
+.countdown{
+    line-height: .5rem;
+}

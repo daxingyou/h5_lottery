@@ -63,6 +63,7 @@
     left: 0;
     top: 1.5rem;
     width: 100%;
+    z-index: 5;
     >li{
         display: inline-block;
         // padding: .5rem;
@@ -685,6 +686,9 @@ i.prd{
 }
 #betting_record{
     margin-top: 1.5rem;
+    &.ac_detial_area{
+        margin-top: 3rem;
+    }
 }
 .lobby_past_view{
     .prd_num{
