@@ -12,7 +12,7 @@
             事件
                 play 当用户点击完法说明时触发
         -->
-        <UserMenu el=".so-top-zoushi" @play="play" :payoff="balanceData.payoff" />
+        <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
         <div class="so-index">
             <div class="so-in-top">
@@ -532,9 +532,9 @@ export default {
     },
     
 
-    play:function(){
-        this.$refs.playDialog.open()
-    }
+    // play:function(){
+    //     this.$refs.playDialog.open()
+    // }
 
   }
 }
