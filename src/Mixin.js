@@ -151,15 +151,15 @@ var MyMixin = {
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
             return new Promise((resolve, reject)=>{
-                const res = this.testPriodDataNewlyData;
-                // $.ajax({
-                //     type: 'get',
-                //     headers: {
-                //         "Authorization": "bearer  " + this.getAccessToken,
-                //     },
-                //     url: this.action.forseti + 'api/priodDataNewly',
-                //     data: {lotteryId: gameid,},
-                //     success: (function(res) {
+                // const res = this.testPriodDataNewlyData;
+                $.ajax({
+                    type: 'get',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    url: this.action.forseti + 'api/priodDataNewly',
+                    data: {lotteryId: gameid,},
+                    success: (function(res) {
                         if(res.data){
                             setTimeout(()=>{
                                 resolve(res);
@@ -167,11 +167,11 @@ var MyMixin = {
                             },500)
                             
                         }
-                //     }).bind(this),
-                //     error: function (e) {
-                //         reject(e);
-                //     }
-                // });
+                    }).bind(this),
+                    error: function (e) {
+                        reject(e);
+                    }
+                });
             });
             
         },

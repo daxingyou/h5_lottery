@@ -352,7 +352,7 @@ export default {
         var that = this;
         that.getSystemTime().then(sys_time=>{
             // sys_time = '2017-10-30 19:41:32';
-            sys_time = '2017-10-30 19:39:10';
+            // sys_time = '2017-10-30 19:39:10';
             that.sys_time = sys_time;
             that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                 that.next_pcode = res.data[0].pcode;  // 下期期数
@@ -373,8 +373,9 @@ export default {
                 //上期开奖统计
                 that.lastTermStatic = res.data[2].doubleData;
 
-                // that.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit();
+                // :now_pcode="now_pcode" 
+                // :start="sys_time" :end="now_time" :overend="nowover_time"
+                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
             });
         }); 
         that.entertainStatus = false;
