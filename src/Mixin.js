@@ -14,6 +14,7 @@ var MyMixin = {
                 uaa: 'http://121.58.234.210:19091/uaa/',
                 hermes: 'http://121.58.234.210:19091/hermes/',
             },
+            playTreeList:[], //玩法树
             testPriodDataNewlyData:{
               "data" : [ {
                 "version" : 0,
@@ -92,7 +93,7 @@ var MyMixin = {
                 }
             }
             config = Object.assign(config, userConfig);
-            Object.assign()
+            // Object.assign()
             // $.ajax({
             //     type: 'get',
             //     headers: {
@@ -124,11 +125,6 @@ var MyMixin = {
         },
         
 
-        //格式化赔率
-        payoffFormat(val){
-            return (Number(val)/10000).toFixed(3);
-        },
-
 
         // 玩法树
         loadPlayTree:function(gameid) {
@@ -144,8 +140,8 @@ var MyMixin = {
                         this.playTreeList = res.data.childrens;
                         resolve(this.playTreeList);
                     },
-                    error: function () {
-
+                    error: function (e) {
+                        reject(e);
                     }
                 });
             });
@@ -154,28 +150,28 @@ var MyMixin = {
 
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
-            return new Promise((resolve)=>{
+            return new Promise((resolve, reject)=>{
                 const res = this.testPriodDataNewlyData;
-                $.ajax({
-                    type: 'get',
-                    headers: {
-                        "Authorization": "bearer  " + this.getAccessToken,
-                    },
-                    url: this.action.forseti + 'api/priodDataNewly',
-                    data: {lotteryId: gameid,},
-                    success: (function(res) {
+                // $.ajax({
+                //     type: 'get',
+                //     headers: {
+                //         "Authorization": "bearer  " + this.getAccessToken,
+                //     },
+                //     url: this.action.forseti + 'api/priodDataNewly',
+                //     data: {lotteryId: gameid,},
+                //     success: (function(res) {
                         if(res.data){
-                            resolve(res);
-                            // setTimeout(()=>{
+                            setTimeout(()=>{
+                                resolve(res);
                                 
-                            // },500)
+                            },500)
                             
                         }
-                    }).bind(this),
-                    error: function () {
-
-                    }
-                });
+                //     }).bind(this),
+                //     error: function (e) {
+                //         reject(e);
+                //     }
+                // });
             });
             
         },
@@ -183,7 +179,7 @@ var MyMixin = {
         
         // 获取用户余额
         getMemberBalance:function (lotteryid) {
-            return new Promise((resolve)=>{
+            return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'GET',
                     headers: {
@@ -199,8 +195,8 @@ var MyMixin = {
                         this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
                         resolve();
                     },
-                    error: function () {
-
+                    error: function (e) {
+                        reject(e);
                     }
                 });
                 
@@ -226,12 +222,18 @@ var MyMixin = {
                         const sys_time = this.formatTimeUnlix(res.data);
                         resolve(sys_time);
                     },
-                    error: function () {
-
+                    error: function (e) {
+                        reject(e);
                     }
                 });
 
             })
+        },
+
+
+        //格式化赔率
+        payoffFormat(val){
+            return (Number(val)/10000).toFixed(3);
         },
 
         // 时间戳转换

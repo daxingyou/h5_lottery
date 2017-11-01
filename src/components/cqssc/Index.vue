@@ -54,11 +54,6 @@
                             <div class="last-open-num">
                                 <ul>
                                     <li v-for="item in winNumber.split(',')">{{item}}</li>
-                                   <!-- <li>8</li>
-                                    <li>7</li>
-                                    <li>6</li>
-                                    <li>5</li>
-                                    <li>9</li>-->
                                 </ul>
                             </div>
                             <div class="last-open-dou">
@@ -67,10 +62,6 @@
                                     <li>{{lastTermStatic.sizer}}</li>
                                     <li>{{lastTermStatic.longer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
-                                  <!--  <li>21</li>
-                                    <li>小</li>
-                                    <li>单</li>
-                                    <li>龙</li>-->
                                 </ul>
                             </div>
                         </div>
@@ -78,38 +69,15 @@
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
-                        :now_pcode="now_pcode"
+                        :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
-                    <!-- <div class="so-main-down">
-                        <ul>
-                            <li>
-                                <p>
-                                    第 <span class="now-date">{{now_pcode}}</span> 期  
-                                </p>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>封盘</span>
-                                <a class="close-time">00:00</a>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span >开奖</span>
-                                <a class="open-time">00:00</a>
-                            </li>
-                        </ul>
-                    </div> -->
+
                 </div>
             </div>
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-
-    
-
                         <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
-<!--                         <li>1-5球</li>
-                        <li>前中后</li> -->
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
@@ -318,7 +286,7 @@ export default {
 
         entertainStatus:false,
         betSelectedList:[],   //用户选中的注数
-        playTreeList:[], //玩法树
+        // playTreeList:[], //玩法树
         lotteryID:2,
         allLottery:{} ,
         gameHref:{} ,
@@ -381,34 +349,35 @@ export default {
         this.resetAction();
     },
     timerBegin:function(){
-        this.getSystemTime().then((sys_time)=>{
+        var that = this;
+        that.getSystemTime().then(sys_time=>{
             // sys_time = '2017-10-30 19:41:32';
-            // sys_time = '2017-10-30 19:39:10';
-            this.sys_time = sys_time;
-            this.priodDataNewly(this.lotteryID, sys_time).then(res=>{
-                this.next_pcode = res.data[0].pcode;  // 下期期数
-                this.now_pcode = res.data[1].pcode;  // 当前期数
-                this.previous_pcode = res.data[2].pcode;  // 上期期数
+            sys_time = '2017-10-30 19:39:10';
+            that.sys_time = sys_time;
+            that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+                that.next_pcode = res.data[0].pcode;  // 下期期数
+                that.now_pcode = res.data[1].pcode;  // 当前期数
+                that.previous_pcode = res.data[2].pcode;  // 上期期数
                 // 当前期数时间
-                this.now_time = this.formatTimeUnlix(res.data[1].endTime);  
+                that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
                 // 当前期封盘时间
-                this.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);  
+                that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
                 // 当天日期
-                this.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
                 let code = res.data[2].winNumber;
                 //code 上期开奖号码
                 if (!code) {
                     code = '-,开,奖,中,-';
                 }
-                this.winNumber = code;
+                that.winNumber = code;
                 //上期开奖统计
-                this.lastTermStatic = res.data[2].doubleData;
+                that.lastTermStatic = res.data[2].doubleData;
 
-                // this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-                this.$refs.countdownTimer && this.$refs.countdownTimer.timerInit();
+                // that.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit();
             });
         }); 
-        this.entertainStatus = false;
+        that.entertainStatus = false;
     },
     resetAction:function(){
         this.betSelectedList = [];
