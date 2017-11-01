@@ -799,7 +799,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .right_menu > li.r_today:before { background-position-y: -7.6rem; }
 
-.to_lottery .badge { background: none; }
+.to_lottery .badge { background: none; width: auto; }
 
 .to_lottery .badge > img { width: 100%; padding-top: .15rem; }
 
