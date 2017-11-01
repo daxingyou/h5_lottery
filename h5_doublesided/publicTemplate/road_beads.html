@@ -1453,15 +1453,15 @@
     </script>
     <script>
         // $(function () {
-        //     var i = 5;
-        //     var road = '.road';
-        //     $('.tab_content li.road ul').each(function (i) {
-        //         if ($(i).find('li.road ul li').length > 5) {
-        //             $('road').attr('class', 'road_left');
+        //     // var i = 5;
+        //     // var road = '.road';
+        //     $('.road').each(function () {
+        //         if ($('.road').find('ul li').length > 5) {
+        //             $('.road').attr('class', 'road_left');
         //         }
-        //         $(i).show();
+        //         //$(i).show();
         //     });
-        //     console.log(123);
+        //     console.log('.road');
         // });
 
         // $(function () {
@@ -1483,15 +1483,15 @@
         //         console.log(items);
         //     });
         // });
-            $(function () {
-                $('ul.tab_content>li.road').each(function () {
-                    var items = $(this).find('li');
-                    if (items.length > 5) {
-                        $(this).addClass('road_left');
-                    }
-                    console.log(this);
-                });
+        $(function () {
+            $('ul.tab_content>li.road').each(function () {
+                var items = $(this).find('li');
+                if (items.length > 5) {
+                    $(this).addClass('road_left');
+                }
+                console.log(this);
             });
+        });
     </script>
 </body>
 </html>
