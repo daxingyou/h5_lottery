@@ -202,49 +202,9 @@
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
-        <!--封盘时给foot加上class:close-->
-        <!--<div class="so-foot close">-->
-        <!-- <div class="so-foot">
-            <div>
-                <p>已选中<span class="bet-select-num">0</span>注</p>
-            </div>
-            <div>
-                <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
-                    <input type="reset" value="重置">
-                </form>
-            </div>
-            <div>
-                <div class="so-add">
-                    <img src="/static/images/foot/foot-jia.png">
-                    <p>下注</p>
-                </div>
-            </div>
-        </div>
-        <div class="so-shade"></div>
-        <div class="so-pop">
-            <h2>下注清单<a></a></h2>
-            <p class="grey_text">请核对您的下注信息</p>
-            <div>
-                <div class="boxlist bet-go-list">
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                </div>
-            </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
-            <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
-        </div> -->
 
         <!--封盘底部遮挡-->
-         <div v-if="entertainStatus" class="so-fengpan">
+        <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
         </div> 
 
@@ -364,73 +324,13 @@ export default {
         gameHref:{} ,
         kinds:['两面', '1-5球', '前中后'],
 
-        testPriodDataNewlyData:{
-          "data" : [ {
-            "version" : 0,
-            "cid" : 22225,
-            "lotteryId" : 2,
-            "pcode" : 20171030083,
-            "startTime" : 1509363600000,
-            "endTime" : 1509364200000,
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509364155000,
-            "nextInterval" : 600,
-            "doubleData" : {
-              "doubler" : "-",
-              "longer" : "-",
-              "sizer" : "-",
-              "total" : "-"
-            }
-          }, {
-            "version" : 0,
-            "cid" : 22224,
-            "lotteryId" : 2,
-            "pcode" : 20171030082,
-            "startTime" : 1509363000000,
-            "endTime" : 1509363559999,      //1509363700000
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509363555000,
-            "nextInterval" : 600,
-            "doubleData" : {
-              "doubler" : "-",
-              "longer" : "-",
-              "sizer" : "-",
-              "total" : "-"
-            }
-          }, {
-            "version" : 0,
-            "cid" : 22223,
-            "lotteryId" : 2,
-            "pcode" : 20171030081,
-            "startTime" : 1509362400000,
-            "endTime" : 1509363000000,
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509362955000,
-            "nextInterval" : 600,
-            "winNumber" : "3,9,5,0,2",
-            "doubleData" : {
-              "doubler" : "单",
-              "longer" : "虎",
-              "sizer" : "小",
-              "total" : "19"
-            }
-          } ],
-          "err" : "SUCCESS",
-          "msg" : "",
-          "maxUpdateTime" : 1509363282484
-        }
+        
     }
   },
   created:function(){
     this.getMemberBalance().then(()=>{
         this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
     });
-
-
-
   },
   mounted:function() {
     var lotteryid = this.lotteryID ; // 彩种id
@@ -517,9 +417,9 @@ export default {
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
-        if (this.entertainStatus){
-            return false;
-        }
+        // if (this.entertainStatus){
+        //     return false;
+        // }
         var $src = $(e.currentTarget);
         if ($src.prop('class').indexOf('active') < 0){
             $src.addClass('active');
