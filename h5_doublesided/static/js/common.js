@@ -203,6 +203,9 @@ function getLotterys(all) {
                     case '4':  // 江西11选5双面盘
                         hrefUrl = 'web_jc11x5/index.html' ;
                         break;
+                    case '6' : // 江苏K3双面盘
+                        hrefUrl = 'web_k3/index.html';
+                        break;
                     case '7':  // 北京pk10传统盘
                         hrefUrl = 'web_pk10/index.html' ;
                         break;
@@ -221,7 +224,7 @@ function getLotterys(all) {
                         }else{  // 各彩种 跳转
                             allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> '+
                                 '<div class="badge">'+
-                                '<img src="'+v.imgLeftUrl+'" alt="">' ;
+                                '<img src="'+v.imgUrl+'" alt="">' ;
                         }
 
                      allstr += '</div>'+
