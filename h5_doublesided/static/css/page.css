@@ -807,6 +807,10 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .countdown { line-height: .5rem; }
 
+.all_lottery > li .badge { width: 2.5rem; height: 2.35rem; margin-top: 0; }
+
+.all_lottery > li > p { line-height: .7rem; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .login_area, .deposit_area { margin: 0 auto; margin-top: 4.5rem; position: relative; z-index: 50; width: 90%; }
 

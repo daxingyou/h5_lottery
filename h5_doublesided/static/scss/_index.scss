@@ -398,3 +398,16 @@
 .countdown{
     line-height: .5rem;
 }
+.all_lottery{
+    >li{
+        .badge{
+            width: 2.5rem;
+            height: 2.35rem;
+            margin-top: 0;
+        }
+        >p{
+            line-height: .7rem;
+        }
+    }
+
+}
