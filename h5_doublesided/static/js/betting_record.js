@@ -191,7 +191,7 @@ $(function () {
                                 var li_html = '';
                                 // var pcode = ('' + v.pcode).substring(8, 11);
                                 var pcode = ('' + v.pcode).substring(0, 11);
-                                var className = 'status0';
+                                var className = 'status00';
                                 var payoff = ''
                                 switch (parseInt(v.orderStatus)) {
                                     case 32:
