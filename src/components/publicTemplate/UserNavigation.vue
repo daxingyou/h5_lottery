@@ -15,7 +15,7 @@
               <div class="purse"  v-if="haslogin">
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum" >
-                      {{ fortMoney(roundAmt(balanceData.balance), 2)}}
+                      {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}
                   </div>
               </div>
           </div>
@@ -63,6 +63,7 @@ export default {
 
  data :function() {
         return {
+          balanceData:null,
             haslogin :false ,
             showNavigation:false ,
             allLottery:{},
@@ -77,7 +78,6 @@ export default {
        if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
        }
-      console.log(this.haslogin) ;
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
     }) ;
@@ -96,7 +96,7 @@ export default {
               $.ajax({
                   type: 'GET',
                   async:false,
-                  url: action.forseti + 'apis/lotterys',
+                  url: this.action.forseti + 'apis/lotterys',
                   data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
                   dataType: 'json',
                   success:(res)=> {
@@ -120,11 +120,11 @@ export default {
               $.ajax({
                   type: 'GET',
                   headers: {
-                      "Authorization": "bearer  " + this.getAccessToken(access_token),
+                      "Authorization": "bearer  " + this.getAccessToken,
                   },
                   // dataType:'json',
                   // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                  url: action.hermes + 'api/balance/get',
+                  url: this.action.hermes + 'api/balance/get',
                   data: { lotteryId: lotteryid },
                   success: (res) => {
                       this.balanceData = res.data;

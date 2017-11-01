@@ -1,16 +1,17 @@
 <template>
-    <div v-if="show" class="popup so-pop-xxx so-pop-01 publicDialog">
-        <div>
-            <h2>提示<a @click="close"></a></h2>
-            <img src="/static/images/page/status03.svg">
-            <p>{{content}}</p>
-            <a @click="close">确定</a>
-        </div>
-    </div>
-
-
+  <div v-if="show" class="modal m12 publicDialog" @click="close">
+      <div class="m_content">
+          <h2 class="noclose"><a></a></h2>
+          <div class="content danger">
+              <div>
+                  <img src="/static/images/pop/title_end.png">
+                  <img src="/static/images/page/status03.svg">
+              </div>
+              {{content}}
+          </div>
+      </div>
+  </div>
 </template>
-
 
 <script>
 export default {

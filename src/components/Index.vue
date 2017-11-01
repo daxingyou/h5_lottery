@@ -12,7 +12,7 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login" v-show="!haslogin">登录</a>
+              <a href="/login">登录</a> <!--   v-show="!haslogin" -->
               <a href="/reg">注册</a>
               <a href="javascript:;">试玩</a>
           </div>
@@ -39,17 +39,23 @@
               </div>
 
           </div>
-          <div id="marquee_snp" class="marquee">
-              <div class="speaker">
-                  <img src="static/images/news.png" alt="">
+          <div class="marquee">
+              <div class="news_title">
+                  <i data-v-1f83ba94="" class="icon-notification"></i>
+                  <span>最新消息 : </span>
               </div>
-              <div class="bd">
-                  <ul>
-                      <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
-                      <!-- <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
-                      <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li> -->
-                  </ul>
+              <div id="marquee_snp" class="bd news_text slideText">
+                  <div class="sys-notice">
+                      <div class="bd">
+                          <ul>
+                              <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
+                              <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
+                              <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
+
           </div>
       </div>
       <div id="index_content" class="content">
@@ -57,14 +63,27 @@
               <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
               <ul>
                    <!-- @click="go(gameHref[lottery.cid])" -->
+                   <!-- <li>
+                        <div class="badge cqssc">
+                        </div>
+                        <p>重庆时时彩</p>
+                    </li> -->
                   <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">
-                    <router-link v-bind:to="'/'+gameHref[lottery.cid]">
-                      <div >
-                          <img :src="lottery.imgUrl">
+
+                    <!-- <a class="to_lottery" href="web_cqssc/index.html"> 
+                      <div class="badge">
+                        <img src="http://admin.baochiapi.com/photo/pic/T19RJTBXCT1RCvBVdK/0" alt="">
                       </div>
-                      <p>{{lottery.name}}</p>
+                    </a> -->
+
+
+                    <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
+                      <div :class="'badge'">
+                        <img :src="lottery.imgUrl">
+                      </div>
                     </router-link>
-                      
+                    <p>{{lottery.name}}</p>
+                    
                   </li>
                 <!--  <li>
                       <div class="badge">
@@ -189,3 +208,12 @@ export default {
 
 }
 </script>
+
+<style scoped>
+  .hotgame_area ul a {
+    position: relative;
+    display: inline-block;
+    z-index: 7;
+  }
+    
+</style>

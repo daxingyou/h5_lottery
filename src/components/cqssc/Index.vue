@@ -12,7 +12,7 @@
             事件
                 play 当用户点击完法说明时触发
         -->
-        <UserMenu el=".so-top-zoushi" @play="play" :payoff="balanceData.payoff" />
+        <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
         <div class="so-index">
             <div class="so-in-top">
@@ -63,9 +63,9 @@
                             </div>
                             <div class="last-open-dou">
                                 <ul>
-                                    <li>{{lastTermStatic.total}}</li>' ;
-                                    <li>{{lastTermStatic.sizer}}</li>' ;
-                                    <li>{{lastTermStatic.longer}}</li>' ;
+                                    <li>{{lastTermStatic.total}}</li>
+                                    <li>{{lastTermStatic.sizer}}</li>
+                                    <li>{{lastTermStatic.longer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
                                   <!--  <li>21</li>
                                     <li>小</li>
@@ -104,9 +104,12 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li class="active">两面</li>
-                        <li>1-5球</li>
-                        <li>前中后</li>
+
+    
+
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+<!--                         <li>1-5球</li>
+                        <li>前中后</li> -->
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
@@ -199,49 +202,9 @@
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
-        <!--封盘时给foot加上class:close-->
-        <!--<div class="so-foot close">-->
-        <!-- <div class="so-foot">
-            <div>
-                <p>已选中<span class="bet-select-num">0</span>注</p>
-            </div>
-            <div>
-                <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
-                    <input type="reset" value="重置">
-                </form>
-            </div>
-            <div>
-                <div class="so-add">
-                    <img src="/static/images/foot/foot-jia.png">
-                    <p>下注</p>
-                </div>
-            </div>
-        </div>
-        <div class="so-shade"></div>
-        <div class="so-pop">
-            <h2>下注清单<a></a></h2>
-            <p class="grey_text">请核对您的下注信息</p>
-            <div>
-                <div class="boxlist bet-go-list">
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                    <p>【第一球-单】 @ 1.995 x 10</p>
-                </div>
-            </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
-            <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
-        </div> -->
 
         <!--封盘底部遮挡-->
-         <div v-if="entertainStatus" class="so-fengpan">
+        <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
         </div> 
 
@@ -359,64 +322,9 @@ export default {
         lotteryID:2,
         allLottery:{} ,
         gameHref:{} ,
-        testPriodDataNewlyData:{
-          "data" : [ {
-            "version" : 0,
-            "cid" : 22225,
-            "lotteryId" : 2,
-            "pcode" : 20171030083,
-            "startTime" : 1509363600000,
-            "endTime" : 1509364200000,
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509364155000,
-            "nextInterval" : 600,
-            "doubleData" : {
-              "doubler" : "-",
-              "longer" : "-",
-              "sizer" : "-",
-              "total" : "-"
-            }
-          }, {
-            "version" : 0,
-            "cid" : 22224,
-            "lotteryId" : 2,
-            "pcode" : 20171030082,
-            "startTime" : 1509363000000,
-            "endTime" : 1509363559999,      //1509363700000
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509363555000,
-            "nextInterval" : 600,
-            "doubleData" : {
-              "doubler" : "-",
-              "longer" : "-",
-              "sizer" : "-",
-              "total" : "-"
-            }
-          }, {
-            "version" : 0,
-            "cid" : 22223,
-            "lotteryId" : 2,
-            "pcode" : 20171030081,
-            "startTime" : 1509362400000,
-            "endTime" : 1509363000000,
-            "status" : 0,
-            "pdate" : 20171030,
-            "prizeCloseTime" : 1509362955000,
-            "nextInterval" : 600,
-            "winNumber" : "3,9,5,0,2",
-            "doubleData" : {
-              "doubler" : "单",
-              "longer" : "虎",
-              "sizer" : "小",
-              "total" : "19"
-            }
-          } ],
-          "err" : "SUCCESS",
-          "msg" : "",
-          "maxUpdateTime" : 1509363282484
-        }
+        kinds:['两面', '1-5球', '前中后'],
+
+        
     }
   },
   created:function(){
@@ -449,6 +357,14 @@ export default {
     },
   },
   methods:{
+    switchTab:function(e){
+        const $src = $(e.currentTarget);
+        const index = $src.index();
+        const $tabs = $('.so-con-right > div');
+        $tabs.hide();
+        $tabs.eq(index).show();
+        $src.addClass('active').siblings().removeClass('active')
+    },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
             return item.parentId == parentID;
@@ -482,7 +398,7 @@ export default {
                 let code = res.data[2].winNumber;
                 //code 上期开奖号码
                 if (!code) {
-                    code = '-,中,奖,开,-';
+                    code = '-,开,奖,中,-';
                 }
                 this.winNumber = code;
                 //上期开奖统计
@@ -501,9 +417,9 @@ export default {
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
-        if (this.entertainStatus){
-            return false;
-        }
+        // if (this.entertainStatus){
+        //     return false;
+        // }
         var $src = $(e.currentTarget);
         if ($src.prop('class').indexOf('active') < 0){
             $src.addClass('active');
@@ -515,82 +431,10 @@ export default {
         }
     },
     
-    // 玩法树
-    loadPlayTree:function(gameid) {
-        return new Promise((resolve, reject)=>{
-            $.ajax({
-                type: 'get',
-                headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
-                },
-                url: action.forseti + 'api/playsTree',
-                data: {lotteryId: gameid,}, // 当前彩种id
-                success: (res) => {
-                    this.playTreeList = res.data.childrens;
-                    resolve(this.playTreeList);
-                },
-                error: function () {
 
-                }
-            });
-        });
-        
-    },
-
-    // 最新开奖期数
-    priodDataNewly:function(gameid, sys_time) {
-        return new Promise((resolve)=>{
-            // const res = this.testPriodDataNewlyData;
-            $.ajax({
-                type: 'get',
-                headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
-                },
-                url: action.forseti + 'api/priodDataNewly',
-                data: {lotteryId: gameid,},
-                success: (function(res) {
-                    if(res.data){
-                        resolve(res);
-                        
-                    }
-                }).bind(this),
-                error: function () {
-
-                }
-            });
-        });
-        
-    },
-    
-    
-    // 获取用户余额
-    getMemberBalance:function (lotteryid) {
-        return new Promise((resolve)=>{
-            $.ajax({
-                type: 'GET',
-                headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
-                },
-                // dataType:'json',
-                // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                url: action.hermes + 'api/balance/get',
-                data: { lotteryId: lotteryid },
-                success: (res) => {
-                    this.balanceData = res.data;
-                    var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
-                    this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
-                    resolve();
-                },
-                error: function () {
-
-                }
-            });
-            
-        })
-    },
-    play:function(){
-        this.$refs.playDialog.open()
-    }
+    // play:function(){
+    //     this.$refs.playDialog.open()
+    // }
 
   }
 }

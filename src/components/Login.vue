@@ -48,7 +48,7 @@ export default {
         }
     },
   mounted:function() {
-        this.username = 'bcappid02|admin' ;
+        this.username = 'admin' ;
   },
   methods: {
     // 登录接口 moved to 主页/index.vue
@@ -63,13 +63,13 @@ export default {
         }
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
-            username: this.username ,
+            username: 'bcappid02|'+this.username ,
             password: this.password
         }
         $.ajax({
             type: 'post',
             headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            url: action.uaa + 'oauth/token',
+            url: this.action.uaa + 'oauth/token',
             data: logindata ,
             success: (res) => {
                 this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面

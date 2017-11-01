@@ -353,11 +353,11 @@
                     $.ajax({
                         type: 'post',
                         headers: {
-                            'Authorization': 'bearer ' + this.getAccessToken(access_token),
+                            'Authorization': 'bearer ' + this.getAccessToken,
                         },
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8', // json格式传给后端
-                        url: action.forseti + 'api/orders/orderList',
+                        url: this.action.forseti + 'api/orders/orderList',
                         data: JSON.stringify(this.seadata), // json格式
                         success: function (res) {
                             $('.so-zzjz').remove();

@@ -350,16 +350,15 @@ h2 {
       transform: rotate(360deg); }
 
 .badge {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 100%;
   margin-right: 0.5714rem;
-  background-image: url("../../static/images/page/logo_bg.png");
-  background-size: 100%;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
-  line-height: 1.8rem; }
+  line-height: 1.8rem;
+  margin-top: .3rem; }
   .badge:before {
     content: '';
     position: absolute;
@@ -1740,12 +1739,18 @@ ul.sixball > li {
     padding: .5rem .3rem;
     width: 100%; }
     #index_content.content > .hotgame_area ul > li {
-      background-image: url("../../static/images/lo_bg.png");
-      background-size: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(238, 238, 238, 0.62);
+      border-top: 1px solid #436689;
+      -webkit-border-radius: 0.1rem;
+      -moz-border-radius: 0.1rem;
+      -ms-border-radius: 0.1rem;
+      border-radius: 0.1rem;
       margin: .15rem;
-      height: 2.6rem;
-      border: 1px solid transparent;
-      width: 29.5%;
+      min-height: 2.6rem;
+      height: auto;
+      padding-bottom: .2rem;
+      width: 30%;
       background-repeat: no-repeat; }
       #index_content.content > .hotgame_area ul > li > .badge {
         background-image: url("../../static/images/ballbg.png");
@@ -1934,14 +1939,29 @@ ul.sixball > li {
 .right_menu > li.r_today:before {
   background-position-y: -7.6rem; }
 
-.to_lottery .badge {
+.hotgame_area .badge {
   background: none;
-  width: auto; }
-  .to_lottery .badge > img {
-    width: 100%;
-    padding-top: .15rem; }
-  .to_lottery .badge:after {
+  width: 2.8rem;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  height: 1.8rem; }
+  .hotgame_area .badge > img {
+    width: 60%;
+    padding-top: 0; }
+  .hotgame_area .badge:before {
     display: none; }
+
+.countdown {
+  line-height: .5rem; }
+
+.all_lottery > li .badge {
+  width: 2.5rem;
+  height: 2.35rem;
+  margin-top: 0; }
+.all_lottery > li > p {
+  line-height: .7rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .login_area, .deposit_area {

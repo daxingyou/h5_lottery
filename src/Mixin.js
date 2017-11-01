@@ -9,19 +9,86 @@
 var MyMixin = {
     data:function(){
         return {
-            forseti: 'http://121.58.234.210:19091/forseti/',
-            uaa: 'http://121.58.234.210:19091/uaa/',
-            hermes: 'http://121.58.234.210:19091/hermes/',
-            // access_token:' ', 
+            action:{
+                forseti: 'http://121.58.234.210:19091/forseti/',
+                uaa: 'http://121.58.234.210:19091/uaa/',
+                hermes: 'http://121.58.234.210:19091/hermes/',
+            },
+            testPriodDataNewlyData:{
+              "data" : [ {
+                "version" : 0,
+                "cid" : 22225,
+                "lotteryId" : 2,
+                "pcode" : 20171030083,
+                "startTime" : 1509363600000,
+                "endTime" : 1509364200000,
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509364155000,
+                "nextInterval" : 600,
+                "doubleData" : {
+                  "doubler" : "-",
+                  "longer" : "-",
+                  "sizer" : "-",
+                  "total" : "-"
+                }
+              }, {
+                "version" : 0,
+                "cid" : 22224,
+                "lotteryId" : 2,
+                "pcode" : 20171030082,
+                "startTime" : 1509363000000,
+                "endTime" : 1509363559999,      //1509363700000
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509363555000,
+                "nextInterval" : 600,
+                "doubleData" : {
+                  "doubler" : "-",
+                  "longer" : "-",
+                  "sizer" : "-",
+                  "total" : "-"
+                }
+              }, {
+                "version" : 0,
+                "cid" : 22223,
+                "lotteryId" : 2,
+                "pcode" : 20171030081,
+                "startTime" : 1509362400000,
+                "endTime" : 1509363000000,
+                "status" : 0,
+                "pdate" : 20171030,
+                "prizeCloseTime" : 1509362955000,
+                "nextInterval" : 600,
+                "winNumber" : "3,9,5,0,2",
+                "doubleData" : {
+                  "doubler" : "单",
+                  "longer" : "虎",
+                  "sizer" : "小",
+                  "total" : "19"
+                }
+              } ],
+              "err" : "SUCCESS",
+              "msg" : "",
+              "maxUpdateTime" : 1509363282484
+            }
         }
     },
+    computed:{
+        // token 处理
+        getAccessToken:function() {
+            return this.getCookie("access_token");
+        },
+    },
+    // getAccessToken   methods:{
+
     methods:{
 
         ajax(userConfig){
             let config = {
                 type: 'get',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(''),
+                    "Authorization": "bearer  " + this.getAccessToken,
                 }
             }
             config = Object.assign(config, userConfig);
@@ -29,9 +96,9 @@ var MyMixin = {
             // $.ajax({
             //     type: 'get',
             //     headers: {
-            //         "Authorization": "bearer  " + this.getAccessToken(access_token),
+            //         "Authorization": "bearer  " + this.getAccessToken,
             //     },
-            //     url: action.forseti + 'api/priodDataNewly',
+            //     url: this.action.forseti + 'api/priodDataNewly',
             //     data: { lotteryId: lotteryid },
             //     success: (res) => {  //成功
             //         console.log('拉取期数成功');
@@ -61,6 +128,85 @@ var MyMixin = {
         payoffFormat(val){
             return (Number(val)/10000).toFixed(3);
         },
+
+
+        // 玩法树
+        loadPlayTree:function(gameid) {
+            return new Promise((resolve, reject)=>{
+                $.ajax({
+                    type: 'get',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    url: this.action.forseti + 'api/playsTree',
+                    data: {lotteryId: gameid,}, // 当前彩种id
+                    success: (res) => {
+                        this.playTreeList = res.data.childrens;
+                        resolve(this.playTreeList);
+                    },
+                    error: function () {
+
+                    }
+                });
+            });
+            
+        },
+
+        // 最新开奖期数
+        priodDataNewly:function(gameid, sys_time) {
+            return new Promise((resolve)=>{
+                const res = this.testPriodDataNewlyData;
+                $.ajax({
+                    type: 'get',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    url: this.action.forseti + 'api/priodDataNewly',
+                    data: {lotteryId: gameid,},
+                    success: (function(res) {
+                        if(res.data){
+                            resolve(res);
+                            // setTimeout(()=>{
+                                
+                            // },500)
+                            
+                        }
+                    }).bind(this),
+                    error: function () {
+
+                    }
+                });
+            });
+            
+        },
+        
+        
+        // 获取用户余额
+        getMemberBalance:function (lotteryid) {
+            return new Promise((resolve)=>{
+                $.ajax({
+                    type: 'GET',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    // dataType:'json',
+                    // contentType:"application/json; charset=utf-8",  // json格式传给后端
+                    url: this.action.hermes + 'api/balance/get',
+                    data: { lotteryId: lotteryid },
+                    success: (res) => {
+                        this.balanceData = res.data;
+                        var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
+                        this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
+                        resolve();
+                    },
+                    error: function () {
+
+                    }
+                });
+                
+            })
+        },
+
         /* 获取系统时间，lotteryid 彩种id moved to /src/Maxin.js
             调用方式
                 this.getSystemTime().then((sys_time)=>{
@@ -72,12 +218,12 @@ var MyMixin = {
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken(access_token),
+                        "Authorization": "bearer  " + this.getAccessToken,
                     },
-                    url: action.forseti + 'apis/serverCurrentTime',
+                    url: this.action.forseti + 'apis/serverCurrentTime',
                     data: {},
                     success: (res) => {
-                        sys_time = this.formatTimeUnlix(res.data);
+                        const sys_time = this.formatTimeUnlix(res.data);
                         resolve(sys_time);
                     },
                     error: function () {
@@ -86,19 +232,6 @@ var MyMixin = {
                 });
 
             })
-        },
-
-        // token 处理
-        getAccessToken(access_token) {
-            if (access_token && access_token.length > 10) {
-                // console.log(access_token)
-                return access_token;
-            } else {
-                // console.log('从cookie');
-                var tmp = this.getCookie("access_token");
-                return tmp;
-            }
-
         },
 
         // 时间戳转换
@@ -212,12 +345,12 @@ var MyMixin = {
             return t.split("").reverse().join("") + "." + r;
         },
          ifLogined() { // 判断是否登录
-                if (this.getCookie('username') && this.getCookie('access_token')) {
-                    return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
-                } else {
-                    return false;
-                }
-            },
+            if (this.getCookie('username') && this.getCookie('access_token')) {
+                return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
+            } else {
+                return false;
+            }
+        },
     }
 };
 export default MyMixin;

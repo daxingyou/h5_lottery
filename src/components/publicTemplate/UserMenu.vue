@@ -8,42 +8,39 @@
             <!-- <img src="/static/images/top/zoushi.png"> -->
         </div>
         <div @click="close">
-            <div v-if="show" >
-                <ul>
-                    <li>
-                        <a href="/publicTemplate/betRecord">
-                            <img src="/static/images/right/1.png">
+            <div v-if="show">
+                <ul class="right_menu">
+                    <li class="r_record">
+                        <router-link to="/publicTemplate/betRecord">
                             <p>投注记录</p>
-                        </a>
+                        </router-link>
                     </li>
-                    <li>
-                        <a href="/publicTemplate/pastView">
-                            <img src="/static/images/right/2.png">
+                    <li class="r_pastview">
+                        <router-link to="/publicTemplate/pastView">
                             <p>近期开奖</p>
-                        </a>
+                        </router-link>
                     </li>
-                    <li>
-                        <a href="/publicTemplate/roadBeads">
-                            <img src="/static/images/right/3.png">
+                    <li class="r_roadbeads">
+                        <router-link to="/publicTemplate/roadBeads">
                             <p>路珠</p>
-                        </a>
+                        </router-link>
                     </li>
-                    <li>
-                        <a href="/publicTemplate/dsLong">
-                            <img src="/static/images/right/4.png">
+                    <li class="r_long">
+                        <router-link to="/publicTemplate/dsLong">
                             <p>双面长龙</p>
-                        </a>
+                        </router-link>
                     </li>
-                    <li class="play" @click="play">
-                        <img src="/static/images/right/5.png">
+                    <li class="play " @click="play">
+                        <!-- <img src="/static/images/right/5.png"> -->
                         <p>玩法说明</p>
                     </li>
-                    <li>
-                        <img src="/static/images/right/6.png">
+                    <li class="r_today">
+                        <!-- <img src="/static/images/right/6.png"> -->
                         <p>今日输赢</p>
                         <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'-')}}{{fortMoney(roundAmt(payoff))}})</div>
                     </li>
                 </ul>
+
             </div>
         </div>
     </div>

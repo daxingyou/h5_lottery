@@ -29,7 +29,7 @@
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>' ;
+                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>
                    <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
                 </div>
             </div>
@@ -155,13 +155,13 @@ export default {
             $.ajax({
                 type: 'POST',
                 headers: {
-                    "Authorization": "bearer  " + this.getAccessToken(access_token),
+                    "Authorization": "bearer  " + this.getAccessToken,
                     // 'sourceType':'2', // 1是pc端，2是h5
                     // 'sideType':'1',  // 1是传统盘，2是双面盘
                 },
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
-                url: action.forseti + 'api/orders/betOrder',
+                url: this.action.forseti + 'api/orders/betOrder',
                 timeout: 600000,
                 //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
                 data: JSON.stringify(resdata),
