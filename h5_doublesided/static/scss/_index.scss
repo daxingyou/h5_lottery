@@ -137,7 +137,7 @@
                     // background-image: url('../../static/images/lo_bg.png');
                     // background-size: 100%;
                     background-color: rgba(#000,.3);
-                    border-bottom: 2px solid rgba(238, 238, 238, 0.62);
+                    border-bottom: 1px solid rgba(238, 238, 238, 0.62);
                     border-top:1px solid #436689;
                     @include border-radius(.1rem);
                     margin: .15rem;
@@ -385,12 +385,12 @@
         background: none;
         width: 2.8rem;
         @include border-radius(0);
-        height: 2.1rem;
+        height: 1.8rem;
         >img{
-            width: 100%;
-            padding-top: .15rem;
+            width: 60%;
+            padding-top: 0;
         }
-        &:after{
+        &:before{
             display: none;
         }
     }
