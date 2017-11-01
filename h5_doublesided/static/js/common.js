@@ -224,7 +224,7 @@ function getLotterys(all) {
                         }else{  // 各彩种 跳转
                             allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> '+
                                 '<div class="badge">'+
-                                '<img src="'+v.imgLeftUrl+'" alt="">' ;
+                                '<img src="'+v.imgUrl+'" alt="">' ;
                         }
 
                      allstr += '</div>'+
