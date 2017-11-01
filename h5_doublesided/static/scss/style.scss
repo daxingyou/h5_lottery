@@ -42,8 +42,40 @@
             .so-l-c-top {
                 width: 100%;
                 height: 1.97rem;
-                background: url("../../static/images/left/left-top-bg.png");
-                background-size: 100%;
+                // background: url("../../static/images/left/left-top-bg.png");
+                // background-size: 100%;
+                // background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#90bff6), to(#5d76c4));
+                // background-image: -webkit-linear-gradient(#90bff6, #5d76c4);
+                // background-image: -moz-linear-gradient(#90bff6, #5d76c4),-moz-linear-gradient(#90bff6, #5d76c4);
+                // background-image: -o-linear-gradient(#90bff6, #5d76c4),-o-linear-gradient(#90bff6, #5d76c4);
+                // background-image: linear-gradient(#90bff6, #5d76c4),linear-gradient(#90bff6, #5d76c4);
+                // border-top: 2px solid #90bff6;
+                // border-bottom: 2px solid #5d76c4;
+                // -moz-background-size:2px 100%;
+                // background-size:2px 100%;
+                // background-position:0 0, 100% 0;
+                // background-repeat:no-repeat;
+                position: relative;
+                &:before{
+                    @include pseudo;
+                    background:-webkit-linear-gradient(#212637,#384465);
+                    background: linear-gradient(#212637,#384465);
+                    height: 1.97rem;
+                    width: 99.9%;
+                    z-index: 0;
+                    //border-radius: .2rem;
+                }
+                &:after{
+                    @include pseudo;
+                    @include background-image ('past_bg.png',0,transparent);
+                    background-position-y: bottom;
+                    right: -1.7rem;
+                    left: inherit;
+                    top: inherit;
+                    width: 35%;
+                    height: 1rem;
+                    bottom: -.1rem;
+                }
                 > div {
                     float: left;
                     height: 100%;
@@ -235,7 +267,7 @@
                     height: 100%;
                     div:first-child {
                         ul li {
-                            float: right;
+                            float: left;
                             background: url('../../static/images/content/qui02.png') no-repeat;
                             // background-size: 1.1rem;
                             // background-position: 0.15rem;
