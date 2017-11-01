@@ -325,6 +325,7 @@ $(function () {
         $('.tab_content .slide_toggle').each(function (i, t) {
             $(t).unbind('click');
             $(t).click(function () {
+                $('.bet-recode-all').find('li').remove();
                 seadata.page = 1;
                 if ($(this).attr('class')
                         .indexOf('active') < 0) {
