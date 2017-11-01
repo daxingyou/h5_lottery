@@ -256,7 +256,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tabset > label { position: relative; display: inline-block; padding: .4rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #66c3f2; border: 1px solid #66c3f2; font-size: 0.35rem; }
 
-.tabset > label.tab1 { margin-right: -10px; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
+.tabset > label.tab1 { margin-right: -.07rem; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 
 .tabset > label.tab2 { border-top-right-radius: .2rem; border-bottom-right-radius: .2rem; }
 
@@ -522,11 +522,19 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .tab_content_out.on, #road02 .tab_content_out.on { display: block; }
 
-.road { -webkit-box-sizing: border-box; box-sizing: border-box; width: .85rem; height: 4.6rem; display: inline-block; overflow: hidden; }
+.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.6rem; display: inline-block; overflow: hidden; }
 
 .road:last-child { margin-right: .5rem; }
 
 .road:last-child:before { content: ''; display: block; position: absolute; background: url("../../static/images/page/road.png") no-repeat; width: .85rem; top: -0.1rem; background-size: 100%; height: .6rem; }
+
+.road.road_left { width: auto; }
+
+.road.road_left ul > li { margin-left: 0; }
+
+.road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -.77rem; }
+
+.road.road_left ul > li:nth-child(n+7) { margin-top: -1rem; display: inline-block; position: relative; top: -.77rem; }
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; margin-top: .5rem; padding-top: .2rem; }
 

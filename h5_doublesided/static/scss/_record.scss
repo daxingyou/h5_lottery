@@ -501,7 +501,8 @@ i.prd{
 }
 .road{
     box-sizing: border-box;
-    width: .85rem;
+    min-width: .85rem;
+    width: auto;
     height: 4.6rem;
     display: inline-block;
     overflow: hidden;
@@ -517,6 +518,37 @@ i.prd{
             background-size: 100%;
             height: .6rem;
         }
+    }
+    &.road_left{
+        width: auto;
+        ul{
+            >li{
+                margin-left: 0;
+                // &:nth-child(6){
+                //     //float: left;
+                //     margin-top: -.8rem;
+                //     margin-left: .8rem;
+                //     display: inline-block;
+                // }
+                &:nth-child(6){
+                    //float: left;
+                    margin-top: -1rem;
+                    margin-left: .8rem;
+                    display: inline-block;
+                    position: relative;
+                    top: -.77rem;
+                }
+                &:nth-child(n+7){
+                    //float: left;
+                    margin-top: -1rem;
+                    //margin-left: .8rem;
+                    display: inline-block;
+                    position: relative;
+                    top: -.77rem;
+                }
+            }
+        }
+
     }
     >ul{
         background-color: #0d1522;

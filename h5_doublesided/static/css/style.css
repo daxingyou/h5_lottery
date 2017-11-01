@@ -2,7 +2,7 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .so-con { width: 10rem; height: 100%; overflow-x: hidden; text-align: center; margin: auto; }
 
-.so-con .so-left { float: left; width: 8.7rem; height: 100%; position: fixed; z-index: 51; top: 0; left: -100%; }
+.so-con .so-left { float: left; width: 8.7rem; height: 100%; position: fixed; z-index: 52; top: 0; left: -100%; }
 
 .so-con .so-left .so-left-close { background-color: #050709; border-left: 3px solid #202f45; width: 0.79rem; height: 100%; float: left; }
 

@@ -1451,6 +1451,48 @@
 
         });
     </script>
+    <script>
+        // $(function () {
+        //     var i = 5;
+        //     var road = '.road';
+        //     $('.tab_content li.road ul').each(function (i) {
+        //         if ($(i).find('li.road ul li').length > 5) {
+        //             $('road').attr('class', 'road_left');
+        //         }
+        //         $(i).show();
+        //     });
+        //     console.log(123);
+        // });
 
+        // $(function () {
+        //     var i = 5;
+        //     var road = '.road';
+        //     $('ul.tab_content li.road ul li').each(function (i) {
+        //         if (i > 5) {
+        //             $(this).attr('class', 'road_left');
+        //             console.log(this);
+        //         }
+        //     });
+        // });
+        // $(function () {
+        //     $('.road').each(function () {
+        //         var items = $(this).find('li');
+        //         if (items.length > 5) {
+        //             items.slice(5).attr('class', 'road_left');
+        //         }
+        //         console.log(items);
+        //     });
+        // });
+            $(function () {
+                $('ul.tab_content>li.road').each(function () {
+                    var items = $(this).find('li');
+                    if (items.length > 5) {
+                        $(this).addClass('road_left');
+                    }
+                    console.log(this);
+                });
+            });
+    </script>
 </body>
 </html>
+
