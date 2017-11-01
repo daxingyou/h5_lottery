@@ -14,7 +14,7 @@ $(function () {
 
     getLotterys('.all_lottery') ; // 获取彩种
     initChoiceObj() ; // 球点击处理
-    initPopEve(2) ; // 表单提交判断
+    betActionSubmit() ; // 表单提交
     initNavChoice() ; // 右边nav 切换处理
 
 });
