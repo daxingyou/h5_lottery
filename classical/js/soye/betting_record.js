@@ -33,6 +33,10 @@ initView();
 function initView() {
     $('.tab_content').html('');
     var nowDate = new Date();
+    var year = nowDate.getYear() + 1900
+    var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
+    var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
+    var newpdate = '' + year + mon + day
     var restr = '';
     for (var i = 0; i < 3; i++) {
         pdate = '' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日';
@@ -40,7 +44,7 @@ function initView() {
         if (i === 0) {
             first_li = 'first_li';
         }
-        restr += '<li class="slide_toggle bet_day new_bet_day ' + first_li + '" data-page="1" data-val="' + (nowDate.getYear() + 1900) + (nowDate.getMonth() + 1) + nowDate.getDate() + '">' +
+        restr += '<li class="slide_toggle bet_day new_bet_day ' + first_li + '" data-page="1" data-val="' + newpdate + '">' +
             '<div class="panel_title"> <strong class="title-data">' + pdate + '</strong><span></span> </div>' +
             '<ul class="panel bet-recode-all"></ul></li>';
         nowDate.setDate(nowDate.getDate() - 1);
@@ -225,6 +229,7 @@ function initDateMeun() {
     $('.tab_content .slide_toggle').each(function (i, t) {
         $(t).unbind('click');
         $(t).click(function () {
+            $('.bet-recode-all').find('li').remove()
             seadata.page = 1;
             if ($(this).attr('class')
                     .indexOf('active') < 0) {
