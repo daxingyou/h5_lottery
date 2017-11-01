@@ -19,7 +19,7 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入帐号" class="username" value="bcappid02|admin" >
+                            <input type="text" placeholder="请输入帐号" class="username" value="admin" >
                             <i class="close"></i>
                         </div>
                         <label class="red">请输入4~15位帐号</label>
@@ -53,7 +53,6 @@
     <script>
         $(function () {
 
-
             // 登录接口
             function LoginAction() {
                 var username = $.trim($('.username').val()) ;
@@ -68,7 +67,7 @@
                 }
                 var logindata =  {
                     grant_type: 'password',
-                    username: username,
+                    username: 'bcappid02|'+username,
                     password: password ,
                 }
                 $.ajax({

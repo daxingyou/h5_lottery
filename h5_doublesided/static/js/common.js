@@ -495,7 +495,7 @@ function processCode(issue, lastissue,code,double) {
     var lotteryid = getCookie('lt_lotteryid') ;
     if (!code) {
         if(lotteryid !='8'){  // 北京pk10
-            code = '-,中,奖,开,-';
+            code = '-,开,奖,中,-';
         }else{ // 北京pk10
             code ='20,20,20,20,20,20,20,20,20,20' ;
         }

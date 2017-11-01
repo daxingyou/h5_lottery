@@ -48,7 +48,7 @@ export default {
         }
     },
   mounted:function() {
-        this.username = 'bcappid02|admin' ;
+        this.username = 'admin' ;
   },
   methods: {
     // 登录接口 moved to 主页/index.vue
@@ -63,7 +63,7 @@ export default {
         }
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
-            username: this.username ,
+            username: 'bcappid02|'+this.username ,
             password: this.password
         }
         $.ajax({
