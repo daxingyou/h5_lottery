@@ -215,17 +215,19 @@ function getLotterys(all) {
                 }
                 allstr += ' <li >' ;
                         if(all =='.lobby_all_lottery'){  // 大厅首页情况下 跳转
-                            allstr += ' <a class="to_lottery" href="'+hrefUrl+'"> ' ;
+                            allstr += ' <a class="to_lottery" href="'+hrefUrl+'"> ' +
+                                 '<div class="badge">'+
+                                '<img src="'+v.imgUrl+'" alt="">' ;
                         }else{  // 各彩种 跳转
-                            allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> ' ;
+                            allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> '+
+                                '<div class="badge">'+
+                                '<img src="'+v.imgLeftUrl+'" alt="">' ;
                         }
-                allstr += '<div class="badge">'+
-                    '<img src="'+v.imgUrl+'" alt="">'+
-                    '</div>'+
-                    '</a> '+
-                    '<p>'+ v.name +'</p>'+
-                    '</li>' ;
 
+                     allstr += '</div>'+
+                               '</a> '+
+                               '<p>'+ v.name +'</p>'+
+                               '</li>' ;
             });
 
             $(all).html(allstr);
