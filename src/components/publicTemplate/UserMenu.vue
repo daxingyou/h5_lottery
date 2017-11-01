@@ -8,33 +8,27 @@
             <!-- <img src="/static/images/top/zoushi.png"> -->
         </div>
         <div @click="close">
-
-
             <div v-if="show">
                 <ul class="right_menu">
                     <li class="r_record">
-                        <a href="/publicTemplate/betRecord">
-                            <!-- <img src="/static/images/right/1.png"> -->
+                        <router-link to="/publicTemplate/betRecord">
                             <p>投注记录</p>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="r_pastview">
-                        <a href="/publicTemplate/pastView">
-                            <!-- <img src="/static/images/right/2.png"> -->
+                        <router-link to="/publicTemplate/pastView">
                             <p>近期开奖</p>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="r_roadbeads">
-                        <a href="/publicTemplate/roadBeads">
-                            <!-- <img src="/static/images/right/3.png"> -->
+                        <router-link to="/publicTemplate/roadBeads">
                             <p>路珠</p>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="r_long">
-                        <a href="/publicTemplate/dsLong">
-                            <!-- <img src="/static/images/right/4.png"> -->
+                        <router-link to="/publicTemplate/dsLong">
                             <p>双面长龙</p>
-                        </a>
+                        </router-link>
                     </li>
                     <li class="play " @click="play">
                         <!-- <img src="/static/images/right/5.png"> -->

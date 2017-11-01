@@ -70,6 +70,82 @@ var MyMixin = {
         payoffFormat(val){
             return (Number(val)/10000).toFixed(3);
         },
+
+
+        // 玩法树
+        loadPlayTree:function(gameid) {
+            return new Promise((resolve, reject)=>{
+                $.ajax({
+                    type: 'get',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    url: this.action.forseti + 'api/playsTree',
+                    data: {lotteryId: gameid,}, // 当前彩种id
+                    success: (res) => {
+                        this.playTreeList = res.data.childrens;
+                        resolve(this.playTreeList);
+                    },
+                    error: function () {
+
+                    }
+                });
+            });
+            
+        },
+        
+        // 最新开奖期数
+        priodDataNewly:function(gameid, sys_time) {
+            return new Promise((resolve)=>{
+                // const res = this.testPriodDataNewlyData;
+                $.ajax({
+                    type: 'get',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    url: this.action.forseti + 'api/priodDataNewly',
+                    data: {lotteryId: gameid,},
+                    success: (function(res) {
+                        if(res.data){
+                            resolve(res);
+                            
+                        }
+                    }).bind(this),
+                    error: function () {
+
+                    }
+                });
+            });
+            
+        },
+        
+        
+        // 获取用户余额
+        getMemberBalance:function (lotteryid) {
+            return new Promise((resolve)=>{
+                $.ajax({
+                    type: 'GET',
+                    headers: {
+                        "Authorization": "bearer  " + this.getAccessToken,
+                    },
+                    // dataType:'json',
+                    // contentType:"application/json; charset=utf-8",  // json格式传给后端
+                    url: this.action.hermes + 'api/balance/get',
+                    data: { lotteryId: lotteryid },
+                    success: (res) => {
+                        this.balanceData = res.data;
+                        var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
+                        this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
+                        resolve();
+                    },
+                    error: function () {
+
+                    }
+                });
+                
+            })
+        },
+
         /* 获取系统时间，lotteryid 彩种id moved to /src/Maxin.js
             调用方式
                 this.getSystemTime().then((sys_time)=>{
