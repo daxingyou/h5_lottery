@@ -63,9 +63,9 @@
                             </div>
                             <div class="last-open-dou">
                                 <ul>
-                                    <li>{{lastTermStatic.total}}</li>' ;
-                                    <li>{{lastTermStatic.sizer}}</li>' ;
-                                    <li>{{lastTermStatic.longer}}</li>' ;
+                                    <li>{{lastTermStatic.total}}</li>
+                                    <li>{{lastTermStatic.sizer}}</li>
+                                    <li>{{lastTermStatic.longer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
                                   <!--  <li>21</li>
                                     <li>小</li>
@@ -498,7 +498,7 @@ export default {
                 let code = res.data[2].winNumber;
                 //code 上期开奖号码
                 if (!code) {
-                    code = '-,中,奖,开,-';
+                    code = '-,开,奖,中,-';
                 }
                 this.winNumber = code;
                 //上期开奖统计
