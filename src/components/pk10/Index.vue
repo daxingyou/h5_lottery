@@ -1,36 +1,9 @@
 <template>
     <div class="so-con" id="pk10">
         <!--left siderbar  -->
-        <div class="so-left">
-            <div class="so-left-close">
-                <img src="/static/images/left/left808.png">
-            </div>
-            <div class="so-left-con">
-                <div class="so-l-c-top">
-                    <div>
-                        <img src="/static/images/left/user.png">
-                    </div>
-                    <div>
-                        <p class="user_name"> </p>
-                        <div class="purse">
-                            <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                            <div class="so-in-top-sum">
+        <!--用户导航 so-left -->
+        <UserNavigation el=".so-menu" ref="navone"/>
 
-                            </div>
-                        </div>
-                        <!-- <p>87348.00</p> -->
-                    </div>
-                </div>
-                <div class="so-l-c-con">
-                    <div>
-                        <div class="back_home"><a href="../"><span><img src="/static/images/left/icon_home.png"></span><span>返回竞彩大厅</span></a></div>
-                        <ul class="all_lottery">
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!--right menu  -->
         <div class="so-right">
             <div>
@@ -83,7 +56,7 @@
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum">
-
+                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                         </div>
                     </li>
                     <li class="so-top-zoushi">
@@ -96,7 +69,7 @@
                     <div class="so-main-top">
                         <div class="so-m-t-left">
                             <div>
-                                <span class="last-date"> </span> 期
+                                第<span class="last-date"> {{previous_pcode.toString().substr(4, 8)}}</span> 期
                             </div>
                             <div>
                                 <a href="../publicTemplate/past_view.html">
@@ -109,33 +82,26 @@
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="pk10_top_number">
-                                    <!-- <li><span class="pk10_ball small_ball num_10"></span></li>
-                                     <li><span class="pk10_ball small_ball num_02"></span></li>
-                                     <li><span class="pk10_ball small_ball num_01"></span></li>
-                                     <li><span class="pk10_ball small_ball num_09"></span></li>
-                                     <li><span class="pk10_ball small_ball num_03"></span></li>
-                                     <li><span class="pk10_ball small_ball num_04"></span></li>
-                                     <li><span class="pk10_ball small_ball num_08"></span></li>
-                                     <li><span class="pk10_ball small_ball num_07"></span></li>
-                                     <li><span class="pk10_ball small_ball num_05"></span></li>
-                                     <li><span class="pk10_ball small_ball num_06"></span></li>-->
+                                    <li v-for="item in winNumber.split(',')"><span class="pk10_ball small_ball" :class="'ball num_'+item"> </span></li>
+                                    <!-- <li><span class="pk10_ball small_ball num_10"></span></li> -->
+
                                 </ul>
                             </div>
                             <div class="last-open-dou">
                                 <ul class="pk10_top_detail">
-                                    <!--  <li>6</li>
-                                      <li>小</li>
-                                      <li>双</li>
-                                      <li>虎</li>
-                                      <li>虎</li>
-                                      <li>龙</li>
-                                      <li>龙</li>
-                                      <li>龙</li>-->
+                                    <li>{{lastTermStatic.lh_1}}</li>
+                                    <li>{{lastTermStatic.lh_2}}</li>
+                                    <li>{{lastTermStatic.lh_3}}</li>
+                                    <li>{{lastTermStatic.lh_4}}</li>
+                                    <li>{{lastTermStatic.lh_5}}</li>
+                                    <li>{{lastTermStatic.top2_doubler}}</li>
+                                    <li>{{lastTermStatic.top2_sizer}}</li>
+                                    <li>{{lastTermStatic.top2_total}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="so-main-down">
+                  <!--  <div class="so-main-down">
                         <ul>
                             <li>
                                 <p>
@@ -153,7 +119,14 @@
                                 <a class="open-time">00:00</a>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
+                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time"
+                                    @countdownOver="playLottery"
+                                    @entertainCountdownOver="entertain"
+                                    :lotteryID="lotteryID"
+                                    :now_pcode="now_pcode"
+                                    :start="sys_time" :end="now_time" :overend="nowover_time" />
+
                 </div>
             </div>
             <div class="so-in-con">
@@ -1216,16 +1189,158 @@
 
 <script>
     import "../../../static/css/pk10.css"
+    import UserNavigation from '@/components/publicTemplate/UserNavigation'
+    import UserMenu from '@/components/publicTemplate/UserMenu'
+    import InfoDialog from '@/components/publicTemplate/InfoDialog'
+    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+    import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
+    import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+
+    import Bet from '@/components/publicTemplate/Bet'
+    import PlayDialog from '@/components/cqssc/PlayDialog'
+    import Mixin from '@/Mixin'
 export default {
-  name: 'pk10Index',
+    name: 'pk10Index',
+    mixins:[Mixin],
+    components: {
+        CountdownTimer,
+        BetSuccessfulDialog,
+        Bet,
+        UserNavigation,
+        UserMenu,
+        InfoDialog,
+        AutoCloseDialog,
+        PlayDialog
+    },
     data :function() {
         return {
-            msg: 'Welcome to Your Vue.js App'
+            now_time:'',  // 当前期数销售截止时间
+            nowover_time:'',  // 当前期数封盘时间
+            next_pcode:'',  // 下一期数
+            now_pcode:0,  // 当前期数
+            previous_pcode:'',//上一期期数
+            winNumber:'',    //上期开奖号
+            lastTermStatic:'',  //上期开奖数据统计
+            sys_time :'',  // 当前系统时间
+            now_day:'',  // 当前日期
+            balanceData:{},
+            entertainStatus:false,
+            betSelectedList:[],   //用户选中的注数
+            playTreeList:[], //玩法树
+            lotteryID:8 ,
+            allLottery:{} ,
+            gameHref:{} ,
+            kinds:['两面', '冠亚和值', '1-5名','6-10名'],
         }
     },
-  mounted:function() {
-    
-  },
+    created:function(){
+        this.getMemberBalance().then(()=>{
+            this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
+        });
+    },
+    mounted:function() {
+        var lotteryid = this.lotteryID ; // 彩种id
+        var lotteryname = '北京PK10' ; // 彩种名称
+        this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
+        this.setCookie('lottery_name',lotteryname) ; // 彩种名称
+        this.allLottery = this.$refs.navone.getLotterys() ;
+        this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+
+        setTimeout(() => {
+            this.timerBegin();
+        }, 500) ;
+
+    },
+    computed:{
+        doubleSideList:function(){
+            return this.getListByParentID(21000);
+        },
+        oneToFiveList:function(){
+            return this.getListByParentID(22000);
+        },
+        frontCenterBackList:function(){
+            return this.getListByParentID(23000);
+        },
+    },
+    methods:{
+        switchTab:function(e){
+            const $src = $(e.currentTarget);
+            const index = $src.index();
+            const $tabs = $('.so-con-right > div');
+            $tabs.hide();
+            $tabs.eq(index).show();
+            $src.addClass('active').siblings().removeClass('active')
+        },
+        getListByParentID:function(parentID){
+            return this.playTreeList.filter((item,i)=>{
+                return item.parentId == parentID;
+            });
+        },
+        //开奖倒计时结束后处理
+        playLottery:function(){
+            this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+            this.timerBegin();
+        },
+        //封盘倒计时结束后处理
+        entertain:function(){
+            this.entertainStatus = true;
+            this.resetAction();
+        },
+        timerBegin:function(){
+            this.getSystemTime().then((sys_time)=>{
+                this.sys_time = sys_time;
+                this.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+                    this.next_pcode = res.data[0].pcode;  // 下期期数
+                    this.now_pcode = res.data[1].pcode;  // 当前期数
+                    this.previous_pcode = res.data[2].pcode;  // 上期期数
+                    // 当前期数时间
+                    this.now_time = this.formatTimeUnlix(res.data[1].endTime);
+                    // 当前期封盘时间
+                    this.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
+                    // 当天日期
+                    this.now_day = ( res.data[1].pcode).toString().substr(0, 8);
+                    let code = res.data[2].winNumber;
+                    //code 上期开奖号码
+                    if (!code) {
+                        code='20,20,20,20,20,20,20,20,20,20';
+                    }
+                    this.winNumber = code;
+                    //上期开奖统计
+                    this.lastTermStatic = res.data[2].doubleData;
+
+                    // this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                    this.$refs.countdownTimer && this.$refs.countdownTimer.timerInit();
+                });
+            });
+            this.entertainStatus = false;
+        },
+        resetAction:function(){
+            this.betSelectedList = [];
+            $(".so-con-right p").removeClass('active');
+            this.getMemberBalance() ; // 更新余额
+        },
+        //当用户选择球时，保存相应数据
+        betSelect:function(e, item, parentItem){
+            // if (this.entertainStatus){
+            //     return false;
+            // }
+            var $src = $(e.currentTarget);
+            if ($src.prop('class').indexOf('active') < 0){
+                $src.addClass('active');
+                item.parentItem = parentItem;
+                this.betSelectedList.push(item);
+            }else{
+                $src.removeClass('active');
+                this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
+            }
+        },
+
+
+        // play:function(){
+        //     this.$refs.playDialog.open()
+        // }
+
+    }
 
 }
 </script>
