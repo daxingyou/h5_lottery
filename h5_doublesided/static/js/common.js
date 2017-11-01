@@ -427,7 +427,9 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 
         if( (lt_time_leave >=420 && lt_time_leave <=540 && lt_time_leave % 10 ==0) || (lt_time_leave >=120 && lt_time_leave <=240 && lt_time_leave % 10 ==0 )){ // 10,秒一次请求开奖数据
             var hasnum = Number($('.last-open-num li:nth-child(1)').data('val')) ; // 判断是否已经拉取期数成功
-            if(hasnum < 0){
+            if((hasnum >= 0) && (hasnum <20)){
+
+            }else{
                 priodDataNewly(getCookie('lt_lotteryid'),'timer') ;
             }
 

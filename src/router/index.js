@@ -5,7 +5,7 @@ import Login from '@/components/Login'
 import Reg from '@/components/Reg'
 // import HksixlotIndex from '@/components/hksixlot/Index'
  import Jc11x5Index from '@/components/jc11x5/Index'
-// import Pk10Index from '@/components/pk10/Index'
+ import Pk10Index from '@/components/pk10/Index'
 // import Cqssc from '@/components/Cqssc/Default'
 import CqsscIndex from '@/components/cqssc/Index'
 import PastView from '@/components/publicTemplate/PastView'
@@ -43,11 +43,11 @@ export default new Router({
       name: 'jc11x5Index',
       component: Jc11x5Index
     },
-   /* {
+    {
       path: '/pk10/',
       name: 'pk10Index',
       component: Pk10Index
-    },*/
+    },
     {
       path: '/cqssc/',
       name: 'cqsscIndex',
