@@ -707,7 +707,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 #index_content.content > .hotgame_area ul { padding: .5rem .3rem; width: 100%; }
 
-#index_content.content > .hotgame_area ul > li { background-color: rgba(0, 0, 0, 0.3); border-bottom: 2px solid rgba(238, 238, 238, 0.62); border-top: 1px solid #436689; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 30%; background-repeat: no-repeat; }
+#index_content.content > .hotgame_area ul > li { background-color: rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(238, 238, 238, 0.62); border-top: 1px solid #436689; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 30%; background-repeat: no-repeat; }
 
 #index_content.content > .hotgame_area ul > li > .badge { background-image: url("../../static/images/ballbg.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: 2.6rem; height: 2rem; margin-top: -.1rem; border-radius: 0; }
 
@@ -799,13 +799,17 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .right_menu > li.r_today:before { background-position-y: -7.6rem; }
 
-.hotgame_area .badge { background: none; width: 2.8rem; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; border-radius: 0; height: 2.1rem; }
+.hotgame_area .badge { background: none; width: 2.8rem; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; border-radius: 0; height: 1.8rem; }
 
-.hotgame_area .badge > img { width: 100%; padding-top: .15rem; }
+.hotgame_area .badge > img { width: 60%; padding-top: 0; }
 
-.hotgame_area .badge:after { display: none; }
+.hotgame_area .badge:before { display: none; }
 
 .countdown { line-height: .5rem; }
+
+.all_lottery > li .badge { width: 2.5rem; height: 2.35rem; margin-top: 0; }
+
+.all_lottery > li > p { line-height: .7rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .login_area, .deposit_area { margin: 0 auto; margin-top: 4.5rem; position: relative; z-index: 50; width: 90%; }
