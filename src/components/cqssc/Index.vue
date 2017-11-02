@@ -198,7 +198,6 @@
             <img class=" bet_ok" src="/static/images/pop/ok_light.png">
             <div>
                 <img src="/static/images/pop/title_bet_ok.png">
-                <img src="/static/images/pop/icon_check.png">
                 <p>您已成功支付<br/>请随时关注开奖信息！</p>
             </div>
         </div>
