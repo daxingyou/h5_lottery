@@ -145,8 +145,8 @@
                 <li class="so-menu">
                     <img src="../static/images/top/icon-menu.png" class="so-top-menu">
                 </li>
-                <li>
-                    <img src="../static/images/top/logo_cqssc.png" class="so-top-logo">
+                <li class="left_top_logo">
+                    重庆时时彩
                 </li>
                 <li class="purse">
                     <img src="../static/images/top/sjinbi.png" class="so-top-sum">
@@ -222,6 +222,28 @@
                     <li class="active">两面</li>
                     <li>1-5球</li>
                     <li>前中后</li>
+<!-- 
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li> -->
+                    
                 </ul>
             </div>
             <div class="so-con-right bule_bg">
@@ -914,6 +936,7 @@
 <script src="../static/js/common.js"></script>
 <script src="../static/js/config.js"></script>
 <script src="../static/js/index.js"></script>
+<script src="../static/js/iscroll.js"></script>
 <script>
     $(function () {
         var lotteryid = m_lottery_int.s_cqssc_id ; // 彩种id
@@ -930,12 +953,15 @@
             getMemberBalance(lotteryid); // 获取用户余额
             getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         }, 500) ;
-
-
-
     })
 
 </script>
+<script type="text/javascript">
+    var myScroll = new IScroll('.so-con-left', {
+        scrollbars: true
+    });
+
+    </script>
 
 </body>
 </html>
