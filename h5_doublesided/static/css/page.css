@@ -398,7 +398,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .tab .item.active a, .tab .item:hover a, .tab .item:focus a { color: #ccc; }
 
-.tab_mid { color: #d7e8f0; background-color: rgba(0, 0, 0, 0.15); position: fixed; top: 1.5rem; z-index: 5; width: 10rem; left: inherit; }
+.tab_mid { color: #d7e8f0; background-color: rgba(0, 0, 0, 0.3); position: fixed; top: 1.5rem; z-index: 5; width: 10rem; left: inherit; }
 
 .tab_mid > li { display: inline-block; width: 25%; text-align: center; vertical-align: middle; }
 

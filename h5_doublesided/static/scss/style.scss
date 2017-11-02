@@ -344,7 +344,9 @@
     .so-in-con {
         width: 100%;
         background-color: #19222f;
-        padding-top: 4.3rem;
+        // padding-top: 4.3rem;
+        position: fixed;
+        top: 4.3rem;
         > div:after {
             content: "";
             display: block;
@@ -359,7 +361,7 @@
             -webkit-overflow-scrolling: touch;
             //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
-            > ul {
+             ul {
                 li {
                     display: block;
                     width: 100%;
