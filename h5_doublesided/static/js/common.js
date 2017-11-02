@@ -530,6 +530,7 @@ function processCode(issue, lastissue,code,double) {
     }
     var str = '';
     var dstr ='';
+    var kdstr='';
     //已开奖期号节点,开奖号码
     if(lotteryid =='8'||lotteryid =='6' ){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
         //北京PK10期数
@@ -544,7 +545,7 @@ function processCode(issue, lastissue,code,double) {
         for (var i = 0; i < code_arr.length; i++) {
             if(lotteryid =='8' ){
                 str +='<li data-val="'+code_arr[i] +'"><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
-            }else{
+            }else if(lotteryid=='6'){
                 str +='<li data-val="'+code_arr[i] +'"><span class="k3_dice num_'+code_arr[i]+'"></span></li>' ;
             }
 
@@ -563,13 +564,17 @@ function processCode(issue, lastissue,code,double) {
         for (var i = 0; i < code_arr.length; i++) {
             str +='<li data-val="'+code_arr[i] +'">'+ code_arr[i] +'</li>' ;
         }
-        dstr +='<li>'+double.doubler+'</li>' ;
-        dstr +='<li>'+double.longer+'</li>' ;
-        dstr +='<li>'+double.sizer+'</li>' ;
-        dstr +='<li>'+double.total+'</li>' ;
+            dstr += '<li>' + double.doubler + '</li>';
+            dstr += '<li>' + double.longer + '</li>';
+            dstr += '<li>' + double.sizer + '</li>';
+            dstr += '<li>' + double.total + '</li>';
+
+            kdstr +='<li>'+double.sizer+'</li>';
+            kdstr += '<li>'+ double.total + '</li>';
     }
     $('.last-open-num ul').html(str) ;
     $('.last-open-dou ul').html(dstr) ;
+    $('.last-open-k3dou ul').html(kdstr);
 
 
 }
@@ -1135,8 +1140,10 @@ function doubleCount(lotteryid,rows,maxtime) {
                     for (var j = 0; j < codeArr.length; j++) {
                         if(lotteryid == '8') {  // 北京pk10
                             str += ' <li><span class="pk10_ball num_'+codeArr[j]+'"></span></li>' ;
-                        }else{//江苏快3
+                        }else if(lotteryid == '6'){//江苏快3
                             str += ' <li><span class="k3_dice num_'+codeArr[j]+'"></span></li>' ;
+                        }else{
+                            str += ' <li><span class="num_'+codeArr[j]+'"></span></li>' ;
                         }
 
                     }
