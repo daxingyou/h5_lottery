@@ -1349,11 +1349,21 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
                         '<div>'+ data.data[i].groupName +'</div>';
                         if(Number(data.data[i].playName) >=0 ){
                             str +=  '<ul class="lo_ball">' ;
-                            if(lotteryid == '8'){
-                            str += '<li><span class="pk10_ball num_'+ data.data[i].playName +'"></span></li>';
-                            }else if(lotteryid == '6'){
-                            str +='<li><span class="k3_dice num_'+ data.data[i].playName +'"></span></li>';
+                            switch (lotteryid) {
+                                case '8':
+                                    str += '<li><span class="pk10_ball num_'+ data.data[i].playName +'"></span></li>';
+                                    break;
+                                case '6' :   // 江苏K3
+                                case '20' :  // 安徽K3
+                                case '22' :  // 湖北K3
+                                    str +='<li><span class="k3_dice num_'+ data.data[i].playName +'"></span></li>';
+                                    break;
+
+                                default :
+
+                                    break;
                             }
+
                         }else{
                             if(lotteryid == '8') { // 北京pk 10
                                 str +=  '<ul class="lo_ball">' ;

@@ -292,7 +292,6 @@
     height: 100%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    -webkit-overflow-scrolling: auto;
     padding-bottom: .8rem; }
     .so-con .so-in-con .so-con-left > ul li {
       display: block;
