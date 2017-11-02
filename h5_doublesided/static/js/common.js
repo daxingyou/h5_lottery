@@ -840,11 +840,18 @@ function doCheckAction() {
     var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
     var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
     var betstr = '' ;
+    var lottery = getCookie('lt_lotteryid') ;//获取江苏快3 ID
     $(".so-con-right p").each(function (i, t) {
     // 已选择的注单
     if($(this).hasClass('active')){
         var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
-        var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+        //江苏快3
+        if(lottery == '6'){//判断江苏k3
+            var total_con = $(this).find('span:nth-child(1)').data('val') ;  // 投注内容
+        }else{
+            var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+        }
+
         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
         var total_id = $(this).data('id') ;  // 投注内容玩法id
         var total_type = $(this).data('type') ;  // 投注内容玩法类型，组合是 zu_he
