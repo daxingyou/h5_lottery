@@ -26,6 +26,10 @@ var m_lottery_int = {
     s_gdyxw_id : 16 ,  // 广东11选5 双面盘
     c_sdyxw_id : 17 ,  // 山东11选5 传统盘
     s_sdyxw_id : 18 ,  // 山东11选5 双面盘
+    c_ahks_id : 19 ,  // 安徽快3 传统盘
+    s_ahks_id : 20 ,  // 安徽快3 双面盘
+    c_hbks_id : 21 ,  // 湖北快3 传统盘
+    s_hbks_id : 22 ,  // 湖北快3 双面盘
     cqssc_name : '重庆时时彩' ,  // 重庆时时彩
     jxyxw_name : '江西11选5' ,  // 江西11选5
     jsks_name : '江苏快3 ' ,  // 江苏快3
@@ -35,6 +39,8 @@ var m_lottery_int = {
     xjssc_name : '新疆时时彩' ,  // 天津时时彩
     gdyxw_name : '广东11选5' ,  // 广东11选5
     sdyxw_name : '山东11选5' ,  // 山东11选5
+    ahks_name : '安徽快3 ' ,  // 安徽快3
+    hbks_name : '湖北快3 ' ,  // 湖北快3
 
 }
 

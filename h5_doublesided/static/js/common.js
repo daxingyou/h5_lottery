@@ -223,6 +223,12 @@ function getLotterys(all) {
                     case '18':  // 山东11选5双面盘
                         hrefUrl = 'web_sd11x5/index.html' ;
                         break;
+                    case '20':  // 安徽 K3 双面盘
+                        hrefUrl = 'web_ahk3/index.html' ;
+                        break;
+                    case '22':  // 河北 K3 双面盘
+                        hrefUrl = 'web_hbk3/index.html' ;
+                        break;
                     default:
                         hrefUrl = '' ;
                         break ;
