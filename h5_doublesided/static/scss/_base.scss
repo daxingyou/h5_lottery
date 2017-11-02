@@ -546,6 +546,10 @@ label{
             &.check{
                 color: $yellow;
             }
+            &.left{
+                text-align: left;
+                padding:.5rem;
+            }
             >div{
                 margin: 0 auto;
                 text-align: center;

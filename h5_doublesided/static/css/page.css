@@ -197,6 +197,8 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .content.check { color: #ffbd00; }
 
+.modal > .m_content > .content.left { text-align: left; padding: .5rem; }
+
 .modal > .m_content > .content > div { margin: 0 auto; text-align: center; }
 
 .modal > .m_content > .content > div > img { width: 80%; display: block; margin: 0 auto; }
@@ -850,7 +852,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .phone > legend { background-image: url("../../static/images/phone.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.deposit_area { margin-top: 2rem; padding-bottom: 2.5rem; }
+.deposit_area { margin-top: 2rem; padding-bottom: 2.5rem; z-index: 1; }
 
 .pay_content { line-height: 1; }
 
@@ -922,7 +924,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_way > ul > li > a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; font-size: 0.35rem; }
 
-.print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; overflow: hidden; border-radius: .1rem; }
+.print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; overflow: hidden; border-radius: .1rem; padding: .3rem 0; }
 
 .print_data table { margin: 0 .9em; min-width: 90%; }
 
