@@ -507,10 +507,10 @@ function processCode(issue, lastissue,code,double) {
     var lotteryid = getCookie('lt_lotteryid') ;
     if (!code) {
         switch (lotteryid) {
-            case  '8':
+            case  '8': // 北京pk10
             code='20,20,20,20,20,20,20,20,20,20';
             break;
-            case  '6':
+            case  '6': // 江苏快三
             code ='20,20,20';
             break;
             default :
@@ -542,24 +542,24 @@ function processCode(issue, lastissue,code,double) {
             }
 
         }
-        dstr +='<li>'+double.top2_total+'</li>' ;
-        dstr +='<li>'+double.top2_sizer+'</li>' ;
-        dstr +='<li>'+double.top2_doubler+'</li>' ;
-        dstr +='<li>'+double.lh_5+'</li>' ;
-        dstr +='<li>'+double.lh_4+'</li>' ;
-        dstr +='<li>'+double.lh_3+'</li>' ;
-        dstr +='<li>'+double.lh_2+'</li>' ;
         dstr +='<li>'+double.lh_1+'</li>' ;
+        dstr +='<li>'+double.lh_2+'</li>' ;
+        dstr +='<li>'+double.lh_3+'</li>' ;
+        dstr +='<li>'+double.lh_4+'</li>' ;
+        dstr +='<li>'+double.lh_5+'</li>' ;
+        dstr +='<li>'+double.top2_doubler+'</li>' ;
+        dstr +='<li>'+double.top2_sizer+'</li>' ;
+        dstr +='<li>'+double.top2_total+'</li>' ;
      }else{
         $('.last-date').html(lastissue) ;
         $('.now-date').html(issue).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
             str +='<li data-val="'+code_arr[i] +'">'+ code_arr[i] +'</li>' ;
         }
-        dstr +='<li>'+double.total+'</li>' ;
-        dstr +='<li>'+double.sizer+'</li>' ;
-        dstr +='<li>'+double.longer+'</li>' ;
         dstr +='<li>'+double.doubler+'</li>' ;
+        dstr +='<li>'+double.longer+'</li>' ;
+        dstr +='<li>'+double.sizer+'</li>' ;
+        dstr +='<li>'+double.total+'</li>' ;
     }
     $('.last-open-num ul').html(str) ;
     $('.last-open-dou ul').html(dstr) ;
@@ -1087,19 +1087,19 @@ function doubleCount(lotteryid,rows,maxtime) {
                     '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
                     '<ul class="double-count">' ;
                 if(lotteryid == '8') {  // 北京pk10
-                   str += ' <li>'+data.data[i].doubleData.top2_total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>'+
-                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                   str += ' <li>'+data.data[i].doubleData.lh_1+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_2+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_3+'</li>'+
                     ' <li>'+data.data[i].doubleData.lh_4+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_3+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_2+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_1+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_total+'</li>' ;
                 }else{
-                   str += ' <li>'+data.data[i].doubleData.total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                   str += ' <li>'+data.data[i].doubleData.doubler+'</li>'+
                     ' <li>'+data.data[i].doubleData.longer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.doubler+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                    ' <li>'+data.data[i].doubleData.total+'</li>' ;
                 }
 
                    str +=' </ul>'+
