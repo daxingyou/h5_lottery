@@ -11,6 +11,7 @@ import CqsscIndex from '@/components/cqssc/Index'
 import PastView from '@/components/publicTemplate/PastView'
 import BetRecord from '@/components/publicTemplate/BetRecord'
 import RoadBeads from '@/components/publicTemplate/RoadBeads'
+import pk10RoadBeads from '@/components/publicTemplate/pk10RoadBeads'
 import DsLong from '@/components/publicTemplate/DsLong'
 
 
@@ -56,6 +57,7 @@ export default new Router({
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
     { path: '/publicTemplate/roadBeads', name:'roadBeads', component: RoadBeads },
+    { path: '/publicTemplate/pk10roadBeads', name:'pk10roadBeads', component: pk10RoadBeads },
     { path: '/publicTemplate/dsLong', name:'dsLong', component: DsLong },
 
   ]
