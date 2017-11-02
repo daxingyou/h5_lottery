@@ -1181,7 +1181,7 @@
         </div>
         <div>
             <div class="so-add">
-                <img src="static/images/foot/foot-jia.png">
+
                 <p>下注</p>
             </div>
         </div>

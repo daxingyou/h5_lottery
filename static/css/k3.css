@@ -100,6 +100,8 @@
 
 .k3_dice { display: inline-block; vertical-align: middle; -webkit-box-sizing: border-box; box-sizing: border-box; background: url(../images/k3/dice.png) no-repeat; background-size: 6rem 1rem; width: 1rem; height: 1rem; border-radius: 0.1rem; }
 
+.k3_dice.num_20 { background: url(../images/k3/dice_0.png) no-repeat center center; background-size: 1rem 1rem; }
+
 .k3_dice.num_1 { background-position-x: 0; }
 
 .k3_dice.num_2 { background-position-x: -1rem; }
@@ -113,6 +115,8 @@
 .k3_dice.num_6 { background-position-x: -5rem; }
 
 .k3_dice.small_dice { background-size: 3rem 0.5rem; width: 0.5rem; height: 0.5rem; border-radius: 0.05rem; }
+
+.k3_dice.small_dice.num_20 { background: url(../images/k3/dice_0.png) no-repeat center center; background-size: 0.5rem 0.5rem; }
 
 .k3_dice.small_dice.num_1 { background-position-x: 0; }
 
