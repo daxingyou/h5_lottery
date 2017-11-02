@@ -6,6 +6,9 @@
     <meta content="yes" name="apple-touch-fullscreen">
     <meta content="telephone=no,email=no" name="format-detection">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="theme-color" content="#061626">
+    <meta name="msapplication-navbutton-color" content="#061626">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#061626">
     <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
@@ -1448,6 +1451,48 @@
 
         });
     </script>
+    <script>
+        // $(function () {
+        //     // var i = 5;
+        //     // var road = '.road';
+        //     $('.road').each(function () {
+        //         if ($('.road').find('ul li').length > 5) {
+        //             $('.road').attr('class', 'road_left');
+        //         }
+        //         //$(i).show();
+        //     });
+        //     console.log('.road');
+        // });
 
+        // $(function () {
+        //     var i = 5;
+        //     var road = '.road';
+        //     $('ul.tab_content li.road ul li').each(function (i) {
+        //         if (i > 5) {
+        //             $(this).attr('class', 'road_left');
+        //             console.log(this);
+        //         }
+        //     });
+        // });
+        // $(function () {
+        //     $('.road').each(function () {
+        //         var items = $(this).find('li');
+        //         if (items.length > 5) {
+        //             items.slice(5).attr('class', 'road_left');
+        //         }
+        //         console.log(items);
+        //     });
+        // });
+        $(function () {
+            $('ul.tab_content>li.road').each(function () {
+                var items = $(this).find('li');
+                if (items.length > 5) {
+                    $(this).addClass('road_left');
+                }
+                console.log(this);
+            });
+        });
+    </script>
 </body>
 </html>
+

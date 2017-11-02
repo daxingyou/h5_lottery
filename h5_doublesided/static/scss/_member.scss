@@ -20,7 +20,7 @@ fieldset{
     overflow: hidden;
     position: relative;
     background-color: rgba(#12151e,.7);
-    padding: .3rem;
+    padding: .15rem .3rem;
     @include border-radius(.2rem);
     border: 2px solid $normalblue;
     font-size: .35rem;
@@ -38,20 +38,20 @@ fieldset{
     >*{
         vertical-align: middle;
         float: left;
-        line-height: .5rem;
-        height: .5rem;
+        line-height: .8rem;
+        height: .8rem;
     }
     >legend{
         display: inline-block;
         width: .5rem;
-        height: .5rem;
+        height: .8rem;
         margin-right: .5rem;
         position: relative;
         text-align: left;
         &:after{
             @include pseudo;
             width: 1px;
-            height: .5rem;
+            height: .8rem;
             background-color: $normalblue;
             right:-.2rem;
             left: inherit;
@@ -136,6 +136,7 @@ fieldset{
     @extend .login_area;
     margin-top: 2rem;
     padding-bottom: 2.5rem;
+    z-index: 1;
 }
 .pay_content{
     line-height: 1;
@@ -146,7 +147,7 @@ fieldset{
         background: rgba(17, 22, 28, 0.8);
         //padding: .5rem 0;
         border:1px solid #294262;
-        @include respond-to('sm') {
+        @include respond-to('ss') {
             max-width: 85%;
         }
         &.pay_way{
@@ -342,6 +343,7 @@ fieldset{
     margin: 1em auto;
     overflow: hidden;
     border-radius: .1rem;
+    padding: .3rem 0;
     //padding: 1em 0;
     //margin-bottom: 2rem;
     table{
@@ -459,7 +461,7 @@ fieldset{
         width: auto;
     }
     .account{
-        width: 55%;
+        width: 75%;
         margin: 0 auto;
         position: relative;
         height: 2rem;
@@ -649,23 +651,24 @@ fieldset{
 }
 
 .info_mid{
-    @include background-image ('info_mid.jpg',0,transparent);
+   // @include background-image ('info_mid.jpg',0,transparent);
+   background-image:linear-gradient(#105b78, #0d1a2a);
     background-size: 100%;
     width: 100%;
     text-align: center;
-    height: 1.5rem;
+    height: 1.8rem;
     > div{
         width: 80%;
         margin: 0 auto;
         font-size: 0;
     }
     .btn_blue{
-        margin-top: .3rem;
+        margin-top: .25rem;
         &:last-child{
             margin-left: .5rem;
         }
         >a{
-            line-height: 25px;
+            line-height: .5rem;
         }
     }
 }
@@ -685,7 +688,7 @@ fieldset{
         background: rgba(17, 22, 28, 0.8);
         >li{
             width: 100%;
-            border: 1px solid #294262;
+            border-bottom: 1px solid #294262;
             >a{
                 display: block;
                 margin: .1rem;
@@ -804,5 +807,25 @@ fieldset{
     &.sta03{
         border: 1px solid #c83e3e;
         color: #c83e3e;
+    }
+}
+.qrcode_step{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    >.qrcode{
+        >img{
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    >.step{
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        margin-top: .5rem;
+        line-height: 1.8em;
+        font-size: 0.35rem;
     }
 }
