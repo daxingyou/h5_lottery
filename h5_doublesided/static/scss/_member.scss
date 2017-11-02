@@ -242,25 +242,18 @@ fieldset{
             }
         }
         &.webbank_pay,&.scan_qrcoder{
-            //margin-top: 2rem;
         }
         .btn_bank{
             @include border-radius(.1rem);
             border: 1px solid $normalblue;
-            // padding: 15px;
             margin:.2rem;
-            // background: url('../../static/images/info_bank.png') no-repeat;
             background-size: 115%;
             width: 40%;
             display: inline-block;
             background-position-x: 0.1em;
             padding: 1em 0;
             font-size: .35rem;
-            // max-height: 50px;
-            // height: 50px;
             @include respond-to('xs') {
-                // max-height: 28px;
-                // height: 28px;
                 padding: 0;
             }
             &:hover,&:active,&:focus{
@@ -478,23 +471,11 @@ fieldset{
             width: 63%;
             &:first-child{
                 width: 35%;
-                // @include respond-to('sm') {
-                //     width: 35%;
-                // }
             }
         }
         .ui.header>.image:not(.icon):only-child, .ui.header>img:only-child{
             margin-right: 0;
         }
-        // .over{
-        //     display: -webkit-box;
-        //     padding-left: 6.5rem;
-        //     margin-top: -1.35rem;
-        //     @include respond-to('sm') {
-        //         padding-left: 4.3rem;
-        //     }
-        //      //要解決金額超出問題
-        // }
     }
     &:after{
         display: block;
@@ -509,13 +490,6 @@ fieldset{
         }
     }
 }
-// .qrcode-img{
-//     background-color: #fff;
-//     padding: 1rem;
-//     max-width: 13.5rem;
-//     min-height: 12.5rem;
-//     margin: 0 auto;
-// }
 .portrait{
     height: auto;
     position: relative;
@@ -651,8 +625,7 @@ fieldset{
 }
 
 .info_mid{
-   // @include background-image ('info_mid.jpg',0,transparent);
-   background-image:linear-gradient(#105b78, #0d1a2a);
+    background-image:linear-gradient(#105b78, #0d1a2a);
     background-size: 100%;
     width: 100%;
     text-align: center;
