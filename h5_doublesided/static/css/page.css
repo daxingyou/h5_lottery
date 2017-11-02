@@ -840,7 +840,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password > legend { background-image: url("../../static/images/lock.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.password > img { float: right; margin-top: -.5rem; }
+.password > img { float: right; margin-top: -.8rem; }
 
 .password.pay_password > legend { background-image: none; width: 1.5rem; }
 
