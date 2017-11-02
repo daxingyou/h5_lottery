@@ -211,6 +211,18 @@ function getLotterys(all) {
                     case '8':  // 北京pk10双面盘
                         hrefUrl = 'web_pk10/index.html' ;
                         break;
+                    case '12':  // 天津时时彩双面盘
+                        hrefUrl = 'web_tjssc/index.html' ;
+                        break;
+                    case '14':  // 新疆时时彩双面盘
+                        hrefUrl = 'web_xjssc/index.html' ;
+                        break;
+                    case '16':  // 广东11选5双面盘
+                        hrefUrl = 'web_gd11x5/index.html' ;
+                        break;
+                    case '18':  // 山东11选5双面盘
+                        hrefUrl = 'web_sd11x5/index.html' ;
+                        break;
                     default:
                         hrefUrl = '' ;
                         break ;
