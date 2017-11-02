@@ -41,7 +41,7 @@
                                 第<span class="last-date"> {{previous_pcode.toString().substr(4, 8)}}</span> 期
                             </div>
                             <div>
-                                <a href="../publicTemplate/past_view.html">
+                                <a href="/publicTemplate/pastView">
                                     <p>
                                         查看往期
                                     </p>
@@ -101,10 +101,11 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li class="active">两面</li>
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+                      <!--  <li class="active">两面</li>
                         <li>冠亚和值</li>
                         <li>1-5名</li>
-                        <li>6-10名</li>
+                        <li>6-10名</li>-->
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
@@ -1225,7 +1226,7 @@ export default {
         this.setCookie('lottery_name',lotteryname) ; // 彩种名称
         this.allLottery = this.$refs.navone.getLotterys() ;
         this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
-
+        this.initViewHeight() ;
         setTimeout(() => {
             this.timerBegin();
         }, 500) ;

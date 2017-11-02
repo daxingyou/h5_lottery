@@ -20,7 +20,12 @@
                             <p>近期开奖</p>
                         </router-link>
                     </li>
-                    <li class="r_roadbeads">
+                    <li class="r_roadbeads" v-if="lotteryid =='8'"> <!-- 北京pk10 -->
+                        <router-link to="/publicTemplate/pk10roadBeads">
+                            <p>路珠</p>
+                        </router-link>
+                    </li>
+                    <li class="r_roadbeads" v-else>
                         <router-link to="/publicTemplate/roadBeads">
                             <p>路珠</p>
                         </router-link>
@@ -55,6 +60,12 @@ export default {
   name: 'UserMenu',
   mixins:[Mixin],
   props:['el', 'payoff'],
+  data :function() {
+        return {
+            show:false ,
+            lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
+        }
+    },
   mounted:function() {
     $(this.el).on('click', ()=>{
       this.show = true;
@@ -90,11 +101,7 @@ export default {
       this.show = false;
     }
   },
-  data () {
-    return {
-      show:false
-    }
-  }
+
 }
 </script>
 <style scoped>

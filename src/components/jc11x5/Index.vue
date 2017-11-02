@@ -18,7 +18,7 @@
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum">
-
+                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                         </div>
                     </li>
                     <li class="so-top-zoushi">
@@ -31,10 +31,10 @@
                     <div class="so-main-top">
                         <div class="so-m-t-left">
                             <div>
-                                第 <span class="last-date"> </span> 期
+                                第 <span class="last-date">{{previous_pcode}}</span> 期
                             </div>
                             <div>
-                                <a href="../publicTemplate/past_view.html">
+                                <a href="/publicTemplate/pastView">
                                     <p>
                                         查看往期
                                     </p>
@@ -44,24 +44,26 @@
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul>
-                                    <!-- <li>8</li>
-                                     <li>7</li>
-                                     <li>6</li>
-                                     <li>5</li>
-                                     <li>9</li>-->
+                                    <li v-for="item in winNumber.split(',')">{{item}}</li>
                                 </ul>
                             </div>
                             <div class="last-open-dou">
                                 <ul>
-                                    <!--  <li>21</li>
-                                      <li>小</li>
-                                      <li>单</li>
-                                      <li>龙</li>-->
+                                    <li>{{lastTermStatic.total}}</li>
+                                    <li>{{lastTermStatic.sizer}}</li>
+                                    <li>{{lastTermStatic.longer}}</li>
+                                    <li>{{lastTermStatic.doubler}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="so-main-down">
+                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                        @countdownOver="playLottery"
+                        @entertainCountdownOver="entertain"
+                        :now_pcode="now_pcode" :lotteryID="lotteryID"
+                        :start="sys_time" :end="now_time" :overend="nowover_time" />
+
+                    <!-- <div class="so-main-down">
                         <ul>
                             <li>
                                 <p>
@@ -79,15 +81,16 @@
                                 <a class="open-time">00:00</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li class="active " data-val="1">两面</li>
+                        <li :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+                        <!-- <li class="active " data-val="1">两面</li>
                         <li class="" data-val="1">1-5球</li>
-                        <li class="reset_bet" data-val="2">连码</li>
+                        <li class="reset_bet" data-val="2">连码</li> -->
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
@@ -95,449 +98,50 @@
                     <!-- jc115 双面 -->
                     <div id="so-item0" class="active jc115">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in doubleSideList">
                                 <div>
                                     <h2>
-                                        总和&龙虎
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="41601">
-                                            <span>总和大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41602">
-                                            <span>总和小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41603">
-                                            <span>总和单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41604">
-                                            <span>总和双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41605">
-                                            <span>总和尾大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41606">
-                                            <span>总和尾小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41607">
-                                            <span>龙</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41608">
-                                            <span>虎</span>
-                                            <span class="bet-times"> </span>
+                                         <!-- :data-id="itemChild.cid" -->
+                                        <p v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span>{{itemChild.name}}</span>
+                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
                                 </div>
                             </li>
-                            <li class="first_ball select-li">
-                                <div>
-                                    <h2>
-                                        第一球
-                                    </h2>
-                                    <div>
-                                        <p data-id="41101">
-                                            <span>大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41102">
-                                            <span>小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41103">
-                                            <span>单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41104">
-                                            <span>双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="sec_ball select-li">
-                                <div>
-                                    <h2>
-                                        第二球
-                                    </h2>
-                                    <div>
-                                        <p data-id="41201">
-                                            <span>大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41202">
-                                            <span>小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41203">
-                                            <span>单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41204">
-                                            <span>双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li sec_ball">
-                                <div>
-                                    <h2>
-                                        第三球
-                                    </h2>
-                                    <div>
-                                        <p data-id="41301">
-                                            <span>大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41302">
-                                            <span>小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41303">
-                                            <span>单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41304">
-                                            <span>双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li sec_ball">
-                                <div>
-                                    <h2>
-                                        第四球
-                                    </h2>
-                                    <div>
-                                        <p data-id="41401">
-                                            <span>大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41402">
-                                            <span>小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41403">
-                                            <span>单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41404">
-                                            <span>双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li sec_ball">
-                                <div>
-                                    <h2>
-                                        第五球
-                                    </h2>
-                                    <div>
-                                        <p data-id="41501">
-                                            <span>大</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41502">
-                                            <span>小</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41503">
-                                            <span>单</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="41504">
-                                            <span>双</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                     <!-- jc115 1-5球 -->
                     <div id="so-item1" class="jc115" style="display:none;">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in oneToFiveList">
                                 <div>
                                     <h2>
-                                        第一球
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="42101">
-                                            <span>01</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42102">
-                                            <span>02</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42103">
-                                            <span>03</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42104">
-                                            <span>04</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42105">
-                                            <span>05</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42106">
-                                            <span>06</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42107">
-                                            <span>07</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42108">
-                                            <span>08</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42109">
-                                            <span>09</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42110">
-                                            <span>10</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42111">
-                                            <span>11</span>
-                                            <span class="bet-times"> </span>
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span>{{itemChild.name}}</span>
+                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
                                 </div>
                             </li>
-                            <li class="select-li">
-                                <div>
-                                    <h2>
-                                        第二球
-                                    </h2>
-                                    <div>
-                                        <p  data-id="42201">
-                                            <span>01</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42202">
-                                            <span>02</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42203">
-                                            <span>03</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42204">
-                                            <span>04</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42205">
-                                            <span>05</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42206">
-                                            <span>06</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42207">
-                                            <span>07</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42208">
-                                            <span>08</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42209">
-                                            <span>09</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42210">
-                                            <span>10</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42211">
-                                            <span>11</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li">
-                                <div>
-                                    <h2>
-                                        第三球
-                                    </h2>
-                                    <div>
-                                        <p data-id="42301">
-                                            <span>01</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42302">
-                                            <span>02</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42303">
-                                            <span>03</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42304">
-                                            <span>04</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42305">
-                                            <span>05</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42306">
-                                            <span>06</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42307">
-                                            <span>07</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42308">
-                                            <span>08</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42309">
-                                            <span>09</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42310">
-                                            <span>10</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42311">
-                                            <span>11</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li">
-                                <div>
-                                    <h2>
-                                        第四球
-                                    </h2>
-                                    <div>
-                                        <p data-id="42401">
-                                            <span>01</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42402">
-                                            <span>02</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42403">
-                                            <span>03</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42404">
-                                            <span>04</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42405">
-                                            <span>05</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42406">
-                                            <span>06</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42407">
-                                            <span>07</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42408">
-                                            <span>08</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42409">
-                                            <span>09</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42410">
-                                            <span>10</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42411">
-                                            <span>11</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="select-li">
-                                <div>
-                                    <h2>
-                                        第五球
-                                    </h2>
-                                    <div>
-                                        <p data-id="42501">
-                                            <span>01</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42502">
-                                            <span>02</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42503">
-                                            <span>03</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42504">
-                                            <span>04</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42505">
-                                            <span>05</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42506">
-                                            <span>06</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42507">
-                                            <span>07</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42508">
-                                            <span>08</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42509">
-                                            <span>09</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42510">
-                                            <span>10</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                        <p data-id="42511">
-                                            <span>11</span>
-                                            <span class="bet-times"> </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+
+
                         </ul>
                     </div>
                     <!-- jc115 连码 -->
                     <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
                         <div class="hd jx11_tab">
                             <ul class="tab tab_mid tab_two">
-                                <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
+                                <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
+                                
+                                <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
                                 <li data-tab="2"><a href="javascript:;">二中二</a></li>
                                 <li data-tab="3"><a href="javascript:;">三中三</a></li>
                                 <li data-tab="4"><a href="javascript:;">四中四</a></li>
@@ -546,22 +150,23 @@
                                 <li data-tab="7"><a href="javascript:;">七中五</a></li>
                                 <li data-tab="8"><a href="javascript:;">八中五</a></li>
                                 <li data-tab="9"><a href="javascript:;">前二组选</a></li>
-                                <li data-tab="10"><a href="javascript:;">前三组选</a></li>
+                                <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
                             </ul>
                         </div>
                         <div class="bd">
-                            <ul class="tab_content tab_content_1">
+                            <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
                                 <li class="select-li">
                                     <div>
-                                        <h2>
-                                            一中一
-                                        </h2>
+                                        <h2>{{kind.name}}</h2>
                                         <div>
-                                            <p data-id="42601">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42602">
+                                            <BallItem v-for="subItem in continueNumberSubList" :text="++subItem" :payoff="kind.childrens[0].oddsData.payoff" @selected="continueNumberSelect($event, subItem, kind)" />
+                                            <!-- 
+                                            <p v-for="subItem in continueNumberSubList">
+                                                <span>{{++subItem}}</span>
+                                                <span class="bet-times">{{payoffFormat(kind.childrens[0].oddsData.payoff)}}</span>
+                                            </p> -->
+
+                                            <!-- <p data-id="42602">
                                                 <span>02</span>
                                                 <span class="bet-times"> </span>
                                             </p>
@@ -600,506 +205,12 @@
                                             <p data-id="42611">
                                                 <span>11</span>
                                                 <span class="bet-times"> </span>
-                                            </p>
+                                            </p> -->
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                            <ul id="tab_jx_eze" class="tab_content tab_content_2">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            二中二
-                                        </h2>
-                                        <div>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43101" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_szs" class="tab_content tab_content_3">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            三中三
-                                        </h2>
-                                        <div>
-                                            <p data-id="43201" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43201" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_sizsi" class="tab_content tab_content_4">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            四中四
-                                        </h2>
-                                        <div>
-                                            <p  data-id="43301" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43301" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_wzw" class="tab_content tab_content_5">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            五中五
-                                        </h2>
-                                        <div>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43401" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_lzw" class="tab_content tab_content_6">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            六中五
-                                        </h2>
-                                        <div>
-                                            <p data-id="43501" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43501" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_qzw" class="tab_content tab_content_7">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            七中五
-                                        </h2>
-                                        <div>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="43601" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_bzw" class="tab_content tab_content_8">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            八中五
-                                        </h2>
-                                        <div>
-                                            <p  data-id="43701" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43701" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_qez" class="tab_content tab_content_9">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            前二组选
-                                        </h2>
-                                        <div>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43801" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul id="tab_jx_qsz" class="tab_content tab_content_10">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>
-                                            前三组选
-                                        </h2>
-                                        <div>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>01</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="43901" data-type="zu_he">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
@@ -1254,23 +365,37 @@
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
     import UserMenu from '@/components/publicTemplate/UserMenu'
     import InfoDialog from '@/components/publicTemplate/InfoDialog'
+    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+    import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
+    import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+    import BallItem from '@/components/publicTemplate/BallItem'
+
+    import Bet from '@/components/publicTemplate/Bet'
+    import PlayDialog from '@/components/cqssc/PlayDialog'
     import Mixin from '@/Mixin'
 
     export default {
       name: 'jc11x5Index',
       mixins:[Mixin],
       components: {
-           // BetSuccessfulDialog,
-           // Bet,
-            UserNavigation,
-           UserMenu,
-           // InfoDialog,
-           // AutoCloseDialog,
-           // PlayDialog
+        BallItem,
+        CountdownTimer,
+        BetSuccessfulDialog,
+        Bet,
+        UserNavigation,
+        UserMenu,
+        InfoDialog,
+        AutoCloseDialog,
+        PlayDialog
       },
       data: function() {
         return {
             now_pcode:0,  // 当前期数
+            previous_pcode:'',//上一期期数
+            winNumber:'',    //上期开奖号
+            lastTermStatic:'',  //上期开奖数据统计
+            entertainStatus:false,
+
             now_time:'',  // 当前期数销售截止时间
             nowover_time:'',  // 当前期数封盘时间
             next_pcode:'',  // 下一期数销售截止时间
@@ -1283,28 +408,249 @@
             lotteryID:4,
             allLottery:{} ,
             gameHref:{} ,
+            kinds:['两面', '1-5球', '连码'],
+            continueNumberSubList:[...Array(11).keys()],
         }
+      },
+      created:function(){
+        this.getMemberBalance().then(()=>{
+            this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
+        });
       },
         mounted:function() {
             var lotteryid = this.lotteryID ; // 彩种id
-            var lotteryname = '江西11选5' ; // 彩种名称
+            var lotteryname = '重庆时时彩' ; // 彩种名称
             this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
             this.setCookie('lottery_name',lotteryname) ; // 彩种名称
             this.allLottery = this.$refs.navone.getLotterys() ;
             this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
 
             setTimeout(() => {
-                // 系统时间
-                this.getSystemTime(lotteryid).then((sys_time)=>{
-                  //  this.priodDataNewly(lotteryid, sys_time)
-                });
-
+                this.timerBegin();
             }, 500) ;
+            this.initViewHeight();
+          },
+          computed:{
+            doubleSideList:function(){
+                return this.getListByParentID(41000); 
+            },
+            oneToFiveList:function(){
+                return this.getListByParentID(42000); 
+            },
+            continuedNumberList:function(){
+                return this.getListByParentID(43000);
+            },
+          },
+          methods:{
+            subTabChange:function(e, kind,index){
+                var $src = $(e.currentTarget);
+                $src.addClass('on').siblings().removeClass('on');
+                $src.closest('.tab_container').find('.bd ul').eq(index).addClass('show')
+                    .siblings().removeClass('show');
 
-        },
+                // $('ul.tab_mid li').click(function(){
+                //     var tab_id = $(this).attr('data-tab');
+                //     var tab_val = $(this).data('val') ;
+                //     $('ul.tab0'+tab_val+' li').removeClass('on');
+                //     $('#road0'+tab_val+' .tab_content_out').removeClass('on');
+                //     $(this).addClass('on');
+                //     $("#"+tab_id).addClass('on');
+                // });
+            },
+            checkNumbers:function (method,len,self,xslen) {
+                /*
+                * 江西11选5 ,method 玩法，len 长度，xslen特殊玩法
+                * */
+                switch (method) {
+                    case 'tab_jx_eze': // 二中二
+                        var xlen = 2 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>2){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_szs': // 三中三
+                        var xlen = 3 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>3){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_sizsi': // 四中四
+                        var xlen = 4 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>4){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_wzw': // 五中五
+                        var xlen = 5 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>5){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_lzw': // 六中五
+                        var xlen = 6 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>6){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_qzw': // 七中五
+                        var xlen = 7 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>7){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_bzw': // 八中五
+                        var xlen = 8 ;
+                        var spchoose = parseInt(xslen/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>8){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_qez': // 前二组选 ，公式 n*(n-1)/2
+                        var xlen = 2 ;
+                        var spchoose = parseInt(xslen*((xslen-1))/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>5){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    case 'tab_jx_qsz': // 前三组选 ，公式 n*(n-1)*(n-2)/3*2*1
+                        var xlen = 6 ;
+                        var spchoose = parseInt(xslen*((xslen-1))*(xslen-2)/xlen) ;
+                        $('.bet-select-num').text(spchoose) ;
+                        if(xslen>5){
+                            initPopFengpan02(2,len-1) ;
+                            self.click() ;
+                            return false ;
+                        }
+                        break;
+                    default :
+                        $('.bet-select-num').text(len) ;
+                        break;
+                }
+
+            },
+            switchTab:function(e){
+                const $src = $(e.currentTarget);
+                const index = $src.index();
+                const $tabs = $('.so-con-right > div');
+                $tabs.hide();
+                $tabs.eq(index).show();
+                $src.addClass('active').siblings().removeClass('active')
+            },
+            getListByParentID:function(parentID){
+                return this.playTreeList.filter((item,i)=>{
+                    return item.parentId == parentID;
+                });
+            },
+            //开奖倒计时结束后处理
+            playLottery:function(){
+                this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+                this.timerBegin();
+            },
+            //封盘倒计时结束后处理
+            entertain:function(){
+                this.entertainStatus = true;
+                this.resetAction();
+            },
+            timerBegin:function(){
+                var that = this;
+                that.getSystemTime().then(sys_time=>{
+                    // sys_time = '2017-10-30 19:41:32';
+                    // sys_time = '2017-10-30 19:39:10';
+                    that.sys_time = sys_time;
+                    that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+                        that.next_pcode = res.data[0].pcode;  // 下期期数
+                        that.now_pcode = res.data[1].pcode;  // 当前期数
+                        that.previous_pcode = res.data[2].pcode;  // 上期期数
+                        // 当前期数时间
+                        that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
+                        // 当前期封盘时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
+                        // 当天日期
+                        that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                        let code = res.data[2].winNumber;
+                        //code 上期开奖号码
+                        if (!code) {
+                            code = '-,开,奖,中,-';
+                        }
+                        that.winNumber = code;
+                        //上期开奖统计
+                        that.lastTermStatic = res.data[2].doubleData;
+
+                        // :now_pcode="now_pcode" 
+                        // :start="sys_time" :end="now_time" :overend="nowover_time"
+                        that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+                    });
+                }); 
+                that.entertainStatus = false;
+            },
+            resetAction:function(){
+                this.betSelectedList = [];
+                $(".so-con-right p").removeClass('active');
+                this.getMemberBalance() ; // 更新余额
+            },
+            //当用户选择球时（连码），保存相应数据
+            continueNumberSelect:function(e, item, parentItem, p0, p1){
+                this.betSelectedList.push(item);
+            },
+            //当用户选择球时，保存相应数据
+            betSelect:function(e, item, parentItem){
+                // if (this.entertainStatus){
+                //     return false;
+                // }
+                var $src = $(e.currentTarget);
+                if ($src.prop('class').indexOf('active') < 0){
+                    $src.addClass('active');
+                    item.parentItem = parentItem;
+                    this.betSelectedList.push(item);
+                }else{
+                    $src.removeClass('active');
+                    this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
+                }
+            }
+
+          }
 
     }
 </script>
 <style scoped>
+
+    .show { display: block !important; }
+    .bd .tab_content { display: none; }
     .tab_content:nth-child(n+2){ display: none; }
+    #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
+        display: block;
+    }
+    #so-item1.jc115 ul li > div > div p {
+        display: block;
+    }
 </style>

@@ -267,23 +267,18 @@ export default {
     AutoCloseDialog,
     PlayDialog
   }, 
-  data () {
+  data:function () {
     return {
-        
         now_time:'',  // 当前期数销售截止时间
         nowover_time:'',  // 当前期数封盘时间
-
         next_pcode:'',  // 下一期数
         now_pcode:0,  // 当前期数
         previous_pcode:'',//上一期期数
-
         winNumber:'',    //上期开奖号
         lastTermStatic:'',  //上期开奖数据统计
-
         sys_time :'',  // 当前系统时间
         now_day:'',  // 当前日期
         balanceData:{},
-
         entertainStatus:false,
         betSelectedList:[],   //用户选中的注数
         // playTreeList:[], //玩法树
@@ -292,7 +287,6 @@ export default {
         gameHref:{} ,
         kinds:['两面', '1-5球', '前中后'],
 
-        
     }
   },
   created:function(){
@@ -307,7 +301,7 @@ export default {
     this.setCookie('lottery_name',lotteryname) ; // 彩种名称
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
-
+    this.initViewHeight() ;
     setTimeout(() => {
         this.timerBegin();
     }, 500) ;
@@ -351,8 +345,6 @@ export default {
     timerBegin:function(){
         var that = this;
         that.getSystemTime().then(sys_time=>{
-            // sys_time = '2017-10-30 19:41:32';
-            // sys_time = '2017-10-30 19:39:10';
             that.sys_time = sys_time;
             that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                 that.next_pcode = res.data[0].pcode;  // 下期期数
@@ -399,12 +391,7 @@ export default {
             $src.removeClass('active');
             this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
         }
-    },
-    
-
-    // play:function(){
-    //     this.$refs.playDialog.open()
-    // }
+    }
 
   }
 }

@@ -17,23 +17,37 @@
                         <li data-val="0"  @click="changeTab($event)"><a href="javascript:;" data-filter="winning" >今日数据</a></li>
                     </ul>
                 </div>
-                <div class="bd">
+                <div class="bd" :id="cssid[lotteryid]">
                     <ul class="tab_content double-all">
                         <li class="past_view">
                             <ul class="panel">
                                 <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
                                     <div class="play_th">
                                         <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
-                                        <ul class="double-count">
+                                        <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
+                                            <li>{{list.doubleData.lh_1}}</li>
+                                            <li>{{list.doubleData.lh_2}}</li>
+                                            <li>{{list.doubleData.lh_3}}</li>
+                                            <li>{{list.doubleData.lh_4}}</li>
+                                            <li>{{list.doubleData.lh_5}}</li>
+                                            <li>{{list.doubleData.top2_doubler}}</li>
+                                            <li>{{list.doubleData.top2_sizer}}</li>
+                                            <li>{{list.doubleData.top2_total}}</li>
+                                        </ul>
+                                        <ul class="double-count" v-else>
                                             <li>{{list.doubleData.doubler}}</li>
                                             <li>{{list.doubleData.longer}}</li>
                                             <li>{{list.doubleData.sizer}}</li>
                                             <li>{{list.doubleData.total}}</li>
                                         </ul>
                                     </div>
-                                    <ul class="lo_ball double-numbers">
+                                    <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> <!-- 北京pk10  -->
+                                        <li v-for="listnum in list.winNumber.split(',')" >
+                                            <span class="pk10_ball" :class="'num_'+listnum"></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="lo_ball double-numbers"  v-else>
                                         <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
-
                                     </ul>
                                 </li>
                             </ul>
@@ -53,22 +67,23 @@
 
 <script>
 import Mixin from '@/Mixin'
-
+import "../../../static/css/pk10.css"
 export default {
   name: 'Index',
   mixins:[Mixin],
     data :function() {
         return {
             pastView:{} ,
-
+            lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
+            cssid :{'8':'pk10'} ,
         }
     },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+  //  var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
     // this.changeTab(lotteryid) ;
-    this.doubleCount(lotteryid,'30','') ;
+    this.doubleCount(this.lotteryid,'30','') ;
   },
   methods:{
 
@@ -96,7 +111,15 @@ export default {
                // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
-                        data.data[i].winNumber='-,-,-,-,-' ;
+                        switch (this.lotteryid){
+                            case '8': // 北京pk10
+                                data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
+                                break;
+                            default  :
+                                data.data[i].winNumber='-,-,-,-,-' ;
+                                break ;
+                        }
+
                     }
 
                   //  var codeArr = data.data[i].winNumber.split(',') ;
