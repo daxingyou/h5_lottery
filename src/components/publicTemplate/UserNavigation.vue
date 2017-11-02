@@ -67,7 +67,7 @@ export default {
             haslogin :false ,
             showNavigation:false ,
             allLottery:{},
-            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10"}, // 对应彩种的id
+            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc" }, // 对应彩种的id
         }
     },
   created:function () {
