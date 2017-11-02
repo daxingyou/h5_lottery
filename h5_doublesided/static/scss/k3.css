@@ -184,6 +184,9 @@
   width: 1rem;
   height: 1rem;
   border-radius: 0.1rem; }
+  .k3_dice.num_20 {
+    background: url(../images/k3/dice_0.png) no-repeat center center;
+    background-size: 1rem 1rem; }
   .k3_dice.num_1 {
     background-position-x: 0; }
   .k3_dice.num_2 {
@@ -202,6 +205,9 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 0.05rem; }
+  .k3_dice.small_dice.num_20 {
+    background: url(../images/k3/dice_0.png) no-repeat center center;
+    background-size: 0.5rem 0.5rem; }
   .k3_dice.small_dice.num_1 {
     background-position-x: 0; }
   .k3_dice.small_dice.num_2 {

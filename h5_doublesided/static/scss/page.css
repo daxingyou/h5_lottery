@@ -1007,10 +1007,10 @@ i.index_s {
   color: #d7e8f0;
   background-color: rgba(0, 0, 0, 0.15);
   position: fixed;
-  left: 0;
   top: 1.5rem;
-  width: 100%;
-  z-index: 5; }
+  z-index: 5;
+  width: 10rem;
+  left: inherit; }
   .tab_mid > li {
     display: inline-block;
     width: 25%;
@@ -2082,7 +2082,7 @@ fieldset {
     background-size: 100%; }
   .password > img {
     float: right;
-    margin-top: -.5rem; }
+    margin-top: -.8rem; }
   .password.pay_password > legend {
     background-image: none;
     width: 1.5rem; }
@@ -2388,6 +2388,32 @@ fieldset {
         width: 35%; }
     .info_top .account .ui.header > .image:not(.icon):only-child, .info_top .account .ui.header > img:only-child {
       margin-right: 0; }
+    .info_top .account .user_name {
+      position: relative;
+      text-align: left;
+      margin-left: 0;
+      line-height: 1.8em;
+      float: left;
+      margin-top: .2rem; }
+      .info_top .account .user_name > strong {
+        display: block;
+        color: #fff;
+        letter-spacing: 1px;
+        font-weight: 500;
+        font-size: .4rem; }
+      .info_top .account .user_name > .purse {
+        width: 100%;
+        height: .5rem;
+        top: .1rem;
+        left: 0;
+        position: relative; }
+        .info_top .account .user_name > .purse .so-top-sum, .info_top .account .user_name > .purse .so-in-top-sum {
+          position: absolute;
+          top: 0; }
+        .info_top .account .user_name > .purse .so-top-sum {
+          left: 0; }
+        .info_top .account .user_name > .purse .so-in-top-sum {
+          left: .2rem; }
   .info_top:after {
     display: block;
     clear: both;
@@ -2403,32 +2429,6 @@ fieldset {
     width: 1.5rem;
     height: 1.5rem;
     margin: 0 auto; }
-
-.user_name {
-  position: relative;
-  text-align: left;
-  margin-left: 0;
-  line-height: 1.8em;
-  float: left;
-  margin-top: .2rem; }
-  .user_name > strong {
-    display: block;
-    color: #fff;
-    letter-spacing: 1px;
-    font-weight: 500;
-    font-size: .4rem; }
-  .user_name > .purse {
-    width: 100%;
-    height: .5rem;
-    top: .1rem;
-    left: 0; }
-    .user_name > .purse .so-top-sum, .user_name > .purse .so-in-top-sum {
-      position: absolute;
-      top: 0; }
-    .user_name > .purse .so-top-sum {
-      left: 0; }
-    .user_name > .purse .so-in-top-sum {
-      left: .2rem; }
 
 .user_data {
   color: #fff; }
