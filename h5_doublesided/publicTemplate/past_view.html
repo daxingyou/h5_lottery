@@ -11,6 +11,7 @@
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
     <link href="../static/css/rewrite.css" rel="stylesheet" type="text/css">
     <link  rel="stylesheet" type="text/css" class="pk10_css">
+    <link  rel="stylesheet" type="text/css" class="K3_css">
      <script src="../static/js/flexible_css.js"></script>
     <script src="../static/js/flexible.debug.js"></script>
     <title>近期开奖</title>
@@ -197,6 +198,10 @@
                if(lotteryid =='8'){ // 北京 pk10
                    $('.pk10_css').attr('href','../static/css/pk10.css') ;
                    $('body').attr('id','pk10') ;
+               }else if(lotteryid =='6'){
+                   //江苏快3
+                   $('.K3_css').attr('href','../static/css/k3.css') ;
+                   $('body').attr('id','k3') ;
                }
                changeTab(lotteryid) ;
                doubleCount(lotteryid,'30','') ;

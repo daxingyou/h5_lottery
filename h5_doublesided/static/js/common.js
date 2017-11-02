@@ -532,8 +532,15 @@ function processCode(issue, lastissue,code,double) {
     var dstr ='';
     //已开奖期号节点,开奖号码
     if(lotteryid =='8'||lotteryid =='6' ){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
-        $('.last-date').html(lastissue.toString().substr(4, 8)) ;
-        $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue) ;
+        //北京PK10期数
+        if(lotteryid =='8'){
+            $('.last-date').html(lastissue.toString().substr(4, 8));
+            $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue);
+        }else{//江苏快3期数
+            $('.last-date').html(lastissue.toString());
+            $('.now-date').html(issue.toString()).attr('data-date',issue);
+        }
+
         for (var i = 0; i < code_arr.length; i++) {
             if(lotteryid =='8' ){
                 str +='<li data-val="'+code_arr[i] +'"><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
@@ -1115,8 +1122,8 @@ function doubleCount(lotteryid,rows,maxtime) {
                     for (var j = 0; j < codeArr.length; j++) {
                         if(lotteryid == '8') {  // 北京pk10
                             str += ' <li><span class="pk10_ball num_'+codeArr[j]+'"></span></li>' ;
-                        }else{
-                            str += ' <li>'+codeArr[j]+'</li>' ;
+                        }else{//江苏快3
+                            str += ' <li><span class="k3_dice num_'+codeArr[j]+'"></span></li>' ;
                         }
 
                     }
