@@ -12,8 +12,8 @@
                     <li class="so-menu">
                         <img src="/static/images/top/icon-menu.png" class="so-top-menu">
                     </li>
-                    <li>
-                        <img src="/static/images/top/logo_jc11x5.png" class="so-top-logo">
+                    <li class="left_top_logo">
+                        江西11选5
                     </li>
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
