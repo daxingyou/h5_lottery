@@ -109,6 +109,7 @@ input,select,button,a{
         background-color: transparent;
         float: none;
         z-index: 1;
+        position: relative;
         >img{
             width: 100%;
         }

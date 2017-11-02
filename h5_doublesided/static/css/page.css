@@ -41,7 +41,7 @@ input, select, button, a { outline: none; }
 
 #pa_head.index_nav_top { position: fixed; top: 0; z-index: 50; width: 10rem; }
 
-#pa_head.login { height: auto; background-color: transparent; float: none; z-index: 1; }
+#pa_head.login { height: auto; background-color: transparent; float: none; z-index: 1; position: relative; }
 
 #pa_head.login > img { width: 100%; }
 
@@ -808,7 +808,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 .all_lottery > li > p { line-height: .7rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-.login_area, .deposit_area { margin: 0 auto; margin-top: 4.5rem; position: relative; z-index: 50; width: 90%; }
+.login_area, .deposit_area { margin: 0 auto; margin-top: -2.5rem; position: relative; z-index: 50; width: 90%; }
 
 .login_area.reg, .reg.deposit_area { margin-top: 2rem; }
 
