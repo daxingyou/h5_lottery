@@ -320,8 +320,8 @@
                         </fieldset>
                     </form>
                     <div>
-                        <div class="btn btn_two round btn_outline"><a href="">取消</a></div>
-                        <div class="btn btn_two round btn_blue02"><a href="">确定</a></div>
+                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                        <div class="btn btn_two round btn_blue02"><a href="javascript:;">确定</a></div>
                     </div>
                 </div>
             </div>
@@ -340,7 +340,7 @@
             });
             $('.so-shade').fadeToggle("fast", "linear");
         });
-        $('.dropdown,.so-shade').click(function () {
+        $('.btn_blue02,.btn_outline,.so-shade').click(function () {
             $('.dropdown').toggle();
             $('.so-shade').hide();
         });

@@ -20,7 +20,7 @@ fieldset{
     overflow: hidden;
     position: relative;
     background-color: rgba(#12151e,.7);
-    padding: .3rem;
+    padding: .15rem .3rem;
     @include border-radius(.2rem);
     border: 2px solid $normalblue;
     font-size: .35rem;
@@ -38,20 +38,20 @@ fieldset{
     >*{
         vertical-align: middle;
         float: left;
-        line-height: .5rem;
-        height: .5rem;
+        line-height: .8rem;
+        height: .8rem;
     }
     >legend{
         display: inline-block;
         width: .5rem;
-        height: .5rem;
+        height: .8rem;
         margin-right: .5rem;
         position: relative;
         text-align: left;
         &:after{
             @include pseudo;
             width: 1px;
-            height: .5rem;
+            height: .8rem;
             background-color: $normalblue;
             right:-.2rem;
             left: inherit;
@@ -668,7 +668,7 @@ fieldset{
             margin-left: .5rem;
         }
         >a{
-            line-height: 25px;
+            line-height: .5rem;
         }
     }
 }
@@ -807,5 +807,25 @@ fieldset{
     &.sta03{
         border: 1px solid #c83e3e;
         color: #c83e3e;
+    }
+}
+.qrcode_step{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    >.qrcode{
+        >img{
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    >.step{
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        margin-top: .5rem;
+        line-height: 1.8em;
+        font-size: 0.35rem;
     }
 }

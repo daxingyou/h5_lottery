@@ -16,6 +16,9 @@ body{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
 }
+input,select,option{
+    font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+}
 body,.warp {
     &::-webkit-scrollbar {
         width: 0px;

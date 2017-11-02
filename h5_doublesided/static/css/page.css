@@ -7,6 +7,8 @@ html.game_fix { overflow: hidden !important; }
 
 body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
+input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
+
 body::-webkit-scrollbar, .warp::-webkit-scrollbar { width: 0px; }
 
 *, :after, :before { -webkit-box-sizing: inherit; box-sizing: inherit; }
@@ -719,7 +721,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 #index_content.content > .hotgame_area ul { padding: .5rem .3rem; width: 100%; }
 
-#index_content.content > .hotgame_area ul > li { background-color: rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(238, 238, 238, 0.62); border-top: 1px solid #436689; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 29.9%; background-repeat: no-repeat; }
+#index_content.content > .hotgame_area ul > li { background-color: rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(238, 238, 238, 0.62); border-top: 1px solid #436689; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; margin: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 29.9%; background-repeat: no-repeat; }
 
 #index_content.content > .hotgame_area ul > li > p { background: -webkit-linear-gradient(#e7df90, #fffec7, #85662d); background: -webkit-gradient(linear, left top, left bottom, from(#e7df90), color-stop(#fffec7), to(#85662d)); background: -o-linear-gradient(#e7df90, #fffec7, #85662d); background: linear-gradient(#e7df90, #fffec7, #85662d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
 
@@ -812,17 +814,17 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
-.form_g { overflow: hidden; position: relative; background-color: rgba(18, 21, 30, 0.7); padding: .3rem; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; border: 2px solid #256e93; font-size: .35rem; }
+.form_g { overflow: hidden; position: relative; background-color: rgba(18, 21, 30, 0.7); padding: .15rem .3rem; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; border: 2px solid #256e93; font-size: .35rem; }
 
 .form_g > input { background-color: transparent; width: calc(93% - .5rem); color: #fff; border: none; position: relative; }
 
 .form_g:hover, .form_g:active, .form_g:focus { -webkit-box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); border: 1px solid #256e93; }
 
-.form_g > * { vertical-align: middle; float: left; line-height: .5rem; height: .5rem; }
+.form_g > * { vertical-align: middle; float: left; line-height: .8rem; height: .8rem; }
 
-.form_g > legend { display: inline-block; width: .5rem; height: .5rem; margin-right: .5rem; position: relative; text-align: left; }
+.form_g > legend { display: inline-block; width: .5rem; height: .8rem; margin-right: .5rem; position: relative; text-align: left; }
 
-.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .5rem; background-color: #256e93; right: -.2rem; left: inherit; }
+.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .8rem; background-color: #256e93; right: -.2rem; left: inherit; }
 
 .form_g.text > legend { background-image: none; width: 1.8rem; }
 
@@ -1038,7 +1040,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_mid .btn_blue:last-child { margin-left: .5rem; }
 
-.info_mid .btn_blue > a { line-height: 25px; }
+.info_mid .btn_blue > a { line-height: .5rem; }
 
 .info_bot { text-align: center; padding: 2em 0; }
 
@@ -1079,6 +1081,12 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .sta.sta02 { border: 1px solid #8b8b8b; color: #8b8b8b; }
 
 .sta.sta03 { border: 1px solid #c83e3e; color: #c83e3e; }
+
+.qrcode_step { width: 80%; margin: 0 auto; margin-top: 2rem; }
+
+.qrcode_step > .qrcode > img { width: 50%; margin: 0 auto; text-align: center; }
+
+.qrcode_step > .step { width: 80%; margin: 0 auto; text-align: left; margin-top: .5rem; line-height: 1.8em; font-size: 0.35rem; }
 
 /*# sourceMappingURL=all.css.map */
 

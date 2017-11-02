@@ -282,7 +282,7 @@
 
 .so-tip-pop { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 10rem; height: 100%; z-index: 13; }
 
-.so-tip-pop > div { background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+.so-tip-pop > div { background-color: rgba(15, 16, 21, 0.8); border: 2px solid #277ca5; background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
 
 .so-tip-pop img { width: 4rem; text-align: center; margin: auto; margin-top: 1.2rem; }
 

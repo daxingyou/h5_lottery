@@ -1104,6 +1104,8 @@
     height: 100%;
     z-index: 13;
     > div {
+        background-color: rgba(#0f1015,0.8);
+        border: 2px solid #277ca5;
         background: url("../images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.14rem;
