@@ -1086,10 +1086,23 @@ function doubleCount(lotteryid,rows,maxtime) {
             for(var i=0;i<data.data.length;i++){
 
                 if(!data.data[i].winNumber){
-                    if(lotteryid == '8'){  // 北京pk10
+                    // if(lotteryid == '8'){  // 北京pk10
+                    //     data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
+                    // }else{
+                    //     data.data[i].winNumber='-,-,-,-,-' ;
+                    // }
+                    switch (lotteryid){
+                        // 北京PK10
+                        case '8' :
                         data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
-                    }else{
+                        break;
+                        // 江苏K3
+                        case '6' :
+                        data.data[i].winNumber ='20,20,20' ;
+                        break;
+                        default :
                         data.data[i].winNumber='-,-,-,-,-' ;
+                        break;
                     }
 
                 }
@@ -1193,7 +1206,9 @@ function loadRoadAction(lotteryid,maxtime) {
                 roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
                 roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
                 roadDomAction(data.data.totalEnd_size,'road01_4') ;  // 总和尾大小
-            }else{
+            }else if(lotteryid == '6'){
+            }
+            else{
                 roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
                 roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
                 roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
@@ -1283,7 +1298,7 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
         timeout: 600000,
         data: senddata ,
         success: function (data) {
-         // console.log(data.data) ;
+         console.log(data.data) ;
             var str = '' ;
             for(var i=0;i<data.data.length;i++){
                 str +=' <li class="prod" data-status="not_open">'+
@@ -1291,7 +1306,11 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
                         '<div>'+ data.data[i].groupName +'</div>';
                         if(Number(data.data[i].playName) >=0 ){
                             str +=  '<ul class="lo_ball">' ;
+                            if(lotteryid == '8'){
                             str += '<li><span class="pk10_ball num_'+ data.data[i].playName +'"></span></li>';
+                            }else if(lotteryid == '6'){
+                            str +='<li><span class="k3_dice num_'+ data.data[i].playName +'"></span></li>';
+                            }
                         }else{
                             if(lotteryid == '8') { // 北京pk 10
                                 str +=  '<ul class="lo_ball">' ;
