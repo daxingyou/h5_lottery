@@ -312,8 +312,24 @@
             combineCount:0, //组合玩法注数
             kinds:['两面', '1-5球', '连码'],
             continueNumberSubList:[...Array(11).keys()],
-            selectedNumbersLimities:{
-                '43100':2, '43200':3, '43300':4, '43400':5, '43500':6, '43600':7, '43700':8, '43800':5, '43900':5, 
+            selectRules:{
+                '43100':{ max:2}, 
+                '43200':{ max:3}, 
+                '43300':{ max:4}, 
+                '43400':{ max:5}, 
+                '43500':{ max:6}, 
+                '43600':{ max:7}, 
+                '43700':{ max:8}, 
+                '43800':{
+                    max:5, fun:function(xslen){
+                        return  xslen*((xslen-1)/2);
+                    }
+                }, 
+                '43900':{
+                    max:5, fun:function(xslen){
+                        return  parseInt(xslen*((xslen-1))*(xslen-2)/3*2*1)
+                    }
+                }, 
             }
         }
       },
@@ -347,6 +363,10 @@
             },
           },
           methods:{
+
+            betCountStat:function(xslen, xlen){
+                return  xslen*((xslen-1)/xlen);
+            },
             subTabChange:function(e, kind,index){
                 var $src = $(e.currentTarget);
                 $src.addClass('on').siblings().removeClass('on');
@@ -414,8 +434,6 @@
                         //上期开奖统计
                         that.lastTermStatic = res.data[2].doubleData;
 
-                        // :now_pcode="now_pcode" 
-                        // :start="sys_time" :end="now_time" :overend="nowover_time"
                         that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                     });
                 }); 
@@ -428,19 +446,25 @@
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
-                const limitedNumber = this.selectedNumbersLimities[item.parentItem.cid];
-                if (this.betSelectedList.length < limitedNumber){
+                const rule = this.selectRules[item.parentItem.cid];
+                const max = rule.max;
+                if (this.betSelectedList.length < max){
                     this.betSelectedList.push(item);
                     console.log(this.betSelectedList)
                 }else{
                     callback(false);
-                    this.$refs.infoDialog.open('不允许超过'+limitedNumber+'个选项', 'title_quantity');
+                    this.$refs.infoDialog.open('不允许超过'+max+'个选项', 'title_quantity');
                 }
-                if (this.betSelectedList.length == limitedNumber){
-                    this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
+                if (rule.fun){
+                    this.combineCount = rule.fun(this.betSelectedList.length);
                 }else{
-                    this.combineCount = 0;
-                }
+                    if (this.betSelectedList.length == max){
+                        this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
+                    }else{
+                        this.combineCount = 0;
+                    }
+                    
+               }
                 
             },
             //当用户选择球时（连码），保存相应数据
@@ -455,9 +479,6 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
-                // if (this.entertainStatus){
-                //     return false;
-                // }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     $src.addClass('active');
