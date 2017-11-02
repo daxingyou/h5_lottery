@@ -1,7 +1,7 @@
 <template>
 
     <div v-if="showNavigation" :class="'so-left '+ (showNavigation?'active':'')">
-    <div class="so-shade"></div>
+    <div class="so-shade" @click="close"></div>
     <div class="so-left-close" @click="close">
         <img src="/static/images/left/left808.png">
     </div>
