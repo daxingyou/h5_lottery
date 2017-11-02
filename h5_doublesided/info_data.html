@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>双面盘_帐户管理</title>
-    <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
-    <link href="../static/css/page.css" rel="stylesheet" type="text/css">
-    <script src="../static/js/flexible_css.js"></script> <script src="../static/js/flexible.debug.js"></script>
+    <link href="static/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="static/css/page.css" rel="stylesheet" type="text/css">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="../">
-                    <img src="../static/images/back.png" alt="">
+                    <img src="static/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">帐户管理</h2>
@@ -29,13 +29,13 @@
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
-                                    <div class="user_portrait" style="background-image: url('../../../static/images/left/user.png');"></div>
+                                    <div class="user_portrait" style="background-image: url('../../static/images/left/user.png');"></div>
                                 </div>
                             </h2>
                             <div class="user_name">
                                 <strong>Elsa001EDKoes2</strong>
                                 <div class="purse">
-                                    <img src="../static/images/top/sjinbi.png" class="so-top-sum">
+                                    <img src="static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
                                         123456789
                                     </div>
@@ -320,8 +320,8 @@
                         </fieldset>
                     </form>
                     <div>
-                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
-                        <div class="btn btn_two round btn_blue02"><a href="javascript:;">确定</a></div>
+                        <div class="btn btn_two round btn_outline"><a href="">取消</a></div>
+                        <div class="btn btn_two round btn_blue02"><a href="">确定</a></div>
                     </div>
                 </div>
             </div>
@@ -330,9 +330,9 @@
         <div class="so-shade"></div>
     </div>
 
-    <script src="../static/js/jquery-1.7.min.js"></script>
-    <script src="../static/js/touchslide.1.1.js"></script>
-    <script src="../static/js/index.js"></script>
+    <script src="static/js/jquery-1.7.min.js"></script>
+    <script src="static/js/touchslide.1.1.js"></script>
+    <script src="static/js/index.js"></script>
     <script>
         //密码
         $( ".lgps" ).click(function() {
@@ -340,7 +340,7 @@
             });
             $('.so-shade').fadeToggle("fast", "linear");
         });
-        $('.btn_blue02,.btn_outline,.so-shade').click(function () {
+        $('.dropdown,.so-shade').click(function () {
             $('.dropdown').toggle();
             $('.so-shade').hide();
         });
