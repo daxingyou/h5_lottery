@@ -4,7 +4,8 @@
         <ul>
             <li>
                 <p>
-                    第 <span class="now-date">{{now_pcode}}</span> 期  
+                    <!-- id 8 -->
+                    第 <span class="now-date">{{(lotteryID==8)?now_pcode.toString().substr(4, 8):now_pcode}}</span> 期  
                 </p>
             </li>
             <li>
@@ -33,7 +34,7 @@ export default {
     name: 'CountdownTimer',
     mixins:[Mixin],
     // start服务器开始时间，end当前期开奖结束时间，overend 封盘结束时间
-    props:['start', 'end', 'overend', 'now_pcode'],
+    props:['start', 'end', 'overend', 'now_pcode', 'lotteryID'],
     data () {
         return {
             timer:null,
@@ -49,17 +50,19 @@ export default {
 
     },
     mounted:function() {
-        
         this.timerInit();
     },
     beforeDestroy:function(){
         clearInterval(this.timer);
     },
     methods:{
-        timerInit:function(){
+        timerInit:function(start, end, overend){
             const format = this.format;
-            this.lt_time_leave = (this.format(this.end).getTime() - this.format(this.start).getTime()) / 1000;//总秒数
-            this.lt_time_leave_over = (this.format(this.overend).getTime() - this.format(this.start).getTime()) / 1000;//总秒数
+            const theStart = start ? start : this.start;
+            const theEnd = end ? end : this.end;
+            const theOverend = overend ? overend : this.overend;
+            this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
+            this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
 
             this.timer = window.setInterval((function() {
                 // if (this.lt_time_leave > 0 && (this.lt_time_leave % 240 == 0 || this.lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
@@ -73,14 +76,11 @@ export default {
                 if (this.lt_time_leave == 0) { 
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
-                    // this.countdownOver = true;
-                    console.log(this.countdownOver)
                 }
 
                 // 封盘倒计时结束
                 if(this.lt_time_leave_over == 0){ 
                     this.$emit('entertainCountdownOver');
-                    // this.entertainCountdownOver = true;
                 }
 
                 var oDate = this.diff(this.lt_time_leave--);

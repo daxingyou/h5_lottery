@@ -4,50 +4,8 @@
         <!--用户导航 so-left -->
         <UserNavigation el=".so-menu" ref="navone"/>
         <!--right menu  -->
-        <div class="so-right">
-            <div>
-                <img src="/static/images/top/zoushi.png">
-            </div>
-            <div>
-                <div>
-                    <ul>
-                        <li>
-                            <a href="../publicTemplate/bet_record.html">
-                                <img src="/static/images/right/1.png">
-                                <p>投注记录</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../publicTemplate/past_view.html">
-                                <img src="/static/images/right/2.png">
-                                <p>近期开奖</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../publicTemplate/road_beads.html">
-                                <img src="/static/images/right/3.png">
-                                <p>路珠</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../publicTemplate/ds_long.html">
-                                <img src="/static/images/right/4.png">
-                                <p>双面长龙</p>
-                            </a>
-                        </li>
-                        <li class="play">
-                            <img src="/static/images/right/5.png">
-                            <p>玩法说明</p>
-                        </li>
-                        <li>
-                            <img src="/static/images/right/6.png">
-                            <p>今日输赢</p>
-                            <div class="today_payoff"> </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
+        
         <div class="so-index">
             <div class="so-in-top">
                 <ul>
@@ -1283,6 +1241,8 @@
                 <p>不允许超过<span class="not-allow-content">2</span>个选项</p>
             </div>
         </div>
+
+        <PlayDialog ref="playDialog" />
   </div>
 
 
@@ -1292,53 +1252,59 @@
 
 <script>
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
+    import UserMenu from '@/components/publicTemplate/UserMenu'
+    import InfoDialog from '@/components/publicTemplate/InfoDialog'
     import Mixin from '@/Mixin'
-export default {
-  name: 'jc11x5Index',
-  mixins:[Mixin],
-  components: {
-       // BetSuccessfulDialog,
-       // Bet,
-        UserNavigation,
-       // UserMenu,
-       // InfoDialog,
-       // AutoCloseDialog,
-       // PlayDialog
-  },
-  data: function() {
-    return {
-        now_pcode:0,  // 当前期数
-        now_time:'',  // 当前期数销售截止时间
-        nowover_time:'',  // 当前期数封盘时间
-        next_pcode:'',  // 下一期数销售截止时间
-        sys_time:'',  // 当前系统时间
-        now_day:'',  // 当前日期
-        balanceData:{},
 
-        betSelectedList:[],   //用户选中的注数
-        playTreeList:[], //玩法树
-        lotteryID:4,
-        allLottery:{} ,
-        gameHref:{} ,
+    export default {
+      name: 'jc11x5Index',
+      mixins:[Mixin],
+      components: {
+           // BetSuccessfulDialog,
+           // Bet,
+            UserNavigation,
+           UserMenu,
+           // InfoDialog,
+           // AutoCloseDialog,
+           // PlayDialog
+      },
+      data: function() {
+        return {
+            now_pcode:0,  // 当前期数
+            now_time:'',  // 当前期数销售截止时间
+            nowover_time:'',  // 当前期数封盘时间
+            next_pcode:'',  // 下一期数销售截止时间
+            sys_time:'',  // 当前系统时间
+            now_day:'',  // 当前日期
+            balanceData:{},
+
+            betSelectedList:[],   //用户选中的注数
+            playTreeList:[], //玩法树
+            lotteryID:4,
+            allLottery:{} ,
+            gameHref:{} ,
+        }
+      },
+        mounted:function() {
+            var lotteryid = this.lotteryID ; // 彩种id
+            var lotteryname = '江西11选5' ; // 彩种名称
+            this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
+            this.setCookie('lottery_name',lotteryname) ; // 彩种名称
+            this.allLottery = this.$refs.navone.getLotterys() ;
+            this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+
+            setTimeout(() => {
+                // 系统时间
+                this.getSystemTime(lotteryid).then((sys_time)=>{
+                  //  this.priodDataNewly(lotteryid, sys_time)
+                });
+
+            }, 500) ;
+
+        },
+
     }
-  },
-    mounted:function() {
-        var lotteryid = this.lotteryID ; // 彩种id
-        var lotteryname = '江西11选5' ; // 彩种名称
-        this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
-        this.setCookie('lottery_name',lotteryname) ; // 彩种名称
-        this.allLottery = this.$refs.navone.getLotterys() ;
-        this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
-
-        setTimeout(() => {
-            // 系统时间
-            this.getSystemTime(lotteryid).then((sys_time)=>{
-              //  this.priodDataNewly(lotteryid, sys_time)
-            });
-
-        }, 500) ;
-
-    },
-
-}
 </script>
+<style scoped>
+    .tab_content:nth-child(n+2){ display: none; }
+</style>

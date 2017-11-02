@@ -506,11 +506,24 @@ function initBetPop01(closet) {
 function processCode(issue, lastissue,code,double) {
     var lotteryid = getCookie('lt_lotteryid') ;
     if (!code) {
-        if(lotteryid !='8'){  // 北京pk10
-            code = '-,开,奖,中,-';
-        }else{ // 北京pk10
-            code ='20,20,20,20,20,20,20,20,20,20' ;
+        switch (lotteryid) {
+            case  '8': // 北京pk10
+            code='20,20,20,20,20,20,20,20,20,20';
+            break;
+            case  '6': // 江苏快三
+            code ='20,20,20';
+            break;
+            default :
+            code='-,开,奖,中,-';
+            break;
         }
+        // if(lotteryid !='8'&&lotteryid !='6'){  // 北京pk10
+        //     code = '-,开,奖,中,-';
+        // }else if(lotteryid =='8'){ // 北京pk10
+        //     code ='20,20,20,20,20,20,20,20,20,20' ;
+        // }else{  //江苏快3
+        //     code='20,20,20';
+        // }
     }
     if(code){
         var code_arr = code.split(',');
@@ -518,30 +531,35 @@ function processCode(issue, lastissue,code,double) {
     var str = '';
     var dstr ='';
     //已开奖期号节点,开奖号码
-    if(lotteryid =='8'){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
+    if(lotteryid =='8'||lotteryid =='6' ){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
         $('.last-date').html(lastissue.toString().substr(4, 8)) ;
         $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
-            str +='<li data-val="'+code_arr[i] +'"><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
+            if(lotteryid =='8' ){
+                str +='<li data-val="'+code_arr[i] +'"><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
+            }else{
+                str +='<li data-val="'+code_arr[i] +'"><span class="k3_dice num_'+code_arr[i]+'"></span></li>' ;
+            }
+
         }
-        dstr +='<li>'+double.top2_total+'</li>' ;
-        dstr +='<li>'+double.top2_sizer+'</li>' ;
-        dstr +='<li>'+double.top2_doubler+'</li>' ;
-        dstr +='<li>'+double.lh_5+'</li>' ;
-        dstr +='<li>'+double.lh_4+'</li>' ;
-        dstr +='<li>'+double.lh_3+'</li>' ;
-        dstr +='<li>'+double.lh_2+'</li>' ;
         dstr +='<li>'+double.lh_1+'</li>' ;
+        dstr +='<li>'+double.lh_2+'</li>' ;
+        dstr +='<li>'+double.lh_3+'</li>' ;
+        dstr +='<li>'+double.lh_4+'</li>' ;
+        dstr +='<li>'+double.lh_5+'</li>' ;
+        dstr +='<li>'+double.top2_doubler+'</li>' ;
+        dstr +='<li>'+double.top2_sizer+'</li>' ;
+        dstr +='<li>'+double.top2_total+'</li>' ;
      }else{
         $('.last-date').html(lastissue) ;
         $('.now-date').html(issue).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
             str +='<li data-val="'+code_arr[i] +'">'+ code_arr[i] +'</li>' ;
         }
-        dstr +='<li>'+double.total+'</li>' ;
-        dstr +='<li>'+double.sizer+'</li>' ;
-        dstr +='<li>'+double.longer+'</li>' ;
         dstr +='<li>'+double.doubler+'</li>' ;
+        dstr +='<li>'+double.longer+'</li>' ;
+        dstr +='<li>'+double.sizer+'</li>' ;
+        dstr +='<li>'+double.total+'</li>' ;
     }
     $('.last-open-num ul').html(str) ;
     $('.last-open-dou ul').html(dstr) ;
@@ -1069,19 +1087,19 @@ function doubleCount(lotteryid,rows,maxtime) {
                     '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
                     '<ul class="double-count">' ;
                 if(lotteryid == '8') {  // 北京pk10
-                   str += ' <li>'+data.data[i].doubleData.top2_total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>'+
-                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                   str += ' <li>'+data.data[i].doubleData.lh_1+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_2+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_3+'</li>'+
                     ' <li>'+data.data[i].doubleData.lh_4+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_3+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_2+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_1+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_total+'</li>' ;
                 }else{
-                   str += ' <li>'+data.data[i].doubleData.total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                   str += ' <li>'+data.data[i].doubleData.doubler+'</li>'+
                     ' <li>'+data.data[i].doubleData.longer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.doubler+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                    ' <li>'+data.data[i].doubleData.total+'</li>' ;
                 }
 
                    str +=' </ul>'+
