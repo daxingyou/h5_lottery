@@ -322,12 +322,12 @@
                 '43700':{ max:8}, 
                 '43800':{
                     max:5, fun:function(xslen){
-                        return  xslen*((xslen-1)/2);
+                        return  parseInt(xslen*((xslen-1)/2));
                     }
                 }, 
                 '43900':{
                     max:5, fun:function(xslen){
-                        return  parseInt(xslen*((xslen-1))*(xslen-2)/3*2*1)
+                        return  parseInt(xslen*((xslen-1))*(xslen-2)/6)
                     }
                 }, 
             }
@@ -374,6 +374,7 @@
                     .siblings().removeClass('show');
                 //清除选中的球
                 this.betSelectedList = [];
+                this.combineCount = 0;
                 $('.bd ul li p').removeClass('active');
             },
             switchTab:function(e){
