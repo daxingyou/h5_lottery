@@ -1271,29 +1271,28 @@ export default {
             this.resetAction();
         },
         timerBegin:function(){
-            this.getSystemTime().then((sys_time)=>{
-                this.sys_time = sys_time;
-                this.priodDataNewly(this.lotteryID, sys_time).then(res=>{
-                    this.next_pcode = res.data[0].pcode;  // 下期期数
-                    this.now_pcode = res.data[1].pcode;  // 当前期数
-                    this.previous_pcode = res.data[2].pcode;  // 上期期数
+            var that = this ;
+            that.getSystemTime().then((sys_time)=>{
+                that.sys_time = sys_time;
+                that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+                    that.next_pcode = res.data[0].pcode;  // 下期期数
+                    that.now_pcode = res.data[1].pcode;  // 当前期数
+                    that.previous_pcode = res.data[2].pcode;  // 上期期数
                     // 当前期数时间
-                    this.now_time = this.formatTimeUnlix(res.data[1].endTime);
+                    that.now_time = this.formatTimeUnlix(res.data[1].endTime);
                     // 当前期封盘时间
-                    this.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
+                    that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
                     // 当天日期
-                    this.now_day = ( res.data[1].pcode).toString().substr(0, 8);
+                    that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
                     let code = res.data[2].winNumber;
                     //code 上期开奖号码
                     if (!code) {
                         code='20,20,20,20,20,20,20,20,20,20';
                     }
-                    this.winNumber = code;
+                    that.winNumber = code;
                     //上期开奖统计
-                    this.lastTermStatic = res.data[2].doubleData;
-
-                    // this.processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
-                    this.$refs.countdownTimer && this.$refs.countdownTimer.timerInit();
+                    that.lastTermStatic = res.data[2].doubleData;
+                    that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 });
             });
             this.entertainStatus = false;

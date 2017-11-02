@@ -3,9 +3,11 @@
 
   <!-- <div v-if="show" :class="'so-right '+ (show?'active':'')"> -->
     <div v-if="show" :class="'so-right '+ (show?'active':'')">
+        <div>
+            <img src="/static/images/top/zoushi.png">
+        </div>
         <div class="so-shade" @click="close"></div>
         <div>
-            <!-- <img src="/static/images/top/zoushi.png"> -->
         </div>
         <div @click="close">
             <div v-if="show">
