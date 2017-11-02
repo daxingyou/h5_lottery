@@ -5,45 +5,14 @@
         <UserNavigation el=".so-menu" ref="navone"/>
 
         <!--right menu  -->
-        <div class="so-right">
-            <div>
-                <img src="/static/images/top/zoushi.png">
-            </div>
+        <!--right menu
+          属性
+              el 要绑定到哪个节点上，即点击哪个节点触发
+          事件
+              play 当用户点击完法说明时触发
+      -->
+        <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
-            <div>
-                <div>
-                    <ul class="right_menu">
-                        <li class="r_record">
-                            <a href="../publicTemplate/bet_record.html">
-                                <p>投注记录</p>
-                            </a>
-                        </li>
-                        <li class="r_pastview">
-                            <a href="../publicTemplate/past_view.html">
-                                <p>近期开奖</p>
-                            </a>
-                        </li>
-                        <li class="r_roadbeads">
-                            <a href="road_beads.html">
-                                <p>路珠</p>
-                            </a>
-                        </li>
-                        <li class="r_long">
-                            <a href="../publicTemplate/ds_long.html">
-                                <p>双面长龙</p>
-                            </a>
-                        </li>
-                        <li class="r_play">
-                            <p>玩法说明</p>
-                        </li>
-                        <li class="r_today">
-                            <p>今日输赢</p>
-                            <div class="today_payoff"> </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="so-index">
             <div class="so-in-top">
                 <ul>
@@ -143,17 +112,17 @@
                     <!-- pk10 双面 -->
                     <div id="pk10-item0" class="active pk10_item">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in doubleSideList">
                                 <div class="pk10_panel">
                                     <h2>
-                                        冠亚和
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="82501">
-                                            <span>冠亚大</span>
-                                            <span class="bet-times"> </span>
+                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span :data-val="itemChild.name">{{itemChild.name}}</span>
+                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
-                                        <p data-id="82502">
+                                 <!--       <p data-id="82502">
                                             <span>冠亚小</span>
                                             <span class="bet-times"> </span>
                                         </p>
@@ -164,11 +133,11 @@
                                         <p data-id="82504">
                                             <span>冠亚双</span>
                                             <span class="bet-times"> </span>
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                             </li>
-                            <li class="select-li">
+                           <!-- <li class="select-li">
                                 <div class="pk10_panel">
                                     <h2>
                                         冠军
@@ -457,23 +426,23 @@
                                         </p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                     <!-- pk10 冠亚和值 -->
-                    <div id="pk10-item1" class="pk10_item">
+                    <div id="pk10-item1" class="pk10_item" style="display:none;">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in oneToFiveList">
                                 <div class="pk10_panel">
                                     <h2>
-                                        冠亚和值
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="82101">
-                                            <span>3</span>
-                                            <span class="bet-times"> </span>
+                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span :data-val="itemChild.name">{{itemChild.name}}</span>
+                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
-                                        <p data-id="82102">
+                                      <!--  <p data-id="82102">
                                             <span>4</span>
                                             <span class="bet-times"> </span>
                                         </p>
@@ -536,26 +505,29 @@
                                         <p data-id="82117">
                                             <span>19</span>
                                             <span class="bet-times"> </span>
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <!-- pk10 1-5名-->
-                    <div id="pk10-item2" class="pk10_item">
+                    <div id="pk10-item2" class="pk10_item" style="display:none;">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in frontCenterBackList">
                                 <div class="pk10_panel">
                                     <h2>
-                                        冠军
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="83101">
-                                            <span class="pk10_num_bg">1<span class="pk10_ball num_01"></span></span>
-                                            <span class="bet-times"> </span>
+                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span class="pk10_num_bg" :data-val="itemChild.name">
+                                                <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
+                                                <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                            </span>
+                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
-                                        <p data-id="83102">
+                                      <!--  <p data-id="83102">
                                             <span class="pk10_num_bg">2<span class="pk10_ball num_02"></span></span>
                                             <span class="bet-times"> </span>
                                         </p>
@@ -590,11 +562,11 @@
                                         <p data-id="83110">
                                             <span class="pk10_num_bg">10<span class="pk10_ball num_10"></span></span>
                                             <span class="bet-times"> </span>
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                             </li>
-                            <li class="select-li">
+                          <!--  <li class="select-li">
                                 <div class="pk10_panel">
                                     <h2>
                                         亚军
@@ -789,23 +761,26 @@
                                         </p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                     <!-- pk10 6-10名-->
-                    <div id="pk10-item3" class="pk10_item">
+                    <div id="pk10-item3" class="pk10_item" style="display:none;">
                         <ul>
-                            <li class="select-li">
+                            <li class="select-li" v-for="item in frontLastBackList">
                                 <div class="pk10_panel">
                                     <h2>
-                                        第六名
+                                        {{item.name}}
                                     </h2>
                                     <div>
-                                        <p data-id="84101">
-                                            <span class="pk10_num_bg">1<span class="pk10_ball num_01"></span></span>
-                                            <span class="bet-times"> </span>
+                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span class="pk10_num_bg" :data-val="itemChild.name">
+                                                <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
+                                                <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                            </span>
+                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
-                                        <p data-id="84102">
+                                       <!-- <p data-id="84102">
                                             <span class="pk10_num_bg">2<span class="pk10_ball num_02"></span></span>
                                             <span class="bet-times"> </span>
                                         </p>
@@ -840,11 +815,11 @@
                                         <p data-id="84110">
                                             <span class="pk10_num_bg">10<span class="pk10_ball num_10"></span></span>
                                             <span class="bet-times"> </span>
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                             </li>
-                            <li class="select-li">
+                           <!-- <li class="select-li">
                                 <div class="pk10_panel">
                                     <h2>
                                         第七名
@@ -1039,48 +1014,35 @@
                                         </p>
                                     </div>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
                 <div class="so-clear"></div>
             </div>
         </div>
-        <!--封盘时给foot加上class:close-->
-        <!--<div class="so-foot close">-->
-        <div class="so-foot">
-            <div>
-                <p>已选中<span class="bet-select-num">0</span>注</p>
-            </div>
-            <div>
-                <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
-                    <input type="reset" value="重置">
-                </form>
-            </div>
-            <div>
-                <div class="so-add">
-                    <!-- <img src="/static/images/foot/foot-jia.png"> -->
-                    <p>下注</p>
-                </div>
-            </div>
-        </div>
-        <div class="so-shade"></div>
-        <div class="so-pop">
-            <h2>下注清单<a></a></h2>
-            <p class="grey_text">请核对您的下注信息</p>
-            <div>
-                <div  class="boxlist bet-go-list">
-                    <!--  <p>【第一球-单】 @ 1.995 x 10</p>
-                      <p>【第一球-单】 @ 1.995 x 10</p>
-                      <p>【第一球-单】 @ 1.995 x 10</p>-->
-                </div>
-            </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
-            <a class="cancle">取消</a>
-            <a class="btn-submit ok">确定</a>
-            <!-- <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a> -->
+
+        <!--
+       下注组件
+           属性
+               :lotteryID="lotteryID"  彩种id
+               :betSelectedList="betSelectedList"  用户选中的赌注
+               :parentRefs="$refs"   当前页面的引用
+               :balance="balanceData.balance"  帐单值
+               :now_pcode="now_pcode"   期次
+               :next_pcode="next_pcode"   下期期次
+               :now_day="now_day"    日期
+           事件
+               @betSuccess="resetAction"
+       -->
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction"
+             :betSelectedList="betSelectedList"
+             :parentRefs="$refs"
+             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
+
+        <!--封盘底部遮挡-->
+        <div v-if="entertainStatus" class="so-fengpan">
+            <a>已封盘</a>
         </div>
 
         <!--玩法说明-->
@@ -1120,10 +1082,6 @@
             </div>
         </div>
 
-        <!--封盘底部遮挡-->
-        <div class="so-fengpan" style="display: none;">
-            <a>已封盘</a>
-        </div>
 
         <!--请输入投注金额-->
         <div class="modal m08">
@@ -1178,7 +1136,29 @@
                 </div>
             </div>
         </div>
+        <!-- 确认对话框API
+                       text  对话框提示内容
+                   -->
+        <InfoDialog ref="infoDialog" text="请您继续投注" />
 
+        <!--自动关闭（闪屏）对话框API
+            属性
+                text  对话框提示内容
+                type  对话框类型，可以是 static/images/pop/ 目录下任意图片，像title_quantity、title_tip
+            方法
+                open(text, type)
+        -->
+        <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
+
+        <BetSuccessfulDialog ref="betSuccessfulDialog" />
+
+
+    <!--玩法说明对话框
+        方法：
+            open 打开对话框
+            close 关闭对话框
+    -->
+    <PlayDialog ref="playDialog" />
 
 
     </div>
@@ -1252,14 +1232,17 @@ export default {
 
     },
     computed:{
-        doubleSideList:function(){
-            return this.getListByParentID(21000);
+        doubleSideList:function(){ // 两面
+            return this.getListByParentID(81000);
         },
-        oneToFiveList:function(){
-            return this.getListByParentID(22000);
+        oneToFiveList:function(){ // 冠亚和值
+            return this.getListByParentID(82000);
         },
-        frontCenterBackList:function(){
-            return this.getListByParentID(23000);
+        frontCenterBackList:function(){ // 1-5名
+            return this.getListByParentID(83000);
+        },
+        frontLastBackList:function(){ // 6-10名
+            return this.getListByParentID(84000);
         },
     },
     methods:{

@@ -228,7 +228,7 @@
         <BetSuccessfulDialog ref="betSuccessfulDialog" />
 
       </div>
-        
+
         <!--玩法说明对话框
             方法：
                 open 打开对话框
