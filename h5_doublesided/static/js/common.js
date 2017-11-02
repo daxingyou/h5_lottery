@@ -570,6 +570,9 @@ function processCode(issue, lastissue,code,double) {
         dstr +='<li>'+double.top2_doubler+'</li>' ;
         dstr +='<li>'+double.top2_sizer+'</li>' ;
         dstr +='<li>'+double.top2_total+'</li>' ;
+
+        kdstr +='<li>'+double.sizer+'</li>';
+        kdstr += '<li>'+ double.total + '</li>';
      }else{
         $('.last-date').html(lastissue) ;
         $('.now-date').html(issue).attr('data-date',issue) ;
@@ -581,8 +584,6 @@ function processCode(issue, lastissue,code,double) {
             dstr += '<li>' + double.sizer + '</li>';
             dstr += '<li>' + double.total + '</li>';
 
-            kdstr +='<li>'+double.sizer+'</li>';
-            kdstr += '<li>'+ double.total + '</li>';
     }
     $('.last-open-num ul').html(str) ;
     $('.last-open-dou ul').html(dstr) ;
@@ -1155,7 +1156,7 @@ function doubleCount(lotteryid,rows,maxtime) {
                         }else if(lotteryid == '6'){//江苏快3
                             str += ' <li><span class="k3_dice num_'+codeArr[j]+'"></span></li>' ;
                         }else{
-                            str += ' <li><span class="num_'+codeArr[j]+'"></span></li>' ;
+                            str += ' <li>'+codeArr[j]+'</li>' ;
                         }
 
                     }
