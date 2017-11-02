@@ -980,6 +980,18 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_top .account .ui.header > .image:not(.icon):only-child, .info_top .account .ui.header > img:only-child { margin-right: 0; }
 
+.info_top .account .user_name { position: relative; text-align: left; margin-left: 0; line-height: 1.8em; float: left; margin-top: .2rem; }
+
+.info_top .account .user_name > strong { display: block; color: #fff; letter-spacing: 1px; font-weight: 500; font-size: .4rem; }
+
+.info_top .account .user_name > .purse { width: 100%; height: .5rem; top: .1rem; left: 0; }
+
+.info_top .account .user_name > .purse .so-top-sum, .info_top .account .user_name > .purse .so-in-top-sum { position: absolute; top: 0; }
+
+.info_top .account .user_name > .purse .so-top-sum { left: 0; }
+
+.info_top .account .user_name > .purse .so-in-top-sum { left: .2rem; }
+
 .info_top:after { display: block; clear: both; content: ""; }
 
 .info_top.info_inner .account:after { background: none; }
@@ -987,18 +999,6 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .portrait { height: auto; position: relative; }
 
 .portrait .user_portrait { background-size: 100%; width: 1.5rem; height: 1.5rem; margin: 0 auto; }
-
-.user_name { position: relative; text-align: left; margin-left: 0; line-height: 1.8em; float: left; margin-top: .2rem; }
-
-.user_name > strong { display: block; color: #fff; letter-spacing: 1px; font-weight: 500; font-size: .4rem; }
-
-.user_name > .purse { width: 100%; height: .5rem; top: .1rem; left: 0; }
-
-.user_name > .purse .so-top-sum, .user_name > .purse .so-in-top-sum { position: absolute; top: 0; }
-
-.user_name > .purse .so-top-sum { left: 0; }
-
-.user_name > .purse .so-in-top-sum { left: .2rem; }
 
 .user_data { color: #fff; }
 
