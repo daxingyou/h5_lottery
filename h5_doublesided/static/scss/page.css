@@ -1006,7 +1006,7 @@ i.index_s {
 
 .tab_mid {
   color: #d7e8f0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(10, 22, 37, 0.85);
   position: fixed;
   top: 1.5rem;
   z-index: 5;
