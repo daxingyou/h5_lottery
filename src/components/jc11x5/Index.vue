@@ -159,53 +159,11 @@
                                     <div>
                                         <h2>{{kind.name}}</h2>
                                         <div>
-                                            <BallItem v-for="subItem in continueNumberSubList" :text="++subItem" :payoff="kind.childrens[0].oddsData.payoff" @selected="continueNumberSelect($event, subItem, kind)" />
-                                            <!-- 
-                                            <p v-for="subItem in continueNumberSubList">
-                                                <span>{{++subItem}}</span>
-                                                <span class="bet-times">{{payoffFormat(kind.childrens[0].oddsData.payoff)}}</span>
-                                            </p> -->
-
-                                            <!-- <p data-id="42602">
-                                                <span>02</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42603">
-                                                <span>03</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42604">
-                                                <span>04</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42605">
-                                                <span>05</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42606">
-                                                <span>06</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42607">
-                                                <span>07</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p  data-id="42608">
-                                                <span>08</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42609">
-                                                <span>09</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42610">
-                                                <span>10</span>
-                                                <span class="bet-times"> </span>
-                                            </p>
-                                            <p data-id="42611">
-                                                <span>11</span>
-                                                <span class="bet-times"> </span>
-                                            </p> -->
+                                            <BallItem v-for="subItem in continueNumberSubList" 
+                                                :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }" 
+                                                @selected="continueNumberSelect" 
+                                                @unSelected="continueNumberUnSelect" />
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -219,7 +177,34 @@
         </div>
         <!--封盘时给foot加上class:close-->
         <!--<div class="so-foot close">-->
-        <div class="so-foot">
+
+
+        <!--
+        下注组件
+            属性
+                :lotteryID="lotteryID"  彩种id
+                :betSelectedList="betSelectedList"  用户选中的赌注
+                :parentRefs="$refs"   当前页面的引用
+                :isCombine="isCombine"  是否组合玩法
+                :combineCount="combineCount"    组合玩法对应的注数
+                :balance="balanceData.balance"  帐单值
+                :now_pcode="now_pcode"   期次
+                :next_pcode="next_pcode"   下期期次
+                :now_day="now_day"    日期
+            事件
+                @betSuccess="resetAction" 
+        -->
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" 
+            :betSelectedList="betSelectedList"
+            :parentRefs="$refs"
+            :isCombine="isCombine" :combineCount="combineCount"
+            :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
+
+        <!--封盘底部遮挡-->
+        <div v-if="entertainStatus" class="so-fengpan">
+            <a>已封盘</a>
+        </div> 
+        <!-- <div class="so-foot">
             <div>
                 <p>已选中<span class="bet-select-num">0</span>注</p>
             </div>
@@ -248,111 +233,26 @@
             <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
             <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
             <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
-        </div>
+        </div> -->
+
+
+        <!-- 确认对话框API
+            text  对话框提示内容
+        -->
+        <InfoDialog ref="infoDialog" text="请您继续投注" />
+
+        <!--自动关闭（闪屏）对话框API
+            属性
+                text  对话框提示内容
+                type  对话框类型，可以是 static/images/pop/ 目录下任意图片，像title_quantity、title_tip
+            方法
+                open(text, type)
+        -->
+        <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
+
+        <BetSuccessfulDialog ref="betSuccessfulDialog" />
 
         <!--玩法说明-->
-        <div class="so-pop-wanfa modal">
-            <div class="m_content">
-                <h2>江西11选5游戏玩法<a></a></h2>
-                <div class="content">
-                    <div class="playtext">
-                        <h3>一、两面玩法</h3>
-                        <p>总和大小: 所有开奖号码数字加总值大于等于31为和大；总和值小于等于29为和小；若总和值等于30为和 (不计算输赢)。</p>
-                        <p>总和单双: 所有开奖号码数字加总值为单数叫和单，如11、31；加总值为双数叫和双，如42、30。</p>
-                        <p>总和尾数大小: 所有开奖号码数字加总值的尾数，大于或等于5为尾大，小于或等于4为尾小。</p>
-                        <p>龙：第一球开奖号码大于第五球开奖号码，如第一球开出10，第五球开出07。</p>
-                        <p>虎：第一球开奖号码小于第五球开奖号码，如第一球开出03，第五球开出07。</p>
-                        <p></p>
-                        <h3>二、第一球～第五球玩法</h3>
-                        <p>第一球～第五球：如现场滚球第一个开奖号码为10号，投注第一球为10号则视为中奖，其它号码视为不中奖</p>
-                        <h3>三、连码玩法</h3>
-                        <p>一中一: 投注1个号码与当期开奖的5个号码中任1个号码相同，视为中奖。</p>
-                        <p>二中二: 投注2个号码与当期开奖的5个号码中任2个号码相同(顺序不限)，视为中奖。</p>
-                        <p>三中三: 投注3个号码与当期开奖的5个号码中任3个号码相同(顺序不限)，视为中奖。</p>
-                        <p>四中四: 投注4个号码与当期开奖的5个号码中任4个号码相同(顺序不限)，视为中奖。</p>
-                        <p>五中五: 投注5个号码与当期开奖的5个号码中5个号码相同(顺序不限)，视为中奖。</p>
-                        <p>六中五: 投注6个号码中任5个号码与当期开奖的5个号码相同(顺序不限)，视为中奖。</p>
-                        <p>七中五: 投注7个号码中任5个号码与当期开奖的5个号码相同(顺序不限)，视为中奖。</p>
-                        <p>八中五: 投注8个号码中任5个号码与当期开奖的5个号码相同(顺序不限)，视为中奖。</p>
-                        <p>前二组选: 投注的2个号码与当期开出的5个号码中的前2个号码相同(顺序不限)，视为中奖。</p>
-                        <p>前三组选: 投注的3个号码与当期开出的5个号码中的前3个号码相同(顺序不限)，视为中奖。</p>
-                    </div>
-                </div>
-                <div class="action">
-                    <a class="ok">确定</a>
-                </div>
-            </div>
-        </div>
-
-        <!--封盘底部遮挡-->
-        <div class="so-fengpan"  style="display: none;">
-            <a>已封盘</a>
-        </div>
-
-        <!--请输入投注金额-->
-        <div class="modal m08">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_tip.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div >
-                    <span class="bet-error-content"> 请输入整数的投注金额，金额不能为0 </span>
-                </div>
-            </div>
-        </div>
-        <!--本期投注已结束-->
-        <div class="modal m12">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_end.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div>
-                    <span>请至下期继续投注</span>
-                </div>
-            </div>
-        </div>
-        <!--下注弹窗_成功-->
-        <div class="modal m09">
-            <div class="m_content">
-                <img class="bet_ok" src="/static/images/pop/ok_light.png">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content check">
-                    <div>
-                        <img src="/static/images/pop/title_bet_ok.png">
-                        <img src="/static/images/icon_check.svg">
-                    </div>
-                    您已成功支付<br/>请随时关注开奖信息！
-                </div>
-            </div>
-        </div>
-        <!--下注弹窗_失败-->
-        <div class="modal m10">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_bet_fail.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div>
-                    <span class="submit-error-content"> 您的余额不足 <br/>请充值后继续进行！</span>
-                </div>
-            </div>
-        </div>
-
-
-        <!--投注项目超过规定数量-->
-        <div class="popup so-fengpan-pop so-fengpan-pop-02">
-            <div>
-                <img src="/static/images/pop/title_quantity.png">
-                <img src="/static/images/page/status03.svg">
-                <p>不允许超过<span class="not-allow-content">2</span>个选项</p>
-            </div>
-        </div>
-
         <PlayDialog ref="playDialog" />
   </div>
 
@@ -371,7 +271,7 @@
     import BallItem from '@/components/publicTemplate/BallItem'
 
     import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/cqssc/PlayDialog'
+    import PlayDialog from '@/components/jc11x5/PlayDialog'
     import Mixin from '@/Mixin'
 
     export default {
@@ -408,8 +308,13 @@
             lotteryID:4,
             allLottery:{} ,
             gameHref:{} ,
+            isCombine:false, //是否组合玩法
+            combineCount:0, //组合玩法注数
             kinds:['两面', '1-5球', '连码'],
             continueNumberSubList:[...Array(11).keys()],
+            selectedNumbersLimities:{
+                '43100':2, '43200':3, '43300':4, '43400':5, '43500':6, '43600':7, '43700':8, '43800':5, '43900':5, 
+            }
         }
       },
       created:function(){
@@ -447,116 +352,9 @@
                 $src.addClass('on').siblings().removeClass('on');
                 $src.closest('.tab_container').find('.bd ul').eq(index).addClass('show')
                     .siblings().removeClass('show');
-
-                // $('ul.tab_mid li').click(function(){
-                //     var tab_id = $(this).attr('data-tab');
-                //     var tab_val = $(this).data('val') ;
-                //     $('ul.tab0'+tab_val+' li').removeClass('on');
-                //     $('#road0'+tab_val+' .tab_content_out').removeClass('on');
-                //     $(this).addClass('on');
-                //     $("#"+tab_id).addClass('on');
-                // });
-            },
-            checkNumbers:function (method,len,self,xslen) {
-                /*
-                * 江西11选5 ,method 玩法，len 长度，xslen特殊玩法
-                * */
-                switch (method) {
-                    case 'tab_jx_eze': // 二中二
-                        var xlen = 2 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>2){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_szs': // 三中三
-                        var xlen = 3 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>3){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_sizsi': // 四中四
-                        var xlen = 4 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>4){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_wzw': // 五中五
-                        var xlen = 5 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>5){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_lzw': // 六中五
-                        var xlen = 6 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>6){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_qzw': // 七中五
-                        var xlen = 7 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>7){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_bzw': // 八中五
-                        var xlen = 8 ;
-                        var spchoose = parseInt(xslen/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>8){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_qez': // 前二组选 ，公式 n*(n-1)/2
-                        var xlen = 2 ;
-                        var spchoose = parseInt(xslen*((xslen-1))/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>5){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    case 'tab_jx_qsz': // 前三组选 ，公式 n*(n-1)*(n-2)/3*2*1
-                        var xlen = 6 ;
-                        var spchoose = parseInt(xslen*((xslen-1))*(xslen-2)/xlen) ;
-                        $('.bet-select-num').text(spchoose) ;
-                        if(xslen>5){
-                            initPopFengpan02(2,len-1) ;
-                            self.click() ;
-                            return false ;
-                        }
-                        break;
-                    default :
-                        $('.bet-select-num').text(len) ;
-                        break;
-                }
-
+                //清除选中的球
+                this.betSelectedList = [];
+                $('.bd ul li p').removeClass('active');
             },
             switchTab:function(e){
                 const $src = $(e.currentTarget);
@@ -564,7 +362,17 @@
                 const $tabs = $('.so-con-right > div');
                 $tabs.hide();
                 $tabs.eq(index).show();
-                $src.addClass('active').siblings().removeClass('active')
+                $src.addClass('active').siblings().removeClass('active');
+                //清除选中的球
+                if ($src.prop('class').indexOf('reset_bet')>=0){
+                    $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
+                    this.betSelectedList = [];
+                    this.isCombine = true;  //设置为组合玩法
+                }else{
+                    $('#so-item2 ul li p').removeClass('active');
+                    this.betSelectedList = [];
+                    this.isCombine = false;  //设置为非组合玩法
+                }
             },
             getListByParentID:function(parentID){
                 return this.playTreeList.filter((item,i)=>{
@@ -619,10 +427,33 @@
                 this.getMemberBalance() ; // 更新余额
             },
             //当用户选择球时（连码），保存相应数据
-            continueNumberSelect:function(e, item, parentItem, p0, p1){
-                this.betSelectedList.push(item);
+            continueNumberSelect:function(e, item, callback){
+                const limitedNumber = this.selectedNumbersLimities[item.parentItem.cid];
+                if (this.betSelectedList.length < limitedNumber){
+                    this.betSelectedList.push(item);
+                    console.log(this.betSelectedList)
+                }else{
+                    callback(false);
+                    this.$refs.infoDialog.open('不允许超过'+limitedNumber+'个选项', 'title_quantity');
+                }
+                if (this.betSelectedList.length == limitedNumber){
+                    this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
+                }else{
+                    this.combineCount = 0;
+                }
+                
             },
-            //当用户选择球时，保存相应数据
+            //当用户选择球时（连码），保存相应数据
+            continueNumberUnSelect:function(e, item, parentItem){
+                this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.name != item.name; });
+                if (this.betSelectedList.length == this.selectedNumbersLimities[item.parentItem.cid]){
+                    this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
+                }else{
+                    this.combineCount = 0;
+                }
+                console.log(this.betSelectedList)
+            },
+            //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
                 // if (this.entertainStatus){
                 //     return false;
