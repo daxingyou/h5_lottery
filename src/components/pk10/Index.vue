@@ -41,7 +41,7 @@
                                 第<span class="last-date"> {{previous_pcode.toString().substr(4, 8)}}</span> 期
                             </div>
                             <div>
-                                <a href="../publicTemplate/past_view.html">
+                                <a href="/publicTemplate/pastView">
                                     <p>
                                         查看往期
                                     </p>
