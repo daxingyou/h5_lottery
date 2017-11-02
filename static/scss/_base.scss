@@ -4,7 +4,9 @@ html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
     height: 100% !important;
-    //overflow: hidden !important;
+    &.game_fix{
+        overflow: hidden !important;
+    }
 }
 body{
     width: 100%;
@@ -13,6 +15,9 @@ body{
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
+}
+input,select,option{
+    font:14px 'Microsoft YaHei', Helvetica,sans-serif;
 }
 body,.warp {
     &::-webkit-scrollbar {
@@ -86,7 +91,7 @@ input,select,button,a{
     // position: relative;
     // z-index: 11;
     position: fixed;
-    z-index: 50;
+    z-index: 51;
     width: 10rem;
     &:after{
         display: block;
@@ -103,6 +108,8 @@ input,select,button,a{
         height: auto;
         background-color: transparent;
         float: none;
+        z-index: 1;
+        position: relative;
         >img{
             width: 100%;
         }
@@ -165,14 +172,14 @@ input,select,button,a{
             //@include background-image ('btn.png',0,transparent);
             background-color: #1a2331;
             @include border-radius(.1rem);
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid rgba(#fff,.3);
             box-shadow: 0 1px 5px rgba(0,0,0,.6);
             font-size: .35rem;
             display: inline-block;
             color: $bluetext;
             padding: .2rem;
-            margin-top:.2rem;
-            height: .5rem;
+            margin-top:.3rem;
+            height: .4rem;
             vertical-align: top;
             &:last-child{
                 margin-right: .2rem;
@@ -250,7 +257,7 @@ footer.bot_nav{
     background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
-    z-index: 13;
+    z-index: 51;
     >ul{
         text-align: center;
         overflow: hidden;
@@ -374,7 +381,7 @@ h2{
         display: none;
         background-color: rgba(#11161c,.7);
         border: 1px solid rgba(#23304a,.9);
-        width: 99.5%;
+        width: 99%;
     }
     &.active{
         color: #ccc;
@@ -395,8 +402,8 @@ h2{
     height: 2rem;
     border-radius: 100%;
     margin-right: 0.5714rem;
-    // background-image: url('../../static/images/page/logo_bg.png');
-    // background-size: 100%;
+    background-image: url('../../static/images/page/logo_bg.png');
+    background-size: 100%;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
@@ -543,6 +550,10 @@ label{
             &.check{
                 color: $yellow;
             }
+            &.left{
+                text-align: left;
+                padding:.5rem;
+            }
             >div{
                 margin: 0 auto;
                 text-align: center;
@@ -640,20 +651,6 @@ label{
     section{
         margin: 1.5em 0;
     }
-    // .item{
-    //     padding: 1.3em 0;
-    // }
-    // ul{
-    //     overflow: hidden;
-    //     li {
-    //         display: inline-block;
-    //         width: 40%;
-    //         margin: 0 auto;
-    //         text-align: center;
-    //         border: 1px solid #fff;
-    //         padding: 10px 15px;
-    //     }
-    // }
     div{
         width: 90%;
         margin: 0 auto;
@@ -716,7 +713,7 @@ label{
         border: 1px solid #66c3f2;
         font-size: 0.35rem;
         &.tab1{
-            margin-right: -10px;
+            margin-right: -.07rem;
             border-top-left-radius: .2rem;
             border-bottom-left-radius: .2rem;
         }
@@ -759,11 +756,6 @@ label{
         margin: .2rem 0;
     }
 }
-// *,
-// *:before,
-// *:after {
-//     box-sizing: border-box;
-// }
 .formlist_area{
     width: 90%;
     margin: 0 auto;

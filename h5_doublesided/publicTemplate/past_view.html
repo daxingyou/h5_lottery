@@ -198,14 +198,23 @@
                var lotteryid = getCookie('lt_lotteryid') ; // 彩种 id
                var lotteryname = getCookie('lottery_name') ; // 彩种 名称
                $('.lottery_name').html(lotteryname+' 近期开奖') ;
-               if(lotteryid =='8'){ // 北京 pk10
-                   $('.pk10_css').attr('href','../static/css/pk10.css') ;
-                   $('body').attr('id','pk10') ;
-               }else if(lotteryid =='6'){
-                   //江苏快3
-                   $('.K3_css').attr('href','../static/css/k3.css') ;
-                   $('body').attr('id','k3') ;
+               switch (lotteryid) {
+                   case '8':
+                       $('.pk10_css').attr('href','../static/css/pk10.css') ;
+                       $('body').attr('id','pk10') ;
+                       break;
+                   case '6' :   // 江苏K3
+                   case '20' :  // 安徽K3
+                   case '22' :  // 湖北K3
+                       $('.K3_css').attr('href','../static/css/k3.css') ;
+                       $('body').attr('id','k3') ;
+                       break;
+
+                   default :
+
+                       break;
                }
+
                changeTab(lotteryid) ;
                doubleCount(lotteryid,'30','') ;
            });
