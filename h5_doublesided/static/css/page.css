@@ -984,7 +984,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_top .account .user_name > strong { display: block; color: #fff; letter-spacing: 1px; font-weight: 500; font-size: .4rem; }
 
-.info_top .account .user_name > .purse { width: 100%; height: .5rem; top: .1rem; left: 0; }
+.info_top .account .user_name > .purse { width: 100%; height: .5rem; top: .1rem; left: 0; position: relative; }
 
 .info_top .account .user_name > .purse .so-top-sum, .info_top .account .user_name > .purse .so-in-top-sum { position: absolute; top: 0; }
 
