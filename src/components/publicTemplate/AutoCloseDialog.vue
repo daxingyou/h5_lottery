@@ -41,5 +41,8 @@ export default {
 }
 </script>
 <style scope>
-    .publicDialog { display: block; }
+    .publicDialog { display: block;
+                    position: fixed;
+                    z-index: 1000;
+                  }
 </style>

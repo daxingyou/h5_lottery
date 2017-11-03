@@ -215,5 +215,10 @@ export default {
     display: inline-block;
     z-index: 7;
   }
-    
+  #pa_head > .left a.btn_leftside{
+      margin-left:.6rem;
+  }
+  #pa_head > .center.logo{
+      margin-left: .6rem;
+  }
 </style>

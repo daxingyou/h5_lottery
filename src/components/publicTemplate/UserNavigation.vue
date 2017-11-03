@@ -146,4 +146,5 @@ export default {
 </script>
 <style scoped>
   .so-shade { display: block; z-index: 0; }
+  .so-left{overflow: auto}
 </style>

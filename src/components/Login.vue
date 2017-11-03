@@ -49,6 +49,7 @@ export default {
     },
   mounted:function() {
         this.username = 'admin' ;
+
   },
   methods: {
     // 登录接口 moved to 主页/index.vue
@@ -60,6 +61,7 @@ export default {
         if(this.password ==''){
             alert('请输入登录密码') ;
             return false ;
+
         }
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
