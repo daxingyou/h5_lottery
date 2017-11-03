@@ -2,7 +2,7 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="/">
+                <a href="javascript:;" onclick="history.go(-1)">
                     <img src="static/images/back.png" alt="">
                 </a>
             </div>
@@ -55,7 +55,7 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入真实姓名" class="realyname" v-model="realyname" @input="checkUserName(realyname,'realyname','请输入真实姓名')">
+                            <input type="text" placeholder="请输入真实姓名" class="realyname" v-model="realyname" @input="checkrealyName(realyname,'realyname','请输入真实姓名')">
                             <i class="close"></i>
                         </div>
                         <label class="error-message "></label>
@@ -64,7 +64,7 @@
                         <div class="form_g password text pay_password">
                             <legend>取款密码</legend>
                             <select v-model="withpassword1" class="withpassword1">
-                                <option>_</option>
+                               <!-- <option>_</option>-->
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -77,7 +77,7 @@
                                 <option>9</option>
                             </select>
                             <select v-model="withpassword2" class="withpassword2">
-                                <option>_</option>
+                               <!-- <option>_</option>-->
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -90,7 +90,7 @@
                                 <option>9</option>
                             </select>
                             <select v-model="withpassword3" class="withpassword3">
-                                <option>_</option>
+                               <!-- <option>_</option>-->
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -103,7 +103,7 @@
                                 <option>9</option>
                             </select>
                             <select v-model="withpassword4" class="withpassword4">
-                                <option>_</option>
+                               <!-- <option>_</option>-->
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -194,8 +194,24 @@ methods:{
 
     },
 
-    // 注册接口
+    // 注册接口 ，除了推荐人，其他必填
     registerAction:function() {
+        if(this.realyname ==''){
+            this.$refs.autoCloseDialog.open('请输入真实姓名') ;
+            return false ;
+        }
+        if(this.withpassword1 ==''|| this.withpassword2 =='' || this.withpassword3 ==''|| this.withpassword4 ==''){
+            this.$refs.autoCloseDialog.open('请输入取款密码') ;
+            return false ;
+        }
+        if(this.telephone ==''){
+            this.$refs.autoCloseDialog.open('请输入手机号码') ;
+            return false ;
+        }
+       /* if(this.yzmcode ==''){
+            this.$refs.autoCloseDialog.open('请输入验证码') ;
+            return false ;
+        }*/
         var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
         if(falg){
             return false ;
@@ -215,14 +231,19 @@ methods:{
         $.ajax({
             type: 'post',
             headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            url: this.action.uaa + '/apis/member/checkOrCreateMemberBcbaochi',
-            data: logindata ,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            url: this.action.uaa + 'apis/data/member/checkOrCreateMemberBcbaochi',
+            data: JSON.stringify(logindata) ,
             success: (res) => {
 
             this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
             this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-            this.$refs.autoCloseDialog.open('注册成功') ;
-            window.location = '/' ;
+            this.$refs.autoCloseDialog.open('注册成功，请登录') ;
+            setTimeout(function(){
+                window.location = '/login' ;
+            },200)
+
 
         },
         error: function () {

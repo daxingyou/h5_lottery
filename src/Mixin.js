@@ -410,6 +410,9 @@ var MyMixin = {
             }else{
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
         checkrealyName (val,el,content) {
@@ -418,12 +421,18 @@ var MyMixin = {
             }else{
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
         checktelphone (val,el,content) {
             if( (val && !this.phoneNum(val) ) || val.length != 11){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },

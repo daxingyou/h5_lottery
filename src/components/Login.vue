@@ -27,7 +27,7 @@
                     <a href="javascript:;" @click="LoginAction()">登录</a>
                 </div>
                 <div class="other_link">
-                    <a href="reg.html">马上注册</a>
+                    <a href="/reg">马上注册</a>
                     <a href="javascript:;">免费试玩</a>
                     <a href="javascript:;">联系客服</a>
                 </div>
@@ -53,7 +53,7 @@ export default {
         }
     },
   mounted:function() {
-        this.username = 'admin' ;
+       // this.username = 'admin' ;
 
   },
   methods: {
