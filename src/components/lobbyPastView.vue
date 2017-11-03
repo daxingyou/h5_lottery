@@ -187,7 +187,7 @@ export default {
         }
     },
   mounted:function() {
-
+    $('html,body').css('overflow-y','scroll' )  ;
     this.doubleCount('') ;
   },
   methods:{
@@ -243,3 +243,6 @@ export default {
 
 }
 </script>
+<style scoped>
+
+</style>

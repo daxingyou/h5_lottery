@@ -136,6 +136,7 @@ export default {
 
     },
   mounted:function() {
+    $('html,body').css('overflow-y','scroll' )  ;
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
     this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
@@ -169,6 +170,7 @@ export default {
 </script>
 
 <style scoped>
+
   .hotgame_area ul a {
     position: relative;
     display: inline-block;
@@ -180,4 +182,5 @@ export default {
   #pa_head > .center.logo{
       margin-left: .6rem;
   }
+
 </style>
