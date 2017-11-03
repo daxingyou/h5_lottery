@@ -145,6 +145,8 @@
         float: left;
         padding: 0.15rem 0.2rem;
         line-height: 0.5rem; }
+        .k3_item ul li .k3_panel > div p > span:first-child {
+          margin-top: -0.02rem; }
         .k3_item ul li .k3_panel > div p > span:last-child {
           float: right; }
       .k3_item ul li .k3_panel > div p .k3_dice {
@@ -164,6 +166,11 @@
 .k3_item ul li .so-con-span-short {
   width: 3rem !important;
   background-size: 3.06rem 0.9rem; }
+
+#k3-item0 .select-li p > span:first-child {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  margin-top: 0.01rem; }
 
 #k3-item0 .select-li p > span:last-child {
   padding-top: 0.4rem; }
