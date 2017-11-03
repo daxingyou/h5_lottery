@@ -5,7 +5,7 @@
       <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
 
       <header id="pa_head" class="index_nav_top">
-          <div class="left">
+          <div class="left index_side">
               <a class="btn_leftside" href="javascript:;">
                   <img src="static/images/nav.png" alt="">
               </a>
