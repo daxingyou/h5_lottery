@@ -40,7 +40,7 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                     </div>
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
                         @countdownOver="playLottery"
@@ -203,7 +203,7 @@
     import BallItem from '@/components/publicTemplate/BallItem'
 
     import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/jc11x5/PlayDialog'
+    import PlayDialog from '@/components/k3/PlayDialog'
     import Mixin from '@/Mixin'
     import '../../../static/css/k3.css'
 
