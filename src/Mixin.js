@@ -403,9 +403,25 @@ var MyMixin = {
             var re = /^[1-9][0-9]{4,}$/;
             return re.test(val);
         },
-        // 用户名，密码 验证
+        // 用户名，密码 验证 ，val输入框值，el 输入框class content 提示内容
         checkUserName (val,el,content) {
             if( (val && !this.positiveEngNum(val) ) || val.length<4 || val.length>15 ){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
+        checkrealyName (val,el,content) {
+            if( (val && !this.trueName(val) ) || val.length<2 || val.length>8 ){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
+        checktelphone (val,el,content) {
+            if( (val && !this.phoneNum(val) ) || val.length != 11){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
