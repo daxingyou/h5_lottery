@@ -110,7 +110,11 @@
       .so-con .so-left .so-left-con .so-l-c-con {
         width: 100%;
         height: 100%;
-        overflow-y: auto; }
+        overflow-y: scroll;
+        padding-bottom: 2rem; }
+        .so-con .so-left .so-left-con .so-l-c-con > div {
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch; }
         .so-con .so-left .so-left-con .so-l-c-con li {
           background: url("../images/left/left-kuang.jpg");
           background-size: 100%;
