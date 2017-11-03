@@ -20,9 +20,8 @@
                     <li class="so-menu">
                           <img src="/static/images/top/icon-menu.png" class="so-top-menu">
                       </li>
-
-                    <li>
-                        <img src="/static/images/top/logo_cqssc.png" class="so-top-logo" />
+                    <li class="left_top_logo">
+                        新疆时时彩
                     </li>
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
@@ -198,7 +197,6 @@
             <img class=" bet_ok" src="/static/images/pop/ok_light.png">
             <div>
                 <img src="/static/images/pop/title_bet_ok.png">
-                <img src="/static/images/pop/icon_check.png">
                 <p>您已成功支付<br/>请随时关注开奖信息！</p>
             </div>
         </div>

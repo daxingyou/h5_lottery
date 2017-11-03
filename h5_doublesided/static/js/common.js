@@ -1217,10 +1217,6 @@ function loadRoadAction(lotteryid,maxtime) {
             roadDomAction(data.data.sd_2,'road02_2 .ds_dx') ;  // 第二球单双 (pk10 亚军)
             roadDomAction(data.data.size_3,'road02_3 .dx_size') ;  // 第三球大小 (pk10 第三名)
             roadDomAction(data.data.sd_3,'road02_3 .ds_dx') ;  // 第三球单双 (pk10 第三名)
-            roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
-            roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
-            roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
-            roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
 
             switch (lotteryid){
                 case '8' : // 北京PK10
@@ -1240,7 +1236,7 @@ function loadRoadAction(lotteryid,maxtime) {
                 case '6' :   // 江苏K3
                 case '20' :  // 安徽K3
                 case '22' :  // 湖北K3
-
+                    roadDomAction(data.data.total_size,'road01_1');
                     break;
                 case '4' :    // 江西11选5
                 case '16' :    // 广东11选5 双面盘
@@ -1254,6 +1250,10 @@ function loadRoadAction(lotteryid,maxtime) {
                     roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
                     roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
                     roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+                    roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
+                    roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
+                    roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
+                    roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
                     break;
             }
 
@@ -1274,8 +1274,13 @@ function loadRoadAction(lotteryid,maxtime) {
 function roadDomAction(resdata,cid) {
     var ts = '' ;
     for(var i=0;i<resdata.length;i++){  // 总和大小
-        ts +=' <li class="road">'+
-            '<ul>' ;
+        if(resdata[i].length>5){
+            ts +=' <li class="road road_left">'+
+                '<ul>' ;
+        }else{
+            ts +=' <li class="road">'+
+                '<ul>' ;
+        }
         for(var ii=0;ii<resdata[i].length;ii++){
             var rescon = resdata[i][ii] ;
             var color = 'mid' ;

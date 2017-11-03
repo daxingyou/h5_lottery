@@ -53,9 +53,9 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.logo { width: auto; }
 
-#pa_head > .center.lottery_name { width: calc(100% - 2.6rem); }
+#pa_head > .center.lottery_name { width: calc(100% - 3.1rem); }
 
-#pa_head > .left { float: left; width: 1.2rem; height: 1rem; }
+#pa_head > .left { float: left; height: 1rem; }
 
 #pa_head > .left a { display: inline-block; }
 
@@ -249,7 +249,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/* CSS for the main interaction */
+/*
+ CSS for the main interaction
+*/
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1087,3 +1089,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .qrcode_step > .step { width: 80%; margin: 0 auto; text-align: left; margin-top: .5rem; line-height: 1.8em; font-size: 0.35rem; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */

@@ -73,7 +73,7 @@ export default {
             data: logindata ,
             success: (res) => {
                 this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-                this.setCookie("username", "bcappid02|admin");  // 把登录用户名放在cookie里面
+                this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
                 window.location = '/' ;
                 console.log('login successed.')
             },
