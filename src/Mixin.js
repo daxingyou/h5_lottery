@@ -370,6 +370,48 @@ var MyMixin = {
                 return false;
             }
         },
+        positiveNum (num) { // 验证数字，正整数判断，包含零
+            //  var re = /^[0-9]*[1-9][0-9]*$/;
+            var re = /^[0-9]*$/;
+            return re.test(num);
+        },
+        checkNumber (num) { // 验证数字，包含0
+            var re = /^[0-9]*$/;
+            return re.test(num);
+        },
+        positiveEngNum (val) { // 验证英文与数字或者下划线，帐号验证和密码验证
+            var re = /^[A-Za-z0-9|_|]+$/;
+            return re.test(val);
+        },
+        trueName (val) { // 验证真实姓名，中文字符
+            var re = /^[\u4e00-\u9fa5]+$/;
+            return re.test(val);
+        },
+        phoneNum (num) { // 验证手机号码
+            var re = /^1[3|4|5|7|8|][0-9]{9}$/;
+            return re.test(num);
+        },
+        checkEmail (val) { // 验证邮箱
+            var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+            return re.test(val);
+        },
+        checkWechat (val) { // 验证微信
+            var re = /^[a-zA-Z\d_]{5,}$/;
+            return re.test(val);
+        },
+        checkqq (val) { // 验证qq
+            var re = /^[1-9][0-9]{4,}$/;
+            return re.test(val);
+        },
+        // 用户名，密码 验证
+        checkUserName (val,el,content) {
+            if( (val && !this.positiveEngNum(val) ) || val.length<4 || val.length>15 ){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+
     }
 };
 export default MyMixin;
