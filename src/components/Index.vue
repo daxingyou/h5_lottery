@@ -85,48 +85,7 @@
                     <p>{{lottery.name}}</p>
                     
                   </li>
-                <!--  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_xjssc.svg">
-                      </div>
-                      <p>新疆时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_tjssc.svg">
-                      </div>
-                      <p>天津时时彩</p>
-                  </li>
-                  <li @click="go('/cqssc/')">
-                      <div class="badge">
-                          <img src="static/images/logo_cqssc.svg">
-                      </div>
-                      <p>重庆时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_gd11x5.svg">
-                      </div>
-                      <p>广东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_sd11x5.svg">
-                      </div>
-                      <p>山东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_sixlottery.svg">
-                      </div>
-                      <p>六合彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_jxk3.svg">
-                      </div>
-                      <p>江苏快3</p>
-                  </li>-->
+
               </ul>
           </section>
           <section class="cooper_area">
