@@ -87,12 +87,16 @@
         </div>
         <footer id="pa_foot"></footer>
         <div class="so-shade"></div>
+
+        <InfoDialog ref="infoDialog" text="请您继续投注" />
     </div>
 
 </template>
 
 <script>
     import Mixin from '@/Mixin'
+    import InfoDialog from '@/components/publicTemplate/InfoDialog'
+
     export default {
         name: 'Index',
         mixins:[Mixin],
@@ -101,6 +105,9 @@
                // roadbeads:{} ,
 
             }
+        },
+        components: {
+            InfoDialog
         },
     mounted:function() {
         var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
@@ -194,7 +201,8 @@
                     }
                 }).bind(this),
                 error: function (data) {  // 错误提示
-                    initPopEve(2,'您的登录已过期，请重新登录') ;
+                    this.$refs.infoDialog.open('您的登录已过期，请重新登录', 'title_tip')
+                    // initPopEve(2,'您的登录已过期，请重新登录') ;
                     return false ;
 
                 }
