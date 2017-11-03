@@ -219,7 +219,7 @@ $(function () {
                                         // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                         '<p><span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                         '<div class="status ' + className + '" >' +
-                                        '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                        '<div>' + payoff + '</div><span>' + v.orderStatusName + '</span></div>' +
                                         '</div>' +
                                         '</a></li>';
                                     // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
