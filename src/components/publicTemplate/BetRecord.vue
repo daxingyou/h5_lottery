@@ -99,14 +99,12 @@
         data: function () {
             return {
                 restr: '', // 网页html缓存
-                lock: 0, 
-
+                lock: 0,
                 // access_token : this.getCookie('access_token'), // 取token
                 lotteryname : this.getCookie('lottery_name'),
                 lotteryid : this.getCookie('lt_lotteryid'),
                 nowDate: new Date(),
-                
-                
+
                 seadata: {
                     page: 1, // 页数，从1开始
                     pageSize: 10, // 每页行数
