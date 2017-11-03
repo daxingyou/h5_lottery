@@ -56,13 +56,13 @@
                         <ul class="panel">
                             <li class="prod cqssc" v-for="(list,index) in pastView">
                                 <div class="play_th">
-                                    <div class="prd_num"><i class="prd"></i><span>重庆时时彩</span></div>
+                                    <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
                                     <div class="time">00:00:00</div>
                                 </div>
 
 
-                                <ul class="lo_ball" v-if="list.lotteryId == '8'">  <!--  北京pk10 -->
+                                <ul class="pk10_top_number" v-if="list.lotteryId == '8'">  <!--  北京pk10 -->
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                         <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
                                     </li>
@@ -73,7 +73,7 @@
 
                                 <div class="function_btn">
                                     <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
-                                    <a class="check btn btn_blue" href="javascript:;"><i></i>立即投注</a>
+                                    <a class="check btn btn_blue" :href="'/'+gameHref[list.lotteryId]"><i></i>立即投注</a>
                                 </div>
                             </li>
                         </ul>
@@ -182,6 +182,7 @@ export default {
         return {
             pastView:{} ,
             cssid :{'8':'pk10'} ,
+            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
         }
     },
