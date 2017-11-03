@@ -21,17 +21,17 @@ fieldset{
     position: relative;
     background-color: rgba(#12151e,.7);
     padding: .15rem .3rem;
-    @include border-radius(.2rem);
+    @include border-radius(.1rem);
     border: 2px solid $normalblue;
     font-size: .35rem;
     >input{
         background-color: transparent;
-        width: calc(93% - .5rem);
+        width: calc(87% - .5rem);
         color: #fff;
         border:none;
         position: relative;
     }
-    &:hover,&:active,&:focus{
+    &:hover,&:focus{
         box-shadow: 1px 2px 20px rgba($lightblue, 0.9);
         border: 1px solid $normalblue;
     }
@@ -627,23 +627,28 @@ fieldset{
 }
 
 .info_mid{
-    background-image:linear-gradient(#105b78, #0d1a2a);
+    background: #105b7b; /* Old browsers */
+    background: -moz-linear-gradient(top, #105b7b 0%, #0e1b2a 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #105b7b 0%,#0e1b2a 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #105b7b 0%,#0e1b2a 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     background-size: 100%;
     width: 100%;
     text-align: center;
     height: 1.8rem;
+    border-top: .014rem solid #5a899f;
     > div{
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         font-size: 0;
     }
     .btn_blue{
-        margin-top: .25rem;
+        margin-top: .4rem;
         &:last-child{
             margin-left: .5rem;
         }
         >a{
             line-height: .5rem;
+            padding: .2rem .3rem;
         }
     }
 }
@@ -653,7 +658,6 @@ fieldset{
     >.btn_blue{
         width: 90%;
         margin: .5rem auto;
-        
     }
     >ul{
         overflow: hidden;
@@ -661,6 +665,7 @@ fieldset{
         margin: 0 auto;
         width: 90%;
         background: rgba(17, 22, 28, 0.8);
+        border: 1px solid #294262;
         >li{
             width: 100%;
             border-bottom: 1px solid #294262;
@@ -670,23 +675,33 @@ fieldset{
                 color: $bluetext;
                 font-size: $font-sm;
                 overflow: hidden;
-                height: 1.5rem;
-                line-height: 1.5rem;
+                height: 1.2rem;
+                line-height: 1.2rem;
                 vertical-align: middle;
                 text-align: left;
-                padding: .3rem .2rem;
+                padding: .2rem;
                 position: relative;
                 .icon{
                     margin-bottom: 10px;
                     float: left;
                     margin-right: .5rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    div{
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        >i{
+                            width: .8rem;
+                            height: .8rem;
+                        }
+                    }
                 }
                 &:after{
                     @include pseudo;
                     @include background-image ('btn_icon_right.png',0,transparent);
                     width: .2rem;
-                    height: 2rem;
-                    line-height: 1.5rem;
+                    height: 1.6rem;
+                    line-height: 1.2rem;
                     left: initial;
                     right: .5rem;
                 }
@@ -803,4 +818,7 @@ fieldset{
         line-height: 1.8em;
         font-size: 0.35rem;
     }
+}
+#agent_modal{
+    margin-top:15%;
 }
