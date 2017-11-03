@@ -64,10 +64,22 @@ export default {
  data :function() {
         return {
           balanceData:null,
-            haslogin :false ,
-            showNavigation:false ,
-            allLottery:{},
-            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
+          haslogin :false ,
+          showNavigation:false ,
+          allLottery:{},
+          gameHref : {
+            "1":"c_cqssc",
+            "2":"cqssc","3":"jxsyxw",
+            "4":"jc11x5",     //江西11选5
+            "8":"pk10","12":"tjssc",
+            "14":"xjssc",
+            "18":"jc11x5/sd11x5Index",  //山东11选5
+            "16":"jc11x5/gd11x5Index",  //广东11选5
+            "6":"k3/",  //江苏快3
+            "20":"k3/anHuiK3Index",  
+            "22":"k3/huBeiK3Index",  
+            
+          }, // 对应彩种的id
         }
     },
   created:function () {
