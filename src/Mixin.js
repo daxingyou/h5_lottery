@@ -267,6 +267,21 @@ var MyMixin = {
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
             return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
+        fftime (n) {
+            return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
+        },
+
+        format(dateStr) {  //格式化时间
+            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
+        },
+        diff (t) {  //根据时间差返回相隔时间
+            return t > 0 ? {
+                day: Math.floor(t / 86400),
+                hour: Math.floor(t % 86400 / 3600),
+                minute: Math.floor(t % 3600 / 60),
+                second: Math.floor(t % 60)
+            } : {day: 0, hour: 0, minute: 0, second: 0};
+        },
 
         /*
          * 数字转千分位
