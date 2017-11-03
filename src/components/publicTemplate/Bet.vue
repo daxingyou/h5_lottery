@@ -13,7 +13,7 @@
             <div>
                 <form>
                     <input placeholder="输入金额" type="number" class="bet-amount" v-model="betAmount">
-                    <input type="reset" value="重置">
+                    <input type="reset" @click="$parent.resetAction()" value="重置" >
                 </form>
             </div>
             <div>

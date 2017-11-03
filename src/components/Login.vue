@@ -9,57 +9,68 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入帐号" v-model="username" >
+                            <input type="text" placeholder="请输入帐号" v-model="username" class="user-name" @input="checkUserName(username,'user-name','请输入4~15位帐号')" >
                             <i class="close"></i>
                         </div>
-                        <label class="red">请输入4~15位帐号</label>
+                        <label class="error-message "></label>
                     </fieldset>
                     <fieldset>
                         <div class="form_g password">
                             <legend></legend>
-                            <input type="password" placeholder="请输入密码" v-model="password">
+                            <input type="password" placeholder="请输入密码" v-model="password" class="pass-word"  @input="checkUserName(password,'pass-word','请输入4~15位密码')">
                             <i class="close"></i>
                         </div>
-                        <label class="red">请输入4~15位密码</label>
+                        <label class="error-message"> </label>
                     </fieldset>
                 </form>
                 <div class="btn btn_blue">
                     <a href="javascript:;" @click="LoginAction()">登录</a>
                 </div>
                 <div class="other_link">
-                    <a href="reg.html">马上注册</a>
+                    <a href="/reg">马上注册</a>
                     <a href="javascript:;">免费试玩</a>
                     <a href="javascript:;">联系客服</a>
                 </div>
             </div>
         </div>
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
 
 <script>
 import Mixin from '@/Mixin'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 export default {
   name: 'Login',
   mixins:[Mixin],
-  data: function() {
+  components: {
+    AutoCloseDialog,
+  },
+    data: function() {
         return {
             username :'',
             password :'',
         }
     },
   mounted:function() {
-        this.username = 'admin' ;
+       // this.username = 'admin' ;
+
   },
   methods: {
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
         if(this.username ==''){
-            alert('请输入用户名');
+            this.$refs.autoCloseDialog.open('请输入用户名') ;
             return false ;
         }
         if(this.password ==''){
-            alert('请输入登录密码') ;
+            this.$refs.autoCloseDialog.open('请输入登录密码') ;
             return false ;
+        }
+        var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+        if(falg){
+            return false ;
+
         }
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
@@ -74,8 +85,10 @@ export default {
             success: (res) => {
                 this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
                 this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-                window.location = '/' ;
-                console.log('login successed.')
+                this.$refs.autoCloseDialog.open('登录成功') ;
+               setTimeout(function () {
+                   window.location = '/' ;
+               },200)
             },
             error: function () {
 

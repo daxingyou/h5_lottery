@@ -165,7 +165,7 @@
             事件
                 @betSuccess="resetAction" 
         -->
-        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" 
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
@@ -373,6 +373,7 @@ export default {
     resetAction:function(){
         this.betSelectedList = [];
         $(".so-con-right p").removeClass('active');
+        this.$refs.bet.betAmount = '' ;
         this.getMemberBalance() ; // 更新余额
     },
     //当用户选择球时，保存相应数据

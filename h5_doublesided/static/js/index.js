@@ -16,10 +16,15 @@ $(function () {
     initChoiceObj() ; // 球点击处理
     betActionSubmit() ; // 表单提交
     initNavChoice() ; // 右边nav 切换处理
-
+    resetBtnAction() ;
 });
 
-
+// 重置按钮
+function resetBtnAction() {
+    $('.reset-action').on('click',function () {
+        resetAction() ;
+    });
+}
 
 // 此方法在盘面数据加载完成后调用
 function initKuang() {

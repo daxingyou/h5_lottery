@@ -5,14 +5,14 @@
       <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
 
       <header id="pa_head" class="index_nav_top">
-          <div class="left">
+          <div class="left index_side">
               <a class="btn_leftside" href="javascript:;">
                   <img src="static/images/nav.png" alt="">
               </a>
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login">登录</a> <!--   v-show="!haslogin" -->
+              <a href="/login"  >登录</a> <!-- v-show="!haslogin" -->
               <a href="/reg">注册</a>
               <a href="javascript:;">试玩</a>
           </div>
@@ -85,48 +85,7 @@
                     <p>{{lottery.name}}</p>
                     
                   </li>
-                <!--  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_xjssc.svg">
-                      </div>
-                      <p>新疆时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_tjssc.svg">
-                      </div>
-                      <p>天津时时彩</p>
-                  </li>
-                  <li @click="go('/cqssc/')">
-                      <div class="badge">
-                          <img src="static/images/logo_cqssc.svg">
-                      </div>
-                      <p>重庆时时彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_gd11x5.svg">
-                      </div>
-                      <p>广东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_sd11x5.svg">
-                      </div>
-                      <p>山东11选5</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_sixlottery.svg">
-                      </div>
-                      <p>六合彩</p>
-                  </li>
-                  <li>
-                      <div class="badge">
-                          <img src="static/images/logo_jxk3.svg">
-                      </div>
-                      <p>江苏快3</p>
-                  </li>-->
+
               </ul>
           </section>
           <section class="cooper_area">
@@ -142,9 +101,9 @@
       </div>
       <footer class="bot_nav">
           <ul>
-              <li class="active"><a class="index" href="javascript:;">首页大厅</a></li>
-              <li><a class="trend" href="javascript:;">开奖走势</a></li>
-              <li><a class="record" href="javascript:;">投注纪录</a></li>
+              <li class="active"><a class="index" href="/">首页大厅</a></li>
+              <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>
+              <li><a class="record" href="publicTemplate/betRecord?type=index">投注纪录</a></li>
               <li><a class="member" href="javascript:;">个人中心</a></li>
           </ul>
       </footer>
@@ -215,5 +174,10 @@ export default {
     display: inline-block;
     z-index: 7;
   }
-    
+  #pa_head > .left a.btn_leftside{
+      margin-left:.6rem;
+  }
+  #pa_head > .center.logo{
+      margin-left: .6rem;
+  }
 </style>
