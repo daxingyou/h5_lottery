@@ -109,6 +109,9 @@
 .bet_data{
     border-bottom: 1px solid #25324c;
     border-top: 1px solid #324161;
+    &:first-child{
+        border-top:none;
+    }
     &:last-child{
         border-bottom:none;
     }
@@ -143,6 +146,7 @@
     strong{
         color: $yellow;
         font-size: .35rem;
+        font-weight: 300;
     }
     .status{
         // float: right;
@@ -233,6 +237,7 @@
     font-size: .35rem;
     >p{
         margin-top: .2rem;
+        font-size: .4rem;
     }
 }
 //查看往期
@@ -246,28 +251,32 @@
             background-image: -moz-linear-gradient(#90bff6, #5d76c4),-moz-linear-gradient(#90bff6, #5d76c4);
             background-image: -o-linear-gradient(#90bff6, #5d76c4),-o-linear-gradient(#90bff6, #5d76c4);
             background-image: linear-gradient(#90bff6, #5d76c4),linear-gradient(#90bff6, #5d76c4);
-            border-top: 2px solid #90bff6;
-            border-bottom: 2px solid #5d76c4;
-            -moz-background-size:2px 100%;
-            background-size:2px 100%;
+            border-top: 0.014rem solid #90bff6;
+            border-bottom: 0.014rem solid #5d76c4;
+            -moz-background-size:0.014rem 100%;
+            background-size:0.014rem 100%;
             background-position:0 0, 100% 0;
             background-repeat:no-repeat;
             position: relative;
             min-height: 2.4rem;
             height:auto;
             overflow: hidden;
+            z-index: 3;
             &:before{
                 @include pseudo;
                 background: #202638; /* Old browsers */
                 background: -moz-linear-gradient(top, #202638 80%, #384465 100%); /* FF3.6-15 */
                 background: -webkit-linear-gradient(top, #202638 80%,#384465 100%); /* Chrome10-25,Safari5.1-6 */
                 background: linear-gradient(to bottom, #202638 80%,#384465 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                border-left: 0.014rem solid #90bff6;
+                border-right: 0.014rem solid #90bff6;
                 height: 100%;
-                width: 9.6rem;
+                width: 9.37rem;
                 z-index: 0;
                 border-radius: .1rem;
-                left: 50%;
-                margin-left: -4.8rem;
+                left: 5rem;
+                margin-left: -5rem;
+                overflow: hidden;
             }
             &:after{
                 @include pseudo;
@@ -304,7 +313,7 @@
             display: inline-block;
         }
         >i{
-            margin-left: -.9rem;
+            margin-left: -.5rem;
             margin-right: .1rem;
         }
     }
@@ -349,6 +358,9 @@ ul.lo_ball{
         line-height: 1.1rem;
         text-indent: 0.1rem;
         //background-position: 0.05rem;
+    }
+    &.double-numbers{
+        margin-left: -2rem;
     }
 }
 ul.no_open{
@@ -624,7 +636,7 @@ i.prd{
             margin: .1rem;
             text-align: center;
             width: 29%;
-            border: 2px solid $normalblue;
+            border: 1px solid $normalblue;
             a{
                 padding: .2rem .3rem;
                 display: block;

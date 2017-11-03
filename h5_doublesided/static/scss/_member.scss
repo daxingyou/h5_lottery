@@ -135,11 +135,12 @@ fieldset{
 .deposit_area{
     @extend .login_area;
     margin-top: 2rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
     z-index: 1;
 }
 .pay_content{
     line-height: 1;
+    margin-top: 2.7rem;
     .step03{
         color: #fff;
         //max-width: 65%;
@@ -430,7 +431,7 @@ fieldset{
 }
 .mini_tip{
     float: right;
-    margin-top: -.8rem;
+    margin-top: -.65rem;
     color: #66c3f2;
 }
 
@@ -821,4 +822,19 @@ fieldset{
 }
 #agent_modal{
     margin-top:15%;
+}
+input.date{
+    &:after{
+        @include pseudo;
+        background: url('../../static/images/icon_member.png') no-repeat;
+        background-position: -.17rem 83.5%;
+        background-size: 145%;
+        width: 2em;
+        height: 1rem;
+        position: absolute;
+        right: 0;
+        left: inherit;
+        top:.1rem;
+        cursor: pointer;
+    }
 }
