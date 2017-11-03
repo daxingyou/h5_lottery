@@ -146,5 +146,10 @@ export default {
 </script>
 <style scoped>
   .so-shade { display: block; z-index: 0; }
-  .so-left{overflow: auto}
+  .so-con .so-left .so-left-con .so-l-c-con ul:after{
+              content: "";
+              display: block;
+              clear: both;
+              height: 2rem;
+  }
 </style>
