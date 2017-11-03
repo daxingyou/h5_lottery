@@ -56,7 +56,7 @@
     height: auto;
     margin: 0px auto; }
     #pk10 .pk10_panel > div p {
-      margin: 2%; }
+      margin: 2% 1.8% 2% 2.2%; }
       #pk10 .pk10_panel > div p span:last-child {
         padding-left: 0rem; }
     #pk10 .pk10_panel > div:after {
@@ -131,7 +131,7 @@
       float: left;
       border: solid 0.01rem #277ca5;
       height: 0.85rem;
-      width: 3rem;
+      width: 2.96rem;
       margin-bottom: 4%;
       margin-left: 3.5%; }
       .pk10_item ul li .pk10_panel > div p > span {
@@ -148,15 +148,15 @@
           margin-top: -0.1rem; }
     .pk10_item ul li .pk10_panel > div p.active {
       background: url(../images/content/changkuang.png) no-repeat;
-      background-size: 3.06rem 0.9rem;
+      background-size: 100% 100%;
       background-position: -0.01rem;
-      border: solid 0.01rem rgba(0, 0, 0, 0); }
+      border: solid 0.01rem #42371c; }
       .pk10_item ul li .pk10_panel > div p.active > span:first-child {
         color: #010101; }
       .pk10_item ul li .pk10_panel > div p.active > span:last-child {
         color: #ab0000; }
 .pk10_item ul li .so-con-span-short {
-  width: 3rem !important;
+  width: 2.96rem !important;
   background-size: 3.06rem 0.9rem; }
 
 .pk10_ball {
