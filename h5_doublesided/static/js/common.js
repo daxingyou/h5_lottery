@@ -886,6 +886,12 @@ function doCheckAction() {
         }else{
             var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
         }
+        //北京PK10
+        if (lottery == '8') {//判断北京PK10
+            var total_con = $(this).find('span:nth-child(1)').data('val');  // 投注内容
+        } else {
+            var total_con = $(this).find('span:nth-child(1)').text();  // 投注内容
+        }
 
         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
         var total_id = $(this).data('id') ;  // 投注内容玩法id
