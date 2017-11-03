@@ -17,7 +17,7 @@
                     <!-- 00:00 --></a>
                     
             </li>
-            <li>
+            <li class="kjdjs-timer">
                 <i></i>
                 <span >开奖</span>
                 <a class="open-time">{{timeSpanStr}}</a>

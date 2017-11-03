@@ -189,6 +189,10 @@ methods:{
             this.$refs.autoCloseDialog.open('请输入确认密码') ;
             return false ;
         }
+        var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+        if(falg){
+            return false ;
+        }
         $('.before-add').hide() ;
         $('.after-add').show() ;
 
@@ -237,8 +241,8 @@ methods:{
             data: JSON.stringify(logindata) ,
             success: (res) => {
 
-            this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-            this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
+           // this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
+           // this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
             this.$refs.autoCloseDialog.open('注册成功，请登录') ;
             setTimeout(function(){
                 window.location = '/login' ;
