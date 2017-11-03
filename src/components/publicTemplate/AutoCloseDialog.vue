@@ -41,5 +41,17 @@ export default {
 }
 </script>
 <style scope>
-    .publicDialog { display: block; }
+    .publicDialog { display: block;
+                    position: fixed;
+                    z-index: 1000;
+                  }
+    .so-tip-pop > div{
+      border:none;
+      width: 8.5rem;
+      height: 5rem;
+    }
+    .so-tip-pop img{
+        width: 5rem;
+        margin-top: 1rem;
+    }
 </style>

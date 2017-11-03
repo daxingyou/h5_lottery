@@ -880,17 +880,11 @@ function doCheckAction() {
     // 已选择的注单
     if($(this).hasClass('active')){
         var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
-        //江苏快3
-        if(lottery == '6' || lottery == '20' || lottery == '22'){//判断江苏k3
+        //江苏快3、北京PK10
+        if (lottery == '6' || lottery == '8' || lottery == '20' || lottery == '22') {//判断江苏k3、北京PK10
             var total_con = $(this).find('span:nth-child(1)').data('val') ;  // 投注内容
         }else{
             var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
-        }
-        //北京PK10
-        if (lottery == '8') {//判断北京PK10
-            var total_con = $(this).find('span:nth-child(1)').data('val');  // 投注内容
-        } else {
-            var total_con = $(this).find('span:nth-child(1)').text();  // 投注内容
         }
 
         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率

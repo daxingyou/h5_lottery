@@ -63,5 +63,8 @@ export default {
 }
 </script>
 <style scope>
-    .so-pop-wanfa { display: block; }
+    .so-pop-wanfa { display: block;
+                    position: fixed;
+                    top:-5rem;
+                    }
 </style>
