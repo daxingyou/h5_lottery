@@ -163,8 +163,13 @@
         roadDomAction:function (resdata,cid) {
             var ts = '' ;
             for(var i=0;i<resdata.length;i++){  // 总和大小
-                ts +=' <li class="road">'+
-                    '<ul>' ;
+                if(resdata[i].length>5){
+                    ts +=' <li class="road road_left">'+
+                        '<ul>' ;
+                }else{
+                    ts +=' <li class="road">'+
+                        '<ul>' ;
+                }
                 for(var ii=0;ii<resdata[i].length;ii++){
                     var rescon = resdata[i][ii] ;
                     var color = 'mid' ;

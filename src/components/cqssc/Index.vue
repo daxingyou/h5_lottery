@@ -280,7 +280,7 @@ export default {
         entertainStatus:false,
         betSelectedList:[],   //用户选中的注数
         // playTreeList:[], //玩法树
-        lotteryID:2,
+        lotteryID: 2 ,
         allLottery:{} ,
         gameHref:{} ,
         kinds:['两面', '1-5球', '前中后'],

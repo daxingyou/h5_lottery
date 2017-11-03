@@ -65,7 +65,7 @@ export default {
   data :function() {
         return {
             show:false ,
-            lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
+            lotteryid :this.$parent.lotteryID , // 彩种 id
         }
     },
   mounted:function() {
