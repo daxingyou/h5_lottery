@@ -1199,16 +1199,16 @@ export default {
             nowover_time:'',  // 当前期数封盘时间
             next_pcode:'',  // 下一期数
             now_pcode:0,  // 当前期数
-            previous_pcode:'',//上一期期数
-            winNumber:'',    //上期开奖号
-            lastTermStatic:'',  //上期开奖数据统计
+            previous_pcode:'',// 上一期期数
+            winNumber:'',    // 上期开奖号
+            lastTermStatic:'',  // 上期开奖数据统计
             sys_time :'',  // 当前系统时间
             now_day:'',  // 当前日期
             balanceData:{},
             entertainStatus:false,
             betSelectedList:[],   //用户选中的注数
             playTreeList:[], //玩法树
-            lotteryID:8 ,
+            lotteryID: 8 ,
             allLottery:{} ,
             gameHref:{} ,
             kinds:['两面', '冠亚和值', '1-5名','6-10名'],
