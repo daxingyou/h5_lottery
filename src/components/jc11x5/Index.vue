@@ -13,7 +13,7 @@
                         <img src="/static/images/top/icon-menu.png" class="so-top-menu">
                     </li>
                     <li class="left_top_logo">
-                        江西11选5
+                        {{moduleName || '江西11选5'}}
                     </li>
                     <li class="purse">
                         <img src="/static/images/top/sjinbi.png" class="so-top-sum">
@@ -288,6 +288,7 @@
         AutoCloseDialog,
         PlayDialog
       },
+      props:['moduleName', 'moduleLotteryID'],
       data: function() {
         return {
             now_pcode:0,  // 当前期数
@@ -334,13 +335,16 @@
         }
       },
       created:function(){
+        if (this.moduleLotteryID) {
+            this.lotteryID = this.moduleLotteryID;
+        } 
         this.getMemberBalance().then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });
       },
         mounted:function() {
             var lotteryid = this.lotteryID ; // 彩种id
-            var lotteryname = '重庆时时彩' ; // 彩种名称
+            var lotteryname = this.moduleName || '重庆时时彩' ; // 彩种名称
             this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
             this.setCookie('lottery_name',lotteryname) ; // 彩种名称
             this.allLottery = this.$refs.navone.getLotterys() ;

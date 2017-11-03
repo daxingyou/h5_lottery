@@ -137,7 +137,7 @@ var MyMixin = {
                     url: this.action.forseti + 'api/playsTree',
                     data: {lotteryId: gameid,}, // 当前彩种id
                     success: (res) => {
-                        this.playTreeList = res.data.childrens;
+                        this.playTreeList = res.data ? res.data.childrens :[];
                         resolve(this.playTreeList);
                     },
                     error: function (e) {
