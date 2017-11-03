@@ -38,7 +38,7 @@
 
 #k3 .k3_panel > div { background: url(../images/content/panel_body.png) no-repeat; background-size: 100% 100%; padding: 3% 3% 3.5%; height: auto; margin: 0px auto; }
 
-#k3 .k3_panel > div p { margin: 2%; }
+#k3 .k3_panel > div p { margin: 2% 1.8% 2% 2.2%; }
 
 #k3 .k3_panel > div p span:last-child { padding-left: 0rem; }
 
@@ -74,7 +74,7 @@
 
 .k3_item ul li .k3_panel > div { padding: 3%; width: 94%; height: 3.1rem; }
 
-.k3_item ul li .k3_panel > div p { float: left; border: solid 0.01rem #277ca5; width: 3rem; margin-bottom: 4%; margin-left: 3.5%; }
+.k3_item ul li .k3_panel > div p { float: left; border: solid 0.01rem #277ca5; width: 2.96rem; margin-bottom: 4%; margin-left: 3.5%; }
 
 .k3_item ul li .k3_panel > div p > span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding: 0.15rem 0.2rem; line-height: 0.5rem; }
 
@@ -84,7 +84,7 @@
 
 .k3_item ul li .k3_panel > div p .k3_dice { border: 0.01rem solid transparent; margin-left: 0.06rem; }
 
-.k3_item ul li .k3_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 3.06rem 100%; background-position: -0.01rem; border: solid 0.01rem transparent; }
+.k3_item ul li .k3_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border: solid 0.01rem #42371c; }
 
 .k3_item ul li .k3_panel > div p.active > span:first-child { color: #010101; }
 
@@ -92,7 +92,7 @@
 
 .k3_item ul li .k3_panel > div p.active .k3_dice { border-color: #403720; }
 
-.k3_item ul li .so-con-span-short { width: 3rem !important; background-size: 3.06rem 0.9rem; }
+.k3_item ul li .so-con-span-short { width: 2.96rem !important; background-size: 3.06rem 0.9rem; }
 
 #k3-item0 .select-li p > span:first-child { -webkit-transform: scale(0.9); -ms-transform: scale(0.9); transform: scale(0.9); margin-top: 0.01rem; }
 
