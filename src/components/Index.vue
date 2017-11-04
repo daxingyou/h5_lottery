@@ -131,12 +131,10 @@ export default {
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
     this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
-
-    $(()=>{
-      TouchSlide({
-          slideCell: "#focus",
-          autoPlay:true,
-      });
+    TouchSlide({
+      slideCell: "#focus",
+      autoPlay:true,
+    });
       // $("#marquee_snp").slide({ // 文本滚动
       //     mainCell: ".bd ul",
       //     autoPage: true,
@@ -146,7 +144,7 @@ export default {
       //     interTime: 50
       // });
       
-    }) ;
+
 
 
   },
