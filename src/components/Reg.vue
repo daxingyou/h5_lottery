@@ -18,7 +18,7 @@
                             <div class="form_g account">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername','请输入4~15位帐号')">
-                                <i class="close close1" @click="ClearInput('close1')"></i>
+                                <i class="close close1" @click="ClearInput('close1','tjrusername')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -26,7 +26,7 @@
                             <div class="form_g account" >
                                 <legend></legend>
                                 <input type="text" placeholder="请输入帐号" v-model="username" class="username" @input="checkUserName(username,'username','请输入4~15位帐号')">
-                                <i class="close close2" @click="ClearInput('close2')"></i>
+                                <i class="close close2" @click="ClearInput('close2','username')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -72,7 +72,7 @@
                         <div class="form_g account">
                             <legend></legend>
                             <input type="text" placeholder="请输入真实姓名" class="realyname" v-model="realyname" @input="checkrealyName(realyname,'realyname','请输入真实姓名')">
-                            <i class="close close3" @click="ClearInput('close3')"></i>
+                            <i class="close close3" @click="ClearInput('close3','realyname')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -139,7 +139,7 @@
                         <div class="form_g phone">
                             <legend></legend>
                             <input type="text" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone','请输入正确的手机号码')">
-                            <i class="close close4" @click="ClearInput('close4')"></i>
+                            <i class="close close4" @click="ClearInput('close4','telephone')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -192,6 +192,26 @@ export default {
         }
     },
 methods:{
+      //清除model数据,cl元素class
+     clearVal :function (cl) {
+
+         if(cl=='tjrusername'){
+             this.tjrusername ='';}
+         if(cl=='username'){
+             this.username ='';
+         }
+
+         if(cl=='confirmpassword '){
+             this.confirmpassword ='';
+         }
+         if(cl=='realyname'){
+             this.realyname ='';
+         }
+         if(cl=='telephone'){
+             this.telephone ='';
+         }
+
+     },
     // 下一步
     nextAction:function () {
         if(this.username ==''){

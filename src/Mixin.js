@@ -451,10 +451,10 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
-        // 输入框清除数据,el元素class
-        ClearInput(el){
+        // 输入框清除数据,el当前元素class,cl是input的class
+        ClearInput(el,cl){
                $('.'+el).prev().val('');
-
+              this.clearVal(cl)
         },
         // 点击显示密码,el元素class
          showpassword(){
