@@ -114,14 +114,7 @@
             </div>
         </div>
 
-        <footer class="bot_nav" id="pa_foot">
-            <ul>
-                <li class="active"><a class="index" href="/">首页大厅</a></li>
-                <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>
-                <li><a class="record" href="publicTemplate/betRecord?type=index">投注纪录</a></li>
-                <li><a class="member" href="javascript:;">个人中心</a></li>
-            </ul>
-        </footer>
+        <Footer />
 
         <div class="so-shade"></div>
 
@@ -133,11 +126,13 @@
 
 <script>
 import Mixin from '@/Mixin'
+import Footer from '@/components/Footer'
  // import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
+    Footer
   //  CountdownTimer,
  },
     data :function() {

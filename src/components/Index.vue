@@ -76,7 +76,6 @@
                       </div>
                     </a> -->
 
-
                     <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
                       <div :class="'badge'">
                         <img :src="lottery.imgUrl">
@@ -99,30 +98,22 @@
               </div>
           </section>
       </div>
-      <footer class="bot_nav">
-          <ul>
-              <li class="active"><a class="index" href="/">首页大厅</a></li>
-              <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>
-              <li><a class="record" href="publicTemplate/betRecord?type=index">投注纪录</a></li>
-              <li><a class="member" href="javascript:;">个人中心</a></li>
-          </ul>
-      </footer>
+      <Footer />
   </div>
-
-  
 </template>
-
-
 
 <script>
 import Mixin from '@/Mixin'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
+import Footer from '@/components/Footer'
+
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-        UserNavigation,
-    },
+    Footer,
+    UserNavigation,
+  },
   data :function() {
         return {
             haslogin:true ,
