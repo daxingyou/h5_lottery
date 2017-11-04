@@ -149,6 +149,7 @@ export default {
             timeStr :'' , // 倒计时秒数
            // oDate :'' , // 倒计时秒数
             pastView:{} ,
+            pastViewArray :{} ,
             cssid :{'8':'pk10'} ,
             gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
@@ -202,7 +203,7 @@ export default {
                     },100)*/
 
                 }
-
+this.pastViewArray = data.data ;
 
 
 
