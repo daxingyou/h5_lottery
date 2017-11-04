@@ -2,8 +2,8 @@
     <div id="pa_con"  class="body">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="/static/images/back.png" alt="">
+                <a href="javascript:;" >
+                   <!-- <img src="/static/images/back.png" alt="">-->
                 </a>
             </div>
             <h2 class="center lottery_name">{{lotteryname}}</h2>
