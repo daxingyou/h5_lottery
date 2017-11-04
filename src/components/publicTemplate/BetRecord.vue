@@ -117,8 +117,12 @@
                 // 投注详情
                 touzhuXQ: {},
                 soyeScroll:null, 
-                mySwiperTrack: null
+                mySwiperTrack: null,
+                urlparam:this.getStrParam('type') ,
             }
+        },
+        created:function () {
+           // console.log(this.urlparam)
         },
         computed:{
             year: function(){
@@ -136,7 +140,6 @@
         },
         mounted: function () {
             this.seadata.pdate = this.newpdate;
-
             this.setMenuAction();
             this.initView();
             var mySwiperRecode = new Swiper('#swiper1', {

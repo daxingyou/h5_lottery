@@ -17,7 +17,8 @@
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
-                                    <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">
+                                   <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
+                                    <div class="time timerset" >
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
                                         {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
                                     </div>
@@ -197,8 +198,8 @@ export default {
                                 break ;
                         }
                     }
-                  //  var leave = (this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000
 
+                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
                 }
 
                 this.pastView = data.data ;
@@ -240,7 +241,7 @@ export default {
                       } else { // 当前倒计时结束
                           that.lobbytimerBegin() ;
                           console.log('哈哈哈') ;
-                         // _times = $obj_nav_span.eq(i).attr("data-time");
+                         _times = $obj_nav_span.eq(i).attr("data-time");
 
                       }
                       $obj_nav_span.eq(i).html(that.formatTime(_times, 0));
