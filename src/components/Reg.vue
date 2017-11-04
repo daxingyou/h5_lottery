@@ -266,6 +266,7 @@ export default {
                 method: 'mc',   //方法：mc创建会员
                 oddType: 'a',  //盘口，1位字符，预留
                 password: this.password ,  // 用户登录密码
+                realName: this.realyname ,  // 用户真实姓名
                 mobile: this.telephone , // 手机号码
                 passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4   //取款密码
             }
