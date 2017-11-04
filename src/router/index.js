@@ -18,6 +18,7 @@ import XjsscIndex from '@/components/xjssc/Index'  // 新疆时时彩
 import PastView from '@/components/publicTemplate/PastView'
 import lobbyPastView from '@/components/lobbyPastView'  // 大厅往期开奖
 import BetRecord from '@/components/publicTemplate/BetRecord'
+import lobbyBetRecord from '@/components/lobbyBetRecord'  // 大厅投注记录
 import RoadBeads from '@/components/publicTemplate/RoadBeads'
 import pk10RoadBeads from '@/components/publicTemplate/pk10RoadBeads'
 import DsLong from '@/components/publicTemplate/DsLong'
@@ -102,6 +103,7 @@ export default new Router({
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/lobbyPastView', name:'lobbyPastView', component: lobbyPastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
+    { path: '/lobbyBetRecord', name:'lobbyBetRecord', component: lobbyBetRecord },
     { path: '/publicTemplate/roadBeads', name:'roadBeads', component: RoadBeads },
     { path: '/publicTemplate/pk10roadBeads', name:'pk10roadBeads', component: pk10RoadBeads },
     { path: '/publicTemplate/dsLong', name:'dsLong', component: DsLong },
