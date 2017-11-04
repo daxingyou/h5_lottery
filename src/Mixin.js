@@ -85,7 +85,7 @@ var MyMixin = {
 
     methods:{
 
-        ajax(userConfig){
+        ajax:function(userConfig){
             let config = {
                 type: 'get',
                 headers: {
@@ -209,7 +209,7 @@ var MyMixin = {
                     //代码
                 })
         */
-        getSystemTime() { 
+        getSystemTime:function() {
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
@@ -231,7 +231,7 @@ var MyMixin = {
         },
 
         // 此方法用来初始化页面高度
-        initViewHeight () {
+        initViewHeight :function() {
             var viewHeight = $(window).height();
             var topHeight = $('.so-in-top').height();
             var mainHeight = $('.so-in-main').height();
@@ -249,12 +249,12 @@ var MyMixin = {
 
 
         //格式化赔率
-        payoffFormat(val){
+        payoffFormat:function(val){
             return (Number(val)/10000).toFixed(3);
         },
 
         // 时间戳转换
-        formatTimeUnlix (v) {
+        formatTimeUnlix:function (v) {
             if (v == null) {
                 return '';
             }
@@ -267,18 +267,33 @@ var MyMixin = {
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
             return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
+        fftime:function (n) {
+            return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
+        },
+
+        format:function(dateStr) {  //格式化时间
+            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
+        },
+        diff:function (t) {  //根据时间差返回相隔时间
+            return t > 0 ? {
+                day: Math.floor(t / 86400),
+                hour: Math.floor(t % 86400 / 3600),
+                minute: Math.floor(t % 3600 / 60),
+                second: Math.floor(t % 60)
+            } : {day: 0, hour: 0, minute: 0, second: 0};
+        },
 
         /*
          * 数字转千分位
          * */
-        formatNumber (num) {
+        formatNumber:function (num) {
             return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
         },
 
         /*
          * 还原金额，去除逗号
          * */
-        returnMoney(s) {
+        returnMoney:function(s) {
             return parseFloat(s.replace(/[^\d\.-]/g, ""));
         },
 
@@ -286,7 +301,7 @@ var MyMixin = {
          *  正整数判断，不包含零
          * */
 
-         isPositiveNum(num) {
+         isPositiveNum:function(num) {
             //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
             var re=/^[0-9]*$/;
             return re.test(num);
@@ -296,7 +311,7 @@ var MyMixin = {
         /**
          * 解析URL参数
          */
-        getStrParam () {
+        getStrParam :function() {
             var url = location.search; // 获取url中"?"符后的字串
             var param = {};
             if (url.indexOf('?') != -1) {
@@ -310,7 +325,7 @@ var MyMixin = {
         },
 
         // 设置cookie
-        setCookie (name, value, expire, path) {
+        setCookie :function(name, value, expire, path) {
             var curdate = new Date();
             var cookie = name + '=' + encodeURIComponent(value) + '; ';
             if (expire != undefined || expire == 0) {
@@ -328,7 +343,7 @@ var MyMixin = {
         },
 
         // 获取cookie
-        getCookie (name) {
+        getCookie :function(name) {
             var re = '(?:; )?' + encodeURIComponent(name) + '=([^;]*);?';
             re = new RegExp(re);
             if (re.test(document.cookie)) {
@@ -336,23 +351,23 @@ var MyMixin = {
             }
             return '';
         },
-        getName(){
+        getName:function(){
             return this.name;
         },
         // 金额转换,分转成元
-        roundAmt(v) {
+        roundAmt:function(v) {
             return isNaN(v) ? '0.00' : (v / 100).toFixed(2);
         },
 
         // 金额转换，支持实数, 元转成分
-        monAmt (v) {
+        monAmt :function(v) {
             return /^[-+]?\d+(\.\d*)?$/.test(v) ? v * 100 : '';
         },
 
         /*
          * 数字转换，显示千位符，s 要转换的数字，n 保留n位小数
          * */
-        fortMoney (s, n) {
+        fortMoney:function (s, n) {
             n = n > 0 && n <= 20 ? n : 2;
             s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
             var l = s.split(".")[0].split("").reverse(),
@@ -363,48 +378,48 @@ var MyMixin = {
             }
             return t.split("").reverse().join("") + "." + r;
         },
-         ifLogined() { // 判断是否登录
+         ifLogined: function() { // 判断是否登录
             if (this.getCookie('username') && this.getCookie('access_token')) {
                 return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
             } else {
                 return false;
             }
         },
-        positiveNum (num) { // 验证数字，正整数判断，包含零
+        positiveNum :function(num) { // 验证数字，正整数判断，包含零
             //  var re = /^[0-9]*[1-9][0-9]*$/;
             var re = /^[0-9]*$/;
             return re.test(num);
         },
-        checkNumber (num) { // 验证数字，包含0
+        checkNumber :function(num) { // 验证数字，包含0
             var re = /^[0-9]*$/;
             return re.test(num);
         },
-        positiveEngNum (val) { // 验证英文与数字或者下划线，帐号验证和密码验证
+        positiveEngNum:function (val) { // 验证英文与数字或者下划线，帐号验证和密码验证
             var re = /^[A-Za-z0-9|_|]+$/;
             return re.test(val);
         },
-        trueName (val) { // 验证真实姓名，中文字符
+        trueName :function(val) { // 验证真实姓名，中文字符
             var re = /^[\u4e00-\u9fa5]+$/;
             return re.test(val);
         },
-        phoneNum (num) { // 验证手机号码
+        phoneNum :function(num) { // 验证手机号码
             var re = /^1[3|4|5|7|8|][0-9]{9}$/;
             return re.test(num);
         },
-        checkEmail (val) { // 验证邮箱
+        checkEmail:function (val) { // 验证邮箱
             var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
             return re.test(val);
         },
-        checkWechat (val) { // 验证微信
+        checkWechat :function(val) { // 验证微信
             var re = /^[a-zA-Z\d_]{5,}$/;
             return re.test(val);
         },
-        checkqq (val) { // 验证qq
+        checkqq :function(val) { // 验证qq
             var re = /^[1-9][0-9]{4,}$/;
             return re.test(val);
         },
         // 用户名，密码 验证 ，val输入框值，el 输入框class content 提示内容
-        checkUserName (val,el,content) {
+        checkUserName:function (val,el,content) {
             if( (val && !this.positiveEngNum(val) ) || val.length<4 || val.length>15 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -415,7 +430,7 @@ var MyMixin = {
             }
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
-        checkrealyName (val,el,content) {
+        checkrealyName:function (val,el,content) {
             if( (val && !this.trueName(val) ) || val.length<2 || val.length>8 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -426,7 +441,7 @@ var MyMixin = {
             }
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
-        checktelphone (val,el,content) {
+        checktelphone :function(val,el,content) {
             if( (val && !this.phoneNum(val) ) || val.length != 11){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{

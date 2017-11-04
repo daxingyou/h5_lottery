@@ -26,10 +26,10 @@
                 height: .2rem;
                 @include border-radius(100%);
                 background-color: #121216;
-                border: 1px #434c58 solid;
+                border: 2px #434c58 solid;
                 margin: 0.05rem;
                 &.on{
-                    border: 1px #434c58 solid;
+                    border: 2px #434c58 solid;
                     //border-bottom-color:#017ea7;
                     background-color:#06c2ff;
                 }
@@ -39,7 +39,7 @@
 }
 .marquee{
     overflow: hidden;
-    background-color: #11161c;
+    background-color: #19293e;
     line-height: .7rem;
     height: .7rem;
     >*{
@@ -48,7 +48,7 @@
     >.news_title{
         position: absolute;
         left: 0;
-        background-color: #11161c;
+        background-color: #19293e;
         line-height: .6rem;
         height: .7rem;
         padding: 0 15px 0 10px;
@@ -131,11 +131,11 @@
         }
         >.hotgame_area{
             ul{
-                padding: .5rem .3rem;
+                padding: .15rem .3rem;
                 width: 100%;
                 >li{
                     background-color: rgba(#000,.3);
-                    border-bottom: 1px solid rgba(238, 238, 238, 0.62);
+                    //border-bottom: 1px solid rgba(238, 238, 238, 0.62);
                     border-top:1px solid #436689;
                     @include border-radius(.2rem);
                     margin: .15rem;
@@ -161,7 +161,7 @@
                             box-shadow: 0 0 20px 5px rgba(#00e4ff,.3) inset;
                             @include border-radius(.2rem);
                             width: 100%;
-                            height: 2.8rem;
+                            height: 2.9rem;
                         }
                     }
                 }
@@ -189,16 +189,16 @@
                 top: -.15rem;
                 left: -30%;
             }
-            &:after{
-                @include pseudo;
-                @include background-image ('bottom_line.png',0,transparent);
-                height: .5rem;
-                width: 100%;
-                bottom: -.15rem;
-                right: -30%;
-                top:inherit;
-                left: inherit;
-            }
+            // &:after{
+            //     @include pseudo;
+            //     @include background-image ('bottom_line.png',0,transparent);
+            //     height: .5rem;
+            //     width: 100%;
+            //     bottom: -.15rem;
+            //     right: -30%;
+            //     top:inherit;
+            //     left: inherit;
+            // }
             >h3{
                 margin-top: .1rem;
             }
@@ -206,12 +206,24 @@
                 text-align: center;
                 margin: 0 auto;
                 width: 100%;
+                margin-top: .5rem;
                 >li{
-                    @include background-image ('cooper_c_bg.png',0,transparent);
+                    //@include background-image ('cooper_c_bg.png',0,transparent);
                     width: 20%;
                     height: 2.5rem;
                     margin: 0 .5rem;
                     line-height: 2.5rem;
+                    div.icon{
+                        width: 1.8rem;
+                        height: 1.8rem;
+                        background-image: url('../../static/images/border_bg02.png');
+                        color: #fff;
+                        width: 100%;
+                        background-position-x: 50%;
+                        background-size: 150% 100%;
+                        -webkit-box-shadow: inset  0px 2px 1px 0px rgba(0,0,0,0.4);
+                        box-shadow: inset  0px 2px 1px 0px rgba(0,0,0,0.4);
+                    }
                     a{
                         @include background-image ('other_link.png',0,transparent);
                         width: 1.5rem;
@@ -219,10 +231,11 @@
                         display: inline-block;
                         vertical-align: middle;
                         line-height: 1.5rem;
+                        margin-top: -.6rem;
                         &::after{
                             @include pseudo;
-                            left: .25rem;
-                            bottom: -.3rem;
+                            left: .3rem;
+                            bottom: -.4rem;
                             top:inherit;
                         }
                         &.icon_intro{
@@ -238,7 +251,7 @@
                             }
                         }
                         &.icon_about{
-                            background-position-y: bottom;
+                            background-position-y: -2.98rem;
                             &::after{
                                 content: '关于我们';
                             }
@@ -265,6 +278,7 @@
             margin: 0;
             padding: 0;
             border-left: none;
+            text-decoration: underline !important;
         }
     }
 }
@@ -348,6 +362,7 @@
         width: 2.8rem;
         @include border-radius(0);
         height: 1.8rem;
+        margin-top: .3rem;
         >img{
             width: 60%;
             padding-top: 0;

@@ -1,5 +1,5 @@
 <template>
-    <div class="so-con">
+    <div class="so-con" id="k3">
         <!--left siderbar  -->
         <!--用户导航 so-left -->
         <UserNavigation el=".so-menu" ref="navone"/>
@@ -7,25 +7,8 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
         
         <div class="so-index">
-            <div class="so-in-top">
-                <ul>
-                    <li class="so-menu">
-                        <img src="/static/images/top/icon-menu.png" class="so-top-menu">
-                    </li>
-                    <li class="left_top_logo">
-                        {{moduleName || '江西11选5'}}
-                    </li>
-                    <li class="purse">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                        <div class="so-in-top-sum">
-                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
-                        </div>
-                    </li>
-                    <li class="so-top-zoushi">
-                        <img src="/static/images/top/zoushi.png">
-                    </li>
-                </ul>
-            </div>
+            <MenuBar :moduleName="moduleName" :balance="balanceData.balance" />
+
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
@@ -43,70 +26,85 @@
                         </div>
                         <div class="so-m-t-right">
                             <div class="last-open-num">
-                                <ul>
-                                    <li v-for="item in winNumber.split(',')">{{item}}</li>
+                                <ul class="k3_top_number">
+                                    <li v-for="item in winNumber.split(',')"><span :class="'k3_dice num_'+item"></span></li> 
+                                    <!--<li><span class="k3_dice num_6"></span></li>
+                                    <li><span class="k3_dice num_3"></span></li>
+                                    <li><span class="k3_dice num_4"></span></li>-->
                                 </ul>
                             </div>
-                            <div class="last-open-dou">
-                                <ul>
-                                    <li>{{lastTermStatic.total}}</li>
+                            <div class="last-open-k3dou">
+                                <ul class="k3_top_detail">
                                     <li>{{lastTermStatic.sizer}}</li>
-                                    <li>{{lastTermStatic.longer}}</li>
-                                    <li>{{lastTermStatic.doubler}}</li>
+                                    <li>{{lastTermStatic.total}}</li>
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
-
-                    <!-- <div class="so-main-down">
-                        <ul>
-                            <li>
-                                <p>
-                                    第 <span class="now-date"> </span> 期
-                                </p>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>封盘</span>
-                                <a class="close-time">00:00</a>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>开奖</span>
-                                <a class="open-time">00:00</a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
-                        <!-- <li class="active " data-val="1">两面</li>
-                        <li class="" data-val="1">1-5球</li>
-                        <li class="reset_bet" data-val="2">连码</li> -->
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
                     <!--以下为盘面不同样式，根据ID+class区分-->
-                    <!-- jc115 双面 -->
-                    <div id="so-item0" class="active jc115">
+                    <!-- k3 单骰 -->
+                    <div id="k3-item0" class="active k3_item">
                         <ul>
-                            <li class="select-li" v-for="item in doubleSideList">
-                                <div>
+                            <li class="select-li" v-for="item in singleDiceList">
+                                <div class="k3_panel">
                                     <h2>
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                         <!-- :data-id="itemChild.cid" -->
-                                        <p v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
+                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span><span :class="'k3_dice num_' + (index+1)"></span></span>
+                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- k3 不同号 -->
+                    <div id="k3-item1" class="k3_item" style="display:none;">
+                        <ul>
+                            <li class="select-li" v-for="item in doubleDifferenceList">
+                                <div class="k3_panel">
+                                    <h2>
+                                        {{item.name}}
+                                    </h2>
+                                    <div>
+                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
+                                            <span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[0]"></span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[1]"></span></span>
+                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- k3 同号-->
+                    <div id="k3-item2" class="k3_item" style="display:none;">
+                        <ul>
+                            <li class="select-li" v-for="item in sameNumberList">
+                                <div class="k3_panel">
+                                    <h2>
+                                        {{item.name}}
+                                    </h2>
+                                    <div>
+                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)" :class="item.cid == 63100 && 'so-con-span-short'">
+                                            <span v-if="itemChild.cid!=63107"><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[0]"></span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[1]"></span><span v-if="(item.cid == 63100)" :class="'k3_dice small_dice num_'+ itemChild.name.split('')[2]"></span></span>
+                                            <span v-if="itemChild.cid==63107">{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
@@ -115,62 +113,25 @@
                             
                         </ul>
                     </div>
-                    <!-- jc115 1-5球 -->
-                    <div id="so-item1" class="jc115" style="display:none;">
+                    <!-- k3 总和-->
+                    <div id="k3-item3" class="k3_item" style="display:none;">
                         <ul>
-                            <li class="select-li" v-for="item in oneToFiveList">
-                                <div>
+                            <li class="select-li" v-for="item in harmoniousList">
+                                <div class="k3_panel">
                                     <h2>
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
                                             <span>{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
                                 </div>
                             </li>
-
-
                         </ul>
                     </div>
-                    <!-- jc115 连码 -->
-                    <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
-                        <div class="hd jx11_tab">
-                            <ul class="tab tab_mid tab_two">
-                                <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
-                                
-                                <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
-                                <li data-tab="2"><a href="javascript:;">二中二</a></li>
-                                <li data-tab="3"><a href="javascript:;">三中三</a></li>
-                                <li data-tab="4"><a href="javascript:;">四中四</a></li>
-                                <li data-tab="5"><a href="javascript:;">五中五</a></li>
-                                <li data-tab="6"><a href="javascript:;">六中五</a></li>
-                                <li data-tab="7"><a href="javascript:;">七中五</a></li>
-                                <li data-tab="8"><a href="javascript:;">八中五</a></li>
-                                <li data-tab="9"><a href="javascript:;">前二组选</a></li>
-                                <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
-                            </ul>
-                        </div>
-                        <div class="bd">
-                            <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>{{kind.name}}</h2>
-                                        <div>
-                                            <BallItem v-for="subItem in continueNumberSubList" 
-                                                :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }" 
-                                                @selected="continueNumberSelect" 
-                                                @unSelected="continueNumberUnSelect" />
-                                            
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
 
-                        </div>
-                    </div>
                 </div>
                 <div class="so-clear"></div>
             </div>
@@ -197,43 +158,12 @@
         <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
-            :isCombine="isCombine" :combineCount="combineCount"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
 
         <!--封盘底部遮挡-->
         <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
         </div> 
-        <!-- <div class="so-foot">
-            <div>
-                <p>已选中<span class="bet-select-num">0</span>注</p>
-            </div>
-            <div>
-                <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
-                    <input type="reset" value="重置">
-                </form>
-            </div>
-            <div>
-                <div class="so-add">
-                    <img src="/static/images/foot/foot-jia.png">
-                    <p>下注</p>
-                </div>
-            </div>
-        </div>
-        <div class="so-shade"></div>
-        <div class="so-pop">
-            <h2>下注清单<a></a></h2>
-            <p class="grey_text">请核对您的下注信息</p>
-            <div>
-                <div  class="boxlist bet-go-list">
-
-                </div>
-            </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
-            <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
-        </div> -->
 
 
         <!-- 确认对话框API
@@ -264,6 +194,8 @@
 <script>
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
     import UserMenu from '@/components/publicTemplate/UserMenu'
+    import MenuBar from '@/components/publicTemplate/MenuBar'
+
     import InfoDialog from '@/components/publicTemplate/InfoDialog'
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
@@ -271,13 +203,15 @@
     import BallItem from '@/components/publicTemplate/BallItem'
 
     import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/jc11x5/PlayDialog'
+    import PlayDialog from '@/components/k3/PlayDialog'
     import Mixin from '@/Mixin'
+    import '../../../static/css/k3.css'
 
     export default {
-      name: 'jc11x5Index',
+      name: 'k3Index',
       mixins:[Mixin],
       components: {
+        MenuBar, 
         BallItem,
         CountdownTimer,
         BetSuccessfulDialog,
@@ -306,33 +240,10 @@
 
             betSelectedList:[],   //用户选中的注数
             playTreeList:[], //玩法树
-            lotteryID:4,
+            lotteryID:6,
             allLottery:{} ,
             gameHref:{} ,
-            isCombine:false, //是否组合玩法
-            combineCount:0, //组合玩法注数
-            kinds:['两面', '1-5球', '连码'],
-           // continueNumberSubList:[...Array(11).keys()],
-            continueNumberSubList: Array.from({length:11}, (v,k) => k) ,
-            selectRules:{
-                '43100':{ max:2}, 
-                '43200':{ max:3}, 
-                '43300':{ max:4}, 
-                '43400':{ max:5}, 
-                '43500':{ max:6}, 
-                '43600':{ max:7}, 
-                '43700':{ max:8}, 
-                '43800':{
-                    max:5, fun:function(xslen){
-                        return  parseInt(xslen*((xslen-1)/2));
-                    }
-                }, 
-                '43900':{
-                    max:5, fun:function(xslen){
-                        return  parseInt(xslen*((xslen-1))*(xslen-2)/6)
-                    }
-                }, 
-            }
+            kinds:['单骰', '不同号', '同号', '总和'],
         }
       },
       created:function(){
@@ -355,16 +266,20 @@
                 this.timerBegin();
             }, 500) ;
             this.initViewHeight();
+            // $('body').attr('id', 'k3')
           },
           computed:{
-            doubleSideList:function(){
-                return this.getListByParentID(41000); 
+            singleDiceList:function(){
+                return this.getListByParentID(61000); 
             },
-            oneToFiveList:function(){
-                return this.getListByParentID(42000); 
+            doubleDifferenceList:function(){
+                return this.getListByParentID(62000); 
             },
-            continuedNumberList:function(){
-                return this.getListByParentID(43000);
+            sameNumberList:function(){
+                return this.getListByParentID(63000); 
+            },
+            harmoniousList:function(){
+                return this.getListByParentID(64000); 
             },
           },
           methods:{
@@ -372,16 +287,7 @@
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);
             },
-            subTabChange:function(e, kind,index){
-                var $src = $(e.currentTarget);
-                $src.addClass('on').siblings().removeClass('on');
-                $src.closest('.tab_container').find('.bd ul').eq(index).addClass('show')
-                    .siblings().removeClass('show');
-                //清除选中的球
-                this.betSelectedList = [];
-                this.combineCount = 0;
-                $('.bd ul li p').removeClass('active');
-            },
+            
             switchTab:function(e){
                 const $src = $(e.currentTarget);
                 const index = $src.index();
@@ -389,16 +295,6 @@
                 $tabs.hide();
                 $tabs.eq(index).show();
                 $src.addClass('active').siblings().removeClass('active');
-                //清除选中的球
-                if ($src.prop('class').indexOf('reset_bet')>=0){
-                    $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
-                    this.betSelectedList = [];
-                    this.isCombine = true;  //设置为组合玩法
-                }else{
-                    $('#so-item2 ul li p').removeClass('active');
-                    this.betSelectedList = [];
-                    this.isCombine = false;  //设置为非组合玩法
-                }
             },
             getListByParentID:function(parentID){
                 return this.playTreeList.filter((item,i)=>{
@@ -450,39 +346,6 @@
                 $(".so-con-right p").removeClass('active');
                 this.$refs.bet.betAmount = '' ;
                 this.getMemberBalance() ; // 更新余额
-            },
-            //当用户选择球时（连码），保存相应数据
-            continueNumberSelect:function(e, item, callback){
-                const rule = this.selectRules[item.parentItem.cid];
-                const max = rule.max;
-                if (this.betSelectedList.length < max){
-                    this.betSelectedList.push(item);
-                    console.log(this.betSelectedList)
-                }else{
-                    callback(false);
-                    this.$refs.infoDialog.open('不允许超过'+max+'个选项', 'title_quantity');
-                }
-                if (rule.fun){
-                    this.combineCount = rule.fun(this.betSelectedList.length);
-                }else{
-                    if (this.betSelectedList.length == max){
-                        this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
-                    }else{
-                        this.combineCount = 0;
-                    }
-                    
-               }
-                
-            },
-            //当用户选择球时（连码），保存相应数据
-            continueNumberUnSelect:function(e, item, parentItem){
-                this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.name != item.name; });
-                if (this.betSelectedList.length == this.selectedNumbersLimities[item.parentItem.cid]){
-                    this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
-                }else{
-                    this.combineCount = 0;
-                }
-                console.log(this.betSelectedList)
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
