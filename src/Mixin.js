@@ -436,6 +436,20 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
+        // 输入框清除数据,el元素class
+        ClearInput(el){
+               $('.'+el).prev().val('');
+
+        },
+        // 点击显示密码,el元素class
+         showpassword(){
+              if(this.showpd==true){
+                      this.showpd=false;
+              }else {
+                      this.showpd=true
+              }
+         },
+
 
     }
 };

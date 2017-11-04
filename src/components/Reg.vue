@@ -18,7 +18,7 @@
                             <div class="form_g account">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername','请输入4~15位帐号')">
-                                <i class="close"></i>
+                                <i class="close close1" @click="ClearInput('close1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -26,23 +26,39 @@
                             <div class="form_g account" >
                                 <legend></legend>
                                 <input type="text" placeholder="请输入帐号" v-model="username" class="username" @input="checkUserName(username,'username','请输入4~15位帐号')">
-                                <i class="close"></i>
+                                <i class="close close2" @click="ClearInput('close2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset>
+                        <fieldset  v-if=showpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')">
-                                <i class="eye"></i>
+                                <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')" >
+                                <i class="eye"  @click="showpassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset>
+                        <fieldset v-if=!showpd>
+                            <div class="form_g password">
+                                <legend></legend>
+                                <input type="text" placeholder="请输入密码" v-model="password" class="password" :value="password"  @input="checkUserName(password,'password','请输入4~15位密码')">
+                                <i class="eye" @click="showpassword()"></i>
+                            </div>
+                            <label class="error-message "></label>
+                        </fieldset>
+                        <fieldset  v-if=showpd>
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入4~15位密码')">
-                                <i class="eye active"></i>
+                                <i class="eye active" @click="showpassword()"></i>
+                            </div>
+                            <label class="error-message "></label>
+                        </fieldset>
+                        <fieldset  v-if=!showpd>
+                            <div class="form_g password">
+                                <legend></legend>
+                                <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入4~15位密码')">
+                                <i class="eye active" @click="showpassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -56,7 +72,7 @@
                         <div class="form_g account">
                             <legend></legend>
                             <input type="text" placeholder="请输入真实姓名" class="realyname" v-model="realyname" @input="checkrealyName(realyname,'realyname','请输入真实姓名')">
-                            <i class="close"></i>
+                            <i class="close close3" @click="ClearInput('close3')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -123,7 +139,7 @@
                         <div class="form_g phone">
                             <legend></legend>
                             <input type="text" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone','请输入正确的手机号码')">
-                            <i class="close"></i>
+                            <i class="close close4" @click="ClearInput('close4')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -172,6 +188,7 @@ export default {
             withpassword2: '',
             withpassword3: '',
             withpassword4: '',
+            showpd:true,
         }
     },
 methods:{
