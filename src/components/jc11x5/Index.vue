@@ -312,7 +312,8 @@
             isCombine:false, //是否组合玩法
             combineCount:0, //组合玩法注数
             kinds:['两面', '1-5球', '连码'],
-            continueNumberSubList:[...Array(11).keys()],
+           // continueNumberSubList:[...Array(11).keys()],
+            continueNumberSubList: Array.from({length:11}, (v,k) => k) ,
             selectRules:{
                 '43100':{ max:2}, 
                 '43200':{ max:3}, 
