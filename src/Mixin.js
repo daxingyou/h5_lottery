@@ -104,9 +104,9 @@ var MyMixin = {
             //     success: (res) => {  //成功
             //         console.log('拉取期数成功');
             //         // 开奖数据处理
-            //         this.processCode( 
-            //             res.data[1].pcode, 
-            //             res.data[2].pcode, 
+            //         this.processCode(
+            //             res.data[1].pcode,
+            //             res.data[2].pcode,
             //             res.data[2].winNumber,
             //             res.data[2].doubleData
             //         ) ;
@@ -123,7 +123,7 @@ var MyMixin = {
             //     }
             // });
         },
-        
+
 
 
         // 玩法树
@@ -145,7 +145,7 @@ var MyMixin = {
                     }
                 });
             });
-            
+
         },
 
         // 最新开奖期数
@@ -163,9 +163,9 @@ var MyMixin = {
                         if(res.data){
                             setTimeout(()=>{
                                 resolve(res);
-                                
+
                             },500)
-                            
+
                         }
                     }).bind(this),
                     error: function (e) {
@@ -173,10 +173,10 @@ var MyMixin = {
                     }
                 });
             });
-            
+
         },
-        
-        
+
+
         // 获取用户余额
         getMemberBalance:function (lotteryid) {
             return new Promise((resolve, reject)=>{
@@ -199,7 +199,7 @@ var MyMixin = {
                         reject(e);
                     }
                 });
-                
+
             })
         },
 
