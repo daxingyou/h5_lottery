@@ -16,7 +16,7 @@
     import Mixin from '@/Mixin'
 
     export default {
-        name: 'Footer',
+        name: 'FooterNav',
         mixins:[Mixin],
         mounted:function(){
             // debugger;

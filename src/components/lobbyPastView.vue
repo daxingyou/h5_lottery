@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <Footer />
+        <FooterNav />
 
         <div class="so-shade"></div>
 
@@ -126,13 +126,13 @@
 
 <script>
 import Mixin from '@/Mixin'
-import Footer from '@/components/Footer'
+import FooterNav from '@/components/Footer'
  // import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-    Footer
+      FooterNav
   //  CountdownTimer,
  },
     data :function() {

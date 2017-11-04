@@ -98,20 +98,20 @@
               </div>
           </section>
       </div>
-      <Footer />
+      <FooterNav />
   </div>
 </template>
 
 <script>
 import Mixin from '@/Mixin'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
-import Footer from '@/components/Footer'
+import FooterNav from '@/components/Footer'
 
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-    Footer,
+      FooterNav ,
     UserNavigation,
   },
   data :function() {
@@ -146,15 +146,12 @@ export default {
       //     interTime: 50
       // });
       
-    })
+    }) ;
 
 
   },
   methods:{
-      // 链接跳转
-    go:function(url){
-      window.location = url;
-    }
+
   },
 
 }
