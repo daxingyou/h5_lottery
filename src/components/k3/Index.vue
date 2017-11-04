@@ -27,10 +27,7 @@
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="k3_top_number">
-                                    <li v-for="item in winNumber.split(',')"><span :class="'k3_dice num_'+item"></span></li> 
-                                    <!--<li><span class="k3_dice num_6"></span></li>
-                                    <li><span class="k3_dice num_3"></span></li>
-                                    <li><span class="k3_dice num_4"></span></li>-->
+                                    <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li> 
                                 </ul>
                             </div>
                             <div class="last-open-k3dou">
@@ -256,7 +253,7 @@
       },
         mounted:function() {
             var lotteryid = this.lotteryID ; // 彩种id
-            var lotteryname = this.moduleName || '重庆时时彩' ; // 彩种名称
+            var lotteryname = this.moduleName || '江苏快3' ; // 彩种名称
             this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
             this.setCookie('lottery_name',lotteryname) ; // 彩种名称
             this.allLottery = this.$refs.navone.getLotterys() ;
@@ -315,7 +312,7 @@
                 var that = this;
                 that.getSystemTime().then(sys_time=>{
                     // sys_time = '2017-10-30 19:41:32';
-                    // sys_time = '2017-10-30 19:39:10';
+                    sys_time = '2017-10-30 19:39:10';
                     that.sys_time = sys_time;
                     that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                         that.next_pcode = res.data[0].pcode;  // 下期期数
@@ -330,7 +327,8 @@
                         let code = res.data[2].winNumber;
                         //code 上期开奖号码
                         if (!code) {
-                            code = '-,开,奖,中,-';
+                            // code = '-,开,奖,中,-';
+                            code = '20, 20, 20';
                         }
                         that.winNumber = code;
                         //上期开奖统计

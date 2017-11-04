@@ -17,7 +17,11 @@
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
-                                    <div class="time">{{timeStr}}</div>
+                                    <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">
+                                       <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
+                                        {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
+                                    </div>
+
                                 </div>
 
 
@@ -138,25 +142,22 @@ export default {
     data :function() {
         return {
             now_time:'',  // 当前期数销售截止时间
-            now_pcode:0,  // 当前期数
             sys_time :'',  // 当前系统时间
-            lt_time_leave :'' , // 倒计时秒数
-            timeStr :'' , // 倒计时秒数
-           // oDate :'' , // 倒计时秒数
             pastView:{} ,
-            pastViewArray :{} ,
+           // pastViewArray :{} ,
             cssid :{'8':'pk10'} ,
             gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
         }
     },
   mounted:function() {
+      var that = this ;
     $('html,body').css('overflow-y','scroll' )  ;
+      that.lobbytimerBegin();
+      setTimeout(function(){
+          that.gameTimer() ;
 
-   /*  setTimeout(() => {*/
-          this.lobbytimerBegin();
-    /*  }, 500) ;*/
-
+      },200)
 
   },
   methods:{
@@ -180,27 +181,25 @@ export default {
             data: senddata ,
             success: (data) => {
              // console.log(data.data) ;
-               // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber || data.data[i].winNumber==''){
                         switch (data.data[i].lotteryId){
                             case '8': // 北京pk10
                                 data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
                                 break;
+                            case '6' :   // 江苏K3
+                            case '20' :  // 安徽K3
+                            case '22' :  // 湖北K3
+                                data.data[i].winNumber ='20,20,20' ;
+                                break;
                             default  :
                                 data.data[i].winNumber='-,-,-,-,-' ;
                                 break ;
                         }
                     }
-                 /*   setTimeout(function () {
-                        console.log(this.formatTimeUnlix(data.data[2].endTime)+'打发时间')
-                        this.lt_timer(this.sys_time,this.formatTimeUnlix(data.data[2].endTime) ) ;
-                    },100)*/
+                  //  var leave = (this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000
 
                 }
-this.pastViewArray = data.data ;
-
-
 
                 this.pastView = data.data ;
 
@@ -216,52 +215,53 @@ this.pastViewArray = data.data ;
           var that = this;
           that.getSystemTime().then(sys_time=>{
               that.sys_time = sys_time;
-              this.doubleCount('') ;
+              that.doubleCount('') ;
              // console.log(that.sys_time)
+
           });
+
 
       },
 
-      //倒计时处理
-  lt_timer:function(start,end) { // start服务器开始时间，end当前期开奖结束时间, num 定时器数量
+ // 定时器，倒计时处理
+      gameTimer:function () {
+              //倒计时定时器
+          var that = this ;
+              window.setInterval(function() {
+                  var $obj_nav_span = $(".timerset");
+                  for (var i = 0; i < $obj_nav_span.length; i++) {
+                      var _times = "";
+                      if ($obj_nav_span.eq(i).html() == "") {
+                          $obj_nav_span.eq(i).html($obj_nav_span.eq(i).attr("data-time"));
+                      }
+                      if (parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) > 0) {
+                          console.log('呵呵') ;
+                          _times = parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) - 1;
+                      } else { // 当前倒计时结束
+                          that.lobbytimerBegin() ;
+                          console.log('哈哈哈') ;
+                         // _times = $obj_nav_span.eq(i).attr("data-time");
 
-    if (start == '' || end == '') {
-        this.lt_time_leave = 0;
-    } else {
-        this.lt_time_leave = (this.format(end).getTime() - this.format(start).getTime()) / 1000;//总秒数
-    }
+                      }
+                      $obj_nav_span.eq(i).html(that.formatTime(_times, 0));
+                  }
+              }, 1000);
 
-    var timerno = window.setInterval(function () {
-        console.log( this.lt_time_leave )
-       /* if( (lt_time_leave >=420 && lt_time_leave <=540 && lt_time_leave % 10 ==0) || (lt_time_leave >=120 && lt_time_leave <=240 && lt_time_leave % 10 ==0 )){ // 10,秒一次请求开奖数据
-            var hasnum = Number($('.last-open-num li:nth-child(1)').data('val')) ; // 判断是否已经拉取期数成功
-            if((hasnum >= 0) && (hasnum <20)){
-
-            }else{
-                priodDataNewly(getCookie('lt_lotteryid'),'timer') ;
-            }
-        }*/
-        if (this.lt_time_leave <= 0) { // 开奖倒计时结束
-            clearInterval(timerno);
-           // outTimeSet() ;
-            console.log('停止当前期数');
+      },
+       formatTime:function(second, type) {
+        var bk;
+        if (type == 0) {
+            var h = parseInt(second / 3600);
+            var f = parseInt(second % 3600 / 60);
+            var s = parseInt(second % 60);
+            bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+        } else {
+            bk = second.split(":");
+            bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
         }
+    return bk
+}
 
-       var oDate = this.diff(this.lt_time_leave--);
-        // 开奖倒计时
-       this.timeStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second);
-      //  $('.open-time').html( this.fftime(oDate.minute) + ':' + this.fftime(oDate.second) );
-
-    }, 1000);
-},
-/*  diff :function(t) {  //根据时间差返回相隔时间
-          return t > 0 ? {
-              day: Math.floor(t / 86400),
-              hour: Math.floor(t % 86400 / 3600),
-              minute: Math.floor(t % 3600 / 60),
-              second: Math.floor(t % 60)
-          } : {day: 0, hour: 0, minute: 0, second: 0};
-      },*/
 
   }
 

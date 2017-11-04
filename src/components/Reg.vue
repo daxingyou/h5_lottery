@@ -41,7 +41,7 @@
                         <fieldset v-if=!showpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入密码" v-model="password" class="password" :value="password"  @input="checkUserName(password,'password','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')">
                                 <i class="eye" @click="showpassword()"></i>
                             </div>
                             <label class="error-message "></label>
@@ -170,7 +170,7 @@
     import Mixin from '@/Mixin'
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 export default {
-  name: 'Reg',
+    name: 'Reg',
     mixins:[Mixin],
     components: {
         AutoCloseDialog,
@@ -191,108 +191,108 @@ export default {
             showpd:true,
         }
     },
-methods:{
-      //清除model数据,cl元素class
-     clearVal :function (cl) {
+    methods:{
+        //清除model数据,cl元素class
+        clearVal :function (cl) {
 
-         if(cl=='tjrusername'){
-             this.tjrusername ='';}
-         if(cl=='username'){
-             this.username ='';
-         }
+            if(cl=='tjrusername'){
+                this.tjrusername ='';}
+            if(cl=='username'){
+                this.username ='';
+            }
 
-         if(cl=='confirmpassword '){
-             this.confirmpassword ='';
-         }
-         if(cl=='realyname'){
-             this.realyname ='';
-         }
-         if(cl=='telephone'){
-             this.telephone ='';
-         }
-
-     },
-    // 下一步
-    nextAction:function () {
-        if(this.username ==''){
-            this.$refs.autoCloseDialog.open('请输入帐号') ;
-            return false ;
-        }
-        if(this.password ==''){
-            this.$refs.autoCloseDialog.open('请输入用户密码') ;
-            return false ;
-        }
-        if(this.confirmpassword ==''){
-            this.$refs.autoCloseDialog.open('请输入确认密码') ;
-            return false ;
-        }
-        var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
-        if(falg){
-            return false ;
-        }
-        $('.before-add').hide() ;
-        $('.after-add').show() ;
-
-    },
-
-    // 注册接口 ，除了推荐人，其他必填
-    registerAction:function() {
-        if(this.realyname ==''){
-            this.$refs.autoCloseDialog.open('请输入真实姓名') ;
-            return false ;
-        }
-        if(this.withpassword1 ==''|| this.withpassword2 =='' || this.withpassword3 ==''|| this.withpassword4 ==''){
-            this.$refs.autoCloseDialog.open('请输入取款密码') ;
-            return false ;
-        }
-        if(this.telephone ==''){
-            this.$refs.autoCloseDialog.open('请输入手机号码') ;
-            return false ;
-        }
-       /* if(this.yzmcode ==''){
-            this.$refs.autoCloseDialog.open('请输入验证码') ;
-            return false ;
-        }*/
-        var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
-        if(falg){
-            return false ;
-        }
-        var logindata = {
-            acType: '1',   //1真钱玩家，2试玩玩家
-            appid: 'bcappid02',    //平台商id，bcappid01 或 bcappid02
-            curType: 'CNY',  //币种，如：CNY
-            referrals: this.tjrusername ,   // 推荐人
-            login: this.username ,   // 帐号
-            method: 'mc',   //方法：mc创建会员
-            oddType: 'a',  //盘口，1位字符，预留
-            password: this.password ,  // 用户登录密码
-            mobile: this.telephone , // 手机号码
-            passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4   //取款密码
-        }
-        $.ajax({
-            type: 'post',
-            headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            url: this.action.uaa + 'apis/data/member/checkOrCreateMemberBcbaochi',
-            data: JSON.stringify(logindata) ,
-            success: (res) => {
-
-           // this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-           // this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-            this.$refs.autoCloseDialog.open('注册成功，请登录') ;
-            setTimeout(function(){
-                window.location = '/login' ;
-            },200)
-
+            if(cl=='confirmpassword '){
+                this.confirmpassword ='';
+            }
+            if(cl=='realyname'){
+                this.realyname ='';
+            }
+            if(cl=='telephone'){
+                this.telephone ='';
+            }
 
         },
-        error: function () {
+        // 下一步
+        nextAction:function () {
+            if(this.username ==''){
+                this.$refs.autoCloseDialog.open('请输入帐号') ;
+                return false ;
+            }
+            if(this.password ==''){
+                this.$refs.autoCloseDialog.open('请输入用户密码') ;
+                return false ;
+            }
+            if(this.confirmpassword ==''){
+                this.$refs.autoCloseDialog.open('请输入确认密码') ;
+                return false ;
+            }
+            var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+            if(falg){
+                return false ;
+            }
+            $('.before-add').hide() ;
+            $('.after-add').show() ;
 
-        }
-    });
-    },
-}
+        },
+
+        // 注册接口 ，除了推荐人，其他必填
+        registerAction:function() {
+            if(this.realyname ==''){
+                this.$refs.autoCloseDialog.open('请输入真实姓名') ;
+                return false ;
+            }
+            if(this.withpassword1 ==''|| this.withpassword2 =='' || this.withpassword3 ==''|| this.withpassword4 ==''){
+                this.$refs.autoCloseDialog.open('请输入取款密码') ;
+                return false ;
+            }
+            if(this.telephone ==''){
+                this.$refs.autoCloseDialog.open('请输入手机号码') ;
+                return false ;
+            }
+           /* if(this.yzmcode ==''){
+                this.$refs.autoCloseDialog.open('请输入验证码') ;
+                return false ;
+            }*/
+            var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+            if(falg){
+                return false ;
+            }
+            var logindata = {
+                acType: '1',   //1真钱玩家，2试玩玩家
+                appid: 'bcappid02',    //平台商id，bcappid01 或 bcappid02
+                curType: 'CNY',  //币种，如：CNY
+                referrals: this.tjrusername ,   // 推荐人
+                login: this.username ,   // 帐号
+                method: 'mc',   //方法：mc创建会员
+                oddType: 'a',  //盘口，1位字符，预留
+                password: this.password ,  // 用户登录密码
+                mobile: this.telephone , // 手机号码
+                passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4   //取款密码
+            }
+            $.ajax({
+                type: 'post',
+                headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                url: this.action.uaa + 'apis/data/member/checkOrCreateMemberBcbaochi',
+                data: JSON.stringify(logindata) ,
+                success: (res) => {
+
+                   // this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
+                   // this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
+                    this.$refs.autoCloseDialog.open('注册成功，请登录') ;
+                    setTimeout(function(){
+                        window.location = '/login' ;
+                    },200)
+
+
+                },
+                error: function () {
+
+                }
+            });
+        },
+    }
 
 
 }
