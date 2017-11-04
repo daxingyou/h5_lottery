@@ -105,7 +105,7 @@ export default {
             // if (this.monAmt(total_mon) > this.monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
             if (total_mon > this.balance) {
                 // initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
-                console.log('您的余额不足<br/>请充值后继续进行！')
+//                console.log('您的余额不足<br/>请充值后继续进行！')
                 return false;
             }
             var resdata = {
@@ -153,12 +153,12 @@ export default {
                     } else {  //购买失败提示
 
                         if(data.data =='' || data.data ==null){ // 平台商不存在
-                            this.parentRefs.autoCloseDialog.open(data.msg)
+                            this.parentRefs.autoCloseDialog.open(data.msg,'title_bet_fail')
                             // initTipPop05(false,3,data.msg) ;
                         }else{   // 各种错误提示
                             if(data.data.params.ErrInfo !=''){
                                 // initTipPop05(false,3,data.data.params.ErrInfo) ;
-                                this.parentRefs.autoCloseDialog.open(data.data.params.ErrInfo)
+                                this.parentRefs.autoCloseDialog.open(data.data.params.ErrInfo,'title_bet_fail') ;
 
                             }
                         }
@@ -169,7 +169,7 @@ export default {
                 },
                 error: function (res) {  // 错误提示
                     // initTipPop05(false,3,'投注失败，请稍后再试') ;
-                    this.parentRefs.autoCloseDialog.open('投注失败，请稍后再试')
+                    this.parentRefs.autoCloseDialog.open('投注失败，请稍后再试','title_bet_fail')
                    // ajaxSubmitAllow = true;
 
                 }
@@ -227,7 +227,7 @@ export default {
             }
 
             if(!amount || !this.isPositiveNum(amount) || amount =='0'){ // 投注金额不正确  .modal.m08
-                this.parentRefs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0')
+                this.parentRefs.autoCloseDialog.open('请输入整数的投注金额，金额不能为0','title_bet_fail')
                 return false;
             }
             // 注单金额正确

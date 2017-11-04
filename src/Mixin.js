@@ -456,7 +456,7 @@ var MyMixin = {
                $('.'+el).prev().val('');
               this.clearVal(cl)
         },
-        // 点击显示密码,el元素class
+        // 点击显示密码,
          showpassword(){
               if(this.showpd==true){
                       this.showpd=false;
