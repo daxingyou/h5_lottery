@@ -154,13 +154,10 @@ export default {
       var that = this ;
     $('html,body').css('overflow-y','scroll' )  ;
       that.lobbytimerBegin();
-          setTimeout(function(){
-              that.gameTimer() ;
+      setTimeout(function(){
+          that.gameTimer() ;
 
-          },200)
-
-
-
+      },200)
 
   },
   methods:{
@@ -238,11 +235,12 @@ export default {
                           $obj_nav_span.eq(i).html($obj_nav_span.eq(i).attr("data-time"));
                       }
                       if (parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) > 0) {
-                          console.log('呵呵呵') ;
+                          console.log('呵呵') ;
                           _times = parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) - 1;
-                      } else {
+                      } else { // 当前倒计时结束
+                          that.lobbytimerBegin() ;
                           console.log('哈哈哈') ;
-                          _times = $obj_nav_span.eq(i).attr("data-time");
+                         // _times = $obj_nav_span.eq(i).attr("data-time");
 
                       }
                       $obj_nav_span.eq(i).html(that.formatTime(_times, 0));
