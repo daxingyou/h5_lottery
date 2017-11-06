@@ -63,7 +63,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .left a img { width: 100%; margin: 0; }
 
-#pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem;}
+#pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem; margin-left: .6rem; }
 
 #pa_head > .right { float: right; }
 
@@ -734,6 +734,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 #index_content.content > .hotgame_area ul { padding: .15rem .3rem; width: 100%; }
 
 #index_content.content > .hotgame_area ul > li { background-color: rgba(0, 0, 0, 0.3); border-top: 1px solid #436689; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; margin: .15rem; min-height: 2.6rem; height: auto; padding-bottom: .2rem; width: 29.9%; background-repeat: no-repeat; }
+
+#index_content.content > .hotgame_area ul > li > a { position: relative; display: inline-block; z-index: 7; }
 
 #index_content.content > .hotgame_area ul > li > p { background: -webkit-linear-gradient(#e7df90, #fffec7, #85662d); background: -webkit-gradient(linear, left top, left bottom, from(#e7df90), color-stop(#fffec7), to(#85662d)); background: -o-linear-gradient(#e7df90, #fffec7, #85662d); background: linear-gradient(#e7df90, #fffec7, #85662d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
 

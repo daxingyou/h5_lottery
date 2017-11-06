@@ -144,6 +144,11 @@
                     padding-bottom: .2rem;
                     width: 29.9%;
                     background-repeat: no-repeat;
+                    >a{
+                        position: relative;
+                        display: inline-block;
+                        z-index: 7;
+                    }
                     >p{
                         background:-webkit-linear-gradient(#e7df90,#fffec7,#85662d);
                         background: linear-gradient(#e7df90,#fffec7,#85662d);
