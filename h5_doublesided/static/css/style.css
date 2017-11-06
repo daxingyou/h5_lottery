@@ -2,11 +2,11 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .so-con { width: 10rem; height: 100%; overflow-x: hidden; text-align: center; margin: auto; }
 
-.so-con .so-left { float: left; width: 8.7rem; height: 100%; position: fixed; z-index: 52; top: 0; left: -100%; }
+.so-con .so-left { float: left; width: 8.7rem; height: 150%; position: fixed; z-index: 52; top: 0; left: -100%; }
 
 .so-con .so-left .so-left-close { background-color: #050709; border-left: 3px solid #202f45; width: 0.79rem; height: 100%; float: left; }
 
-.so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 48%; left: 0.15rem; }
+.so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 33%; left: 0.15rem; }
 
 .so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.9); }
 
@@ -38,9 +38,7 @@
 
 .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-in-top-sum { left: .3rem; top: .05rem; }
 
-.so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; padding-bottom: 2rem; }
-
-.so-con .so-left .so-left-con .so-l-c-con > div { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+.so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con ul:after { content: ""; display: block; clear: both; }
 
