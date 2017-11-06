@@ -79,6 +79,11 @@
               left: 0.1rem; }
           .so-con .so-left .so-left-con .so-l-c-top > div:last-child {
             margin-left: .5rem; }
+            .so-con .so-left .so-left-con .so-l-c-top > div:last-child > p {
+              margin-top: .5rem;
+              position: relative;
+              text-align: left;
+              font-size: .4rem; }
             .so-con .so-left .so-left-con .so-l-c-top > div:last-child .user_name {
               position: relative;
               text-align: left;
@@ -154,7 +159,6 @@
     font-size: .4rem;
     margin-top: .45rem;
     width: 2.5rem;
-    background-image: url("../../static/images/top/logobg.png");
     background-size: 100%;
     height: 1rem;
     background-position-y: -.9rem; }
@@ -303,7 +307,7 @@
           margin: auto;
           font-size: 0.32rem;
           text-align: center;
-          margin-top: 0.08rem;
+          margin-top: 0.12rem;
           color: #ffffff; }
 .so-con .so-in-con {
   width: 100%;
@@ -369,7 +373,14 @@
   margin-top: -0.04rem;
   font-size: .32rem;
   border: solid 0.02rem #2d3755;
-  background-color: #0d141c;
+  background: #1d2839;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #1d2839 43%, #263651 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #1d2839 43%, #263651 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #1d2839 43%, #263651 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   border-left: hidden;
   border-radius: 0.1rem;
   padding-right: 0.1rem;
@@ -428,7 +439,7 @@
       display: block;
       position: absolute;
       width: 7rem;
-      bottom: -3px;
+      bottom: -.07rem;
       clear: both;
       background: url("../images/content/panel_footer.png") no-repeat;
       background-size: 100% 100%;
@@ -464,7 +475,7 @@
       #so-item1 ul li > div > div p span:first-child {
         background: url("../../static/images/content/qui02.png") no-repeat;
         background-size: 1.2rem;
-        background-position: 0.1rem -1.22rem;
+        background-position: 0.11rem -1.25rem;
         display: block;
         width: 1.3rem;
         height: 1.3rem;
@@ -472,7 +483,7 @@
         font-size: 0.6rem;
         text-align: center;
         line-height: 1.3rem;
-        text-indent: 0.1rem; }
+        text-indent: 0.12rem; }
       #so-item1 ul li > div > div p span {
         color: #fff;
         font-size: 0.3rem;
@@ -970,7 +981,7 @@ img.bet_ok {
         display: block;
         background: url("../images/bottom_line.png") no-repeat;
         background-size: 100% auto;
-        background-position-y: 0.5rem;
+        background-position-y: 0.7rem;
         height: 1rem;
         line-height: 1rem;
         color: #ffbd00;
@@ -1119,7 +1130,7 @@ img.bet_ok {
     font-size: .4rem;
     line-height: 1.12rem;
     text-align: left;
-    text-indent: 0.4rem;
+    text-indent: 0.15rem;
     background: url("../images/content/panel_header_1.png") no-repeat;
     background-size: 100% 100%;
     line-height: 0.9rem; }
@@ -1172,6 +1183,8 @@ img.bet_ok {
         text-indent: 0.1rem; }
       #so-item2.jc115 ul li > div > div p.active span:last-child {
         color: #fffbe2; }
+    #so-item2.jc115 ul li > div > div:after {
+      margin-left: -0.2rem; }
 
 #so-item2.jc115 > .hd {
   height: .9rem;

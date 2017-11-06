@@ -312,7 +312,8 @@
             isCombine:false, //是否组合玩法
             combineCount:0, //组合玩法注数
             kinds:['两面', '1-5球', '连码'],
-            continueNumberSubList:[...Array(11).keys()],
+           // continueNumberSubList:[...Array(11).keys()],
+            continueNumberSubList: Array.from({length:11}, (v,k) => k) ,
             selectRules:{
                 '43100':{ max:2}, 
                 '43200':{ max:3}, 
@@ -344,7 +345,7 @@
       },
         mounted:function() {
             var lotteryid = this.lotteryID ; // 彩种id
-            var lotteryname = this.moduleName || '重庆时时彩' ; // 彩种名称
+            var lotteryname = this.moduleName || '江西11选5' ; // 彩种名称
             this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
             this.setCookie('lottery_name',lotteryname) ; // 彩种名称
             this.allLottery = this.$refs.navone.getLotterys() ;
@@ -450,38 +451,44 @@
                 this.$refs.bet.betAmount = '' ;
                 this.getMemberBalance() ; // 更新余额
             },
+            combineCountCaculate:function(item){
+                const rule = this.selectRules[item.parentItem.cid];
+                if (rule){
+                    if (rule.fun){
+                        this.combineCount = rule.fun(this.betSelectedList.length);
+                    }else{
+                        if (this.betSelectedList.length == rule.max){
+                            this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
+                        }else{
+                            this.combineCount = 0;
+                        }
+                    }
+                    
+                }
+            },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
                 const rule = this.selectRules[item.parentItem.cid];
                 const max = rule.max;
                 if (this.betSelectedList.length < max){
                     this.betSelectedList.push(item);
-                    console.log(this.betSelectedList)
                 }else{
                     callback(false);
                     this.$refs.infoDialog.open('不允许超过'+max+'个选项', 'title_quantity');
                 }
-                if (rule.fun){
-                    this.combineCount = rule.fun(this.betSelectedList.length);
-                }else{
-                    if (this.betSelectedList.length == max){
-                        this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
-                    }else{
-                        this.combineCount = 0;
-                    }
-                    
-               }
+                this.combineCountCaculate(item);
                 
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberUnSelect:function(e, item, parentItem){
+                const rule = this.selectRules[item.parentItem.cid];
                 this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.name != item.name; });
-                if (this.betSelectedList.length == this.selectedNumbersLimities[item.parentItem.cid]){
+                if (this.betSelectedList.length == rule.max){
                     this.combineCount = 1;  //用户点击足够多的球后，设置组合玩法注数为1
                 }else{
                     this.combineCount = 0;
                 }
-                console.log(this.betSelectedList)
+                this.combineCountCaculate(item);
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){

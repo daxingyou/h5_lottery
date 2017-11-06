@@ -12,8 +12,8 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login"  >登录</a> <!-- v-show="!haslogin" -->
-              <a href="/reg">注册</a>
+              <router-link to="/login">登录</router-link> <!-- v-show="!haslogin" -->
+              <router-link to="/reg">注册</router-link>
               <a href="javascript:;">试玩</a>
           </div>
       </header>
@@ -76,7 +76,6 @@
                       </div>
                     </a> -->
 
-
                     <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
                       <div :class="'badge'">
                         <img :src="lottery.imgUrl">
@@ -99,30 +98,22 @@
               </div>
           </section>
       </div>
-      <footer class="bot_nav">
-          <ul>
-              <li class="active"><a class="index" href="/">首页大厅</a></li>
-              <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>
-              <li><a class="record" href="publicTemplate/betRecord?type=index">投注纪录</a></li>
-              <li><a class="member" href="javascript:;">个人中心</a></li>
-          </ul>
-      </footer>
+      <FooterNav />
   </div>
-
-  
 </template>
-
-
 
 <script>
 import Mixin from '@/Mixin'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
+import FooterNav from '@/components/Footer'
+
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-        UserNavigation,
-    },
+      FooterNav ,
+    UserNavigation,
+  },
   data :function() {
         return {
             haslogin:true ,
@@ -140,12 +131,10 @@ export default {
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
     this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
-
-    $(()=>{
-      TouchSlide({
-          slideCell: "#focus",
-          autoPlay:true,
-      });
+    TouchSlide({
+      slideCell: "#focus",
+      autoPlay:true,
+    });
       // $("#marquee_snp").slide({ // 文本滚动
       //     mainCell: ".bd ul",
       //     autoPage: true,
@@ -155,15 +144,12 @@ export default {
       //     interTime: 50
       // });
       
-    })
+
 
 
   },
   methods:{
-      // 链接跳转
-    go:function(url){
-      window.location = url;
-    }
+
   },
 
 }

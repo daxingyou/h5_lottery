@@ -8,47 +8,6 @@
             <h2 class="center lottery_name"> 往期开奖</h2>
         </header>
 
-        <!--<div id="pa_content">
-            <div id="betting_record" class="tab_container tabBox">
-                <div class="bd" :id="cssid[lotteryid]">
-                    <ul class="tab_content double-all">
-                        <li class="past_view">
-                            <ul class="panel">
-                                <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
-                                    <div class="play_th">
-                                        <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
-                                        <ul class="double-count" v-if="lotteryid == '8'"> &lt;!&ndash; 上面一排数据 &ndash;&gt;
-                                            <li>{{list.doubleData.lh_1}}</li>
-                                            <li>{{list.doubleData.lh_2}}</li>
-                                            <li>{{list.doubleData.lh_3}}</li>
-                                            <li>{{list.doubleData.lh_4}}</li>
-                                            <li>{{list.doubleData.lh_5}}</li>
-                                            <li>{{list.doubleData.top2_doubler}}</li>
-                                            <li>{{list.doubleData.top2_sizer}}</li>
-                                            <li>{{list.doubleData.top2_total}}</li>
-                                        </ul>
-                                        <ul class="double-count" v-else>
-                                            <li>{{list.doubleData.doubler}}</li>
-                                            <li>{{list.doubleData.longer}}</li>
-                                            <li>{{list.doubleData.sizer}}</li>
-                                            <li>{{list.doubleData.total}}</li>
-                                        </ul>
-                                    </div>
-                                    <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> &lt;!&ndash; 北京pk10  &ndash;&gt;
-                                        <li v-for="listnum in list.winNumber.split(',')" >
-                                            <span class="pk10_ball" :class="'num_'+listnum"></span>
-                                        </li>
-                                    </ul>
-                                    <ul class="lo_ball double-numbers"  v-else>
-                                        <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>-->
         <div id="pa_content" class="content lobby_past_view">
             <div id="betting_record" class="tab_container tabBox">
                 <ul class="tab_content">
@@ -58,7 +17,12 @@
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
-                                    <div class="time">00:00:00</div>
+                                   <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
+                                    <div class="time timerset" >
+                                       <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
+                                        {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
+                                    </div>
+
                                 </div>
 
 
@@ -155,14 +119,7 @@
             </div>
         </div>
 
-        <footer class="bot_nav" id="pa_foot">
-            <ul>
-                <li class="active"><a class="index" href="/">首页大厅</a></li>
-                <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>
-                <li><a class="record" href="publicTemplate/betRecord?type=index">投注纪录</a></li>
-                <li><a class="member" href="javascript:;">个人中心</a></li>
-            </ul>
-        </footer>
+        <FooterNav />
 
         <div class="so-shade"></div>
 
@@ -174,24 +131,39 @@
 
 <script>
 import Mixin from '@/Mixin'
-
+import FooterNav from '@/components/Footer'
+ // import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 export default {
   name: 'Index',
   mixins:[Mixin],
+  components: {
+      FooterNav
+  //  CountdownTimer,
+ },
     data :function() {
         return {
+            gametimerInt:'' ,
+            now_time:'',  // 当前期数销售截止时间
+            sys_time :'',  // 当前系统时间
             pastView:{} ,
+           // pastViewArray :{} ,
             cssid :{'8':'pk10'} ,
             gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
         }
     },
   mounted:function() {
-    $('html,body').css('overflow-y','scroll' )  ;
-    this.doubleCount('') ;
+      var that = this ;
+     $('html,body').css('overflow-y','scroll' )  ;
+      that.lobbytimerBegin();
+
+      setTimeout(function(){
+          that.gameTimer() ;
+
+      },200)
+
   },
   methods:{
-
     /*
     * 近期开奖数据，近期开奖页面
     * */
@@ -212,23 +184,26 @@ export default {
             data: senddata ,
             success: (data) => {
              // console.log(data.data) ;
-               // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber || data.data[i].winNumber==''){
                         switch (data.data[i].lotteryId){
                             case '8': // 北京pk10
-                                console.log('法规的时间')
                                 data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
+                                break;
+                            case '6' :   // 江苏K3
+                            case '20' :  // 安徽K3
+                            case '22' :  // 湖北K3
+                                data.data[i].winNumber ='20,20,20' ;
                                 break;
                             default  :
                                 data.data[i].winNumber='-,-,-,-,-' ;
                                 break ;
                         }
-
                     }
-
-
+                   // clearInterval(this.gametimerInt) ;
+                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
                 }
+
                 this.pastView = data.data ;
 
             },
@@ -238,6 +213,60 @@ export default {
             }
         });
     },
+
+      lobbytimerBegin:function(){
+          var that = this;
+          that.getSystemTime().then(sys_time=>{
+              that.sys_time = sys_time;
+              that.doubleCount('') ;
+             // console.log(that.sys_time)
+
+          });
+
+
+      },
+
+ // 定时器，倒计时处理
+      gameTimer:function () {
+              //倒计时定时器
+         // console.log('666等会')
+              var that = this ;
+              this.gametimerInt = setInterval(function() {
+                  var $obj_nav_span = $(".timerset");
+                  for (var i = 0; i < $obj_nav_span.length; i++) {
+                      var _times = "";
+                      if ($obj_nav_span.eq(i).html() == "") {
+                          $obj_nav_span.eq(i).html($obj_nav_span.eq(i).attr("data-time"));
+                      }
+                      if (parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) > 0) {
+                          console.log('呵呵') ;
+                          _times = parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) - 1;
+                      } else { // 当前倒计时结束
+                          that.lobbytimerBegin() ;
+                          console.log('哈哈哈') ;
+                         _times = $obj_nav_span.eq(i).attr("data-time");
+
+                      }
+                      $obj_nav_span.eq(i).html(that.formatTime(_times, 0));
+                  }
+              }, 1000);
+
+
+      },
+       formatTime:function(second, type) {
+        var bk;
+        if (type == 0) {
+            var h = parseInt(second / 3600);
+            var f = parseInt(second % 3600 / 60);
+            var s = parseInt(second % 60);
+            bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+        } else {
+            bk = second.split(":");
+            bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
+        }
+    return bk
+}
+
 
   }
 

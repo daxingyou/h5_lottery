@@ -117,8 +117,12 @@
                 // 投注详情
                 touzhuXQ: {},
                 soyeScroll:null, 
-                mySwiperTrack: null
+                mySwiperTrack: null,
+                urlparam :'' ,
             }
+        },
+        created:function () {
+
         },
         computed:{
             year: function(){
@@ -136,7 +140,6 @@
         },
         mounted: function () {
             this.seadata.pdate = this.newpdate;
-
             this.setMenuAction();
             this.initView();
             var mySwiperRecode = new Swiper('#swiper1', {
@@ -552,7 +555,7 @@
                                             '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                             '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                             '<div class="item"> ' +
-                                            '<div class="badge ssc_badge lottery_logo_' + this.lotteryid + '"></div>' +
+                                            '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
                                             '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
