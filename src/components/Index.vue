@@ -82,7 +82,7 @@
                   <h3><img src="static/images/title_cooperation.png" alt="合作加盟"></h3>
                   <ul>
                       <li><div class="icon"><a class="icon_intro" href="javascript:;"></a></div></li>
-                      <li><div class="icon"><a class="icon_agent" href="javascript:;"></a></div></li>
+                      <li><div class="icon"><router-link class="icon_agent" v-bind:to="'/lobbyTemplate/agent'"></router-link></div></li>
                       <li><div class="icon"><a class="icon_about" href="javascript:;"></a></div></li>
                   </ul>
               </div>
