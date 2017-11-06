@@ -36,19 +36,8 @@
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
-                        <HistoryTerm :previous_pcode="previous_pcode.toString().substr(4, 8)" />
-                        <!-- <div class="so-m-t-left">
-                            <div>
-                                第<span class="last-date"> {{previous_pcode.toString().substr(4, 8)}}</span> 期
-                            </div>
-                            <div>
-                                <a href="/publicTemplate/pastView">
-                                    <p>
-                                        查看往期
-                                    </p>
-                                </a>
-                            </div>
-                        </div> -->
+                        <HistoryTerm :previous_pcode="previous_pcode" />
+
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="pk10_top_number">
@@ -71,25 +60,7 @@
                             </div>
                         </div>
                     </div>
-                  <!--  <div class="so-main-down">
-                        <ul>
-                            <li>
-                                <p>
-                                    <span class="now-date"> </span> 期
-                                </p>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>封盘</span>
-                                <a class="close-time">00:00</a>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>开奖</span>
-                                <a class="open-time">00:00</a>
-                            </li>
-                        </ul>
-                    </div>-->
+
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time"
                                     @countdownOver="playLottery"
                                     @entertainCountdownOver="entertain"
@@ -1280,8 +1251,10 @@ export default {
                 that.sys_time = sys_time;
                 that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
                     that.next_pcode = res.data[0].pcode;  // 下期期数
-                    that.now_pcode = res.data[1].pcode;  // 当前期数
-                    that.previous_pcode = res.data[2].pcode;  // 上期期数
+                   // that.now_pcode = res.data[1].pcode;  // 当前期数
+                    that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                   // that.previous_pcode = res.data[2].pcode;  // 上期期数
+                    that.previous_pcode = res.data[2].issueAlias;  // 上期期数
                     // 当前期数时间
                     that.now_time = this.formatTimeUnlix(res.data[1].endTime);
                     // 当前期封盘时间

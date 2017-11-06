@@ -211,7 +211,7 @@ export default {
                 var str = '' ;
                 for(var i=0;i<data.data.length;i++){
                     var textcolor = 'text-red' ;
-                    switch (data.data[i].count){
+                    switch (data.data[i].count.toString()){
                         case '3':
                              textcolor = 'text-green' ;
                              break;
