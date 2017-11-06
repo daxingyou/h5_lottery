@@ -2,8 +2,8 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;">
-
+                <a href="javascript:;" onclick="history.go(-1)" >
+                    <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">个人中心</h2>
