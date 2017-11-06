@@ -11,9 +11,9 @@
         <div id="pa_content" class="content lobby_past_view">
             <div id="betting_record" class="tab_container tabBox">
                 <ul class="tab_content">
-                    <li class="past_view">
+                    <li class="past_view" v-for="(list,index) in pastView">
                         <ul class="panel">
-                            <li class="prod cqssc" v-for="(list,index) in pastView">
+                            <li class="prod cqssc" >
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
