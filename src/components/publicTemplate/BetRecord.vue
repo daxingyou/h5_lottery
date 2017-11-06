@@ -90,8 +90,8 @@
 
 <script>
     import Mixin from '@/Mixin'
-    import '../../../static/js/swiper-3.4.2.jquery.min.js'
-    import '../../../static/css/swiper-3.4.2.min.css'
+    import 'swiper'
+    import $ from "jquery";
     
     export default {
         name: 'betRecord',
@@ -118,11 +118,11 @@
                 touzhuXQ: {},
                 soyeScroll:null, 
                 mySwiperTrack: null,
-                urlparam:this.getStrParam('type') ,
+                urlparam :'' ,
             }
         },
         created:function () {
-           // console.log(this.urlparam)
+
         },
         computed:{
             year: function(){
@@ -555,7 +555,7 @@
                                             '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                             '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                             '<div class="item"> ' +
-                                            '<div class="badge ssc_badge lottery_logo_' + this.lotteryid + '"></div>' +
+                                            '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
                                             '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +

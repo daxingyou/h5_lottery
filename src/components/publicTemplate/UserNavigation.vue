@@ -28,7 +28,7 @@
                         <span>返回竞彩大厅</span>
                   </router-link>
                 </div>
-              <ul>
+              <ul class="all_lottery">
                   <li v-for="lottery in allLottery">
                     <router-link v-bind:to="'/'+gameHref[lottery.cid]">
                       <div class="badge">
@@ -56,8 +56,10 @@
 
 <script>
 import Mixin from '@/Mixin'
+import $ from "jquery";
+
 export default {
-  name: 'InfoDialog',
+  name: 'UserNavigation',
   mixins:[Mixin],
   props:['el'],
 

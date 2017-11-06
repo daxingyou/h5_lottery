@@ -51,8 +51,9 @@
                                 <ul>
                                     <li>{{lastTermStatic.total}}</li>
                                     <li>{{lastTermStatic.sizer}}</li>
-                                    <li>{{lastTermStatic.longer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
+                                    <li>{{lastTermStatic.longer}}</li>
+
                                 </ul>
                             </div>
                         </div>
@@ -262,6 +263,7 @@
 
 
 <script>
+    import $ from "jquery";
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
     import UserMenu from '@/components/publicTemplate/UserMenu'
     import InfoDialog from '@/components/publicTemplate/InfoDialog'

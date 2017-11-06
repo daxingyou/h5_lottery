@@ -12,8 +12,8 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <a href="/login"  >登录</a> <!-- v-show="!haslogin" -->
-              <a href="/reg">注册</a>
+              <router-link to="/login">登录</router-link> <!-- v-show="!haslogin" -->
+              <router-link to="/reg">注册</router-link>
               <a href="javascript:;">试玩</a>
           </div>
       </header>
@@ -91,9 +91,9 @@
               <div class="cooper">
                   <h3><img src="static/images/title_cooperation.png" alt="合作加盟"></h3>
                   <ul>
-                      <li><a class="icon_intro" href="javascript:;"></a></li>
-                      <li><a class="icon_agent" href="javascript:;"></a></li>
-                      <li><a class="icon_about" href="javascript:;"></a></li>
+                      <li><div class="icon"><a class="icon_intro" href="javascript:;"></a></div></li>
+                      <li><div class="icon"><a class="icon_agent" href="javascript:;"></a></div></li>
+                      <li><div class="icon"><a class="icon_about" href="javascript:;"></a></div></li>
                   </ul>
               </div>
           </section>
@@ -103,6 +103,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
@@ -111,6 +113,7 @@ export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
+    // TouchSlide,
       FooterNav ,
     UserNavigation,
   },
@@ -131,6 +134,7 @@ export default {
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
     this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+
     TouchSlide({
       slideCell: "#focus",
       autoPlay:true,

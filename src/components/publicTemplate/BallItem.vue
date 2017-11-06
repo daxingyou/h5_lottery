@@ -8,9 +8,10 @@
 
 <script>
     import Mixin from '@/Mixin'
-
+    import $ from "jquery";
+    
     export default {
-        name: 'jc11x5Index',
+        name: 'BallItem',
         mixins:[Mixin],
         props:['model'],
           methods:{

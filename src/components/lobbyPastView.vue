@@ -11,9 +11,9 @@
         <div id="pa_content" class="content lobby_past_view">
             <div id="betting_record" class="tab_container tabBox">
                 <ul class="tab_content">
-                    <li class="past_view">
+                    <li class="past_view" v-for="(list,index) in pastView">
                         <ul class="panel">
-                            <li class="prod cqssc" v-for="(list,index) in pastView">
+                            <li class="prod cqssc" >
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{list.pcode}}期</div>
@@ -130,9 +130,10 @@
 
 
 <script>
+import $ from "jquery";
 import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
- // import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+
 export default {
   name: 'Index',
   mixins:[Mixin],
@@ -142,6 +143,7 @@ export default {
  },
     data :function() {
         return {
+            gametimerInt:'' ,
             now_time:'',  // 当前期数销售截止时间
             sys_time :'',  // 当前系统时间
             pastView:{} ,
@@ -153,8 +155,9 @@ export default {
     },
   mounted:function() {
       var that = this ;
-    $('html,body').css('overflow-y','scroll' )  ;
+     $('html,body').css('overflow-y','scroll' )  ;
       that.lobbytimerBegin();
+
       setTimeout(function(){
           that.gameTimer() ;
 
@@ -198,7 +201,7 @@ export default {
                                 break ;
                         }
                     }
-
+                   // clearInterval(this.gametimerInt) ;
                     $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
                 }
 
@@ -227,8 +230,9 @@ export default {
  // 定时器，倒计时处理
       gameTimer:function () {
               //倒计时定时器
-          var that = this ;
-              window.setInterval(function() {
+         // console.log('666等会')
+              var that = this ;
+              this.gametimerInt = setInterval(function() {
                   var $obj_nav_span = $(".timerset");
                   for (var i = 0; i < $obj_nav_span.length; i++) {
                       var _times = "";
@@ -247,6 +251,7 @@ export default {
                       $obj_nav_span.eq(i).html(that.formatTime(_times, 0));
                   }
               }, 1000);
+
 
       },
        formatTime:function(second, type) {
