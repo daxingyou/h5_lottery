@@ -18,7 +18,7 @@
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{(list.lotteryId == '8')?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
-                                    <div class="time timerset" >
+                                    <div class="time timerset" :data-time="0">
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
                                         {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
                                     </div>
@@ -162,15 +162,18 @@ export default {
 
         }
     },
+    beforeDestroy:function(){
+      clearInterval(this.gametimerInt) ;
+   },
   mounted:function() {
       var that = this ;
      $('html,body').css('overflow-y','scroll' )  ;
       that.lobbytimerBegin();
-console.log(this.gametimerInt)
+
       setTimeout(function(){
           that.gameTimer() ;
 
-      },200)
+      },500)
 
   },
   methods:{
@@ -210,7 +213,7 @@ console.log(this.gametimerInt)
                                 break ;
                         }
                     }
-                   // clearInterval(this.gametimerInt) ;
+
                     $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
                 }
 
@@ -239,7 +242,6 @@ console.log(this.gametimerInt)
  // 定时器，倒计时处理
       gameTimer:function () {
               //倒计时定时器
-         // console.log('666等会')
               var that = this ;
               this.gametimerInt = setInterval(function() {
                   var $obj_nav_span = $(".timerset");
@@ -263,19 +265,6 @@ console.log(this.gametimerInt)
 
 
       },
-       formatTime:function(second, type) {
-        var bk;
-        if (type == 0) {
-            var h = parseInt(second / 3600);
-            var f = parseInt(second % 3600 / 60);
-            var s = parseInt(second % 60);
-            bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
-        } else {
-            bk = second.split(":");
-            bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
-        }
-    return bk
-}
 
 
   }

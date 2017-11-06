@@ -263,6 +263,20 @@ var MyMixin = {
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
             return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
+        // 倒计时处理
+        formatTime:function(second, type) {
+            var bk;
+            if (type == 0) {
+                var h = parseInt(second / 3600);
+                var f = parseInt(second % 3600 / 60);
+                var s = parseInt(second % 60);
+                bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+            } else {
+                bk = second.split(":");
+                bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
+            }
+            return bk
+        },
         fftime:function (n) {
             return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
         },
@@ -448,12 +462,12 @@ var MyMixin = {
             }
         },
         // 输入框清除数据,el当前元素class,cl是input的class
-        ClearInput(el,cl){
+        ClearInput:function(el,cl){
                $('.'+el).prev().val('');
               this.clearVal(cl)
         },
         // 点击显示密码,
-         showpassword(){
+         showpassword:function(){
               if(this.showpd==true){
                       this.showpd=false;
               }else {
