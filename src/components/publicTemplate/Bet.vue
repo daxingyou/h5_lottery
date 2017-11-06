@@ -34,8 +34,8 @@
                 </div>
             </div>
             <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{betCount}}</span> 总金额：<span class="total-bet-mon">{{totalAmount}}</span></p>
-            <a @click="closeListDialog"><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit" @click="submitAction(lotteryID)"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
+            <a class="cancle" @click="closeListDialog">取消</a>
+            <a class="btn-submit ok" @click="submitAction(lotteryID)">确定</a>
         </div>
         <!--封盘底部遮挡-->
          <!-- <div class="so-fengpan">
