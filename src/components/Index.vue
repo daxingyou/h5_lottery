@@ -91,9 +91,9 @@
               <div class="cooper">
                   <h3><img src="static/images/title_cooperation.png" alt="合作加盟"></h3>
                   <ul>
-                      <li><a class="icon_intro" href="javascript:;"></a></li>
-                      <li><a class="icon_agent" href="javascript:;"></a></li>
-                      <li><a class="icon_about" href="javascript:;"></a></li>
+                      <li><div class="icon"><a class="icon_intro" href="javascript:;"></a></div></li>
+                      <li><div class="icon"><a class="icon_agent" href="javascript:;"></a></div></li>
+                      <li><div class="icon"><a class="icon_about" href="javascript:;"></a></div></li>
                   </ul>
               </div>
           </section>
