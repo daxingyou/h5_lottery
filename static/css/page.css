@@ -3,13 +3,11 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .touch { /* 解决弹窗 ios上 overhidden 失效的问题 */ height: 100%; overflow: hidden; -webkit-overflow-scrolling: touch; }
 
-#fixed { overflow: scroll; -webkit-overflow-scrolling: touch; }
-
-html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: calc(100% + 1px); }
 
 html.game_fix { overflow: hidden !important; }
 
-body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; height: calc(100% + 1px); }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 

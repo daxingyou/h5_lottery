@@ -532,13 +532,13 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
-#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
+#road01 .tab_content, #road02 .tab_content { overflow-x: scroll; /* winphone8和android4+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
 
 #road01 .tab_content_out, #road02 .tab_content_out { display: none; }
 
 #road01 .tab_content_out.on, #road02 .tab_content_out.on { display: block; }
 
-.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.7rem; display: inline-block; overflow: hidden; }
+.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.7rem; display: inline-block; display: -webkit-inline-flex; overflow: hidden; }
 
 .road:last-child { margin-right: .5rem; }
 

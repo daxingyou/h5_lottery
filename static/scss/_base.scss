@@ -14,14 +14,11 @@
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
 }
-#fixed {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    }
 html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
-    height: 100% !important;
+    //height: 100% !important;
+    height: calc(100% + 1px);
     &.game_fix{
         overflow: hidden !important;
     }
@@ -33,6 +30,7 @@ body{
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
+    height: calc(100% + 1px);
 }
 input,select,option{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;

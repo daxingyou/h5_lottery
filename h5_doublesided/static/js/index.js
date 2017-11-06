@@ -111,17 +111,6 @@ function initLeftViewEve() {
 //     }
 // })
 
-$(function () {
-    var fixed = document.getElementById('fixed'), overflow;
-    $(window).on('load resize', function () {
-        overflow = fixed.scrollHeight - $('#fixed').height();
-    });
-    fixed.on('touchmove', function () {
-        if (overflow) return true;
-        else return false;
-    });
-});
-
 // 此方法弹出遊戲說明
 function initPopWafa() {
     $('.r_play').click(function () {
