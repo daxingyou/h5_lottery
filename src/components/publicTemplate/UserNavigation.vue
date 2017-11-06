@@ -70,8 +70,9 @@ export default {
           showNavigation:false ,
           allLottery:{},
           gameHref : {
-            "1":"c_cqssc",
-            "2":"cqssc","3":"jxsyxw",
+           // "1":"c_cqssc",
+            "2":"cqssc",
+            // "3":"jxsyxw",
             "4":"jc11x5",     //江西11选5
             "8":"pk10","12":"tjssc",
             "14":"xjssc",

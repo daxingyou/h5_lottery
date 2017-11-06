@@ -62,19 +62,9 @@
           <section class="hotgame_area">
               <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
               <ul>
-                   <!-- @click="go(gameHref[lottery.cid])" -->
-                   <!-- <li>
-                        <div class="badge cqssc">
-                        </div>
-                        <p>重庆时时彩</p>
-                    </li> -->
-                  <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">
 
-                    <!-- <a class="to_lottery" href="web_cqssc/index.html"> 
-                      <div class="badge">
-                        <img src="http://admin.baochiapi.com/photo/pic/T19RJTBXCT1RCvBVdK/0" alt="">
-                      </div>
-                    </a> -->
+                 <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
+                  <li v-for="lottery in allLottery">
 
                     <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
                       <div :class="'badge'">
