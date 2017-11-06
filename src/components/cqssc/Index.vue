@@ -239,10 +239,7 @@
   
 </template>
 
-
-
 <script>
-// import common  from '@/components/common'
 import $ from "jquery";
 
 import UserNavigation from '@/components/publicTemplate/UserNavigation'

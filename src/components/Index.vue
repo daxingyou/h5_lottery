@@ -160,7 +160,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .to_lottery { display: block; position: relative; z-index: 7; }
   /* .hotgame_area ul a {
     position: relative;
     display: inline-block;
