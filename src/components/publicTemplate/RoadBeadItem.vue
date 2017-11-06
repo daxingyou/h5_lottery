@@ -13,8 +13,9 @@
     // id="road01_1" 
 
     import Mixin from '@/Mixin'
+
     export default {
-        name: 'Index',
+        name: 'RoadBeadItem',
         mixins:[Mixin],
         props:['dataResult'],
         data :function() {

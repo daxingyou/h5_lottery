@@ -49,5 +49,5 @@ var m_lottery_int = {
  * 解决iOS浏览器touch+click事件延迟，需载入fastclick.js
  * */
 $(function() {
-    FastClick.attach(document.body);
+    // FastClick.attach(document.body);     已转移至src/component/App.vue
 });
