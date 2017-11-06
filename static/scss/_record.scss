@@ -323,7 +323,7 @@
         >li{
             display: block;
             float: left;
-            width: .9rem;
+            width: .8rem;
             height: .35rem;
             border: solid .01rem #ffffff;
             background-color: $yellow;
@@ -369,11 +369,13 @@ ul.no_open{
     >li{
         background-image: url('../../static/images/content/duankaung.png');
         background-repeat: no-repeat;
-        background-size: 2.1rem;
+        background-size: 100%;
         color: #000;
         width: auto;
         font-size: 0.4rem;
         min-width: 2rem;
+        height: 1rem;
+        line-height: .95rem;
     }
 }
 i.prd{
@@ -462,7 +464,7 @@ i.prd{
         overflow:auto;/* winphone8和android4+ */
         -webkit-overflow-scrolling: touch; /* ios5+ */
         white-space: nowrap;
-        width: 100% !important;
+        width: 97.5% !important;
         min-height: 4.3rem;
         padding: 0;
         display: block;
@@ -482,6 +484,7 @@ i.prd{
     width: auto;
     height: 4.6rem;
     display: inline-block;
+    display: -webkit-inline-flex; //fix路珠ios問題
     overflow: hidden;
     &:last-child{
         margin-right: .5rem;
@@ -520,7 +523,7 @@ i.prd{
     }
     >ul{
         background-color: #0d1522;
-        @include border-radius(.2rem);
+        @include border-radius(.05rem);
         margin-top: .5rem;
         padding-top: .2rem;
         >li{
@@ -692,6 +695,14 @@ i.prd{
             text-align: center;
             margin: .5rem auto .1rem;
             height: 1.1rem;
+            &.k3dice_top{
+                li{
+                    width: 1rem;
+                    height: 1rem;
+                    display: inline-block;
+                    margin: 0 .1rem;
+                }
+            }
         }
     }
     ul.pk10_top_number{

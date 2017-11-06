@@ -314,6 +314,11 @@
 //右側選單icon
 .right_menu{
     >li{
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
         &:before{
             @include pseudo();
             @include background-image ('right_icon.png',0,transparent);

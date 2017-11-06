@@ -127,6 +127,15 @@
                     overflow-y: scroll;
                     -webkit-overflow-scrolling: touch;
                 }
+                ul{
+                    // overflow-y: scroll;
+                    // -webkit-overflow-scrolling: touch;
+                    &:after {
+                        content: "";
+                        display: block;
+                        clear: both;
+                    }
+                }
                 li {
                     background: url("../images/left/left-kuang.jpg");
                     background-size: 100%;
@@ -144,11 +153,6 @@
                         font-size: 0.34rem;
                         color: white;
                     }
-                }
-                ul:after {
-                    content: "";
-                    display: block;
-                    clear: both;
                 }
             }
         }
@@ -1078,7 +1082,7 @@
 img.bet_ok {
     position: absolute;
     width: 100%;
-    top: 0;
+    top: -2rem;
     left: 0;
     z-index: 1;
 }
@@ -1409,6 +1413,7 @@ img.bet_ok {
             position: relative;
             top:inherit;
             left: inherit;
+            height: .9rem;
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;

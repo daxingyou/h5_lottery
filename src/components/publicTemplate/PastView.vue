@@ -19,9 +19,9 @@
                 </div>
                 <div class="bd" :id="cssid[lotteryid]">
                     <ul class="tab_content double-all">
-                        <li class="past_view">
+                        <li class="past_view" v-for="(list,index) in pastView">
                             <ul class="panel">
-                                <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
+                                <li class="prod" data-status="not_open" >
                                     <div class="play_th">
                                         <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
                                         <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
@@ -35,15 +35,20 @@
                                             <li>{{list.doubleData.top2_total}}</li>
                                         </ul>
                                         <ul class="double-count" v-else>
-                                            <li>{{list.doubleData.doubler}}</li>
-                                            <li>{{list.doubleData.longer}}</li>
-                                            <li>{{list.doubleData.sizer}}</li>
                                             <li>{{list.doubleData.total}}</li>
+                                            <li>{{list.doubleData.sizer}}</li>
+                                            <li>{{list.doubleData.doubler}}</li>
+                                            <li v-if="(lotteryid == '4' || lotteryid == '16') || (lotteryid == '18')">{{list.doubleData.sizerEnd}}</li>
+                                            <li>{{list.doubleData.longer}}</li>
+
                                         </ul>
                                     </div>
-                                    <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> <!-- 北京pk10  -->
+                                    <!-- 北京pk10  -->
+                                  <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
+                                    <ul  :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')" >
-                                            <span class="pk10_ball" :class="'num_'+listnum"></span>
+                                           <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
+                                            <span :class="[spanclass[list.lotteryId],'num_'+listnum]"></span>
                                         </li>
                                     </ul>
                                     <ul class="lo_ball double-numbers"  v-else>
@@ -76,8 +81,10 @@ export default {
     data :function() {
         return {
             pastView:{} ,
+            ulclass :{'8':'lo_ball double-numbers','6':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
+            spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
             lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
-            cssid :{'8':'pk10'} ,
+            cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
         }
     },
   mounted:function() {
@@ -86,6 +93,7 @@ export default {
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
     // this.changeTab(lotteryid) ;
     this.doubleCount(this.lotteryid,'30','') ;
+    $('html,body').css('overflow-y','scroll' )  ;
   },
   methods:{
 

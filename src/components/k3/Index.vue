@@ -12,7 +12,8 @@
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
-                        <div class="so-m-t-left">
+                        <HistoryTerm :previous_pcode="previous_pcode" />
+                        <!-- <div class="so-m-t-left">
                             <div>
                                 第 <span class="last-date">{{previous_pcode}}</span> 期
                             </div>
@@ -23,7 +24,7 @@
                                     </p>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="k3_top_number">
@@ -198,6 +199,7 @@
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
     import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+    import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
     import BallItem from '@/components/publicTemplate/BallItem'
 
     import Bet from '@/components/publicTemplate/Bet'
@@ -209,6 +211,7 @@
       name: 'k3Index',
       mixins:[Mixin],
       components: {
+        HistoryTerm,
         MenuBar, 
         BallItem,
         CountdownTimer,
@@ -328,7 +331,6 @@
                         let code = res.data[2].winNumber;
                         //code 上期开奖号码
                         if (!code) {
-                            // code = '-,开,奖,中,-';
                             code = '20, 20, 20';
                         }
                         that.winNumber = code;
@@ -348,6 +350,9 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
+                if (this.entertainStatus){
+                    return false;
+                }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     $src.addClass('active');

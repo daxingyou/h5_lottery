@@ -321,7 +321,7 @@
         >li{
             display: block;
             float: left;
-            width: .9rem;
+            width: .8rem;
             height: .35rem;
             border: solid .01rem #ffffff;
             background-color: $yellow;
@@ -478,7 +478,7 @@ i.prd{
     box-sizing: border-box;
     min-width: .85rem;
     width: auto;
-    height: 4.6rem;
+    height: 4.7rem;
     display: inline-block;
     overflow: hidden;
     &:last-child{
@@ -691,10 +691,10 @@ i.prd{
             margin: .5rem auto .1rem;
             height: 1.1rem;
         }
-    }
-    ul.pk10_top_number{
-        margin: .7rem auto 0 !important;
-        height: .8rem;
+        ul.pk10_top_number{
+            margin: .7rem auto 0 !important;
+            height: .8rem;
+        }
     }
 }
 .function_btn{

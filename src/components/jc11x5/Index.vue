@@ -29,7 +29,8 @@
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
-                        <div class="so-m-t-left">
+                        <HistoryTerm :previous_pcode="previous_pcode" />
+                        <!-- <div class="so-m-t-left">
                             <div>
                                 第 <span class="last-date">{{previous_pcode}}</span> 期
                             </div>
@@ -40,7 +41,7 @@
                                     </p>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul>
@@ -52,6 +53,7 @@
                                     <li>{{lastTermStatic.total}}</li>
                                     <li>{{lastTermStatic.sizer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
+                                    <li>{{lastTermStatic.sizerEnd}}</li>
                                     <li>{{lastTermStatic.longer}}</li>
 
                                 </ul>
@@ -270,8 +272,9 @@
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
     import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
-    import BallItem from '@/components/publicTemplate/BallItem'
+    import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
 
+    import BallItem from '@/components/publicTemplate/BallItem'
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/jc11x5/PlayDialog'
     import Mixin from '@/Mixin'
@@ -280,6 +283,7 @@
       name: 'jc11x5Index',
       mixins:[Mixin],
       components: {
+        HistoryTerm,
         BallItem,
         CountdownTimer,
         BetSuccessfulDialog,
@@ -436,7 +440,7 @@
                         let code = res.data[2].winNumber;
                         //code 上期开奖号码
                         if (!code) {
-                            code = '-,开,奖,中,-';
+                            code = '-,-,-,-,-';
                         }
                         that.winNumber = code;
                         //上期开奖统计
@@ -470,6 +474,9 @@
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
+                if (this.entertainStatus){
+                    return false;
+                }
                 const rule = this.selectRules[item.parentItem.cid];
                 const max = rule.max;
                 if (this.betSelectedList.length < max){
@@ -494,6 +501,9 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
+                if (this.entertainStatus){
+                    return false;
+                }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     $src.addClass('active');

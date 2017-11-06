@@ -87,6 +87,8 @@ function initLeftViewEve() {
         var className = $('.so-left').attr('class') || '';
         $('.so-left').attr('class', className.replace('active', 'close'));
         $('.so-shade').hide();// .fadeOut(2000)
+        
+        $('body,html').removeClass('touch');
     });
     $('.so-menu').click(function () {
         var className = $('.so-left').attr('class') || '';
@@ -96,17 +98,29 @@ function initLeftViewEve() {
             $('.so-left').attr('class', className + ' active');
         }
         $('.so-shade').show();
+        $('body,html').addClass('touch');
     });
 }
 
 //禁止遮罩层以下屏幕滑动
-$(document).on("touchmove", function (e) {
-    var e = e || event,
-        target = e.target || e.srcElement;
-    if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
-        e.preventDefault();
-    }
-})
+// $(document).on("touchmove", function (e) {
+//     var e = e || event,
+//         target = e.target || e.srcElement;
+//     if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+//         e.preventDefault();
+//     }
+// })
+
+$(function () {
+    var fixed = document.getElementById('fixed'), overflow;
+    $(window).on('load resize', function () {
+        overflow = fixed.scrollHeight - $('#fixed').height();
+    });
+    fixed.on('touchmove', function () {
+        if (overflow) return true;
+        else return false;
+    });
+});
 
 // 此方法弹出遊戲說明
 function initPopWafa() {

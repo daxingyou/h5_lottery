@@ -36,7 +36,8 @@
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
-                        <div class="so-m-t-left">
+                        <HistoryTerm :previous_pcode="previous_pcode.toString().substr(4, 8)" />
+                        <!-- <div class="so-m-t-left">
                             <div>
                                 第<span class="last-date"> {{previous_pcode.toString().substr(4, 8)}}</span> 期
                             </div>
@@ -47,7 +48,7 @@
                                     </p>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="pk10_top_number">
@@ -1177,6 +1178,7 @@
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
     import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+    import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
 
     import Bet from '@/components/publicTemplate/Bet'
     import PlayDialog from '@/components/cqssc/PlayDialog'
@@ -1185,6 +1187,7 @@ export default {
     name: 'pk10Index',
     mixins:[Mixin],
     components: {
+        HistoryTerm,
         CountdownTimer,
         BetSuccessfulDialog,
         Bet,
@@ -1306,9 +1309,9 @@ export default {
         },
         //当用户选择球时，保存相应数据
         betSelect:function(e, item, parentItem){
-            // if (this.entertainStatus){
-            //     return false;
-            // }
+            if (this.entertainStatus){
+                return false;
+            }
             var $src = $(e.currentTarget);
             if ($src.prop('class').indexOf('active') < 0){
                 $src.addClass('active');
