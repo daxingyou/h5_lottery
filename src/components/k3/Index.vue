@@ -348,6 +348,9 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
+                if (this.entertainStatus){
+                    return false;
+                }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     $src.addClass('active');

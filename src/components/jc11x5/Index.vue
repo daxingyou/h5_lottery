@@ -470,6 +470,9 @@
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
+                if (this.entertainStatus){
+                    return false;
+                }
                 const rule = this.selectRules[item.parentItem.cid];
                 const max = rule.max;
                 if (this.betSelectedList.length < max){
@@ -494,6 +497,9 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
+                if (this.entertainStatus){
+                    return false;
+                }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     $src.addClass('active');
