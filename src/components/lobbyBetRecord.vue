@@ -93,7 +93,8 @@
     import $ from "jquery";
     import FooterNav from '@/components/Footer'
     import Mixin from '@/Mixin'
-    import '../../static/js/swiper-3.4.2.jquery.min.js'
+   // import '../../static/js/swiper-3.4.2.jquery.min.js'
+    var Swiper = require('../../static/js/swiper-3.4.2.jquery.min.js')
     import '../../static/css/swiper-3.4.2.min.css'
     
     export default {
@@ -110,7 +111,6 @@
                 lotteryname : '投注记录' ,
                 lotteryid : '0' ,
                 nowDate: new Date(),
-
                 seadata: {
                     page: 1, // 页数，从1开始
                     pageSize: 10, // 每页行数
@@ -125,7 +125,7 @@
                 touzhuXQ: {},
                 soyeScroll:null, 
                 mySwiperTrack: null,
-                urlparam :'' ,
+               // mySwiperRecode:null ,
             }
         },
         created:function () {
@@ -146,17 +146,18 @@
             },
         },
         mounted: function () {
+            var _self = this ;
             $('html,body').css('overflow-y','scroll' )  ;
-            this.seadata.pdate = this.newpdate;
-            this.setMenuAction();
-            this.initView();
+            _self.seadata.pdate = this.newpdate;
+            _self.setMenuAction();
+            _self.initView();
             var mySwiperRecode = new Swiper('#swiper1', {
                 // autoplay: 5000,//可选选项，自动滑动
                 onSlideChangeStart: (swiper) => {
                     var index = swiper.activeIndex
-                    this.seadata.statusType = index + 1
-                    this.seadata.page = 1
-                    this.initView()
+                    _self.seadata.statusType = index + 1
+                    _self.seadata.page = 1
+                    _self.initView()
                     $('#betting_record .recode-tab .tab_mid  li').each((i, t) => {
                         if (i === index) {
                             $(t).addClass('on')
@@ -166,6 +167,7 @@
                     })
                 },
             })
+
 
             // 一级标签
             /* (function () {*/
@@ -204,16 +206,17 @@
                 var num = parseInt($src.index(), 10);
                 switch (num) {
                     case 0:
-                        this.seadata.statusType = 1
-                        if (this.seadata.searchType === 1) {
+                        _self.seadata.statusType = 1
+                        if (_self.seadata.searchType === 1) {
                             mySwiperRecode.slideTo(0, 200, false);
                         } else {
                             mySwiperTrack.slideTo(0, 200, false);
                         }
                         break
                     case 1:
-                        this.seadata.statusType = 2
-                        if (this.seadata.searchType === 1) {
+                        _self.seadata.statusType = 2
+                        if (_self.seadata.searchType === 1) {
+                            console.log('好的')
                             mySwiperRecode.slideTo(1, 200, false);
                         } else {
                             mySwiperTrack.slideTo(1, 200, false);
@@ -222,6 +225,7 @@
                     case 2:
                         this.seadata.statusType = 3
                         if (this.seadata.searchType === 1) {
+                            console.log('返点')
                             mySwiperRecode.slideTo(2, 200, false);
                         } else {
                             mySwiperTrack.slideTo(2, 200, false);
@@ -229,15 +233,15 @@
                         break
                     case 3:
                         this.seadata.statusType = 4
-                        if (this.seadata.searchType === 1) {
+                        if (_self.seadata.searchType === 1) {
                             mySwiperRecode.slideTo(3, 200, false);
                         } else {
                             mySwiperTrack.slideTo(3, 200, false);
                         }
                         break
                 }
-                this.seadata.page = 1
-                this.initView()
+                _self.seadata.page = 1
+                _self.initView()
             });
 
             // 下拉加载更多

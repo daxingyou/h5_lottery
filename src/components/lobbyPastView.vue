@@ -173,7 +173,7 @@ export default {
       setTimeout(function(){
           that.gameTimer() ;
 
-      },500)
+      },200)
 
   },
   methods:{
@@ -251,11 +251,9 @@ export default {
                           $obj_nav_span.eq(i).html($obj_nav_span.eq(i).attr("data-time"));
                       }
                       if (parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) > 0) {
-                          console.log('呵呵') ;
                           _times = parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) - 1;
                       } else { // 当前倒计时结束
                           that.lobbytimerBegin() ;
-                          console.log('哈哈哈') ;
                          _times = $obj_nav_span.eq(i).attr("data-time");
 
                       }
