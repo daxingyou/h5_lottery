@@ -38,6 +38,7 @@
                                             <li>{{list.doubleData.total}}</li>
                                             <li>{{list.doubleData.sizer}}</li>
                                             <li>{{list.doubleData.doubler}}</li>
+                                            <li v-if="(lotteryid == '4' || lotteryid == '16') || (lotteryid == '18')">{{list.doubleData.sizerEnd}}</li>
                                             <li>{{list.doubleData.longer}}</li>
 
                                         </ul>

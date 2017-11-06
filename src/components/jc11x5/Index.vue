@@ -53,6 +53,7 @@
                                     <li>{{lastTermStatic.total}}</li>
                                     <li>{{lastTermStatic.sizer}}</li>
                                     <li>{{lastTermStatic.doubler}}</li>
+                                    <li>{{lastTermStatic.sizerEnd}}</li>
                                     <li>{{lastTermStatic.longer}}</li>
 
                                 </ul>
