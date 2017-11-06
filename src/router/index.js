@@ -22,7 +22,9 @@ import lobbyBetRecord from '@/components/lobbyBetRecord'  // 大厅投注记录
 import RoadBeads from '@/components/publicTemplate/RoadBeads'
 import pk10RoadBeads from '@/components/publicTemplate/pk10RoadBeads'
 import DsLong from '@/components/publicTemplate/DsLong'
-
+import info from '@/components/lobbyTemplate/info'  // 大厅个人中心
+import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中心 盈亏分析
+import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
 
 Vue.use(Router)
 
@@ -107,6 +109,9 @@ export default new Router({
     { path: '/publicTemplate/roadBeads', name:'roadBeads', component: RoadBeads },
     { path: '/publicTemplate/pk10roadBeads', name:'pk10roadBeads', component: pk10RoadBeads },
     { path: '/publicTemplate/dsLong', name:'dsLong', component: DsLong },
+    { path: '/lobbyTemplate/info', name:'info', component: info },
+    { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
+    { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
 
   ]
 })
