@@ -31,7 +31,7 @@
                                         <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
                                     </li>
                                 </ul>
-                                <ul class="k3dice_top" v-if="list.lotteryId == '6'">  <!--  江蘇快3 -->
+                                <ul class="k3dice_top" v-else-if="list.lotteryId == '6'">  <!--  江蘇快3 -->
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                         <span class="k3_dice" :class="'num_'+listnum"></span>
                                     </li>
