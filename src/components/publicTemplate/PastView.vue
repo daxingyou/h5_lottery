@@ -42,9 +42,12 @@
 
                                         </ul>
                                     </div>
-                                    <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> <!-- 北京pk10  -->
+                                    <!-- 北京pk10  -->
+                                  <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
+                                    <ul  :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')" >
-                                            <span class="pk10_ball" :class="'num_'+listnum"></span>
+                                           <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
+                                            <span :class="[spanclass[list.lotteryId],'num_'+listnum]"></span>
                                         </li>
                                     </ul>
                                     <ul class="lo_ball double-numbers"  v-else>
@@ -77,8 +80,10 @@ export default {
     data :function() {
         return {
             pastView:{} ,
+            ulclass :{'8':'lo_ball double-numbers','6':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
+            spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
             lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
-            cssid :{'8':'pk10'} ,
+            cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
         }
     },
   mounted:function() {

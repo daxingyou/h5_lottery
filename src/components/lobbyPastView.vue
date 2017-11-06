@@ -24,18 +24,18 @@
                                     </div>
 
                                 </div>
-
-
-                                <ul class="pk10_top_number" v-if="list.lotteryId == '8'">  <!--  北京pk10 -->
+                                <!--  北京pk10   江苏快3 -->
+                                <ul :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                     <li v-for="listnum in list.winNumber.split(',')" >
-                                        <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
+                                       <!-- <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>-->
+                                        <span :class="[spanclass[list.lotteryId],'num_'+listnum]"></span>
                                     </li>
                                 </ul>
-                                <ul class="k3dice_top" v-else-if="list.lotteryId == '6'">  <!--  江苏快3 -->
+                             <!--   <ul class="k3dice_top" v-else-if="list.lotteryId == '6'">  &lt;!&ndash;  江苏快3 &ndash;&gt;
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                         <span class="k3_dice" :class="'num_'+listnum"></span>
                                     </li>
-                                </ul>
+                                </ul>-->
                                 <ul class="lo_ball" v-else>
                                     <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
                                 </ul>
