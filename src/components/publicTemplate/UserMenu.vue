@@ -58,6 +58,8 @@
 
 <script>
 import Mixin from '@/Mixin'
+import $ from "jquery";
+
 export default {
   name: 'UserMenu',
   mixins:[Mixin],

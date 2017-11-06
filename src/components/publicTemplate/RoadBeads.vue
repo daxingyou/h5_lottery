@@ -119,11 +119,12 @@
 
 <script>
     import Mixin from '@/Mixin'
+    import $ from "jquery";
     import InfoDialog from '@/components/publicTemplate/InfoDialog'
     import RoadBeadItem from '@/components/publicTemplate/RoadBeadItem'
 
     export default {
-        name: 'Index',
+        name: 'RoadBeads',
         mixins:[Mixin],
         data :function() {
             return {

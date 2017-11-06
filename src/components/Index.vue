@@ -103,6 +103,8 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
@@ -111,6 +113,7 @@ export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
+    // TouchSlide,
       FooterNav ,
     UserNavigation,
   },
@@ -131,6 +134,7 @@ export default {
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
     this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+
     TouchSlide({
       slideCell: "#focus",
       autoPlay:true,

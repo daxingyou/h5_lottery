@@ -6,7 +6,13 @@
 </template>
 
 <script>
+// import FastClick from 'fastclick'
+const FastClick = require('fastclick');
+
 export default {
-  name: 'app'
+  name: 'app', 
+  mounted:function(){
+    FastClick.attach(document.body);
+  }
 }
 </script>

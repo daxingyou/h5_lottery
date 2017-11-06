@@ -90,6 +90,7 @@
 
 
 <script>
+    import $ from "jquery";
     import FooterNav from '@/components/Footer'
     import Mixin from '@/Mixin'
     import '../../static/js/swiper-3.4.2.jquery.min.js'

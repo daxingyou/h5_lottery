@@ -67,9 +67,11 @@
 
 <script>
 import Mixin from '@/Mixin'
+import $ from "jquery";
 import "../../../static/css/pk10.css"
+
 export default {
-  name: 'Index',
+  name: 'PastView',
   mixins:[Mixin],
     data :function() {
         return {
