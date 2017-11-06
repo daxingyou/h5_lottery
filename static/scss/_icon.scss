@@ -155,8 +155,8 @@ i.icon-notification{
 i.i_mail_status{
     background:url('../../static/images/icon_money.png') no-repeat;
     background-size:  100%;
-    background-position-y:-3.5rem;
-    margin-top: .1rem;
+    background-position-y:-3.55rem;
+    margin-top: .12rem;
 }
 i.write{
     @include background-image ('icon_money.png',0,transparent);

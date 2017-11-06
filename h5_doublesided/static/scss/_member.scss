@@ -719,14 +719,14 @@ fieldset{
 
 //個人中心
 .message_area{
-    .item{
+    >.item{
         overflow: hidden;
         height: 1.5rem;
         line-height: .75rem;
         padding: .4rem;
         text-align: left;
-        border-bottom:1px solid #122234;
-        border-top:1px solid #394c5e;
+        border-bottom:1px solid #152538;
+        border-top:1px solid #3c4e61;
         >.icon{
             float: left;
         }

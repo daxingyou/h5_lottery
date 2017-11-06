@@ -379,7 +379,7 @@ i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1r
 
 i.icon-notification { background: url("../../static/images/icon-notification.gif") no-repeat; width: .5rem; height: .5rem; background-size: 100%; margin: -1px 6px 0 0; padding: 0; vertical-align: middle; }
 
-i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -3.5rem; margin-top: .1rem; }
+i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -3.55rem; margin-top: .12rem; }
 
 i.write, i.i_save, i.triangle, i.ac { background-image: url("../../static/images/icon_money.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-position-y: -5.9rem; width: .65rem; height: .3rem; }
 
@@ -520,7 +520,7 @@ ul.lo_ball > li { background: url("../../static/images/content/qui02.png") no-re
 
 ul.lo_ball.double-numbers { margin-left: -2rem; }
 
-ul.no_open > li { background-image: url("../../static/images/content/duankaung.png"); background-repeat: no-repeat; background-size: 2.1rem; color: #000; width: auto; font-size: 0.4rem; min-width: 2rem; }
+ul.no_open > li { background-image: url("../../static/images/content/duankaung.png"); background-repeat: no-repeat; background-size: 100%; color: #000; width: auto; font-size: 0.4rem; min-width: 2rem; height: 1rem; line-height: .95rem; }
 
 i.prd { background-image: url("../../static/images/page/icon_pn.png"); background-position-y: .15rem; background-repeat: no-repeat; background-size: 100%; height: .6rem; width: .5rem; display: inline-block; line-height: .3rem; vertical-align: inherit; }
 
@@ -552,7 +552,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
-#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 100% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
+#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 97.5% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
 
 #road01 .tab_content_out, #road02 .tab_content_out { display: none; }
 
@@ -572,7 +572,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .road.road_left ul > li:nth-child(n+7) { margin-top: -1rem; display: inline-block; position: relative; top: -.77rem; }
 
-.road > ul { background-color: #0d1522; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; margin-top: .5rem; padding-top: .2rem; }
+.road > ul { background-color: #0d1522; -webkit-border-radius: 0.05rem; -moz-border-radius: 0.05rem; -ms-border-radius: 0.05rem; border-radius: 0.05rem; margin-top: .5rem; padding-top: .2rem; }
 
 .road > ul > li { background: url("../../static/images/page/road.png") no-repeat center top; background-size: 100%; width: .8rem; height: .8rem; margin: 0 auto; text-align: center; background-position-y: 0; color: #fff; font-size: 0.35rem; line-height: .6rem; }
 
@@ -812,6 +812,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 @media (max-width: 359px) { .so-con .so-left .so-left-con .so-l-c-con.indexside li { width: 3.2rem; } }
 
 .so-con .so-left .so-left-con .so-l-c-con.indexside li .icon { float: left; }
+
+.right_menu > li a { display: block; width: 100%; height: 100%; }
 
 .right_menu > li:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/right_icon.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; background-image: url("../../../static/images/right_icon.png"); width: .7rem; height: 1.38rem; line-height: 1.38rem; margin-left: .2rem; background-position-x: 0; }
 
@@ -1096,13 +1098,13 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
-.message_area .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .4rem; text-align: left; border-bottom: 1px solid #122234; border-top: 1px solid #394c5e; }
+.message_area > .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .4rem; text-align: left; border-bottom: 1px solid #152538; border-top: 1px solid #3c4e61; }
 
-.message_area .item > .icon { float: left; }
+.message_area > .item > .icon { float: left; }
 
-.message_area .item > .content { height: 1.5rem; margin-left: 2rem; font-size: .35rem; }
+.message_area > .item > .content { height: 1.5rem; margin-left: 2rem; font-size: .35rem; }
 
-.message_area .item > .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
+.message_area > .item > .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
 
 .password_area { width: 90%; margin: 0 auto; }
 

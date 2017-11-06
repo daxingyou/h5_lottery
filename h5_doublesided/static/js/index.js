@@ -100,13 +100,13 @@ function initLeftViewEve() {
 }
 
 //禁止遮罩层以下屏幕滑动
-$(document).on("touchmove", function (e) {
-    var e = e || event,
-        target = e.target || e.srcElement;
-    if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
-        e.preventDefault();
-    }
-})
+// $(document).on("touchmove", function (e) {
+//     var e = e || event,
+//         target = e.target || e.srcElement;
+//     if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+//         e.preventDefault();
+//     }
+// })
 
 // 此方法弹出遊戲說明
 function initPopWafa() {

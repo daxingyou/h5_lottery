@@ -21,7 +21,7 @@
                     <ul class="tab_content double-all">
                         <li class="past_view">
                             <ul class="panel">
-                                <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
+                                <li class="prod" v-for="(list,index) in pastView">
                                     <div class="play_th">
                                         <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
                                         <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
