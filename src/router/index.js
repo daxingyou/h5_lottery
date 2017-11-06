@@ -25,6 +25,9 @@ import DsLong from '@/components/publicTemplate/DsLong'
 import info from '@/components/lobbyTemplate/info'  // 大厅个人中心
 import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中心 盈亏分析
 import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
+import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
+import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
+
 
 Vue.use(Router)
 
@@ -112,6 +115,8 @@ export default new Router({
     { path: '/lobbyTemplate/info', name:'info', component: info },
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
+    { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
+    { path: '/lobbyTemplate/withdrawals', name:'deposit', component: withdrawals }
 
   ]
 })

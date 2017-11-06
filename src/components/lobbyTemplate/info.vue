@@ -35,10 +35,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="btn btn_blue btn_two">
-                            <a href="deposit.html">充值</a>
+                            <router-link v-bind:to="'/lobbyTemplate/deposit'">充值</router-link>
                         </div>
                         <div class="btn btn_blue btn_two">
-                            <a href="withdrawals.html">提款</a>
+                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">提款</router-link>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
                         <div class="form_g account">
                             <legend></legend>
                             <input type="text" placeholder="请输入帐号" v-model="username" class="user-name" @input="checkUserName(username,'user-name','请输入4~15位帐号')" >
-                            <i class="close close1" @click="ClearInput('close1')"></i>
+                            <i class="close close1" @click="ClearInput('close1','user-name')"></i>
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -18,7 +18,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="password" placeholder="请输入密码" v-model="password" class="pass-word"  @input="checkUserName(password,'pass-word','请输入4~15位密码')">
-                            <i class="close close2" @click="ClearInput('close2')"></i>
+                            <i class="close close2" @click="ClearInput('close2','pass-word')"></i>
                         </div>
                         <label class="error-message"> </label>
                     </fieldset>
@@ -59,6 +59,14 @@ export default {
 
   },
   methods: {
+      //清除model数据,cl元素class
+      clearVal :function (cl) {
+          if(cl=='pass-word'){
+              this.password ='';}
+          if(cl=='user-name'){
+              this.username ='';
+          }
+      },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
         if(this.username ==''){
