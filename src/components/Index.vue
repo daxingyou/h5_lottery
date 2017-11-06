@@ -169,8 +169,8 @@ export default {
   /* #pa_head > .left a.btn_leftside{
       margin-left:.6rem;
   } */
-  #pa_head > .center.logo{
+  /* #pa_head > .center.logo{
       margin-left: .6rem;
-  }
+  } */
 
 </style>

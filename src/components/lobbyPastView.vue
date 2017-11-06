@@ -31,9 +31,16 @@
                                         <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
                                     </li>
                                 </ul>
+                                <ul class="k3dice_top" v-if="list.lotteryId == '6'">  <!--  江蘇快3 -->
+                                    <li v-for="listnum in list.winNumber.split(',')" >
+                                        <span class="k3_dice" :class="'num_'+listnum"></span>
+                                    </li>
+                                </ul>
                                 <ul class="lo_ball" v-else>
                                     <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
                                 </ul>
+
+
 
                                 <div class="function_btn">
                                     <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
@@ -149,7 +156,8 @@ export default {
             pastView:{} ,
            // pastViewArray :{} ,
             cssid :{'8':'pk10'} ,
-            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
+            cssid :{'6':'k3'} ,
+            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","6":"jsks","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
         }
     },

@@ -538,7 +538,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .tab_content_out.on, #road02 .tab_content_out.on { display: block; }
 
-.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.6rem; display: inline-block; overflow: hidden; }
+.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.7rem; display: inline-block; overflow: hidden; }
 
 .road:last-child { margin-right: .5rem; }
 
@@ -610,7 +610,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .lobby_past_view .panel ul { text-align: center; margin: .5rem auto .1rem; height: 1.1rem; }
 
-.lobby_past_view ul.pk10_top_number { margin: .7rem auto 0 !important; height: .8rem; }
+.lobby_past_view .panel ul.pk10_top_number { margin: .7rem auto 0 !important; height: .8rem; }
 
 .function_btn { position: relative; }
 
