@@ -4,11 +4,9 @@
 
 #k3 .so-in-top, #k3 #pa_head { background-image: url(../images/k3/bg_top.jpg); background-size: auto 100%; }
 
-#k3 .so-m-t-left { width: 3rem; }
+#k3 .so-m-t-left { width: 3.33rem; }
 
-#k3 .so-m-t-left div:first-child { width: 3rem; white-space: nowrap; }
-
-#k3 .so-m-t-right { width: 7rem; }
+#k3 .so-m-t-left div:first-child { white-space: nowrap; margin-right: 0; width: 3.33rem; }
 
 #k3 .so-m-t-right > div { float: none; }
 
@@ -24,11 +22,7 @@
 
 #k3 .so-main-down li { white-space: nowrap; }
 
-#k3 .so-main-down li:first-child p { width: 3rem; margin-right: 0.12rem; }
-
-#k3 .so-main-down li i { margin-top: 0.18rem; margin-left: 0; vertical-align: middle; }
-
-#k3 .so-main-down li a { margin-top: 0.15rem; margin-right: 0.1rem; }
+#k3 .so-main-down li i { margin-top: 0.18rem; vertical-align: middle; margin-left: 0.3rem; }
 
 #k3 .select-li { height: auto; padding-top: 0.3rem; }
 
@@ -98,9 +92,9 @@
 
 #k3-item0 .select-li p > span:last-child { padding-top: 0.4rem; }
 
-#k3-item2 .select-li:last-child p { width: 96% !important; background-size: 100% 100%; }
+#k3-item2 .select-li:first-child p > span { float: none; padding: 0.2rem 0.2rem 0; }
 
-#k3-item2 .select-li:last-child p:last-child span { line-height: 0.54rem; }
+#k3-item2 .select-li:first-child p > span:last-child { padding: 0.05rem 0.2rem 0.15rem; }
 
 .k3_dice { display: inline-block; vertical-align: middle; -webkit-box-sizing: border-box; box-sizing: border-box; background: url(../images/k3/dice.png) no-repeat; background-size: 6rem 1rem; width: 1rem; height: 1rem; border-radius: 0.1rem; }
 

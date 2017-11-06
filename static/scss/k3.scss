@@ -12,14 +12,14 @@
         background-size: auto 100%;
     }
     .so-m-t-left{
-        width: 3rem;
+        width: 3.33rem;
         div:first-child{
-            width: 3rem;
             white-space: nowrap;
+            margin-right: 0;
+            width: 3.33rem;
         }
     }
     .so-m-t-right{
-        width: 7rem;
         > div{
             float: none;
         }
@@ -58,20 +58,10 @@
     .so-main-down{
         li{
             white-space: nowrap;
-            &:first-child{
-                p{
-                    width: 3rem;
-                    margin-right: 0.12rem;
-                }
-            }
             i{
                 margin-top: 0.18rem;
-                margin-left: 0;
                 vertical-align: middle;
-            }
-            a{
-                margin-top: 0.15rem;
-                margin-right: 0.1rem;
+                margin-left: 0.3rem;
             }
         }
     }
@@ -253,12 +243,16 @@
 #k3-item0 .select-li p > span:last-child{
     padding-top: 0.4rem;
 }
-#k3-item2 .select-li:last-child p{
-    width: 96% !important;
-    background-size: 100% 100%;
-}
-#k3-item2 .select-li:last-child p:last-child span{
-    line-height: 0.54rem;
+#k3-item2 .select-li:first-child{
+    p{
+        >span{
+            float: none;
+            padding: 0.2rem 0.2rem 0;
+            &:last-child{
+                padding: 0.05rem 0.2rem 0.15rem;
+            }
+        }
+    }
 }
 // k3 dice
 .k3_dice{
