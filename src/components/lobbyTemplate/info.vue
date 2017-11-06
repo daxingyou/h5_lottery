@@ -44,7 +44,7 @@
                 </div>
                 <div class="info_bot">
                     <ul>
-                        <li>
+             <!--           <li>
                             <a class="btn_icon" href="./analysis">
                                 <div class="icon">
                                     <div>
@@ -53,7 +53,7 @@
                                 </div>
                                 盈亏分析
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a class="btn_icon" href="./acdetial">
                                 <div class="icon">
