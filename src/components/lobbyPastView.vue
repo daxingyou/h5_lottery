@@ -31,11 +31,7 @@
                                         <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
                                     </li>
                                 </ul>
-<<<<<<< HEAD
-                                <ul class="k3dice_top" v-if="list.lotteryId == '6'">  <!--  江苏快3 -->
-=======
-                                <ul class="k3dice_top" v-else-if="list.lotteryId == '6'">  <!--  江蘇快3 -->
->>>>>>> 9e7ae6bd3806275504134ccb512b8cbb567cf1d9
+                                <ul class="k3dice_top" v-else-if="list.lotteryId == '6'">  <!--  江苏快3 -->
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                         <span class="k3_dice" :class="'num_'+listnum"></span>
                                     </li>
