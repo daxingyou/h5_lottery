@@ -210,6 +210,24 @@ export default {
              // console.log(data.data) ;
                 var str = '' ;
                 for(var i=0;i<data.data.length;i++){
+                    var textcolor = 'text-red' ;
+                    switch (data.data[i].count){
+                        case '3':
+                             textcolor = 'text-green' ;
+                             break;
+                        case '4':
+                            textcolor = 'text-yellow' ;
+                            break;
+                        case '5':
+                            textcolor = 'text-white' ;
+                            break;
+                        case '6':
+                            textcolor = 'text-yellow' ;
+                            break;
+                        default :
+                            textcolor = 'text-red' ;
+                            break ;
+                    }
                     str +=' <li class="prod" data-status="not_open">'+
                             '<i class="prd"></i>'+
                             '<div>'+ data.data[i].groupName +'</div>';
@@ -220,7 +238,7 @@ export default {
                             }
                             str += '<li>'+ data.data[i].playName +'</li>'+
                             '</ul>'+
-                             '<div class="periods text-red">'+ data.data[i].count +'期</div>'+
+                             '<div class="periods '+textcolor+'">'+ data.data[i].count +'期</div>'+
                             '</li>' ;
                 }
                 $('.'+cla).html(str) ;

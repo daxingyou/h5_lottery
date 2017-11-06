@@ -418,6 +418,7 @@
                 $('.tab_content .slide_toggle').each( (i, t) => {
                     $(t).unbind('click');
                     $(t).click((e) => {
+                        $('.bet-recode-all').find('li').remove();
                         var $src = $(e.currentTarget);
                         this.seadata.page = 1;
                         if ($src.attr('class').indexOf('active') < 0) {
