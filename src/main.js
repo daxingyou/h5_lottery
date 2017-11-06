@@ -4,6 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// import 'jquery'
+import $ from "jquery";
+
+// import '@/static/js/touchslide.1.1.js'   ok
+// import '@/static/js/fastclick.js'    ok
+// import '@/static/js/index.js'
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

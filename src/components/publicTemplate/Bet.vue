@@ -49,9 +49,10 @@
 
 <script>
 import Mixin from '@/Mixin'
+import $ from "jquery";
 
 export default {
-    name: 'Index',
+    name: 'Bet',
     props:[
         'betSelectedList', 'parentRefs', 
         'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode', 

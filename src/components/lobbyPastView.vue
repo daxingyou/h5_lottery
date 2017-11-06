@@ -130,9 +130,10 @@
 
 
 <script>
+import $ from "jquery";
 import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
- // import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+
 export default {
   name: 'Index',
   mixins:[Mixin],

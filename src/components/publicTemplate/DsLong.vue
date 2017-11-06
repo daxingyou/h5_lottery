@@ -163,8 +163,10 @@
 
 
 <script>
-    import Mixin from '@/Mixin'
-    export default {
+import Mixin from '@/Mixin'
+import $ from "jquery";
+    
+export default {
     name: 'dslong',
     mixins:[Mixin],
     data :function() {

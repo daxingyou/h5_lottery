@@ -1,9 +1,5 @@
 
-
-//代码调用示例
-// this.getSystemTime().then((sys_time)=>{
-//     //代码
-// })
+import $ from "jquery";
 
 //mixin.js
 var MyMixin = {
