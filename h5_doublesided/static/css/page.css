@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html, body { /* 解决弹窗 ios上 overhidden 失效的问题 */ }
+.touch { /* 解决弹窗 ios上 overhidden 失效的问题 */ height: 100%; overflow: hidden; -webkit-overflow-scrolling: touch; }
 
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; }
 

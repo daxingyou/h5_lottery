@@ -87,6 +87,8 @@ function initLeftViewEve() {
         var className = $('.so-left').attr('class') || '';
         $('.so-left').attr('class', className.replace('active', 'close'));
         $('.so-shade').hide();// .fadeOut(2000)
+        
+        $('body,html').removeClass('touch');
     });
     $('.so-menu').click(function () {
         var className = $('.so-left').attr('class') || '';
@@ -96,6 +98,7 @@ function initLeftViewEve() {
             $('.so-left').attr('class', className + ' active');
         }
         $('.so-shade').show();
+        $('body,html').addClass('touch');
     });
 }
 
@@ -107,6 +110,17 @@ function initLeftViewEve() {
 //         e.preventDefault();
 //     }
 // })
+
+$(function () {
+    var fixed = document.getElementById('fixed'), overflow;
+    $(window).on('load resize', function () {
+        overflow = fixed.scrollHeight - $('#fixed').height();
+    });
+    fixed.on('touchmove', function () {
+        if (overflow) return true;
+        else return false;
+    });
+});
 
 // 此方法弹出遊戲說明
 function initPopWafa() {
