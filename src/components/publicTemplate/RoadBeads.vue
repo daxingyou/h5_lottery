@@ -21,7 +21,7 @@
                     <ul :class="'tab tab01 tab_mid ' + (!(['4'].includes(lotteryID))?'tab_three':'')">
                         <li class="on" data-tab="road01_1" data-val="1"><a href="javascript:;">总和大小</a></li>
                         <li data-tab="road01_2" data-val="1" v-if="!(['6'].includes(lotteryID))"><a href="javascript:;">总和单双</a></li>
-                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="!(['2', '6'].includes(lotteryID))"><a href="javascript:;">总和尾大小</a></li>
+                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="!(['2','12','14','6'].includes(lotteryID))"><a href="javascript:;">总和尾大小</a></li>
                         <li data-tab="road01_3" data-val="1"><a href="javascript:;" v-if="!(['6'].includes(lotteryID))">龙 虎</a></li>
                     </ul>
                 </div>

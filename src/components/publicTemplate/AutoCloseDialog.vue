@@ -16,7 +16,7 @@ export default {
   props:['text', 'type'],
   data () {
     return {
-      delay:2000000000,
+      delay:2000,
       show:false,
       content:'',
       typeStr:'',
