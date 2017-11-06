@@ -37,18 +37,7 @@
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
-                        <div class="so-m-t-left">
-                            <div>
-                                第 <span class="last-date">{{previous_pcode}}</span> 期 <!-- 上期 -->
-                            </div>
-                            <div>
-                                 <a href="/publicTemplate/pastView">
-                                    <p>
-                                        查看往期
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
+                        <HistoryTerm :previous_pcode="previous_pcode" />
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul>
@@ -238,8 +227,6 @@
   
 </template>
 
-
-
 <script>
 import $ from "jquery";
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
@@ -248,6 +235,7 @@ import InfoDialog from '@/components/publicTemplate/InfoDialog'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
 import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
+import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
 
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
@@ -257,6 +245,7 @@ export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
+    HistoryTerm,
     CountdownTimer,
     BetSuccessfulDialog,
     Bet,
@@ -358,7 +347,7 @@ export default {
                 let code = res.data[2].winNumber;
                 //code 上期开奖号码
                 if (!code) {
-                    code = '-,开,奖,中,-';
+                    code = '-,-,-,-,-';
                 }
                 that.winNumber = code;
                 //上期开奖统计

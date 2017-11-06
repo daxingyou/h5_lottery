@@ -19,9 +19,9 @@
                 </div>
                 <div class="bd" :id="cssid[lotteryid]">
                     <ul class="tab_content double-all">
-                        <li class="past_view">
+                        <li class="past_view" v-for="(list,index) in pastView">
                             <ul class="panel">
-                                <li class="prod" v-for="(list,index) in pastView">
+                                <li class="prod" data-status="not_open" >
                                     <div class="play_th">
                                         <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
                                         <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
@@ -35,10 +35,11 @@
                                             <li>{{list.doubleData.top2_total}}</li>
                                         </ul>
                                         <ul class="double-count" v-else>
+                                            <li>{{list.doubleData.total}}</li>
+                                            <li>{{list.doubleData.sizer}}</li>
                                             <li>{{list.doubleData.doubler}}</li>
                                             <li>{{list.doubleData.longer}}</li>
-                                            <li>{{list.doubleData.sizer}}</li>
-                                            <li>{{list.doubleData.total}}</li>
+
                                         </ul>
                                     </div>
                                     <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> <!-- 北京pk10  -->
@@ -86,6 +87,7 @@ export default {
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
     // this.changeTab(lotteryid) ;
     this.doubleCount(this.lotteryid,'30','') ;
+    $('html,body').css('overflow-y','scroll' )  ;
   },
   methods:{
 

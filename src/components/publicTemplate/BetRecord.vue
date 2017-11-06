@@ -111,6 +111,7 @@
                     searchType: 1, // 查询类型，1为投注记录查询，2为追号查询
                     statusType: 1, // 状态：1全部，2未开奖，3已中奖，4未中奖,81异常处理中，5和局
                     lotteryId: this.lotteryid , // 彩种ID
+                    sideType: '2' , // 彩票类型：1 官彩，2 双面彩
                     // pdate: this.newpdate,
                 },
                 tableLock: 0,
@@ -139,6 +140,7 @@
             },
         },
         mounted: function () {
+            $('html,body').css('overflow-y','scroll' )  ;
             this.seadata.pdate = this.newpdate;
             this.setMenuAction();
             this.initView();

@@ -146,6 +146,7 @@
             },
         },
         mounted: function () {
+            $('html,body').css('overflow-y','scroll' )  ;
             this.seadata.pdate = this.newpdate;
             this.setMenuAction();
             this.initView();
