@@ -360,7 +360,7 @@ export default {
                 let code = res.data[2].winNumber;
                 //code 上期开奖号码
                 if (!code) {
-                    code = '-,开,奖,中,-';
+                    code = '-,-,-,-,-';
                 }
                 that.winNumber = code;
                 //上期开奖统计
