@@ -2,7 +2,7 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="../">
+                <a href="javascript:;" onclick="history.go(-1)">
                     <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
@@ -62,22 +62,7 @@
             <a href="javascript:void(0);" class="ui red label get_m_03">会员_取款-取款稽核-不滿足</a><br/><br/> -->
 
         </div>
-        <footer class="bot_nav">
-            <ul>
-                <li class="active">
-                    <a class="index" href="../">首页大厅</a>
-                </li>
-                <li>
-                    <a class="trend" href="lobby_past_view.html">往期开奖</a>
-                </li>
-                <li>
-                    <a class="record" href="publicTemplate/bet_record.html">投注纪录</a>
-                </li>
-                <li>
-                    <a class="member" href="info.html">个人中心</a>
-                </li>
-            </ul>
-        </footer>
+        <FooterNav></FooterNav>
     </div>
 </template>
 
