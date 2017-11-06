@@ -2,8 +2,8 @@
   <div id="pa_con" class="so-con warp bule_bg">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
-      <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
-
+      <!--<UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>-->
+      <IndexNavigation el=".btn_leftside" ref="navone" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
               <a class="btn_leftside" href="javascript:;">
@@ -106,7 +106,8 @@
 import $ from 'jquery'
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
-import UserNavigation from '@/components/publicTemplate/UserNavigation'
+//import UserNavigation from '@/components/publicTemplate/UserNavigation'
+import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import FooterNav from '@/components/Footer'
 
 export default {
@@ -115,7 +116,9 @@ export default {
   components: {
     // TouchSlide,
       FooterNav ,
-    UserNavigation,
+    IndexNavigation
+//    UserNavigation,
+
   },
   data :function() {
         return {

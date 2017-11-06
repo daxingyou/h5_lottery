@@ -21,6 +21,7 @@
           </div>
       </div>
       <div class="so-l-c-con">
+
           <div>
                 <div class="back_home">
                   <router-link v-bind:to="'/'">
@@ -36,14 +37,7 @@
                       </div>
                       <p>{{lottery.name}}</p>
                     </router-link>
-                      <!-- <a :href="'/'+gameHref[lottery.cid]">
-                          <div class="badge">
-                               <img :src="lottery.imgUrl" alt="">
-                          </div>
-                          <p>{{lottery.name}}</p>
-                      </a> -->
                   </li>
-
               </ul>
           </div>
       </div>
