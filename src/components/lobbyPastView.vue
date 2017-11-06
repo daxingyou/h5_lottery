@@ -31,7 +31,7 @@
                                         <span class="pk10_ball small_ball" :class="'num_'+listnum"></span>
                                     </li>
                                 </ul>
-                                <ul class="k3dice_top" v-if="list.lotteryId == '6'">  <!--  江蘇快3 -->
+                                <ul class="k3dice_top" v-if="list.lotteryId == '6'">  <!--  江苏快3 -->
                                     <li v-for="listnum in list.winNumber.split(',')" >
                                         <span class="k3_dice" :class="'num_'+listnum"></span>
                                     </li>
@@ -155,8 +155,9 @@ export default {
             sys_time :'',  // 当前系统时间
             pastView:{} ,
            // pastViewArray :{} ,
-            cssid :{'8':'pk10'} ,
-            cssid :{'6':'k3'} ,
+            cssid :{'8':'pk10','6':'k3'} ,
+            ulclass :{'8':'pk10_top_number','6':'k3dice_top','20':'k3dice_top','22':'k3dice_top'} ,
+            spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
             gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","6":"jsks","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
 
         }
