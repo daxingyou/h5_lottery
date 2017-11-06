@@ -540,7 +540,7 @@
                                     var jsonStr = '';
                                     var li_html = '';
                                     // var pcode = ('' + v.pcode).substring(8, 11);
-                                    if(this.lotteryid =='8'){  // 北京pk10
+                                    if(v.lotteryId =='8'){  // 北京pk10
                                         var pcode = ('' + v.issueAlias).substring(0, 11);
                                     }else{
                                         var pcode = ('' + v.pcode).substring(0, 11);

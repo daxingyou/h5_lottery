@@ -16,7 +16,7 @@
                             <li class="prod cqssc" >
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
-                                    <div class="prd_num02">第{{(lotteryid == '8')?list.issueAlias :list.pcode}}期</div>
+                                    <div class="prd_num02">第{{(list.lotteryId == '8')?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
                                     <div class="time timerset" >
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
@@ -166,7 +166,7 @@ export default {
       var that = this ;
      $('html,body').css('overflow-y','scroll' )  ;
       that.lobbytimerBegin();
-
+console.log(this.gametimerInt)
       setTimeout(function(){
           that.gameTimer() ;
 
