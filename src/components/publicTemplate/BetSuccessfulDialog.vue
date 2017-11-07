@@ -40,7 +40,7 @@ export default {
 }
 </script>
 <style scope>
-    .publicDialog { display: block; }
+    /* .publicDialog { display: block; } */
 </style>
 
 

@@ -334,6 +334,8 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 .d_danger { color: #c93030; }
 
+.publicDialog { display: block !important; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
