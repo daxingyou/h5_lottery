@@ -57,11 +57,11 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.lottery_name { width: calc(100% - 3rem); }
 
-#pa_head > .left { float: left; width: 1.4rem; height: 1rem; }
+#pa_head > .left { float: left; width: 1.5rem; height: 1rem; }
 
 #pa_head > .left a { display: inline-block; }
 
-#pa_head > .left a img { width: 100%; margin: 0; }
+#pa_head > .left a img { width: 130%; margin: 0; }
 
 #pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem; }
 
