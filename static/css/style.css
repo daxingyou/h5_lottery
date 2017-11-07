@@ -292,7 +292,11 @@
 
 .so-fengpan-pop { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 10rem; height: 100%; z-index: 13; }
 
-.so-fengpan-pop > div { background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+.so-fengpan-pop > div { background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+
+.so-fengpan-pop > div:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_top_noclose.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
+
+.so-fengpan-pop > div:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -.15rem; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
 .so-fengpan-pop img { width: 8.14rem; position: relative; top: 25%; text-align: center; margin: auto; margin-top: 1rem; }
 

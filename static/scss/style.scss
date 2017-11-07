@@ -1005,7 +1005,7 @@
     height: 100%;
     z-index: 13;
     > div {
-        background: url("../images/pop/popkuang2.png") no-repeat;
+        //background: url("../images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.14rem;
         height: 4.53rem;
@@ -1013,6 +1013,28 @@
         top: 25%;
         margin: auto;
         text-align: center;
+        &:before{
+            @include pseudo;
+            @include background-image ('m_top_noclose.png',0,transparent);
+            //bottom: -.15rem;
+            //top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
+        &:after{
+            @include pseudo;
+            @include background-image ('m_bot.png',0,transparent);
+            bottom: -.15rem;
+            top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
     }
     img {
         width: 8.14rem;
