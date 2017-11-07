@@ -305,7 +305,7 @@
                 var that = this;
                 that.getSystemTime().then(sys_time=>{
                     // sys_time = '2017-10-30 19:41:32';
-                    sys_time = '2017-10-30 19:39:10';
+                   // sys_time = '2017-10-30 19:39:10';
                     that.sys_time = sys_time;
                     that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                         that.next_pcode = res.data[0].pcode;  // 下期期数
