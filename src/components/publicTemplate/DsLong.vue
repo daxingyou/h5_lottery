@@ -7,9 +7,25 @@
                 </a>
             </div>
             <h2 class="center lottery_name"> </h2>
-
+            <div class="right">
+                <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
+            </div>
         </header>
+        <div class="dropdown" style="display:none;">
+            <div class="play_area">
+                <div class="sort">
+                    <h5>游戏筛选</h5>
+                    <ul>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
 
+                    </ul>
+                    <div>
+                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                        <div class="btn btn_two round btn_blue02 btn_submit"><a href="javascript:;">确定</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="pa_content">
             <div id="betting_record" class="tab_container tabBox">
                 <div class="hd">
@@ -171,16 +187,29 @@ export default {
     mixins:[Mixin],
     data :function() {
         return {
-            // roadbeads:{} ,
+            lotteryid :this.getCookie('lt_lotteryid'),
+            gamechoose :[
+                {id:'2','name':'重庆时时彩'} ,
+                {id:'12','name':'天津时时彩'} ,
+                {id:'14','name':'新疆时时彩'} ,
+                {id:'4','name':'江西11选5'} ,
+                {id:'16','name':'广东11选5'} ,
+                {id:'18','name':'山东11选5'} ,
+                {id:'6','name':'江苏快3'} ,
+                {id:'20','name':'安徽快3'} ,
+                {id:'22','name':'湖北快3'} ,
+                {id:'8','name':'北京PK10'} ,
+            ],
 
         }
     },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+   // var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
-    this.loadDoubleLong(lotteryid,'','open','clong_open') ; // 连续开奖
-    this.loadDoubleLong(lotteryid,'','unopen','clong_notopen') ; // 连续未开奖
+    this.setMenuAction() ;
+    this.loadDoubleLong(this.lotteryid,'','open','clong_open') ; // 连续开奖
+    this.loadDoubleLong(this.lotteryid,'','unopen','clong_notopen') ; // 连续未开奖
      TouchSlide({
           slideCell: "#betting_record",
       });
@@ -249,7 +278,38 @@ export default {
 
             }
         });
-    }
+    },
+
+      //筛选下拉单
+      setMenuAction:function () {
+          $(".dropdown_icon,.btn_outline").click(() => {
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+          });
+          var lottery_name;
+          $('.play_area').on('click', 'li', (e) => {
+              var $src = $(e.currentTarget);
+              $src.addClass('active').siblings().removeClass('active');
+              var val = $src.data('val');
+              this.lotteryid = val;
+              lottery_name = $src.find('a').text();
+          });
+          //确定提交
+          $('.btn_submit').on('click', (e) => {
+              var $src = $(e.currentTarget);
+              $('.lottery_name').html(lottery_name + ' 双面长龙'); // 彩种名称
+              this.loadDoubleLong(this.lotteryid,'','open','clong_open') ; // 连续开奖
+              this.loadDoubleLong(this.lotteryid,'','unopen','clong_notopen') ; // 连续未开奖
+
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+
+          });
+      },
+
+
   },
 
 }
