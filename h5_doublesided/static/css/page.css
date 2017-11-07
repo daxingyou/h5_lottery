@@ -856,11 +856,11 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .form_g:hover, .form_g:focus { -webkit-box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); border: 1px solid #256e93; }
 
-.form_g > * { vertical-align: middle; float: left; line-height: .8rem; height: .8rem; }
+.form_g > * { vertical-align: middle; float: left; line-height: 1rem; height: 1rem; }
 
-.form_g > legend { display: inline-block; width: .5rem; height: .8rem; margin-right: .5rem; position: relative; text-align: left; }
+.form_g > legend { display: inline-block; width: .5rem; height: .9rem; margin-right: .5rem; position: relative; text-align: left; }
 
-.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .8rem; background-color: #256e93; right: -.2rem; left: inherit; }
+.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .5rem; background-color: #256e93; right: -.2rem; left: inherit; top: .25rem; }
 
 .form_g.text > legend { background-image: none; width: 1.8rem; }
 

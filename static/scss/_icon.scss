@@ -24,7 +24,7 @@ i.close{
     width: .57rem;
     display: block;
     position: relative;
-    height: .8rem;
+    height: 1rem;
     right: 0;
     left: .2rem;
     &:after{
@@ -35,7 +35,7 @@ i.close{
         height: .25rem;
         position: absolute;
         right:.15rem;
-        top:.25rem;
+        top:.35rem;
         cursor: pointer;
     }
 }

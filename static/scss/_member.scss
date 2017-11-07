@@ -20,7 +20,7 @@ fieldset{
     overflow: hidden;
     position: relative;
     background-color: rgba(#12151e,.7);
-    padding: .15rem .3rem;
+    padding: 0 .3rem;
     @include border-radius(.1rem);
     border: 2px solid $normalblue;
     font-size: .35rem;
@@ -38,23 +38,24 @@ fieldset{
     >*{
         vertical-align: middle;
         float: left;
-        line-height: .8rem;
-        height: .8rem;
+        line-height: 1rem;
+        height: 1rem;
     }
     >legend{
         display: inline-block;
         width: .5rem;
-        height: .8rem;
+        height: .9rem;
         margin-right: .5rem;
         position: relative;
         text-align: left;
         &:after{
             @include pseudo;
             width: 1px;
-            height: .8rem;
+            height: .5rem;
             background-color: $normalblue;
             right:-.2rem;
             left: inherit;
+            top:.25rem;
         }
     }
     &.text{
