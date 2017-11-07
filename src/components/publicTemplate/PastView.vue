@@ -23,16 +23,17 @@
                             <ul class="panel">
                                 <li class="prod" data-status="not_open" >
                                     <div class="play_th">
-                                        <div class="prd_num"><i class="prd"></i><span>{{(lotteryid == '8')?list.issueAlias :list.pcode}}</span> 期</div>
+                                        <div class="prd_num"><i class="prd"></i><span>{{(lotteryid == '8')? list.issueAlias:list.pcode}}</span> 期</div>
                                         <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
+                                            <li>{{list.doubleData.top2_total}}</li>
+                                            <li>{{list.doubleData.top2_sizer}}</li>
+                                            <li>{{list.doubleData.top2_doubler}}</li>
                                             <li>{{list.doubleData.lh_1}}</li>
                                             <li>{{list.doubleData.lh_2}}</li>
                                             <li>{{list.doubleData.lh_3}}</li>
                                             <li>{{list.doubleData.lh_4}}</li>
                                             <li>{{list.doubleData.lh_5}}</li>
-                                            <li>{{list.doubleData.top2_doubler}}</li>
-                                            <li>{{list.doubleData.top2_sizer}}</li>
-                                            <li>{{list.doubleData.top2_total}}</li>
+
                                         </ul>
                                         <ul class="double-count" v-else>
                                             <li>{{list.doubleData.total}}</li>
