@@ -747,6 +747,21 @@ fieldset{
                 line-height: 1.5em;
             }
         }
+        &.read{
+            color: #90a4b3;
+            i.i_mail_status{
+                background:url('../../static/images/icon_money.png') no-repeat;
+                background-size:  100%;
+                background-position-y:-4.65rem;
+                margin-top: .12rem;
+            }
+            a{
+                color: #90a4b3;
+            }
+            div.icon{
+                border: 2px solid #49555e;
+            }
+        }
     }
 }
 .password_area{
