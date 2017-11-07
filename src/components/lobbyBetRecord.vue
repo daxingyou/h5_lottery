@@ -88,6 +88,7 @@
     import $ from "jquery";
     import FooterNav from '@/components/Footer'
     import Mixin from '@/Mixin'
+   // import 'swiper'
     import '../../static/js/swiper-3.4.2.jquery.min.js'
     import '../../static/css/swiper-3.4.2.min.css'
     
