@@ -231,9 +231,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .content > div { margin: 0 auto; text-align: center; }
 
-.modal > .m_content > .content > div > img { width: 70%; display: block; margin: 0 auto; }
+.modal > .m_content > .content > div > img { height: 1rem; display: block; margin: 0 auto; }
 
-.modal > .m_content > .content > div > img:last-child { width: 12%; margin: .2rem auto; }
+.modal > .m_content > .content > div > img:last-child { height: 0.8rem; margin: .2rem auto; }
 
 .modal > .m_content > .content > div.playtext { padding: .5rem .8rem; height: 10rem; overflow: scroll; text-align: left; }
 
@@ -277,9 +277,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/*
- CSS for the main interaction
-*/
+/* CSS for the main interaction */
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1137,5 +1135,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */
