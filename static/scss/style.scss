@@ -343,7 +343,7 @@
                             color: $bluetext;
                             height: .4rem;
                             float: left;
-                            margin-top: 0.15rem;
+                            margin-top: 0.13rem;
                             margin-left: 0.1rem;
                             font-size: 0.32rem;
                         }
@@ -1005,7 +1005,7 @@
     height: 100%;
     z-index: 13;
     > div {
-        background: url("../images/pop/popkuang2.png") no-repeat;
+        //background: url("../images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.14rem;
         height: 4.53rem;
@@ -1013,6 +1013,28 @@
         top: 25%;
         margin: auto;
         text-align: center;
+        &:before{
+            @include pseudo;
+            @include background-image ('m_top_noclose.png',0,transparent);
+            //bottom: -.15rem;
+            //top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
+        &:after{
+            @include pseudo;
+            @include background-image ('m_bot.png',0,transparent);
+            bottom: -.15rem;
+            top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
     }
     img {
         width: 8.14rem;
@@ -1046,7 +1068,7 @@
     > div {
         background-color: rgba(#0f1015,0.8);
         border: 2px solid #277ca5;
-        background: url("../images/pop/popkuang2.png") no-repeat;
+        //background: url("../images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.14rem;
         height: 4.53rem;
@@ -1054,16 +1076,39 @@
         top: 25%;
         margin: auto;
         text-align: center;
+        &:before{
+            @include pseudo;
+            @include background-image ('m_top_noclose.png',0,transparent);
+            //bottom: -.15rem;
+            //top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
+        &:after{
+            @include pseudo;
+            @include background-image ('m_bot.png',0,transparent);
+            bottom: -.15rem;
+            top: initial;
+            height: .7rem;
+            width: 100%;
+            margin: 0 auto;
+            left: 50%;
+            margin-left: -50%;
+        }
     }
     img {
-        width: 4rem;
-        text-align: center;
-        margin: auto;
-        margin-top: 1.2rem;
+    margin: 0 auto;
+     margin-top: 1rem;
+     height: 1.5rem;
+     text-align: center;
+
     }
     img:nth-child(2) {
-        max-width: .8rem;
-        margin-top: 0;
+        max-width: 1rem;
+        margin-top: -.3rem;
         display: block;
     }
     p {
@@ -1230,7 +1275,7 @@ img.bet_ok {
             min-height: 2.1rem;
             p {
                 span {
-                    font-size: .3rem;
+                    //font-size: .3rem;
                     &:last-child {
                         float: right;
                     }
@@ -1280,7 +1325,7 @@ img.bet_ok {
                     width: 1.3rem;
                     height: 1.3rem;
                     color: #fffbe2;
-                    font-size: 0.52rem;
+                    font-size: 0.6rem;
                     text-align: center;
                     line-height: 1.3rem;
                     text-indent: 0.1rem;

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: calc(100% + 1px); }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
 html.game_fix { overflow: hidden !important; }
 
-body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; height: calc(100% + 1px); }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 
@@ -57,11 +57,11 @@ input, select, button, a { outline: none; }
 
 #pa_head > .center.lottery_name { width: calc(100% - 3rem); }
 
-#pa_head > .left { float: left; width: 1.4rem; height: 1rem; }
+#pa_head > .left { float: left; width: 1.5rem; height: 1rem; }
 
-#pa_head > .left a { display: inline-block; }
+#pa_head > .left a { display: inline-block; height: 1.5rem; }
 
-#pa_head > .left a img { width: 100%; margin: 0; }
+#pa_head > .left a img { width: 110%; margin: 0; }
 
 #pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem; }
 
@@ -235,7 +235,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .content > div > img:last-child { height: 0.8rem; margin: .2rem auto; }
 
-.modal > .m_content > .content > div.playtext { padding: .5rem .8rem; height: 10rem; overflow: scroll; text-align: left; }
+.modal > .m_content > .content > div.playtext { padding: .1rem .3rem; height: 10rem; overflow: scroll; text-align: left; }
 
 .modal > .m_content > .content > div.playtext h3 { font-size: .43rem; color: #ffbd00; line-height: .43rem; margin-top: .5rem; margin-bottom: .1rem; text-align: left; }
 
@@ -284,7 +284,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tabset .tab-panel { display: none; }
 
-.tabset > label { position: relative; display: inline-block; padding: .4rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #277ca5; border: .014rem solid #277ca5; font-size: 0.35rem; }
+.tabset > label { position: relative; display: inline-block; padding: .27rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #277ca5; border: .014rem solid #277ca5; font-size: 0.35rem; }
 
 .tabset > label.tab1 { margin-right: -.09rem; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 
@@ -327,6 +327,10 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 @media screen and (orientation: landscape) { img.fixbot { position: relative; } }
 
 .last-date { font-size: 0.35rem; }
+
+.d_check { color: #ffbd00; }
+
+.d_danger { color: #c93030; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
@@ -518,9 +522,9 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .play_th ul > li { display: block; float: left; width: .8rem; height: .35rem; border: solid .01rem #ffffff; background-color: #ffbd00; -webkit-border-radius: .19rem; -moz-border-radius: .19rem; border-radius: .19rem; text-align: center; margin-top: 0.14rem; margin-right: 0.23rem; font-size: 0.34rem; line-height: 0.35rem; }
 
-ul.lo_ball { text-align: center; margin-top: .1rem; }
+ul.lo_ball { text-align: center; margin-top: .29rem; }
 
-ul.lo_ball > li { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.1rem; background-position: 0.05rem 0.01rem; display: inline-block; width: 1.1rem; height: 1.1rem; color: #fffbe2; font-size: 0.5rem; text-align: center; line-height: 1.1rem; text-indent: 0.1rem; }
+ul.lo_ball > li { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.1rem; background-position: 0.05rem 0.01rem; display: inline-block; width: 1.1rem; height: 1.1rem; color: #fffbe2; font-size: 0.5rem; text-align: center; line-height: 1.1rem; text-indent: 0.1rem; margin: 0 .05rem; }
 
 ul.lo_ball.double-numbers { margin-left: -2rem; }
 
@@ -626,11 +630,11 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .lobby_past_view .prd_num > span { font-size: .4rem; }
 
-.lobby_past_view .prd_num02 { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; }
+.lobby_past_view .prd_num02 { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; margin-left: -.4rem; }
 
 .lobby_past_view .time { display: inline-block; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; color: #ffffff; }
 
-.lobby_past_view .panel ul { text-align: center; margin: .5rem auto .1rem; height: 1.1rem; }
+.lobby_past_view .panel ul { text-align: center; margin: .5rem auto .2rem; height: 1.1rem; }
 
 .lobby_past_view .panel ul.k3dice_top li { width: 1rem; height: 1rem; display: inline-block; margin: 0 .1rem; }
 
@@ -845,6 +849,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .all_lottery > li > p { line-height: .7rem; }
 
+.last-open-num > ul { height: 1.3rem; width: 100%; display: block; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .login_area, .deposit_area { margin: 0 auto; margin-top: -2.5rem; position: relative; z-index: 50; width: 90%; }
 
@@ -1028,7 +1034,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_top .account .user_name > .purse .so-top-sum { left: 0; }
 
-.info_top .account .user_name > .purse .so-in-top-sum { left: .2rem; }
+.info_top .account .user_name > .purse .so-in-top-sum { left: .3rem; }
 
 .info_top:after { display: block; clear: both; content: ""; }
 
@@ -1048,7 +1054,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_account, .info_personal { width: 90%; margin: 0 auto; margin-top: 20px; }
 
-.info_account > div, .info_personal > div { margin: .5rem 0; text-align: left; }
+.info_account > div, .info_personal > div { margin: .5rem 0; text-align: left; font-size: .35rem; }
 
 .info_account > div > a, .info_personal > div > a { float: right; }
 
@@ -1068,7 +1074,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_personal span.erro_text { line-height: 2rem; margin-left: 0.5rem; }
 
-.info_personal .info_data_modify { color: #00B7FF; }
+.info_personal .info_data_modify { color: #66c3f2; }
 
 .info_mid { background: #105b7b; /* Old browsers */ background: -moz-linear-gradient(top, #105b7b 0%, #0e1b2a 52%); /* FF3.6-15 */ background: -webkit-linear-gradient(top, #105b7b 0%, #0e1b2a 52%); /* Chrome10-25,Safari5.1-6 */ background: -webkit-gradient(linear, left top, left bottom, from(#105b7b), color-stop(52%, #0e1b2a)); background: -o-linear-gradient(top, #105b7b 0%, #0e1b2a 52%); background: linear-gradient(to bottom, #105b7b 0%, #0e1b2a 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ background-size: 100%; width: 100%; text-align: center; height: 1.8rem; border-top: .014rem solid #5a899f; }
 
