@@ -12,23 +12,27 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <router-link to="/login">登录</router-link> <!-- v-show="!haslogin" -->
-              <router-link to="/reg">注册</router-link>
-              <a href="javascript:;">试玩</a>
+              <router-link to="/login">登录</router-link>
+              <router-link to="/reg" v-show="!haslogin" >注册</router-link>
+              <a href="javascript:;" v-show="!haslogin" >试玩</a>
           </div>
       </header>
       <div class="news">
           <div id="focus" class="focus">
               <div class="bd">
-                  <ul>
+                  <ul v-for="list in banner">
+                      <li>
+                          <a href="javascript:;">
+                          <img :src="list.url" />
+                          </a>
+                      </li>
+                  </ul>
+                <!--  <ul>
                       <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
                   </ul>
                   <ul>
                       <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>
-                  <ul>
-                      <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>
+                  </ul>-->
               </div>
               <div class="hd">
                   <ul>
@@ -116,6 +120,11 @@ export default {
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
+            banner:[
+                {'url':'http://admin.baochiapi.com/photo/pic/T1itJTBXJT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1XtETBybT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1vyJTBXxT1RCvBVdK/0'},
+            ] ,
 
         }
     },
