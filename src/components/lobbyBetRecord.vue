@@ -16,12 +16,7 @@
                 <div class="sort">
                     <h5>游戏筛选</h5>
                     <ul>
-                        <li class="active" data-val="0"><a href="javascript:void(0);">全部</a></li>
-                        <li data-val="2"><a href="javascript:void(0);">重庆时时彩</a></li>
-                        <li data-val="4"><a href="javascript:void(0);">江西11选5</a></li>
-                        <li data-val="8"><a href="javascript:void(0);">北京PK10</a></li>
-                        <li data-val="6"><a href="javascript:void(0);">江苏快3</a></li>
-                        <li data-val="10"><a href="javascript:void(0);">香港六合彩</a></li>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
                     </ul>
                     <div>
                         <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
@@ -93,8 +88,7 @@
     import $ from "jquery";
     import FooterNav from '@/components/Footer'
     import Mixin from '@/Mixin'
-   // import '../../static/js/swiper-3.4.2.jquery.min.js'
-    var Swiper = require('../../static/js/swiper-3.4.2.jquery.min.js')
+    import '../../static/js/swiper-3.4.2.jquery.min.js'
     import '../../static/css/swiper-3.4.2.min.css'
     
     export default {
@@ -120,6 +114,19 @@
                     sideType: '2' , // 彩票类型：1 官彩，2 双面彩
                     // pdate: this.newpdate,
                 },
+                gamechoose :[
+                    {id:'0','name':'全部'} ,
+                    {id:'2','name':'重庆时时彩'} ,
+                    {id:'12','name':'天津时时彩'} ,
+                    {id:'14','name':'新疆时时彩'} ,
+                    {id:'4','name':'江西11选5'} ,
+                    {id:'16','name':'广东11选5'} ,
+                    {id:'18','name':'山东11选5'} ,
+                    {id:'6','name':'江苏快3'} ,
+                    {id:'20','name':'安徽快3'} ,
+                    {id:'22','name':'湖北快3'} ,
+                    {id:'8','name':'北京PK10'} ,
+                ],
                 tableLock: 0,
                 // 投注详情
                 touzhuXQ: {},
