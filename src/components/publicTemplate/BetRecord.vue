@@ -6,7 +6,7 @@
                     <img src="/static/images/back.png" alt="">
                 </a>
             </div>
-            <h2 class="center lottery_name">{{lotteryname}}</h2>
+            <h2 class="center lottery_name">{{lotteryname}} 投注记录</h2>
             <div class="right">
                 <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
             </div>
@@ -16,12 +16,18 @@
                 <div class="sort">
                     <h5>游戏筛选</h5>
                     <ul>
-                        <li class="active" data-val="0"><a href="javascript:void(0);">全部</a></li>
-                        <li data-val="2"><a href="javascript:void(0);">重庆时时彩</a></li>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
+                      <!--  <li data-val="2"><a href="javascript:void(0);">重庆时时彩</a></li>
+                        <li data-val="12"><a href="javascript:void(0);">天津时时彩</a></li>
+                        <li data-val="14"><a href="javascript:void(0);">新疆时时彩</a></li>
                         <li data-val="4"><a href="javascript:void(0);">江西11选5</a></li>
-                        <li data-val="8"><a href="javascript:void(0);">北京PK10</a></li>
+                        <li data-val="16"><a href="javascript:void(0);">广东11选5</a></li>
+                        <li data-val="18"><a href="javascript:void(0);">山东11选5</a></li>
                         <li data-val="6"><a href="javascript:void(0);">江苏快3</a></li>
-                        <li data-val="10"><a href="javascript:void(0);">香港六合彩</a></li>
+                        <li data-val="20"><a href="javascript:void(0);">安徽快3</a></li>
+                        <li data-val="22"><a href="javascript:void(0);">湖北快3</a></li>
+                        <li data-val="8"><a href="javascript:void(0);">北京PK10</a></li>-->
+
                     </ul>
                     <div>
                         <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
@@ -119,7 +125,19 @@
                 touzhuXQ: {},
                 soyeScroll:null, 
                 mySwiperTrack: null,
-                urlparam :'' ,
+                gamechoose :[
+                    {id:'0','name':'全部'} ,
+                    {id:'2','name':'重庆时时彩'} ,
+                    {id:'12','name':'天津时时彩'} ,
+                    {id:'14','name':'新疆时时彩'} ,
+                    {id:'4','name':'江西11选5'} ,
+                    {id:'16','name':'广东11选5'} ,
+                    {id:'18','name':'山东11选5'} ,
+                    {id:'6','name':'江苏快3'} ,
+                    {id:'20','name':'安徽快3'} ,
+                    {id:'22','name':'湖北快3'} ,
+                    {id:'8','name':'北京PK10'} ,
+                ],
             }
         },
         created:function () {
