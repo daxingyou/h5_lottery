@@ -18,7 +18,7 @@
         <div id="pa_content">
             <div id="road01" class="tab_container tabBox">
                 <div class="hd">
-                    <ul :class="'tab tab01 tab_mid ' + (!(['4'].includes(lotteryID))?'tab_three':'')">
+                    <ul :class="'tab tab01 tab_mid ' + (!(['4','16','18'].includes(lotteryID))?'tab_three':'')">
                         <li class="on" data-tab="road01_1" data-val="1"><a href="javascript:;">总和大小</a></li>
                         <li data-tab="road01_2" data-val="1" v-if="!(['6','20','22'].includes(lotteryID))"><a href="javascript:;">总和单双</a></li>
                         <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="!(['2','12','14','6','20','22'].includes(lotteryID))"><a href="javascript:;">总和尾大小</a></li>
@@ -32,11 +32,11 @@
                     <!-- 总和单双 -->
                     <RoadBeadItem id="road01_2" v-if="!(['6','20','22'].includes(lotteryID))" :dataResult="dataResult.total_sd" class="tab_content_out" />
 
-                    <!-- 总和尾大小 -->
+                    <!-- 总和尾大小 11 选5 才有 -->
                     <RoadBeadItem id="road01_4" v-if="!(['2', '6','20','22'].includes(lotteryID))" :dataResult="dataResult.totalEnd_size" class="tab_content_out" />
 
                     <!-- 龙虎 -->
-                    <RoadBeadItem id="road01_1" v-if="!(['6','20','22'].includes(lotteryID))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
+                    <RoadBeadItem id="road01_3" v-if="!(['6','20','22'].includes(lotteryID))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
                 </div>
             </div>
             <div id="road02" class="tab_container tabBox" v-if="!(['6','20','22'].includes(lotteryID))">

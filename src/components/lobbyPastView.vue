@@ -16,9 +16,9 @@
                             <li class="prod cqssc" >
                                 <div class="play_th">
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
-                                    <div class="prd_num02">第{{list.pcode}}期</div>
+                                    <div class="prd_num02">第{{(list.lotteryId == '8')?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
-                                    <div class="time timerset" >
+                                    <div class="time timerset" :data-time="0">
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
                                         {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
                                     </div>
@@ -162,6 +162,9 @@ export default {
 
         }
     },
+    beforeDestroy:function(){
+      clearInterval(this.gametimerInt) ;
+   },
   mounted:function() {
       var that = this ;
      $('html,body').css('overflow-y','scroll' )  ;
@@ -210,7 +213,7 @@ export default {
                                 break ;
                         }
                     }
-                   // clearInterval(this.gametimerInt) ;
+
                     $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
                 }
 
@@ -239,7 +242,6 @@ export default {
  // 定时器，倒计时处理
       gameTimer:function () {
               //倒计时定时器
-         // console.log('666等会')
               var that = this ;
               this.gametimerInt = setInterval(function() {
                   var $obj_nav_span = $(".timerset");
@@ -249,11 +251,9 @@ export default {
                           $obj_nav_span.eq(i).html($obj_nav_span.eq(i).attr("data-time"));
                       }
                       if (parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) > 0) {
-                          console.log('呵呵') ;
                           _times = parseInt(that.formatTime($obj_nav_span.eq(i).html(), 1)) - 1;
                       } else { // 当前倒计时结束
                           that.lobbytimerBegin() ;
-                          console.log('哈哈哈') ;
                          _times = $obj_nav_span.eq(i).attr("data-time");
 
                       }
@@ -263,19 +263,6 @@ export default {
 
 
       },
-       formatTime:function(second, type) {
-        var bk;
-        if (type == 0) {
-            var h = parseInt(second / 3600);
-            var f = parseInt(second % 3600 / 60);
-            var s = parseInt(second % 60);
-            bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
-        } else {
-            bk = second.split(":");
-            bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
-        }
-    return bk
-}
 
 
   }

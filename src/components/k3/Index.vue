@@ -13,18 +13,7 @@
                 <div>
                     <div class="so-main-top">
                         <HistoryTerm :previous_pcode="previous_pcode" />
-                        <!-- <div class="so-m-t-left">
-                            <div>
-                                第 <span class="last-date">{{previous_pcode}}</span> 期
-                            </div>
-                            <div>
-                                <a href="/publicTemplate/pastView">
-                                    <p>
-                                        查看往期
-                                    </p>
-                                </a>
-                            </div>
-                        </div> -->
+
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul class="k3_top_number">

@@ -42,7 +42,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')">
-                                <i class="eye" @click="showpassword()"></i>
+                                <i class="eye active" @click="showpassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -50,7 +50,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入4~15位密码')">
-                                <i class="eye active" @click="showpassword()"></i>
+                                <i class="eye " @click="showpassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>

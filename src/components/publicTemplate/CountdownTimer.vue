@@ -5,7 +5,8 @@
             <li>
                 <p>
                     <!-- id 8 -->
-                    第 <span class="now-date">{{(lotteryID==8)?now_pcode.toString().substr(4, 8):now_pcode}}</span> 期  
+                 <!--   第 <span class="now-date">{{(lotteryID==8)?now_pcode.toString().substr(4, 8):now_pcode}}</span> 期  -->
+                    第 <span class="now-date">{{now_pcode}}</span> 期
                 </p>
             </li>
             <li>

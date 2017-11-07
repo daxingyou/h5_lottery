@@ -30,18 +30,7 @@
                 <div>
                     <div class="so-main-top">
                         <HistoryTerm :previous_pcode="previous_pcode" />
-                        <!-- <div class="so-m-t-left">
-                            <div>
-                                第 <span class="last-date">{{previous_pcode}}</span> 期
-                            </div>
-                            <div>
-                                <a href="/publicTemplate/pastView">
-                                    <p>
-                                        查看往期
-                                    </p>
-                                </a>
-                            </div>
-                        </div> -->
+
                         <div class="so-m-t-right">
                             <div class="last-open-num">
                                 <ul>
@@ -66,25 +55,6 @@
                         :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
 
-                    <!-- <div class="so-main-down">
-                        <ul>
-                            <li>
-                                <p>
-                                    第 <span class="now-date"> </span> 期
-                                </p>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>封盘</span>
-                                <a class="close-time">00:00</a>
-                            </li>
-                            <li>
-                                <i></i>
-                                <span>开奖</span>
-                                <a class="open-time">00:00</a>
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
             <div class="so-in-con">

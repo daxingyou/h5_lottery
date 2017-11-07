@@ -3,17 +3,17 @@
     <div v-if="showNavigation" :class="'so-left '+ (showNavigation?'active':'')">
         <div class="so-shade" @click="close"></div>
         <div class="so-left-close" @click="close">
-            <img src="/static/images/left/left808.png">
+            <img src="../../../static/images/left/left808.png">
         </div>
         <div class="so-left-con">
             <div class="so-l-c-top">
                 <div>
-                    <img src="/static/images/left/user.png">
+                    <img src="../../../static/images/left/user.png">
                 </div>
                 <div>
                     <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
                     <div class="purse"  v-if="haslogin">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
+                        <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum" >
                             {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}
                         </div>
@@ -24,34 +24,34 @@
                 <div>
                     <ul>
                         <li>
-                            <a href="javascript:;">
+                            <router-link v-bind:to="'/lobbyTemplate/deposit'">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s01"></i>
                                     </div>
                                 </div>
                                 充值
-                            </a>
+                            </router-link>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s02"></i>
                                     </div>
                                 </div>
                                 提款
-                            </a>
+                            </router-link>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <router-link v-bind:to="'/lobbyTemplate/acdetial'">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s03"></i>
                                     </div>
                                 </div>
                                 帐户明细
-                            </a>
+                            </router-link>
                         </li>
                         <li>
                             <a href="javascript:;">
@@ -76,11 +76,15 @@
 <script>
     import Mixin from '@/Mixin'
     import $ from "jquery";
+//    import deposit from '@/components/lobbyTemplate/deposit'
 
     export default {
         name: 'IndexNavigation',
         mixins:[Mixin],
         props:['el'],
+//        components: {
+//            deposit,
+//        },
 
         data :function() {
             return {
