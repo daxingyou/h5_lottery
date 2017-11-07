@@ -507,7 +507,7 @@ fieldset{
                     left: 0;
                 }
                 .so-in-top-sum{
-                    left:.2rem;
+                    left:.3rem;
                 }
             }
         }
@@ -563,6 +563,7 @@ fieldset{
        margin: .5rem 0;
        text-align: left;
        //color: $basetext;
+       font-size: .35rem;
        > a{
            float:right;
            &.save{
@@ -624,7 +625,7 @@ fieldset{
         margin-left: 0.5rem;
     }
     .info_data_modify{
-        color: $lightblue;
+        color: #66c3f2;
     }
 }
 

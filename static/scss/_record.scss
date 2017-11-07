@@ -678,6 +678,7 @@ i.prd{
         font-size: .34rem;
         color: $bluetext;
         text-align: right;
+        margin-left: -.4rem;
     }
     .time{
         display: inline-block;
@@ -696,7 +697,7 @@ i.prd{
     .panel{
         ul{
             text-align: center;
-            margin: .5rem auto .1rem;
+            margin: .5rem auto .2rem;
             height: 1.1rem;
             &.k3dice_top{
                 li{
