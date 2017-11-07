@@ -100,9 +100,9 @@
 
 .so-con .so-in-main > div .so-main-down ul li > p { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; }
 
-.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 0.4rem; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
+.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 100%; width: .4rem; height: .39rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
 
-.so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.15rem; margin-left: 0.1rem; font-size: 0.32rem; }
+.so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.1rem; margin-left: 0.1rem; font-size: 0.32rem; }
 
 .so-con .so-in-main > div .so-main-down ul li > a { display: inline-block; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; color: #ffffff; }
 
@@ -138,9 +138,9 @@
 
 #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 0.01rem #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
 
-#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
+#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .42rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
 
-#so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child { float: right; }
+#so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child { float: right; font-size: .34rem; }
 
 #so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active { background: url("../../static/images/content/changkuang.png") no-repeat; background-size: 3.06rem 0.9rem; background-position: -0.01rem; border: solid 0.01rem transparent; }
 

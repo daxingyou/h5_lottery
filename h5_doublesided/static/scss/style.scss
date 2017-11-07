@@ -335,9 +335,9 @@
                             content: "";
                             display: block;
                             background: url(../../static/images/main/sj.png) no-repeat;
-                            background-size: 0.4rem;
+                            background-size: 100%;
                             width: .4rem;
-                            height: .4rem;
+                            height: .39rem;
                             float: left;
                             margin-top: 0.13rem;
                             margin-left: 0.5rem;
@@ -347,7 +347,7 @@
                             color: $bluetext;
                             height: .4rem;
                             float: left;
-                            margin-top: 0.15rem;
+                            margin-top: 0.1rem;
                             margin-left: 0.1rem;
                             font-size: 0.32rem;
                         }
@@ -494,7 +494,7 @@
                 display: none;
                 span {
                     color: $bluetext;
-                    font-size: .34rem;
+                    font-size: .42rem;
                     display: block;
                     float: left;
                     padding-left: .25rem;
@@ -502,6 +502,7 @@
                     line-height: 0.9rem;
                     &:last-child {
                         float: right;
+                        font-size: .34rem;
                     }
                 }
             }

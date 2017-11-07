@@ -564,10 +564,10 @@ h2{
 }
 
 .bule_bg{
-    // display: block;
-    // background: url('../images/bg.jpg') repeat-y;
-    // width: 100%;
-    // background-size: 100%;
+    display: block;
+    background: url('../images/bg.jpg') repeat-y;
+    width: 100%;
+    background-size: 100%;
 }
 .btn{
     font-size: .35rem;
@@ -960,5 +960,7 @@ img.fixbot{
         position: relative;
     }
 }
-
+.last-date{
+    font-size: 0.35rem;
+}
 

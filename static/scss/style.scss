@@ -331,7 +331,7 @@
                             content: "";
                             display: block;
                             background: url(../../static/images/main/sj.png) no-repeat;
-                            background-size: 0.4rem;
+                            background-size: 100%;
                             width: .4rem;
                             height: .4rem;
                             float: left;
@@ -770,7 +770,7 @@
         p {
             color: #ffffff;
             line-height: 0.87rem;
-            font-size: .34rem;
+            font-size: .36rem;
             text-align: left;
             text-indent: 0.4rem;
             span {
@@ -838,9 +838,10 @@
             }
             p {
                 color: #fff;
-                font-size: 0.36rem;
+                font-size: 0.42rem;
                 position: relative;
                 top: 2.1rem;
+                font-weight: 700;
             }
         }
     }

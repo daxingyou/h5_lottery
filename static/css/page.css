@@ -187,6 +187,8 @@ h2 { font-weight: 300; }
 
 .boxlist::-webkit-scrollbar-corner { background-color: #0e121d; }
 
+.bule_bg { display: block; background: url("../images/bg.jpg") repeat-y; width: 100%; background-size: 100%; }
+
 .btn { font-size: .35rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; -webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9); box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9); margin: .5rem 0; border-bottom: .014rem solid #507fa2; }
 
 .btn > a { display: block; padding: .35rem .3rem; margin: 0 auto; color: #d7e8f0; text-align: center; text-shadow: 0 5px 2px rgba(0, 0, 0, 0.6); }
@@ -325,6 +327,8 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 @media (max-width: 576px) { img.fixbot { left: 0; margin-left: auto; } }
 
 @media screen and (orientation: landscape) { img.fixbot { position: relative; } }
+
+.last-date { font-size: 0.35rem; }
 
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
@@ -571,8 +575,6 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 .road.road_left ul > li { margin-left: 0; }
 
 .road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -3.99rem; }
-
-.road.road_left ul > li:nth-child(n+7) { margin-top: -1rem; display: inline-block; position: relative; top: -3.99rem; }
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.05rem; -moz-border-radius: 0.05rem; -ms-border-radius: 0.05rem; border-radius: 0.05rem; margin-top: .5rem; padding-top: .2rem; }
 

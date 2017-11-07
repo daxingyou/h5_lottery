@@ -100,7 +100,7 @@
 
 .so-con .so-in-main > div .so-main-down ul li > p { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; }
 
-.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 0.4rem; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
+.so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 100%; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
 
 .so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.15rem; margin-left: 0.1rem; font-size: 0.32rem; }
 
@@ -224,7 +224,7 @@
 
 .so-foot > div:first-child { height: 0.87rem; }
 
-.so-foot > div:first-child p { color: #ffffff; line-height: 0.87rem; font-size: .34rem; text-align: left; text-indent: 0.4rem; }
+.so-foot > div:first-child p { color: #ffffff; line-height: 0.87rem; font-size: .36rem; text-align: left; text-indent: 0.4rem; }
 
 .so-foot > div:first-child p span { color: #ffbd00; font-size: 0.34rem; padding: 0 .3rem; }
 
@@ -242,7 +242,7 @@
 
 .so-foot > div:last-child > div img { width: 1.2rem; position: relative; top: 0.8rem; }
 
-.so-foot > div:last-child > div p { color: #fff; font-size: 0.36rem; position: relative; top: 2.1rem; }
+.so-foot > div:last-child > div p { color: #fff; font-size: 0.42rem; position: relative; top: 2.1rem; font-weight: 700; }
 
 .so-foot.close > div:first-child { background-color: #404040; }
 
