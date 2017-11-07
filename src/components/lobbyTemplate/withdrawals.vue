@@ -41,19 +41,19 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>取款金额</legend>
-                        <input type="number" placeholder="1.00~9999.00">
+                        <input type="number" v-model="money"  class="money" placeholder="1.00~9999.00">
                         <i class="close"></i>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
                         <legend>支付密码</legend>
-                        <input type="password" maxlength="4" placeholder="4位数字密码">
+                        <input type="password" v-model="password" class="password" maxlength="4" placeholder="4位数字密码">
                         <i class="close"></i>
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
-                    <a href="javascript:;">確定</a>
+                    <a href="javascript:;" @click="WithdrawalsAction()">確定</a>
                 </div>
 
             </form>
@@ -71,17 +71,19 @@ import $ from "jquery";
 import Mixin from '@/Mixin'
 // import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'Login',
   mixins:[Mixin],
   components: {
-   // AutoCloseDialog,
+      AutoCloseDialog,
       FooterNav ,
   },
     data: function() {
         return {
-
+             money:'',
+             password:''
         }
     },
   mounted:function() {
@@ -89,8 +91,36 @@ export default {
 
   },
   methods: {
+      //提款接口
+      WithdrawalsAction: function () {
+          if (this.money == '' && !this.positiveNum(this.money)) {
+              this.$refs.autoCloseDialog.open('请输入正确金额');
+                return
+          }
+          if(this.password==''&&!this.checkNumber(this.password)){
+              this.$refs.autoCloseDialog.open('请输入密码');
+                return
+          }
+          var Withdrawalsdata = {
+              applyAmount: this.money,//金额
+              tradePassword: this.password  //密码
+          }
+          $.ajax({
+              type: 'post',
+              headers: { 'Authorization': 'bearer  ' + this.getAccessToken ,},
+              dataType: 'json',
+              url: this.action.forseti + 'api/pay/drawOrder',
+              data: Withdrawalsdata,
+              success: (res) => {
+                  this.$refs.autoCloseDialog.open('提款成功5555') ;
+              },
+              error: function () {
 
-}
+              }
 
+          })
+      }
+
+  }
 }
 </script>

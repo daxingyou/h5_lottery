@@ -1,5 +1,5 @@
 <template>
-
+<div :id="gameshowid[lotteryid]">
     <div id="pa_con">
         <header id="pa_head">
             <div class="left">
@@ -9,39 +9,78 @@
             </div>
             <h2 class="center lottery_name">{{lotteryName}} 路珠</h2>
             <div class="right">
-                <div class="so-top-zoushi">
-                    <img src="/static/images/top/zoushi.png">
-                </div>
+                <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
             </div>
         </header>
+        <div class="dropdown" style="display:none;">
+            <div class="play_area">
+                <div class="sort">
+                    <h5>游戏筛选</h5>
+                    <ul>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
 
+                    </ul>
+                    <div>
+                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                        <div class="btn btn_two round btn_blue02 btn_submit"><a href="javascript:;">确定</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="pa_content">
             <div id="road01" class="tab_container tabBox">
                 <div class="hd">
-                    <ul :class="'tab tab01 tab_mid ' + (!(['4','16','18'].includes(lotteryID))?'tab_three':'')">
-                        <li class="on" data-tab="road01_1" data-val="1"><a href="javascript:;">总和大小</a></li>
-                        <li data-tab="road01_2" data-val="1" v-if="!(['6','20','22'].includes(lotteryID))"><a href="javascript:;">总和单双</a></li>
-                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="!(['2','12','14','6','20','22'].includes(lotteryID))"><a href="javascript:;">总和尾大小</a></li>
-                        <li data-tab="road01_3" data-val="1"><a href="javascript:;" v-if="!(['6','20','22'].includes(lotteryID))">龙 虎</a></li>
+                    <ul class="tab tab01 tab_mid" :class="ulclass[lotteryid]">
+                        <!-- pk10 -->
+                        <li class="on" data-tab="road01_1" data-val="1" v-if="lotteryid=='8'"><a href="javascript:;">冠亚和大小</a></li>
+                        <li data-tab="road01_2" data-val="1" v-if="lotteryid=='8'"><a href="javascript:;">冠亚和单双</a></li>
+
+                        <li class="on" data-tab="road01_1" data-val="1" v-if="lotteryid !='8'"><a href="javascript:;">总和大小</a></li>
+                        <!-- 快3 pk10 没有 -->
+                        <li data-tab="road01_2" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='4') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+                            <a href="javascript:;">总和单双</a>
+                        </li>
+                        <!-- 11 选5才有-->
+                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="(lotteryid =='4') || (lotteryid =='16') || (lotteryid =='18')">
+                            <a href="javascript:;">总和尾大小</a>
+                        </li>
+                        <li data-tab="road01_3" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='4') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+                            <a href="javascript:;" >龙 虎</a>
+                        </li>
+
                     </ul>
                 </div>
                 <div class="bd">
                     <!-- 总和大小 -->
-                    <RoadBeadItem id="road01_1" :dataResult="dataResult.total_size" class="tab_content_out on" />
+                    <RoadBeadItem id="road01_1" :dataResult="dataResult.top2_size" class="tab_content_out on" v-if="lotteryid=='8'"/>
+                    <RoadBeadItem id="road01_1" :dataResult="dataResult.total_size" class="tab_content_out on" v-else />
 
-                    <!-- 总和单双 -->
-                    <RoadBeadItem id="road01_2" v-if="!(['6','20','22'].includes(lotteryID))" :dataResult="dataResult.total_sd" class="tab_content_out" />
+                    <!-- 总和单双 v-if="!(['6','20','22'].includes(lotteryid))" -->
+                    <RoadBeadItem id="road01_2"  :dataResult="dataResult.top2_sd" class="tab_content_out" v-if="lotteryid =='8'"/>
+                    <RoadBeadItem id="road01_2" :dataResult="dataResult.total_sd" class="tab_content_out" v-else />
 
                     <!-- 总和尾大小 11 选5 才有 -->
-                    <RoadBeadItem id="road01_4" v-if="!(['2', '6','20','22'].includes(lotteryID))" :dataResult="dataResult.totalEnd_size" class="tab_content_out" />
+                    <RoadBeadItem id="road01_4" v-if="!(['2', '6','20','22'].includes(lotteryid))" :dataResult="dataResult.totalEnd_size" class="tab_content_out" />
 
                     <!-- 龙虎 -->
-                    <RoadBeadItem id="road01_3" v-if="!(['6','20','22'].includes(lotteryID))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
+                    <RoadBeadItem id="road01_3" v-if="!(['6','20','22'].includes(lotteryid))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
                 </div>
             </div>
-            <div id="road02" class="tab_container tabBox" v-if="!(['6','20','22'].includes(lotteryID))">
+            <div id="road02" class="tab_container tabBox" v-if="(lotteryid =='2') || (lotteryid =='4') || (lotteryid =='8') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
                 <div class="hd">
-                    <ul class="tab tab02 tab_mid tab_five">
+                    <ul class="tab tab02 tab_mid tab_five" v-if="lotteryid == '8'">
+                        <li data-tab="road02_1" class="on" data-val="2"><a href="javascript:;">冠军</a></li>
+                        <li data-tab="road02_2" data-val="2"><a href="javascript:;">亚军</a></li>
+                        <li data-tab="road02_3" data-val="2"><a href="javascript:;">第三名</a></li>
+                        <li data-tab="road02_4" data-val="2"><a href="javascript:;">第四名</a></li>
+                        <li data-tab="road02_5" data-val="2"><a href="javascript:;">第五名</a></li>
+                        <li data-tab="road02_6" data-val="2"><a href="javascript:;">第六名</a></li>
+                        <li data-tab="road02_7" data-val="2"><a href="javascript:;">第七名</a></li>
+                        <li data-tab="road02_8" data-val="2"><a href="javascript:;">第八名</a></li>
+                        <li data-tab="road02_9" data-val="2"><a href="javascript:;">第九名</a></li>
+                        <li data-tab="road02_10" data-val="2"><a href="javascript:;">第十名</a></li>
+                    </ul>
+                    <ul class="tab tab02 tab_mid tab_five" v-else>
                         <li data-tab="road02_1" class="on" data-val="2"><a href="javascript:;">第一球</a></li>
                         <li data-tab="road02_2" data-val="2"><a href="javascript:;">第二球</a></li>
                         <li data-tab="road02_3" data-val="2"><a href="javascript:;">第三球</a></li>
@@ -106,6 +145,30 @@
                           
                         </ul> -->
                     </div>
+
+                    <!-- pk10 -->
+                    <div id="road02_6" class="tab_content_out" v-if="lotteryid =='8'">
+                        <RoadBeadItem :dataResult="dataResult.size_6" class="dx_size" />
+                        <RoadBeadItem :dataResult="dataResult.sd_6" class="ds_dx" />
+                    </div>
+                    <div id="road02_7" class="tab_content_out" v-if="lotteryid =='8'">
+                        <RoadBeadItem :dataResult="dataResult.size_7" class="dx_size" />
+                        <RoadBeadItem :dataResult="dataResult.sd_7" class="ds_dx" />
+                    </div>
+                    <div id="road02_8" class="tab_content_out" v-if="lotteryid =='8'">
+                        <RoadBeadItem :dataResult="dataResult.size_8" class="dx_size" />
+                        <RoadBeadItem :dataResult="dataResult.sd_8" class="ds_dx" />
+                    </div>
+                    <div id="road02_9" class="tab_content_out" v-if="lotteryid =='8'">
+                        <RoadBeadItem :dataResult="dataResult.size_9" class="dx_size" />
+                        <RoadBeadItem :dataResult="dataResult.sd_9" class="ds_dx" />
+                    </div>
+                    <div id="road02_10" class="tab_content_out" v-if="lotteryid =='8'">
+                        <RoadBeadItem :dataResult="dataResult.size_10" class="dx_size" />
+                        <RoadBeadItem :dataResult="dataResult.sd_10" class="ds_dx" />
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -114,7 +177,7 @@
 
         <InfoDialog ref="infoDialog" text="请您继续投注" />
     </div>
-
+</div>
 </template>
 
 <script>
@@ -128,10 +191,24 @@
         mixins:[Mixin],
         data :function() {
             return {
-                lotteryID:this.getCookie('lt_lotteryid'),
+                gameshowid:{'8':'pk10'},
+                lotteryid:this.getCookie('lt_lotteryid'),
                 lotteryName:this.getCookie('lottery_name'),
                 dataResult:{},
                // roadbeads:{} ,
+                gamechoose :[
+                    {id:'2','name':'重庆时时彩'} ,
+                    {id:'12','name':'天津时时彩'} ,
+                    {id:'14','name':'新疆时时彩'} ,
+                    {id:'4','name':'江西11选5'} ,
+                    {id:'16','name':'广东11选5'} ,
+                    {id:'18','name':'山东11选5'} ,
+                    {id:'6','name':'江苏快3'} ,
+                    {id:'20','name':'安徽快3'} ,
+                    {id:'22','name':'湖北快3'} ,
+                    {id:'8','name':'北京PK10'} ,
+                ],
+                ulclass:{'2':'tab_three','12':'tab_three','14':'tab_three','6':'tab_two','20':'tab_two','22':'tab_two'}
 
             }
         },
@@ -140,28 +217,11 @@
             InfoDialog
         },
     mounted:function() {
-        // var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
-        // var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
-        // $('.lottery_name').html(lotteryname+' 路珠') ;
-        // this.lotteryID = lotteryid;
-        this.loadRoadAction(this.lotteryID,'') ;
-
+        this.loadRoadAction(this.lotteryid,'') ;
+        this.setMenuAction() ;
         // 标签切换
         this.roadChangeTab() ;
 
-        // var lotteryid = getCookie('lt_lotteryid') ; // 彩种 id
-        // var lotteryname = getCookie('lottery_name') ; // 彩种 名称
-        // $('.lottery_name').html(lotteryname+' 路珠') ;
-        // if(lotteryid == '4' || lotteryid == '16' || lotteryid == '18'){ // 江西11选5 广东11选5 山东11选5
-        //     $('.jxsyxw_tab').show();
-        //     $('.hd ul').removeClass('tab_three');
-        // }
-        // loadRoadAction(lotteryid,'') ;
-
-        // 标签切换
-        // roadChangeTab() ;
-        // initRightViewEve() ;
-        // initRightViewEve() ;
     },
     methods:{
         /*
@@ -275,7 +335,7 @@
         * 路珠标签切换
         * */
         roadChangeTab:function () {
-            $('ul.tab_mid li').click(function(){
+            $('#pa_content').on('click','.tab_mid li',function(){
                 var tab_id = $(this).attr('data-tab');
                 var tab_val = $(this).data('val') ;
                 $('ul.tab0'+tab_val+' li').removeClass('on');
@@ -283,7 +343,34 @@
                 $(this).addClass('on');
                 $("#"+tab_id).addClass('on');
             });
-        }
+        },
+        //筛选下拉单
+        setMenuAction:function () {
+            $(".dropdown_icon,.btn_outline").click(() => {
+                $(".dropdown").slideToggle("fast", () => {
+                });
+                $('.so-shade').fadeToggle("fast", "linear");
+            });
+            var lottery_name;
+            $('.play_area').on('click', 'li', (e) => {
+                var $src = $(e.currentTarget);
+                $src.addClass('active').siblings().removeClass('active');
+                var val = $src.data('val');
+                this.lotteryid = val;
+                lottery_name = $src.find('a').text();
+            });
+            //确定提交
+            $('.btn_submit').on('click', (e) => {
+                var $src = $(e.currentTarget);
+                $('.lottery_name').html(lottery_name + ' 路珠'); // 彩种名称
+                this.loadRoadAction(this.lotteryid,'') ;
+                $(".dropdown").slideToggle("fast", () => {
+                });
+                $('.so-shade').fadeToggle("fast", "linear");
+
+            });
+        },
+
     },
 
 }
