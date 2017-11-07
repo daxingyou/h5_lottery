@@ -1,6 +1,6 @@
 <template>
 
-    <div id="pa_con" class="so-con warp bule_bg">
+    <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left"></div>
             <h2 class="center">个人中心</h2>

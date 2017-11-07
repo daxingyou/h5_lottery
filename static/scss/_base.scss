@@ -7,21 +7,18 @@
 //      overflow: hidden;
 //      -webkit-overflow-scrolling: touch;
 // }
-.touch{
-    /* 解决弹窗 ios上 overhidden 失效的问题 */
-  //   width: 100%;
-    height: 100%;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-}
-#fixed {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    }
+// .touch{
+//     /* 解决弹窗 ios上 overhidden 失效的问题 */
+//   //   width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+//     -webkit-overflow-scrolling: touch;
+// }
 html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
-    height: 100% !important;
+    //height: 100% !important;
+    height: calc(100% + 1px);
     &.game_fix{
         overflow: hidden !important;
     }
@@ -33,6 +30,7 @@ body{
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
+    height: calc(100% + 1px);
 }
 input,select,option{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
@@ -95,10 +93,20 @@ input,select,button,a{
     margin: auto;
     background: url('../../static/images/bg.jpg');
     background-size: 100%;
-        min-height: 18rem;
-        .so-right > div:first-child img {
-            right: 0.49rem;
+    min-height: 18rem;
+    .so-right > div:first-child img {
+        right: 0.49rem;
+    }
+    &.cover_bg{
+        &:after{
+            @include pseudo;
+            background-color: rgba(#000,0.48);
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            z-index: 1;
         }
+    }
 }
 #pa_head{
     overflow: hidden;
@@ -247,6 +255,8 @@ input,select,button,a{
 }
 #pa_content{
     margin-top: 1.5rem;
+    position: relative;
+    z-index: 2;
     #road01{
         margin-top: 2rem;
     }
@@ -265,8 +275,11 @@ input,select,button,a{
     margin: 0 auto;
     height: auto;
     color: $bluetext;
+    z-index: 2;
     >.content{
         margin-top: 1.5rem;
+        position: relative;
+        z-index: 2;
     }
 }
 // .container {
@@ -522,7 +535,7 @@ h2{
     // 安徽快3 双面盘
     &.lottery_logo_20{
         &:before{
-            @include background-image ('logo_hwk3.svg',0,transparent);
+            @include background-image ('logo_ahks.svg',0,transparent);
         }
     }
     // 湖北快3 双面盘
@@ -947,3 +960,7 @@ img.fixbot{
         position: relative;
     }
 }
+.last-date{
+    font-size: 0.35rem;
+}
+

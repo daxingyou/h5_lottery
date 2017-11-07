@@ -1,15 +1,11 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
-.touch { /* 解决弹窗 ios上 overhidden 失效的问题 */ height: 100%; overflow: hidden; -webkit-overflow-scrolling: touch; }
-
-#fixed { overflow: scroll; -webkit-overflow-scrolling: touch; }
-
-html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: 100% !important; }
+html { -webkit-text-size-adjust: none; background-color: #19222f !important; height: calc(100% + 1px); }
 
 html.game_fix { overflow: hidden !important; }
 
-body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; height: calc(100% + 1px); }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 
@@ -38,6 +34,8 @@ input, select, button, a { outline: none; }
 #pa_con { width: 10rem; height: 100%; overflow-x: hidden; text-align: center; margin: auto; background: url("../../static/images/bg.jpg"); background-size: 100%; min-height: 18rem; }
 
 #pa_con .so-right > div:first-child img { right: 0.49rem; }
+
+#pa_con.cover_bg:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.48); width: 100%; height: 100%; background-size: cover; z-index: 1; }
 
 #pa_head { overflow: hidden; height: 1.5rem; background-color: #0a1625; color: #d7e8f0; font-size: .4rem; position: fixed; z-index: 51; width: 10rem; }
 
@@ -89,7 +87,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .right > a.guset > i { background-image: url("../../static/images/signs.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .5rem; height: .5rem; display: block; float: left; margin-right: .1rem; }
 
-#pa_content { margin-top: 1.5rem; }
+#pa_content { margin-top: 1.5rem; position: relative; z-index: 2; }
 
 #pa_content #road01 { margin-top: 2rem; }
 
@@ -97,9 +95,9 @@ input, select, button, a { outline: none; }
 
 #pa_content.lobby_past_view .play_th .prd_num > i { margin-left: -.9rem; }
 
-.warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; }
+.warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; z-index: 2; }
 
-.warp > .content { margin-top: 1.5rem; }
+.warp > .content { margin-top: 1.5rem; position: relative; z-index: 2; }
 
 footer.bot_nav { position: fixed; bottom: 0; width: 10rem; background-image: url("../../static/images/bot_nav.jpg"); background-repeat: no-repeat; background-position: 0; background-color: #102634; background-size: 100%; background-size: contain; background-repeat: repeat-x; height: 1.5rem; z-index: 51; }
 
@@ -177,7 +175,7 @@ h2 { font-weight: 300; }
 
 .badge.lottery_logo_18:before { background-image: url("../../static/images/logo_sd11x5.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.badge.lottery_logo_20:before { background-image: url("../../static/images/logo_hwk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.badge.lottery_logo_20:before { background-image: url("../../static/images/logo_ahks.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
 .badge.lottery_logo_22:before { background-image: url("../../static/images/logo_hbk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
@@ -330,6 +328,8 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 @media screen and (orientation: landscape) { img.fixbot { position: relative; } }
 
+.last-date { font-size: 0.35rem; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 
@@ -337,7 +337,9 @@ i.icon { width: .4rem; height: .4rem; display: inline-block; vertical-align: mid
 
 i.filter { background-image: url("../../static/images/filter.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-i.close { display: block; background-image: url("../../static/images/close.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .25rem; height: .25rem; position: absolute; right: .3rem; top: .4rem; cursor: pointer; }
+i.close { width: .57rem; display: block; position: relative; height: 1rem; right: 0; left: .2rem; }
+
+i.close:after { content: ''; display: block; background-image: url("../../static/images/close.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .25rem; height: .25rem; position: absolute; right: .15rem; top: .35rem; cursor: pointer; }
 
 i.eye { display: block; background-image: url("../../static/images/eye_view.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .4rem; height: 1.1rem; position: absolute; right: .3rem; top: 0; cursor: pointer; }
 
@@ -365,7 +367,7 @@ i.icon_copy { background-size: 100%; background-position: 0 -10.12rem; width: 1r
 
 .info_bot i.info02 { background-position-y: -3.3rem; margin-top: .2rem; }
 
-.info_bot i.info03 { background-position-y: -4.1rem; margin-top: 0; }
+.info_bot i.info03 { background-position-y: -4.1rem; margin-top: .15rem; }
 
 .info_bot i.info04 { background-position-y: -4.95rem; margin-top: 0; }
 
@@ -445,6 +447,8 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 .hd { margin-bottom: .3rem; }
 
 .tab_content { padding: 0 0.3rem; margin-top: 1.5rem; }
+
+.tab_content.sliding-box { padding-bottom: 2.2rem; }
 
 .bet_day { border-bottom: none; }
 
@@ -570,9 +574,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .road.road_left ul > li { margin-left: 0; }
 
-.road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -.77rem; }
-
-.road.road_left ul > li:nth-child(n+7) { margin-top: -1rem; display: inline-block; position: relative; top: -.77rem; }
+.road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -3.99rem; }
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.05rem; -moz-border-radius: 0.05rem; -ms-border-radius: 0.05rem; border-radius: 0.05rem; margin-top: .5rem; padding-top: .2rem; }
 
@@ -852,21 +854,21 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
-.form_g { overflow: hidden; position: relative; background-color: rgba(18, 21, 30, 0.7); padding: .15rem .3rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; border: 2px solid #256e93; font-size: .35rem; }
+.form_g { overflow: hidden; position: relative; background-color: rgba(18, 21, 30, 0.7); padding: 0 .3rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; border: 2px solid #256e93; font-size: .35rem; }
 
-.form_g > input { background-color: transparent; width: calc(87% - .5rem); color: #fff; border: none; position: relative; }
+.form_g > input { background-color: transparent; width: calc(85% - .5rem); color: #fff; border: none; position: relative; }
 
 .form_g:hover, .form_g:focus { -webkit-box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); border: 1px solid #256e93; }
 
-.form_g > * { vertical-align: middle; float: left; line-height: .8rem; height: .8rem; }
+.form_g > * { vertical-align: middle; float: left; line-height: 1rem; height: 1rem; }
 
-.form_g > legend { display: inline-block; width: .5rem; height: .8rem; margin-right: .5rem; position: relative; text-align: left; }
+.form_g > legend { display: inline-block; width: .5rem; height: .9rem; margin-right: .5rem; position: relative; text-align: left; }
 
-.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .8rem; background-color: #256e93; right: -.2rem; left: inherit; }
+.form_g > legend:after { content: ''; position: absolute; display: block; top: 0; left: 0; width: 1px; height: .5rem; background-color: #256e93; right: -.2rem; left: inherit; top: .25rem; }
 
 .form_g.text > legend { background-image: none; width: 1.8rem; }
 
-.form_g.text input, .form_g.text select { width: calc(75% - .5rem); background-color: transparent; color: #fff; border: none; }
+.form_g.text input, .form_g.text select { width: calc(70% - .5rem); background-color: transparent; color: #fff; border: none; }
 
 .form_g.text select option { background-color: rgba(18, 21, 30, 0.9); font-size: 0.1rem; }
 

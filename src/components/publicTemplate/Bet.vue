@@ -55,7 +55,7 @@ export default {
     name: 'Bet',
     props:[
         'betSelectedList', 'parentRefs', 
-        'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode', 
+        'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode', 'pk10_now_pcode',
         'isCombine',    //是否组合玩法
         'combineCount', //组合玩法注数
     ],
@@ -99,7 +99,6 @@ export default {
         * */
 
         submitAction:function(lotteryid) {
-
             // var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
             const total_mon = this.monAmt(this.totalAmount);
             // 余额不足提示充值
@@ -115,7 +114,7 @@ export default {
                 'lotteryId': this.lotteryID ,  //彩种id
                 'operType': 0, //下注类型，1下注
                 // 'pcode': $('.now-date ').eq(0).text(), //期次20170925013
-                'pcode':this.now_pcode,
+                'pcode':(this.lotteryID =='8')? this.pk10_now_pcode:this.now_pcode,
                 'pdate': this.now_day, //日期20170925
                 'remark': '无',//备注，可用于测试
                 'source': 'h5', //来源：h5

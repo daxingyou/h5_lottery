@@ -22,12 +22,12 @@
                             <p>近期开奖</p>
                         </router-link>
                     </li>
-                    <li class="r_roadbeads" v-if="lotteryid =='8'"> <!-- 北京pk10 -->
+                    <!--<li class="r_roadbeads" v-if="lotteryid =='8'"> &lt;!&ndash; 北京pk10 &ndash;&gt;
                         <router-link to="/publicTemplate/pk10roadBeads">
                             <p>路珠</p>
                         </router-link>
-                    </li>
-                    <li class="r_roadbeads" v-else>
+                    </li>-->
+                    <li class="r_roadbeads" >
                         <router-link to="/publicTemplate/roadBeads">
                             <p>路珠</p>
                         </router-link>

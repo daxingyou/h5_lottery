@@ -103,24 +103,13 @@ function initLeftViewEve() {
 }
 
 //禁止遮罩层以下屏幕滑动
-// $(document).on("touchmove", function (e) {
-//     var e = e || event,
-//         target = e.target || e.srcElement;
-//     if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
-//         e.preventDefault();
-//     }
-// })
-
-$(function () {
-    var fixed = document.getElementById('fixed'), overflow;
-    $(window).on('load resize', function () {
-        overflow = fixed.scrollHeight - $('#fixed').height();
-    });
-    fixed.on('touchmove', function () {
-        if (overflow) return true;
-        else return false;
-    });
-});
+$(document).on("touchmove", function (e) {
+    var e = e || event,
+        target = e.target || e.srcElement;
+    if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+        e.preventDefault();
+    }
+})
 
 // 此方法弹出遊戲說明
 function initPopWafa() {

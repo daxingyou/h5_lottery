@@ -33,7 +33,7 @@
                   <li v-for="lottery in allLottery">
                     <router-link v-bind:to="'/'+gameHref[lottery.cid]">
                       <div class="badge">
-                           <img :src="lottery.imgUrl" alt="">
+                           <img v-lazy="lottery.imgUrl" alt="">
                       </div>
                       <p>{{lottery.name}}</p>
                     </router-link>

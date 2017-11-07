@@ -1011,7 +1011,10 @@
         <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
              :betSelectedList="betSelectedList"
              :parentRefs="$refs"
-             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
+             :balance="balanceData.balance"
+             :now_pcode="now_pcode"
+             :pk10_now_pcode="pk10_now_pcode"
+             :next_pcode="next_pcode" :now_day="now_day" />
 
         <!--封盘底部遮挡-->
         <div v-if="entertainStatus" class="so-fengpan">
@@ -1174,6 +1177,7 @@ export default {
             nowover_time:'',  // 当前期数封盘时间
             next_pcode:'',  // 下一期数
             now_pcode:0,  // 当前期数
+            pk10_now_pcode:0,  // 当前期数
             previous_pcode:'',// 上一期期数
             winNumber:'',    // 上期开奖号
             lastTermStatic:'',  // 上期开奖数据统计
@@ -1251,7 +1255,7 @@ export default {
                 that.sys_time = sys_time;
                 that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
                     that.next_pcode = res.data[0].pcode;  // 下期期数
-                   // that.now_pcode = res.data[1].pcode;  // 当前期数
+                    that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                     that.now_pcode = res.data[1].issueAlias;  // 当前期数
                    // that.previous_pcode = res.data[2].pcode;  // 上期期数
                     that.previous_pcode = res.data[2].issueAlias;  // 上期期数

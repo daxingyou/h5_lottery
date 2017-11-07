@@ -97,6 +97,9 @@
 .tab_content{
     padding: 0 0.3rem;
     margin-top: 1.5rem;
+    &.sliding-box{
+        padding-bottom: 2.2rem;
+    }
 }
 .bet_day{
     border-bottom: none;
@@ -457,8 +460,8 @@ i.prd{
         padding-right: 5rem;
     }
     .tab_content{
-        overflow:auto;/* winphone8和android4+ */
-        -webkit-overflow-scrolling: touch; /* ios5+ */
+        overflow-x:scroll;/* winphone8和android4+ */
+        //-webkit-overflow-scrolling: touch; /* ios5+ */
         white-space: nowrap;
         width: 100% !important;
         min-height: 4.3rem;
@@ -480,6 +483,7 @@ i.prd{
     width: auto;
     height: 4.7rem;
     display: inline-block;
+    display: -webkit-inline-flex;
     overflow: hidden;
     &:last-child{
         margin-right: .5rem;
