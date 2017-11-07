@@ -1,5 +1,5 @@
 <template>
-    <div id="pa_con" class="so-con warp bule_bg">
+    <div id="pa_con" class="so-con warp ">
         <header id="pa_head" class="login">
             <img src="static/images/login_logo.png" alt="">
         </header>

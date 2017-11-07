@@ -1,5 +1,5 @@
 <template>
-  <div id="pa_con" class="so-con warp bule_bg">
+  <div id="pa_con" class="so-con warp ">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
       <!--<UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>-->

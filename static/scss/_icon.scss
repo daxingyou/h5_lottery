@@ -125,25 +125,31 @@ i.icon_copy{
     background-size: 100%;
     width: 1rem;
     height: .5rem;
+    //盈虧分析
     &.info01{
         background-position-y: -2.45rem;
         margin-top: 0;
     }
+    //帳戶管理
     &.info02{
         background-position-y: -3.3rem;
         margin-top: .2rem;
     }
+    //帳戶明細
     &.info03{
         background-position-y: -4.1rem;
-        margin-top: 0;
+        margin-top: .15rem;
     }
+    //個人消息
     &.info04{
         background-position-y: -4.95rem;
         margin-top: 0;
     }
+    //聯絡客服
     &.info05{
         background-position-y: -5.83rem;
     }
+    //歡迎加入
     &.info06{
         background-position-y: -6.5rem;
     }
