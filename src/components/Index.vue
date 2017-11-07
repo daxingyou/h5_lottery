@@ -68,7 +68,7 @@
 
                     <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
                       <div :class="'badge'">
-                        <img :src="lottery.imgUrl">
+                        <img v-lazy="lottery.imgUrl">
                       </div>
                     </router-link>
                     <p>{{lottery.name}}</p>
