@@ -470,6 +470,60 @@ h2{
             @include background-image ('logo_jc11x5.svg',0,transparent);
         }
     }
+    //雙面盤 江蘇快3
+    &.lottery_logo_6{
+        &:before{
+            @include background-image ('logo_jsk3.svg',0,transparent);
+        }
+    }
+    //雙面盤 北京PK10
+    &.lottery_logo_8{
+        &:before{
+            @include background-image ('logo_bjpk10.svg',0,transparent);
+        }
+    }
+    // 六合彩 双面盘
+    &.lottery_logo_10{
+        &:before{
+            @include background-image ('logo_sixlottery.svg',0,transparent);
+        }
+    }
+    // 天津时时彩 双面盘
+    &.lottery_logo_12{
+        &:before{
+            @include background-image ('logo_tjssc.svg',0,transparent);
+        }
+    }
+    // 新疆时时彩 双面盘
+    &.lottery_logo_14{
+        &:before{
+            @include background-image ('logo_xjssc.svg',0,transparent);
+        }
+    }
+    // 广东11选5 双面盘
+    &.lottery_logo_16{
+        &:before{
+            @include background-image ('logo_gd11x5.svg',0,transparent);
+        }
+    }
+    // 山东11选5 双面盘
+    &.lottery_logo_18{
+        &:before{
+            @include background-image ('logo_sd11x5.svg',0,transparent);
+        }
+    }
+    // 安徽快3 双面盘
+    &.lottery_logo_20{
+        &:before{
+            @include background-image ('logo_ahks.svg',0,transparent);
+        }
+    }
+    // 湖北快3 双面盘
+    &.lottery_logo_22{
+        &:before{
+            @include background-image ('logo_hbk3.svg',0,transparent);
+        }
+    }
 }
 //下注彈窗的scrollbar
 .boxlist::-webkit-scrollbar {

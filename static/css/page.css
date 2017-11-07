@@ -173,7 +173,7 @@ h2 { font-weight: 300; }
 
 .badge.lottery_logo_18:before { background-image: url("../../static/images/logo_sd11x5.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.badge.lottery_logo_20:before { background-image: url("../../static/images/logo_hwk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.badge.lottery_logo_20:before { background-image: url("../../static/images/logo_ahks.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
 .badge.lottery_logo_22:before { background-image: url("../../static/images/logo_hbk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
@@ -443,6 +443,8 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 .hd { margin-bottom: .3rem; }
 
 .tab_content { padding: 0 0.3rem; margin-top: 1.5rem; }
+
+.tab_content.sliding-box { padding-bottom: 2.2rem; }
 
 .bet_day { border-bottom: none; }
 
@@ -996,7 +998,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .mini_tip { float: right; margin-top: -.65rem; color: #66c3f2; }
 
-.info_area { background-image: url("../../static/images/info_topbg.jpg"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; width: 100%; padding-bottom: 1.5rem; }
+.info_area { background-image: url("../../static/images/info_topbg.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; width: 100%; padding-bottom: 1.5rem; }
 
 .info_top { height: 3.3rem; position: relative; margin: 0 auto; }
 

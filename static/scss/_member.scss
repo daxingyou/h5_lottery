@@ -438,7 +438,7 @@ fieldset{
 //個人中心
 .info_area{
     // margin-top: -15px;
-    @include background-image ('info_topbg.jpg',center top,transparent);
+    @include background-image ('info_topbg.png',center top,transparent);
     width: 100%;
     padding-bottom: 1.5rem;
 }

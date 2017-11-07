@@ -520,7 +520,7 @@ h2{
     // 安徽快3 双面盘
     &.lottery_logo_20{
         &:before{
-            @include background-image ('logo_hwk3.svg',0,transparent);
+            @include background-image ('logo_ahks.svg',0,transparent);
         }
     }
     // 湖北快3 双面盘
@@ -945,3 +945,5 @@ img.fixbot{
         position: relative;
     }
 }
+
+

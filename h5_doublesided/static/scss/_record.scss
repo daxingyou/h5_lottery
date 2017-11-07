@@ -97,6 +97,9 @@
 .tab_content{
     padding: 0 0.3rem;
     margin-top: 1.5rem;
+    &.sliding-box{
+        padding-bottom: 2.2rem;
+    }
 }
 .bet_day{
     border-bottom: none;
