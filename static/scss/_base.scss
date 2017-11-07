@@ -694,7 +694,7 @@ label{
                     }
                 }
                 &.playtext{
-                    padding: .5rem .8rem;
+                    padding: .1rem .3rem;
                     height: 10rem;
                     overflow: scroll;
                     text-align: left;
@@ -964,4 +964,10 @@ img.fixbot{
 .last-date{
     font-size: 0.35rem;
 }
-
+//舊對話框提示文字
+.d_check{
+    color: $yellow;
+}
+.d_danger{
+    color:$red;
+}
