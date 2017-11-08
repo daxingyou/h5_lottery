@@ -312,9 +312,9 @@
 
 .so-tip-pop > div:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -.15rem; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
-.so-tip-pop img { margin: 0 auto; margin-top: 1rem; height: 1.5rem; text-align: center; }
+.so-tip-pop img { margin: 0 auto; margin-top: 1rem; height: 1rem; text-align: center; }
 
-.so-tip-pop img:nth-child(2) { max-width: 1rem; margin-top: -.3rem; display: block; }
+.so-tip-pop img:nth-child(2) { max-width: 0.8rem; margin-top: 0rem; display: block; }
 
 .so-tip-pop p { color: #c93030; margin-top: 0.25rem; font-size: 0.34rem; }
 

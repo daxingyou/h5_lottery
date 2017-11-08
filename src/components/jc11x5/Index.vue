@@ -291,6 +291,7 @@
            // continueNumberSubList:[...Array(11).keys()],
             continueNumberSubList: Array.from({length:11}, (v,k) => k) ,
             selectRules:{
+                '42600':{ max:1}, 
                 '43100':{ max:2}, 
                 '43200':{ max:3}, 
                 '43300':{ max:4}, 
