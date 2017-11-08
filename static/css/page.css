@@ -1,6 +1,8 @@
 @charset "UTF-8";
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+html, body { overflow: hidden !important; }
+
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
 html.game_fix { overflow: hidden !important; }
