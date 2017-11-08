@@ -281,7 +281,11 @@ export default {
   },
   created:function(){
     this.getMemberBalance().then(()=>{
-        this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
+        this.loadPlayTree(this.lotteryID).catch(function () {
+             console.log("Promise Rejected in method of create 2");
+        });;  // 玩法树，彩种id 为2
+    }).catch(function () {
+        console.log("Promise Rejected in method of create 1");
     });
   },
   mounted:function() {
@@ -358,6 +362,8 @@ export default {
                 // :now_pcode="now_pcode" 
                 // :start="sys_time" :end="now_time" :overend="nowover_time"
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+            }).catch(function () {
+                 console.log("Promise Rejected in method of timeBegin");
             });
         }); 
         that.entertainStatus = false;
