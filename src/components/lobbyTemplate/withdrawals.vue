@@ -41,7 +41,7 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>取款金额</legend>
-                        <input type="number" v-model="money"  class="money" placeholder="1.00~9999.00">
+                        <input type="text" v-model="money"  class="money" placeholder="1.00~9999.00">
                         <i class="close close1" @click="ClearInput('close1','money')"></i>
                     </div>
                 </fieldset>
@@ -107,7 +107,7 @@ export default {
       WithdrawalsAction: function () {
           var _self=this;
           if (_self.money == '' || !_self.checkNumber(_self.money)) {
-              self.$refs.autoCloseDialog.open('请输入正确金额');
+              _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
           if(_self.password==''||! _self.checkNumber(_self.password)){
@@ -126,7 +126,7 @@ export default {
               url: _self.action.forseti + 'api/pay/drawOrder',
               data: Withdrawalsdata,
               success: (res) => {
-                  _self.$refs.autoCloseDialog.open('提款成功') ;
+                  _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info' ;
                   },2000)
