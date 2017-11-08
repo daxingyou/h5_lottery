@@ -102,7 +102,7 @@
 
 .so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(../../static/images/main/sj.png) no-repeat; background-size: 100%; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
 
-.so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.15rem; margin-left: 0.1rem; font-size: 0.32rem; }
+.so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.1rem; font-size: 0.32rem; }
 
 .so-con .so-in-main > div .so-main-down ul li > a { display: inline-block; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; color: #ffffff; }
 
@@ -292,7 +292,11 @@
 
 .so-fengpan-pop { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 10rem; height: 100%; z-index: 13; }
 
-.so-fengpan-pop > div { background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+.so-fengpan-pop > div { background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+
+.so-fengpan-pop > div:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_top_noclose.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
+
+.so-fengpan-pop > div:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -.15rem; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
 .so-fengpan-pop img { width: 8.14rem; position: relative; top: 25%; text-align: center; margin: auto; margin-top: 1rem; }
 
@@ -302,11 +306,15 @@
 
 .so-tip-pop { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); top: 0; left: 0; width: 10rem; height: 100%; z-index: 13; }
 
-.so-tip-pop > div { background-color: rgba(15, 16, 21, 0.8); border: 2px solid #277ca5; background: url("../images/pop/popkuang2.png") no-repeat; background-size: 100%; width: 8.14rem; height: 4.53rem; position: relative; top: 25%; margin: auto; text-align: center; }
+.so-tip-pop > div { background-color: rgba(15, 16, 21, 0.8); border: 2px solid #277ca5; background-size: 100%; width: 8.5rem; height: 5rem; position: relative; top: 25%; margin: auto; text-align: center; }
 
-.so-tip-pop img { width: 4rem; text-align: center; margin: auto; margin-top: 1.2rem; }
+.so-tip-pop > div:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_top_noclose.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
-.so-tip-pop img:nth-child(2) { max-width: .8rem; margin-top: 0; display: block; }
+.so-tip-pop > div:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -.15rem; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
+
+.so-tip-pop img { margin: 0 auto; margin-top: 1rem; height: 1.5rem; text-align: center; }
+
+.so-tip-pop img:nth-child(2) { max-width: 1rem; margin-top: -.3rem; display: block; }
 
 .so-tip-pop p { color: #c93030; margin-top: 0.25rem; font-size: 0.34rem; }
 
@@ -356,8 +364,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item0.jc115 ul li > div > div, #so-item0.jc115 ul li.jc115 ul li > div > div { min-height: 2.1rem; }
 
-#so-item0.jc115 ul li > div > div p span, #so-item0.jc115 ul li.jc115 ul li > div > div p span { font-size: .3rem; }
-
 #so-item0.jc115 ul li > div > div p span:last-child, #so-item0.jc115 ul li.jc115 ul li > div > div p span:last-child { float: right; }
 
 #so-item0.jc115 ul li .so-con-span-short { width: 3rem !important; }
@@ -376,7 +382,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
 
-#so-item1.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item1.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 

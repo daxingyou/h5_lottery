@@ -36,56 +36,56 @@
                             </section>
                             <section id="commission" class="tab-panel">
                                 <table class="data">
-                                    <tbody>
-                                    <thead>
-                                    <tr>
-                                        <th rowspan="2">当月营利</th>
-                                        <th rowspan="2">当月最低
-                                            <br/>有效会员</th>
-                                        <th colspan="2">
-                                            当月退佣比例
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th class="grey">
-                                            真人视频
-                                        </th>
-                                        <th class="grey">
-                                            电子游艺
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tr>
-                                        <td>1-5万</td>
-                                        <td>5或以上</td>
-                                        <td>25%</td>
-                                        <td>25%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5-30万</td>
-                                        <td>10或以上</td>
-                                        <td>30%</td>
-                                        <td>30%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30万-80万</td>
-                                        <td>50或以上</td>
-                                        <td>35%</td>
-                                        <td>35%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>80万-120万</td>
-                                        <td>100或以上</td>
-                                        <td>40%</td>
-                                        <td>40%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>120万以上</td>
-                                        <td>200或以上</td>
-                                        <td>50%</td>
-                                        <td>50%</td>
-                                    </tr>
-                                    </tbody>
+                                  
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">当月营利</th>
+                                                <th rowspan="2">当月最低
+                                                    <br/>有效会员</th>
+                                                <th colspan="2">
+                                                    当月退佣比例
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="grey">
+                                                    真人视频
+                                                </th>
+                                                <th class="grey">
+                                                    电子游艺
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td>1-5万</td>
+                                            <td>5或以上</td>
+                                            <td>25%</td>
+                                            <td>25%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5-30万</td>
+                                            <td>10或以上</td>
+                                            <td>30%</td>
+                                            <td>30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30万-80万</td>
+                                            <td>50或以上</td>
+                                            <td>35%</td>
+                                            <td>35%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>80万-120万</td>
+                                            <td>100或以上</td>
+                                            <td>40%</td>
+                                            <td>40%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>120万以上</td>
+                                            <td>200或以上</td>
+                                            <td>50%</td>
+                                            <td>50%</td>
+                                        </tr>
+                                   
                                 </table>
                                 <p>
                                     佣金以每月第一个礼拜至下月第一个礼拜一前的周日为统计期间，以联盟方案分红公式计算，由于代理部于每个月的第一礼拜三开始与代理确认金额后，在3个工作日内将佣金直接汇入申请代理登记之银行帐号。

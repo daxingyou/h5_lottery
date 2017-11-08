@@ -507,7 +507,7 @@ fieldset{
                     left: 0;
                 }
                 .so-in-top-sum{
-                    left:.2rem;
+                    left:.3rem;
                 }
             }
         }
@@ -563,6 +563,7 @@ fieldset{
        margin: .5rem 0;
        text-align: left;
        //color: $basetext;
+       font-size: .35rem;
        > a{
            float:right;
            &.save{
@@ -624,7 +625,7 @@ fieldset{
         margin-left: 0.5rem;
     }
     .info_data_modify{
-        color: $lightblue;
+        color: #66c3f2;
     }
 }
 
@@ -744,6 +745,21 @@ fieldset{
                 -webkit-box-orient: vertical;
                 height: 1.3em;
                 line-height: 1.5em;
+            }
+        }
+        &.read{
+            color: #90a4b3;
+            i.i_mail_status{
+                background:url('../../static/images/icon_money.png') no-repeat;
+                background-size:  100%;
+                background-position-y:-4.65rem;
+                margin-top: .12rem;
+            }
+            a{
+                color: #90a4b3;
+            }
+            div.icon{
+                border: 2px solid #49555e;
             }
         }
     }

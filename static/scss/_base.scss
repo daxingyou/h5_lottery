@@ -18,7 +18,7 @@ html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
     //height: 100% !important;
-    height: calc(100% + 1px);
+    //height: calc(100% + 1px);
     &.game_fix{
         overflow: hidden !important;
     }
@@ -30,7 +30,7 @@ body{
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
-    height: calc(100% + 1px);
+    //height: calc(100% + 1px);
 }
 input,select,option{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
@@ -166,13 +166,14 @@ input,select,button,a{
     }
     >.left{
         float: left;
-        width: 1.4rem;
+        width: 1.5rem;
         height: 1rem;
         //height: 1.48rem;
         a{
             display: inline-block;
+            height: 1.5rem;
             img{
-                width: 100%;
+                width: 110%;
                 margin: 0;
             }
             &.btn_leftside{
@@ -684,16 +685,18 @@ label{
                 margin: 0 auto;
                 text-align: center;
                 >img{
-                    width: 70%;
+                    // width: 70%;
+                    height: 1rem;
                     display: block;
                     margin: 0 auto;
                     &:last-child{
-                        width: 12%;
+                        // width: 12%;
+                        height: 0.8rem;
                         margin: .2rem auto;
                     }
                 }
                 &.playtext{
-                    padding: .5rem .8rem;
+                    padding: .1rem .3rem;
                     height: 10rem;
                     overflow: scroll;
                     text-align: left;
@@ -831,7 +834,7 @@ label{
     > label {
         position: relative;
         display: inline-block;
-        padding: .4rem .8rem;
+        padding: .27rem .8rem;
         border: 1px solid transparent;
         border-bottom: 0;
         cursor: pointer;
@@ -963,4 +966,12 @@ img.fixbot{
 .last-date{
     font-size: 0.35rem;
 }
+//舊對話框提示文字
+.d_check{
+    color: $yellow;
+}
+.d_danger{
+    color:$red;
+}
 
+.publicDialog { display: block !important; }

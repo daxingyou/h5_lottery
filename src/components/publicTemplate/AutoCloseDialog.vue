@@ -45,18 +45,18 @@ export default {
                     position: fixed;
                     z-index: 1000;
                   }
-    .so-tip-pop > div{
+    /* .so-tip-pop > div{
                     border:none;
                     width: 8.5rem;
                     height: 5rem;
-                  }
-    .so-tip-pop img{
+                  } */
+    /* .so-tip-pop img{
                     width: 6.5rem;
                     margin-top: 1rem;
-    }
-    .so-tip-pop img:nth-child(2){
+    } */
+    /* .so-tip-pop img:nth-child(2){
                     max-width: 1rem;
                     margin-top:-.3rem;
-                  }
+                  } */
 
 </style>

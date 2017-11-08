@@ -542,7 +542,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .ds_long > .panel > .prod i { margin-top: .25rem; height: .6rem; }
 
-.ds_long > .panel > .prod > div.periods { float: right; width: auto; }
+.ds_long > .panel > .prod > div.periods { float: right; width: auto; margin-right: .2rem; }
 
 .ds_long > .panel > .prod > div { width: 3rem; margin: 0 auto; text-align: left; }
 
@@ -1107,6 +1107,14 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .message_area > .item > .content { height: 1.5rem; margin-left: 2rem; font-size: .35rem; }
 
 .message_area > .item > .content > .text { -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; height: 1.3em; line-height: 1.5em; }
+
+.message_area > .item.read { color: #90a4b3; }
+
+.message_area > .item.read i.i_mail_status { background: url("../../static/images/icon_money.png") no-repeat; background-size: 100%; background-position-y: -4.65rem; margin-top: .12rem; }
+
+.message_area > .item.read a { color: #90a4b3; }
+
+.message_area > .item.read div.icon { border: 2px solid #49555e; }
 
 .password_area { width: 90%; margin: 0 auto; }
 

@@ -88,7 +88,7 @@ function initLeftViewEve() {
         $('.so-left').attr('class', className.replace('active', 'close'));
         $('.so-shade').hide();// .fadeOut(2000)
         
-        $('body,html').removeClass('touch');
+       // $('body,html').removeClass('touch');
     });
     $('.so-menu').click(function () {
         var className = $('.so-left').attr('class') || '';
@@ -98,7 +98,7 @@ function initLeftViewEve() {
             $('.so-left').attr('class', className + ' active');
         }
         $('.so-shade').show();
-        $('body,html').addClass('touch');
+        //$('body,html').addClass('touch');
     });
 }
 

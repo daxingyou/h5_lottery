@@ -45,8 +45,8 @@ export default {
 }
 </script>
 <style scope>
-    .publicDialog { display: block;
-                    /*margin-top: 6rem;*/
-                  }
+    /* .publicDialog { display: block;
+                    margin-top: 6rem;
+                  } */
 
 </style>
