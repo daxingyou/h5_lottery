@@ -99,7 +99,7 @@ input, select, button, a { outline: none; }
 
 .warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; z-index: 2; }
 
-.warp > .content { margin-top: 1.5rem; position: relative; z-index: 2; }
+.warp > .content { padding-top: .1rem; position: relative; z-index: 2; }
 
 footer.bot_nav { position: fixed; bottom: 0; width: 10rem; background-image: url("../../static/images/bot_nav.jpg"); background-repeat: no-repeat; background-position: 0; background-color: #102634; background-size: 100%; background-size: contain; background-repeat: repeat-x; height: 1.5rem; z-index: 51; }
 
@@ -626,7 +626,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area ul > li.active { background-image: -webkit-gradient(linear, left top, left bottom, from(#1c4975), to(#3793cc)); background-image: -webkit-linear-gradient(#1c4975, #3793cc); background-image: -o-linear-gradient(#1c4975, #3793cc); background-image: linear-gradient(#1c4975, #3793cc); text-shadow: 0 2px 2px rgba(0, 0, 0, 0.9); }
 
-#betting_record.ac_detial_area { margin-top: 3rem; }
+#betting_record.ac_detial_area { padding-top: .2rem; }
 
 #betting_record .hd { height: 1rem; }
 
@@ -813,7 +813,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .so-con .so-left .so-left-con .so-l-c-con.indexside ul { margin-top: .5rem; }
 
-.so-con .so-left .so-left-con .so-l-c-con.indexside li { background-image: none; height: 1.5rem; line-height: 1.5rem; vertical-align: middle; border-right: 1px solid #277ca5; width: 3rem; margin: 0.3rem 0.25rem; }
+.so-con .so-left .so-left-con .so-l-c-con.indexside li { background-image: none; height: 1.5rem; line-height: 1.5rem; vertical-align: middle; border-right: 1px solid #277ca5; width: 3.1rem; margin: 0.3rem 0.2rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con.indexside li:nth-child(even) { border-right: none; }
 
@@ -896,7 +896,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password.pay_password > input:last-child { border-right: none; border-right: 1px solid #256e93; }
 
-.password.pay_password > select { width: 15%; display: block; border-right: 1px solid #256e93; text-align: center; text-align-last: center; padding: 0 .1rem; }
+.password.pay_password > select { width: 15%; display: block; border-right: 1px solid #256e93; text-align: center; text-align-last: center; padding: 0 .1rem; height: .5rem; margin-top: .25rem; }
 
 .password.pay_password > select:last-child { border-right: none; }
 
@@ -904,7 +904,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .deposit_area { margin-top: 2rem; padding-bottom: 3.5rem; z-index: 1; }
 
-.pay_content { line-height: 1; margin-top: 2.7rem; }
+.pay_content { line-height: 1; margin-top: 2rem; }
 
 .pay_content .step03 { color: #fff; margin: 0 auto; background: rgba(17, 22, 28, 0.8); border: 1px solid #294262; }
 
@@ -946,7 +946,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_content .step03.webbank_pay label { padding-left: .5rem; margin-bottom: 1rem; display: inline-block; }
 
-.pay_content .step03.webbank_pay > ul { width: 100%; margin: 0 auto; font-size: 0; }
+.pay_content .step03.webbank_pay > ul { width: 100%; margin: 0 auto; font-size: 0; overflow: hidden; }
 
 .pay_content .step03 .btn_bank { -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; border: 1px solid #256e93; margin: .2rem; background-size: 115%; width: 40%; display: inline-block; background-position-x: 0.1em; padding: 1em 0; font-size: .35rem; }
 
@@ -955,6 +955,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .pay_content .step03 .btn_bank:hover, .pay_content .step03 .btn_bank:active, .pay_content .step03 .btn_bank:focus { -webkit-box-shadow: 0 0 20px 10px rgba(37, 110, 147, 0.5); box-shadow: 0 0 20px 10px rgba(37, 110, 147, 0.5); border: 1px solid #00B7FF; }
 
 .pay_content .step03 .btn_bank:hover a, .pay_content .step03 .btn_bank:active a, .pay_content .step03 .btn_bank:focus a { color: #fff; }
+
+.pay_content .step03 .btn_bank:last-child { float: left; margin-left: .7rem; }
 
 .pay_content .step03 .btn_bank a { display: block; line-height: 2em; text-align: center; }
 
@@ -1008,7 +1010,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .mini_tip { float: right; margin-top: -.65rem; color: #66c3f2; }
 
-.info_area { background-image: url("../../static/images/info_topbg.jpg"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; width: 100%; padding-bottom: 1.5rem; }
+.info_area { background-image: url("../../static/images/info_topbg.jpg"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; width: 100%; padding-bottom: 1.5rem; margin-top: 1rem; }
 
 .info_top { height: 3.3rem; position: relative; margin: 0 auto; }
 
@@ -1109,6 +1111,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .info_bot > ul > li > a:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .2rem; height: 1.6rem; line-height: 1.2rem; left: initial; right: .5rem; }
 
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
+
+.message_area { margin-top: 1.4rem; }
 
 .message_area > .item { overflow: hidden; height: 1.5rem; line-height: .75rem; padding: .4rem; text-align: left; border-bottom: 1px solid #152538; border-top: 1px solid #3c4e61; }
 

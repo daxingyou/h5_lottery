@@ -8,7 +8,7 @@
         </header>
         <div class="content">
             <div class="message_area">
-                <div class="item active">
+                <div class="item">
                     <div class="icon">
                         <div>
                             <i class="i_mail_status"></i>
@@ -32,7 +32,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="item unread">
+                <div class="item">
                     <div class="icon">
                         <div>
                             <i class="i_mail_status"></i>
