@@ -4,15 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload)
-// import 'jquery'
+import 'babel-polyfill'
 import $ from "jquery";
 
-// import '@/static/js/touchslide.1.1.js'   ok
-// import '@/static/js/fastclick.js'    ok
-// import '@/static/js/index.js'
-
-
+Vue.use(VueLazyload)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
