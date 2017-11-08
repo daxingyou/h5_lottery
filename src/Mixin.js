@@ -307,28 +307,18 @@ var MyMixin = {
             return parseFloat(s.replace(/[^\d\.-]/g, ""));
         },
 
-        /*
-         *  正整数判断，不包含零
-         * */
-
-         isPositiveNum:function(num) {
-            //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
-            var re=/^[0-9]*$/;
-            return re.test(num);
-        },
-
 
         /**
          * 解析URL参数
          */
         getStrParam :function() {
-            var url = location.search; // 获取url中"?"符后的字串
+            var url = location.search; //获取url中"?"符后的字串
             var param = {};
-            if (url.indexOf('?') != -1) {
+            if (url.indexOf("?") != -1) {
                 var str = url.substr(1);
-                strs = str.split('&');
-                for (var i = 0; i < strs.length; i++) {
-                    param[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    param[strs[i].split("=")[0]]= decodeURIComponent(strs[i].split("=")[1]);
                 }
             }
             return param;
@@ -395,6 +385,16 @@ var MyMixin = {
                 return false;
             }
         },
+        /*
+         *  正整数判断，不包含零
+         * */
+
+        isPositiveNum:function(num) {
+            //  var re = /^[0-9]*[1-9][0-9]*|0$/ ;
+            var re=/^[0-9]*$/;
+            return re.test(num);
+        },
+
         positiveNum :function(num) { // 验证数字，正整数判断，包含零
             //  var re = /^[0-9]*[1-9][0-9]*$/;
             var re = /^[0-9]*$/;

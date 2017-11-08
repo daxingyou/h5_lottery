@@ -393,7 +393,7 @@ export default {
 //                  _self.userId = data.result.account || '';
 //              }
             $.ajax({
-                
+
             })
 //
 //          }, 'get', function(data) {

@@ -42,9 +42,7 @@ export default {
             lt_time_leave:0, 
             lt_time_leave_over:0, 
             timeSpanStr:'',
-            overTimeSpanStr:'',
-            // countdownOver:false, 
-            // entertainCountdownOver:false
+            overTimeSpanStr:''
         }
     },
     created:function(){
@@ -64,6 +62,9 @@ export default {
             const theOverend = overend ? overend : this.overend;
             this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
+            if (this.lt_time_leave_over <0){
+                this.$emit('entertainCountdownOver');
+            }
 
             this.timer = window.setInterval((function() {
                 // if (this.lt_time_leave > 0 && (this.lt_time_leave % 240 == 0 || this.lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间

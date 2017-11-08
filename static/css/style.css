@@ -2,11 +2,11 @@
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .so-con { width: 10rem; height: 100%; overflow-x: hidden; text-align: center; margin: auto; }
 
-.so-con .so-left { float: left; width: 8.7rem; height: 150%; position: fixed; z-index: 52; top: 0; left: -100%; }
+.so-con .so-left { width: 8.7rem; position: fixed; z-index: 52; top: 0; bottom: 0; left: -100%; }
 
 .so-con .so-left .so-left-close { background-color: #050709; border-left: 3px solid #202f45; width: 0.79rem; height: 100%; float: left; }
 
-.so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 33%; left: 0.15rem; }
+.so-con .so-left .so-left-close img { display: block; width: 0.46rem; position: relative; top: 48%; left: 0.15rem; }
 
 .so-con .so-left .so-left-con { height: 100%; width: 7.5rem; float: left; border-left: solid 0.03rem #293454; border-right: solid 0.03rem #293454; background-color: rgba(17, 22, 28, 0.9); }
 
@@ -40,13 +40,13 @@
 
 .so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
 
+.so-con .so-left .so-left-con .so-l-c-con ul:after { content: ""; display: block; clear: both; }
+
 .so-con .so-left .so-left-con .so-l-c-con li { background: url("../images/left/left-kuang.jpg"); background-size: 100%; width: 3.33rem; height: 3.14rem; display: block; float: left; margin: 0.21rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con li > .badge { margin: 0 auto; margin-top: .3rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con li p { font-size: 0.34rem; color: white; }
-
-.so-con .so-left .so-left-con .so-l-c-con ul:after { content: ""; display: block; clear: both; }
 
 .so-con .so-left.active { left: 0; }
 
@@ -385,12 +385,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 #so-item1.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
 
 #so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
-
-#so-item1.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
-
-#so-item1.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
-
-#so-item1.jc115 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item2.jc115 ul li:first-child { margin-top: 0; }
 
