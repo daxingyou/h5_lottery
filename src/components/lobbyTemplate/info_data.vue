@@ -132,7 +132,8 @@
                         <fieldset>
                             <div class="form_g text">
                                 <legend>原密碼</legend>
-                                <input type="password" placeholder="请输入密码" v-model="changePassword.oldPassword" class="oldPassword" @input="checkUserName(changePassword.oldPassword,'oldPassword','请输入4~15位密码')">
+                                <input type="password"  placeholder="请输入密码" v-if="false" v-model="changePassword.oldPassword" class="oldPassword" @input="checkUserName(changePassword.oldPassword,'oldPassword','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入密码" v-model="changePassword.oldPassword" v-if="true">
                                 <i class="eye"></i>
                             </div>
                             <!--<label class="error-message "></label>-->

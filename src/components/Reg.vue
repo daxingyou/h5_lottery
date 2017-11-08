@@ -30,35 +30,35 @@
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset  v-if=showpd>
+                        <fieldset  v-if="show">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')" >
-                                <i class="eye"  @click="showpassword(showpd)"></i>
+                                <i class="eye"  @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset v-if=!showpd>
+                        <fieldset v-if="!show">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')">
-                                <i class="eye active" @click="showpassword(showpd)"></i>
+                                <i class="eye active" @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset  v-if=cshowpd>
+                        <fieldset  v-if="show">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
-                                <i class="eye " @click="showpassword(cshowpd)"></i>
+                                <i class="eye " @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset  v-if=!cshowpd>
+                        <fieldset  v-if="!show">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
-                                <i class="eye active" @click="showpassword(cshowpd)"></i>
+                                <i class="eye active" @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -190,11 +190,19 @@
                 withpassword2: '',
                 withpassword3: '',
                 withpassword4: '',
-                showpd:true,
-                cshowpd:true
+                show:true,
+                showC:true
             }
         },
         methods:{
+            //点击显示密码
+            showPassword:function(){
+                 if(this.show){
+                       this.show=false;
+                   }else{
+                       this.show=true
+                         }
+                },
             //清除model数据,cl元素class
             clearVal :function (cl) {
 

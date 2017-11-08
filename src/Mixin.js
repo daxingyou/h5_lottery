@@ -467,16 +467,6 @@ var MyMixin = {
                $('.'+el).prev().val('');
               this.clearVal(cl)
         },
-        // 点击显示密码,cs元素class
-         showpassword:function(cs){
-              if(this.cs==true){
-                    this.cs=false;
-
-              }else {
-                     this.cs=true
-              }
-         },
-
     }
 };
 export default MyMixin;
