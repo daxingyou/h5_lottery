@@ -776,9 +776,11 @@ label{
         }
     }
 }
-
+.agent_area{
+    margin-top: 2rem;
+}
 .agent{
-    padding: 8% 0;
+    //padding: 8% 0;
     table{
         @extend .data;
     }
@@ -849,8 +851,8 @@ label{
         border-bottom: 0;
         cursor: pointer;
         font-weight: 300;
-        color: #277ca5;
-        border: .014rem solid #277ca5;
+        color: #007ea9;
+        border: .014rem solid #007ea9;
         font-size: 0.35rem;
         &.tab1{
             margin-right: -.09rem;
@@ -884,11 +886,11 @@ label{
 }
 .tabset > input:checked + label {
     margin-bottom: -1px;
-    background-color: #277ca5;
+    background-color: #007ea9;
     color: #fff;
 }
 .tab-panel {
-    padding: .5rem 0;
+    //padding: .5rem 0;
     text-align: justify;
     h4{
         color: #66c3f2;

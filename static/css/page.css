@@ -259,7 +259,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/m_bot.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; bottom: -.15rem; top: initial; height: .7rem; width: 100%; margin: 0 auto; left: 50%; margin-left: -50%; }
 
-.agent { padding: 8% 0; }
+.agent_area { margin-top: 2rem; }
 
 .agent p { line-height: 1.8em; margin-bottom: .3em; font-size: 0.35rem; }
 
@@ -288,7 +288,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tabset .tab-panel { display: none; }
 
-.tabset > label { position: relative; display: inline-block; padding: .27rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #277ca5; border: .014rem solid #277ca5; font-size: 0.35rem; }
+.tabset > label { position: relative; display: inline-block; padding: .27rem .8rem; border: 1px solid transparent; border-bottom: 0; cursor: pointer; font-weight: 300; color: #007ea9; border: .014rem solid #007ea9; font-size: 0.35rem; }
 
 .tabset > label.tab1 { margin-right: -.09rem; border-top-left-radius: .2rem; border-bottom-left-radius: .2rem; }
 
@@ -300,9 +300,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .tabset > label:hover::after, .tabset > input:focus + label::after, .tabset > input:checked + label::after { background: #06c; color: #fff; }
 
-.tabset > input:checked + label { margin-bottom: -1px; background-color: #277ca5; color: #fff; }
+.tabset > input:checked + label { margin-bottom: -1px; background-color: #007ea9; color: #fff; }
 
-.tab-panel { padding: .5rem 0; text-align: justify; }
+.tab-panel { text-align: justify; }
 
 .tab-panel h4 { color: #66c3f2; font-size: .4rem; margin: .2rem 0; }
 
@@ -1155,8 +1155,6 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 #agent_modal { margin-top: 15%; }
 
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
-
-.agent_area { margin-top: 1.5rem; }
 
 /*# sourceMappingURL=all.css.map */
 
