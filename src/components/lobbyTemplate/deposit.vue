@@ -156,36 +156,38 @@
                                             <th>
                                                 <li>银行名称</li>
                                             </th>
-                                            <td>中国工商银行</td>
+                                            <td>{{userInfo.bankName}}</td>
                                         </tr>
                                         <tr>
                                             <th>
                                                 <li>收款人</li>
                                             </th>
-                                            <td>黄岩</td>
+                                            <td>{{userInfo.realName}}</td>
                                         </tr>
                                         <tr>
                                             <th>
                                                 <li>开户行</li>
                                             </th>
-                                            <td>北京市朝阳区朝来分行</td>
+                                            <td>{{userInfo.bankAddress}}</td>
                                         </tr>
                                         <tr>
                                             <th>
                                                 <li>银行账号</li>
                                             </th>
-                                            <td>123456123456123456</td>
+                                            <td>{{userInfo.bankCard}}</td>
                                         </tr>
                                         </thead>
                                     </table>
-                                    <a class="copy_link js-textareacopybtn" href="javascript:;">
+                                    <a class="copy_link js-textareacopybtn copy-text" href="javascript:;"  @click="copyText()"
+                                       :data-clipboard-text="'银行名称：'+userInfo.bankName+' 收款人：'+userInfo.realName +' 开户行：'+userInfo.bankAddress +' 银行账号：'+userInfo.bankCard"
+                                    >
                                         <i class="icon_copy"></i>复制该信息</a>
                                 </div>
                             </div>
                             <fieldset>
                                 <div class="form_g text">
                                     <legend for="">存款时间</legend>
-                                    <input class="date" type="date" placeholder="2017/12/11 20:12">
+                                    <input class="date"  id="paydate" placeholder=" ">
                                     <i class="input_date"></i>
                                 </div>
                             </fieldset>
@@ -254,9 +256,11 @@
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'
- import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import Clipboard from 'clipboard'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 // import deposit_bank_transfer from '@/components/lobbyTemplate/deposit_bank_transfer'
+// import '../../../static/js/mobiscroll.js'
 
 export default {
   name: 'deposit',
@@ -273,10 +277,34 @@ export default {
             userInfo: {} ,  // 个人资料
         }
     },
+    creeted:function () {
+       /* setTimeout(function () {
+            var now = new Date(),
+                minDate = new Date(now.getFullYear() - 1, now.getMonth()+1, now.getDate(),now.getHours() - 12),
+                maxDate = new Date(now.getFullYear() + 1, now.getMonth()+1, now.getDate(),now.getHours() - 12);
+            $.mobiscroll.setDefaults({   //日期控件
+                theme: 'ios', //皮肤样式 android
+                lang: 'zh',
+                dateFormat: 'yy/mm/dd',  // 日期格式
+                mode: 'scroller', //日期选择模式 mixed
+                display: 'bottom',
+                min: minDate,
+                max: maxDate,
+                defaultValue:common.setAmerTime('#paydate'), //时间默认值
+                dateWheels: '|yy M d|',
+                startYear: 2017, //开始年份
+                endYear:2020 //结束年份
+            });
+            $("#paydate").mobiscroll().datetime({ });
+
+
+        },500)*/
+    },
   mounted:function() {
         $('html,body').css('overflow-y','scroll' )  ;
         this.choosePayMoth() ;
         this.bankTipShow() ;
+
   },
   methods: {
       // 银行转账步骤提示框
@@ -390,7 +418,26 @@ export default {
               }
           });
       },
+  // 银行转账提交
+      submitBankActtion:function () {
 
+      },
+
+      // 复制资料信息
+      copyText:function () {
+          var _self = this ;
+          var clipboard = new Clipboard('.copy-text') ;
+          clipboard.on('success', function (e) {
+              _self.$refs.autoCloseDialog.open('复制成功！','','icon_check','d_check') ;
+              // 释放内存
+              clipboard.destroy() ;
+          });
+          clipboard.on('error', function (e) {
+              _self.$refs.autoCloseDialog.open('浏览器不支持自动复制，请手动复制！') ;
+              // 释放内存
+              clipboard.destroy() ;
+          })  ;
+      },
 
 }
 
