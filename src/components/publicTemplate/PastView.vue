@@ -7,7 +7,25 @@
                 </a>
             </div>
             <h2 class="center lottery_name"> </h2>
+            <div class="right">
+                <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
+            </div>
         </header>
+        <div class="dropdown" style="display:none;">
+            <div class="play_area">
+                <div class="sort">
+                    <h5>游戏筛选</h5>
+                    <ul>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
+
+                    </ul>
+                    <div>
+                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                        <div class="btn btn_two round btn_blue02 btn_submit"><a href="javascript:;">确定</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="pa_content">
             <div id="betting_record" class="tab_container tabBox">
                 <div class="hd">
@@ -85,15 +103,27 @@ export default {
             ulclass :{'8':'lo_ball double-numbers','6':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
             spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
             lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
+            count :'30' , // 每次请求数量
             cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
+            gamechoose :[
+                {id:'2','name':'重庆时时彩'} ,
+                {id:'12','name':'天津时时彩'} ,
+                {id:'14','name':'新疆时时彩'} ,
+                {id:'4','name':'江西11选5'} ,
+                {id:'16','name':'广东11选5'} ,
+                {id:'18','name':'山东11选5'} ,
+                {id:'6','name':'江苏快3'} ,
+                {id:'20','name':'安徽快3'} ,
+                {id:'22','name':'湖北快3'} ,
+                {id:'8','name':'北京PK10'} ,
+            ],
         }
     },
   mounted:function() {
-  //  var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+this.setMenuAction() ;
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
-    // this.changeTab(lotteryid) ;
-    this.doubleCount(this.lotteryid,'30','') ;
+    this.doubleCount(this.lotteryid,this.count,'') ;
     $('html,body').css('overflow-y','scroll' )  ;
   },
   methods:{
@@ -122,9 +152,14 @@ export default {
                // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
-                        switch (this.lotteryid){
+                        switch (this.lotteryid.toString()){
                             case '8': // 北京pk10
                                 data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
+                                break;
+                            case '6': // 江苏快 3
+                            case '20': // 快 3
+                            case '22': // 快 3
+                                data.data[i].winNumber ='20,20,20' ;
                                 break;
                             default  :
                                 data.data[i].winNumber='-,-,-,-,-' ;
@@ -172,13 +207,47 @@ export default {
     * 近期开奖标签切换
     * */
     changeTab:function (e) {
-        // $('.tab_three').on('click','li',(e) => {
-            var lotteryid = this.getCookie('lt_lotteryid')
-            var val = $(e.currentTarget).data('val') ;
+            this.count = $(e.currentTarget).data('val') ;
             $(e.currentTarget).addClass('on').siblings().removeClass('on') ;
-            this.doubleCount(lotteryid,val,'') ;
-        // });
-    }
+            this.doubleCount(this.lotteryid,this.count,'') ;
+    },
+
+      //筛选下拉单
+      setMenuAction:function () {
+          $(".dropdown_icon,.btn_outline").click(() => {
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+          });
+
+          var lotterychooseid ;
+          $('.play_area').on('click', 'li', (e) => {
+              var $src = $(e.currentTarget);
+              $src.addClass('active').siblings().removeClass('active');
+              var val = $src.data('val');
+              lotterychooseid = val;
+
+          });
+          //确定提交
+          $('.btn_submit').on('click', (e) => {
+              this.lotteryid = lotterychooseid ;
+              var $src = $(e.currentTarget);
+              var lottery_name ;
+              $('.play_area').each(function () {
+                  var flag = $(this).find('li').hasClass('active') ;
+                  if(flag){
+                      lottery_name = $(this).find('li.active').find('a').text()
+                  }
+              }) ;
+              $('.lottery_name').html(lottery_name + ' 近期开奖'); // 彩种名称
+              this.doubleCount(this.lotteryid,this.count) ;
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+
+          });
+      },
+
   }
 
 }
