@@ -73,9 +73,9 @@
                             <h5>选择银行</h5>
                             <ul>
                                 <li class="btn_bank bank01" v-for="list in banklist">
-                                    <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.code,list.id)">
+                                    <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.bankCode)">
                                      <!--   <img src="/static/images/info_bank_10.png" alt="">-->
-                                        <img v-lazy="list.bankPic" alt="">
+                                        <img v-lazy="list.img" alt="">
                                         <span>{{list.bankName}}</span>
                                     </a>
                                 </li>
@@ -98,13 +98,13 @@
                         <div class="step03 scan_qrcoder">
                             <h5>支付方式</h5>
                             <ul>
-                                <li class="btn_pay wechat_q">
-                                    <a href="javascript:;">
-                                        <img src="/static/images/info_bank_01.png" alt="">
-                                        <span>微信二维码</span>
+                                <li class="btn_pay wechat_q" v-for="list in banklist">
+                                    <a href="javascript:;" @click="submitOnlinePay(list.bankCode)">
+                                        <img v-lazy="list.img" alt="">
+                                        <span>{{list.bankName}}</span>
                                     </a>
                                 </li>
-                                <li class="btn_pay alipay_q">
+                              <!--  <li class="btn_pay alipay_q">
                                     <a href="javascript:;">
                                         <img src="/static/images/info_bank_04.png" alt="">
                                         <span>支付宝二维码</span>
@@ -115,7 +115,7 @@
                                         <img src="/static/images/info_bank_07.png" alt="">
                                         <span>支付宝App</span>
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                     </div>
@@ -123,27 +123,30 @@
 
                     <!--  银行转账开始-->
                     <div class="webbank_bank_all" style="display: none ;">
-                        <form class="form_deposit">
-                            <fieldset>
-                                <div class="form_g text money">
-                                    <legend>充值金额</legend>
-                                    <input type="tel" placeholder=" " v-model="paymount" readonly>
-                                    <!--  <i class="close"></i>-->
-                                </div>
-                            </fieldset>
-                        </form>
+                        <div class="before_pay">
+                            <form class="form_deposit">
+                                <fieldset>
+                                    <div class="form_g text money">
+                                        <legend>充值金额</legend>
+                                        <input type="tel" placeholder=" " v-model="paymount" readonly>
+                                        <!--  <i class="close"></i>-->
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
                         <div class="bank_transfer">
-                            <fieldset>
-                                <div class="form_g text">
-                                    <legend>选择银行</legend>
-                                    <select name="">
-                                        <option :value="bank.bankCode" v-for="bank in banklist">{{bank.bankName}}</option>
-
-                                    </select>
-                                </div>
-                                <i class="input_select"></i>
-
-                            </fieldset>
+                            <div class="before_pay">
+                                <fieldset>
+                                    <div class="form_g text">
+                                        <legend>选择银行</legend>
+                                        <select name="" v-model="bankInfo.bankCode">
+                                            <option :value="bank.bankCode" v-for="bank in banklist">{{bank.bankName}}</option>
+                                        </select>
+                                    </div>
+                                    <i class="input_select"></i>
+                                </fieldset>
+                            </div>
 
                             <div class="bank_account">
                                 <h5 class="push-left-tiny">收款账号</h5>
@@ -184,36 +187,72 @@
                                         <i class="icon_copy"></i>复制该信息</a>
                                 </div>
                             </div>
-                            <fieldset>
-                                <div class="form_g text">
-                                    <legend for="">存款时间</legend>
-                                    <input class="date"  id="paydate" placeholder=" ">
-                                    <i class="input_date"></i>
+                            <div class="before_pay">
+                                <fieldset>
+                                    <div class="form_g text">
+                                        <legend for="">存款时间</legend>
+                                        <input class="date"  id="paydate" placeholder=" ">
+                                        <i class="input_date"></i>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form_g text">
+                                        <legend for="">存款人</legend>
+                                        <input type="text" placeholder="请输入存款人姓名" v-model="banksavename">
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form_g text">
+                                        <legend id="bank">存款方式</legend>
+                                        <select class="transparent" name="" v-model="bankval">   1网银存款,2支付宝支付,3微信支付,4柜员机现金存款,5柜员机转账,6银行柜台存款,7其他支付
+                                            <option value="1">网银存款</option>
+                                            <option value="2">支付宝电子支付</option>
+                                            <option value="3">微信电子支付</option>
+                                            <option value="4">柜员机现金存款</option>
+                                            <option value="5">柜员机转帐</option>
+                                            <option value="6">银行柜台存款</option>
+                                            <option value="7">其他支付</option>
+                                        </select>
+                                        <i class="input_select"></i>
+                                    </div>
+                                </fieldset>
+                                <div class="btn btn_blue">
+                                    <a href="javascript:;" @click="submitBankActtion()">确定充值</a>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <div class="form_g text">
-                                    <legend for="">存款人</legend>
-                                    <input type="text" placeholder="请输入存款人姓名">
+                            </div>
+                            <!-- 提交存款成功后 -->
+                            <div class="after_pay bank_account" style="display: none ;">
+                                <h5>您的存款信息</h5>
+                                <div class="print_data">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <li>存款时间</li>
+                                            </th>
+                                            <td class="bank-save-time"> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>存款金额</li>
+                                            </th>
+                                            <td>{{paymount}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>存款人</li>
+                                            </th>
+                                            <td>{{banksavename}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>存款方式</li>
+                                            </th>
+                                            <td class="bank-save-type"> </td>
+                                        </tr>
+                                        </thead>
+                                    </table>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <div class="form_g text">
-                                    <legend id="bank">存款方式</legend>
-                                    <select class="transparent" name="">
-                                        <option value="">网银存款</option>
-                                        <option value="">支付宝电子支付</option>
-                                        <option value="">微信电子支付</option>
-                                        <option value="">柜员机现金存款</option>
-                                        <option value="">柜员机转帐</option>
-                                        <option value="">银行柜台存款</option>
-                                        <option value="">其他支付</option>
-                                    </select>
-                                    <i class="input_select"></i>
-                                </div>
-                            </fieldset>
-                            <div class="btn btn_blue">
-                                <a href="deposit_success.html">确定充值</a>
                             </div>
                         </div>
                     </div>
@@ -274,7 +313,12 @@ export default {
         return {
             paymount: '' ,  // 充值金额
             banklist: {} ,  // 充值金额
-            userInfo: {} ,  // 个人资料
+            userInfo: {} ,  // 收款帐号个人资料
+            banksavename: '' ,  // 银行转账存款人
+            bankval: '' ,  // 银行转账方式
+            bankInfo: {
+                bankCode: '', // 默认工商银行
+            },
         }
     },
     creeted:function () {
@@ -335,10 +379,11 @@ export default {
               var $src = $(e.currentTarget);
               var val = $src.data('type');
               if(val == '1'){  // 网银支付
-                  _self.getBankList() ;
+                  _self.getBankList('2') ;
                   $('.paymethods_all').hide() ;
                   $('.webbank_pay_all').show() ;
               }else if(val =='2'){  // 扫码支付
+                  _self.getBankList('1') ;
                   $('.paymethods_all').hide() ;
                   $('.webbank_scan_all').show() ;
               }else{  // 银行转账
@@ -352,18 +397,19 @@ export default {
 
       },
       // 获取银行列表
-      getBankList:function () {
+      getBankList:function (type) {
           var _self = this ;
           $.ajax({
               type: 'get',
               headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
-              url: _self.action.forseti + 'api/payment/banks',
-              data: { },
+             // url: _self.action.forseti + 'api/payment/banks',
+              url: _self.action.forseti + 'api/payment/thirdBanks',
+              data: { type: type},  // 查询类型：1 扫码支付，2 银行卡支付
               success: function(res){
                   for(var i=0;i<res.data.length;i++){
-                      res.data[i].bankPic = _self.action.picurl+res.data[i].bankPic+'/0' ;
+                      res.data[i].img = _self.action.picurl+res.data[i].img+'/0' ;
                   }
                 _self.banklist = res.data ;
               },
@@ -373,13 +419,16 @@ export default {
           });
       },
       // 网银支付确定提交
-      submitOnlinePay:function (code,bankid) {
+      submitOnlinePay:function (code) {
           var _self = this ;
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
               source: '2' , //   来源类型   1,PC, 2,H5
               bankCode: code ,  // 银行代码
-              bankId : bankid ,  // 银行id
+              paymentType: '' ,  // 支付方式/银行代码(对应payment_type_id和bank_code)
+              paymentTypeName: '' ,  // 支付名称/银行名称(对应payment_type_name/bank_name)
+              realName : '' ,  // 真实姓名
+              flowType : '0' ,  // 入款方式 0-银行第三方支付，1-快捷支付
           }
           $.ajax({
               type: 'post',
@@ -418,8 +467,59 @@ export default {
               }
           });
       },
-  // 银行转账提交
+  // 银行转账提交  banksavename
       submitBankActtion:function () {
+          var _self = this ;
+          if(!_self.bankInfo.bankCode){
+              _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
+              return false ;
+          }
+          if(!_self.banksavename || !this.trueName(_self.banksavename)){
+              _self.$refs.autoCloseDialog.open('请输入正确的存款人姓名！') ;
+              return false ;
+          }
+          if(!_self.bankval){
+              _self.$refs.autoCloseDialog.open('请选择存款方式！') ;
+              return false ;
+          }
+          var userInfo = _self.userInfo ;
+          var senddata ={
+              chargeAmount: _self.paymount*100 , //  入款金额
+              source: '2' , //  来源类型   1,PC, 2,H5
+              payMethod : _self.bankval ,  // 存款方式 1网银存款,2支付宝支付,3微信支付,4柜员机现金存款,5柜员机转账,6银行柜台存款,7其他支付
+              depositorName : _self.banksavename ,  // 存款人真实姓名
+              realName : _self.banksavename ,  // 存款人姓名
+              depositorBankCode : _self.bankInfo.bankCode ,  // 存款人银行代码
+              cardNo: userInfo.bankCard , // 收款人 存入银行账号/快充账户
+              bankCode: userInfo.bankCode ,  // 收款人银行代码
+              registerBankInfo : userInfo.bankAddress ,  // 收款人开户行
+              cardOwnerName : userInfo.realName ,  // 收款人名字
+              flowType : '0' ,  // 入款方式 0-公司转账，1-钱包快充
+          }
+          $.ajax({
+              type: 'post',
+              headers: {
+                  "Authorization": "bearer  " + this.getAccessToken ,
+              },
+              url: _self.action.forseti + 'api/pay/offlineOrder',
+              data: senddata ,
+              success: function(res){
+                  _self.$refs.autoCloseDialog.open('存款申请已提交，请牢记以下信息','','icon_check','d_check') ;
+                  $('.after_pay').show() ;
+                  $('.before_pay').hide() ;
+                  scrollTo(0,0);
+                  _self.$nextTick(function () { // 支付成功后
+                      $('.bank-save-time').text($('#paydate').val()) ;
+                      $('.bank-save-type').text($('.transparent').find('option:selected').text()) ;
+
+                  });
+
+              },
+              error: function (res) {
+                  _self.$refs.autoCloseDialog.open('存款失败') ;
+              }
+          });
+
 
       },
 
