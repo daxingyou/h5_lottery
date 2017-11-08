@@ -25,7 +25,7 @@
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                          {{money}}
+                                          {{getCookie('membalance')}}
                                     </div>
                                 </div>
                             </div>

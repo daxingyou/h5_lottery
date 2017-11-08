@@ -106,11 +106,11 @@ export default {
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if (_self.money == '' && _self.checkNumber(_self.money)) {
+          if (_self.money == '' || !_self.checkNumber(_self.money)) {
               self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(_self.password==''&& _self.checkNumber(_self.password)){
+          if(_self.password==''||! _self.checkNumber(_self.password)){
               _self.$refs.autoCloseDialog.open('请输入密码');
                 return false
           }

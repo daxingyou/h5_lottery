@@ -21,7 +21,7 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>Elsa001EDKoes2</strong>
+                                <strong>{{getCookie('username')}}</strong>
                                 <div class="purse">
                                     <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
@@ -80,8 +80,8 @@
                 </div>
                 <div class="info_personal">
                     <div>个人信息
-                        <a class="info_data_modify" href="info_data_modify.html">
-                            <i class="icon write"></i>修改</a>
+                        <a class="edit-btn"  v-if="showDetail" @click="editDetails()"><i class="icon write"></i>修改</a>
+                        <a class="save-btn"  v-if="!showDetail" @click="saveEdit()"><i class="i_save"></i><span>保存</span></a>
                     </div>
                     <div class="print_data">
                         <table>
@@ -90,19 +90,31 @@
                                 <th>
                                     <li>微信</li>
                                 </th>
-                                <td>www123</td>
+                                <td v-if="!showDetail" class="before-edit">
+                                    <input type="text" placeholder="请输入微信号" v-model="weChat">
+                                    <!--<span class=" erro_text" >微信格式错误</span>-->
+                                </td>
+                                <td  v-if="showDetail" class="after-edit">www123</td>
                             </tr>
                             <tr>
                                 <th>
                                     <li>QQ</li>
                                 </th>
-                                <td>2830131</td>
+                                <td v-if="!showDetail" class="before-edit">
+                                    <input  type="text"  placeholder="请输入QQ号" v-model="qq">
+                                    <!--<span>qq格式错误</span>-->
+                                </td>
+                                <td v-if="showDetail" class="after-edit">283102</td>
                             </tr>
                             <tr>
                                 <th>
                                     <li>电子邮箱</li>
                                 </th>
-                                <td>tt@qq.com</td>
+                                <td class="before-edit" v-if="!showDetail">
+                                    <input  type="text"  placeholder="请输入邮箱地址" v-model="email">
+                                    <!--<span class="errormsg erro_text" v-show="changeDetail.emailVali">邮箱格式错误</span>-->
+                                </td>
+                                <td v-if="showDetail" class="after-edit">tt@qq.com</td>
                             </tr>
                             </thead>
                         </table>
@@ -363,11 +375,16 @@ export default {
                         newPassword_confirm2:'',
                         newPassword_confirm3:'',
                         newPassword_confirm4:'',
-                   }
+                   },
+            weChat:'',
+            qq:'',
+            email:'',
+             // 修改资料,
+             showDetail:true
         }
     },
     created: function() {
-//        var _self = this;
+        var _self = this;
 //        _self.hasLogin = _self.ifLanded();
 //        _self.getUserInfo();
     },
@@ -392,10 +409,6 @@ export default {
 //              if(data.apistatus == 1){
 //                  _self.userId = data.result.account || '';
 //              }
-            $.ajax({
-
-            })
-//
 //          }, 'get', function(data) {
 //              if (data.apistatus == '0' && data.errorCode == '1000020') {
 //
@@ -414,6 +427,20 @@ export default {
 //                  setTimeout('common.logOut()', 1000);
 //              }
 //          });
+          $.ajax({
+              type:'get',
+              headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
+              dataType: 'json',
+              url: _self.action.forseti + 'api/pay/memberBank',
+              data: { },
+              success: (res) => {
+                   console.log(res)
+              },
+              error: (err) =>{
+                   console.log(err)
+              }
+          })
+//
       },
 
       //修改登录密码
@@ -422,7 +449,7 @@ export default {
              if(_self.changePassword.oldPassword==''){
                  return false ;
              }
-             if(_self.changePassword.newPassword==''&&_self.changePassword.newPassword==_self.changePassword.oldPassword){
+             if(_self.changePassword.newPassword==''||_self.changePassword.newPassword==_self.changePassword.oldPassword){
               return false ;
              }
              if(_self.changePassword.newPassword_confirm==''){
@@ -449,7 +476,7 @@ export default {
                      },2000)
                  },
                  error: (err) =>{
-                     _self.$refs.autoCloseDialog.open('请输入正确密码') ;
+                     _self.$refs.autoCloseDialog.open('请输入正确密码','','icon_check','d_check') ;
                  }
              })
       },
@@ -482,13 +509,56 @@ export default {
               url: _self.action.forseti + 'api/pay/passwd',
               data:  ChangePayWordData,
               success: (res) => {
-                  _self.$refs.autoCloseDialog.open('修改成功') ;
+                  _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;
                   },2000)
               },
               error: (err) =>{
                   _self.$refs.autoCloseDialog.open('请输入正确密码') ;
+              }
+          })
+      },
+      //修改资料
+      editDetails:function () {
+            var _self=this;
+            _self.showDetail=false
+
+       } ,
+      saveEdit :function () {
+          var _self=this;
+          if(_self.weChat==''||!_self.checkWechat(_self.weChat)){
+               _self.$refs.autoCloseDialog.open('请输入正确微信号') ;
+                return false
+           }
+          if(_self.qq==''||!_self.checkqq(_self.qq)){
+               _self.$refs.autoCloseDialog.open('请输入正确QQ号') ;
+               return false
+          }
+          if(_self.email==''||!_self.checkEmail(_self.email)){
+              _self.$refs.autoCloseDialog.open('请输入正确的邮箱地址') ;
+              return false
+          }
+          var EditData={
+               wechat:_self.weChat,
+               qq    :_self.qq,
+               email :_self.email
+          }
+          $.ajax({
+              type: 'post',
+              headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
+              dataType: 'json',
+              url: _self.action.uaa + 'api/data/member/chgInfo',
+              data: EditData,
+              success: (res) => {
+                  _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
+                  setTimeout(function(){
+                      window.location = '/lobbyTemplate/info_data' ;
+                  },2000)
+
+              },
+              error: (err) =>{
+                  _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
               }
           })
       }
