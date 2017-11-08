@@ -332,6 +332,8 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 .publicDialog { display: block !important; }
 
+.last-open-dou { margin-left: -.1rem; }
+
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 i { display: inline-block; }
 

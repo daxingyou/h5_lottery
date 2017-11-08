@@ -376,12 +376,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
 
-#so-item1.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
-
-#so-item1.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
-
-#so-item1.jc115 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
-
 #so-item2.jc115 ul li:first-child { margin-top: 0; }
 
 #so-item2.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
