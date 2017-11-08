@@ -466,16 +466,15 @@ var MyMixin = {
                $('.'+el).prev().val('');
               this.clearVal(cl)
         },
-        // 点击显示密码,cs页面变量
+        // 点击显示密码,cs元素class
          showpassword:function(cs){
-              if(cs==true){
-                      cs=false;
+              if(this.cs==true){
+                    this.cs=false;
 
               }else {
-                      cs=true
+                     this.cs=true
               }
          },
-
 
     }
 };

@@ -13,7 +13,7 @@
             <div class="info_area">
                 <div class="info_top">
                     <div class="account">
-                        <a href="info_data.html">
+                        <router-link :to="'/lobbyTemplate/info_data'" >
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
                 <div class="info_mid">

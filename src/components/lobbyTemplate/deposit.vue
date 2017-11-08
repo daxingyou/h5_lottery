@@ -86,7 +86,7 @@ import $ from "jquery";
 import Mixin from '@/Mixin'
 // import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
-import deposit_bank_transfer from '@/components/Footer'
+import deposit_bank_transfer from '@/components/lobbyTemplate/deposit_bank_transfer'
 
 export default {
   name: 'deposit',

@@ -102,35 +102,37 @@ export default {
           }
 
       },
+
       //提款接口
       WithdrawalsAction: function () {
-          if (this.money == '' && !this.checkNumber(this.money)) {
-              this.$refs.autoCloseDialog.open('请输入正确金额');
+          var _self=this;
+          if (_self.money == '' && _self.checkNumber(_self.money)) {
+              self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(this.password==''&&!this.checkNumber(this.password)){
-              this.$refs.autoCloseDialog.open('请输入密码');
+          if(_self.password==''&& _self.checkNumber(_self.password)){
+              _self.$refs.autoCloseDialog.open('请输入密码');
                 return false
           }
           var Withdrawalsdata = {
-              applyAmount: this.money,//金额
-              tradePassword: this.password, //密码
+              applyAmount: _self.money,//金额
+              tradePassword: _self.password, //密码
               remark :'会员提现'
-          }
+          };
           $.ajax({
               type: 'post',
-              headers: { 'Authorization': 'bearer ' + this.getAccessToken ,},
+              headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
               dataType: 'json',
-              url: this.action.forseti + 'api/pay/drawOrder',
+              url: _self.action.forseti + 'api/pay/drawOrder',
               data: Withdrawalsdata,
               success: (res) => {
-                  this.$refs.autoCloseDialog.open('提款成功') ;
+                  _self.$refs.autoCloseDialog.open('提款成功') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info' ;
                   },2000)
               },
-              error: function () {
-
+              error: (err) =>{
+                  _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
               }
 
           })
