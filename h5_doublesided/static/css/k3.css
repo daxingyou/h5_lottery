@@ -24,12 +24,6 @@
 
 #k3 .so-main-down li { white-space: nowrap; }
 
-#k3 .so-main-down li:first-child p { width: 3rem; margin-right: 0.12rem; }
-
-#k3 .so-main-down li i { margin-top: 0.18rem; margin-left: 0; vertical-align: middle; }
-
-#k3 .so-main-down li a { margin-top: 0.15rem; margin-right: 0.1rem; }
-
 #k3 .select-li { height: auto; padding-top: 0.3rem; }
 
 #k3 .k3_panel { background: none; height: auto; position: relative; }
