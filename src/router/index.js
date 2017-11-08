@@ -63,12 +63,12 @@ export default new Router({
     },
     {
       path: '/jc11x5/sd11x5Index',
-      name: 'jc11x5Index',
+      name: 'sd11x5Index',
       component: SD11x5Index
     },
     {
       path: '/jc11x5/gd11x5Index',
-      name: 'jc11x5Index',
+      name: 'gd11x5Index',
       component: GD11x5Index
     },
     {
@@ -119,11 +119,11 @@ export default new Router({
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
     { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
-    { path: '/lobbyTemplate/withdrawals', name:'deposit', component: withdrawals },
-    { path: '/lobbyTemplate/agent', name:'deposit', component: agent },
-    { path: '/lobbyTemplate/info_data', name:'deposit', component: info_data },
-    { path: '/lobbyTemplate/notification', name:'deposit', component:notification },
-    { path: '/lobbyTemplate/join', name:'deposit', component:join }
+    { path: '/lobbyTemplate/withdrawals', name:'withdrawals', component: withdrawals },
+    { path: '/lobbyTemplate/agent', name:'agent', component: agent },
+    { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
+    { path: '/lobbyTemplate/notification', name:'notification', component:notification },
+    { path: '/lobbyTemplate/join', name:'join', component:join }
 
   ]
 })
