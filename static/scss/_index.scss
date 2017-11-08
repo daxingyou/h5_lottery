@@ -2,6 +2,7 @@
 @import "variable";
 .news{
     margin-top: 1.5rem;
+    overflow-x: hidden;
     img{
         width: 100%;
         display: block;
@@ -112,7 +113,7 @@
                 margin-left: .5rem;
                 margin-top: .35rem;
                 >img{
-                    width: 2rem;
+                    width: 3.5rem;
                 }
             }
         }
@@ -145,8 +146,8 @@
                     width: 29.9%;
                     background-repeat: no-repeat;
                     >p{
-                        background:-webkit-linear-gradient(#e7df90,#fffec7,#85662d);
-                        background: linear-gradient(#e7df90,#fffec7,#85662d);
+                        background:-webkit-linear-gradient(#e2e2e2, #d6d6d6, #484848);
+                        background: linear-gradient(#e2e2e2, #d6d6d6, #484848);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         font-weight: 700;

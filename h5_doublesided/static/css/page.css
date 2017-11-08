@@ -526,7 +526,7 @@ ul.no_open > li { background-image: url("../../static/images/content/duankaung.p
 
 i.prd { background-image: url("../../static/images/page/icon_pn.png"); background-position-y: .15rem; background-repeat: no-repeat; background-size: 100%; height: .6rem; width: .5rem; display: inline-block; line-height: .3rem; vertical-align: inherit; }
 
-.ds_long { padding: .2rem 0; color: #fff; margin-top: 1.5rem; }
+.ds_long { padding: .2rem 0; color: #fff; }
 
 .ds_long ul.lo_ball { width: 2.5rem; }
 
@@ -708,8 +708,6 @@ ul.sixball > li:last-child { background-position-x: -2.2rem; margin-left: .5rem;
 
 ul.sixball > li:last-child:before { background-image: url("../../static/images/plus.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .5rem; height: 1.1rem; right: 1.1rem; left: inherit; }
 
-.double-all { margin-top: 3rem; }
-
 /* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
 .news { margin-top: 1.5rem; }
 
@@ -747,7 +745,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 #index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
 
-#index_content.content > section h3 > img { width: 2rem; }
+#index_content.content > section h3 > img { width: 4rem; }
 
 #index_content.content ul { overflow: hidden; max-width: 95%; margin: 0 auto; text-align: left; font-size: 0; }
 

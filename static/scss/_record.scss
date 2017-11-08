@@ -96,7 +96,7 @@
 }
 .tab_content{
     padding: 0 0.3rem;
-    margin-top: 1.5rem;
+    //margin-top: 1.5rem;
     &.sliding-box{
         padding-bottom: 2.2rem;
     }
@@ -397,7 +397,7 @@ i.prd{
 .ds_long{
     padding: .2rem 0;
     color: #fff;
-    margin-top: 1.5rem;
+    //margin-top: 1.5rem;
     ul.lo_ball{
         width: 2.5rem;
         &.two{ //寫js去判斷內容物數量超過1增加這個class
@@ -660,7 +660,7 @@ i.prd{
     }
 }
 #betting_record{
-    margin-top: 1.5rem;
+    //margin-top: 1.5rem;
     // overflow-y: scroll;
     // -webkit-overflow-scrolling: touch;
     &.ac_detial_area{
@@ -844,5 +844,5 @@ ul.sixball{
 
 }
 .double-all{
-    margin-top: 3rem;
+    //margin-top: 3rem;
 }
