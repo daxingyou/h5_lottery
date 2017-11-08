@@ -141,7 +141,8 @@
                         <fieldset>
                             <div class="form_g text">
                                 <legend>新密碼</legend>
-                                <input type="password" placeholder="请输入密码" v-model="changePassword.newPassword" class="newPassword" @input="checkUserName(changePassword.newPassword,'newPassword','请输入4~15位密码')">
+                                <input type="password" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="false" class="newPassword" @input="checkUserName(changePassword.newPassword,'newPassword','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="true">
                                 <i class="eye"></i>
                             </div>
                             <!--<label class="error-message "></label>-->
@@ -149,7 +150,8 @@
                         <fieldset>
                             <div class="form_g text">
                                 <legend>確認密碼</legend>
-                                <input type="password" placeholder="请输入密码" v-model="changePassword.newPassword_confirm" class="newPassword_confirm" @input="checkUserName(changePassword.newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <input type="password" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="false" class="newPassword_confirm" @input="checkUserName(changePassword.newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <input type="text" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="true">
                                 <i class="eye"></i>
                             </div>
                             <!--<label class="error-message "></label>-->
@@ -471,7 +473,7 @@ export default {
                  url: _self.action.uaa + 'api/data/member/password',
                  data: ChangePasswordData,
                  success: (res) => {
-                     _self.$refs.autoCloseDialog.open('修改成功') ;
+                     _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                      setTimeout(function(){
                          window.location = '/lobbyTemplate/info_data' ;
                      },2000)
