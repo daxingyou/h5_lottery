@@ -275,7 +275,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data thead, .agent table thead { background-color: #0a1625; }
 
-.data td, .agent table td, .data th, .agent table th { border: 1px solid #277ca5; padding: .2rem; text-align: center; }
+.data td, .agent table td, .data th, .agent table th { border: 1px solid #277ca5; padding: .2rem; text-align: center; vertical-align: middle; }
 
 .data th, .agent table th { color: #66c3f2; }
 
@@ -1155,6 +1155,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 #agent_modal { margin-top: 15%; }
 
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
+
+.agent_area { margin-top: 1.5rem; }
 
 /*# sourceMappingURL=all.css.map */
 
