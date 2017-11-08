@@ -136,7 +136,7 @@
 
 #so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div { background: url("../images/content/panel_body.png") no-repeat; background-size: 100% 100%; padding: 4% 0 3.5%; height: auto; margin: 0px auto; overflow: hidden; }
 
-#so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 0.01rem #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
+#so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 1px #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
 
 #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
 
@@ -317,6 +317,10 @@
 .so-tip-pop img:nth-child(2) { max-width: 1rem; margin-top: -.3rem; display: block; }
 
 .so-tip-pop p { color: #c93030; margin-top: 0.25rem; font-size: 0.34rem; }
+
+.so-tip-pop p.d_check { color: #ffbd00; }
+
+.so-tip-pop p.d_danger { color: #c93030; }
 
 .bet_ok_area p { color: #ffbd00; line-height: 1.5em; }
 

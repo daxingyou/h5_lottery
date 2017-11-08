@@ -184,6 +184,7 @@ input,select,button,a{
     }
     >.right{
         float: right;
+        padding-right: .5rem;
         >.so-top-zoushi {
             // float: right;
             height: 1.48rem;
@@ -967,11 +968,6 @@ img.fixbot{
     font-size: 0.35rem;
 }
 //舊對話框提示文字
-.d_check{
-    color: $yellow;
-}
-.d_danger{
-    color:$red;
-}
+
 
 .publicDialog { display: block !important; }

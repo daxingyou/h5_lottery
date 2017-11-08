@@ -482,7 +482,7 @@
             overflow: hidden;
             p {
                 float: left;
-                border: solid 0.01rem #277ca5;
+                border: solid 1px #277ca5;
                 height: 0.85rem;
                 width: 3rem;
                 margin-bottom: 4%;
@@ -1115,6 +1115,12 @@
         color: $red;
         margin-top: 0.25rem;
         font-size: 0.34rem;
+        &.d_check{
+            color: $yellow;
+        }
+        &.d_danger{
+            color:$red;
+        }
     }
 }
 .bet_ok_area {

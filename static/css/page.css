@@ -65,7 +65,7 @@ input, select, button, a { outline: none; }
 
 #pa_head > .left a.btn_leftside { margin-top: .5rem; width: .45rem; }
 
-#pa_head > .right { float: right; }
+#pa_head > .right { float: right; padding-right: .5rem; }
 
 #pa_head > .right > .so-top-zoushi { height: 1.48rem; width: 1.48rem; }
 
@@ -329,10 +329,6 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 @media screen and (orientation: landscape) { img.fixbot { position: relative; } }
 
 .last-date { font-size: 0.35rem; }
-
-.d_check { color: #ffbd00; }
-
-.d_danger { color: #c93030; }
 
 .publicDialog { display: block !important; }
 
