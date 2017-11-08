@@ -386,12 +386,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
 
-#so-item1.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
-
-#so-item1.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
-
-#so-item1.jc115 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
-
 #so-item2.jc115 ul li:first-child { margin-top: 0; }
 
 #so-item2.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
@@ -416,7 +410,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
-#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; }
+#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem; }
 
 #so-item2.jc115 > .hd ul.tab_mid { background-color: transparent; border-radius: 100px; }
 

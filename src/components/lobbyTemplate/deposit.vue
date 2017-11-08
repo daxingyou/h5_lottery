@@ -20,9 +20,9 @@
                                 <i class="close"></i>
                             </div>
                         </fieldset>
-                        <div class="btn btn_blue money">
+                        <!-- <div class="btn btn_blue money">
                             <a href="javascript:;">確定</a>
-                        </div>
+                        </div> -->
                     </form>
                     <div class="step03 pay_way">
                         <ul>

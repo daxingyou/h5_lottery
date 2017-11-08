@@ -1324,42 +1324,42 @@ img.bet_ok {
                 width: 1.3rem;
                 display: none;
                 padding-bottom: .2rem;
-                span:first-child {
-                    background: url('../../static/images/content/qui02.png') no-repeat;
-                    background-size: 1.2rem;
-                    background-position: 0.1rem -1.22rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.6rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.1rem;
-                }
-                span {
-                    color: #fff;
-                    font-size: 0.3rem;
-                    display: block;
-                    padding-right: 0;
-                    line-height: 0.5rem;
-                }
+                // span:first-child {
+                //     background: url('../../static/images/content/qui02.png') no-repeat;
+                //     background-size: 1.2rem;
+                //     background-position: 0.1rem -1.22rem;
+                //     display: block;
+                //     width: 1.3rem;
+                //     height: 1.3rem;
+                //     color: #fffbe2;
+                //     font-size: 0.6rem;
+                //     text-align: center;
+                //     line-height: 1.3rem;
+                //     text-indent: 0.1rem;
+                // }
+                // span {
+                //     color: #fff;
+                //     font-size: 0.3rem;
+                //     display: block;
+                //     padding-right: 0;
+                //     line-height: 0.5rem;
+                // }
             }
-            p.active {
-                span:first-child {
-                    background: url('../../static/images/content/qui02.png') no-repeat;
-                    background-size: 1.2rem;
-                    background-position: 0.1rem 0.09rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.52rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.1rem;
-                }
-            }
+            // p.active {
+            //     span:first-child {
+            //         background: url('../../static/images/content/qui02.png') no-repeat;
+            //         background-size: 1.2rem;
+            //         background-position: 0.1rem 0.09rem;
+            //         display: block;
+            //         width: 1.3rem;
+            //         height: 1.3rem;
+            //         color: #fffbe2;
+            //         font-size: 0.52rem;
+            //         text-align: center;
+            //         line-height: 1.3rem;
+            //         text-indent: 0.1rem;
+            //     }
+            // }
         }
     }
 }
@@ -1464,6 +1464,7 @@ img.bet_ok {
             position: relative;
             top:inherit;
             left: inherit;
+            height: .9rem;
             &.tab_mid{
                 background-color: transparent;
                 border-radius: 100px;
