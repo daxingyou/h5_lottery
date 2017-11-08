@@ -287,17 +287,23 @@ export default {
               });
               $('.so-shade').fadeToggle("fast", "linear");
           });
-          var lottery_name;
           $('.play_area').on('click', 'li', (e) => {
               var $src = $(e.currentTarget);
               $src.addClass('active').siblings().removeClass('active');
               var val = $src.data('val');
               this.lotteryid = val;
-              lottery_name = $src.find('a').text();
+             // lottery_name = $src.find('a').text();
           });
           //确定提交
           $('.btn_submit').on('click', (e) => {
               var $src = $(e.currentTarget);
+              var lottery_name ;
+              $('.play_area').each(function () {
+                 var flag = $(this).find('li').hasClass('active') ;
+                 if(flag){
+                     lottery_name = $(this).find('li.active').find('a').text()
+                 }
+              }) ;
               $('.lottery_name').html(lottery_name + ' 双面长龙'); // 彩种名称
               this.loadDoubleLong(this.lotteryid,'','open','clong_open') ; // 连续开奖
               this.loadDoubleLong(this.lotteryid,'','unopen','clong_notopen') ; // 连续未开奖
