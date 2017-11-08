@@ -85,13 +85,162 @@
                     </div>
                     <!-- 网银支付结束 -->
                     <!-- 扫码支付开始  -->
-
+                    <div class="webbank_scan_all" style="display: none ;">
+                        <form class="form_deposit">
+                            <fieldset>
+                                <div class="form_g text money">
+                                    <legend>充值金额</legend>
+                                    <input type="tel" placeholder=" " v-model="paymount" readonly>
+                                    <!--  <i class="close"></i>-->
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="step03 scan_qrcoder">
+                            <h5>支付方式</h5>
+                            <ul>
+                                <li class="btn_pay wechat_q">
+                                    <a href="javascript:;">
+                                        <img src="/static/images/info_bank_01.png" alt="">
+                                        <span>微信二维码</span>
+                                    </a>
+                                </li>
+                                <li class="btn_pay alipay_q">
+                                    <a href="javascript:;">
+                                        <img src="/static/images/info_bank_04.png" alt="">
+                                        <span>支付宝二维码</span>
+                                    </a>
+                                </li>
+                                <li class="btn_pay alipay">
+                                    <a href="javascript:;">
+                                        <img src="/static/images/info_bank_07.png" alt="">
+                                        <span>支付宝App</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <!-- 扫码支付结束  -->
 
+                    <!--  银行转账开始-->
+                    <div class="webbank_bank_all" style="display: none ;">
+                        <form class="form_deposit">
+                            <fieldset>
+                                <div class="form_g text money">
+                                    <legend>充值金额</legend>
+                                    <input type="tel" placeholder=" " v-model="paymount" readonly>
+                                    <!--  <i class="close"></i>-->
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="bank_transfer">
+                            <fieldset>
+                                <div class="form_g text">
+                                    <legend>选择银行</legend>
+                                    <select name="">
+                                        <option :value="bank.bankCode" v-for="bank in banklist">{{bank.bankName}}</option>
+
+                                    </select>
+                                </div>
+                                <i class="input_select"></i>
+
+                            </fieldset>
+
+                            <div class="bank_account">
+                                <h5 class="push-left-tiny">收款账号</h5>
+                                <a class="mini_tip trans_step" href="javascript:;">
+                                    <i class="i_help"></i>转账步骤</a>
+                                <div class="print_data">
+                                    <table class="js-copytextarea">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                <li>银行名称</li>
+                                            </th>
+                                            <td>中国工商银行</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>收款人</li>
+                                            </th>
+                                            <td>黄岩</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>开户行</li>
+                                            </th>
+                                            <td>北京市朝阳区朝来分行</td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <li>银行账号</li>
+                                            </th>
+                                            <td>123456123456123456</td>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                    <a class="copy_link js-textareacopybtn" href="javascript:;">
+                                        <i class="icon_copy"></i>复制该信息</a>
+                                </div>
+                            </div>
+                            <fieldset>
+                                <div class="form_g text">
+                                    <legend for="">存款时间</legend>
+                                    <input class="date" type="date" placeholder="2017/12/11 20:12">
+                                    <i class="input_date"></i>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form_g text">
+                                    <legend for="">存款人</legend>
+                                    <input type="text" placeholder="请输入存款人姓名">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form_g text">
+                                    <legend id="bank">存款方式</legend>
+                                    <select class="transparent" name="">
+                                        <option value="">网银存款</option>
+                                        <option value="">支付宝电子支付</option>
+                                        <option value="">微信电子支付</option>
+                                        <option value="">柜员机现金存款</option>
+                                        <option value="">柜员机转帐</option>
+                                        <option value="">银行柜台存款</option>
+                                        <option value="">其他支付</option>
+                                    </select>
+                                    <i class="input_select"></i>
+                                </div>
+                            </fieldset>
+                            <div class="btn btn_blue">
+                                <a href="deposit_success.html">确定充值</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  银行转账结束 -->
                 </div>
             </div>
         </div>
        <!-- <deposit_bank_transfer v-if="false"></deposit_bank_transfer>-->
+
+        <!--银行转账使用步骤-->
+        <div class="modal">
+            <div class="m_content">
+                <h2 class="title">银行转账使用步骤
+                    <a></a>
+                </h2>
+                <p class="content left">
+                    1. 选择您使用的存款银行，底部会出现对应的收款银行卡号；
+                    <br/> 2. 记录或复制该收款信息到手机上；
+                    <br/> 3. 填写您的存款时间、金额等信息，以及选择您的存款方式；
+                    <br/> 4. 前去银行或网银等转账到收款账号，完成后保留凭证；
+                    <br/> 5. 等待客服处理您的订单，完成支付；
+                    <br/>
+                </p>
+                <div class="action">
+                    <a class="ok">确定</a>
+                </div>
+            </div>
+        </div>
+
         <FooterNav />
 
         <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
@@ -121,13 +270,25 @@ export default {
         return {
             paymount: '' ,  // 充值金额
             banklist: {} ,  // 充值金额
+            userInfo: {} ,  // 个人资料
         }
     },
   mounted:function() {
         $('html,body').css('overflow-y','scroll' )  ;
         this.choosePayMoth() ;
+        this.bankTipShow() ;
   },
   methods: {
+      // 银行转账步骤提示框
+      bankTipShow:function () {
+          $('.trans_step').click(function () {
+              $('.modal').toggle();
+          });
+          $('.modal').click(function () {
+              $('.modal').toggle();
+          });
+      },
+
    // 金额验证
     /*  checkAmount:function () {
         if(this.paymount =='' || !this.isPositiveNum(this.paymount)){
@@ -150,9 +311,13 @@ export default {
                   $('.paymethods_all').hide() ;
                   $('.webbank_pay_all').show() ;
               }else if(val =='2'){  // 扫码支付
-
+                  $('.paymethods_all').hide() ;
+                  $('.webbank_scan_all').show() ;
               }else{  // 银行转账
-
+                  _self.getBankList() ;
+                  _self.getBankInfo() ;
+                  $('.paymethods_all').hide() ;
+                  $('.webbank_bank_all').show() ;
               }
 
           }) ;
@@ -202,15 +367,31 @@ export default {
                   },200)
               },
               error: function (res) {
-
+                  _self.$refs.autoCloseDialog.open('支付失败') ;
               }
           });
 
-
-
       },
-      
-      
+      // 银行转账 个人信息
+      getBankInfo:function () {
+          var _self = this ;
+          $.ajax({
+              type: 'get',
+              headers: {
+                  "Authorization": "bearer  " + this.getAccessToken ,
+              },
+              url: _self.action.forseti + 'api/payment/memberBank',
+              data: { },
+              success: function(res){
+                _self.userInfo = res.data ;
+              },
+              error: function (res) {
+
+              }
+          });
+      },
+
+
 }
 
 }
