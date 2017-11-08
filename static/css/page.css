@@ -757,7 +757,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 #index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
 
-#index_content.content > section h3 > img { width: 3.5rem; }
+#index_content.content > section h3 > img { width: 3.25rem; }
 
 #index_content.content ul { overflow: hidden; max-width: 95%; margin: 0 auto; text-align: left; font-size: 0; }
 
