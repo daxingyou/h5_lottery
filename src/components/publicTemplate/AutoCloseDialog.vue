@@ -2,8 +2,8 @@
     <div v-if="show" class="popup so-tip-pop so-tip-pop-01 publicDialog" @click="close">
         <div>
             <img :src="'/static/images/pop/'+ (typeStr ||'title_tip') +'.png'">
-            <img src="/static/images/page/status03.svg">
-            <p>{{content}}</p>
+            <img :src="'/static/images/page/'+(typelogo || 'status03')+'.svg'">
+            <p :class="(contenclas || 'd_danger')">{{content}}</p>
         </div>
     </div>
 
@@ -20,16 +20,20 @@ export default {
       show:false,
       content:'',
       typeStr:'',
+      typelogo:'',
+      contenclas:'',
     }
   },
   mounted:function() {
     this.typeStr = this.type;
   },
   methods:{
-    //打开弹窗
-    open:function(text, title_tip){
+    //打开弹窗 text 提示文案，title_tip 提示背景标题 , typelogo 提示logo ,对应的类 cla
+    open:function(text, title_tip,typelogo,cla){
       this.content = text;
       this.typeStr = title_tip;
+      this.typelogo = typelogo;
+      this.contenclas = cla;
       this.show = true;
       setTimeout(() => this.show = false, this.delay);
     },
