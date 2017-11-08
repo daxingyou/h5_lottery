@@ -394,8 +394,8 @@
             timerBegin:function(){
                 var that = this;
                 that.getSystemTime().then(sys_time=>{
-                    // sys_time = '2017-10-30 19:41:32';
-                    // sys_time = '2017-10-30 19:39:10';
+                    // sys_time = '2017-10-30 19:39:10';    //5秒后封盘所需时间，然后5秒后开奖
+                    // sys_time = '2017-10-30 19:39:16';   //封盘状态所需时间，5秒后开奖 
                     that.sys_time = sys_time;
                     that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                         that.next_pcode = res.data[0].pcode;  // 下期期数

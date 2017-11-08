@@ -287,15 +287,17 @@ export default {
               });
               $('.so-shade').fadeToggle("fast", "linear");
           });
+          var lotterychooseid ;
           $('.play_area').on('click', 'li', (e) => {
               var $src = $(e.currentTarget);
               $src.addClass('active').siblings().removeClass('active');
               var val = $src.data('val');
-              this.lotteryid = val;
-             // lottery_name = $src.find('a').text();
+              lotterychooseid = val;
+
           });
           //确定提交
           $('.btn_submit').on('click', (e) => {
+              this.lotteryid = lotterychooseid ;
               var $src = $(e.currentTarget);
               var lottery_name ;
               $('.play_area').each(function () {
