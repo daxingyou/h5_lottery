@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <AutoCloseDialog ref="autoCloseDialog" text="您的余额不足" type="" />
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
 
@@ -284,7 +284,8 @@
 
                        // this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
                        // this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-                        this.$refs.autoCloseDialog.open('注册成功，请登录') ;
+
+                        this.$refs.autoCloseDialog.open('注册成功，请登录','','icon_check','d_check') ;
                         setTimeout(function(){
                             window.location = '/login' ;
                         },200)
