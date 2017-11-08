@@ -72,58 +72,22 @@
                         <div class="step03 webbank_pay">
                             <h5>选择银行</h5>
                             <ul>
-                                <li class="btn_bank bank01">
-                                    <a href="#" title="中国工商银行">
-                                        <img src="/static/images/info_bank_10.png" alt="">
-                                        <span>中国工商银行</span>
+                                <li class="btn_bank bank01" v-for="list in banklist">
+                                    <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.code,list.id)">
+                                     <!--   <img src="/static/images/info_bank_10.png" alt="">-->
+                                        <img v-lazy="list.bankPic" alt="">
+                                        <span>{{list.bankName}}</span>
                                     </a>
                                 </li>
-                                <li class="btn_bank bank02">
-                                    <a href="#" title="中国农业银行">
-                                        <img src="/static/images/info_bank_13.png" alt="">
-                                        <span>中国农业银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank03">
-                                    <a href="#" title="建设银行">
-                                        <img src="/static/images/info_bank_16.png" alt="">
-                                        <span>建设银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank04">
-                                    <a href="#" title="交通银行">
-                                        <img src="/static/images/info_bank_19.png" alt="">
-                                        <span>交通银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank05">
-                                    <a href="#" title="中国银行">
-                                        <img src="/static/images/info_bank_22.png" alt="">
-                                        <span>中国银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank06">
-                                    <a href="#" title="招商银行">
-                                        <img src="/static/images/info_bank_25.png" alt="">
-                                        <span>招商银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank07">
-                                    <a href="#" title="中信银行">
-                                        <img src="/static/images/info_bank_28.png" alt="">
-                                        <span>中信银行</span>
-                                    </a>
-                                </li>
-                                <li class="btn_bank bank08">
-                                    <a href="#" title="光大银行">
-                                        <img src="/static/images/info_bank_31.png" alt="">
-                                        <span>光大银行</span>
-                                    </a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
                     <!-- 网银支付结束 -->
+                    <!-- 扫码支付开始  -->
+
+                    <!-- 扫码支付结束  -->
+
                 </div>
             </div>
         </div>
@@ -155,7 +119,8 @@ export default {
   },
     data: function() {
         return {
-            paymount:'' ,  // 充值金额
+            paymount: '' ,  // 充值金额
+            banklist: {} ,  // 充值金额
         }
     },
   mounted:function() {
@@ -195,21 +160,56 @@ export default {
       },
       // 获取银行列表
       getBankList:function () {
+          var _self = this ;
           $.ajax({
               type: 'get',
               headers: {
-                  "Authorization": "bearer  " + this.getAccessToken,
+                  "Authorization": "bearer  " + this.getAccessToken ,
               },
-              url: this.action.forseti + 'api/payment/banks',
+              url: _self.action.forseti + 'api/payment/banks',
               data: { },
               success: function(res){
-
+                  for(var i=0;i<res.data.length;i++){
+                      res.data[i].bankPic = _self.action.picurl+res.data[i].bankPic+'/0' ;
+                  }
+                _self.banklist = res.data ;
               },
               error: function (res) {
 
               }
           });
-      }
+      },
+      // 网银支付确定提交
+      submitOnlinePay:function (code,bankid) {
+          var _self = this ;
+          var senddata ={
+              chargeAmount: _self.paymount*100 , //  入款金额
+              source: '2' , //   来源类型   1,PC, 2,H5
+              bankCode: code ,  // 银行代码
+              bankId : bankid ,  // 银行id
+          }
+          $.ajax({
+              type: 'post',
+              headers: {
+                  "Authorization": "bearer  " + this.getAccessToken ,
+              },
+              url: _self.action.forseti + 'api/pay/onlineOrder',
+              data: senddata ,
+              success: function(res){
+                  _self.$refs.autoCloseDialog.open('支付成功','','icon_check','d_check') ;
+                  setTimeout(function () {
+                      window.location = 'info' ;
+                  },200)
+              },
+              error: function (res) {
+
+              }
+          });
+
+
+
+      },
+      
       
 }
 

@@ -9,6 +9,7 @@ var MyMixin = {
                 forseti: 'http://121.58.234.210:19091/forseti/',
                 uaa: 'http://121.58.234.210:19091/uaa/',
                 hermes: 'http://121.58.234.210:19091/hermes/',
+                picurl: 'http://admin.baochiapi.com/photo/pic/',  // 图片地址
             },
             playTreeList:[], //玩法树
             testPriodDataNewlyData:{
