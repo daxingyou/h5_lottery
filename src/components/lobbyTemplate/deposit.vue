@@ -58,6 +58,7 @@
                 </div>
             </div>
         </div>
+        <deposit_bank_transfer v-if="false"></deposit_bank_transfer>
     </div>
 
 
@@ -77,6 +78,7 @@
             </div>
         </div>
     </div>-->
+    <!--<deposit_bank_transfer></deposit_bank_transfer>-->
 </template>
 
 <script>
@@ -84,6 +86,7 @@ import $ from "jquery";
 import Mixin from '@/Mixin'
 // import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
+import deposit_bank_transfer from '@/components/Footer'
 
 export default {
   name: 'deposit',
@@ -91,6 +94,7 @@ export default {
   components: {
    // AutoCloseDialog,
       FooterNav ,
+      deposit_bank_transfer
   },
     data: function() {
         return {

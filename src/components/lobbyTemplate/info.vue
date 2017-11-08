@@ -21,11 +21,11 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>Elsa001EDKoes2</strong>
+                                <strong>{{getCookie('username')}}</strong>
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                        123456789
+                                          {{money}}
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 
 export default {
-  name: 'Login',
+  name: 'info',
   mixins:[Mixin],
   components: {
    // AutoCloseDialog,
@@ -122,7 +122,7 @@ export default {
   },
     data: function() {
         return {
-
+            money:this.getCookie('membalance')
         }
     },
   mounted:function() {

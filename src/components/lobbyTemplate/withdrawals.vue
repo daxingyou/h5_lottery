@@ -33,7 +33,7 @@
                             <th>
                                 <li>余额</li>
                             </th>
-                            <td>3000.00</td>
+                            <td>{{membalance}}</td>
                         </tr>
                         </thead>
                     </table>
@@ -42,14 +42,14 @@
                     <div class="form_g text">
                         <legend>取款金额</legend>
                         <input type="number" v-model="money"  class="money" placeholder="1.00~9999.00">
-                        <i class="close"></i>
+                        <i class="close close1" @click="ClearInput('close1','money')"></i>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
                         <legend>支付密码</legend>
                         <input type="password" v-model="password" class="password" maxlength="4" placeholder="4位数字密码">
-                        <i class="close"></i>
+                        <i class="close close2" @click="ClearInput('close1','password')"></i>
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
@@ -63,18 +63,18 @@
 
         </div>
         <FooterNav></FooterNav>
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
 
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {
-  name: 'Login',
+  name: 'withdrawals',
   mixins:[Mixin],
   components: {
       AutoCloseDialog,
@@ -83,7 +83,8 @@ export default {
     data: function() {
         return {
              money:'',
-             password:''
+             password:'',
+             membalance:this.getCookie('membalance')
         }
     },
   mounted:function() {
@@ -91,28 +92,42 @@ export default {
 
   },
   methods: {
+      //清除model数据,cl元素class
+      clearVal :function (cl) {
+
+          if(cl=='money'){
+              this.money ='';}
+          if(cl=='password'){
+              this.password='';
+          }
+
+      },
       //提款接口
       WithdrawalsAction: function () {
-          if (this.money == '' && !this.positiveNum(this.money)) {
+          if (this.money == '' && !this.checkNumber(this.money)) {
               this.$refs.autoCloseDialog.open('请输入正确金额');
-                return
+                return false
           }
           if(this.password==''&&!this.checkNumber(this.password)){
               this.$refs.autoCloseDialog.open('请输入密码');
-                return
+                return false
           }
           var Withdrawalsdata = {
               applyAmount: this.money,//金额
-              tradePassword: this.password  //密码
+              tradePassword: this.password, //密码
+              remark :'会员提现'
           }
           $.ajax({
               type: 'post',
-              headers: { 'Authorization': 'bearer  ' + this.getAccessToken ,},
+              headers: { 'Authorization': 'bearer ' + this.getAccessToken ,},
               dataType: 'json',
               url: this.action.forseti + 'api/pay/drawOrder',
               data: Withdrawalsdata,
               success: (res) => {
-                  this.$refs.autoCloseDialog.open('提款成功5555') ;
+                  this.$refs.autoCloseDialog.open('提款成功') ;
+                  setTimeout(function(){
+                      window.location = '/lobbyTemplate/info' ;
+                  },2000)
               },
               error: function () {
 
