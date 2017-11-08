@@ -106,7 +106,11 @@
 
     </div>
 </template>
-
+<style>
+    .info_top .account >a{
+         height:100%;
+    }
+</style>
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'

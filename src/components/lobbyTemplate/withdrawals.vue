@@ -66,7 +66,9 @@
         <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
+<style>
 
+</style>
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'
