@@ -10,7 +10,7 @@
             <div class="so-in-top">
                 <ul>
                     <li class="so-menu">
-                        <img src="/static/images/top/icon-menu.png" class="so-top-menu">
+                        <img src="static/images/top/icon-menu.png" class="so-top-menu">
                     </li>
                     <li class="left_top_logo">
                         {{moduleName || '江西11选5'}}

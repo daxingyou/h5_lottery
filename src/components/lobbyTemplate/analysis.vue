@@ -23,7 +23,7 @@ import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 
 export default {
-  name: 'Login',
+  name: 'analysis',
   mixins:[Mixin],
   components: {
    // AutoCloseDialog,
