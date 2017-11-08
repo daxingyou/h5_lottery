@@ -17,7 +17,7 @@
                         <fieldset>
                             <div class="form_g account">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername','请输入4~15位帐号')">
+                                <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername','请输入4~15位英数帐号')">
                                 <i class="close close1" @click="ClearInput('close1','tjrusername')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -25,7 +25,7 @@
                         <fieldset>
                             <div class="form_g account" >
                                 <legend></legend>
-                                <input type="text" placeholder="请输入帐号" v-model="username" class="username" @input="checkUserName(username,'username','请输入4~15位帐号')">
+                                <input type="text" placeholder="请输入帐号" v-model="username" class="username" @input="checkUserName(username,'username','请输入4~15位英数帐号')">
                                 <i class="close close2" @click="ClearInput('close2','username')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -33,7 +33,7 @@
                         <fieldset  v-if=showpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')" >
+                                <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')" >
                                 <i class="eye"  @click="showpassword(showpd)"></i>
                             </div>
                             <label class="error-message "></label>
@@ -41,7 +41,7 @@
                         <fieldset v-if=!showpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')">
                                 <i class="eye active" @click="showpassword(showpd)"></i>
                             </div>
                             <label class="error-message "></label>
@@ -49,7 +49,7 @@
                         <fieldset  v-if=cshowpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入4~15位密码')">
+                                <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
                                 <i class="eye " @click="showpassword(cshowpd)"></i>
                             </div>
                             <label class="error-message "></label>
@@ -57,7 +57,7 @@
                         <fieldset  v-if=!cshowpd>
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
                                 <i class="eye active" @click="showpassword(cshowpd)"></i>
                             </div>
                             <label class="error-message "></label>
