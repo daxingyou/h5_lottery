@@ -870,7 +870,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .form_g { overflow: hidden; position: relative; background-color: rgba(18, 21, 30, 0.7); padding: 0 .3rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; border: 2px solid #256e93; font-size: .35rem; }
 
-.form_g > input { background-color: transparent; width: calc(85% - .5rem); color: #fff; border: none; position: relative; }
+.form_g > input { background-color: transparent; width: calc(85% - .5rem); color: #fff; border: none; position: relative; font-size: .35rem; }
 
 .form_g:focus { -webkit-box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); box-shadow: 1px 2px 20px rgba(0, 183, 255, 0.9); border: 1px solid #256e93; }
 
