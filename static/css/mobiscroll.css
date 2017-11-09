@@ -46,7 +46,7 @@
 .mbsc-ios .mbsc-sc-itm-sel, .mbsc-ios .mbsc-sc-whl-gr-3d .mbsc-sc-itm {/*color: #277ca5;
     height: 1rem !important;line-height: .5rem !important;*/}
 
-.mbsc-sc-whl-gr-3d .mbsc-sc-whl-c{
+_:default:not(:root:root),.mbsc-sc-whl-gr-3d .mbsc-sc-whl-c{
 overflow: overlay;     height: auto !important;
 }
 
