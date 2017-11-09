@@ -2,7 +2,11 @@
 
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
-            <div class="left"></div>
+            <div class="left">
+                <a href="javascript:;" onclick="history.go(-1)">
+                    <img src="static/images/back.png" alt="">
+                </a>
+            </div>
             <h2 class="center">个人中心</h2>
             <div class="right"></div>
         </header>

@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="../../../static/images/back.png" alt="">
+                    <img src="static/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">提款</h2>
