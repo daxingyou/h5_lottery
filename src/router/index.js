@@ -26,7 +26,7 @@ import info from '@/components/lobbyTemplate/info'  // 大厅个人中心
 import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中心 盈亏分析
 import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
-import depositdetail from '@/components/lobbyTemplate/depositdetail'  // 大厅个人中心 充值二级页面
+
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
 import info_data from '@/components/lobbyTemplate/info_data'  //个人中心-账户管理
@@ -121,7 +121,6 @@ export default new Router({
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
     { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
-    { path: '/lobbyTemplate/depositdetail', name:'depositdetail', component: depositdetail },
     { path: '/lobbyTemplate/withdrawals', name:'withdrawals', component: withdrawals },
     { path: '/lobbyTemplate/agent', name:'agent', component: agent },
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },

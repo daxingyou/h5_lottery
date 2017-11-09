@@ -100,6 +100,7 @@
         },
         data: function () {
             return {
+                haslogin:false ,
                 restr: '', // 网页html缓存
                 lock: 0,
                 // access_token : this.getCookie('access_token'), // 取token
@@ -137,7 +138,12 @@
             }
         },
         created:function () {
-
+            var _self =this ;
+            _self.haslogin = this.ifLogined() ;
+            if( !_self.haslogin){
+                // _self.$refs.autoCloseDialog.open('请先登录！') ;
+                window.location = '/login' ;
+            }
         },
         computed:{
             year: function(){
