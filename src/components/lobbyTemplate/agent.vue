@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="btn btn_blue">
-                        <a href="agent_apply.html">立即申请</a>
+                        <router-link to="/lobbyTemplate/agentApply">立即申请</router-link>
                     </div>
                 </div>
             </div>
