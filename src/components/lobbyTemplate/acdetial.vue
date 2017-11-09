@@ -110,24 +110,24 @@ import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 
 export default {
-  name: 'acdetial',
-  mixins:[Mixin],
-  components: {
-   // AutoCloseDialog,
-      FooterNav ,
-  },
+    name: 'acdetial',
+    mixins:[Mixin],
+    components: {
+        // AutoCloseDialog,
+        FooterNav ,
+    },
     data: function() {
         return {
 
         }
     },
-  mounted:function() {
-      $('html,body').css('overflow-y','scroll' )  ;
+    mounted:function() {
+        $('html,body').css('overflow-y','scroll' )  ;
 
-  },
-  methods: {
-
-}
+    },
+    methods: {
+        
+    }
 
 }
 </script>

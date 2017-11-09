@@ -55,6 +55,7 @@ export default {
         clearInterval(this.timer);
     },
     methods:{
+        
         timerInit:function(start, end, overend){
             const format = this.format;
             const theStart = start ? start : this.start;
@@ -62,18 +63,30 @@ export default {
             const theOverend = overend ? overend : this.overend;
             this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
+            // const lt_time_leave = this.lt_time_leave;
+            // const lt_time_leave_over = this.lt_time_leave_over;
             if (this.lt_time_leave_over <0){
                 this.$emit('entertainCountdownOver');
             }
-
+            //计数器，计算间隔时间触发
+            const counter = () => {
+                const spanSrrived = () => {
+                    this.$emit('spanArrived');
+                }
+                const lt_time_leave = this.lt_time_leave;
+                console.log('--'+lt_time_leave)
+                if (lt_time_leave>60*8 && lt_time_leave % 10 == 0){
+                    spanSrrived();
+                } else if (lt_time_leave>60*7 && lt_time_leave % 20 == 0){
+                    spanSrrived();
+                } else if (lt_time_leave>60*3 && lt_time_leave % 30 == 0){
+                    spanSrrived();
+                }else if (lt_time_leave==30){
+                    spanSrrived();
+                }
+            }
             this.timer = window.setInterval((function() {
-                // if (this.lt_time_leave > 0 && (this.lt_time_leave % 240 == 0 || this.lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
-                //     this.getSystemTime().then((systemTime)=>{
-                //         this.lt_time_leave = (this.format(this.now_time).getTime() - this.format(this.formatTimeUnlix(data.data)).getTime()) / 1000 ;
-                //         this.lt_time_leave_over = (this.format(this.nowover_time).getTime() - this.format(this.formatTimeUnlix(data.data)).getTime()) / 1000 ;
-                //     });
-                // }
-
+                counter();
                 // 开奖倒计时结束
                 if (this.lt_time_leave == 0) { 
                     clearInterval(this.timer);
