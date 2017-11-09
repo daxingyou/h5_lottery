@@ -108,8 +108,9 @@
                 restr: '', // 网页html缓存
                 lock: 0,
                 // access_token : this.getCookie('access_token'), // 取token
-                lotteryname : this.getCookie('lottery_name'),
-                lotteryid : this.getCookie('lt_lotteryid'),
+                lotteryname : this.getCookie('lottery_name') ,
+                lotteryid : this.getCookie('lt_lotteryid') ,
+                lastlotteryid : this.getCookie('lt_lotteryid') ,
                 nowDate: new Date(),
 
                 seadata: {
@@ -471,14 +472,19 @@
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
                     this.lotteryid = lotterychooseid ;
+                    this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;
+
                     $('.play_area').each(function () {
                         var flag = $(this).find('li').hasClass('active') ;
                         if(flag){
-                            lottery_name = $(this).find('li.active').find('a').text()
+                            lottery_name = $(this).find('li.active').find('a').text() ;
+                            this.lotteryid = $(this).find('li.active').data('val') ;
+                           // console.log(lottery_name+'记得')
                         }
                     }) ;
+                   // console.log(this.lotteryid+'规范')
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
                     this.getBetRecord();
                     $(".dropdown").slideToggle("fast", () => {
@@ -543,13 +549,18 @@
                     url: this.action.forseti + 'api/orders/orderList',
                     data: JSON.stringify(this.seadata), // json格式
                     success: (res) => {
+                    //  console.log(this.lastlotteryid+'符合贷款')
+                        if(this.lastlotteryid != this.lotteryid){ // 是否切换，切换需要重置
+                            $('.bet-recode-all').html('') ;
+                        }
                         // debugger;
                         $('.so-zzjz').remove();
                         const dataList = res.data.rows;
                         // console.log(dataList)
                         if (dataList.length === 0) {
-                            $('.bet-recode-all')
-                                .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>');
+                            var appstr = '<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>' ;
+                            $('.bet-recode-all').append(appstr);
+
                         } else {
                             this.lock = 0;
                         }
@@ -599,11 +610,12 @@
                                             '</a></li>';
                                         // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';
                                     }
-                                    $(t).find('ul')
-                                        .append(li_html);
+                                    $(t).find('ul').append(li_html);
+
                                 }
                             });
                         });
+                        this.lastlotteryid = this.lotteryid ;
                         this.seadata.page++;
                     },
                     error: () => {

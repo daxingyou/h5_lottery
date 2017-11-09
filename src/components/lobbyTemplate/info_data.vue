@@ -21,7 +21,7 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>{{getCookie('username')}}</strong>
+                                <strong>{{loginName}}</strong>
                                 <div class="purse">
                                     <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
@@ -52,27 +52,27 @@
                                     <li>银行卡号</li>
                                 </th>
                                 <td>
-                                    工商银行<br/>
-                                    123456123456123456
+                                    {{bankName}}<br/>
+                                    {{bankCard}}
                                 </td>
                             </tr>
                             <tr>
                                 <th>
                                     <li>开户行</li>
                                 </th>
-                                <td>北京市朝阳区朝来分行</td>
+                                <td>{{bankAdd}}</td>
                             </tr>
                             <tr>
                                 <th>
                                     <li>真实姓名</li>
                                 </th>
-                                <td>大哥</td>
+                                <td>{{realName}}</td>
                             </tr>
                             <tr>
                                 <th>
                                     <li>手机号码</li>
                                 </th>
-                                <td>12455323422</td>
+                                <td>{{mobilePhone}}</td>
                             </tr>
                             </thead>
                         </table>
@@ -94,7 +94,7 @@
                                     <input type="text" placeholder="请输入微信号" v-model="weChat">
                                     <!--<span class=" erro_text" >微信格式错误</span>-->
                                 </td>
-                                <td  v-if="showDetail" class="after-edit">www123</td>
+                                <td  v-if="showDetail" class="after-edit">{{weChat}}</td>
                             </tr>
                             <tr>
                                 <th>
@@ -104,7 +104,7 @@
                                     <input  type="text"  placeholder="请输入QQ号" v-model="qq">
                                     <!--<span>qq格式错误</span>-->
                                 </td>
-                                <td v-if="showDetail" class="after-edit">283102</td>
+                                <td v-if="showDetail" class="after-edit">{{qq}}</td>
                             </tr>
                             <tr>
                                 <th>
@@ -114,7 +114,7 @@
                                     <input  type="text"  placeholder="请输入邮箱地址" v-model="email">
                                     <!--<span class="errormsg erro_text" v-show="changeDetail.emailVali">邮箱格式错误</span>-->
                                 </td>
-                                <td v-if="showDetail" class="after-edit">tt@qq.com</td>
+                                <td v-if="showDetail" class="after-edit">{{email}}</td>
                             </tr>
                             </thead>
                         </table>
@@ -379,10 +379,17 @@ export default {
                         newPassword_confirm3:'',
                         newPassword_confirm4:'',
                    },
+            loginName:'',
             weChat:'',
             qq:'',
             email:'',
-             // 修改资料,
+            //用户银行信息
+            realName:'',
+            bankCard:'',
+            bankName:'',
+            bankAdd:'',
+            mobilePhone:'',
+            // 修改资料,
             showDetail:true,
             show:true
         }
@@ -390,6 +397,7 @@ export default {
     created: function() {
         var _self = this;
 //        _self.hasLogin = _self.ifLanded();
+        _self.getUserBankInfo();
         _self.getUserInfo();
     },
     mounted:function() {
@@ -407,25 +415,47 @@ export default {
   },
     methods: {
       // 获取用户银行信息
-        getUserInfo: function() {
+        getUserBankInfo: function() {
           var _self = this;
-
-          $.ajax({
+            $.ajax({
               type:'get',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
               dataType: 'json',
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
-              success: (data) => {
-                   console.log(data)
+              success: (res) => {
+
+                   _self.realName=res.data.realName;
+                   _self.bankCard=res.data.bankCard;
+                   _self.bankName=res.data.bankName;
+                   _self.bankAdd =res.data.bankAddress;
+                   _self.mobilePhone =res.data.mobile
               },
               error: (err) =>{
-                   console.log(err)
-//                  _self.$refs.autoCloseDialog.open('返回错误') ;
               }
           })
 //
       },
+        //获取用户个人信息
+        getUserInfo :function () {
+            var _self=this;
+            $.ajax({
+                type: 'get',
+                headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+                dataType: 'json',
+                url: _self.action.uaa + 'api/data/member/info',
+                data: {},
+                success: (res) => {
+                    _self.loginName=res.data.login;
+                    _self.weChat  = res.data.wechat;
+                    _self.qq      = res.data.qq;
+                    _self.email   = res.data.email
+                },
+                error: ()=>{
+
+                }
+            })
+        },
         //修改登录密码
         submitChangePassword:function (){
              var _self=this;
@@ -435,7 +465,7 @@ export default {
              if(_self.changePassword.newPassword==''||_self.changePassword.newPassword==_self.changePassword.oldPassword){
               return false ;
              }
-             if(_self.changePassword.newPassword_confirm==''){
+             if(_self.changePassword.newPassword_confirm==''||_self.changePassword.newPassword!=_self.changePassword.newPassword_confirm){
               return false ;
              }
              var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
