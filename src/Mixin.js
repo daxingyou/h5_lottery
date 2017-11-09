@@ -138,6 +138,13 @@ var MyMixin = {
                         resolve(this.playTreeList);
                     },
                     error: function (e) {
+                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                            _self.clearAllCookie() ;
+                            setTimeout(function () {
+                                window.location = '/login' ;
+                            },300)
+                            return false ;
+                        }
                         reject(e);
                     }
                 });
@@ -166,6 +173,13 @@ var MyMixin = {
                         }
                     }).bind(this),
                     error: function (e) {
+                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                            _self.clearAllCookie() ;
+                            setTimeout(function () {
+                                window.location = '/login' ;
+                            },300)
+                            return false ;
+                        }
                         reject(e);
                     }
                 });
@@ -193,6 +207,13 @@ var MyMixin = {
                         resolve();
                     },
                     error: function (e) {
+                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                            _self.clearAllCookie() ;
+                            setTimeout(function () {
+                                window.location = '/login' ;
+                            },300)
+                            return false ;
+                        }
                         reject(e);
                     }
                 });
@@ -207,19 +228,27 @@ var MyMixin = {
                 })
         */
         getSystemTime:function() {
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken,
+                        "Authorization": "bearer  " + _self.getAccessToken,
                     },
                     url: this.action.forseti + 'apis/serverCurrentTime',
                     data: {},
                     success: (res) => {
-                        const sys_time = this.formatTimeUnlix(res.data);
+                        const sys_time = _self.formatTimeUnlix(res.data);
                         resolve(sys_time);
                     },
                     error: function (e) {
+                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                            _self.clearAllCookie() ;
+                            setTimeout(function () {
+                                window.location = '/login' ;
+                            },300)
+                            return false ;
+                        }
                         reject(e);
                     }
                 });
@@ -249,7 +278,38 @@ var MyMixin = {
         payoffFormat:function(val){
             return (Number(val)/10000).toFixed(3);
         },
+        // 美东时间设置
+        setAmerTime :function (el) {
+            var today = new Date();
+          //  today.setHours(today.getHours() - 12);  // 不需要转成美东时间
+            var y = today.getFullYear();
+            var m = today.getMonth() + 1;
+            var d = today.getDate();
+            var h = today.getHours();
+            var mm = today.getMinutes();
+            var s = today.getSeconds();
+            m =  this.checkTime(m);
+            d = this.checkTime(d);
+            h = this.checkTime(h);
+            mm = this.checkTime(mm);
+            s = this.checkTime(s);
+            if(el =='#paydate'){
+                $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm); // 只到分
+            }else{
+                $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm+":"+s);
+            }
 
+       },
+        /**
+         * 1位数补0为2位数
+         * @param i
+         * @returns {*}
+         */
+         checkTime:function(i) {
+            if (i<10)
+            {i="0" + i}
+            return i
+        } ,
         // 时间戳转换
         formatTimeUnlix:function (v) {
             if (v == null) {
@@ -351,6 +411,14 @@ var MyMixin = {
                 return decodeURIComponent(RegExp.$1);
             }
             return '';
+        },
+        //清除所有cookie函数
+         clearAllCookie:function() {
+            var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+            if(keys) {
+                for(var i = keys.length; i--;)
+                    document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+            }
         },
         getName:function(){
             return this.name;

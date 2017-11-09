@@ -221,9 +221,9 @@ input,select,button,a{
                 border-bottom: 1px solid rgba(#fff,.3);
                 background-color: #1c3252;
             }
-            &:last-child{
-                margin-right: .2rem;
-            }
+            // &:last-child{
+            //     margin-right: .2rem;
+            // }
             &.login{
                 background-color: transparent;
                 box-shadow:inherit;
@@ -777,7 +777,8 @@ label{
     }
 }
 .agent_area{
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    //padding-bottom: 2rem;
 }
 .agent{
     //padding: 8% 0;
@@ -795,6 +796,9 @@ label{
     div{
         width: 90%;
         margin: 0 auto;
+    }
+    .btn_blue{
+        margin-bottom: .5rem;
     }
 }
 
@@ -854,8 +858,9 @@ label{
         color: #007ea9;
         border: .014rem solid #007ea9;
         font-size: 0.35rem;
+        margin-top: 2rem;
         &.tab1{
-            margin-right: -.09rem;
+            margin-right: -.1rem;
             border-top-left-radius: .2rem;
             border-bottom-left-radius: .2rem;
         }

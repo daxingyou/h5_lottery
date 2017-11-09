@@ -25,7 +25,7 @@
                             <div class="panel_title">
                                 <strong>09月14日</strong><span></span>
                             </div>
-                            <ul class="panel">
+                            <ul class="panel" style="display:block;">
                                 <li class="bet_data ac_data" data-status="not_open">
                                     <a href="ac_detial_data.html">
                                         <div class="prd_num"><span>2017/07/04 10:22</span></div>
@@ -110,24 +110,24 @@ import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 
 export default {
-  name: 'acdetial',
-  mixins:[Mixin],
-  components: {
-   // AutoCloseDialog,
-      FooterNav ,
-  },
+    name: 'acdetial',
+    mixins:[Mixin],
+    components: {
+        // AutoCloseDialog,
+        FooterNav ,
+    },
     data: function() {
         return {
 
         }
     },
-  mounted:function() {
-      $('html,body').css('overflow-y','scroll' )  ;
+    mounted:function() {
+        $('html,body').css('overflow-y','scroll' )  ;
 
-  },
-  methods: {
-
-}
+    },
+    methods: {
+        
+    }
 
 }
 </script>
