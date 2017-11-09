@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="static/images/back.png" alt="">
+                    <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">提款</h2>
@@ -18,7 +18,7 @@
                             <th>
                                 <li>真实姓名</li>
                             </th>
-                            <td>大哥</td>
+                            <td>{{userName}}</td>
                         </tr>
                         <tr>
                             <th class="bank_card_num">
@@ -87,7 +87,7 @@ export default {
              money:'',
              password:'',
              membalance:this.getCookie('membalance'),
-             username:'',
+             userName:'',
              bankName:'',
              bankCard:''
         }
@@ -124,10 +124,10 @@ export default {
                   if(res.data.bindType==null||res.data.bindType==2){
                       window.location = '/lobbyTemplate/withdrawals_bind' ;
                   }
-//                  _self.username=data.realName;
+                    _self.userName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
-
+//                    console.log( res)
               },
               error: (err) =>{
                   console.log(err)

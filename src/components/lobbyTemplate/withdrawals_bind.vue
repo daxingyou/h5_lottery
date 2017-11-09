@@ -23,8 +23,8 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>选择银行</legend>
-                        <select name="" v-model="bankName">
-                            <option :value="bank.id" v-for="bank in bankList">{{bank.bankName}}</option>
+                        <select name="" v-model="bankId" class="bankselect">
+                            <option :value="bank.id" v-for="bank in bankList" :data-code="bank.bankCode" >{{bank.bankName}}</option>
                         </select>
                         <i class="input_select"></i>
                     </div>
@@ -84,12 +84,11 @@ export default {
     data: function() {
         return {
            realName:'',
-           bankName:'',
+           bankId:'',
            bankAdd :'',
            bankNum :'',
            phoneNumber:'',
-           bankList:[],
-           bankId:'',
+           bankList:{},
            bankCode:''
         }
     },
@@ -101,6 +100,9 @@ export default {
 
   },
   methods: {
+  showClass:(function () {
+       console.log( this.class())
+      }).bind(this),
       //清除model数据,cl元素class
       clearVal :function (cl) {
           if(cl=='realName'){
@@ -122,6 +124,7 @@ export default {
               data:{},
               success: function(res){
                   _self.bankList=res.data;
+//                  console.log(res)
 
               },
               error: function (err) {
@@ -130,14 +133,13 @@ export default {
 
           })
       },
-
       //修改银行账户信息
       ChangeInfo : function () {
           var _self=this;
           if(_self.realName==""){
               return false
           }
-          if(_self.bankName==""){
+          if(_self.bankId==""){
               return false
           }
           if(_self.bankAdd==""){
@@ -149,14 +151,17 @@ export default {
           if(_self.phoneNumber==""){
               return false
           }
+          //获取选中值Code
+          _self.bankCode=$('.bankselect').find("option:selected").data('code') ;
           var bankData={
               bankCode:_self.bankCode,
               bankId:_self.bankId,
-              bankCard:_self.bankCard,
+              bankCard:_self.bankNum,
               bankAddress:_self.bankAdd,
               mobile:_self.phoneNumber,
-              realName:_self.realname
+              realName:_self.realName
           };
+
           $.ajax({
               type:'post',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
@@ -164,11 +169,14 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: bankData,
               success: function(res){
-
-
+                  _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
+                  setTimeout(function(){
+                      window.location = '/lobbyTemplate/withdrawals' ;
+                  },2000)
               },
               error: function (err) {
-
+                 console.log(err)
+                  _self.$refs.autoCloseDialog.open('瞎搞','','icon_check','d_check') ;
               }
           })
       }
