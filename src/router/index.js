@@ -100,12 +100,12 @@ export default new Router({
       component: CqsscIndex
     }, 
     {  // 天津时时彩
-      path: '/tjssc/',
+      path: '/cqssc/tianJinIndex',
       name: 'tjsscIndex',
       component: TjsscIndex
     },
       {  // 新疆时时彩
-          path: '/xjssc/',
+          path: '/cqssc/xinJiangIndex',
           name: 'xjsscIndex',
           component: XjsscIndex
       },

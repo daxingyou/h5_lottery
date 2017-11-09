@@ -49,7 +49,7 @@ export default {
 
     },
     mounted:function() {
-        this.timerInit();
+        // this.timerInit();
     },
     beforeDestroy:function(){
         clearInterval(this.timer);
@@ -74,7 +74,7 @@ export default {
                     this.$emit('spanArrived');
                 }
                 const lt_time_leave = this.lt_time_leave;
-                console.log('--'+lt_time_leave)
+                // console.log('--'+lt_time_leave)
                 if (lt_time_leave>60*8 && lt_time_leave % 10 == 0){
                     spanSrrived();
                 } else if (lt_time_leave>60*7 && lt_time_leave % 20 == 0){
@@ -85,6 +85,7 @@ export default {
                     spanSrrived();
                 }
             }
+            clearInterval(this.timer);
             this.timer = window.setInterval((function() {
                 counter();
                 // 开奖倒计时结束
@@ -98,8 +99,10 @@ export default {
                     this.$emit('entertainCountdownOver');
                 }
 
-                var oDate = this.diff(this.lt_time_leave--);
-                var over_oDate = this.diff(this.lt_time_leave_over--);
+                this.lt_time_leave = this.lt_time_leave - 1;
+                var oDate = this.diff(this.lt_time_leave);
+                this.lt_time_leave_over = this.lt_time_leave_over - 1;
+                var over_oDate = this.diff(this.lt_time_leave_over);
                 this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second);
                 this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
 

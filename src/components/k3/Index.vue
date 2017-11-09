@@ -32,6 +32,7 @@
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
+                        @spanArrived="lotteryDataFetch"
                         :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
                 </div>
@@ -301,34 +302,42 @@
                 this.entertainStatus = true;
                 this.resetAction();
             },
+            lotteryDataFetch:function(){
+                const that = this;
+                return new Promise((resolve)=>{
+                    that.getSystemTime().then(sys_time=>{
+                        // sys_time = '2017-10-30 19:39:10';    //5秒后封盘所需时间，然后5秒后开奖
+                        // sys_time = '2017-10-30 19:39:16';   //封盘状态所需时间，5秒后开奖 
+                        that.sys_time = sys_time;
+                        that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+                            that.next_pcode = res.data[0].pcode;  // 下期期数
+                            that.now_pcode = res.data[1].pcode;  // 当前期数
+                            that.previous_pcode = res.data[2].pcode;  // 上期期数
+                            // 当前期数时间
+                            that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
+                            // 当前期封盘时间
+                            that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
+                            // 当天日期
+                            that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                            let code = res.data[2].winNumber;
+                            //code 上期开奖号码
+                            if (!code) {
+                                code = '-,-,-,-,-';
+                            }
+                            that.winNumber = code;
+                            //上期开奖统计
+                            that.lastTermStatic = res.data[2].doubleData;
+                            resolve();
+                        });
+                    }); 
+                })
+                
+            },
             timerBegin:function(){
                 var that = this;
-                that.getSystemTime().then(sys_time=>{
-                    // sys_time = '2017-10-30 19:41:32';
-                   // sys_time = '2017-10-30 19:39:10';
-                    that.sys_time = sys_time;
-                    that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
-                        that.next_pcode = res.data[0].pcode;  // 下期期数
-                        that.now_pcode = res.data[1].pcode;  // 当前期数
-                        that.previous_pcode = res.data[2].pcode;  // 上期期数
-                        // 当前期数时间
-                        that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
-                        // 当前期封盘时间
-                        that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
-                        // 当天日期
-                        that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
-                        let code = res.data[2].winNumber;
-                        //code 上期开奖号码
-                        if (!code) {
-                            code = '20, 20, 20';
-                        }
-                        that.winNumber = code;
-                        //上期开奖统计
-                        that.lastTermStatic = res.data[2].doubleData;
-
-                        that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
-                    });
-                }); 
+                this.lotteryDataFetch().then(()=>{
+                    that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+                })
                 that.entertainStatus = false;
             },
             resetAction:function(){
