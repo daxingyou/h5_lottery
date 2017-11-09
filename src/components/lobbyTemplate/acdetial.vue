@@ -25,7 +25,7 @@
                             <div class="panel_title">
                                 <strong>09月14日</strong><span></span>
                             </div>
-                            <ul class="panel">
+                            <ul class="panel" style="display:block;">
                                 <li class="bet_data ac_data" data-status="not_open">
                                     <a href="ac_detial_data.html">
                                         <div class="prd_num"><span>2017/07/04 10:22</span></div>

@@ -1140,7 +1140,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password_area > div > .btn:last-child { margin-left: .5rem; }
 
-.ac_detial .ac_data > a:after { background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.3rem; }
+.ac_detial .ac_data > a:after { background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.5rem; }
 
 .sta { display: inline-block; padding: 0 .2rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin-left: .2rem; font-size: 0.29rem; height: .5rem; line-height: .5rem; vertical-align: text-bottom; }
 
