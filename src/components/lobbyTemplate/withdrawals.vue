@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
+                <router-link :to="'/lobbyTemplate/info'">
                     <img src="../../../static/images/back.png" alt="">
-                </a>
+                </router-link>
             </div>
             <h2 class="center">提款</h2>
             <div class="right"></div>

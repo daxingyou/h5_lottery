@@ -390,7 +390,7 @@ export default {
     created: function() {
         var _self = this;
 //        _self.hasLogin = _self.ifLanded();
-//        _self.getUserInfo();
+        _self.getUserInfo();
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' );
@@ -409,28 +409,7 @@ export default {
       // 获取用户银行信息
         getUserInfo: function() {
           var _self = this;
-//           $.ajax('user/member/detail/get', {}, function(data) {
-//              if(data.apistatus == 1){
-//                  _self.userId = data.result.account || '';
-//              }
-//          }, 'get', function(data) {
-//              if (data.apistatus == '0' && data.errorCode == '1000020') {
-//
-//                  common.toast({
-//                      content: '会员未登录！',
-//                      time: 1
-//                  });
-//
-//                  setTimeout('common.logOut()', 1000);
-//              }
-//              if (data.errorCode == '1000003') {
-//                  common.toast({
-//                      content: '该会员已被停用！',
-//                      time: 1
-//                  });
-//                  setTimeout('common.logOut()', 1000);
-//              }
-//          });
+
           $.ajax({
               type:'get',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},

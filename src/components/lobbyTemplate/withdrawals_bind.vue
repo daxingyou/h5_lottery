@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="../">
+                <router-link :to="'/lobbyTemplate/withdrawals'">
                     <img src="../../../static/images/back.png" alt="">
-                </a>
+                </router-link>
             </div>
             <h2 class="center">绑定银行</h2>
             <div class="right"></div>
@@ -100,9 +100,6 @@ export default {
 
   },
   methods: {
-  showClass:(function () {
-       console.log( this.class())
-      }).bind(this),
       //清除model数据,cl元素class
       clearVal :function (cl) {
           if(cl=='realName'){
@@ -137,18 +134,23 @@ export default {
       ChangeInfo : function () {
           var _self=this;
           if(_self.realName==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.bankId==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.bankAdd==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.bankNum==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.phoneNumber==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           //获取选中值Code
