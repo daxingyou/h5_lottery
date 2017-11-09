@@ -106,6 +106,7 @@
                 // access_token : this.getCookie('access_token'), // 取token
                 lotteryname : '投注记录' ,
                 lotteryid : '0' ,
+                lastlotteryid : '0' ,
                 nowDate: new Date(),
                 seadata: {
                     page: 1, // 页数，从1开始
@@ -239,7 +240,6 @@
                     case 2:
                         this.seadata.statusType = 3
                         if (this.seadata.searchType === 1) {
-                            console.log('返点')
                             mySwiperRecode.slideTo(2, 200, false);
                         } else {
                             mySwiperTrack.slideTo(2, 200, false);
@@ -477,6 +477,7 @@
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
                     this.lotteryid = lotterychooseid ;
+                    this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;
                     $('.play_area').each(function () {
@@ -550,12 +551,15 @@
                     data: JSON.stringify(this.seadata), // json格式
                     success: (res) => {
                         // debugger;
+                        if(this.lastlotteryid != this.lotteryid){ // 是否切换，切换需要重置
+                            $('.bet-recode-all').html('') ;
+                        }
                         $('.so-zzjz').remove();
                         const dataList = res.data.rows;
                         // console.log(dataList)
                         if (dataList.length === 0) {
-                            $('.bet-recode-all')
-                                .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>');
+                            var appstr = '<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>' ;
+                                $('.bet-recode-all').append(appstr);
                         } else {
                             this.lock = 0;
                         }
@@ -609,6 +613,7 @@
                                 }
                             });
                         });
+                        this.lastlotteryid = this.lotteryid ;
                         this.seadata.page++;
                     },
                     error: () => {
