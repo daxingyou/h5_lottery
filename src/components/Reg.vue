@@ -312,7 +312,7 @@
                     }
                 });
             },
-            switchYzmcode:function () {  //
+            switchYzmcode:function () {  //获取验证码；
                 let _self =this ;
                 let url= this.action.uaa + 'apis/member/code/get?time='+ Math.random();
                 $.ajax({
