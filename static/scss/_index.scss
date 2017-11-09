@@ -166,7 +166,7 @@
                         -webkit-text-fill-color: transparent;
                         font-weight: 700;
                     }
-                    &:hover,&:focus,&.active{
+                    &:focus,&.active{
                         border: 1px solid #76accd;
                         box-shadow: 0 0 15px 8px rgba(#00e4ff,.5);
                         @include border-radius(.2rem);

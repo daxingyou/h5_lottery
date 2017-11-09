@@ -18,8 +18,7 @@
 .mbsc-ios .mbsc-sc-itm-sel, .mbsc-ios .mbsc-sc-whl-gr-3d .mbsc-sc-itm { color: #e0c98b; }
 
 .mbsc-ios.mbsc-fr-bottom .mbsc-sc-whl-l, .mbsc-ios.mbsc-fr-top .mbsc-sc-whl-l { border-top: 1px solid #103f56; border-bottom: 1px solid #103f56; }
-.mbsc-ios .mbsc-fr-w{font-size: .1rem !important; }
-.mbsc-ios .mbsc-sc-itm{font-size: .5rem;}
+.mbsc-ios .mbsc-sc-itm{font-size: .8rem;}
 .mbsc-ios .mbsc-fr-btn{font-size: .35rem;}
 .mbsc-ios .mbsc-fr-btn-cont{z-index: 10;}
 

@@ -48,7 +48,7 @@ a{
   color: $bluetext;
   text-decoration: none !important;
     // pc_demo用
-    &:hover,&:focus,&:active{
+    &:focus,&:active{
         text-decoration: none !important;
     }
     // h5正式用
@@ -311,7 +311,7 @@ footer.bot_nav{
                 height: 2.1rem;
                 //background-repeat: repeat-y;
             }
-            &.active,&:hover,&:focus{
+            &.active,&:focus{
                 //@include background-image ('bot_nav_se.png',0,transparent);
                 // background-image:linear-gradient(#162538 60%, #165c85 40%,#49bed8 99%);
                 // border-bottom: 13px solid #49bed8;

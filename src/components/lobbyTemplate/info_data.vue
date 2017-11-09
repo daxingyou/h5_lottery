@@ -80,8 +80,8 @@
                 </div>
                 <div class="info_personal">
                     <div>个人信息
-                        <a class="edit-btn"  v-if="showDetail" @click="editDetails()"><i class="icon write"></i>修改</a>
-                        <a class="save-btn"  v-if="!showDetail" @click="saveEdit()"><i class="i_save"></i><span>保存</span></a>
+                        <a class="info_data_modify edit-btn"  v-if="showDetail" @click="editDetails()"><i class="icon write"></i>修改</a>
+                        <a class="save save-btn"  v-if="!showDetail" @click="saveEdit()"><i class="i_save"></i><span>保存</span></a>
                     </div>
                     <div class="print_data">
                         <table>

@@ -31,7 +31,7 @@ fieldset{
         border:none;
         position: relative;
     }
-    &:hover,&:focus{
+    &:focus{
         box-shadow: 1px 2px 20px rgba($lightblue, 0.9);
         border: 1px solid $normalblue;
     }
@@ -197,7 +197,7 @@ fieldset{
                 &:nth-child(3){
                     width: 86%;
                 }
-                &:hover,&:active,&:focus{
+                &:active,&:focus{
                     -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                     box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                     border: 1px solid $lightblue;
@@ -263,7 +263,7 @@ fieldset{
             @include respond-to('xs') {
                 padding: 0;
             }
-            &:hover,&:active,&:focus{
+            &:active,&:focus{
                 -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                         box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                 border: 1px solid $lightblue;
