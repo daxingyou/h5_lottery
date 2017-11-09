@@ -25,8 +25,8 @@
                                 <li>银行卡号</li>
                             </th>
                             <td>
-                                工商银行
-                                <br/> 123456123456123456
+                                {{bankName}}
+                                <br/> {{bankCard}}
                             </td>
                         </tr>
                         <tr>
@@ -86,11 +86,18 @@ export default {
         return {
              money:'',
              password:'',
-             membalance:this.getCookie('membalance')
+             membalance:this.getCookie('membalance'),
+             username:'',
+             bankName:'',
+             bankCard:''
         }
+    },
+    created: function() {
+        this.getUserInfo();
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
+
 
   },
   methods: {
@@ -104,7 +111,31 @@ export default {
           }
 
       },
+      //获取用户银行账户信息
+      getUserInfo: function() {
+          var _self = this;
+          $.ajax({
+              type:'get',
+              headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
+              dataType: 'json',
+              url: _self.action.forseti + 'api/payment/memberBank',
+              data: { },
+              success: (res) => {
+                  if(res.data.bindType==null||res.data.bindType==2){
+                      window.location = '/lobbyTemplate/withdrawals_bind' ;
+                  }
+//                  _self.username=data.realName;
+                    _self.bankName=res.data.bankName;
+                    _self.bankCard=res.data.bankCard;
 
+              },
+              error: (err) =>{
+                  console.log(err)
+//                  _self.$refs.autoCloseDialog.open('返回错误') ;
+              }
+          })
+//
+      },
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;

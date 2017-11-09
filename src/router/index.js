@@ -31,7 +31,8 @@ import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个�
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
 import info_data from '@/components/lobbyTemplate/info_data'  //个人中心-账户管理
 import notification from '@/components/lobbyTemplate/notification'  //个人中心-个人消息
-import join from '@/components/lobbyTemplate/join'
+import join from '@/components/lobbyTemplate/join' //欢迎加入
+import withdrawals_bind from '@/components/lobbyTemplate/withdrawals_bind'
 
 Vue.use(Router)
 
@@ -125,7 +126,7 @@ export default new Router({
     { path: '/lobbyTemplate/agent', name:'agent', component: agent },
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
     { path: '/lobbyTemplate/notification', name:'notification', component:notification },
-    { path: '/lobbyTemplate/join', name:'join', component:join }
-
+    { path: '/lobbyTemplate/join', name:'join', component:join },
+    { path: '/lobbyTemplate/withdrawals_bind', name:'withdrawals_bind', component:withdrawals_bind }
   ]
 })

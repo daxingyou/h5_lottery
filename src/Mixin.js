@@ -450,12 +450,33 @@ var MyMixin = {
             if(val ==''){
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
+
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
         checktelphone :function(val,el,content) {
             if( (val && !this.phoneNum(val) ) || val.length != 11){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        //验证开户行地址
+        checkBankAdd  :function(val,el,content){
+             if(val==''){
+                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+             }else{
+                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+             }
+             },
+         //验证银行卡号
+        checkBankNum: function (val,el,content) {
+            if(val &&!this.checkNumber(val)||val.length<=15||val.length>20){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
             if(val ==''){
