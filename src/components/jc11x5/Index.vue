@@ -328,7 +328,7 @@
         if (this.moduleLotteryID) {
             this.lotteryID = this.moduleLotteryID;
         } 
-        this.getMemberBalance().then(()=>{
+        this.getMemberBalance(this.lotteryID).then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });
       },
@@ -447,7 +447,7 @@
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
                 this.$refs.bet.betAmount = '' ;
-                this.getMemberBalance() ; // 更新余额
+                this.getMemberBalance(this.lotteryID) ; // 更新余额
             },
             combineCountCaculate:function(item){
                 const rule = this.selectRules[item.parentItem.cid];

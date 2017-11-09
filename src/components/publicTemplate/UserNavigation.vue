@@ -15,7 +15,8 @@
               <div class="purse"  v-if="haslogin">
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum" >
-                      {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}
+                    <!--  {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}-->
+                      {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : 0), 2)}}
                   </div>
               </div>
           </div>
@@ -59,7 +60,7 @@ export default {
 
  data :function() {
         return {
-          balanceData:null,
+          balanceData: '' ,
           haslogin :false ,
           showNavigation:false ,
           allLottery:{},
@@ -86,9 +87,6 @@ export default {
   } ,
   mounted:function() {
       this.haslogin = this.ifLogined() ;
-       if(this.haslogin){  // 只有登录状态才需要调余额
-          this.getMemberBalance() ;
-       }
      $(this.el).on('click', ()=>{
       this.showNavigation = true;
     }) ;
@@ -125,31 +123,6 @@ export default {
 
          /* })*/
       },
-      // 获取用户余额
-     /* getMemberBalance:function (lotteryid) {
-          return new Promise((resolve)=>{
-              $.ajax({
-                  type: 'GET',
-                  headers: {
-                      "Authorization": "bearer  " + this.getAccessToken,
-                  },
-                  // dataType:'json',
-                  // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                  url: this.action.hermes + 'api/balance/get',
-                  data: { lotteryId: lotteryid },
-                  success: (res) => {
-                      this.balanceData = res.data;
-                      var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
-                      this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
-                      resolve();
-                  },
-                  error: function () {
-
-                  }
-              });
-
-          })
-      },*/
 
   },
 

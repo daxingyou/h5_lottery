@@ -1,0 +1,180 @@
+.bet_dt_area {
+  font-size: 1rem;
+  margin: 1.5rem 1.286rem; }
+  .bet_dt_area .period {
+    margin: 1.5rem 0;
+    line-height: 1.5rem;
+    height: 1.5rem; }
+    .bet_dt_area .period:after {
+      display: block;
+      clear: both;
+      content: ""; }
+    .bet_dt_area .period > * {
+      line-height: 1.5rem;
+      height: 1.5rem;
+      padding: .1rem; }
+    .bet_dt_area .period span:first-child {
+      float: left; }
+    .bet_dt_area .period .bet_status {
+      float: right;
+      -webkit-border-radius: 0.3571rem;
+      -moz-border-radius: 0.3571rem;
+      -ms-border-radius: 0.3571rem;
+      border-radius: 0.3571rem;
+      padding: 0 .3rem;
+      display: block;
+      font-size: 0.8571rem;
+      line-height: 1.143rem;
+      height: 1.286rem; }
+      .bet_dt_area .period .bet_status.status_gray {
+        border: 1px solid #E2E2E2;
+        color: #ACACAC; }
+      .bet_dt_area .period .bet_status.status_red {
+        border: 1px solid #E03A5D;
+        color: #E03A5D; }
+      .bet_dt_area .period .bet_status.status_green {
+        border: 1px solid #71C341;
+        color: #71C341; }
+
+.bet_nlist {
+  margin: 1rem 0; }
+  .bet_nlist ul {
+    text-align: center; }
+    .bet_nlist ul li {
+      margin: 0 0.49rem 0.5rem;
+      display: inline-block;
+      width: 2.8rem;
+      height: 2.8rem;
+      line-height: 2.8rem;
+      background-color: #fff;
+      font-size: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(239, 239, 239, 0.46);
+      -webkit-box-shadow: 0px 0px 0px 1px #fff;
+      box-shadow: 0px 0px 0px 1px #fff;
+      border-radius: 1.4rem;
+      color: #b8b8b8;
+      font-family: sans-serif;
+      font-weight: 500; }
+      .bet_nlist ul li.hover {
+        background: url(../images/lottery/ball_active.svg) no-repeat center;
+        color: #666;
+        background-size: 100%;
+        font-size: 1.071rem; }
+
+.print_data {
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  border: 1px solid #E2E2E2;
+  padding: 0.3571rem 1rem; }
+  .print_data ul {
+    width: 100%; }
+  .print_data li {
+    border-bottom: 1px solid #F6F6F6;
+    padding: 0.8571rem 0;
+    display: block;
+    word-wrap: break-word;
+    word-break: break-all; }
+    .print_data li span {
+      display: inline-block; }
+      .print_data li span:first-child {
+        color: #898989;
+        padding: 0 0.5714rem;
+        width: 30%; }
+    .print_data li:last-child {
+      border: none; }
+  .print_data small {
+    color: #ACACAC; }
+
+.goto_bet {
+  text-align: center;
+  margin: 1.429rem 0; }
+
+.tra_dt_area {
+  color: #484848;
+  font-size: 1rem;
+  margin: 1.5rem 1.286rem; }
+  .tra_dt_area .tra_period {
+    margin: 1rem 0; }
+    .tra_dt_area .tra_period > * {
+      display: inline-block;
+      vertical-align: top;
+      line-height: 1.5rem; }
+    .tra_dt_area .tra_period .lottery_t .tra_info {
+      color: #898989; }
+      .tra_dt_area .tra_period .lottery_t .tra_info > span {
+        margin-right: .5rem; }
+    .tra_dt_area .tra_period .lottery_t b {
+      color: #FCB008;
+      margin: 0 .2rem; }
+    .tra_dt_area .tra_period .tr_status {
+      float: right;
+      -webkit-border-radius: 0.3571rem;
+      -moz-border-radius: 0.3571rem;
+      -ms-border-radius: 0.3571rem;
+      border-radius: 0.3571rem;
+      padding: 0 .3rem;
+      display: block;
+      font-size: 0.8571rem;
+      line-height: 1.143rem;
+      height: 1.286rem;
+      margin-top: 0.3571rem; }
+      .tra_dt_area .tra_period .tr_status.status01 {
+        border: 1px solid #E2E2E2;
+        color: #ACACAC; }
+      .tra_dt_area .tra_period .tr_status.status02, .tra_dt_area .tra_period .tr_status.status03 {
+        border: 1px solid #E03A5D;
+        color: #E03A5D; }
+
+.tra_list li {
+  background-color: #fff;
+  margin: .5rem 0;
+  padding: 1rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  border-radius: 0.3rem;
+  border: 1px solid #E2E2E2; }
+  .tra_list li:hover, .tra_list li:focus {
+    border-color: #52ACD3;
+    -webkit-transition: border-color .3s ease-in;
+    -o-transition: border-color .3s ease-in;
+    transition: border-color .3s ease-in; }
+
+.tra_list a {
+  color: #898989;
+  display: block; }
+
+.tra_list div {
+  display: inline-block;
+  vertical-align: top; }
+  .tra_list div.tra_info {
+    padding: 0 0.5714rem; }
+  .tra_list div:last-child {
+    float: right; }
+
+.tra_list .t_l_sta01 {
+  color: #D3D3D3; }
+
+.tra_list .t_l_sta02 {
+  color: #52ACD3; }
+
+.tra_list .t_l_sta03 {
+  color: #D3D3D3; }
+
+.cancel_area {
+  padding: .5rem 0 .5rem 1rem; }
+  .cancel_area:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .cancel_area > div:first-child {
+    float: left;
+    margin-top: 0.3rem; }
+  .cancel_area > div:last-child {
+    float: right; }
+  .cancel_area label span {
+    vertical-align: text-top; }

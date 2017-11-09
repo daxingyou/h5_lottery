@@ -1,0 +1,212 @@
+.betting_area {
+  line-height: 1.8; }
+  .betting_area > div:first-child {
+    background-image: url("../images/left_bg@2x.png");
+    background-color: #52ACD3;
+    background-size: 100%;
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #fff; }
+    .betting_area > div:first-child > div {
+      display: inline-block;
+      vertical-align: -webkit-baseline-middle;
+      vertical-align: -moz-baseline-middle;
+      text-align: left; }
+    .betting_area > div:first-child .info_data {
+      margin-left: 1rem; }
+    .betting_area > div:first-child img {
+      width: 5rem;
+      height: 5rem; }
+    .betting_area > div:first-child h2 {
+      font-size: 1rem; }
+    .betting_area > div:first-child i {
+      vertical-align: middle;
+      margin-top: 0.1rem; }
+    .betting_area > div:first-child span {
+      font-size: 1.143rem;
+      vertical-align: top; }
+
+.tab {
+  font-size: 0; }
+  .tab .item {
+    display: inline-block;
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 1rem; }
+    .tab .item:first-child {
+      border-right: 1px solid #F1F1F1; }
+    .tab .item a {
+      color: #808080;
+      display: block;
+      padding: 1rem 0.5rem 0.7rem;
+      text-align: center; }
+      @media (max-width: 359px) {
+        .tab .item a {
+          padding: 1rem .5rem; } }
+      .tab .item a > * {
+        display: inline-block; }
+      .tab .item a p {
+        text-align: left;
+        line-height: 1.429rem; }
+      .tab .item a small {
+        color: #ACACAC;
+        display: block;
+        font-size: 0.7143rem;
+        line-height: 1rem; }
+      .tab .item a span {
+        font-size: 1.071rem; }
+    .tab .item.active, .tab .item:hover, .tab .item:focus {
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none; }
+      .tab .item.active a, .tab .item:hover a, .tab .item:focus a {
+        color: #52ACD3; }
+        .tab .item.active a .i_coin, .tab .item:hover a .i_coin, .tab .item:focus a .i_coin {
+          background-image: url("../images/icon_coin_b.svg"); }
+        .tab .item.active a .i_trace, .tab .item:hover a .i_trace, .tab .item:focus a .i_trace {
+          background-image: url("../images/icon_trace_b.svg"); }
+
+.tab_mid {
+  margin: .8rem 0;
+  color: #898989;
+  background-color: #fff; }
+  .tab_mid li {
+    display: inline-block;
+    width: 25% !important;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid #fff; }
+    .tab_mid li a {
+      display: block;
+      color: #898989;
+      font-size: 0.8571rem;
+      height: 2.286rem;
+      line-height: 2.286rem; }
+    .tab_mid li.on {
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      border-bottom: 2px solid #52ACD3; }
+      .tab_mid li.on a {
+        color: #52ACD3; }
+
+.tab_content {
+  padding: 0 0.5rem; }
+
+.bet_day, .trace_day {
+  border: 1px solid #DDE2E6;
+  border-bottom: none;
+  background-color: #fff; }
+  .bet_day:last-child, .trace_day:last-child {
+    border-bottom: 1px solid #DDE2E6; }
+  .bet_day .date, .trace_day .date {
+    font-size: 1rem; }
+
+.bet_data {
+  border-bottom: 1px solid #DDE2E6; }
+  .bet_data:last-child {
+    border-bottom: none; }
+  .bet_data > a {
+    display: block;
+    padding: .786rem; }
+    .bet_data > a:after {
+      content: '';
+      display: table;
+      clear: both; }
+  .bet_data > a > * {
+    float: left;
+    line-height: 1.429rem;
+    color: #898989; }
+  .bet_data strong {
+    color: #52ACD3;
+    font-size: 1rem; }
+  .bet_data .status {
+    float: right;
+    min-width: 15%;
+    text-align: center;
+    color: #ACACAC;
+    margin-top: 0.3571rem; }
+  .bet_data .status02 {
+    color: #71C341; }
+  .bet_data .status03 {
+    color: #ACACAC;
+    padding-top: 2rem;
+    position: relative;
+    margin-top: 0; }
+    .bet_data .status03:before {
+      content: '';
+      display: block;
+      background-image: url("../images/icon_notwin.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      position: absolute;
+      width: 1.429rem;
+      height: 1.429rem;
+      top: .3rem;
+      left: 50%;
+      margin-left: -0.7143rem; }
+  .bet_data .status04 {
+    color: #E03A5D;
+    padding-top: 2rem;
+    position: relative;
+    margin-top: 0; }
+    .bet_data .status04:before {
+      content: '';
+      display: block;
+      background-image: url("../images/icon_exclam.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      position: absolute;
+      width: 1.429rem;
+      height: 1.429rem;
+      top: .3rem;
+      left: 50%;
+      margin-left: -0.7143rem; }
+
+.badge {
+  background-color: #52ACD3;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 100px;
+  padding: .5rem;
+  margin-right: 0.5714rem;
+  border: 3px solid #52ACD3; }
+  .badge.ssc_badge {
+    background-image: url("../images/lottery/logo_cqssc.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%; }
+
+.lottery_t {
+  margin-right: 1rem;
+  margin-top: 0.3571rem; }
+
+.trace_day .bet_data .status {
+  text-align: center;
+  margin-top: 0.3571rem; }
+
+.trace_day .bet_data .status01 {
+  color: #D3D3D3; }
+  .trace_day .bet_data .status01 div {
+    color: #fff; }
+
+.trace_day .bet_data .status02 {
+  color: #52ACD3; }
+  .trace_day .bet_data .status02 div {
+    color: #FCB008; }
+
+.trace_day .bet_data .status03 {
+  padding-top: 0;
+  color: #D3D3D3; }
+  .trace_day .bet_data .status03:before {
+    display: none; }
+  .trace_day .bet_data .status03 div {
+    color: #FCB008; }
+
+/* Slider */

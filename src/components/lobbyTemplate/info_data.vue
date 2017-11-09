@@ -80,8 +80,8 @@
                 </div>
                 <div class="info_personal">
                     <div>个人信息
-                        <a class="edit-btn"  v-if="showDetail" @click="editDetails()"><i class="icon write"></i>修改</a>
-                        <a class="save-btn"  v-if="!showDetail" @click="saveEdit()"><i class="i_save"></i><span>保存</span></a>
+                        <a class="info_data_modify edit-btn"  v-if="showDetail" @click="editDetails()"><i class="icon write"></i>修改</a>
+                        <a class="save save-btn"  v-if="!showDetail" @click="saveEdit()"><i class="i_save"></i><span>保存</span></a>
                     </div>
                     <div class="print_data">
                         <table>
@@ -390,7 +390,7 @@ export default {
     created: function() {
         var _self = this;
 //        _self.hasLogin = _self.ifLanded();
-//        _self.getUserInfo();
+        _self.getUserInfo();
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' );
@@ -409,28 +409,7 @@ export default {
       // 获取用户银行信息
         getUserInfo: function() {
           var _self = this;
-//           $.ajax('user/member/detail/get', {}, function(data) {
-//              if(data.apistatus == 1){
-//                  _self.userId = data.result.account || '';
-//              }
-//          }, 'get', function(data) {
-//              if (data.apistatus == '0' && data.errorCode == '1000020') {
-//
-//                  common.toast({
-//                      content: '会员未登录！',
-//                      time: 1
-//                  });
-//
-//                  setTimeout('common.logOut()', 1000);
-//              }
-//              if (data.errorCode == '1000003') {
-//                  common.toast({
-//                      content: '该会员已被停用！',
-//                      time: 1
-//                  });
-//                  setTimeout('common.logOut()', 1000);
-//              }
-//          });
+
           $.ajax({
               type:'get',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
