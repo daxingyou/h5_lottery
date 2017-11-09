@@ -483,6 +483,7 @@ export default {
               data: { },
               success: function(res){
                 _self.userInfo = res.data ;
+                console.log(_self.userInfo)
               },
               error: function (res) {
 
