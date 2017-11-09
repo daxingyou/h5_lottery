@@ -12,9 +12,12 @@
           </div>
           <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
-              <router-link to="/login">登录</router-link>
+              <router-link to="/login" v-show="!haslogin">登录</router-link>
               <router-link to="/reg" v-show="!haslogin" >注册</router-link>
               <a href="javascript:;" v-show="!haslogin" >试玩</a>
+              <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link> <!-- 普通用户 -->
+              <a class="guset" href="javascript:;" style="display: none"><i></i>游客</a>  <!--  试玩帐号 -->
+              <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
           </div>
       </header>
       <div class="news">
@@ -116,7 +119,7 @@ export default {
   },
   data :function() {
         return {
-            haslogin:true ,
+            haslogin:false ,
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
@@ -155,7 +158,26 @@ export default {
 
   },
   methods:{
+  // 退出函数
+      loginOut:function () {
+          var _self = this ;
+          $.ajax({
+              type: 'get',
+             // headers: {Authorization: 'Basic d2ViX2FwcDo='},
+              url: this.action.uaa + 'oauth/logout',
+              data: {} ,
+              success: (res) => {
+                  _self.clearAllCookie() ; // 清除全部 cookie
+                  // console.log(res) ;
+                  this.$nextTick(function () {
 
+                  })
+              },
+              error: function () {
+
+              }
+          });
+      }
   },
 
 }

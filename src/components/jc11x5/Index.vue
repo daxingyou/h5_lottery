@@ -406,6 +406,7 @@
             },
             //获取开奖更据
             lotteryDataFetch:function(){
+                const that = this;
                 return new Promise((resolve)=>{
                     that.getSystemTime().then(sys_time=>{
                         // sys_time = '2017-10-30 19:39:10';    //5秒后封盘所需时间，然后5秒后开奖

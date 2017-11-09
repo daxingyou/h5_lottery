@@ -13,8 +13,8 @@ import HuBeiK3Index from '@/components/k3/HuBeiIndex'  // 湖北快3
 
 import Pk10Index from '@/components/pk10/Index'  // 北京 pk10
 import CqsscIndex from '@/components/cqssc/Index'  // 重庆时时彩
-import TjsscIndex from '@/components/tjssc/Index'  // 天津时时彩
-import XjsscIndex from '@/components/xjssc/Index'  // 新疆时时彩
+import TjsscIndex from '@/components/cqssc/TianJinIndex'  // 天津时时彩
+import XjsscIndex from '@/components/cqssc/XinJiangIndex'  // 新疆时时彩
 import PastView from '@/components/publicTemplate/PastView'
 import lobbyPastView from '@/components/lobbyPastView'  // 大厅往期开奖
 import BetRecord from '@/components/publicTemplate/BetRecord'
@@ -26,12 +26,13 @@ import info from '@/components/lobbyTemplate/info'  // 大厅个人中心
 import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中心 盈亏分析
 import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
-import depositdetail from '@/components/lobbyTemplate/depositdetail'  // 大厅个人中心 充值二级页面
+
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
 import info_data from '@/components/lobbyTemplate/info_data'  //个人中心-账户管理
 import notification from '@/components/lobbyTemplate/notification'  //个人中心-个人消息
-import join from '@/components/lobbyTemplate/join'
+import join from '@/components/lobbyTemplate/join' //欢迎加入
+import withdrawals_bind from '@/components/lobbyTemplate/withdrawals_bind'
 
 Vue.use(Router)
 
@@ -100,15 +101,15 @@ export default new Router({
       component: CqsscIndex
     }, 
     {  // 天津时时彩
-      path: '/tjssc/',
+      path: '/cqssc/tianJinIndex',
       name: 'tjsscIndex',
       component: TjsscIndex
     },
-      {  // 新疆时时彩
-          path: '/xjssc/',
-          name: 'xjsscIndex',
-          component: XjsscIndex
-      },
+    {  // 新疆时时彩
+        path: '/cqssc/xinJiangIndex',
+        name: 'xjsscIndex',
+        component: XjsscIndex
+    },
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/lobbyPastView', name:'lobbyPastView', component: lobbyPastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
@@ -120,12 +121,11 @@ export default new Router({
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
     { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
-    { path: '/lobbyTemplate/depositdetail', name:'depositdetail', component: depositdetail },
     { path: '/lobbyTemplate/withdrawals', name:'withdrawals', component: withdrawals },
     { path: '/lobbyTemplate/agent', name:'agent', component: agent },
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
     { path: '/lobbyTemplate/notification', name:'notification', component:notification },
-    { path: '/lobbyTemplate/join', name:'join', component:join }
-
+    { path: '/lobbyTemplate/join', name:'join', component:join },
+    { path: '/lobbyTemplate/withdrawals_bind', name:'withdrawals_bind', component:withdrawals_bind }
   ]
 })

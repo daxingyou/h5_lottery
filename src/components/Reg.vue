@@ -144,10 +144,10 @@
                         <label class="error-message "></label>
                     </fieldset>
                     <fieldset>
-                        <div class="form_g password">
+                        <div class="form_g password ">
                             <legend></legend>
                             <input type="password" placeholder="请输入验证码" v-model="yzmcode">
-                            <img src="/static/images/demo_verifi.png" alt="">
+                            <img :src="verImgCode" alt="" @click="switchYzmcode()">
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
@@ -191,8 +191,12 @@
                 withpassword3: '',
                 withpassword4: '',
                 show:true,
-                showC:true
+                showC:true,
+                verImgCode:'',
             }
+        },
+        created:function(){
+           this.switchYzmcode() ;
         },
         methods:{
             //点击显示密码
@@ -236,6 +240,9 @@
                 if(this.confirmpassword ==''){
                     this.$refs.autoCloseDialog.open('请输入确认密码') ;
                     return false ;
+                }else if(this.confirmpassword !== this.password){
+                    this.$refs.autoCloseDialog.open('两次密码输入不一致');
+                    return false ;
                 }
                 var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
                 if(falg){
@@ -260,10 +267,10 @@
                     this.$refs.autoCloseDialog.open('请输入手机号码') ;
                     return false ;
                 }
-               /* if(this.yzmcode ==''){
+               if(this.yzmcode ==''){
                     this.$refs.autoCloseDialog.open('请输入验证码') ;
                     return false ;
-                }*/
+                }
                 var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
                 if(falg){
                     return false ;
@@ -305,6 +312,18 @@
                     }
                 });
             },
+            switchYzmcode:function () {  //
+                let _self =this ;
+                let url= this.action.uaa + 'apis/member/code/get?time='+ Math.random();
+                $.ajax({
+                type:"GET",
+                url:url,
+                success: (data) => {
+                 _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
+                }
+                })  
+            }
+
         }
 
 

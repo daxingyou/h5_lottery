@@ -84,20 +84,31 @@ export default {
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
             username: 'bcappid02|'+this.username ,
-            password: this.password
+            password: this.password ,
+           // code: this.code ,  // 验证码
         }
         $.ajax({
             type: 'post',
             headers: {Authorization: 'Basic d2ViX2FwcDo='},
-            url: this.action.uaa + 'oauth/token',
+           // url: this.action.uaa + 'oauth/token',
+            url: this.action.uaa + 'apis/member/login',
             data: logindata ,
             success: (res) => {
-                this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-                this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-                this.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
-               setTimeout(function () {
-                   window.location = '/' ;
-               },200)
+               // console.log(res) ;
+                if(res.err == 'SUCCESS'){ // 登录成功
+                    this.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                    this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
+                    this.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                      setTimeout(function () {
+                          window.location = '/' ;
+                       },300)
+                }else{
+                    this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                }
+
+               this.$nextTick(function () {
+
+               })
             },
             error: function () {
 
