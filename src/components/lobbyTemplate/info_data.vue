@@ -132,27 +132,27 @@
                         <fieldset>
                             <div class="form_g text">
                                 <legend>原密碼</legend>
-                                <input type="password"  placeholder="请输入密码" v-if="false" v-model="changePassword.oldPassword" class="oldPassword" @input="checkUserName(changePassword.oldPassword,'oldPassword','请输入4~15位密码')">
-                                <input type="text" placeholder="请输入密码" v-model="changePassword.oldPassword" v-if="true">
-                                <i class="eye"></i>
+                                <input type="password"  placeholder="请输入密码" v-if="show" v-model="changePassword.oldPassword" class="oldPassword" @input="checkUserName(changePassword.oldPassword,'oldPassword','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入密码" v-model="changePassword.oldPassword" v-if="!show">
+                                <i class="eye" @click="showPassword()"></i>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
                         <fieldset>
                             <div class="form_g text">
                                 <legend>新密碼</legend>
-                                <input type="password" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="false" class="newPassword" @input="checkUserName(changePassword.newPassword,'newPassword','请输入4~15位密码')">
-                                <input type="text" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="true">
-                                <i class="eye"></i>
+                                <input type="password" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="show" class="newPassword" @input="checkUserName(changePassword.newPassword,'newPassword','请输入4~15位密码')">
+                                <input type="text" placeholder="请输入新密码" v-model="changePassword.newPassword" v-if="!show">
+                                <i class="eye" @click="showPassword()"></i>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
                         <fieldset>
                             <div class="form_g text">
-                                <legend>確認密碼</legend>
-                                <input type="password" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="false" class="newPassword_confirm" @input="checkUserName(changePassword.newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
-                                <input type="text" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="true">
-                                <i class="eye"></i>
+                                <legend>确认密碼</legend>
+                                <input type="password" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="show" class="newPassword_confirm" @input="checkUserName(changePassword.newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <input type="text" placeholder="请再次输入新密码" v-model="changePassword.newPassword_confirm" v-if="!show">
+                                <i class="eye" @click="showPassword()"></i>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
@@ -383,7 +383,8 @@ export default {
             qq:'',
             email:'',
              // 修改资料,
-             showDetail:true
+            showDetail:true,
+            show:true
         }
     },
     created: function() {
@@ -405,8 +406,8 @@ export default {
         }) ;
   },
     methods: {
-      // 获取用户信息
-      getUserInfo: function() {
+      // 获取用户银行信息
+        getUserInfo: function() {
           var _self = this;
 //           $.ajax('user/member/detail/get', {}, function(data) {
 //              if(data.apistatus == 1){
@@ -434,20 +435,20 @@ export default {
               type:'get',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
               dataType: 'json',
-              url: _self.action.forseti + 'api/pay/memberBank',
+              url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
-              success: (res) => {
-                   console.log(res)
+              success: (data) => {
+                   console.log(data)
               },
               error: (err) =>{
                    console.log(err)
+//                  _self.$refs.autoCloseDialog.open('返回错误') ;
               }
           })
 //
       },
-
-      //修改登录密码
-      submitChangePassword:function () {
+        //修改登录密码
+        submitChangePassword:function (){
              var _self=this;
              if(_self.changePassword.oldPassword==''){
                  return false ;
@@ -484,7 +485,7 @@ export default {
              })
       },
       //修改交易密码
-      submitChangePayWord : function(){
+        submitChangePayWord : function(){
           var _self=this;
           if(_self. changePayWord.oldPassword1 ==''|| _self. changePayWord.oldPassword2 =='' ||
               _self.changePayWord.oldPassword3 ==''|| _self.changePayWord.oldPassword4==''){
@@ -522,13 +523,13 @@ export default {
               }
           })
       },
-      //修改资料
-      editDetails:function () {
+      //修改个人资料
+        editDetails:function () {
             var _self=this;
             _self.showDetail=false
 
        } ,
-      saveEdit :function () {
+        saveEdit :function () {
           var _self=this;
           if(_self.weChat==''||!_self.checkWechat(_self.weChat)){
                _self.$refs.autoCloseDialog.open('请输入正确微信号') ;
@@ -564,7 +565,15 @@ export default {
                   _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
               }
           })
-      }
+      },
+        //点击显示密码
+        showPassword :function() {
+            if (this.show) {
+                this.show = false;
+            } else {
+                this.show = true
+            }
+        }
 }
 
 }
