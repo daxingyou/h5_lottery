@@ -130,6 +130,7 @@
 
         <div class="so-shade"></div>
 
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
 
     </div>
 </template>
@@ -140,16 +141,18 @@
 import $ from "jquery";
 import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
-
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-      FooterNav
+      FooterNav,
+      AutoCloseDialog,
   //  CountdownTimer,
  },
     data :function() {
         return {
+            haslogin:false ,
             gametimerInt:'' ,
             now_time:'',  // 当前期数销售截止时间
             sys_time :'',  // 当前系统时间
@@ -165,14 +168,20 @@ export default {
     beforeDestroy:function(){
       clearInterval(this.gametimerInt) ;
    },
+    created:function () {
+        var _self = this ;
+        _self.haslogin = this.ifLogined() ;
+        if( !_self.haslogin){
+            // _self.$refs.autoCloseDialog.open('请先登录！') ;
+            window.location = '/login' ;
+        }
+    },
   mounted:function() {
-      var that = this ;
-     $('html,body').css('overflow-y','scroll' )  ;
-      that.lobbytimerBegin();
-
+      var _self = this ;
+      $('html,body').css('overflow-y','scroll' )  ;
+      _self.lobbytimerBegin();
       setTimeout(function(){
-          that.gameTimer() ;
-
+          _self.gameTimer() ;
       },200)
 
   },

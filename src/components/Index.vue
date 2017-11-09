@@ -116,7 +116,7 @@ export default {
   },
   data :function() {
         return {
-            haslogin:true ,
+            haslogin:false ,
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
