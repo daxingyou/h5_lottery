@@ -479,7 +479,7 @@ export default {
               headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
-              url: _self.action.forseti + 'api/payment/memberBank',
+              url: _self.action.forseti + 'api/payment/incomeBank',
               data: { },
               success: function(res){
                 _self.userInfo = res.data ;

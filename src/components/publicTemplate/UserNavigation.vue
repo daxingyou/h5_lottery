@@ -124,7 +124,7 @@ export default {
          /* })*/
       },
       // 获取用户余额
-      getMemberBalance:function (lotteryid) {
+     /* getMemberBalance:function (lotteryid) {
           return new Promise((resolve)=>{
               $.ajax({
                   type: 'GET',
@@ -147,7 +147,7 @@ export default {
               });
 
           })
-      },
+      },*/
 
   },
 
