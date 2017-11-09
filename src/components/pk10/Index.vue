@@ -1249,33 +1249,44 @@ export default {
             this.entertainStatus = true;
             this.resetAction();
         },
+        lotteryDataFetch:function(){
+            const that = this;
+            return new Promise((resolve)=>{
+                that.getSystemTime().then((sys_time)=>{
+                    that.sys_time = sys_time;
+                    that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+                        that.next_pcode = res.data[0].pcode;  // 下期期数
+                        that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
+                        that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                       // that.previous_pcode = res.data[2].pcode;  // 上期期数
+                        that.previous_pcode = res.data[2].issueAlias;  // 上期期数
+                        // 当前期数时间
+                        that.now_time = this.formatTimeUnlix(res.data[1].endTime);
+                        // 当前期封盘时间
+                        that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
+                        // 当天日期
+                        that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
+                        let code = res.data[2].winNumber;
+                        //code 上期开奖号码
+                        if (!code) {
+                            code='20,20,20,20,20,20,20,20,20,20';
+                        }
+                        that.winNumber = code;
+                        //上期开奖统计
+                        that.lastTermStatic = res.data[2].doubleData;
+                        resolve();
+                        // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+                    });
+                });
+            })
+            
+        },
+
         timerBegin:function(){
             var that = this ;
-            that.getSystemTime().then((sys_time)=>{
-                that.sys_time = sys_time;
-                that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
-                    that.next_pcode = res.data[0].pcode;  // 下期期数
-                    that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
-                    that.now_pcode = res.data[1].issueAlias;  // 当前期数
-                   // that.previous_pcode = res.data[2].pcode;  // 上期期数
-                    that.previous_pcode = res.data[2].issueAlias;  // 上期期数
-                    // 当前期数时间
-                    that.now_time = this.formatTimeUnlix(res.data[1].endTime);
-                    // 当前期封盘时间
-                    that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
-                    // 当天日期
-                    that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
-                    let code = res.data[2].winNumber;
-                    //code 上期开奖号码
-                    if (!code) {
-                        code='20,20,20,20,20,20,20,20,20,20';
-                    }
-                    that.winNumber = code;
-                    //上期开奖统计
-                    that.lastTermStatic = res.data[2].doubleData;
-                    that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
-                });
-            });
+            this.lotteryDataFetch().then(()=>{
+                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+            })
             this.entertainStatus = false;
         },
         resetAction:function(){

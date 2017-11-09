@@ -15,7 +15,8 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
         <div class="so-index">
-            <div class="so-in-top">
+            <MenuBar :moduleName="moduleName || '重庆时时彩'" :balance="balanceData.balance" />
+            <!-- <div class="so-in-top">
                 <ul>
                     <li class="so-menu">
                           <img src="/static/images/top/icon-menu.png" class="so-top-menu">
@@ -33,7 +34,7 @@
                         <img src="/static/images/top/zoushi.png">
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <div class="so-in-main">
                 <div>
                     <div class="so-main-top">
@@ -59,6 +60,7 @@
                     <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
+                        @spanArrived="lotteryDataFetch"
                         :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
 
@@ -238,6 +240,7 @@ import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
 import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
+import MenuBar from '@/components/publicTemplate/MenuBar'
 
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
@@ -248,6 +251,7 @@ export default {
   mixins:[Mixin],
   components: {
     HistoryTerm,
+    MenuBar, 
     CountdownTimer,
     BetSuccessfulDialog,
     Bet,
@@ -257,6 +261,7 @@ export default {
     AutoCloseDialog,
     PlayDialog
   }, 
+  props:['moduleName', 'moduleLotteryID'],
   data:function () {
     return {
         now_time:'',  // 当前期数销售截止时间
@@ -336,36 +341,50 @@ export default {
         this.entertainStatus = true;
         this.resetAction();
     },
+    //获取开奖更据
+    lotteryDataFetch:function(){
+        const that = this;
+        return new Promise((resolve)=>{
+            
+            that.getSystemTime().then(sys_time=>{
+                that.sys_time = sys_time;
+                that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+                    that.next_pcode = res.data[0].pcode;  // 下期期数
+                    that.now_pcode = res.data[1].pcode;  // 当前期数
+                    that.previous_pcode = res.data[2].pcode;  // 上期期数
+                    // 当前期数时间
+                    that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
+                    // 当前期封盘时间
+                    that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
+                    // 当天日期
+                    that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                    let code = res.data[2].winNumber;
+                    //code 上期开奖号码
+                    if (!code) {
+                        code = '-,-,-,-,-';
+                    }
+                    that.winNumber = code;
+                    //上期开奖统计
+                    that.lastTermStatic = res.data[2].doubleData;
+
+                    // :now_pcode="now_pcode" 
+                    // :start="sys_time" :end="now_time" :overend="nowover_time"
+                    resolve();
+                    // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+                }).catch(function () {
+                     console.log("Promise Rejected in method of timeBegin");
+                });
+            }); 
+
+        })
+        
+    },
+
     timerBegin:function(){
         var that = this;
-        that.getSystemTime().then(sys_time=>{
-            that.sys_time = sys_time;
-            that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
-                that.next_pcode = res.data[0].pcode;  // 下期期数
-                that.now_pcode = res.data[1].pcode;  // 当前期数
-                that.previous_pcode = res.data[2].pcode;  // 上期期数
-                // 当前期数时间
-                that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
-                // 当前期封盘时间
-                that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
-                // 当天日期
-                that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
-                let code = res.data[2].winNumber;
-                //code 上期开奖号码
-                if (!code) {
-                    code = '-,-,-,-,-';
-                }
-                that.winNumber = code;
-                //上期开奖统计
-                that.lastTermStatic = res.data[2].doubleData;
-
-                // :now_pcode="now_pcode" 
-                // :start="sys_time" :end="now_time" :overend="nowover_time"
-                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
-            }).catch(function () {
-                 console.log("Promise Rejected in method of timeBegin");
-            });
-        }); 
+        this.lotteryDataFetch().then(()=>{
+            that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
+        })
         that.entertainStatus = false;
     },
     resetAction:function(){
