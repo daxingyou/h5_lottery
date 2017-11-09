@@ -19,7 +19,7 @@
                                 <div class="form_g text money">
                                     <legend>充值金额</legend>
                                     <input type="tel" placeholder="请输入充值金额" v-model="paymount">
-                                    <i class="close"></i>
+                                    <i class="close" @click="clearMoney()"></i>
                                 </div>
                             </fieldset>
                         </form>
@@ -141,7 +141,7 @@
                                     <div class="form_g text">
                                         <legend>选择银行</legend>
                                         <select name="" v-model="bankInfo.bankCode">
-                                            <option :value="bank.bankCode" v-for="bank in banklist">{{bank.bankName}}</option>
+                                            <option :value="bank.bankCode" v-for="bank in allbanklist">{{bank.bankName}}</option>
                                         </select>
                                     </div>
                                     <i class="input_select"></i>
@@ -191,7 +191,7 @@
                                 <fieldset>
                                     <div class="form_g text">
                                         <legend for="">存款时间</legend>
-                                        <input class="date"  id="paydate" placeholder=" ">
+                                        <input type="text" class="date"  id="paydate" readonly>
                                         <i class="input_date"></i>
                                     </div>
                                 </fieldset>
@@ -293,13 +293,14 @@
 </template>
 
 <script>
-import $ from "jquery";
+
+// import $ from "jquery";
 import Mixin from '@/Mixin'
 import Clipboard from 'clipboard'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 // import deposit_bank_transfer from '@/components/lobbyTemplate/deposit_bank_transfer'
-// import '../../../static/js/mobiscroll.js'
+ // import '../../../static/js/mobiscroll.js'
 
 export default {
   name: 'deposit',
@@ -312,7 +313,8 @@ export default {
     data: function() {
         return {
             paymount: '' ,  // 充值金额
-            banklist: {} ,  // 充值金额
+            banklist: {} ,  // 配置的银行列表
+            allbanklist: {} ,  // 所有银行列表
             userInfo: {} ,  // 收款帐号个人资料
             banksavename: '' ,  // 银行转账存款人
             bankval: '' ,  // 银行转账方式
@@ -322,35 +324,37 @@ export default {
         }
     },
     creeted:function () {
-       /* setTimeout(function () {
-            var now = new Date(),
-                minDate = new Date(now.getFullYear() - 1, now.getMonth()+1, now.getDate(),now.getHours() - 12),
-                maxDate = new Date(now.getFullYear() + 1, now.getMonth()+1, now.getDate(),now.getHours() - 12);
-            $.mobiscroll.setDefaults({   //日期控件
-                theme: 'ios', //皮肤样式 android
-                lang: 'zh',
-                dateFormat: 'yy/mm/dd',  // 日期格式
-                mode: 'scroller', //日期选择模式 mixed
-                display: 'bottom',
-                min: minDate,
-                max: maxDate,
-                defaultValue:common.setAmerTime('#paydate'), //时间默认值
-                dateWheels: '|yy M d|',
-                startYear: 2017, //开始年份
-                endYear:2020 //结束年份
-            });
-            $("#paydate").mobiscroll().datetime({ });
 
 
-        },500)*/
     },
   mounted:function() {
+      var _self = this ;
         $('html,body').css('overflow-y','scroll' )  ;
-        this.choosePayMoth() ;
-        this.bankTipShow() ;
+      _self.choosePayMoth() ;
+      _self.bankTipShow() ;
+      setTimeout(function () {
+          $.mobiscroll.setDefaults({   //日期控件
+              theme: 'ios', //皮肤样式 android
+              lang: 'zh',
+              dateFormat: 'yy/mm/dd',  // 日期格式
+              mode: 'scroller', //日期选择模式 mixed
+              display: 'bottom',
+             // defaultValue:_self.setAmerTime('#paydate'), //时间默认值 ，不需要美东时间
+              defaultValue:_self.setAmerTime('#paydate'), //时间默认值 ，不需要美东时间
+              dateWheels: '|yy M d|',
+              startYear: 2017, //开始年份
+              endYear:2020 //结束年份
+          });
+          $("#paydate").mobiscroll().datetime({ });
+
+      },500)
 
   },
   methods: {
+      // 清空输入金额
+      clearMoney:function () {
+        this.paymount = ''  ;
+      },
       // 银行转账步骤提示框
       bankTipShow:function () {
           $('.trans_step').click(function () {
@@ -387,7 +391,7 @@ export default {
                   $('.paymethods_all').hide() ;
                   $('.webbank_scan_all').show() ;
               }else{  // 银行转账
-                  _self.getBankList() ;
+                  _self.getAllBankList() ;
                   _self.getBankInfo() ;
                   $('.paymethods_all').hide() ;
                   $('.webbank_bank_all').show() ;
@@ -412,6 +416,24 @@ export default {
                       res.data[i].img = _self.action.picurl+res.data[i].img+'/0' ;
                   }
                 _self.banklist = res.data ;
+              },
+              error: function (res) {
+
+              }
+          });
+      },
+      // 获取所有银行列表
+      getAllBankList:function () {
+          var _self = this ;
+          $.ajax({
+              type: 'get',
+              headers: {
+                  "Authorization": "bearer  " + this.getAccessToken ,
+              },
+              url: _self.action.forseti + 'api/payment/banks',
+              data: { },
+              success: function(res){
+                  _self.allbanklist = res.data ;
               },
               error: function (res) {
 
@@ -467,7 +489,7 @@ export default {
               }
           });
       },
-  // 银行转账提交  banksavename
+  // 银行转账提交
       submitBankActtion:function () {
           var _self = this ;
           if(!_self.bankInfo.bankCode){

@@ -249,7 +249,38 @@ var MyMixin = {
         payoffFormat:function(val){
             return (Number(val)/10000).toFixed(3);
         },
+        // 美东时间设置
+        setAmerTime :function (el) {
+            var today = new Date();
+          //  today.setHours(today.getHours() - 12);  // 不需要转成美东时间
+            var y = today.getFullYear();
+            var m = today.getMonth() + 1;
+            var d = today.getDate();
+            var h = today.getHours();
+            var mm = today.getMinutes();
+            var s = today.getSeconds();
+            m =  this.checkTime(m);
+            d = this.checkTime(d);
+            h = this.checkTime(h);
+            mm = this.checkTime(mm);
+            s = this.checkTime(s);
+            if(el =='#paydate'){
+                $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm); // 只到分
+            }else{
+                $(el).val(y+"/"+m+"/"+d+" "+h+":"+mm+":"+s);
+            }
 
+       },
+        /**
+         * 1位数补0为2位数
+         * @param i
+         * @returns {*}
+         */
+         checkTime:function(i) {
+            if (i<10)
+            {i="0" + i}
+            return i
+        } ,
         // 时间戳转换
         formatTimeUnlix:function (v) {
             if (v == null) {
