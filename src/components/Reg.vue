@@ -49,7 +49,7 @@
                         <fieldset  v-if="show">
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
+                                <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
                                 <i class="eye " @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
@@ -57,7 +57,7 @@
                         <fieldset  v-if="!show">
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkUserName(confirmpassword,'confirmpassword','请输入6~20位英数密码')">
+                                <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
                                 <i class="eye active" @click="showPassword()"></i>
                             </div>
                             <label class="error-message "></label>
@@ -322,6 +322,15 @@
                  _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
                 }
                 })  
+            },
+            checkIsEqual:function (el) {
+                if(this.confirmpassword == this.password){
+                    $(el).parent('.form_g').next('.error-message').removeClass('red').text('');
+                    return
+                }else {
+                    $(el).parent('.form_g').next('.error-message').addClass('red').text("两次密码输入不一致") ;
+
+                }
             }
 
         }
