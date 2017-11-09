@@ -165,24 +165,24 @@
                                             <th>
                                                 <li>收款人</li>
                                             </th>
-                                            <td>{{userInfo.realName}}</td>
+                                            <td>{{userInfo.cardOwnerName}}</td>
                                         </tr>
                                         <tr>
                                             <th>
                                                 <li>开户行</li>
                                             </th>
-                                            <td>{{userInfo.bankAddress}}</td>
+                                            <td>{{userInfo.registerBankInfo}}</td>
                                         </tr>
                                         <tr>
                                             <th>
                                                 <li>银行账号</li>
                                             </th>
-                                            <td>{{userInfo.bankCard}}</td>
+                                            <td>{{userInfo.cardNo}}</td>
                                         </tr>
                                         </thead>
                                     </table>
                                     <a class="copy_link js-textareacopybtn copy-text" href="javascript:;"  @click="copyText()"
-                                       :data-clipboard-text="'银行名称：'+userInfo.bankName+' 收款人：'+userInfo.realName +' 开户行：'+userInfo.bankAddress +' 银行账号：'+userInfo.bankCard"
+                                       :data-clipboard-text="'银行名称：'+userInfo.bankName+' 收款人：'+userInfo.cardOwnerName +' 开户行：'+userInfo.registerBankInfo +' 银行账号：'+userInfo.cardNo"
                                     >
                                         <i class="icon_copy"></i>复制该信息</a>
                                 </div>
@@ -512,10 +512,10 @@ export default {
               depositorName : _self.banksavename ,  // 存款人真实姓名
               realName : _self.banksavename ,  // 存款人姓名
               depositorBankCode : _self.bankInfo.bankCode ,  // 存款人银行代码
-              cardNo: userInfo.bankCard , // 收款人 存入银行账号/快充账户
+              cardNo: userInfo.cardNo , // 收款人 存入银行账号/快充账户
               bankCode: userInfo.bankCode ,  // 收款人银行代码
-              registerBankInfo : userInfo.bankAddress ,  // 收款人开户行
-              cardOwnerName : userInfo.realName ,  // 收款人名字
+              registerBankInfo : userInfo.registerBankInfo ,  // 收款人开户行
+              cardOwnerName : userInfo.cardOwnerName ,  // 收款人名字
               flowType : '0' ,  // 入款方式 0-公司转账，1-钱包快充
           }
           $.ajax({

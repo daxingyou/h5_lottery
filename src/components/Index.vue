@@ -164,7 +164,7 @@ export default {
           $.ajax({
               type: 'get',
              // headers: {Authorization: 'Basic d2ViX2FwcDo='},
-              url: this.action.uaa + 'oauth/logout',
+              url: this.action.uaa + 'apis/member/logout',
               data: {} ,
               success: (res) => {
                   _self.clearAllCookie() ; // 清除全部 cookie
