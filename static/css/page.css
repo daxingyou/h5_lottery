@@ -604,7 +604,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .dropdown_icon { font-size: .35rem; color: #256e93; line-height: 1.4rem; cursor: pointer; }
 
-.play_area { display: block; position: absolute; left: 0; top: 1.5rem; z-index: 15; background: #212838; width: 100%; border-top: 1px solid #383838; color: #d7e8f0; text-align: left; padding: .3rem 0; }
+.play_area { display: block; position: fixed; left: 0; top: 1.5rem; z-index: 15; background: #212838; width: 100%; border-top: 1px solid #383838; color: #d7e8f0; text-align: left; padding: .3rem 0; }
 
 .play_area .sort > h5 { margin-left: .6rem; margin-bottom: .2rem; color: #256e93; font-size: .35rem; }
 
