@@ -129,32 +129,53 @@
             <div class="play_area">
                 <div class="password_area">
                     <form>
-                        <fieldset>
+                        <fieldset v-if="show" >
                             <div class="form_g text">
                                 <legend>原密碼</legend>
-                                <input type="password"  placeholder="请输入密码" v-if="show" v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
-                                <input type="text" placeholder="请输入密码" v-model="oldPassword" v-if="!show">
-                                <i class="eye" @click="showPassword()"></i>
+                                <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
+                                <i class="eye eye1" @click="showPassword('eye1')"></i>
                             </div>
-                            <!--<label class="error-message "></label>-->
+                            <label class="error-message "></label>
                         </fieldset>
-                        <fieldset>
+                        <fieldset v-if="!show" >
+                            <div class="form_g text">
+                                <legend>原密碼</legend>
+                                <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
+                                <i class="eye active act1" @click="showPassword('act1')"></i>
+                            </div>
+                            <label class="error-message "></label>
+                        </fieldset>
+                        <fieldset v-if="showC" >
                             <div class="form_g text">
                                 <legend>新密碼</legend>
-                                <input type="password" placeholder="请输入新密码" v-model="newPassword" v-if="show" class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
-                                <input type="text" placeholder="请输入新密码" v-model="newPassword" v-if="!show">
-                                <i class="eye" @click="showPassword()"></i>
+                                <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
+                                <i class="eye eye2" @click="showPassword('eye2')"></i>
                             </div>
-                            <!--<label class="error-message "></label>-->
+                            <label class="error-message "></label>
                         </fieldset>
-                        <fieldset>
+                        <fieldset v-if="!showC" >
+                            <div class="form_g text">
+                                <legend>新密碼</legend>
+                                <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
+                                <i class="eye active act2" @click="showPassword('act2')"></i>
+                            </div>
+                            <label class="error-message "></label>
+                        </fieldset>
+                        <fieldset v-if="showB" >
                             <div class="form_g text">
                                 <legend>确认密碼</legend>
-                                <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm" v-if="show" class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
-                                <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm" v-if="!show">
-                                <i class="eye" @click="showPassword()"></i>
+                                <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <i class="eye eye3" @click="showPassword('eye3')"></i>
                             </div>
-                            <!--<label class="error-message "></label>-->
+                            <label class="error-message "></label>
+                        </fieldset>
+                        <fieldset v-if="!showB" >
+                            <div class="form_g text">
+                                <legend>确认密碼</legend>
+                                <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <i class="eye active act3" @click="showPassword('act3')"></i>
+                            </div>
+                            <label class="error-message "></label>
                         </fieldset>
                     </form>
                     <div>
@@ -390,7 +411,9 @@ export default {
             mobilePhone:'',
             // 修改资料,
             showDetail:true,
-            show:true
+            show:true,
+            showC:true,
+            showB:true
         }
     },
     created: function() {
@@ -596,11 +619,19 @@ export default {
           })
       },
         //点击显示密码
-        showPassword :function() {
-            if (this.show) {
-                this.show = false;
-            } else {
-                this.show = true
+        showPassword :function(cla) {
+            if(cla=="eye1"){
+                this.show=false
+            }else if(cla=="eye2"){
+                this.showC=false
+            }else if(cla=="eye3"){
+                this.showB=false
+            }else if(cla=="act1"){
+                this.show=true;
+            }else if(cla=="act2"){
+                this.showC=true
+            }else if(cla=="act3"){
+                this.showB=true
             }
         }
 }
