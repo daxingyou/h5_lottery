@@ -477,7 +477,7 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    if(lotterychooseid){
+                    if(lotterychooseid || lotterychooseid == '0'){
                         this.lotteryid = lotterychooseid ;
                     }
                     this.seadata.page = 1; // 还原页码
@@ -492,7 +492,6 @@
                            // console.log(lottery_name+'记得')
                         }
                     }) ;
-                   // console.log(this.lotteryid+'规范')
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
                     this.getBetRecord();
                     $(".dropdown").slideToggle("fast", () => {

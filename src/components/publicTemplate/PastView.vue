@@ -230,7 +230,7 @@ this.setMenuAction() ;
           });
           //确定提交
           $('.btn_submit').on('click', (e) => {
-              if(lotterychooseid){
+              if(lotterychooseid || lotterychooseid == '0'){
                   this.lotteryid = lotterychooseid ;
               }
               var $src = $(e.currentTarget);

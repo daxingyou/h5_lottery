@@ -476,7 +476,7 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    if(lotterychooseid){
+                    if(lotterychooseid || lotterychooseid == '0'){
                         this.lotteryid = lotterychooseid ;
                     }
                     this.seadata.page = 1; // 还原页码
