@@ -33,7 +33,7 @@
                             <th>
                                 <li>余额</li>
                             </th>
-                            <td>{{membalance}}</td>
+                            <td>{{memBalance}}</td>
                         </tr>
                         </thead>
                     </table>
@@ -41,14 +41,14 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>取款金额</legend>
-                        <input type="text" v-model="money"  class="money" placeholder="1.00~9999.00">
+                        <input type="text" v-model="userMoney"  class="money" placeholder="1.00~9999.00">
                         <i class="close close1" @click="ClearInput('close1','money')"></i>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
                         <legend>支付密码</legend>
-                        <input type="password" v-model="password" class="password" maxlength="4" placeholder="4位数字密码">
+                        <input type="password" v-model="cashPassword" class="password" maxlength="4" placeholder="4位数字密码">
                         <i class="close close2" @click="ClearInput('close1','password')"></i>
                     </div>
                 </fieldset>
@@ -84,9 +84,9 @@ export default {
   },
     data: function() {
         return {
-             money:'',
-             password:'',
-             membalance:this.getCookie('membalance'),
+             userMoney:'',
+             cashPassword:'',
+             memBalance:this.getCookie('membalance'),
              userName:'',
              bankName:'',
              bankCard:''
@@ -105,9 +105,9 @@ export default {
       clearVal :function (cl) {
 
           if(cl=='money'){
-              this.money ='';}
+              this.userMoney ='';}
           if(cl=='password'){
-              this.password='';
+              this.cashPassword='';
           }
 
       },
@@ -139,17 +139,17 @@ export default {
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if (_self.money == '' || !_self.checkNumber(_self.money)) {
+          if (_self.userMoney == '' || !_self.checkNumber(_self.userMoney)) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(_self.password==''||! _self.checkNumber(_self.password)){
+          if(_self.cashPassword==''||! _self.checkNumber(_self.cashPassword)){
               _self.$refs.autoCloseDialog.open('请输入密码');
                 return false
           }
           var Withdrawalsdata = {
-              applyAmount: _self.money,//金额
-              tradePassword: _self.password, //密码
+              applyAmount: _self.userMoney,//金额
+              tradePassword: _self.cashPassword, //密码
               remark :'会员提现'
           };
           $.ajax({
