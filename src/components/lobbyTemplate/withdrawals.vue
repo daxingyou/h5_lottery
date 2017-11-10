@@ -123,10 +123,10 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
               success: (res) => {
-//                  console.log( res)
-//                  if(res.data.bindType==null||res.data.bindType==1){
-//                      window.location = '/lobbyTemplate/withdrawals_bind' ;
-//                  }
+                  console.log( res)
+                  if(res.data.bindType==null||res.data.bindType==1){
+                      window.location = '/lobbyTemplate/withdrawals_bind' ;
+                  }
                     _self.userName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
