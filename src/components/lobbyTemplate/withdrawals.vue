@@ -130,11 +130,10 @@ export default {
 //                    console.log( res)
               },
               error: (err) =>{
-                  console.log(err)
-//                  _self.$refs.autoCloseDialog.open('返回错误') ;
-              }
+
+             }
           })
-//
+
       },
       //提款接口
       WithdrawalsAction: function () {
@@ -143,8 +142,8 @@ export default {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(_self.cashPassword==''||! _self.checkNumber(_self.cashPassword)){
-              _self.$refs.autoCloseDialog.open('请输入密码');
+          if(_self.cashPassword==''||! _self.checkNumber(_self.cashPassword)||_self.cashPassword.length!=4){
+              _self.$refs.autoCloseDialog.open('请输入4位数字密码');
                 return false
           }
           var Withdrawalsdata = {
