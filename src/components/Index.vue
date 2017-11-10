@@ -54,10 +54,13 @@
               <div id="marquee_snp" class="bd news_text slideText">
                   <div class="sys-notice">
                       <div class="bd">
-                          <ul>
-                              <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
-                              <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
-                              <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li>
+                          <ul >
+                              <li>
+                                  <div class="marquee-wrap" style="width:80%;"><vue-marquee content='' class="two"  :showtwo="false" ></vue-marquee></div>
+
+                              </li>
+
+
                           </ul>
                       </div>
                   </div>
@@ -79,7 +82,7 @@
                       </div>
                     </router-link>
                     <p>{{lottery.name}}</p>
-                    
+
                   </li>
 
               </ul>
@@ -106,6 +109,9 @@ import Mixin from '@/Mixin'
 //import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import FooterNav from '@/components/Footer'
+import VueMarquee from 'vue-marquee-ho';
+/*import Css from '../../node_modules/vue-marquee-ho/dist/vue-marquee.min.css'*/
+import Css from '../../static/css/vue-marquee.min.css'
 
 export default {
   name: 'Index',
@@ -113,8 +119,9 @@ export default {
   components: {
     // TouchSlide,
       FooterNav ,
-    IndexNavigation
+    IndexNavigation,
 //    UserNavigation,
+     "vue-marquee": VueMarquee
 
   },
   data :function() {
@@ -123,6 +130,7 @@ export default {
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
+            bulletins:[],
             banner:[
                 {'url':'http://admin.baochiapi.com/photo/pic/T1itJTBXJT1RCvBVdK/0'},
                 {'url':'http://admin.baochiapi.com/photo/pic/T1XtETBybT1RCvBVdK/0'},
@@ -135,6 +143,7 @@ export default {
 
     },
   mounted:function() {
+
     $('html,body').css('overflow-y','scroll' )  ;
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
@@ -144,6 +153,7 @@ export default {
       slideCell: "#focus",
       autoPlay:true,
     });
+     this.getBulletinsContent ()
       // $("#marquee_snp").slide({ // 文本滚动
       //     mainCell: ".bd ul",
       //     autoPage: true,
@@ -152,7 +162,10 @@ export default {
       //     vis: 1,
       //     interTime: 50
       // });
-      
+
+
+
+
 
 
 
@@ -177,6 +190,26 @@ export default {
 
               }
           });
+      },
+
+      getBulletinsContent :function () {
+          let  self=this ;
+          $.ajax({
+              type:"GET",
+              url:this.action.forseti + 'apis/cms/bulletins',
+              data:{
+                  sideType:"2"
+              },
+              success: (result) => {
+                  console.log(result.data)
+                  for(let i=0;i<result.data.length;i++){
+                      console.log(result.data[i].content)
+                      self.bulletins.push(result.data[i].content);
+                  }
+                 console.log(self.bulletins)
+
+              }
+          })
       }
   },
 
@@ -185,6 +218,50 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
+  .marquee-box {
+      height: 50px;
+      line-height: 50px;
+      color: #000;
+      font-size: 24px;
+      background-size: 24px 24px;
+  }
+  .marquee-content{
+      overflow: hidden;
+      width:100%
+  }
+  .marquee-content p{
+      display: inline-block;
+      white-space: nowrap;
+      margin: 0;
+      font-size: 0;
+  }
+  .marquee-content span{
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 40px;
+      font-size: 14px;
+  }
+
+  .quick{
+      -webkit-animation: marquee 5s linear infinite;
+      animation: marquee 5s linear infinite;
+  }
+  .middle{
+      -webkit-animation: marquee 20s linear infinite;
+      animation: marquee 20s linear infinite;
+  }
+  .slow{
+      -webkit-animation: marquee 25s linear infinite;
+      animation: marquee 25s linear infinite;
+  }
+  @-webkit-keyframes marquee {
+      0%  { -webkit-transform: translate3d(0,0,0); }
+      100% { -webkit-transform: translate3d(-50%,0,0); }
+  }
+  @keyframes marquee {
+      0%  { transform: translateX(0); }
+      100% { transform: translateX(-50%);}
+  }
   /* .hotgame_area ul a {
     position: relative;
     display: inline-block;
