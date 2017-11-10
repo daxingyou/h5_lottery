@@ -514,7 +514,8 @@
                 background: url('../../static/images/content/changkuang.png') no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
-                border: solid 0.01rem rgba(0,0,0,0);
+                // border: solid 0.01rem transparent;
+                border-color: #42371c;
                 >span {
                     &:first-child {
                         color: #010101;
@@ -652,7 +653,8 @@
                 background: url('../images/content/changkuang.png') no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
-                border: solid 0.01rem rgba(0,0,0,0);
+                // border: solid 0.01rem transparent;
+                border-color: #42371c;
                 >span {
                     &:first-child {
                         color: #010101;
@@ -734,7 +736,8 @@
         background: url(../../static/images/content/changkuang.png) no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
-        border: solid 0.01rem transparent;
+        // border: solid 0.01rem transparent;
+        border-color: #42371c;
     }
 }
 #so-item0 ul li.sec_ball .so-con-span-short {
@@ -752,7 +755,8 @@
         background: url(../../static/images/content/changkuang.png) no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
-        border: solid 0.01rem transparent;
+        // border: solid 0.01rem transparent;
+        border-color: #42371c;
     }
 }
 #so-item0 .so-con-span-short.active {
@@ -1314,7 +1318,8 @@ img.bet_ok {
         background: url('../../static/images/content/changkuang.png') no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
-        border: solid 0.01rem transparent;
+        // border: solid 0.01rem transparent;
+        border-color: #42371c;
     }
 }
 #so-item1.jc115 ul li {

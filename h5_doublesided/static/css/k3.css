@@ -78,7 +78,7 @@
 
 .k3_item ul li .k3_panel > div p .k3_dice { border: 0.01rem solid transparent; margin-left: 0.06rem; }
 
-.k3_item ul li .k3_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border: solid 0.01rem #42371c; }
+.k3_item ul li .k3_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border-color: #42371c; }
 
 .k3_item ul li .k3_panel > div p.active > span:first-child { color: #010101; }
 
