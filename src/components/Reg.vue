@@ -34,7 +34,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')" >
-                                <i class="eye"  @click="showPassword()"></i>
+                                <i class="eye eye1"  @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -42,23 +42,23 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入密码" v-model="password" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')">
-                                <i class="eye active" @click="showPassword()"></i>
+                                <i class="eye active act1" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset  v-if="show">
+                        <fieldset  v-if="showC">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
-                                <i class="eye " @click="showPassword()"></i>
+                                <i class="eye eye2" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
-                        <fieldset  v-if="!show">
+                        <fieldset  v-if="!showC">
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入确认密码" v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
-                                <i class="eye active" @click="showPassword()"></i>
+                                <i class="eye active" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -201,12 +201,16 @@
         },
         methods:{
             //点击显示密码
-            showPassword:function(){
-                 if(this.show){
-                       this.show=false;
-                   }else{
-                       this.show=true
-                         }
+            showPassword:function(cla){
+                  if(cla=="eye1"){
+                      this.show=false
+                  }else if(cla=="eye2"){
+                      this.showC=false
+                  }else if(cla=="act1"){
+                      this.show=true;
+                  }else if(cla=="act2"){
+                      this.showC=true
+                  }
                 },
             //清除model数据,cl元素class
             clearVal :function (cl) {
