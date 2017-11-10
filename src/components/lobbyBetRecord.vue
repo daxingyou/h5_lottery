@@ -581,15 +581,15 @@
                                     var className = 'status00';
                                     var payoff = ''
                                     switch (parseInt(v.orderStatus)) {
-                                        case 32:
+                                        case 32: // 已中奖
                                             className = 'status02';
                                             payoff = this.fortMoney(this.roundAmt(v.payoff), 2) + '元'
                                             break;
-                                        case 4:
-                                        case 5:
-                                        case 6:
-                                        case 71:
-                                        case 81:
+                                        case 4: // 用户撤单
+                                        case 5:  // 系统撤单
+                                        case 6:  // 中奖停追
+                                        case 71: // 存在异常
+                                        case 81: // 异常注单
                                             className = 'status04';
                                             break;
                                         case 33: // 和局
