@@ -172,7 +172,7 @@ export default {
                       _self.$refs.autoCloseDialog.open('支付密码错误');
                       return
                   }
-                  console.log(res);
+//                  console.log(res);
                   _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info' ;

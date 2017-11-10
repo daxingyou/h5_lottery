@@ -1,77 +1,133 @@
 <template>
-    <div id="pa_con" class="so-con warp ">
+    <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
                 <a href="../">
                     <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
-            <h2 class="center">代理申请</h2>
+            <h2 class="center">代理注册</h2>
             <div class="right"></div>
         </header>
         <div class="content">
-            <div class="agent_area">
-                <div class="agent">
-                    <div class="tabset">
-                        <!-- Tab 1 -->
-                        <input type="radio" name="tabset" id="tab1" aria-controls="agent" checked>
-                        <label for="tab1" class="tab1">代理加盟</label>
-                        <!-- Tab 2 -->
-                        <input type="radio" name="tabset" id="tab2" aria-controls="commission">
-                        <label for="tab2" class="tab2">佣金方案</label>
-
-                        <div class="tab-panels">
-                            <section id="agent" class="tab-panel">
-                                <p>
-                                    如今，网上博彩娱乐已经成为一个极具市场发展前景的热门产业。本公司凭借多年的博彩运营经验，目前已拥有极高的行业知名度和大批忠实用户，具有绝对的品牌优势。合作方式简单，零投资零风险，坐享高额佣金回报。如果您身边有对博彩感兴趣的朋友，请您不要犹豫，赶快加入这个一本万利的行业，充分利用您身边的人脉及网络资源！我们有专业的客服团队全年无休为您提供帮助。
-                                </p>
-                                <br/>
-                                <p>·高佣金（代理佣金），让你轻松月入百万</p>
-                                <p>·零风险，高回报，按时出佣</p>
-                                <p>·全年度优惠不断，满足各种类型玩家需求</p>
-                                <p>·取款快速，实力雄厚资金有保障</p>
-                                <p>·营运多年，深受百万玩家信赖</p>
-                                <p>·拥有线上赌场执照，信誉保证</p>
-                                <p>·多年大力推广，品牌热度十足，代理可坐享广告品牌效应</p>
-                            </section>
-
+            <div class="formlist_area">
+                <form>
+                    <fieldset>
+                        <div class="form_g account">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入推荐人帐号">
+                            <i class="close"></i>
                         </div>
-                    </div>
-                    <div class="btn btn_blue">
-
-                    </div>
+                        <!-- <label class="red">请输入4~15位帐号</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g text">
+                            <legend>选择银行</legend>
+                            <select name="">
+                                <option value="">中国工商银行</option>
+                                <option value="">农业银行</option>
+                                <option value="">建设银行</option>
+                                <option value="">招商银行</option>
+                                <option value="">中信银行</option>
+                                <option value="">光大银行</option>
+                            </select>
+                            <i class="input_select"></i>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g account">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入帐号">
+                            <i class="close"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位帐号</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" placeholder="请输入密码">
+                            <i class="eye"></i>
+                        </div>
+                        <!-- <label class="red">请输入4~15位密码</label> -->
+                    </fieldset>
+                    <fieldset>
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" placeholder="请输入验证码">
+                            <img src="../../../static/images/demo_verifi.png" alt="">
+                        </div>
+                        <!-- <label class="red">请输入4~15位密码</label> -->
+                    </fieldset>
+                </form>
+                <div class="agent_check">
+                    <input type="checkbox" id="cbox1" value="first_checkbox" checked>
+                    我已届满合法博彩年龄，且已阅读并同意<a class="agent_modal" href="javascript:;" @click="showModel()">《代理注册协议》
+                </a>
+                </div>
+                <div class="btn btn_blue">
+                    <a href="agent_apply.html">立即申请</a>
                 </div>
             </div>
         </div>
+        <div id="agent_modal"  class="so-pop-wanfa modal" v-if="!show">
+           <div class="m_content">
+              <h2>代理注册协议<a href="javascript:;" @click="showModel()"></a></h2>
+               <div class="content">
+                  <div class="playtext">
+                     <h3>一. 注册规约</h3>
+                     <p>1. 为有效防止非诚信合作商滥用本网站所提供的代理优惠制度，公司审查部门将严格审核每位代理商注册时提供的个人资料（包括姓名，邮件及电话等）若经审核发现代理商有任何不良营利企图，或与其他代理商、会员进行合谋套利等不诚信行为，本网站将关闭该合作代理商之账户并收回该代理商的所有佣金与优惠。</p>
+                     <p>2. 同一IP/同一姓名/同一收款账号的会员只能是一个合作商的下线，合作商自已不能成为自已及其他合作商的下线会员。同一IP/同一姓名/同一收款账号只能申请一个合作伙伴账号。</p>
+                     <h3>二、权责条款</h3>
+                     <strong>1.合作伙伴的权利和义务</strong>
+                     <p>1.1. 合作伙伴需尽其责任积极销售及推广本网站以求双方利润最大化。合作伙伴必须在不违反法律的前提下，进行正面宣传、销售及推广本网站。由此产生的宣传、销售及推广时所产生的费用需由合作伙伴自行承担。</p>
+                     <p>1.2. 合作伙伴不得私自转载、公开、分发包括主页、域名、logo、报表、游戏画面、图文等在内的相关资料。另外，在推广时，合作伙伴要保障本网站的利益，任何有损公司声誉的行为，一经发现立即终止合作关系。</p>
+                     <strong>2.本网站对合作伙伴的权利与义务</strong>
+                     <p> 2.1. 本网站的客服代表将会协助合作伙伴给下线办理开户业务并观察其投注状况。代理商及会员皆须同意并遵守本网站的会员条例、政策及操作进程。合作伙伴可随时登录管理后台了解其下线会员的账户报表。</p>
+                     <p>2.2. 本网站保留所有对合作代理商或会员之账户加以拒绝或冻结的权利。</p>
+                     <p>2.3. 在某些情况下经过认真审查本网站保留单方面修改合作协议上的任何条款的权利，本网站会在网站刊登修改情况告知合作伙伴。修改内容可能包括：佣金范围、付款进程、及其它条例。如合作伙伴对于修改表示反对，合作伙伴可终止合约。修改后合作伙伴不作任何异议，便视作默认接受和对新协议表示认可。</p>
+                  </div>
+                </div>
+            </div>
+         </div>
+      </div>
 
-    </div>
 </template>
-
+<style>
+    .modal.so-pop-wanfa{
+        display: block;
+    }
+</style>
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'
 // import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
+
 
 export default {
   name: 'agent',
   mixins:[Mixin],
   components: {
-   // AutoCloseDialog,
-      FooterNav ,
+   // AutoCloseDialog
   },
     data: function() {
-        return {
-
-        }
+          return {
+           show :true
+          }
     },
-  mounted:function() {
+    mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
 
   },
   methods: {
+   showModel:function (){
+           if(this.show){
+               this.show=false
+           }else {
+               this.show=true
+           }
+   }
 
-}
+  }
 
 }
 </script>
