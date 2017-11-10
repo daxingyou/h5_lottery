@@ -138,7 +138,7 @@
                     <fieldset>
                         <div class="form_g phone">
                             <legend></legend>
-                            <input type="text" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone','请输入正确的手机号码')">
+                            <input type="text" maxlength="11" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone','请输入正确的手机号码')">
                             <i class="close close4" @click="ClearInput('close4','telephone')"></i>
                         </div>
                         <label class="error-message "></label>
@@ -146,7 +146,7 @@
                     <fieldset>
                         <div class="form_g password ">
                             <legend></legend>
-                            <input type="password" placeholder="请输入验证码" v-model="yzmcode">
+                            <input type="text" placeholder="请输入验证码" v-model="yzmcode">
                             <img :src="verImgCode" alt="" @click="switchYzmcode()">
                         </div>
                         <label class="error-message "></label>
@@ -193,6 +193,7 @@
                 show:true,
                 showC:true,
                 verImgCode:'',
+                client:'',
             }
         },
         created:function(){
@@ -286,25 +287,32 @@
                     password: this.password ,  // 用户登录密码
                     realName: this.realyname ,  // 用户真实姓名
                     mobile: this.telephone , // 手机号码
-                    passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4   //取款密码
+                    passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4,   //取款密码
+                    code: this.yzmcode ,   // 验证码
                 }
+                console.log( this.client)
                 $.ajax({
                     type: 'post',
-                    headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                    headers: {
+                        Authorization: 'Basic d2ViX2FwcDo=',
+                        clientId: this.client
+                    },
                     dataType: 'json',
                     contentType: 'application/json; charset=utf-8',
                     url: this.action.uaa + 'apis/data/member/checkOrCreateMemberBcbaochi',
                     data: JSON.stringify(logindata) ,
                     success: (res) => {
+                        if(res.err =='SUCCESS'){ // 注册成功
+                            this.autoLogin() ; // 自动登录
+                          //  this.$refs.autoCloseDialog.open('注册成功，请登录','','icon_check','d_check') ;
+                            /* setTimeout(function(){
+                             window.location = '/login' ;
+                             },200)*/
+                        }else{ //code 105 验证码无效
+                              this.switchYzmcode() ; // 更新验证码
+                              this.$refs.autoCloseDialog.open(res.cnMsg) ;
 
-                       // this.setCookie("access_token", res.access_token);  // 把登录token放在cookie里面
-                       // this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
-
-                        this.$refs.autoCloseDialog.open('注册成功，请登录','','icon_check','d_check') ;
-                        setTimeout(function(){
-                            window.location = '/login' ;
-                        },200)
-
+                         }
 
                     },
                     error: function () {
@@ -320,6 +328,7 @@
                 url:url,
                 success: (data) => {
                  _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
+                 _self.client = data.data && data.data.clientId || '';
                 }
                 })  
             },
@@ -331,6 +340,39 @@
                     $(el).parent('.form_g').next('.error-message').addClass('red').text("两次密码输入不一致") ;
 
                 }
+            },
+            autoLogin :function () {
+                var _self = this ;
+                var logindata = {
+                    grant_type: 'password',
+                    username: 'bcappid02|'+_self.username ,
+                    password: _self.password ,
+                }
+                $.ajax({
+                        type: 'post',
+                        headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                        url: this.action.uaa + 'apis/member/login',
+                        data: logindata ,
+                        success: function(res) {
+                        if(res.err == 'SUCCESS'){ // 登录成功
+                            _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                            _self.setCookie("username", this.username);  // 把登录用户名放在cookie里面
+                            _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                        setTimeout(function () {
+                            window.location = '/' ;
+                        },300)
+                    }else{
+                        _self.$refs.autoCloseDialog.open(res.cnMsg) ;
+                    }
+
+                this.$nextTick(function () {
+
+                })
+            },
+                error: function () {
+
+                }
+            });
             }
 
         }

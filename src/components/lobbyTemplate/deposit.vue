@@ -450,7 +450,7 @@ export default {
               paymentType: '' ,  // 支付方式/银行代码(对应payment_type_id和bank_code)
               paymentTypeName: '' ,  // 支付名称/银行名称(对应payment_type_name/bank_name)
               realName : '' ,  // 真实姓名
-              flowType : '0' ,  // 入款方式 0-银行第三方支付，1-快捷支付
+              flowType : '3' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
           $.ajax({
               type: 'post',
@@ -517,7 +517,7 @@ export default {
               bankCode: userInfo.bankCode ,  // 收款人银行代码
               registerBankInfo : userInfo.registerBankInfo ,  // 收款人开户行
               cardOwnerName : userInfo.cardOwnerName ,  // 收款人名字
-              flowType : '0' ,  // 入款方式 0-公司转账，1-钱包快充
+              flowType : '1' ,  // 入款方式 1-公司转账，2-钱包快充
           }
           $.ajax({
               type: 'post',

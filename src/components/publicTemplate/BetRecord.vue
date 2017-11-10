@@ -429,12 +429,17 @@
             },
             // 日期标签
             initDateMeun:function () {
+              /*  $('.tab_content .slide_toggle').off().on('click',function (e) {
+                    e.preventDefault() ;
+                    console.log('回复返点的')
+                });*/
 
                 $('.tab_content .slide_toggle').each( (i, t) => {
                     $(t).unbind('click');
                     $(t).click((e) => {
                         $('.bet-recode-all').find('li').remove();
                         var $src = $(e.currentTarget);
+                       // console.log($src)
                         this.seadata.page = 1;
                         if ($src.attr('class').indexOf('active') < 0) {
                             $src.addClass('active')
@@ -600,7 +605,7 @@
                                             break;
                                     }
                                     if (this.seadata.searchType === 1) {
-                                        li_html = '<li class="bet_data" data-status="not_open">' +
+                                        li_html = '<li onclick="return false" class="bet_data" data-status="not_open">' +
                                             '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                             '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                             '<div class="item"> ' +
