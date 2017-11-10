@@ -332,7 +332,7 @@ export default {
         $('html,body').css('overflow-y','scroll' )  ;
       _self.choosePayMoth() ;
       _self.bankTipShow() ;
-      setTimeout(function () {
+    /*  setTimeout(function () {
           $.mobiscroll.setDefaults({   //日期控件
               theme: 'ios', //皮肤样式 android
               lang: 'zh',
@@ -346,6 +346,27 @@ export default {
               endYear:2020 //结束年份
           });
           $("#paydate").mobiscroll().datetime({ });
+
+      },500)*/
+      setTimeout(function () {
+          var now = new Date(),
+              minDate = new Date(now.getFullYear() - 1, now.getMonth()+1, now.getDate(),now.getHours() - 12),
+              maxDate = new Date(now.getFullYear() + 1, now.getMonth()+1, now.getDate(),now.getHours() - 12);
+          $.mobiscroll.setDefaults({   //日期控件
+              theme: 'ios', //皮肤样式 android
+              lang: 'zh',
+              dateFormat: 'yy/mm/dd',  // 日期格式
+              mode: 'scroller', //日期选择模式 mixed
+              display: 'bottom',
+              min: minDate,
+              max: maxDate,
+              defaultValue:_self.setAmerTime('#paydate'), //时间默认值
+              dateWheels: '|yy M d|',
+              startYear: 2017, //开始年份
+              endYear:2020 //结束年份
+          });
+          $("#paydate").mobiscroll().datetime({ });
+
 
       },500)
 

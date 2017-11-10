@@ -55,12 +55,12 @@
                             </a>
                         </li>-->
                         <li>
-                            <a class="btn_icon" href="./acdetial">
+                            <router-link to="/lobbyTemplate/acdetial" class="btn_icon">
                                 <div class="icon">
                                     <div><i class="info02"></i></div>
                                 </div>
                                 帐户明细
-                            </a>
+                            </router-link>
                         </li>
                         <li>
                             <router-link class="btn_icon" :to="'/lobbyTemplate/info_data'">

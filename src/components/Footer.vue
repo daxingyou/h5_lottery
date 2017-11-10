@@ -19,7 +19,7 @@
         name: 'FooterNav',
         mixins:[Mixin],
         mounted:function(){
-            // debugger;
+            scrollTo(0,0); // 解决投注记录页面重复加载问题
         },
         data :function() {
             return {
