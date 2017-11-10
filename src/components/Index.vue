@@ -57,9 +57,7 @@
                           <ul >
                               <li><marquee>
                                   <div class="div">{{bulletins}}</div>
-                                  <div class="div">334 </div>
-                                  <div class="div">555</div>
-                                  <div class="div">6666</div>
+
                               </marquee></li>
                                  <!-- <div >
                                       <vue-marquee :content="bulletins" class="two"  :showtwo="false" >
