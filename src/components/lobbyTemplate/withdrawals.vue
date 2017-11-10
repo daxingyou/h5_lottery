@@ -143,7 +143,7 @@ export default {
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if (_self.userMoney == '' || !_self.checkNumber(_self.userMoney)) {
+          if (_self.userMoney == '' || !_self.checkNumber(_self.userMoney)||_self.userMoney == 0) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
