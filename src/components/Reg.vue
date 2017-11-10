@@ -356,7 +356,7 @@
                         success: function(res) {
                         if(res.err == 'SUCCESS'){ // 登录成功
                             _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
-                            _self.setCookie("username", this.username);  // 把登录用户名放在cookie里面
+                            _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
                             _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
                         setTimeout(function () {
                             window.location = '/' ;

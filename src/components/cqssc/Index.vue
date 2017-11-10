@@ -288,7 +288,7 @@ export default {
       if (this.moduleLotteryID) {
           this.lotteryID = this.moduleLotteryID;
       }
-      this.getMemberBalance().then(()=>{
+      this.getMemberBalance(this.lotteryID).then(()=>{
         this.loadPlayTree(this.lotteryID).catch(function () {
              console.log("Promise Rejected in method of create 2");
         });;  // 玩法树，彩种id 为2
@@ -394,7 +394,7 @@ export default {
         this.betSelectedList = [];
         $(".so-con-right p").removeClass('active');
         this.$refs.bet.betAmount = '' ;
-        this.getMemberBalance() ; // 更新余额
+        this.getMemberBalance(this.lotteryID) ; // 更新余额
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
