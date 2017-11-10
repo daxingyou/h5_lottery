@@ -451,7 +451,7 @@ export default {
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
               source: '2' , //   来源类型   1,PC, 2,H5
-              bankCode: code ,  // 银行代码
+              thirdPayCode: code ,  // 银行代码
               paymentType: '' ,  // 支付方式/银行代码(对应payment_type_id和bank_code)
               paymentTypeName: '' ,  // 支付名称/银行名称(对应payment_type_name/bank_name)
               realName : '' ,  // 真实姓名
