@@ -6,7 +6,7 @@
       <IndexNavigation el=".btn_leftside" ref="navone" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
-              <a class="btn_leftside" href="javascript:;">
+              <a class="btn_leftside" href="javascript:;" v-show="haslogin">
                   <img src="static/images/nav.png" alt="">
               </a>
           </div>
