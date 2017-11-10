@@ -117,14 +117,16 @@ fieldset{
             }
         }
         >select{
-            width: 16%;
+            width: 1.54rem;
             display: block;
             border-right:1px solid $normalblue;
             text-align: center;
             text-align-last: center;
-            padding: 0 .1rem;
+            padding: 0 .3rem;
+            box-sizing: border-box;
             height: .5rem;
-            margin-top: .25rem;
+            margin: 0.25rem 0;
+            line-height: 0.3rem;
             border-radius: 0;
             &:last-child{
                 border-right: none;
