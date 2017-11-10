@@ -484,6 +484,11 @@ export default {
                  url: _self.action.uaa + 'api/data/member/password',
                  data: ChangePasswordData,
                  success: (res) => {
+                     console.log(res)
+                     if(res.err=='PASSWORD_INVALID'){
+                         _self.$refs.autoCloseDialog.open('原密码输入错误')
+                         return
+                     }
                      _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                      setTimeout(function(){
                          window.location = '/lobbyTemplate/info_data' ;
@@ -497,24 +502,31 @@ export default {
       //修改交易密码
         submitChangePayWord : function(){
           var _self=this;
+            var oldWord=_self.oldPassword1+_self.oldPassword2+_self.oldPassword3+_self.oldPassword4;
             var newWord=_self.newPassword1+_self.newPassword2+_self.newPassword3+_self.newPassword4;
             var newWordC=_self.newPassword_confirm1+_self.newPassword_confirm2+_self.newPassword_confirm3+_self.newPassword_confirm4;
             if(_self.oldPassword1 ==''|| _self.oldPassword2 =='' ||
               _self.oldPassword3 ==''|| _self.oldPassword4==''){
                   _self.$refs.autoCloseDialog.open('请输入原密码') ;
                    return false ;
-              }
-          if(_self.newPassword1 ==''|| _self. newPassword2 =='' ||
+              }else if(oldWord==newWord){
+                _self.$refs.autoCloseDialog.open('原密码和新密码不能相同') ;
+                return false ;
+            }
+           if(_self.newPassword1 ==''|| _self. newPassword2 =='' ||
               _self.newPassword3 ==''|| _self.newPassword4==''){
                  _self.$refs.autoCloseDialog.open('请输入新密码') ;
                  return false ;
               }
-          if(_self.newPassword_confirm1 ==''|| _self.newPassword_confirm2 =='' ||
-              _self.newPassword_confirm3 ==''||_self.newPassword_confirm4==''||newWord!=newWordC){
-              _self.$refs.autoCloseDialog.open('请确认密码是否一致') ;
-              return false ;
+           if(_self.newPassword_confirm1 ==''|| _self.newPassword_confirm2 =='' ||
+              _self.newPassword_confirm3 ==''||_self.newPassword_confirm4==''){
+              _self.$refs.autoCloseDialog.open('请再次输入新密码') ;
+                  return false ;
+              }else if(newWord!=newWordC){
+               _self.$refs.autoCloseDialog.open('请确认新密码是否一致') ;
+                  return false ;
               }
-           var  ChangePayWordData={
+            var  ChangePayWordData={
                  oldPassword:_self.oldPassword1+_self.oldPassword2+_self.oldPassword3+_self.oldPassword4,
                  tradePassword:_self.newPassword1+_self.newPassword2+_self.newPassword3+_self.newPassword4
                }
@@ -525,6 +537,11 @@ export default {
               url: _self.action.forseti + 'api/pay/passwd',
               data:  ChangePayWordData,
               success: (res) => {
+//                  console.log(res)
+                  if(res.msg=='原密码错误'){
+                      _self.$refs.autoCloseDialog.open('原密码输入错误') ;
+                      return false ;
+                  }
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;

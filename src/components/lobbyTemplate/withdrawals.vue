@@ -121,13 +121,14 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
               success: (res) => {
-                  if(res.data.bindType==null||res.data.bindType==2){
-                      window.location = '/lobbyTemplate/withdrawals_bind' ;
-                  }
+
+//                  if(res.data.bindType==null||res.data.bindType==1){
+//                      window.location = '/lobbyTemplate/withdrawals_bind' ;
+//                  }
                     _self.userName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
-//                    console.log( res)
+                   console.log( res)
               },
               error: (err) =>{
 
@@ -149,6 +150,7 @@ export default {
           var Withdrawalsdata = {
               applyAmount: _self.userMoney,//金额
               tradePassword: _self.cashPassword, //密码
+              bankCard:_self.bankCard, //银行卡号
               remark :'会员提现'
           };
           $.ajax({
@@ -158,10 +160,16 @@ export default {
               url: _self.action.forseti + 'api/pay/drawOrder',
               data: Withdrawalsdata,
               success: (res) => {
-                  _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
-                  setTimeout(function(){
-                      window.location = '/lobbyTemplate/info' ;
-                  },2000)
+                  //取款密码错误
+//                  if(res.err=='UNKNOWN'){
+//                      _self.$refs.autoCloseDialog.open('支付密码错误');
+//                      return
+//                  }
+                  console.log(res);
+//                  _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
+//                  setTimeout(function(){
+//                      window.location = '/lobbyTemplate/info' ;
+//                  },2000)
               },
               error: (err) =>{
                   _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
