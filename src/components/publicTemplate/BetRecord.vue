@@ -471,7 +471,9 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    this.lotteryid = lotterychooseid ;
+                    if(lotterychooseid){
+                        this.lotteryid = lotterychooseid ;
+                    }
                     this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;

@@ -104,7 +104,7 @@
                 restr: '', // 网页html缓存
                 lock: 0,
                 // access_token : this.getCookie('access_token'), // 取token
-                lotteryname : '投注记录' ,
+                lotteryname : '全部 投注记录' ,
                 lotteryid : '0' ,
                 lastlotteryid : '0' ,
                 nowDate: new Date(),
@@ -476,14 +476,16 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    this.lotteryid = lotterychooseid ;
+                    if(lotterychooseid){
+                        this.lotteryid = lotterychooseid ;
+                    }
                     this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;
                     $('.play_area').each(function () {
                         var flag = $(this).find('li').hasClass('active') ;
                         if(flag){
-                            lottery_name = $(this).find('li.active').find('a').text()
+                            lottery_name = $(this).find('li.active').find('a').text() ;
                         }
                     }) ;
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
