@@ -395,7 +395,14 @@ var MyMixin = {
             }
             return param;
         },
-
+        // 打开新窗口
+        openGame: function(url) {
+            if (url) {
+                return window.open(url,  "_blank", 'toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no, depended=no, width=600, height=800');
+            }
+           // return window.open('', 'game', 'width=1200, height=800');
+            return window.open(url,  "_blank", 'toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no, depended=no, width=600, height=800') ;
+        },
         // 设置cookie
         setCookie :function(name, value, expire, path) {
             var curdate = new Date();

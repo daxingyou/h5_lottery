@@ -73,7 +73,7 @@
                             <h5>选择银行</h5>
                             <ul>
                                 <li class="btn_bank bank01" v-for="list in banklist">
-                                    <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.bankCode)">
+                                    <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.bankCode,'1')">
                                      <!--   <img src="/static/images/info_bank_10.png" alt="">-->
                                         <img v-lazy="list.img" alt="">
                                         <span>{{list.bankName}}</span>
@@ -99,7 +99,7 @@
                             <h5>支付方式</h5>
                             <ul>
                                 <li class="btn_pay wechat_q" v-for="list in banklist">
-                                    <a href="javascript:;" @click="submitOnlinePay(list.bankCode)">
+                                    <a href="javascript:;" @click="submitOnlinePay(list.bankCode,'3')">
                                         <img v-lazy="list.img" alt="">
                                         <span>{{list.bankName}}</span>
                                     </a>
@@ -332,22 +332,6 @@ export default {
         $('html,body').css('overflow-y','scroll' )  ;
       _self.choosePayMoth() ;
       _self.bankTipShow() ;
-    /*  setTimeout(function () {
-          $.mobiscroll.setDefaults({   //日期控件
-              theme: 'ios', //皮肤样式 android
-              lang: 'zh',
-              dateFormat: 'yy/mm/dd',  // 日期格式
-              mode: 'scroller', //日期选择模式 mixed
-              display: 'bottom',
-             // defaultValue:_self.setAmerTime('#paydate'), //时间默认值 ，不需要美东时间
-              defaultValue:_self.setAmerTime('#paydate'), //时间默认值 ，不需要美东时间
-              dateWheels: '|yy M d|',
-              startYear: 2017, //开始年份
-              endYear:2020 //结束年份
-          });
-          $("#paydate").mobiscroll().datetime({ });
-
-      },500)*/
       setTimeout(function () {
           var now = new Date(),
               minDate = new Date(now.getFullYear() - 1, now.getMonth()+1, now.getDate(),now.getHours() - 12),
@@ -461,8 +445,8 @@ export default {
               }
           });
       },
-      // 网银支付确定提交
-      submitOnlinePay:function (code) {
+      // 网银支付确定提交 type 1 线上入款 ，3 二维码
+      submitOnlinePay:function (code,type) {
           var _self = this ;
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
@@ -473,6 +457,9 @@ export default {
               realName : '' ,  // 真实姓名
               flowType : '3' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
+          if(type == '1'){
+              var win = _self.openGame() ;
+          }
           $.ajax({
               type: 'post',
               headers: {
@@ -480,13 +467,24 @@ export default {
               },
               url: _self.action.forseti + 'api/pay/onlineOrder',
               data: senddata ,
-              success: function(res){
-                  _self.$refs.autoCloseDialog.open('支付成功','','icon_check','d_check') ;
+              success: function(res){ // dataType 1 线上入款 , 3 二维码
+                  if(res.err == 'SUCCESS'){
+                      if(type == '1'){
+                          var loadStr = res.data.html ;
+                          win.document.write(loadStr) ;
+                      }
+
+                  }else{
+                      win.close() ;
+                  }
+
+                 /* _self.$refs.autoCloseDialog.open('支付成功','','icon_check','d_check') ;
                   setTimeout(function () {
                       window.location = 'info' ;
-                  },200)
+                  },200)*/
               },
               error: function (res) {
+                  win.close() ;
                   _self.$refs.autoCloseDialog.open('支付失败') ;
               }
           });
