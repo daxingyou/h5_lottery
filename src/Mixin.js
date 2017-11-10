@@ -87,9 +87,20 @@ var MyMixin = {
                 type: 'get',
                 headers: {
                     "Authorization": "bearer  " + this.getAccessToken,
+                },
+                error: function (e) {
+                    if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                        _self.clearAllCookie() ;
+                        setTimeout(function () {
+                            window.location = '/login' ;
+                        },300)
+                        return false ;
+                    }
+                    reject(e);
                 }
             }
             config = Object.assign(config, userConfig);
+            $.ajax(config);
             // Object.assign()
             // $.ajax({
             //     type: 'get',
