@@ -18,7 +18,7 @@
                             <th>
                                 <li>真实姓名</li>
                             </th>
-                            <td>{{userName}}</td>
+                            <td>{{realName}}</td>
                         </tr>
                         <tr>
                             <th class="bank_card_num">
@@ -87,9 +87,11 @@ export default {
              userMoney:'',
              cashPassword:'',
              memBalance:this.getCookie('membalance'),
-             userName:'',
+             realName:'',
              bankName:'',
-             bankCard:''
+             bankCard:'',
+             bankCode:'',
+             bankId:''
         }
     },
     created: function() {
@@ -121,19 +123,21 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
               success: (res) => {
-
+                  console.log( res)
 //                  if(res.data.bindType==null||res.data.bindType==1){
 //                      window.location = '/lobbyTemplate/withdrawals_bind' ;
 //                  }
                     _self.userName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
-                   console.log( res)
+                    _self.bankCode=res.data.bankCode;
+                    _self.bankId  =res.data.bankId;
+
               },
               error: (err) =>{
 
              }
-          })
+            })
 
       },
       //提款接口
@@ -150,7 +154,10 @@ export default {
           var Withdrawalsdata = {
               applyAmount: _self.userMoney,//金额
               tradePassword: _self.cashPassword, //密码
+              bankCode:_self.bankCode,//银行code
+              bankId:_self.bankId,  //银行Id
               bankCard:_self.bankCard, //银行卡号
+              realName:_self.realName,//真实姓名
               remark :'会员提现'
           };
           $.ajax({
