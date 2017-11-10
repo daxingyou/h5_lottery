@@ -55,10 +55,25 @@
                   <div class="sys-notice">
                       <div class="bd">
                           <ul >
-                              <li>
-                                  <div class="marquee-wrap" style="width:80%;"><vue-marquee content='' class="two"  :showtwo="false" ></vue-marquee></div>
+                              <li><marquee>
+                                  <div class="div">{{bulletins}}</div>
+                                  <div class="div">334 </div>
+                                  <div class="div">555</div>
+                                  <div class="div">6666</div>
+                              </marquee></li>
+                                 <!-- <div >
+                                      <vue-marquee :content="bulletins" class="two"  :showtwo="false" >
+                                      </vue-marquee>
+                                      <vue-marquee content=" 00" class="two"  :showtwo="false" >
+                                      </vue-marquee>
+                                  </div>-->
+                                 <!-- <div class="marquee-wrap" style="width:80%;">
+                                      <vue-marquee content="发动机咖啡大家开个会尽快发货更好的非结构化健康法规尽快发货股份共计花费对符合国家开发和国家开发" class="two"  :showtwo="false" >
 
-                              </li>
+                                      </vue-marquee>
+                                  </div>-->
+
+
 
 
                           </ul>
@@ -99,6 +114,8 @@
           </section>
       </div>
       <FooterNav />
+      <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
+
   </div>
 </template>
 
@@ -110,8 +127,7 @@ import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import FooterNav from '@/components/Footer'
 import VueMarquee from 'vue-marquee-ho';
-/*import Css from '../../node_modules/vue-marquee-ho/dist/vue-marquee.min.css'*/
-import Css from '../../static/css/vue-marquee.min.css'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'Index',
@@ -120,8 +136,8 @@ export default {
     // TouchSlide,
       FooterNav ,
     IndexNavigation,
+      AutoCloseDialog,
 //    UserNavigation,
-     "vue-marquee": VueMarquee
 
   },
   data :function() {
@@ -130,7 +146,7 @@ export default {
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
-            bulletins:[],
+            bulletins:'',
             banner:[
                 {'url':'http://admin.baochiapi.com/photo/pic/T1itJTBXJT1RCvBVdK/0'},
                 {'url':'http://admin.baochiapi.com/photo/pic/T1XtETBybT1RCvBVdK/0'},
@@ -153,15 +169,15 @@ export default {
       slideCell: "#focus",
       autoPlay:true,
     });
-     this.getBulletinsContent ()
-      // $("#marquee_snp").slide({ // 文本滚动
-      //     mainCell: ".bd ul",
-      //     autoPage: true,
-      //     effect: "leftMarquee",
-      //     autoPlay: true,
-      //     vis: 1,
-      //     interTime: 50
-      // });
+     this.getBulletinsContent ();
+      /* $("#marquee_snp").slide({ // 文本滚动
+           mainCell: ".bd ul",
+           autoPage: true,
+           effect: "leftMarquee",
+           autoPlay: true,
+           vis: 1,
+           interTime: 50
+       });*/
 
 
 
@@ -180,9 +196,14 @@ export default {
               url: this.action.uaa + 'oauth/logout',
               data: {} ,
               success: (res) => {
+                  console.log(res);
                   if(res.err == 'SUCCESS'){
                       _self.clearAllCookie() ; // 清除全部 cookie
-                      window.location = '/' ;
+                      this.$refs.autoCloseDialog.open("用户已退出");
+                      setTimeout(function () {
+                          window.location = '/' ;
+                      },300)
+
                   }
 
                   // console.log(res) ;
@@ -198,6 +219,7 @@ export default {
 
       getBulletinsContent :function () {
           let  self=this ;
+          let bulletinsArr=[];
           $.ajax({
               type:"GET",
               url:this.action.forseti + 'apis/cms/bulletins',
@@ -205,13 +227,10 @@ export default {
                   sideType:"2"
               },
               success: (result) => {
-                  console.log(result.data)
                   for(let i=0;i<result.data.length;i++){
-                      console.log(result.data[i].content)
-                      self.bulletins.push(result.data[i].content);
+                      bulletinsArr.push(result.data[i].content);
                   }
-                 console.log(self.bulletins)
-
+                  self.bulletins=bulletinsArr.toString();
               }
           })
       }
@@ -222,50 +241,7 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
-  .marquee-box {
-      height: 50px;
-      line-height: 50px;
-      color: #000;
-      font-size: 24px;
-      background-size: 24px 24px;
-  }
-  .marquee-content{
-      overflow: hidden;
-      width:100%
-  }
-  .marquee-content p{
-      display: inline-block;
-      white-space: nowrap;
-      margin: 0;
-      font-size: 0;
-  }
-  .marquee-content span{
-      display: inline-block;
-      white-space: nowrap;
-      padding-right: 40px;
-      font-size: 14px;
-  }
 
-  .quick{
-      -webkit-animation: marquee 5s linear infinite;
-      animation: marquee 5s linear infinite;
-  }
-  .middle{
-      -webkit-animation: marquee 20s linear infinite;
-      animation: marquee 20s linear infinite;
-  }
-  .slow{
-      -webkit-animation: marquee 25s linear infinite;
-      animation: marquee 25s linear infinite;
-  }
-  @-webkit-keyframes marquee {
-      0%  { -webkit-transform: translate3d(0,0,0); }
-      100% { -webkit-transform: translate3d(-50%,0,0); }
-  }
-  @keyframes marquee {
-      0%  { transform: translateX(0); }
-      100% { transform: translateX(-50%);}
-  }
   /* .hotgame_area ul a {
     position: relative;
     display: inline-block;
