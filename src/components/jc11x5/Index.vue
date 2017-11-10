@@ -60,7 +60,7 @@
                             :lotteryID="lotteryID"
                             :start="sys_time" :end="now_time" :overend="nowover_time"
                     -->
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"

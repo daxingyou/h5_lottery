@@ -124,7 +124,6 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
               success: (res) => {
-                  console.log( res)
                   if(res.data.bindType==null||res.data.bindType==1){
                       window.location = '/lobbyTemplate/withdrawals_bind' ;
                   }
@@ -151,8 +150,9 @@ export default {
               _self.$refs.autoCloseDialog.open('请输入4位数字密码');
                 return false
           }
+
           var Withdrawalsdata = {
-              applyAmount: _self.userMoney,//金额
+              applyAmount: _self.userMoney*100,//金额
               tradePassword: _self.cashPassword, //密码
               bankCode:_self.bankCode,//银行code
               bankId:_self.bankId,  //银行Id
@@ -172,7 +172,7 @@ export default {
                       _self.$refs.autoCloseDialog.open('支付密码错误');
                       return
                   }
-//                  console.log(res);
+                  console.log(res);
                   _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info' ;
