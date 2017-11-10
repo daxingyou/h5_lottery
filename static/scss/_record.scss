@@ -160,6 +160,10 @@
     }
     .status00{
         padding-top: .3rem;
+        >span{
+            position: relative;
+            top: 0.5rem;
+        }
         >div{
             display: block;
             background-image: url('../../static/images/page/status00.svg');
@@ -170,19 +174,23 @@
             margin: 0 auto;
             width: .5rem;
             height: .5rem;
+            position: relative;
+            top: -0.6rem;
         }
     }
     // .status01{
     // }
     .status02{
+        padding-top: .3rem;
         color: $green;
     }
     .status03{
         color: #b91010;
         padding-top: .3rem;
-        // padding-top: 2rem;
-        position: relative;
-        margin-top: 0;
+        >span {
+            position: relative;
+            top: 0.5rem;
+        }
         >div{
             display: block;
             background-image: url('../../static/images/page/status03.svg');
@@ -193,26 +201,12 @@
             margin: 0 auto;
             width: .5rem;
             height: .5rem;
+            position: relative;
+            top: -0.6rem;
         }
     }
     .status04{
-        color: #f00;
-        padding-top: 2rem;
-        position: relative;
-        margin-top: 0;
-        &:before{
-            content: '';
-            display: block;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            position: absolute;
-            width: 1.429rem;
-            height: 1.429rem;
-            top:.3rem;
-            left: 50%;
-            margin-left: -0.7143rem;
-        }
+        @extend .status03;
     }
 }
 .prd_num{

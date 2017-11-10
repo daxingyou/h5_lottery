@@ -484,17 +484,17 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .bet_data .status00 { padding-top: .3rem; }
 
-.bet_data .status00 > div { display: block; background-image: url("../../static/images/page/status00.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; }
+.bet_data .status00 > span { position: relative; top: 0.5rem; }
 
-.bet_data .status02 { color: #71c341; }
+.bet_data .status00 > div { display: block; background-image: url("../../static/images/page/status00.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
 
-.bet_data .status03 { color: #b91010; padding-top: .3rem; position: relative; margin-top: 0; }
+.bet_data .status02 { padding-top: .3rem; color: #71c341; }
 
-.bet_data .status03 > div { display: block; background-image: url("../../static/images/page/status03.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; }
+.bet_data .status03, .bet_data .status04 { color: #b91010; padding-top: .3rem; }
 
-.bet_data .status04 { color: #f00; padding-top: 2rem; position: relative; margin-top: 0; }
+.bet_data .status03 > span, .bet_data .status04 > span { position: relative; top: 0.5rem; }
 
-.bet_data .status04:before { content: ''; display: block; background-position: center; background-repeat: no-repeat; background-size: 100%; position: absolute; width: 1.429rem; height: 1.429rem; top: .3rem; left: 50%; margin-left: -0.7143rem; }
+.bet_data .status03 > div, .bet_data .status04 > div { display: block; background-image: url("../../static/images/page/status03.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
 
 .prd_num { float: none; vertical-align: top; line-height: 1; background-image: url("../../static/images/page/pn_lt_bg.png"); height: .4rem; background-size: 100%; width: 3.5rem; color: #8393ab; font-size: .35rem; padding: .2rem 0 .15rem .4rem; border-top-left-radius: .2rem; }
 
