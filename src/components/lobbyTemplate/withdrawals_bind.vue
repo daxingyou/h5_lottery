@@ -89,17 +89,18 @@ export default {
            bankNum :'',
            phoneNumber:'',
            bankList:{},
-           bankCode:''
+           bankCode:'',
         }
     },
     created:function (){
-        this.getBankList()
+        this.getBankList();
+        this.getUserInfo()
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
 
   },
-  methods: {
+    methods: {
       //清除model数据,cl元素class
       clearVal :function (cl) {
           if(cl=='realName'){
@@ -111,6 +112,22 @@ export default {
           if(cl=='phoneNumber'){
               this.phoneNumber='';}
            },
+      //获取用户信息
+      getUserInfo:function () {
+        var _self=this;
+        $.ajax({
+            type:'get',
+            headers: {"Authorization": "bearer  " + this.getAccessToken },
+            url: _self.action.forseti + 'api/payment/memberBank',
+            data:{},
+            success: function(res){
+                _self.phoneNumber=res.data.mobile
+            },
+            error: function (err) {
+
+            }
+        })
+      },
       //获取银行列表
       getBankList:function(){
           var _self=this;
@@ -121,13 +138,10 @@ export default {
               data:{},
               success: function(res){
                   _self.bankList=res.data;
-//                  console.log(res)
-
               },
               error: function (err) {
 
               }
-
           })
       },
       //修改银行账户信息
@@ -171,14 +185,15 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: bankData,
               success: function(res){
+//                  console.log(res)
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/withdrawals' ;
                   },2000)
               },
               error: function (err) {
-                 console.log(err)
-                  _self.$refs.autoCloseDialog.open('瞎搞','','icon_check','d_check') ;
+                 console.log(err);
+                  _self.$refs.autoCloseDialog.open('别瞎搞') ;
               }
           })
       }

@@ -76,7 +76,7 @@
 
 .pk10_item ul li .pk10_panel > div p > span .pk10_ball { margin-top: -0.1rem; }
 
-.pk10_item ul li .pk10_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border: solid 0.01rem #42371c; }
+.pk10_item ul li .pk10_panel > div p.active { background: url(../images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border-color: #42371c; }
 
 .pk10_item ul li .pk10_panel > div p.active > span:first-child { color: #010101; }
 

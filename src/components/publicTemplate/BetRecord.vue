@@ -429,11 +429,17 @@
             },
             // 日期标签
             initDateMeun:function () {
+              /*  $('.tab_content .slide_toggle').off().on('click',function (e) {
+                    e.preventDefault() ;
+                    console.log('回复返点的')
+                });*/
+
                 $('.tab_content .slide_toggle').each( (i, t) => {
                     $(t).unbind('click');
                     $(t).click((e) => {
                         $('.bet-recode-all').find('li').remove();
                         var $src = $(e.currentTarget);
+                       // console.log($src)
                         this.seadata.page = 1;
                         if ($src.attr('class').indexOf('active') < 0) {
                             $src.addClass('active')
@@ -471,7 +477,9 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    this.lotteryid = lotterychooseid ;
+                    if(lotterychooseid || lotterychooseid == '0'){
+                        this.lotteryid = lotterychooseid ;
+                    }
                     this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;
@@ -484,7 +492,6 @@
                            // console.log(lottery_name+'记得')
                         }
                     }) ;
-                   // console.log(this.lotteryid+'规范')
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
                     this.getBetRecord();
                     $(".dropdown").slideToggle("fast", () => {
@@ -597,13 +604,14 @@
                                             break;
                                     }
                                     if (this.seadata.searchType === 1) {
-                                        li_html = '<li class="bet_data" data-status="not_open">' +
+                                        li_html = '<li onclick="return false" class="bet_data" data-status="not_open">' +
                                             '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                             '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                             '<div class="item"> ' +
                                             '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
-                                            '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                          //  '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                            '<p> <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
                                             '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
                                             '</div>' +

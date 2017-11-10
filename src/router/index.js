@@ -29,6 +29,7 @@ import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 
 
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
+import agentApply from '@/components/lobbyTemplate/agentApply'  // 大厅代理加盟注册页
 import info_data from '@/components/lobbyTemplate/info_data'  //个人中心-账户管理
 import notification from '@/components/lobbyTemplate/notification'  //个人中心-个人消息
 import join from '@/components/lobbyTemplate/join' //欢迎加入
@@ -123,6 +124,7 @@ export default new Router({
     { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
     { path: '/lobbyTemplate/withdrawals', name:'withdrawals', component: withdrawals },
     { path: '/lobbyTemplate/agent', name:'agent', component: agent },
+    { path: '/lobbyTemplate/agentApply', name:'agentApply', component: agentApply },
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
     { path: '/lobbyTemplate/notification', name:'notification', component:notification },
     { path: '/lobbyTemplate/join', name:'join', component:join },
