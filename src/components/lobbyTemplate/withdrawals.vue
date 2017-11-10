@@ -91,7 +91,8 @@ export default {
              bankName:'',
              bankCard:'',
              bankCode:'',
-             bankId:''
+             bankId:'',
+
         }
     },
     created: function() {
@@ -127,12 +128,11 @@ export default {
                   if(res.data.bindType==null||res.data.bindType==1){
                       window.location = '/lobbyTemplate/withdrawals_bind' ;
                   }
-                    _self.userName=res.data.realName;
+                    _self.realName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
                     _self.bankCode=res.data.bankCode;
                     _self.bankId  =res.data.bankId;
-
               },
               error: (err) =>{
 
