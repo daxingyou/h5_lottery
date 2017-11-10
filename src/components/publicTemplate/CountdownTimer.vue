@@ -55,7 +55,6 @@ export default {
         clearInterval(this.timer);
     },
     methods:{
-        
         timerInit:function(start, end, overend){
             const format = this.format;
             const theStart = start ? start : this.start;
@@ -107,22 +106,9 @@ export default {
                 this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
 
             }).bind(this), 1000);
-        },
-/*        fftime:function (n) {
-            return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
-        },
+        }
 
-        format:function(dateStr) {  //格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
-        }, 
-        diff:function(t) {  //根据时间差返回相隔时间
-            return t > 0 ? {
-                day: Math.floor(t / 86400),
-                hour: Math.floor(t % 86400 / 3600),
-                minute: Math.floor(t % 3600 / 60),
-                second: Math.floor(t % 60)
-            } : {day: 0, hour: 0, minute: 0, second: 0};
-        }*/
+
     }
 }
 </script>
