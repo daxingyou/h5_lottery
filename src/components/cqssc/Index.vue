@@ -285,7 +285,10 @@ export default {
     }
   },
   created:function(){
-    this.getMemberBalance().then(()=>{
+      if (this.moduleLotteryID) {
+          this.lotteryID = this.moduleLotteryID;
+      }
+      this.getMemberBalance().then(()=>{
         this.loadPlayTree(this.lotteryID).catch(function () {
              console.log("Promise Rejected in method of create 2");
         });;  // 玩法树，彩种id 为2
