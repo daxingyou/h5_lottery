@@ -129,7 +129,7 @@
     height: 3.1rem; }
     .pk10_item ul li .pk10_panel > div p {
       float: left;
-      border: solid 0.01rem #277ca5;
+      border: solid 1px #277ca5;
       height: 0.85rem;
       width: 2.96rem;
       margin-bottom: 4%;
