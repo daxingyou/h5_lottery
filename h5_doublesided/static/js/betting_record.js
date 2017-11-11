@@ -118,12 +118,12 @@ $(function () {
     function initView() {
         $('.tab_content').html('');
         var nowDate = new Date();
-        var year = nowDate.getYear() + 1900
-        var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
-        var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
-        var newpdate = '' + year + mon + day
         var restr = '';
         for (var i = 0; i < 3; i++) {
+            var year = nowDate.getYear() + 1900
+            var mon = (nowDate.getMonth() + 1) < 0 ? ('0' + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)
+            var day = nowDate.getDate() < 10 ? ('0' + nowDate.getDate()) : nowDate.getDate()
+            var newpdate = '' + year + mon + day
             pdate = '' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日';
             var first_li = '';
             if (i === 0) {
