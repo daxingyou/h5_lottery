@@ -6,11 +6,15 @@
     <meta content="yes" name="apple-touch-fullscreen">
     <meta content="telephone=no,email=no" name="format-detection">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="theme-color" content="#061626">
+    <meta name="msapplication-navbutton-color" content="#061626">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#061626">
     <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
     <link href="../static/css/rewrite.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" class="pk10_css">
+    <link rel="stylesheet" type="text/css" class="K3_css">
 
     <script src="../static/js/flexible_css.js"></script>
     <script src="../static/js/flexible.debug.js"></script>
@@ -241,6 +245,9 @@
             if(lotteryid =='8'){ // 北京 pk10
                 $('.pk10_css').attr('href','../static/css/pk10.css') ;
                 $('body').attr('id','pk10') ;
+            }else if(lotteryid =='6'){
+                $('.K3_css').attr('href','../static/css/k3.css') ;
+                $('body').attr('id','k3') ;
             }
             loadDoubleLong(lotteryid,'','open','clong_open') ; // 连续开奖
             loadDoubleLong(lotteryid,'','unopen','clong_notopen') ; // 连续未开奖

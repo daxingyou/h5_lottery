@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="game_fix"  lang="en">
 <head>
     <meta charset="UTF-8">
     <title>双面盘_江西11选5</title>
+    <meta name="theme-color" content="#061626">
+    <meta name="msapplication-navbutton-color" content="#061626">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#061626">
     <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
@@ -10,6 +13,9 @@
     <script src="../static/js/flexible.debug.js"></script>
     <style>
         .tab_content:nth-child(n+2){ display: none; }
+        #scroller {
+overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -182,8 +188,8 @@
                 <li class="so-menu">
                     <img src="../static/images/top/icon-menu.png" class="so-top-menu">
                 </li>
-                <li>
-                    <img src="../static/images/top/logo_jc11x5.png" class="so-top-logo">
+                <li class="left_top_logo">
+                    江西11选5
                 </li>
                 <li class="purse">
                     <img src="../static/images/top/sjinbi.png" class="so-top-sum">
@@ -254,11 +260,13 @@
         </div>
         <div class="so-in-con">
             <div class="so-con-left">
-                <ul>
-                    <li class="active " data-val="1">两面</li>
-                    <li class="" data-val="1">1-5球</li>
-                    <li class="reset_bet" data-val="2">连码</li>
-                </ul>
+                <div id="scroller">
+                    <ul>
+                        <li class="active " data-val="1">两面</li>
+                        <li class="" data-val="1">1-5球</li>
+                        <li class="reset_bet" data-val="2">连码</li>
+                    </ul>
+                </div>
             </div>
             <div class="so-con-right bule_bg">
                 <!--以下为盘面不同样式，根据ID+class区分-->
@@ -1284,8 +1292,8 @@
         </div>
         <div>
             <form>
-                <input placeholder="输入金额" type="number" class="bet-amount">
-                <input type="reset" value="重置">
+                <input placeholder="输入金额" autocomplete="off" type="tel" class="bet-amount">
+                <input class="reset-action" type="reset" value="重置">
             </form>
         </div>
         <div>
@@ -1423,6 +1431,7 @@
 <script src="../static/js/fastclick.js"></script>
 <script src="../static/js/common.js"></script>
 <script src="../static/js/index.js"></script>
+<!-- <script src="../static/js/iscroll.js"></script> -->
 <script>
     $(function () {
         var lotteryid = m_lottery_int.s_jxyxw_id ; // 彩种id
@@ -1441,7 +1450,6 @@
             getPlayTree(lotteryid);  // 玩法树，彩种id
         }, 500) ;
 
-
         // 连码切换tab
         $('.jx11_tab').on('click','li',function () {
             var tab = $(this).data('tab') ;
@@ -1451,9 +1459,13 @@
 
         });
 
-
     })
-
 </script>
+<!-- <script type="text/javascript">
+    var myScroll = new IScroll('.so-con-left', {
+        scrollbars: true
+    });
+
+    </script> -->
 </body>
 </html>

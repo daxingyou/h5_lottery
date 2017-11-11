@@ -21,7 +21,6 @@
 <script>
 export default {
   name: 'BetSuccessfulDialog',
-  props:['text'],
   data () {
     return {
       show:false,
@@ -29,8 +28,7 @@ export default {
   },
   methods:{
     //打开弹窗
-    open:function(text){
-      this.text = text;
+    open:function(){
       this.show = true;
       setTimeout(() => this.show = false, 3000);
     },
@@ -42,7 +40,7 @@ export default {
 }
 </script>
 <style scope>
-    .publicDialog { display: block; }
+    /* .publicDialog { display: block; } */
 </style>
 
 

@@ -16,10 +16,15 @@ $(function () {
     initChoiceObj() ; // 球点击处理
     betActionSubmit() ; // 表单提交
     initNavChoice() ; // 右边nav 切换处理
-
+    resetBtnAction() ;
 });
 
-
+// 重置按钮
+function resetBtnAction() {
+    $('.reset-action').on('click',function () {
+        resetAction() ;
+    });
+}
 
 // 此方法在盘面数据加载完成后调用
 function initKuang() {
@@ -82,6 +87,8 @@ function initLeftViewEve() {
         var className = $('.so-left').attr('class') || '';
         $('.so-left').attr('class', className.replace('active', 'close'));
         $('.so-shade').hide();// .fadeOut(2000)
+        
+       // $('body,html').removeClass('touch');
     });
     $('.so-menu').click(function () {
         var className = $('.so-left').attr('class') || '';
@@ -91,9 +98,18 @@ function initLeftViewEve() {
             $('.so-left').attr('class', className + ' active');
         }
         $('.so-shade').show();
+        //$('body,html').addClass('touch');
     });
 }
 
+//禁止遮罩层以下屏幕滑动
+$(document).on("touchmove", function (e) {
+    var e = e || event,
+        target = e.target || e.srcElement;
+    if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+        e.preventDefault();
+    }
+})
 
 // 此方法弹出遊戲說明
 function initPopWafa() {

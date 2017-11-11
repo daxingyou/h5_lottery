@@ -191,7 +191,7 @@ $(function () {
                                 var li_html = '';
                                 // var pcode = ('' + v.pcode).substring(8, 11);
                                 var pcode = ('' + v.pcode).substring(0, 11);
-                                var className = 'status0';
+                                var className = 'status00';
                                 var payoff = ''
                                 switch (parseInt(v.orderStatus)) {
                                     case 32:
@@ -219,7 +219,7 @@ $(function () {
                                         // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                         '<p><span>' + v.playName + '</span></p> <strong>' + fortMoney(roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                         '<div class="status ' + className + '" >' +
-                                        '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
+                                        '<div>' + payoff + '</div><span>' + v.orderStatusName + '</span></div>' +
                                         '</div>' +
                                         '</a></li>';
                                     // '<span>' + v.orderStatusName + '</span><div>' + v.pcode + '期</div></div></a></li>';

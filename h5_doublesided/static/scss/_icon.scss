@@ -13,23 +13,40 @@ i.filter{
     @include background-image ('filter.png',0,transparent);
 }
 i.close{
+    // display: block;
+    // @include background-image ('close.svg',0,transparent);
+    // width: .25rem;
+    // height: .25rem;
+    // position: absolute;
+    // right:.3rem;
+    // top:.4rem;
+    // cursor: pointer;
+    width: .57rem;
     display: block;
-    @include background-image ('close.svg',0,transparent);
-    width: .25rem;
-    height: .25rem;
-    position: absolute;
-    right:.3rem;
-    top:.4rem;
-    cursor: pointer;
+    position: relative;
+    height: .8rem;
+    right: 0;
+    left: .2rem;
+    &:after{
+        content: '';
+        display: block;
+        @include background-image ('close.svg',0,transparent);
+        width: .25rem;
+        height: .25rem;
+        position: absolute;
+        right:.15rem;
+        top:.25rem;
+        cursor: pointer;
+    }
 }
 i.eye{
     display: block;
     @include background-image ('eye_view.svg',0,transparent);
     width: .4rem;
-    height: .25rem;
+    height: 1.1rem;
     position: absolute;
     right:.3rem;
-    top:.4rem;
+    top:0;
     cursor: pointer;
     &.active{
         @include background-image ('eye_hide.svg',0,transparent);
@@ -109,34 +126,38 @@ i.icon_copy{
     width: 1rem;
     height: .5rem;
     &.info01{
-        background-position-y: -3.1rem;
+        background-position-y: -2.45rem;
+        margin-top: 0;
     }
     &.info02{
-        background-position-y: -4.1rem;
+        background-position-y: -3.3rem;
+        margin-top: .2rem;
     }
     &.info03{
-        background-position-y: -5.15rem;
+        background-position-y: -4.1rem;
+        margin-top: 0;
     }
     &.info04{
-        background-position-y: -6.2rem;
+        background-position-y: -4.95rem;
+        margin-top: 0;
     }
     &.info05{
-        background-position-y: -7.2rem;
+        background-position-y: -5.83rem;
     }
     &.info06{
-        background-position-y: -8.11rem;
+        background-position-y: -6.5rem;
     }
     &.info07{
         @include background-image ('icon_money.png',0,transparent);
-        background-position-y: -5.79rem;
+        background-position-y: -4.7rem;
     }
     &.info08{
         @include background-image ('icon_money.png',0,transparent);
-        background-position-y:  -6.89rem;
+        background-position-y:  -5.55rem;
     }
     &.info09{
         @include background-image ('icon_money.png',0,transparent);
-        background-position-y:  -7.89rem;
+        background-position-y:  -6.35rem;
     }
 }
 i.icon-notification{
@@ -151,8 +172,8 @@ i.icon-notification{
 i.i_mail_status{
     background:url('../../static/images/icon_money.png') no-repeat;
     background-size:  100%;
-    background-position-y:-3.5rem;
-    margin-top: .1rem;
+    background-position-y:-3.55rem;
+    margin-top: .12rem;
 }
 i.write{
     @include background-image ('icon_money.png',0,transparent);

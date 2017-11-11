@@ -7,7 +7,25 @@
                 </a>
             </div>
             <h2 class="center lottery_name"> </h2>
+            <div class="right">
+                <div class="dropdown_icon"><i class="icon filter"></i>筛选</div>
+            </div>
         </header>
+        <div class="dropdown" style="display:none;">
+            <div class="play_area">
+                <div class="sort">
+                    <h5>游戏筛选</h5>
+                    <ul>
+                        <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
+
+                    </ul>
+                    <div>
+                        <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
+                        <div class="btn btn_two round btn_blue02 btn_submit"><a href="javascript:;">确定</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="pa_content">
             <div id="betting_record" class="tab_container tabBox">
                 <div class="hd">
@@ -17,23 +35,43 @@
                         <li data-val="0"  @click="changeTab($event)"><a href="javascript:;" data-filter="winning" >今日数据</a></li>
                     </ul>
                 </div>
-                <div class="bd">
+                <div class="bd" :id="cssid[lotteryid]">
                     <ul class="tab_content double-all">
-                        <li class="past_view">
+                        <li class="past_view" v-for="(list,index) in pastView">
                             <ul class="panel">
-                                <li class="prod" data-status="not_open" v-for="(list,index) in pastView">
+                                <li class="prod" data-status="not_open" >
                                     <div class="play_th">
-                                        <div class="prd_num"><i class="prd"></i><span>{{list.pcode}}</span> 期</div>
-                                        <ul class="double-count">
-                                            <li>{{list.doubleData.doubler}}</li>
-                                            <li>{{list.doubleData.longer}}</li>
-                                            <li>{{list.doubleData.sizer}}</li>
+                                        <div class="prd_num"><i class="prd"></i><span>{{(lotteryid == '8')? list.issueAlias:list.pcode}}</span> 期</div>
+                                        <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
+                                            <li>{{list.doubleData.top2_total}}</li>
+                                            <li>{{list.doubleData.top2_sizer}}</li>
+                                            <li>{{list.doubleData.top2_doubler}}</li>
+                                            <li>{{list.doubleData.lh_1}}</li>
+                                            <li>{{list.doubleData.lh_2}}</li>
+                                            <li>{{list.doubleData.lh_3}}</li>
+                                            <li>{{list.doubleData.lh_4}}</li>
+                                            <li>{{list.doubleData.lh_5}}</li>
+
+                                        </ul>
+                                        <ul class="double-count" v-else>
                                             <li>{{list.doubleData.total}}</li>
+                                            <li>{{list.doubleData.sizer}}</li>
+                                            <li>{{list.doubleData.doubler}}</li>
+                                            <li v-if="(lotteryid == '4' || lotteryid == '16') || (lotteryid == '18')">{{list.doubleData.sizerEnd}}</li>
+                                            <li>{{list.doubleData.longer}}</li>
+
                                         </ul>
                                     </div>
-                                    <ul class="lo_ball double-numbers">
+                                    <!-- 北京pk10  -->
+                                  <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
+                                    <ul  :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
+                                        <li v-for="listnum in list.winNumber.split(',')" >
+                                           <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
+                                            <span :class="[spanclass[list.lotteryId],'num_'+listnum]"></span>
+                                        </li>
+                                    </ul>
+                                    <ul class="lo_ball double-numbers"  v-else>
                                         <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
-
                                     </ul>
                                 </li>
                             </ul>
@@ -53,22 +91,40 @@
 
 <script>
 import Mixin from '@/Mixin'
+import $ from "jquery";
+import "../../../static/css/pk10.css"
 
 export default {
-  name: 'Index',
+  name: 'PastView',
   mixins:[Mixin],
     data :function() {
         return {
             pastView:{} ,
-
+            ulclass :{'8':'lo_ball double-numbers','6':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
+            spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
+            lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
+            count :'30' , // 每次请求数量
+            cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
+            gamechoose :[
+                {id:'2','name':'重庆时时彩'} ,
+                {id:'12','name':'天津时时彩'} ,
+                {id:'14','name':'新疆时时彩'} ,
+                {id:'4','name':'江西11选5'} ,
+                {id:'16','name':'广东11选5'} ,
+                {id:'18','name':'山东11选5'} ,
+                {id:'6','name':'江苏快3'} ,
+                {id:'20','name':'安徽快3'} ,
+                {id:'22','name':'湖北快3'} ,
+                {id:'8','name':'北京PK10'} ,
+            ],
         }
     },
   mounted:function() {
-    var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
+this.setMenuAction() ;
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
-    // this.changeTab(lotteryid) ;
-    this.doubleCount(lotteryid,'30','') ;
+    this.doubleCount(this.lotteryid,this.count,'') ;
+    $('html,body').css('overflow-y','scroll' )  ;
   },
   methods:{
 
@@ -84,11 +140,11 @@ export default {
         $.ajax({
             type: 'get',
             headers: {
-                'Authorization': 'bearer  ' + this.getAccessToken(access_token) ,
+                'Authorization': 'bearer  ' + this.getAccessToken ,
                 // 'sourceType':'2', // 1是pc端，2是h5
                 // 'sideType':'1',  // 1是传统盘，2是双面盘
             },
-            url: action.forseti + 'api/openNums/doubleCount',
+            url: this.action.forseti + 'api/openNums/doubleCount',
             timeout: 600000,
             data: senddata ,
             success: (data) => {
@@ -96,7 +152,20 @@ export default {
                // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
-                        data.data[i].winNumber='-,-,-,-,-' ;
+                        switch (this.lotteryid.toString()){
+                            case '8': // 北京pk10
+                                data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
+                                break;
+                            case '6': // 江苏快 3
+                            case '20': // 快 3
+                            case '22': // 快 3
+                                data.data[i].winNumber ='20,20,20' ;
+                                break;
+                            default  :
+                                data.data[i].winNumber='-,-,-,-,-' ;
+                                break ;
+                        }
+
                     }
 
                   //  var codeArr = data.data[i].winNumber.split(',') ;
@@ -138,13 +207,49 @@ export default {
     * 近期开奖标签切换
     * */
     changeTab:function (e) {
-        // $('.tab_three').on('click','li',(e) => {
-            var lotteryid = this.getCookie('lt_lotteryid')
-            var val = $(e.currentTarget).data('val') ;
+            this.count = $(e.currentTarget).data('val') ;
             $(e.currentTarget).addClass('on').siblings().removeClass('on') ;
-            this.doubleCount(lotteryid,val,'') ;
-        // });
-    }
+            this.doubleCount(this.lotteryid,this.count,'') ;
+    },
+
+      //筛选下拉单
+      setMenuAction:function () {
+          $(".dropdown_icon,.btn_outline").click(() => {
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+          });
+
+          var lotterychooseid ;
+          $('.play_area').on('click', 'li', (e) => {
+              var $src = $(e.currentTarget);
+              $src.addClass('active').siblings().removeClass('active');
+              var val = $src.data('val');
+              lotterychooseid = val;
+
+          });
+          //确定提交
+          $('.btn_submit').on('click', (e) => {
+              if(lotterychooseid || lotterychooseid == '0'){
+                  this.lotteryid = lotterychooseid ;
+              }
+              var $src = $(e.currentTarget);
+              var lottery_name ;
+              $('.play_area').each(function () {
+                  var flag = $(this).find('li').hasClass('active') ;
+                  if(flag){
+                      lottery_name = $(this).find('li.active').find('a').text()
+                  }
+              }) ;
+              $('.lottery_name').html(lottery_name + ' 近期开奖'); // 彩种名称
+              this.doubleCount(this.lotteryid,this.count) ;
+              $(".dropdown").slideToggle("fast", () => {
+              });
+              $('.so-shade').fadeToggle("fast", "linear");
+
+          });
+      },
+
   }
 
 }

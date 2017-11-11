@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>双面盘_登录</title>
+    <meta name="theme-color" content="#061626">
+    <meta name="msapplication-navbutton-color" content="#061626">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#061626">
     <link href="static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <link href="static/css/page.css" rel="stylesheet" type="text/css">
@@ -19,7 +22,7 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入帐号" class="username" value="bcappid02|admin" >
+                            <input type="text" placeholder="请输入帐号" autocomplete="off" class="username" value="admin" >
                             <i class="close"></i>
                         </div>
                         <label class="red">请输入4~15位帐号</label>
@@ -27,7 +30,7 @@
                     <fieldset>
                         <div class="form_g password">
                             <legend></legend>
-                            <input type="password" placeholder="请输入密码" class="password_val" name="password">
+                            <input type="password" placeholder="请输入密码" autocomplete="off" class="password_val" name="password">
                             <i class="close"></i>
                         </div>
                         <label class="red">请输入4~15位密码</label>
@@ -53,7 +56,6 @@
     <script>
         $(function () {
 
-
             // 登录接口
             function LoginAction() {
                 var username = $.trim($('.username').val()) ;
@@ -68,7 +70,7 @@
                 }
                 var logindata =  {
                     grant_type: 'password',
-                    username: username,
+                    username: 'bcappid02|'+username,
                     password: password ,
                 }
                 $.ajax({

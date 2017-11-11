@@ -58,21 +58,21 @@
     .so-main-down{
         li{
             white-space: nowrap;
-            &:first-child{
-                p{
-                    width: 3rem;
-                    margin-right: 0.12rem;
-                }
-            }
-            i{
-                margin-top: 0.18rem;
-                margin-left: 0;
-                vertical-align: middle;
-            }
-            a{
-                margin-top: 0.15rem;
-                margin-right: 0.1rem;
-            }
+            // &:first-child{
+            //     p{
+            //         width: 3rem;
+            //         margin-right: 0.12rem;
+            //     }
+            // }
+            // i{
+            //     margin-top: 0.18rem;
+            //     margin-left: 0;
+            //     vertical-align: middle;
+            // }
+            // a{
+            //     margin-top: 0.15rem;
+            //     margin-right: 0.1rem;
+            // }
         }
     }
     //重寫面版
@@ -96,7 +96,7 @@
             height: auto;
             margin: 0px auto;
             p{
-                margin: 2%;
+                margin: 2% 1.8% 2% 2.2%;
                 span:last-child{
                     padding-left: 0rem;
                 }
@@ -196,9 +196,9 @@
             height: 3.1rem;
             p {
                 float: left;
-                border: solid 0.01rem #277ca5;
+                border: solid 1px #277ca5;
                 // height: 1.2rem;
-                width: 3rem;
+                width: 2.96rem;
                 margin-bottom: 4%;
                 margin-left: 3.5%;
                 // display: none;
@@ -209,6 +209,9 @@
                     float: left;
                     padding: 0.15rem 0.2rem ;
                     line-height: 0.5rem;
+                    &:first-child{
+                        margin-top: -0.02rem;
+                    }
                     &:last-child {
                         float: right;
                     }
@@ -220,9 +223,9 @@
             }
             p.active {
                 background: url(../images/content/changkuang.png) no-repeat;
-                background-size: 3.06rem 100%;
+                background-size: 100% 100%;
                 background-position: -0.01rem;
-                border: solid 0.01rem rgba(0,0,0,0);
+                border-color: #42371c;
                 >span {
                     &:first-child {
                         color: #010101;
@@ -238,9 +241,14 @@
         }
     }
     .so-con-span-short{
-        width: 3rem !important;
+        width: 2.96rem !important;
         background-size: 3.06rem 0.9rem;
     }
+}
+#k3-item0 .select-li p > span:first-child{
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    margin-top: 0.01rem;
 }
 #k3-item0 .select-li p > span:last-child{
     padding-top: 0.4rem;
@@ -262,6 +270,10 @@
     width: 1rem;
     height: 1rem;
     border-radius: 0.1rem;
+    &.num_20 {
+        background: url(../images/k3/dice_0.png) no-repeat center center;
+        background-size: 1rem 1rem;
+    }
     &.num_1{ background-position-x: 0;}
     &.num_2{ background-position-x: -1rem;}
     &.num_3{background-position-x: -2rem;}
@@ -274,6 +286,10 @@
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 0.05rem;
+    &.num_20 {
+        background: url(../images/k3/dice_0.png) no-repeat center center;
+        background-size: 0.5rem 0.5rem;
+    }
     &.num_1{ background-position-x: 0;}
     &.num_2{ background-position-x: -0.5rem;}
     &.num_3{background-position-x: -1rem;}

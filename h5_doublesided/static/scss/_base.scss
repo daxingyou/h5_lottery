@@ -1,10 +1,26 @@
 @charset "utf-8";
 @import "variable";
+// html,body{
+//     /* 解决弹窗 ios上 overhidden 失效的问题 */
+//      width: 100%;
+//     height: 100%;
+//      overflow: hidden;
+//      -webkit-overflow-scrolling: touch;
+// }
+// .touch{
+//     /* 解决弹窗 ios上 overhidden 失效的问题 */
+//   //   width: 100%;
+//     height: 100%;
+//     // overflow: hidden;
+//     // -webkit-overflow-scrolling: touch;
+// }
 html {
     -webkit-text-size-adjust: none;
     background-color: #19222f !important;
     height: 100% !important;
-    //overflow: hidden !important;
+    &.game_fix{
+        overflow: hidden !important;
+    }
 }
 body{
     width: 100%;
@@ -12,7 +28,12 @@ body{
     //padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+    //font:14px 'simsun';
     font: .35rem;
+}
+input,select,option{
+    font:14px 'Microsoft YaHei', Helvetica,sans-serif;
+    //font:14px 'simsun';
 }
 body,.warp {
     &::-webkit-scrollbar {
@@ -27,7 +48,7 @@ a{
   color: $bluetext;
   text-decoration: none !important;
     // pc_demo用
-    &:hover,&:focus,&:active{
+    &:focus,&:active{
         text-decoration: none !important;
     }
     // h5正式用
@@ -70,7 +91,7 @@ input,select,button,a{
     overflow-x: hidden;
     text-align: center;
     margin: auto;
-    background: url('../../static/images/bg.jpg');
+    //background: url('../../static/images/bg.jpg');
     background-size: 100%;
         min-height: 18rem;
         .so-right > div:first-child img {
@@ -86,7 +107,7 @@ input,select,button,a{
     // position: relative;
     // z-index: 11;
     position: fixed;
-    z-index: 50;
+    z-index: 51;
     width: 10rem;
     &:after{
         display: block;
@@ -103,6 +124,8 @@ input,select,button,a{
         height: auto;
         background-color: transparent;
         float: none;
+        z-index: 1;
+        position: relative;
         >img{
             width: 100%;
         }
@@ -114,7 +137,7 @@ input,select,button,a{
     >.center{
         text-align: center;
         padding: .5rem 0;
-        width: calc(100% - 2.4rem);
+        width: calc(100% - 3rem);
         font-weight: 300;
         color: $bluetext;
         font-size: .38rem;
@@ -128,12 +151,12 @@ input,select,button,a{
             width: auto;
         }
         &.lottery_name{
-            width: calc(100% - 2.6rem);
+            width: calc(100% - 3rem);
         }
     }
     >.left{
         float: left;
-        width: 1.2rem;
+        width: 1.4rem;
         height: 1rem;
         //height: 1.48rem;
         a{
@@ -145,6 +168,7 @@ input,select,button,a{
             &.btn_leftside{
                 margin-top: .5rem;
                 width: .45rem;
+                margin-left:.6rem;
             }
         }
     }
@@ -165,13 +189,13 @@ input,select,button,a{
             //@include background-image ('btn.png',0,transparent);
             background-color: #1a2331;
             @include border-radius(.1rem);
-            border-bottom: 1px solid #fff;
+            //border-bottom: 1px solid rgba(#fff,.3);
             box-shadow: 0 1px 5px rgba(0,0,0,.6);
             font-size: .35rem;
             display: inline-block;
             color: $bluetext;
             padding: .2rem;
-            margin-top:.2rem;
+            margin-top:.3rem;
             height: .5rem;
             vertical-align: top;
             &:last-child{
@@ -224,6 +248,9 @@ input,select,button,a{
     &.lobby_past_view{
         margin-top: 2rem;
         padding-bottom: 2rem;
+        .play_th .prd_num > i{
+            margin-left: -.9rem;
+        }
     }
 }
 // 中間區塊
@@ -250,7 +277,17 @@ footer.bot_nav{
     background-size: contain;
     background-repeat:repeat-x;
     height: 1.5rem;
-    z-index: 13;
+    z-index: 51;
+    &:before{
+        @include pseudo;
+        @include background-image ('bottom_line.png',0,transparent);
+        height: .5rem;
+        width: 100%;
+        top: -.4rem;
+        right: -30%;
+        left: inherit;
+        z-index: 1;
+    }
     >ul{
         text-align: center;
         overflow: hidden;
@@ -263,24 +300,33 @@ footer.bot_nav{
             font-size: .35rem;
             text-align: center;
             width: 25%;
-            padding: .45rem 0 .5rem;
+            padding: .48rem 0 .5rem;
             height: 1.5rem;
             &:after{
                 @include pseudo;
-                @include background-image ('bot_nav_line.jpg',0,transparent);
-                width: 2px;
-                height: 1.5rem;
+                //background-color: #000;
+                //@include background-image ('bot_nav_line.jpg',0,transparent);
+                background-image:linear-gradient(#172b3b, #365d82);
+                width: .03rem;
+                height: 2.1rem;
                 //background-repeat: repeat-y;
             }
-            &.active,&:hover,&:focus{
-                @include background-image ('bot_nav_se.png',0,transparent);
+            &.active,&:focus{
+                //@include background-image ('bot_nav_se.png',0,transparent);
+                // background-image:linear-gradient(#162538 60%, #165c85 40%,#49bed8 99%);
+                // border-bottom: 13px solid #49bed8;
+                background: #162538; /* Old browsers */
+                background: -moz-linear-gradient(top, #162538 0%, #165c85 92%, #165c85 92%, #49bed8 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, #162538 0%,#165c85 92%,#165c85 92%,#49bed8 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, #162538 0%,#165c85 92%,#165c85 92%,#49bed8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                 height: 0.55rem;
                 a{
-                    text-shadow: 0 5px 10px rgba(0,0,0,.9);
+                    text-shadow: 0 2px 10px rgba(0,0,0,.9);
                 }
             }
             a{
                 margin-left: 15%;
+                padding: .48rem 0 .5rem;
                 &:before{
                     @include pseudo;
                     @include background-image ('icon.png',0,transparent);
@@ -291,22 +337,22 @@ footer.bot_nav{
                 }
                 &.index{
                     &:before{
-                        background-position-y: 0;
+                        background-position-y: 0.05rem;
                     }
                 }
                 &.trend{
                     &:before{
-                        background-position-y: -.7rem;
+                        background-position-y: -.66rem;
                     }
                 }
                 &.record{
                     &:before{
-                        background-position-y: -1.45rem;
+                        background-position-y: -1.4rem;
                     }
                 }
                 &.member{
                     &:before{
-                        background-position-y: -2.1rem;
+                        background-position-y: -2.05rem;
                     }
                 }
             }
@@ -374,7 +420,7 @@ h2{
         display: none;
         background-color: rgba(#11161c,.7);
         border: 1px solid rgba(#23304a,.9);
-        width: 99.5%;
+        width: 99%;
     }
     &.active{
         color: #ccc;
@@ -391,8 +437,8 @@ h2{
 }
 //左側選單+投注紀錄logo樣式
 .badge{
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 100%;
     margin-right: 0.5714rem;
     background-image: url('../../static/images/page/logo_bg.png');
@@ -401,6 +447,7 @@ h2{
     margin: 0 auto;
     position: relative;
     line-height: 1.8rem;
+    //margin-top: .3rem;
     &:before{
         @include pseudo;
         width: 1.15rem;
@@ -425,20 +472,77 @@ h2{
             @include background-image ('logo_jc11x5.svg',0,transparent);
         }
     }
+    //雙面盤 江蘇快3
+    &.lottery_logo_6{
+        &:before{
+            @include background-image ('logo_jsk3.svg',0,transparent);
+        }
+    }
+    //雙面盤 北京PK10
+    &.lottery_logo_8{
+        &:before{
+            @include background-image ('logo_bjpk10.svg',0,transparent);
+        }
+    }
+    // 六合彩 双面盘
+    &.lottery_logo_10{
+        &:before{
+            @include background-image ('logo_sixlottery.svg',0,transparent);
+        }
+    }
+    // 天津时时彩 双面盘
+    &.lottery_logo_12{
+        &:before{
+            @include background-image ('logo_tjssc.svg',0,transparent);
+        }
+    }
+    // 新疆时时彩 双面盘
+    &.lottery_logo_14{
+        &:before{
+            @include background-image ('logo_xjssc.svg',0,transparent);
+        }
+    }
+    // 广东11选5 双面盘
+    &.lottery_logo_16{
+        &:before{
+            @include background-image ('logo_gd11x5.svg',0,transparent);
+        }
+    }
+    // 山东11选5 双面盘
+    &.lottery_logo_18{
+        &:before{
+            @include background-image ('logo_sd11x5.svg',0,transparent);
+        }
+    }
+    // 安徽快3 双面盘
+    &.lottery_logo_20{
+        &:before{
+            @include background-image ('logo_ahks.svg',0,transparent);
+        }
+    }
+    // 湖北快3 双面盘
+    &.lottery_logo_22{
+        &:before{
+            @include background-image ('logo_hbk3.svg',0,transparent);
+        }
+    }
 }
 //下注彈窗的scrollbar
 .boxlist::-webkit-scrollbar {
-    width: 1em;
+    width: .5em;
+    border-radius: .2rem;
+
 }
 .boxlist::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 .boxlist::-webkit-scrollbar-thumb {
-  background-color: #0b5c8f;
-  outline: 1px solid #0e121d;
+    background-color: #1e5176;
+    outline: 1px solid #0e121d;
+    border-radius: .2rem;
 }
 .boxlist::-webkit-scrollbar-corner{
-background-color: #0e121d;
+    background-color: #0e121d;
 }
 
 .bule_bg{
@@ -449,17 +553,19 @@ background-color: #0e121d;
 }
 .btn{
     font-size: .35rem;
-    @include border-radius(.2rem);
+    @include border-radius(.1rem);
     //@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.5) inset );
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.9);
     margin: .5rem 0;
+    border-bottom: .014rem solid #507fa2;
     >a{
         display: block;
-        padding: .3rem;
+        padding: .35rem .3rem;
         //width:100%;
         margin: 0 auto;
         color: $bluetext;
         text-align: center;
+        text-shadow: 0 2px 2px rgba(0,0,0,.6);
     }
     &.btn_two{
         width: 40%;
@@ -467,13 +573,21 @@ background-color: #0e121d;
         margin: 0 auto;
     }
     &.btn_blue{
-        background-image:linear-gradient(#3792cc, #1e4b77);
+        background: #489ecb; /* Old browsers */
+        background: -moz-linear-gradient(top, #489ecb 0%, #1e4b76 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #489ecb 0%,#1e4b76 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #489ecb 0%,#1e4b76 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     }
     &.btn_blue02{
         background-image:linear-gradient(#1c4975, #3793cc);
+        border-top: .014rem solid #507fa2;
     }
     &.btn_outline{
-        border: 2px solid $normalblue;
+        border: 1px solid $normalblue;
+        box-shadow: none;
+        >a{
+            text-shadow: none;
+        }
     }
     &.round{
         @include border-radius(.5rem);
@@ -498,7 +612,7 @@ label{
     width: 10rem;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 13;
+    z-index: 53;
     >.m_content{
         width: 80%;
         margin: 0 auto;
@@ -536,21 +650,30 @@ label{
             text-align: center;
             line-height: .6rem;
             font-size: 0.35rem;
+            margin: .5rem auto;
+            padding: 0 0.5rem;
             &.danger{
                 color: $red;
             }
             &.check{
                 color: $yellow;
             }
+            &.left{
+                text-align: left;
+                padding:.5rem;
+            }
             >div{
                 margin: 0 auto;
                 text-align: center;
                 >img{
-                    width: 80%;
+                    // width: 70%;
+                    height: 1rem;
                     display: block;
                     margin: 0 auto;
                     &:last-child{
-                        width: 15%;
+                        // width: 12%;
+                        height: 0.8rem;
+                        margin: .2rem auto;
                     }
                 }
                 &.playtext{
@@ -639,20 +762,6 @@ label{
     section{
         margin: 1.5em 0;
     }
-    // .item{
-    //     padding: 1.3em 0;
-    // }
-    // ul{
-    //     overflow: hidden;
-    //     li {
-    //         display: inline-block;
-    //         width: 40%;
-    //         margin: 0 auto;
-    //         text-align: center;
-    //         border: 1px solid #fff;
-    //         padding: 10px 15px;
-    //     }
-    // }
     div{
         width: 90%;
         margin: 0 auto;
@@ -681,7 +790,7 @@ label{
         // color: $basetext;
     }
     td,th{
-        border: 1px solid #66c3f2;
+        border: 1px solid #277ca5;
         padding: .2rem ;
         text-align: center;
     }
@@ -711,11 +820,11 @@ label{
         border-bottom: 0;
         cursor: pointer;
         font-weight: 300;
-        color: #66c3f2;
-        border: 1px solid #66c3f2;
+        color: #277ca5;
+        border: .014rem solid #277ca5;
         font-size: 0.35rem;
         &.tab1{
-            margin-right: -10px;
+            margin-right: -.09rem;
             border-top-left-radius: .2rem;
             border-bottom-left-radius: .2rem;
         }
@@ -758,11 +867,6 @@ label{
         margin: .2rem 0;
     }
 }
-// *,
-// *:before,
-// *:after {
-//     box-sizing: border-box;
-// }
 .formlist_area{
     width: 90%;
     margin: 0 auto;
@@ -839,4 +943,7 @@ img.fixbot{
     @media screen and  (orientation:landscape) {
         position: relative;
     }
+}
+.last-date{
+    font-size: 0.35rem;
 }

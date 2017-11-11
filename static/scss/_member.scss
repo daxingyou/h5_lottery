@@ -3,7 +3,7 @@
 //login,form
 .login_area{
     margin: 0 auto;
-    margin-top: 4.5rem;
+    margin-top: -2.5rem;
     position: relative;
     z-index: 50;
     width: 90%;
@@ -20,31 +20,32 @@ fieldset{
     overflow: hidden;
     position: relative;
     background-color: rgba(#12151e,.7);
-    padding: .3rem;
-    @include border-radius(.2rem);
+    padding: 0 .3rem;
+    @include border-radius(.1rem);
     border: 2px solid $normalblue;
     font-size: .35rem;
     >input{
         background-color: transparent;
-        width: calc(93% - .5rem);
+        width: calc(85% - .5rem);
         color: #fff;
         border:none;
         position: relative;
+        font-size: .35rem;
     }
-    &:hover,&:active,&:focus{
+    &:focus{
         box-shadow: 1px 2px 20px rgba($lightblue, 0.9);
         border: 1px solid $normalblue;
     }
     >*{
         vertical-align: middle;
         float: left;
-        line-height: .5rem;
-        height: .5rem;
+        line-height: 1rem;
+        height: 1rem;
     }
     >legend{
         display: inline-block;
         width: .5rem;
-        height: .5rem;
+        height: .9rem;
         margin-right: .5rem;
         position: relative;
         text-align: left;
@@ -55,6 +56,7 @@ fieldset{
             background-color: $normalblue;
             right:-.2rem;
             left: inherit;
+            top:.25rem;
         }
     }
     &.text{
@@ -65,7 +67,7 @@ fieldset{
         }
         input,select{
             //width: calc(80% - .5rem);
-            width:calc(75% - .5rem);
+            width:calc(70% - .5rem);
             background-color: transparent;
             color: #fff;
             border:none;
@@ -96,7 +98,8 @@ fieldset{
     }
     >img{
         float: right;
-        margin-top: -.5rem;
+        margin-top: -.9rem;
+        height: .8rem;
     }
     &.pay_password{
         >legend{
@@ -114,12 +117,17 @@ fieldset{
             }
         }
         >select{
-            width: 15%;
+            width: 1.54rem;
             display: block;
             border-right:1px solid $normalblue;
             text-align: center;
             text-align-last: center;
-            padding: 0 .1rem;
+            padding: 0 .3rem;
+            box-sizing: border-box;
+            height: .5rem;
+            margin: 0.25rem 0;
+            line-height: 0.3rem;
+            border-radius: 0;
             &:last-child{
                 border-right: none;
             }
@@ -135,10 +143,12 @@ fieldset{
 .deposit_area{
     @extend .login_area;
     margin-top: 2rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
+    z-index: 1;
 }
 .pay_content{
     line-height: 1;
+    margin-top: 2rem;
     .step03{
         color: #fff;
         //max-width: 65%;
@@ -146,7 +156,7 @@ fieldset{
         background: rgba(17, 22, 28, 0.8);
         //padding: .5rem 0;
         border:1px solid #294262;
-        @include respond-to('sm') {
+        @include respond-to('ss') {
             max-width: 85%;
         }
         &.pay_way{
@@ -190,7 +200,7 @@ fieldset{
                 &:nth-child(3){
                     width: 86%;
                 }
-                &:hover,&:active,&:focus{
+                &:active,&:focus{
                     -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                     box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                     border: 1px solid $lightblue;
@@ -238,37 +248,35 @@ fieldset{
                 width: 100%;
                 margin: 0 auto;
                 font-size:0;
+                overflow: hidden;
             }
         }
         &.webbank_pay,&.scan_qrcoder{
-            //margin-top: 2rem;
         }
         .btn_bank{
             @include border-radius(.1rem);
             border: 1px solid $normalblue;
-            // padding: 15px;
             margin:.2rem;
-            // background: url('../../static/images/info_bank.png') no-repeat;
             background-size: 115%;
             width: 40%;
             display: inline-block;
             background-position-x: 0.1em;
             padding: 1em 0;
             font-size: .35rem;
-            // max-height: 50px;
-            // height: 50px;
             @include respond-to('xs') {
-                // max-height: 28px;
-                // height: 28px;
                 padding: 0;
             }
-            &:hover,&:active,&:focus{
+            &:active,&:focus{
                 -webkit-box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                         box-shadow: 0 0 20px 10px hsla(200, 60%, 36%,.5);
                 border: 1px solid $lightblue;
                 a{
                     color: #fff;
                 }
+            }
+            &:last-child{
+                float: left;
+                margin-left: .7rem;
             }
             a{
                 display: block;
@@ -342,6 +350,7 @@ fieldset{
     margin: 1em auto;
     overflow: hidden;
     border-radius: .1rem;
+    padding: .3rem 0;
     //padding: 1em 0;
     //margin-bottom: 2rem;
     table{
@@ -435,7 +444,7 @@ fieldset{
 }
 .mini_tip{
     float: right;
-    margin-top: -.8rem;
+    margin-top: -.65rem;
     color: #66c3f2;
 }
 
@@ -445,6 +454,7 @@ fieldset{
     @include background-image ('info_topbg.jpg',center top,transparent);
     width: 100%;
     padding-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 .info_top{
     //width: 65%;
@@ -459,7 +469,7 @@ fieldset{
         width: auto;
     }
     .account{
-        width: 55%;
+        width: 75%;
         margin: 0 auto;
         position: relative;
         height: 2rem;
@@ -469,6 +479,7 @@ fieldset{
         }
         >a{
             display: block;
+            height: 100%;
             //height: 7rem;
         }
         > a > h2, > a > .user_data, > h2, > .user_data{
@@ -476,23 +487,44 @@ fieldset{
             width: 63%;
             &:first-child{
                 width: 35%;
-                // @include respond-to('sm') {
-                //     width: 35%;
-                // }
             }
         }
         .ui.header>.image:not(.icon):only-child, .ui.header>img:only-child{
             margin-right: 0;
         }
-        // .over{
-        //     display: -webkit-box;
-        //     padding-left: 6.5rem;
-        //     margin-top: -1.35rem;
-        //     @include respond-to('sm') {
-        //         padding-left: 4.3rem;
-        //     }
-        //      //要解決金額超出問題
-        // }
+        .user_name{
+            position: relative;
+            text-align: left;
+            margin-left: 0;
+            line-height: 1.8em;
+            float: left;
+            margin-top: .2rem;
+           // margin-left: .3rem;
+            >strong{
+                display: block;
+                color: #fff;
+                letter-spacing: 1px;
+                font-weight: 500;
+                font-size: .4rem;
+            }
+            >.purse{
+                width: 100%;
+                height: .5rem;
+                top: .1rem;
+                left: 0;
+                position: relative;
+                .so-top-sum,.so-in-top-sum{
+                    position: absolute;
+                    top:0;
+                }
+                .so-top-sum{
+                    left: 0;
+                }
+                .so-in-top-sum{
+                    left:.3rem;
+                }
+            }
+        }
     }
     &:after{
         display: block;
@@ -507,13 +539,6 @@ fieldset{
         }
     }
 }
-// .qrcode-img{
-//     background-color: #fff;
-//     padding: 1rem;
-//     max-width: 13.5rem;
-//     min-height: 12.5rem;
-//     margin: 0 auto;
-// }
 .portrait{
     height: auto;
     position: relative;
@@ -525,38 +550,7 @@ fieldset{
     }
 
 }
-.user_name{
-    position: relative;
-    text-align: left;
-    margin-left: 0;
-    line-height: 1.8em;
-    float: left;
-    margin-top: .2rem;
-   // margin-left: .3rem;
-    >strong{
-        display: block;
-        color: #fff;
-        letter-spacing: 1px;
-        font-weight: 500;
-        font-size: .4rem;
-    }
-    >.purse{
-        width: 100%;
-        height: .5rem;
-        top: .1rem;
-        left: 0;
-        .so-top-sum,.so-in-top-sum{
-            position: absolute;
-            top:0;
-        }
-        .so-top-sum{
-            left: 0;
-        }
-        .so-in-top-sum{
-            left:.2rem;
-        }
-    }
-}
+
 .user_data{
     color: #fff;
     table tr{
@@ -583,6 +577,7 @@ fieldset{
        margin: .5rem 0;
        text-align: left;
        //color: $basetext;
+       font-size: .35rem;
        > a{
            float:right;
            &.save{
@@ -644,28 +639,33 @@ fieldset{
         margin-left: 0.5rem;
     }
     .info_data_modify{
-        color: $lightblue;
+        color: #66c3f2;
     }
 }
 
 .info_mid{
-    @include background-image ('info_mid.jpg',0,transparent);
+    background: #105b7b; /* Old browsers */
+    background: -moz-linear-gradient(top, #105b7b 0%, #0e1b2a 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #105b7b 0%,#0e1b2a 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #105b7b 0%,#0e1b2a 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     background-size: 100%;
     width: 100%;
     text-align: center;
-    height: 1.5rem;
+    height: 1.8rem;
+    border-top: .014rem solid #5a899f;
     > div{
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         font-size: 0;
     }
     .btn_blue{
-        margin-top: .3rem;
+        margin-top: .4rem;
         &:last-child{
             margin-left: .5rem;
         }
         >a{
-            line-height: 25px;
+            line-height: .5rem;
+            padding: .2rem .3rem;
         }
     }
 }
@@ -675,7 +675,6 @@ fieldset{
     >.btn_blue{
         width: 90%;
         margin: .5rem auto;
-        
     }
     >ul{
         overflow: hidden;
@@ -683,32 +682,43 @@ fieldset{
         margin: 0 auto;
         width: 90%;
         background: rgba(17, 22, 28, 0.8);
+        border: 1px solid #294262;
         >li{
             width: 100%;
-            border: 1px solid #294262;
+            border-bottom: 1px solid #294262;
             >a{
                 display: block;
                 margin: .1rem;
                 color: $bluetext;
                 font-size: $font-sm;
                 overflow: hidden;
-                height: 1.5rem;
-                line-height: 1.5rem;
+                height: 1.2rem;
+                line-height: 1.2rem;
                 vertical-align: middle;
                 text-align: left;
-                padding: .3rem .2rem;
+                padding: .2rem;
                 position: relative;
                 .icon{
                     margin-bottom: 10px;
                     float: left;
                     margin-right: .5rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    div{
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        >i{
+                            width: .8rem;
+                            height: .8rem;
+                        }
+                    }
                 }
                 &:after{
                     @include pseudo;
                     @include background-image ('btn_icon_right.png',0,transparent);
                     width: .2rem;
-                    height: 2rem;
-                    line-height: 1.5rem;
+                    height: 1.6rem;
+                    line-height: 1.2rem;
                     left: initial;
                     right: .5rem;
                 }
@@ -725,14 +735,15 @@ fieldset{
 
 //個人中心
 .message_area{
-    .item{
+    margin-top: 1.4rem;
+    >.item{
         overflow: hidden;
         height: 1.5rem;
         line-height: .75rem;
         padding: .4rem;
         text-align: left;
-        border-bottom:1px solid #122234;
-        border-top:1px solid #394c5e;
+        border-bottom:1px solid #152538;
+        border-top:1px solid #3c4e61;
         >.icon{
             float: left;
         }
@@ -751,6 +762,21 @@ fieldset{
                 line-height: 1.5em;
             }
         }
+        &.read{
+            color: #90a4b3;
+            i.i_mail_status{
+                background:url('../../static/images/icon_money.png') no-repeat;
+                background-size:  100%;
+                background-position-y:-4.65rem;
+                margin-top: .12rem;
+            }
+            a{
+                color: #90a4b3;
+            }
+            div.icon{
+                border: 2px solid #49555e;
+            }
+        }
     }
 }
 .password_area{
@@ -767,6 +793,7 @@ fieldset{
 }
 
 //帳戶明細
+
 .ac_detial{
     .ac_data{
         >a{
@@ -778,7 +805,7 @@ fieldset{
                 right: .5rem;
                 left: initial;
                 line-height: 1.5rem;
-                top:1.3rem;
+                top:1.5rem;
             }
         }
     }
@@ -805,3 +832,42 @@ fieldset{
         color: #c83e3e;
     }
 }
+.qrcode_step{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    >.qrcode{
+        >img{
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    >.step{
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        margin-top: .5rem;
+        line-height: 1.8em;
+        font-size: 0.35rem;
+    }
+}
+#agent_modal{
+    margin-top:15%;
+}
+input.date{
+    &:after{
+        @include pseudo;
+        background: url('../../static/images/icon_member.png') no-repeat;
+        background-position: -.17rem 83.5%;
+        background-size: 145%;
+        width: 2em;
+        height: 1rem;
+        position: absolute;
+        right: 0;
+        left: inherit;
+        top:.1rem;
+        cursor: pointer;
+    }
+}
+

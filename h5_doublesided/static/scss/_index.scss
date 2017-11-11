@@ -26,10 +26,10 @@
                 height: .2rem;
                 @include border-radius(100%);
                 background-color: #121216;
-                border: 1px #434c58 solid;
+                border: 2px #434c58 solid;
                 margin: 0.05rem;
                 &.on{
-                    border: 1px #434c58 solid;
+                    border: 2px #434c58 solid;
                     //border-bottom-color:#017ea7;
                     background-color:#06c2ff;
                 }
@@ -39,7 +39,7 @@
 }
 .marquee{
     overflow: hidden;
-    background-color: #11161c;
+    background-color: #19293e;
     line-height: .7rem;
     height: .7rem;
     >*{
@@ -48,7 +48,7 @@
     >.news_title{
         position: absolute;
         left: 0;
-        background-color: #11161c;
+        background-color: #19293e;
         line-height: .6rem;
         height: .7rem;
         padding: 0 15px 0 10px;
@@ -112,7 +112,7 @@
                 margin-left: .5rem;
                 margin-top: .35rem;
                 >img{
-                    width: 2rem;
+                    width: 4rem;
                 }
             }
         }
@@ -131,56 +131,23 @@
         }
         >.hotgame_area{
             ul{
-                padding: .5rem .3rem;
+                padding: .15rem .3rem;
                 width: 100%;
                 >li{
-                    background-image: url('../../static/images/lo_bg.png');
-                    background-size: 100%;
+                    background-color: rgba(#000,.3);
+                    //border-bottom: 1px solid rgba(238, 238, 238, 0.62);
+                    border-top:1px solid #436689;
+                    @include border-radius(.2rem);
                     margin: .15rem;
-                    height: 2.6rem;
-                    border: 1px solid transparent;
-                    width: 29.5%;
+                    min-height: 2.6rem;
+                    height: auto;
+                    padding-bottom: .2rem;
+                    width: 29.9%;
                     background-repeat: no-repeat;
-                    //background-position-y: -2px;
-                    >.badge{
-                        @include background-image ('ballbg.png',0,transparent);
-                        width: 2.6rem;
-                        height: 2rem;
-                        margin-top: -.1rem;
-                        border-radius:0;
-                        &.cqssc{
-                            background-position-y: 0;
-                        }
-                        &.jc11x5{
-                            background-position-y: -2rem;
-                        }
-                        &.hksixlo{
-                            background-position-y: -4rem;
-                        }
-                        &.hljssc{
-                            background-position-y: -6rem;
-                        }
-                        &.jxk3{
-                            background-position-y: -10.4rem;
-                        }
-                        &.sd11x5{
-                            background-position-y: -8.15rem;
-                        }
-                        &.tjssc{
-                            background-position-y: -12.7rem;
-                        }
-                        &.bjpk10{
-                            background-position-y: -15.2rem;
-                        }
-                        &.others{
-                            background-position-y: -17.55rem;
-                        }
-                        &.xjssc{
-                            background-position-y: -6.2rem;
-                        }
-                        &.gd11x5{
-                            background-position-y: -6.2rem;
-                        }
+                    >a{
+                        position: relative;
+                        display: inline-block;
+                        z-index: 7;
                     }
                     >p{
                         background:-webkit-linear-gradient(#e7df90,#fffec7,#85662d);
@@ -199,7 +166,7 @@
                             box-shadow: 0 0 20px 5px rgba(#00e4ff,.3) inset;
                             @include border-radius(.2rem);
                             width: 100%;
-                            height: 2.6rem;
+                            height: 2.9rem;
                         }
                     }
                 }
@@ -210,11 +177,33 @@
             margin-bottom: 1rem;
         }
         .cooper{
-            @include background-image ('cooper_bg.png',0,transparent);
+            background-color: rgba(#000,.3);
             width: 100%;
             margin: 0 auto;
             height: 4rem;
             padding: .3rem 0;
+            position: relative;
+            &:before{
+                @include pseudo;
+                @include background-image ('bottom_line.png',0,transparent);
+                height: .5rem;
+                width: 100%;
+                -ms-transform: rotate(-180deg);
+                -webkit-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+                top: -.15rem;
+                left: -30%;
+            }
+            // &:after{
+            //     @include pseudo;
+            //     @include background-image ('bottom_line.png',0,transparent);
+            //     height: .5rem;
+            //     width: 100%;
+            //     bottom: -.15rem;
+            //     right: -30%;
+            //     top:inherit;
+            //     left: inherit;
+            // }
             >h3{
                 margin-top: .1rem;
             }
@@ -222,12 +211,24 @@
                 text-align: center;
                 margin: 0 auto;
                 width: 100%;
+                margin-top: .5rem;
                 >li{
-                    @include background-image ('cooper_c_bg.png',0,transparent);
+                    //@include background-image ('cooper_c_bg.png',0,transparent);
                     width: 20%;
                     height: 2.5rem;
                     margin: 0 .5rem;
                     line-height: 2.5rem;
+                    div.icon{
+                        width: 1.8rem;
+                        height: 1.8rem;
+                        background-image: url('../../static/images/border_bg02.png');
+                        color: #fff;
+                        width: 100%;
+                        background-position-x: 50%;
+                        background-size: 150% 100%;
+                        -webkit-box-shadow: inset  0px 2px 1px 0px rgba(0,0,0,0.4);
+                        box-shadow: inset  0px 2px 1px 0px rgba(0,0,0,0.4);
+                    }
                     a{
                         @include background-image ('other_link.png',0,transparent);
                         width: 1.5rem;
@@ -235,10 +236,11 @@
                         display: inline-block;
                         vertical-align: middle;
                         line-height: 1.5rem;
+                        margin-top: -.6rem;
                         &::after{
                             @include pseudo;
-                            left: .25rem;
-                            bottom: -.3rem;
+                            left: .3rem;
+                            bottom: -.4rem;
                             top:inherit;
                         }
                         &.icon_intro{
@@ -254,7 +256,7 @@
                             }
                         }
                         &.icon_about{
-                            background-position-y: bottom;
+                            background-position-y: -2.98rem;
                             &::after{
                                 content: '关于我们';
                             }
@@ -281,6 +283,7 @@
             margin: 0;
             padding: 0;
             border-left: none;
+            text-decoration: underline !important;
         }
     }
 }
@@ -300,11 +303,6 @@
             margin: 0.3rem 0.25rem;
             &:nth-child(even){
                 border-right:none;
-                // &:after{
-                //     @include pseudo;
-                //     width: 100%;
-                //     border-bottom:1px solid #dde2e6;
-                // }
             }
             &:nth-child(odd){
                 padding-right: .2rem;
@@ -321,6 +319,11 @@
 //右側選單icon
 .right_menu{
     >li{
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
         &:before{
             @include pseudo();
             @include background-image ('right_icon.png',0,transparent);
@@ -363,14 +366,38 @@
         }
     }
 }
-// .right_menu_icon{
-//     @include background-image ('right_icon.png',0,transparent);
-//     background-image: url('../../../static/images/right_icon.png');
-//     width: .7rem;
-//     height: 1rem;
-//     line-height: 1rem;
-//     margin-left: .2rem;
-//     background-position-y: .3rem;
-//     position: relative;
-//     z-index: 50;
-// }
+.hotgame_area{
+    .badge{
+        background: none;
+        width: 2.8rem;
+        @include border-radius(0);
+        height: 1.8rem;
+        margin-top: .3rem;
+        >img{
+            width: 60%;
+            padding-top: 0;
+        }
+        &:before{
+            display: none;
+        }
+    }
+}
+.countdown{
+    line-height: .5rem;
+}
+.all_lottery{
+    >li{
+        .badge{
+            width: 2.5rem;
+            height: 2.35rem;
+            margin-top: 0;
+            background: none;
+            &:before{
+                display: none;
+            }
+        }
+        >p{
+            line-height: .7rem;
+        }
+    }
+}

@@ -1181,7 +1181,7 @@
         </div>
         <div>
             <div class="so-add">
-                <img src="static/images/foot/foot-jia.png">
+
                 <p>下注</p>
             </div>
         </div>
@@ -1198,8 +1198,8 @@
             </div>
         </div>
         <p class="so-pop-sum">【总计】总注数：<span>3</span> 总金额：<span>30</span></p>
-        <a><img style="width: 2rem;" src="static/images/pop/hui.png"></a>
-        <a><img style="width: 2rem;" src="static/images/pop/lan_text.png"></a>
+        <a class="cancle">取消</a>
+        <a class="btn-submit ok">确定</a>
     </div>
     <!--封盘底部遮挡-->
     <!--玩法说明-->

@@ -1,17 +1,8 @@
-
-<!-- <div class="popup so-pop-xxx so-pop-01 publicDialog">
-        <div>
-            <h2>提示<a @click="$emit('close')"></a></h2>
-            <img src="/static/images/page/status03.svg">
-            <p>{{text}}</p>
-            <a @click="$emit('close')">确定</a>
-        </div>
-    </div> -->
 <template>
     
     <div v-if="show" class="so-pop-wanfa modal publicDialog">
         <div class="m_content">
-            <h2>重庆时时彩玩法说明<a @click="close"></a></h2>
+            <h2>时时彩玩法说明<a @click="close"></a></h2>
             <div class="content">
                 <div class="playtext">
                     <h3>一、两面玩法</h3>

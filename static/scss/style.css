@@ -11,7 +11,7 @@
     width: 8.7rem;
     height: 100%;
     position: fixed;
-    z-index: 11;
+    z-index: 52;
     top: 0;
     left: -100%; }
     .so-con .so-left .so-left-close {
@@ -36,11 +36,40 @@
       .so-con .so-left .so-left-con .so-l-c-top {
         width: 100%;
         height: 1.97rem;
-        background: url("../../static/images/left/left-top-bg.png");
-        background-size: 100%; }
+        position: relative; }
+        .so-con .so-left .so-left-con .so-l-c-top:before {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          background: -webkit-linear-gradient(#212637, #384465);
+          background: linear-gradient(#212637, #384465);
+          height: 1.97rem;
+          width: 99.9%;
+          z-index: 0; }
+        .so-con .so-left .so-left-con .so-l-c-top:after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          background-image: url("../../static/images/past_bg.png");
+          background-repeat: no-repeat;
+          background-position: 0;
+          background-color: transparent;
+          background-size: 100%;
+          background-position-y: bottom;
+          right: -1.7rem;
+          left: inherit;
+          top: inherit;
+          width: 35%;
+          height: 1rem;
+          bottom: -.1rem; }
         .so-con .so-left .so-left-con .so-l-c-top > div {
           float: left;
-          height: 100%; }
+          height: 100%;
+          width: calc(100% - 3rem); }
           .so-con .so-left .so-left-con .so-l-c-top > div:first-child {
             width: 1.97rem; }
             .so-con .so-left .so-left-con .so-l-c-top > div:first-child img {
@@ -48,18 +77,49 @@
               position: relative;
               top: 0.2rem;
               left: 0.1rem; }
-          .so-con .so-left .so-left-con .so-l-c-top > div:last-child > p:first-child {
-            color: #fff;
-            font-size: .34rem;
-            line-height: 1.2rem;
-            margin-left: 0.4rem; }
-          .so-con .so-left .so-left-con .so-l-c-top > div:last-child > div {
-            top: -.8rem;
-            left: -.6rem; }
+          .so-con .so-left .so-left-con .so-l-c-top > div:last-child {
+            margin-left: .5rem; }
+            .so-con .so-left .so-left-con .so-l-c-top > div:last-child > p {
+              margin-top: .5rem;
+              position: relative;
+              text-align: left;
+              font-size: .4rem; }
+            .so-con .so-left .so-left-con .so-l-c-top > div:last-child .user_name {
+              position: relative;
+              text-align: left;
+              margin-left: 0;
+              line-height: 1.8em;
+              margin-top: .2rem;
+              color: #fff;
+              font-size: .4rem; }
+              .so-con .so-left .so-left-con .so-l-c-top > div:last-child .user_name > strong {
+                display: block;
+                color: #fff;
+                letter-spacing: 1px;
+                font-weight: 500;
+                font-size: .4rem; }
+            .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse {
+              width: 100%;
+              height: .5rem;
+              top: .1rem;
+              left: 0;
+              position: relative; }
+              .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-top-sum, .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-in-top-sum {
+                position: absolute;
+                top: 0; }
+              .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-top-sum {
+                left: 0; }
+              .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-in-top-sum {
+                left: .3rem;
+                top: .05rem; }
       .so-con .so-left .so-left-con .so-l-c-con {
         width: 100%;
         height: 100%;
-        overflow-y: auto; }
+        overflow-y: scroll;
+        padding-bottom: 2rem; }
+        .so-con .so-left .so-left-con .so-l-c-con > div {
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch; }
         .so-con .so-left .so-left-con .so-l-c-con li {
           background: url("../images/left/left-kuang.jpg");
           background-size: 100%;
@@ -73,50 +133,46 @@
             margin-top: .3rem; }
           .so-con .so-left .so-left-con .so-l-c-con li p {
             font-size: 0.34rem;
-            color: white;
-            line-height: 1.2rem; }
+            color: white; }
         .so-con .so-left .so-left-con .so-l-c-con ul:after {
           content: "";
           display: block;
           clear: both; }
   .so-con .so-left.active {
-    animation: so-left-active 1s;
-    -moz-animation: so-left-active 1s;
-    -webkit-animation: so-left-active 1s;
-    -o-animation: so-left-active 1s;
     left: 0; }
   .so-con .so-left.close {
-    animation: so-left-close 1s;
-    -moz-animation: so-left-close 1s;
-    -webkit-animation: so-left-close 1s;
-    -o-animation: so-left-close 1s;
     left: -100%; }
 
-@keyframes so-left-close {
-  from {
-    left: 0; }
-  to {
-    left: -100%; } }
-@keyframes so-left-active {
-  from {
-    left: -100%; }
-  to {
-    left: 0; } }
 .so-con .so-in-top {
-  background-image: url("../images/top/top-bg.png");
+  background-color: #061626;
   width: 100%;
-  height: 1.48rem; }
+  height: 1.48rem;
+  position: fixed; }
   .so-con .so-in-top .so-menu {
     display: block;
     height: 1.48rem;
     width: 1rem;
     position: relative;
     z-index: 2; }
+  .so-con .so-in-top .left_top_logo {
+    color: #fff;
+    font-size: .4rem;
+    margin-top: .45rem;
+    width: 2.5rem;
+    background-size: 100%;
+    height: 1rem;
+    background-position-y: -.9rem; }
+  .so-con .so-in-top.k3bg {
+    background-image: url(../images/k3/bg_top.jpg);
+    background-size: auto 100%; }
   .so-con .so-in-top ul > li {
     height: 100%;
     min-width: 1rem;
     display: block;
     float: left; }
+    .so-con .so-in-top ul > li.purse {
+      position: relative;
+      left: 1.2rem; }
     .so-con .so-in-top ul > li > .so-top-menu {
       height: 0.47rem;
       position: relative;
@@ -138,7 +194,9 @@
 .so-con .so-in-main {
   height: 2.78rem;
   background: url("../images/bg.jpg");
-  background-size: 100%; }
+  background-size: 100%;
+  position: fixed;
+  top: 1.5rem; }
   .so-con .so-in-main > div {
     width: 100%;
     height: 100%;
@@ -179,10 +237,10 @@
         width: 6.58rem;
         height: 100%; }
         .so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li {
-          float: right;
-          background: url(../images/main/qiu.png) no-repeat;
-          background-size: 1.1rem;
-          background-position: 0.15rem;
+          float: left;
+          background: url("../../static/images/content/qui02.png") no-repeat;
+          background-size: 1.2rem;
+          background-position: 0.1rem 0.09rem;
           display: block;
           width: 1.3rem;
           height: 1.3rem;
@@ -249,11 +307,13 @@
           margin: auto;
           font-size: 0.32rem;
           text-align: center;
-          margin-top: 0.08rem;
+          margin-top: 0.12rem;
           color: #ffffff; }
 .so-con .so-in-con {
   width: 100%;
-  background-color: #19222f; }
+  background-color: #19222f;
+  position: fixed;
+  top: 4.3rem; }
   .so-con .so-in-con > div:after {
     content: "";
     display: block;
@@ -266,20 +326,23 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     padding-bottom: .8rem; }
-    .so-con .so-in-con .so-con-left > ul li {
-      display: block;
-      width: 100%;
-      height: 1.25rem;
-      border-bottom: solid .02rem #293454;
-      color: #ffffff;
-      font-size: 0.4rem;
-      line-height: 1.3rem;
-      text-align: center;
-      background-position-y: -1.5rem; }
-    .so-con .so-in-con .so-con-left > ul li.active {
-      background: url(../images/content/nav-active.png) no-repeat;
-      background-size: auto 1.7rem;
-      background-position-y: -0.2rem; }
+    .so-con .so-in-con .so-con-left ul {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; }
+      .so-con .so-in-con .so-con-left ul li {
+        display: block;
+        width: 100%;
+        height: 1.25rem;
+        border-bottom: solid .02rem #293454;
+        color: #ffffff;
+        font-size: 0.4rem;
+        line-height: 1.3rem;
+        text-align: center;
+        background-position-y: -1.5rem; }
+      .so-con .so-in-con .so-con-left ul li.active {
+        background: url(../images/content/nav-active.png) no-repeat;
+        background-size: auto 1.7rem;
+        background-position-y: -0.2rem; }
   .so-con .so-in-con .so-con-right {
     width: 7.5rem;
     float: left;
@@ -292,18 +355,13 @@
       display: block; }
     .so-con .so-in-con .so-con-right ul > li {
       display: block;
-      height: 4.98rem;
-      padding-top: 0.2rem; }
-      .so-con .so-in-con .so-con-right ul > li > div:after {
-        content: "";
-        display: block;
-        clear: both; }
+      padding-top: 0.5rem; }
 
 .so-top-sum {
   display: block;
   height: .6rem;
   position: relative;
-  top: .5rem;
+  top: .4rem;
   left: .68rem;
   z-index: 8; }
 
@@ -315,37 +373,47 @@
   margin-top: -0.04rem;
   font-size: .32rem;
   border: solid 0.02rem #2d3755;
-  background-color: #0d141c;
+  background: #1d2839;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #1d2839 43%, #263651 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #1d2839 43%, #263651 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #1d2839 43%, #263651 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   border-left: hidden;
   border-radius: 0.1rem;
   padding-right: 0.1rem;
   position: relative;
   left: 1rem;
   padding: .05rem .1rem .05rem .4rem;
-  top: -.03rem; }
+  top: -.1rem; }
 
 #so-item0 ul li > div, #so-item0.jc115 ul li ul li > div {
   width: 7rem;
-  height: 5rem;
-  background: url("../../static/images/content/kuang.png") no-repeat;
-  background-size: 8.4rem 5rem;
-  background-position-x: -1.1rem;
   text-align: center;
   margin: auto; }
   #so-item0 ul li > div > h2, #so-item0.jc115 ul li ul li > div > h2 {
     color: #ffffff;
     font-size: .4rem;
-    line-height: 1.12rem; }
+    line-height: 1.12rem;
+    background: url("../images/content/panel_header.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
   #so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div {
-    padding: 3%;
-    height: 3.1rem; }
+    background: url("../images/content/panel_body.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 4% 0 3.5%;
+    height: auto;
+    margin: 0px auto;
+    overflow: hidden; }
     #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
       float: left;
-      border: solid 0.01rem #277ca5;
+      border: solid 1px #277ca5;
       height: 0.85rem;
       width: 3rem;
       margin-bottom: 4%;
-      margin-left: 3.5%;
+      margin-left: 4.5%;
       display: none; }
       #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span {
         color: #d7e8f0;
@@ -366,13 +434,20 @@
         color: #010101; }
       #so-item0 ul li > div > div p.active > span:last-child, #so-item0.jc115 ul li ul li > div > div p.active > span:last-child {
         color: #ab0000; }
+    #so-item0 ul li > div > div:after, #so-item0.jc115 ul li ul li > div > div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 7rem;
+      bottom: -.07rem;
+      clear: both;
+      background: url("../images/content/panel_footer.png") no-repeat;
+      background-size: 100% 100%;
+      height: 0.4rem;
+      margin-top: -0.4rem; }
 
 #so-item1 ul li > div {
   width: 7rem;
-  height: 5rem;
-  background: url(../images/content/item1kuang.png) no-repeat;
-  background-size: 7.3rem 5rem;
-  background-position-x: -0.15rem;
   text-align: center;
   margin: auto; }
   #so-item1 ul li > div > h2 {
@@ -380,20 +455,27 @@
     font-size: .4rem;
     line-height: 1.12rem;
     text-align: left;
-    text-indent: 0.4rem; }
+    text-indent: 0.4rem;
+    background: url("../images/content/panel_header_1.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
   #so-item1 ul li > div > div {
-    padding: 0% 3%;
-    height: 3.1rem;
-    margin-top: -.1rem; }
+    background: url("../images/content/panel_body.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 3% 0 3%;
+    height: auto;
+    margin: 0px auto;
+    overflow: hidden;
+    padding-left: .2rem; }
     #so-item1 ul li > div > div p {
       float: left;
       height: 1.65rem;
       width: 1.3rem;
       padding-bottom: .2rem; }
       #so-item1 ul li > div > div p span:first-child {
-        background: url("../images/content/zhunxing.png") no-repeat;
-        background-size: 1.1rem;
-        background-position: 0.15rem;
+        background: url("../../static/images/content/qui02.png") no-repeat;
+        background-size: 1.2rem;
+        background-position: 0.11rem -1.25rem;
         display: block;
         width: 1.3rem;
         height: 1.3rem;
@@ -401,7 +483,7 @@
         font-size: 0.6rem;
         text-align: center;
         line-height: 1.3rem;
-        text-indent: 0.1rem; }
+        text-indent: 0.12rem; }
       #so-item1 ul li > div > div p span {
         color: #fff;
         font-size: 0.3rem;
@@ -409,9 +491,9 @@
         padding-right: 0;
         line-height: 0.5rem; }
     #so-item1 ul li > div > div p.active span:first-child {
-      background: url("../images/content/qiu.png") no-repeat;
-      background-size: 1.1rem;
-      background-position: 0.15rem;
+      background: url("../../static/images/content/qui02.png") no-repeat;
+      background-size: 1.2rem;
+      background-position: 0.1rem 0.09rem;
       display: block;
       width: 1.3rem;
       height: 1.3rem;
@@ -420,24 +502,40 @@
       text-align: center;
       line-height: 1.3rem;
       text-indent: 0.1rem; }
+    #so-item1 ul li > div > div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 7rem;
+      bottom: -3px;
+      clear: both;
+      background: url("../images/content/panel_footer.png") no-repeat;
+      background-size: 100% 100%;
+      height: 0.4rem;
+      margin-top: -0.4rem;
+      overflow: hidden;
+      margin-left: -.2rem; }
 
 #so-item2 ul li > div {
   width: 7rem;
-  height: 4.74rem;
-  background: url(../images/content/kuang.png) no-repeat;
-  background-size: 8.4rem 4.84rem;
-  background-position-x: -1.1rem;
   text-align: center;
   margin: auto; }
   #so-item2 ul li > div > h2 {
     color: #ffffff;
     font-size: .4rem;
-    line-height: 1.12rem; }
+    line-height: 1.12rem;
+    background: url("../images/content/panel_header.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
   #so-item2 ul li > div > div {
-    padding: 3%;
-    height: 3.1rem; }
+    background: url("../images/content/panel_body.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 3% 0 3%;
+    height: auto;
+    margin: 0px auto;
+    overflow: hidden; }
     #so-item2 ul li > div > div p.active {
-      background: url(../images/content/changkuang.png) no-repeat;
+      background: url("../images/content/changkuang.png") no-repeat;
       background-size: 3.06rem 0.9rem;
       background-position: -0.01rem;
       border: solid 0.01rem rgba(0, 0, 0, 0); }
@@ -447,7 +545,7 @@
         color: #ab0000; }
     #so-item2 ul li > div > div p {
       float: left;
-      border: solid 0.01rem #277ca5;
+      border: solid 1px #277ca5;
       height: 0.85rem;
       width: 3rem;
       margin-bottom: 4%;
@@ -464,13 +562,24 @@
           float: left; }
         #so-item2 ul li > div > div p > span:last-child {
           float: right; }
+    #so-item2 ul li > div > div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 7rem;
+      bottom: -3px;
+      clear: both;
+      background: url("../images/content/panel_footer.png") no-repeat;
+      background-size: 100% 100%;
+      height: 0.4rem;
+      margin-top: -0.4rem;
+      overflow: hidden; }
 
 #so-item0 ul li.first_ball, #so-item0 ul li.sec_ball {
   height: 3.74rem; }
   #so-item0 ul li.first_ball > div, #so-item0.jc115 ul li ul li.first_ball > div, #so-item0 ul li.sec_ball > div, #so-item0.jc115 ul li ul li.sec_ball > div {
     width: 7rem;
     height: 3.74rem;
-    background: url(../../static/images/content/kuang.png) no-repeat;
     background-size: 8.4rem 3.74rem;
     background-position-x: -1.1rem;
     text-align: center;
@@ -764,6 +873,8 @@
   height: 100%;
   z-index: 13; }
   .so-tip-pop > div {
+    background-color: rgba(15, 16, 21, 0.8);
+    border: 2px solid #277ca5;
     background: url("../images/pop/popkuang2.png") no-repeat;
     background-size: 100%;
     width: 8.14rem;
@@ -870,7 +981,7 @@ img.bet_ok {
         display: block;
         background: url("../images/bottom_line.png") no-repeat;
         background-size: 100% auto;
-        background-position-y: 0.5rem;
+        background-position-y: 0.7rem;
         height: 1rem;
         line-height: 1rem;
         color: #ffbd00;
@@ -934,13 +1045,9 @@ img.bet_ok {
   width: 10rem;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 13; }
+  z-index: 50; }
   .modal.so-pop-wanfa > .m_content {
     top: 5%; }
-
-.purse {
-  position: relative;
-  left: -0.2rem; }
 
 #so-item0 ul li > div > div p span.font-ss span, #so-item0.jc115 ul li ul li > div > div p span.font-ss span {
   font-size: .26rem; }
@@ -948,17 +1055,7 @@ img.bet_ok {
 .so-index {
   width: 10rem; }
 
-#so-item0.jc115 ul li.first_ball {
-  margin-top: 1.5rem; }
-#so-item0.jc115 ul li:first-child > div, #so-item0.jc115 ul li.jc115 ul li:first-child > div {
-  background-size: 8.4rem 6.5rem;
-  height: 6.5rem; }
-  #so-item0.jc115 ul li:first-child > div > h2 {
-    line-height: 1.5rem; }
-  #so-item0.jc115 ul li:first-child > div > div {
-    padding: 2% 3%; }
 #so-item0.jc115 ul li > div > div, #so-item0.jc115 ul li.jc115 ul li > div > div {
-  padding: 3%;
   min-height: 2.1rem; }
   #so-item0.jc115 ul li > div > div p span, #so-item0.jc115 ul li.jc115 ul li > div > div p span {
     font-size: .3rem; }
@@ -979,50 +1076,80 @@ img.bet_ok {
     background-position: -0.01rem;
     border: solid 0.01rem transparent; }
 
-#so-item1.jc115 ul li {
-  height: 6.6rem; }
-  #so-item1.jc115 ul li:first-child {
-    margin-top: 0; }
-  #so-item1.jc115 ul li > div {
-    width: 100%;
-    height: 6.74rem;
-    background: url("../images/content/jc115_ball_bg.png") no-repeat;
-    background-size: 110% 6.84rem;
-    background-position-x: -0.9rem;
+#so-item1.jc115 ul li:first-child {
+  margin-top: 0; }
+#so-item1.jc115 ul li > div {
+  width: 7rem;
+  text-align: center;
+  margin: auto; }
+  #so-item1.jc115 ul li > div > div p {
+    float: left;
+    height: 1.65rem;
+    width: 1.3rem;
+    display: none;
+    padding-bottom: .2rem; }
+    #so-item1.jc115 ul li > div > div p span:first-child {
+      background: url("../../static/images/content/qui02.png") no-repeat;
+      background-size: 1.2rem;
+      background-position: 0.1rem -1.22rem;
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: #fffbe2;
+      font-size: 0.52rem;
+      text-align: center;
+      line-height: 1.3rem;
+      text-indent: 0.1rem; }
+    #so-item1.jc115 ul li > div > div p span {
+      color: #fff;
+      font-size: 0.3rem;
+      display: block;
+      padding-right: 0;
+      line-height: 0.5rem; }
+  #so-item1.jc115 ul li > div > div p.active span:first-child {
+    background: url("../../static/images/content/qui02.png") no-repeat;
+    background-size: 1.2rem;
+    background-position: 0.1rem 0.09rem;
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: #fffbe2;
+    font-size: 0.52rem;
     text-align: center;
-    margin: auto; }
-    #so-item1.jc115 ul li > div > h2 {
-      padding-left: 3%; }
-    #so-item1.jc115 ul li > div > div {
-      padding-left: 5%; }
-      #so-item1.jc115 ul li > div > div p {
-        float: left;
-        height: 1.65rem;
-        width: 1.3rem;
-        display: none;
-        padding-bottom: .2rem; }
-        #so-item1.jc115 ul li > div > div p span:first-child {
-          background: url("../images/content/zhunxing.png") no-repeat;
-          background-size: 1.1rem;
-          background-position: 0.15rem;
-          display: block;
-          width: 1.3rem;
-          height: 1.3rem;
-          color: #fffbe2;
-          font-size: 0.52rem;
-          text-align: center;
-          line-height: 1.3rem;
-          text-indent: 0.1rem; }
-        #so-item1.jc115 ul li > div > div p span {
-          color: #fff;
-          font-size: 0.3rem;
-          display: block;
-          padding-right: 0;
-          line-height: 0.5rem; }
-      #so-item1.jc115 ul li > div > div p.active span:first-child {
-        background: url("../images/content/qiu.png") no-repeat;
-        background-size: 1.1rem;
-        background-position: 0.15rem;
+    line-height: 1.3rem;
+    text-indent: 0.1rem; }
+
+#so-item2.jc115 ul li:first-child {
+  margin-top: 0; }
+#so-item2.jc115 ul li > div {
+  width: 7rem;
+  text-align: center;
+  margin: auto; }
+  #so-item2.jc115 ul li > div > h2 {
+    color: #ffbd00;
+    font-size: .4rem;
+    line-height: 1.12rem;
+    text-align: left;
+    text-indent: 0.15rem;
+    background: url("../images/content/panel_header_1.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 0.9rem; }
+  #so-item2.jc115 ul li > div > div {
+    padding: 0 3%; }
+    #so-item2.jc115 ul li > div > div p {
+      float: left;
+      height: 1.65rem;
+      width: 1.3rem;
+      display: none;
+      padding-bottom: .2rem;
+      border: none;
+      display: inline-block;
+      margin-bottom: 0;
+      margin-left: 0; }
+      #so-item2.jc115 ul li > div > div p span:first-child {
+        background: url("../../static/images/content/qui02.png") no-repeat;
+        background-size: 1.2rem;
+        background-position: 0.1rem -1.22rem;
         display: block;
         width: 1.3rem;
         height: 1.3rem;
@@ -1031,76 +1158,33 @@ img.bet_ok {
         text-align: center;
         line-height: 1.3rem;
         text-indent: 0.1rem; }
-
-#so-item2.jc115 ul li {
-  height: 6.6rem; }
-  #so-item2.jc115 ul li:first-child {
-    margin-top: 0; }
-  #so-item2.jc115 ul li > div {
-    width: 100%;
-    height: 6.74rem;
-    background: url("../images/content/jc115_ball_bg.png") no-repeat;
-    background-size: 110% 6.84rem;
-    background-position-x: -0.9rem;
-    text-align: center;
-    margin: auto; }
-    #so-item2.jc115 ul li > div > h2 {
-      padding-left: 3%;
-      color: #ffbd00;
-      font-size: .4rem;
-      line-height: 1.12rem;
-      text-align: left;
-      text-indent: 0.4rem; }
-    #so-item2.jc115 ul li > div > div {
-      padding: 0 3%;
-      padding-left: 5%; }
-      #so-item2.jc115 ul li > div > div p {
-        float: left;
-        height: 1.65rem;
+      #so-item2.jc115 ul li > div > div p span {
+        color: #fff;
+        font-size: 0.3rem;
+        display: block;
+        padding-right: 0;
+        line-height: 0.5rem;
+        float: none;
+        padding: 0; }
+    #so-item2.jc115 ul li > div > div p.active {
+      background: none;
+      border: none; }
+      #so-item2.jc115 ul li > div > div p.active span:first-child {
+        background: url("../../static/images/content/qui02.png") no-repeat;
+        background-size: 1.2rem;
+        background-position: 0.1rem 0.09rem;
+        display: block;
         width: 1.3rem;
-        display: none;
-        padding-bottom: .2rem;
-        border: none;
-        display: inline-block;
-        margin-bottom: 0;
-        margin-left: 0; }
-        #so-item2.jc115 ul li > div > div p span:first-child {
-          background: url("../images/content/zhunxing.png") no-repeat;
-          background-size: 1.1rem;
-          background-position: 0.15rem;
-          display: block;
-          width: 1.3rem;
-          height: 1.3rem;
-          color: #fffbe2;
-          font-size: 0.52rem;
-          text-align: center;
-          line-height: 1.3rem;
-          text-indent: 0.1rem; }
-        #so-item2.jc115 ul li > div > div p span {
-          color: #fff;
-          font-size: 0.3rem;
-          display: block;
-          padding-right: 0;
-          line-height: 0.5rem;
-          float: none;
-          padding: 0; }
-      #so-item2.jc115 ul li > div > div p.active {
-        background: none;
-        border: none; }
-        #so-item2.jc115 ul li > div > div p.active span:first-child {
-          background: url("../images/content/qiu.png") no-repeat;
-          background-size: 1.1rem;
-          background-position: 0.15rem;
-          display: block;
-          width: 1.3rem;
-          height: 1.3rem;
-          color: #fffbe2;
-          font-size: 0.52rem;
-          text-align: center;
-          line-height: 1.3rem;
-          text-indent: 0.1rem; }
-        #so-item2.jc115 ul li > div > div p.active span:last-child {
-          color: #fffbe2; }
+        height: 1.3rem;
+        color: #fffbe2;
+        font-size: 0.52rem;
+        text-align: center;
+        line-height: 1.3rem;
+        text-indent: 0.1rem; }
+      #so-item2.jc115 ul li > div > div p.active span:last-child {
+        color: #fffbe2; }
+    #so-item2.jc115 ul li > div > div:after {
+      margin-left: -0.2rem; }
 
 #so-item2.jc115 > .hd {
   height: .9rem;
@@ -1121,7 +1205,10 @@ img.bet_ok {
     overflow: auto;
     /* winphone8和android4+ */
     -webkit-overflow-scrolling: touch;
-    /* ios5+ */ }
+    /* ios5+ */
+    position: relative;
+    top: inherit;
+    left: inherit; }
     #so-item2.jc115 > .hd ul.tab_mid {
       background-color: transparent;
       border-radius: 100px; }
@@ -1140,7 +1227,8 @@ img.bet_ok {
         height: .9rem;
         line-height: 0.9rem; }
 #so-item2.jc115 .bd .tab_content {
-  padding: 0; }
+  padding: 0;
+  margin-top: .3rem; }
   #so-item2.jc115 .bd .tab_content li {
     padding-top: 0; }
 

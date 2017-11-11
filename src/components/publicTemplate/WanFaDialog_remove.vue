@@ -57,11 +57,15 @@ export default {
   },
   data () {
     return {
-      show:false
+      show:false,
+
     }
   }
 }
 </script>
 <style scope>
-    .so-pop-wanfa { display: block; }
+    .so-pop-wanfa { display: block;
+                    position: fixed;
+                    top:-5rem;
+                    }
 </style>

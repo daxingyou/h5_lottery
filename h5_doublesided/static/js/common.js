@@ -32,7 +32,6 @@ function getCookie (name) {
 }
 //清除所有cookie函数
 function clearAllCookie() {
-    console.log('发的货款')
     var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
     console.log(keys)
     if(keys) {
@@ -203,11 +202,32 @@ function getLotterys(all) {
                     case '4':  // 江西11选5双面盘
                         hrefUrl = 'web_jc11x5/index.html' ;
                         break;
+                    case '6' : // 江苏K3双面盘
+                        hrefUrl = 'web_k3/index.html';
+                        break;
                     case '7':  // 北京pk10传统盘
                         hrefUrl = 'web_pk10/index.html' ;
                         break;
                     case '8':  // 北京pk10双面盘
                         hrefUrl = 'web_pk10/index.html' ;
+                        break;
+                    case '12':  // 天津时时彩双面盘
+                        hrefUrl = 'web_tjssc/index.html' ;
+                        break;
+                    case '14':  // 新疆时时彩双面盘
+                        hrefUrl = 'web_xjssc/index.html' ;
+                        break;
+                    case '16':  // 广东11选5双面盘
+                        hrefUrl = 'web_gd11x5/index.html' ;
+                        break;
+                    case '18':  // 山东11选5双面盘
+                        hrefUrl = 'web_sd11x5/index.html' ;
+                        break;
+                    case '20':  // 安徽 K3 双面盘
+                        hrefUrl = 'web_ahk3/index.html' ;
+                        break;
+                    case '22':  // 河北 K3 双面盘
+                        hrefUrl = 'web_hbk3/index.html' ;
                         break;
                     default:
                         hrefUrl = '' ;
@@ -215,17 +235,19 @@ function getLotterys(all) {
                 }
                 allstr += ' <li >' ;
                         if(all =='.lobby_all_lottery'){  // 大厅首页情况下 跳转
-                            allstr += ' <a class="to_lottery" href="'+hrefUrl+'"> ' ;
+                            allstr += ' <a class="to_lottery" href="'+hrefUrl+'"> ' +
+                                 '<div class="badge">'+
+                                '<img src="'+v.imgUrl+'" alt="">' ;
                         }else{  // 各彩种 跳转
-                            allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> ' ;
+                            allstr += ' <a class="to_lottery" href="../'+hrefUrl+'"> '+
+                                '<div class="badge">'+
+                                '<img src="'+v.imgUrl+'" alt="">' ;
                         }
-                allstr += '<div class="badge">'+
-                    '<img src="'+v.imgUrl+'" alt="">'+
-                    '</div>'+
-                    '</a> '+
-                    '<p>'+ v.name +'</p>'+
-                    '</li>' ;
 
+                     allstr += '</div>'+
+                               '</a> '+
+                               '<p>'+ v.name +'</p>'+
+                               '</li>' ;
             });
 
             $(all).html(allstr);
@@ -326,8 +348,8 @@ function getMemberBalance(lotteryid) {
         }
     });
 }
-// 最新开奖期数
-function priodDataNewly(gameid) {
+// 最新开奖期数 ，timer 倒计时 参数
+function priodDataNewly(gameid,timer) {
     $.ajax({
         type: 'get',
         headers: {
@@ -337,18 +359,23 @@ function priodDataNewly(gameid) {
         data: {lotteryId: gameid,},
         success: function (res) {
             if(res.data){
-                next_pcode = res.data[0].pcode;  // 下一期数
-                now_pcode = res.data[1].pcode;  // 当前期数
-                now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
-                nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
-                now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
-                processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                if(timer =='timer'){
+                    processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
+                }else{
+                    next_pcode = res.data[0].pcode;  // 下一期数
+                    now_pcode = res.data[1].pcode;  // 当前期数
+                    now_time = formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
+                    nowover_time = formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+                    now_day = ( res.data[1].pcode).toString().substr(0, 8);  // 当天日期
+                    processCode( res.data[1].pcode, res.data[2].pcode, res.data[2].winNumber,res.data[2].doubleData) ;
 
-                setTimeout(function () {
-                    // 倒计时
-                    lt_timer(sys_time,now_time,nowover_time) ;
-                    $('.so-fengpan').hide() ; // 隐藏封盘容器
-                }, 100)
+                    setTimeout(function () {
+                        // 倒计时
+                        lt_timer(sys_time,now_time,nowover_time) ;
+                        $('.so-fengpan').hide() ; // 隐藏封盘容器
+                    }, 100)
+                }
+
             }
 
 
@@ -414,9 +441,17 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
     var timerno = window.setInterval(function () {
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
             _getSystemTime();
-
         }
 
+        if( (lt_time_leave >=420 && lt_time_leave <=540 && lt_time_leave % 10 ==0) || (lt_time_leave >=120 && lt_time_leave <=240 && lt_time_leave % 10 ==0 )){ // 10,秒一次请求开奖数据
+            var hasnum = Number($('.last-open-num li:nth-child(1)').data('val')) ; // 判断是否已经拉取期数成功
+            if((hasnum >= 0) && (hasnum <20)){
+
+            }else{
+                priodDataNewly(getCookie('lt_lotteryid'),'timer') ;
+            }
+
+        }
         if (lt_time_leave <= 0) { // 开奖倒计时结束
             clearInterval(timerno);
             initBetPop01(3) ;
@@ -433,7 +468,7 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
         if(lt_time_leave_over <= 0){ // 封盘倒计时结束
             $('.close-time').html('已封盘') ;
             $('.so-fengpan').show() ;
-            resetAction() ;  //重置已选注单
+           // resetAction() ;  //重置已选注单
         }else{
             // 封盘倒计时
             $('.close-time').html( fftime(over_oDate.minute) + ':' + fftime(over_oDate.second) );
@@ -489,45 +524,80 @@ function initBetPop01(closet) {
 function processCode(issue, lastissue,code,double) {
     var lotteryid = getCookie('lt_lotteryid') ;
     if (!code) {
-        if(lotteryid !='8'){  // 北京pk10
-            code = '-,中,奖,开,-';
-        }else{ // 北京pk10
-            code ='20,20,20,20,20,20,20,20,20,20' ;
+        switch (lotteryid) {
+            case  '8': // 北京pk10
+            code='20,20,20,20,20,20,20,20,20,20';
+            break;
+            case  '6': // 江苏快三
+            case  '20': // 安徽快三
+            case  '22': // 湖北快三
+            code ='20,20,20';
+            break;
+            default :
+            code='-,开,奖,中,-';
+            break;
         }
+
     }
     if(code){
         var code_arr = code.split(',');
     }
     var str = '';
     var dstr ='';
+    var kdstr='';
     //已开奖期号节点,开奖号码
-    if(lotteryid =='8'){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
-        $('.last-date').html(lastissue.toString().substr(4, 8)) ;
-        $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue) ;
-        for (var i = 0; i < code_arr.length; i++) {
-            str +='<li><span class="pk10_ball small_ball num_'+code_arr[i]+'"></span></li>' ;
+    if(lotteryid =='8'||lotteryid =='6' || lotteryid =='20' || lotteryid =='22'){  // 北京pk10   <li><span class="pk10_ball small_ball num_10"></span></li>
+        //北京PK10期数
+        if(lotteryid =='8'){
+            $('.last-date').html(lastissue.toString().substr(4, 8));
+            $('.now-date').html(issue.toString().substr(4, 8)).attr('data-date',issue);
+        }else{//江苏快3期数
+            $('.last-date').html(lastissue.toString());
+            $('.now-date').html(issue.toString()).attr('data-date',issue);
         }
-        dstr +='<li>'+double.top2_total+'</li>' ;
-        dstr +='<li>'+double.top2_sizer+'</li>' ;
-        dstr +='<li>'+double.top2_doubler+'</li>' ;
-        dstr +='<li>'+double.lh_5+'</li>' ;
-        dstr +='<li>'+double.lh_4+'</li>' ;
-        dstr +='<li>'+double.lh_3+'</li>' ;
-        dstr +='<li>'+double.lh_2+'</li>' ;
+
+        for (var i = 0; i < code_arr.length; i++) {
+            switch (lotteryid) {
+                case  '8': // 北京pk10
+                    str += '<li data-val="' + code_arr[i] + '"><span class="pk10_ball small_ball num_' + code_arr[i] + '"></span></li>';
+                    break;
+                case  '6': // 江苏快三
+                case  '20': // 安徽快三
+                case  '22': // 湖北快三
+                    str += '<li data-val="' + code_arr[i] + '"><span class="k3_dice num_' + code_arr[i] + '"></span></li>';
+                    break;
+                default :
+
+                    break;
+            }
+
+        }
         dstr +='<li>'+double.lh_1+'</li>' ;
+        dstr +='<li>'+double.lh_2+'</li>' ;
+        dstr +='<li>'+double.lh_3+'</li>' ;
+        dstr +='<li>'+double.lh_4+'</li>' ;
+        dstr +='<li>'+double.lh_5+'</li>' ;
+        dstr +='<li>'+double.top2_doubler+'</li>' ;
+        dstr +='<li>'+double.top2_sizer+'</li>' ;
+        dstr +='<li>'+double.top2_total+'</li>' ;
+
+        kdstr +='<li>'+double.sizer+'</li>';
+        kdstr += '<li>'+ double.total + '</li>';
      }else{
         $('.last-date').html(lastissue) ;
         $('.now-date').html(issue).attr('data-date',issue) ;
         for (var i = 0; i < code_arr.length; i++) {
-            str +='<li>'+ code_arr[i] +'</li>' ;
+            str +='<li data-val="'+code_arr[i] +'">'+ code_arr[i] +'</li>' ;
         }
-        dstr +='<li>'+double.total+'</li>' ;
-        dstr +='<li>'+double.sizer+'</li>' ;
-        dstr +='<li>'+double.longer+'</li>' ;
-        dstr +='<li>'+double.doubler+'</li>' ;
+            dstr += '<li>' + double.doubler + '</li>';
+            dstr += '<li>' + double.longer + '</li>';
+            dstr += '<li>' + double.sizer + '</li>';
+            dstr += '<li>' + double.total + '</li>';
+
     }
     $('.last-open-num ul').html(str) ;
     $('.last-open-dou ul').html(dstr) ;
+    $('.last-open-k3dou ul').html(kdstr);
 
 
 }
@@ -535,10 +605,10 @@ function processCode(issue, lastissue,code,double) {
 //此方法用来控制盘面选择,更新盘面信息后应该重新调用一次，选球处理
 function initChoiceObj() {
     $('.so-con-right').on('click','p',function () {
-        var display = $('.so-fengpan').css('display') ; // 封盘状态
+       /* var display = $('.so-fengpan').css('display') ; // 封盘状态 ，改成可以点击
         if(display == 'block' || display =='inline-block'){ // 判断是否处于封盘状态
             return false ;
-        }
+        }*/
         var _this =  $(this) ;
         var className = _this.attr("class") || "" ;
         if (className.indexOf("active") >= 0) {
@@ -805,11 +875,18 @@ function doCheckAction() {
     var bet_mon = $.trim($('.bet-amount').val()) ; // 投注金额
     var all_bet_mon = Number(bet_num)*Number(bet_mon) ; // 总投注金额
     var betstr = '' ;
+    var lottery = getCookie('lt_lotteryid') ;//获取江苏快3 ID
     $(".so-con-right p").each(function (i, t) {
     // 已选择的注单
     if($(this).hasClass('active')){
         var total_title = $(this).parents('.select-li').find('h2').text() ;  // 大标题
-        var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+        //江苏快3、北京PK10
+        if (lottery == '6' || lottery == '8' || lottery == '20' || lottery == '22') {//判断江苏k3、北京PK10
+            var total_con = $(this).find('span:nth-child(1)').data('val') ;  // 投注内容
+        }else{
+            var total_con = $(this).find('span:nth-child(1)').text() ;  // 投注内容
+        }
+
         var total_mon = $(this).find('span:nth-child(2)').text() ;  // 投注内容赔率
         var total_id = $(this).data('id') ;  // 投注内容玩法id
         var total_type = $(this).data('type') ;  // 投注内容玩法类型，组合是 zu_he
@@ -1037,10 +1114,20 @@ function doubleCount(lotteryid,rows,maxtime) {
             for(var i=0;i<data.data.length;i++){
 
                 if(!data.data[i].winNumber){
-                    if(lotteryid == '8'){  // 北京pk10
+
+                    switch (lotteryid){
+                        // 北京PK10
+                        case '8' :
                         data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
-                    }else{
+                        break;
+                        case '6' :   // 江苏K3
+                        case '20' :  // 安徽K3
+                        case '22' :  // 湖北K3
+                        data.data[i].winNumber ='20,20,20' ;
+                        break;
+                        default :
                         data.data[i].winNumber='-,-,-,-,-' ;
+                        break;
                     }
 
                 }
@@ -1052,29 +1139,37 @@ function doubleCount(lotteryid,rows,maxtime) {
                     '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
                     '<ul class="double-count">' ;
                 if(lotteryid == '8') {  // 北京pk10
-                   str += ' <li>'+data.data[i].doubleData.top2_total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>'+
-                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                   str += ' <li>'+data.data[i].doubleData.lh_1+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_2+'</li>'+
+                    ' <li>'+data.data[i].doubleData.lh_3+'</li>'+
                     ' <li>'+data.data[i].doubleData.lh_4+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_3+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_2+'</li>' +
-                    ' <li>'+data.data[i].doubleData.lh_1+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.lh_5+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_doubler+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_sizer+'</li>' +
+                    ' <li>'+data.data[i].doubleData.top2_total+'</li>' ;
                 }else{
-                   str += ' <li>'+data.data[i].doubleData.total+'</li>'+
-                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                   str += ' <li>'+data.data[i].doubleData.doubler+'</li>'+
                     ' <li>'+data.data[i].doubleData.longer+'</li>'+
-                    ' <li>'+data.data[i].doubleData.doubler+'</li>' ;
+                    ' <li>'+data.data[i].doubleData.sizer+'</li>'+
+                    ' <li>'+data.data[i].doubleData.total+'</li>' ;
                 }
 
                    str +=' </ul>'+
                    '</div>'+
                    ' <ul class="lo_ball double-numbers">';
                     for (var j = 0; j < codeArr.length; j++) {
-                        if(lotteryid == '8') {  // 北京pk10
-                            str += ' <li><span class="pk10_ball num_'+codeArr[j]+'"></span></li>' ;
-                        }else{
-                            str += ' <li>'+codeArr[j]+'</li>' ;
+                        switch (lotteryid){
+                            case '8' : // 北京PK10
+                                str += ' <li><span class="pk10_ball num_'+codeArr[j]+'"></span></li>' ;
+                                break;
+                            case '6' :   // 江苏K3
+                            case '20' :  // 安徽K3
+                            case '22' :  // 湖北K3
+                                str += ' <li><span class="k3_dice num_'+codeArr[j]+'"></span></li>' ;
+                                break;
+                            default :
+                                str += ' <li>'+codeArr[j]+'</li>' ;
+                                break;
                         }
 
                     }
@@ -1122,32 +1217,44 @@ function loadRoadAction(lotteryid,maxtime) {
             roadDomAction(data.data.sd_2,'road02_2 .ds_dx') ;  // 第二球单双 (pk10 亚军)
             roadDomAction(data.data.size_3,'road02_3 .dx_size') ;  // 第三球大小 (pk10 第三名)
             roadDomAction(data.data.sd_3,'road02_3 .ds_dx') ;  // 第三球单双 (pk10 第三名)
-            roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
-            roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
-            roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
-            roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
-            if(lotteryid == '8'){  // 北京pk 10
-                roadDomAction(data.data.top2_size,'road01_1') ;  // (pk10 冠亚和大小)
-                roadDomAction(data.data.top2_sd,'road01_2') ;  // (pk10 冠亚和单双)
-                roadDomAction(data.data.size_6,'road02_6 .dx_size') ;  // (pk10 第六名)
-                roadDomAction(data.data.sd_6,'road02_6 .ds_dx') ;  // (pk10 第六名)
-                roadDomAction(data.data.size_7,'road02_7 .dx_size') ;  // (pk10 第七名)
-                roadDomAction(data.data.sd_7,'road02_7 .ds_dx') ;  // (pk10 第七名)
-                roadDomAction(data.data.size_8,'road02_8 .dx_size') ;  // (pk10 第八名)
-                roadDomAction(data.data.sd_8,'road02_8 .ds_dx') ;  // (pk10 第八名)
-                roadDomAction(data.data.size_9,'road02_9 .dx_size') ;  // (pk10 第九名)
-                roadDomAction(data.data.sd_9,'road02_9 .ds_dx') ;  // (pk10 第九名)
-                roadDomAction(data.data.size_10,'road02_10 .dx_size') ;  // (pk10 第十名)
-                roadDomAction(data.data.sd_10,'road02_10 .ds_dx') ;  // (pk10 第十名)
-            }else if(lotteryid == '4'){ // 江西11选5
-                roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
-                roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
-                roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
-                roadDomAction(data.data.totalEnd_size,'road01_4') ;  // 总和尾大小
-            }else{
-                roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
-                roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
-                roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+
+            switch (lotteryid){
+                case '8' : // 北京PK10
+                    roadDomAction(data.data.top2_size,'road01_1') ;  // (pk10 冠亚和大小)
+                    roadDomAction(data.data.top2_sd,'road01_2') ;  // (pk10 冠亚和单双)
+                    roadDomAction(data.data.size_6,'road02_6 .dx_size') ;  // (pk10 第六名)
+                    roadDomAction(data.data.sd_6,'road02_6 .ds_dx') ;  // (pk10 第六名)
+                    roadDomAction(data.data.size_7,'road02_7 .dx_size') ;  // (pk10 第七名)
+                    roadDomAction(data.data.sd_7,'road02_7 .ds_dx') ;  // (pk10 第七名)
+                    roadDomAction(data.data.size_8,'road02_8 .dx_size') ;  // (pk10 第八名)
+                    roadDomAction(data.data.sd_8,'road02_8 .ds_dx') ;  // (pk10 第八名)
+                    roadDomAction(data.data.size_9,'road02_9 .dx_size') ;  // (pk10 第九名)
+                    roadDomAction(data.data.sd_9,'road02_9 .ds_dx') ;  // (pk10 第九名)
+                    roadDomAction(data.data.size_10,'road02_10 .dx_size') ;  // (pk10 第十名)
+                    roadDomAction(data.data.sd_10,'road02_10 .ds_dx') ;  // (pk10 第十名)
+                    break;
+                case '6' :   // 江苏K3
+                case '20' :  // 安徽K3
+                case '22' :  // 湖北K3
+                    roadDomAction(data.data.total_size,'road01_1');
+                    break;
+                case '4' :    // 江西11选5
+                case '16' :    // 广东11选5 双面盘
+                case '18' :    // 山东11选5 双面盘
+                    roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+                    roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+                    roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+                    roadDomAction(data.data.totalEnd_size,'road01_4') ;  // 总和尾大小
+                    break;
+                default :
+                    roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
+                    roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
+                    roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
+                    roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
+                    roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
+                    roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
+                    roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
+                    break;
             }
 
 
@@ -1167,8 +1274,13 @@ function loadRoadAction(lotteryid,maxtime) {
 function roadDomAction(resdata,cid) {
     var ts = '' ;
     for(var i=0;i<resdata.length;i++){  // 总和大小
-        ts +=' <li class="road">'+
-            '<ul>' ;
+        if(resdata[i].length>5){
+            ts +=' <li class="road road_left">'+
+                '<ul>' ;
+        }else{
+            ts +=' <li class="road">'+
+                '<ul>' ;
+        }
         for(var ii=0;ii<resdata[i].length;ii++){
             var rescon = resdata[i][ii] ;
             var color = 'mid' ;
@@ -1234,7 +1346,7 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
         timeout: 600000,
         data: senddata ,
         success: function (data) {
-         // console.log(data.data) ;
+         console.log(data.data) ;
             var str = '' ;
             for(var i=0;i<data.data.length;i++){
                 str +=' <li class="prod" data-status="not_open">'+
@@ -1242,7 +1354,21 @@ function loadDoubleLong(lotteryid,maxtime,openty,cla) {
                         '<div>'+ data.data[i].groupName +'</div>';
                         if(Number(data.data[i].playName) >=0 ){
                             str +=  '<ul class="lo_ball">' ;
-                            str += '<li><span class="pk10_ball num_'+ data.data[i].playName +'"></span></li>';
+                            switch (lotteryid) {
+                                case '8':
+                                    str += '<li><span class="pk10_ball num_'+ data.data[i].playName +'"></span></li>';
+                                    break;
+                                case '6' :   // 江苏K3
+                                case '20' :  // 安徽K3
+                                case '22' :  // 湖北K3
+                                    str +='<li><span class="k3_dice num_'+ data.data[i].playName +'"></span></li>';
+                                    break;
+
+                                default :
+
+                                    break;
+                            }
+
                         }else{
                             if(lotteryid == '8') { // 北京pk 10
                                 str +=  '<ul class="lo_ball">' ;

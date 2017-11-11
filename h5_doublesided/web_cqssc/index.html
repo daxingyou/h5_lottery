@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="game_fix" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>双面盘_重庆时时彩</title>
+    <meta name="theme-color" content="#061626">
+    <meta name="msapplication-navbutton-color" content="#061626">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#061626">
     <link href="../static/css/reset.css" rel="stylesheet" type="text/css">
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     <link href="../static/css/page.css" rel="stylesheet" type="text/css">
     <script src="../static/js/flexible_css.js"></script>
     <script src="../static/js/flexible.debug.js"></script>
-
 </head>
 <body>
 <div class="so-con">
@@ -34,7 +36,7 @@
                 </div>
             </div>
             <div class="so-l-c-con">
-                <div>
+                <div class="touchleft">
                     <div class="back_home"><a href="../"><span><img src="../static/images/left/icon_home.png"></span><span>返回竞彩大厅</span></a></div>
                     <ul class="all_lottery">
                       <!--  <li>
@@ -143,8 +145,8 @@
                 <li class="so-menu">
                     <img src="../static/images/top/icon-menu.png" class="so-top-menu">
                 </li>
-                <li>
-                    <img src="../static/images/top/logo_cqssc.png" class="so-top-logo">
+                <li class="left_top_logo">
+                    重庆时时彩
                 </li>
                 <li class="purse">
                     <img src="../static/images/top/sjinbi.png" class="so-top-sum">
@@ -220,6 +222,28 @@
                     <li class="active">两面</li>
                     <li>1-5球</li>
                     <li>前中后</li>
+
+                    <!-- <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li>
+                    <li>1-5球</li>
+                    <li>前中后</li> -->
+                    
                 </ul>
             </div>
             <div class="so-con-right bule_bg">
@@ -741,13 +765,13 @@
             <p>已选中<span class="bet-select-num">0</span>注</p>
         </div>
         <!-- <div>
-            <input placeholder="输入金额" type="number">
+             type="number">
             <a>重置</a>
         </div> -->
         <div>
             <form>
-                <input placeholder="输入金额" type="number" class="bet-amount">
-                <input type="reset" value="重置">
+                <input placeholder="输入金额" autocomplete="off" type="tel" class="bet-amount">
+                <input class="reset-action" type="reset" value="重置">
             </form>
         </div>
         <div>
@@ -912,6 +936,7 @@
 <script src="../static/js/common.js"></script>
 <script src="../static/js/config.js"></script>
 <script src="../static/js/index.js"></script>
+<script src="../static/js/iscroll.js"></script>
 <script>
     $(function () {
         var lotteryid = m_lottery_int.s_cqssc_id ; // 彩种id
@@ -928,11 +953,11 @@
             getMemberBalance(lotteryid); // 获取用户余额
             getPlayTree(lotteryid);  // 玩法树，彩种id 为2
         }, 500) ;
-
-
-
     })
 
+    // var myScroll = new IScroll('.touchleft', {
+    //     scrollbars: true
+    // });
 </script>
 
 </body>
