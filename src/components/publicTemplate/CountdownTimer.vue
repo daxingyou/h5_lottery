@@ -73,15 +73,11 @@ export default {
                     this.$emit('spanArrived');
                 }
                 const lt_time_leave = this.lt_time_leave;
-                // console.log('timespan:'+ timeSpan +'; lt_time_leave:'+ lt_time_leave +'; --'+(timeSpan-lt_time_leave))
                 if (timeSpan-lt_time_leave<60*1 && lt_time_leave % 10 == 0){
-                    console.log('10')
                     spanSrrived();
                 } else if (timeSpan-lt_time_leave<60*2 && lt_time_leave % 20 == 0){
-                    console.log('20')
                     spanSrrived();
                 } else if (timeSpan-lt_time_leave<60*3 && lt_time_leave % 30 == 0){
-                    console.log('30')
                     spanSrrived();
                 }else if (lt_time_leave==30){
                     spanSrrived();

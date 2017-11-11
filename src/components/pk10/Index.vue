@@ -64,6 +64,7 @@
                     <CountdownTimer ref="countdownTimer"
                                     @countdownOver="playLottery"
                                     @entertainCountdownOver="entertain"
+                                    @spanArrived="lotteryDataFetch"
                                     :lotteryID="lotteryID"
                                     :now_pcode="now_pcode"
                                     :start="sys_time" :end="now_time" :overend="nowover_time" />
