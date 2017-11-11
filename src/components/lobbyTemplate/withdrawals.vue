@@ -142,11 +142,11 @@ export default {
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if (_self.userMoney == '' || !_self.checkNumber(_self.userMoney)||_self.userMoney == 0) {
+          if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(_self.cashPassword==''||! _self.checkNumber(_self.cashPassword)||_self.cashPassword.length!=4){
+          if(_self.cashPassword==''||! _self.positiveNum(_self.cashPassword)||_self.cashPassword.length!=4){
               _self.$refs.autoCloseDialog.open('请输入4位数字密码');
                 return false
           }
