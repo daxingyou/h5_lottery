@@ -194,7 +194,7 @@ export default {
               },
               error: function (err) {
                  console.log(err);
-                  _self.$refs.autoCloseDialog.open('别瞎搞') ;
+                  _self.$refs.autoCloseDialog.open('绑定失败') ;
               }
           })
       }

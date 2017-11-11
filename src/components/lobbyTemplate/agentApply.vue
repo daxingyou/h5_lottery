@@ -57,7 +57,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="text" v-model="identifyCode" placeholder="请输入验证码" maxlength="4">
-                            <img :src="verImgCode" alt="" @click="switchYzmcode()">
+                               <img :src="verImgCode" alt="" @click="switchYzmcode()">
                         </div>
                          <label class="red"></label>
                     </fieldset>
