@@ -166,7 +166,7 @@ var MyMixin = {
 
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
-            var _slef = this ;
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 // const res = this.testPriodDataNewlyData;
                 $.ajax({
