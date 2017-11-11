@@ -25,7 +25,7 @@
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                          {{getCookie('membalance')}}
+                                       {{Money}}
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ export default {
     data: function() {
         return {
             haslogin:false ,
-            money:this.getCookie('membalance')
+            Money:this.getCookie('membalance')
         }
     },
     created:function () {
@@ -136,11 +136,12 @@ export default {
         if( !_self.haslogin){
             // _self.$refs.autoCloseDialog.open('请先登录！') ;
             window.location = '/login' ;
-        }
+        };
+
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
-
+      this.getMemberBalance();
   },
   methods: {
 

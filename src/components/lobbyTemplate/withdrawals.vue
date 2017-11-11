@@ -158,7 +158,6 @@ export default {
               bankId:_self.bankId,  //银行Id
               bankCard:_self.bankCard, //银行卡号
               realName:_self.realName,//真实姓名
-              remark :'会员提现'
           };
           $.ajax({
               type: 'post',

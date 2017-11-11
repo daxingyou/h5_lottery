@@ -436,7 +436,7 @@ export default {
         }) ;
   },
     methods: {
-      // 获取用户银行信息
+        // 获取用户银行信息
         getUserBankInfo: function() {
           var _self = this;
             $.ajax({
@@ -522,7 +522,7 @@ export default {
                  }
              })
       },
-      //修改交易密码
+        //修改交易密码
         submitChangePayWord : function(){
           var _self=this;
             var oldWord=_self.oldPassword1+_self.oldPassword2+_self.oldPassword3+_self.oldPassword4;
@@ -575,7 +575,7 @@ export default {
               }
           })
       },
-      //修改个人资料
+        //修改个人资料
         editDetails:function () {
             var _self=this;
             _self.showDetail=false

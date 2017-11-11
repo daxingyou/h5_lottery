@@ -2,7 +2,7 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="../">
+                <a href="javascript:;" onclick="history.go(-1)">
                     <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
@@ -15,21 +15,16 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入推荐人帐号">
-                            <i class="close"></i>
+                            <input type="text" v-model="refereeNum"  placeholder="请输入推荐人帐号">
+                            <i class="close cs1" @click=" ClearInput('cs1','reNum')"></i>
                         </div>
                         <!-- <label class="red">请输入4~15位帐号</label> -->
                     </fieldset>
                     <fieldset>
                         <div class="form_g text">
                             <legend>选择银行</legend>
-                            <select name="">
-                                <option value="">中国工商银行</option>
-                                <option value="">农业银行</option>
-                                <option value="">建设银行</option>
-                                <option value="">招商银行</option>
-                                <option value="">中信银行</option>
-                                <option value="">光大银行</option>
+                            <select name="" >
+                                <option :value="banks.id" :data-code="banks.bankCode" v-for="banks in bankList">{{banks.bankName}}</option>
                             </select>
                             <i class="input_select"></i>
                         </div>
@@ -37,31 +32,39 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入帐号">
-                            <i class="close"></i>
+                            <input type="text" v-model="userNumber" placeholder="请输入帐号">
+                            <i class="close cs2" @click=" ClearInput('cs2','userNum')"></i>
                         </div>
-                        <!-- <label class="red">请输入4~15位帐号</label> -->
+                         <label class="red"></label>
+                    </fieldset>
+                    <fieldset v-if="showPd">
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" v-model="userPd" placeholder="请输入密码">
+                            <i class="eye eye1" @click="show('eye1')"></i>
+                        </div>
+                         <label class="red"></label>
+                    </fieldset>
+                    <fieldset v-if="!showPd">
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="text" v-model="userPd" placeholder="请输入密码">
+                            <i class="eye active" @click="show('act')"></i>
+                        </div>
+                         <label class="red"></label>
                     </fieldset>
                     <fieldset>
                         <div class="form_g password">
                             <legend></legend>
-                            <input type="password" placeholder="请输入密码">
-                            <i class="eye"></i>
-                        </div>
-                        <!-- <label class="red">请输入4~15位密码</label> -->
-                    </fieldset>
-                    <fieldset>
-                        <div class="form_g password">
-                            <legend></legend>
-                            <input type="password" placeholder="请输入验证码">
+                            <input type="text" v-model="identifyCode" placeholder="请输入验证码" maxlength="4">
                             <img src="../../../static/images/demo_verifi.png" alt="">
                         </div>
-                        <!-- <label class="red">请输入4~15位密码</label> -->
+                         <label class="red"></label>
                     </fieldset>
                 </form>
                 <div class="agent_check">
                     <input type="checkbox" id="cbox1" value="first_checkbox" checked>
-                    我已届满合法博彩年龄，且已阅读并同意<a class="agent_modal" href="javascript:;" @click="showModel()">《代理注册协议》
+                    我已届满合法博彩年龄，且已阅读并同意<a class="agent_modal" href="javascript:;" @click="show('ag')">《代理注册协议》
                 </a>
                 </div>
                 <div class="btn btn_blue">
@@ -69,9 +72,9 @@
                 </div>
             </div>
         </div>
-        <div id="agent_modal"  class="so-pop-wanfa modal" v-if="!show">
+        <div id="agent_modal"  class="so-pop-wanfa modal" v-if="!showModel">
            <div class="m_content">
-              <h2>代理注册协议<a href="javascript:;" @click="showModel()"></a></h2>
+              <h2>代理注册协议<a href="javascript:;" @click="show('h2')"></a></h2>
                <div class="content">
                   <div class="playtext">
                      <h3>一. 注册规约</h3>
@@ -111,23 +114,77 @@ export default {
   },
     data: function() {
           return {
-           show :true
+           showModel :  true,
+           showPd:true,
+           bankList:'',
+           refereeNum:'',//推荐人账号
+           userNumber:'',//用户帐号
+           userPd:'',//用户密码
+           identifyCode:''//验证码
           }
     },
+    created:function () {
+      var _self=this;
+      _self.getBankList();
+      _self.switchYzmcode();
+    },
     mounted:function() {
-      $('html,body').css('overflow-y','scroll' )  ;
 
-  },
-  methods: {
-   showModel:function (){
-           if(this.show){
-               this.show=false
-           }else {
-               this.show=true
-           }
-   }
+    },
+    methods: {
+      //清除model数据,cl元素class
+       clearVal :function (cl) {
+            if(cl=='reNum'){
+                this.refereeNum='';
+            }
+            if(cl=='userNum'){
+                this. userNumber='';
+            }
+            },
+      //点击显示隐藏
+       show:function(cla){
+       var _self=this
+       if(cla=='eye1'){
+           _self.showPd=false
+       }else if(cla=='act'){
+           _self.showPd=true
+       }else if(cla=='ag'){
+           _self.showModel=false
+       }else if(cla=='h2'){
+           _self.showModel=true
+       }
+       },
+      //获取银行列表
+       getBankList:function(){
+          var _self=this;
+          $.ajax({
+              type:'get',
+              headers: {"Authorization": "bearer  " + this.getAccessToken },
+              url: _self.action.forseti + 'api/payment/banks',
+              data:{},
+              success: function(res){
+                  _self.bankList=res.data;
+              },
+              error: function (err) {
 
-  }
+              }
+          })
+      },
+      //获取验证码
+       switchYzmcode:function () {
+            let _self =this ;
+            let url= _self.action.uaa + 'apis/member/code/get?time='+ Math.random();
+            $.ajax({
+                type:"GET",
+                url:url,
+                success: (data) => {
+                    console.log(data)
+//                    _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
+//                    _self.client = data.data && data.data.clientId || '';
+                }
+            })
+        },
+     }
 
 }
 </script>
