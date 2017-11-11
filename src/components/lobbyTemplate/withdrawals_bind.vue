@@ -134,7 +134,7 @@ export default {
           var _self=this;
           $.ajax({
               type:'get',
-              headers: {"Authorization": "bearer  " + this.getAccessToken },
+//              headers: {"Authorization": "bearer  " + this.getAccessToken },
               url: _self.action.forseti + 'api/payment/banks',
               data:{},
               success: function(res){

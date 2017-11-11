@@ -161,7 +161,7 @@ export default {
           var _self=this;
           $.ajax({
               type:'get',
-              headers: {"Authorization": "bearer  " + this.getAccessToken },
+//              headers: {"Authorization": "bearer  " + this.getAccessToken },
               url: _self.action.forseti + 'api/payment/banks',
               data:{},
               success: function(res){
@@ -179,7 +179,6 @@ export default {
             $.ajax({
                 type:"GET",
                 url:url,
-                headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
                 success: (data) => {
                     _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
                     _self.client = data.data && data.data.clientId || '';
