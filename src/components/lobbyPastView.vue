@@ -239,5 +239,8 @@ export default {
 }
 </script>
 <style scoped>
-
+    .play_th .prd_num{ width: 4.5rem; }
+    #pa_content.lobby_past_view .play_th .prd_num > i {
+        margin-left: -0.3rem;
+    }
 </style>
