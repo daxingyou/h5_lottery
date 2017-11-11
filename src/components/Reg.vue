@@ -80,7 +80,7 @@
                         <div class="form_g password text pay_password">
                             <legend>取款密码</legend>
                             <select autocomplete="off" v-model="withpassword1" class="withpassword1">
-                               <!-- <option>_</option>-->
+                                <option>-</option>
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -93,7 +93,7 @@
                                 <option>9</option>
                             </select>
                             <select  v-model="withpassword2" class="withpassword2">
-                               <!-- <option>_</option>-->
+                                <option>-</option>
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -106,7 +106,7 @@
                                 <option>9</option>
                             </select>
                             <select v-model="withpassword3" class="withpassword3">
-                               <!-- <option>_</option>-->
+                                <option>-</option>
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -119,7 +119,7 @@
                                 <option>9</option>
                             </select>
                             <select v-model="withpassword4" class="withpassword4">
-                               <!-- <option>_</option>-->
+                                <option>-</option>
                                 <option>0</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -260,11 +260,12 @@
 
             // 注册接口 ，除了推荐人，其他必填
             registerAction:function() {
+                var paypassword = this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4 ;
                 if(this.realyname ==''){
                     this.$refs.autoCloseDialog.open('请输入真实姓名') ;
                     return false ;
                 }
-                if(this.withpassword1 ==''|| this.withpassword2 =='' || this.withpassword3 ==''|| this.withpassword4 ==''){
+                if(this.withpassword1 ==''|| !this.positiveNum(this.withpassword1)|| this.withpassword2 =='' || !this.positiveNum(this.withpassword2)|| this.withpassword3 ==''|| !this.positiveNum(this.withpassword3)|| this.withpassword4 =='' || !this.positiveNum(this.withpassword4) ){
                     this.$refs.autoCloseDialog.open('请输入取款密码') ;
                     return false ;
                 }
@@ -291,7 +292,7 @@
                     password: this.password ,  // 用户登录密码
                     realName: this.realyname ,  // 用户真实姓名
                     mobile: this.telephone , // 手机号码
-                    passwordPay: this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4,   //取款密码
+                    passwordPay: paypassword ,   //取款密码
                     code: this.yzmcode ,   // 验证码
                 }
                 console.log( this.client)

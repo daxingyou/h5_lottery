@@ -166,7 +166,7 @@ var MyMixin = {
 
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
-            var _slef = this ;
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 // const res = this.testPriodDataNewlyData;
                 $.ajax({
@@ -490,10 +490,7 @@ var MyMixin = {
             var re = /^[0-9]*$/;
             return re.test(num);
         },
-        checkNumber :function(num) { // 验证数字，包含0
-            var re = /^[0-9]*$/;
-            return re.test(num);
-        },
+
         positiveEngNum:function (val) { // 验证英文与数字或者下划线，帐号验证和密码验证
             var re = /^[A-Za-z0-9|_|]+$/;
             return re.test(val);
@@ -562,7 +559,7 @@ var MyMixin = {
              },
          //验证银行卡号
         checkBankNum: function (val,el,content) {
-            if(val &&!this.checkNumber(val)||val.length<=15||val.length>20){
+            if(val &&!this.positiveNum(val)||val.length<=15||val.length>20){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }
             else{

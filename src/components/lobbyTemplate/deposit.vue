@@ -501,7 +501,9 @@ export default {
                       }
 
                   }else{  // 线上入款失败
-                      win.close() ;
+                      if(type == '1'){
+                          win.close() ;
+                      }
                   }
 
                  /* _self.$refs.autoCloseDialog.open('支付成功','','icon_check','d_check') ;
@@ -544,6 +546,7 @@ export default {
   // 银行转账提交
       submitBankAction:function () {
           var _self = this ;
+          var submitsure = false ;
           if(!_self.bankInfo.bankCode){
               _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
               return false ;
@@ -570,6 +573,9 @@ export default {
               cardOwnerName : userInfo.cardOwnerName ,  // 收款人名字
               flowType : '1' ,  // 入款方式 1-公司转账，2-钱包快充
           }
+          if(submitsure){
+              return false ;
+          }
           $.ajax({
               type: 'post',
               headers: {
@@ -577,7 +583,8 @@ export default {
               },
               url: _self.action.forseti + 'api/pay/offlineOrder',
               data: senddata ,
-              success: function(res){ // bank-underline
+              success: function(res){
+                  submitsure = true ; // 禁止重复提交
                   if(res.err == 'SUCCESS'){
                       _self.$refs.autoCloseDialog.open('存款申请已提交，请牢记以下信息','','icon_check','d_check') ;
                       $('.after_pay').show() ;
