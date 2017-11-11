@@ -162,7 +162,7 @@ export default {
           $.ajax({
               type:'get',
 //              headers: {"Authorization": "bearer  " + this.getAccessToken },
-              url: _self.action.forseti + 'api/payment/banks',
+              url: _self.action.forseti + 'apis/payment/banks',
               data:{},
               success: function(res){
                   _self.bankList=res.data;

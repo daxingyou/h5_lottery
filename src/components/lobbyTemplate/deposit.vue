@@ -422,7 +422,6 @@ export default {
               headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
-             // url: _self.action.forseti + 'api/payment/banks',
               url: _self.action.forseti + 'api/payment/thirdBanks',
               data: { type: type},  // 查询类型：1 扫码支付，2 银行卡支付
               success: function(res){
@@ -447,10 +446,10 @@ export default {
           var _self = this ;
           $.ajax({
               type: 'get',
-              headers: {
+             /* headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
-              },
-              url: _self.action.forseti + 'api/payment/banks',
+              },*/
+              url: _self.action.forseti + 'apis/payment/banks',
               data: { },
               success: function(res){
                   _self.allbanklist = res.data ;
