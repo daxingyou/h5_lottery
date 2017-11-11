@@ -167,15 +167,19 @@ export default {
               data: Withdrawalsdata,
               success: (res) => {
                   //取款密码错误
-                  if(res.msg=="原密码错误"){
+                  if(res.err=='password err'){
                       _self.$refs.autoCloseDialog.open('支付密码错误');
+                      return
+                  }
+                  if(res.err=='update balance fail'){
+                      _self.$refs.autoCloseDialog.open('提款失败');
                       return
                   }
 //                  console.log(res);
                   _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
-                  setTimeout(function(){
-                      window.location = '/lobbyTemplate/info' ;
-                  },2000)
+//                  setTimeout(function(){
+//                      window.location = '/lobbyTemplate/info' ;
+//                  },2000)
               },
               error: (err) =>{
                   _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;

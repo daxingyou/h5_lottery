@@ -57,7 +57,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="text" v-model="identifyCode" placeholder="请输入验证码" maxlength="4">
-                            <img src="../../../static/images/demo_verifi.png" alt="">
+                            <img :src="verImgCode" alt="" @click="switchYzmcode()">
                         </div>
                          <label class="red"></label>
                     </fieldset>
@@ -120,7 +120,9 @@ export default {
            refereeNum:'',//推荐人账号
            userNumber:'',//用户帐号
            userPd:'',//用户密码
-           identifyCode:''//验证码
+           identifyCode:'',//验证码;
+           verImgCode  :'',
+           client:''
           }
     },
     created:function () {
@@ -177,10 +179,10 @@ export default {
             $.ajax({
                 type:"GET",
                 url:url,
+                headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
                 success: (data) => {
-                    console.log(data)
-//                    _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
-//                    _self.client = data.data && data.data.clientId || '';
+                    _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
+                    _self.client = data.data && data.data.clientId || '';
                 }
             })
         },
