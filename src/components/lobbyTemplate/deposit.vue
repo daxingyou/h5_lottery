@@ -309,6 +309,7 @@ import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 // import deposit_bank_transfer from '@/components/lobbyTemplate/deposit_bank_transfer'
  // import '../../../static/js/mobiscroll.js'
+ // import '../../../static/css/mobiscroll.css'
 
 export default {
   name: 'deposit',
