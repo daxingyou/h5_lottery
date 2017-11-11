@@ -500,16 +500,13 @@ export default {
                           scrollTo(0,0);
                       }
 
-                  }else{  // 线上入款失败
-                      if(type == '1'){
+                  }else{
+                      if(type == '1'){  // 线上入款失败
                           win.close() ;
                       }
+                      _self.$refs.autoCloseDialog.open(res.msg) ;
                   }
 
-                 /* _self.$refs.autoCloseDialog.open('支付成功','','icon_check','d_check') ;
-                  setTimeout(function () {
-                      window.location = 'info' ;
-                  },200)*/
               },
               error: function (res) {
                   win.close() ;

@@ -55,10 +55,11 @@
                   <div class="sys-notice">
                       <div class="bd">
                           <ul >
-                              <li><marquee>
-                                  <div class="div">{{bulletins}}</div>
-
-                              </marquee></li>
+                              <li>
+                              <marquee scrollamount="3">
+                                {{bulletins}}
+                              </marquee>
+                              </li>
                                  <!-- <div >
                                       <vue-marquee :content="bulletins" class="two"  :showtwo="false" >
                                       </vue-marquee>

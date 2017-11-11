@@ -15,12 +15,13 @@
                         <ul class="panel">
                             <li class="prod cqssc" >
                                 <div class="play_th">
+                                    {{formatTimeUnlix(list.endTime,0)}}
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{(list.lotteryId == '8')?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
                                     <div class="time timerset" :data-time="0">
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
-                                        {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
+                                        {{ formatTime((format(formatTimeUnlix(list.endTime,0)).getTime() - format(formatTimeUnlix(sys_time),0).getTime())/1000 ,0) }}
                                     </div>
 
                                 </div>
@@ -163,8 +164,8 @@ export default {
                                 break ;
                         }
                     }
-
-                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
+                  console.log(this.sys_time)
+                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime,0)).getTime() - this.format(this.formatTimeUnlix(this.sys_time,0)).getTime()) / 1000) ;
                 }
 
                 this.pastView = data.data ;
