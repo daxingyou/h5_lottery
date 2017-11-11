@@ -14,7 +14,7 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>真实姓名</legend>
-                        <input type="text" name="real-name" v-model="realName" class="realName" disabled="disabled"  placeholder="请输入您的真实姓名"
+                        <input type="text" name="real-name" v-model="realName" class="realName"   placeholder="请输入您的真实姓名"
                                @input="checkrealyName(realName,'realName','请输入您的真实姓名')">
                         <i class="close close1" ></i>
                     </div>
