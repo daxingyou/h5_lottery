@@ -7,7 +7,7 @@
                     <img src="/static/images/back.png" alt="">
                 </a>
             </router-link>
-            <h2 class="center">投注详情</h2>
+            <h2 class="center">{{parentData.tradeTypeConfig[model.tradeType].name || '-'}}详情</h2>
             <div class="right"></div>
         </header>
         <div class="content">
@@ -22,7 +22,7 @@
                                             <th> 
                                                 <li>时间</li>
                                             </th>
-                                            <td>{{(model && model.tradeTime) || '1990-1-1 00:00'}}<!-- 2017/07/04 10:22 --></td>
+                                            <td>{{(model && model.createTime) || '1990-1-1 00:00'}}<!-- 2017/07/04 10:22 --></td>
                                         </tr>
                                         <tr>
                                             <th>
@@ -32,9 +32,9 @@
                                         </tr>
                                         <tr>
                                             <th>
-                                                <li>游戏名称</li>
+                                                <li>帐变方式</li>
                                             </th>
-                                            <td>{{model.lotteryName || '-'}}<!-- 重庆时时彩 --></td>
+                                            <td>{{model.actionTypeName || '-'}}<!-- 重庆时时彩 --></td>
                                         </tr>
                                         <tr>
                                             <th>
@@ -42,7 +42,7 @@
                                             </th>
                                             <td>
                                                 <!-- class="sta sta03" -->
-                                                <label  :class="'sta '+ parentData.statusConfig[model.state]">{{model.stateName}}<!-- 失败 --></label>
+                                                <label  :class="'sta '+ (parentData.statusConfig[model.state] && parentData.statusConfig[model.state].class)">{{parentData.statusConfig[model.state].name}}<!-- 失败 --></label>
                                             </td>
                                         </tr>
                                         <tr>

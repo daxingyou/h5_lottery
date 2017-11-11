@@ -25,16 +25,16 @@
                             <ul class="panel">
                                 <li class="bet_data ac_data" data-status="not_open" v-for="item in day.list">
                                     <router-link :to="{ name:'acDetailData', params:{ model:item, data:$data} }">
-                                        <div class="prd_num"><span>{{item.tradeTime || '1990/1/1 00:00'}}</span></div>
+                                        <div class="prd_num"><span>{{item.createTime || '1990/1/1 00:00'}}</span></div>
                                         <div class="item">
                                             <div class="icon">
                                                 <div>
-                                                    <i :class="'ac ' + (actionTypeConfig[item.actionType] || 'ac01')"></i>
+                                                    <i :class="'ac ' + (tradeTypeConfigItemGet(item).class || 'ac01')"></i>
                                                 </div>
                                             </div>
                                             <div class="lottery_t ssc">
-                                                <p>{{item.lotteryName || '-'}}<label :class="'sta '+ statusConfig[item.state]">{{item.stateName}}</label></p>
-                                                <strong>充值: {{item.tradeAmount || '0.00'}}</strong>
+                                                <p>{{item.lotteryName || '-'}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{(statusConfig[item.state] && statusConfig[item.state].name)}}</label></p>
+                                                <strong>充值: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
                                             </div>
                                         </div>
                                     </router-link>
@@ -67,26 +67,42 @@ export default {
     data: function() {
         return {
             // tabs:,
+            tradeTypeConfig:{ 
+                '1':{ name:'公司入款', class:'ac03' }, 
+                '3':{ name:'线上入款', class:''}, 
+                '5':{ name:'人工入款', class:'ac01'}, 
+                '7':{ name:'会员出款', class:'ac03'}, 
+                '8':{ name:'人工提款', class:'ac02'} 
+            }, 
             actionTypeConfig:{
-                '1':'ac03', //派奖
-                '2':'ac01', //人工入款
-                '3':'', //公司入款
-                '4':'ac02', //人工提款
-                '5':'', //会员出款
+                '1':{ class:'ac03', name:'派奖' }, 
+                '2':{ class:'ac01', name:'人工入款' }, 
+                '3':{ class:'ac03', name:'公司入款' }, 
+                '4':{ class:'ac02', name:'人工提款' }, 
+                '5':{ class:'ac03', name:'会员出款' }, 
             },
             activeTab:{ value:1, days:[] }, //当前选项卡
-            statusConfig:{
-                '0':'sta02', //'未付款', 
-                '1':'sta02',    //'用户取消', 
-                '2':'sta03',    //'系统拒绝', 
-                '3':'sta03',        //'系统取消', 
-                '4':'sta01',        //'系统通过', //(已成功)
-                '5':'sta03',    //'异常订单'
-                //0-未付款，1-用户取消，2-系统拒绝，3，系统取消，4-系统通过(已成功)，5-异常订单
-                // '成功':'sta01', 
-                // '处理中':'sta02', 
-                // '失败':'sta03', 
+            statusConfig:{ 
+                '0':{ name:'未付款',class:'sta02'}, 
+                '2':{name:'已取消',class:'sta02'}, 
+                '3':{name:'已拒绝',class:'sta03'}, 
+                '4':{name:'已通过',class:'sta01'}, 
+                '5':{name:'已锁定',class:'sta03'} 
             }
+            // statusConfig:{ '1':'公司入款', '3':'线上入款', '5':'人工入款', '7':'会员出款', '8':'人工提款' }
+
+            // {
+            //     '0':'sta02', //'未付款', 
+            //     '1':'sta02',    //'用户取消', 
+            //     '2':'sta03',    //'系统拒绝', 
+            //     '3':'sta03',        //'系统取消', 
+            //     '4':'sta01',        //'系统通过', //(已成功)
+            //     '5':'sta03',    //'异常订单'
+            //     //0-未付款，1-用户取消，2-系统拒绝，3，系统取消，4-系统通过(已成功)，5-异常订单
+            //     // '成功':'sta01', 
+            //     // '处理中':'sta02', 
+            //     // '失败':'sta03', 
+            // }
         }
     },
     computed:{
@@ -106,8 +122,15 @@ export default {
         this.loadTab(tab);
     },
     methods: {
+        tradeTypeConfigItemGet:function(item){
+            return this.tradeTypeConfig[item.tradeType] || {};
+        },
         loadTab:function(tab){
             tab.days.length<=0 && this.getDays(tab.value).then(res=>{
+                if (!res.data){
+                    tab.days = [];
+                    return false;
+                }
                 tab.days = res.data.map((item,index)=>{ 
                     if (index == 0){
                         item.active = true; 
