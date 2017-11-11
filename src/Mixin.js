@@ -242,7 +242,7 @@ var MyMixin = {
                     //代码
                 })
         */
-        getSystemTime:function() {
+        getSystemTime:function(nochange) {
             var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
@@ -253,7 +253,12 @@ var MyMixin = {
                     url: this.action.forseti + 'apis/serverCurrentTime',
                     data: {},
                     success: (res) => {
-                        const sys_time = _self.formatTimeUnlix(res.data);
+                        if(nochange =='0'){
+                            var sys_time = res.data;
+                        }else{
+                            var sys_time = _self.formatTimeUnlix(res.data);
+                        }
+
                         resolve(sys_time);
                     },
                     error: function (e) {
@@ -326,7 +331,7 @@ var MyMixin = {
             return i
         } ,
         // 时间戳转换
-        formatTimeUnlix:function (v,type) {
+        formatTimeUnlix:function (v) {
             if (v == null) {
                 return '';
             }
@@ -337,26 +342,22 @@ var MyMixin = {
             var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
             var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-            if(type =='0'){ // 为了解决ie ,ios 显示 NaN 的问题
-                return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-            }else{
-                return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-            }
-          //  return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+           return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
         // 倒计时处理
         formatTime:function(second, type) {
             var bk;
             if (type == 0) {
-               // var h = parseInt(second / 3600);
-                var h = Math.floor(second / 3600);
-               // var f = parseInt(second % 3600 / 60);
-                var f = Math.floor((second - (h * 60 * 60)) / 60);
-               // var s = parseInt(second % 60);
-                var s = (second - (h * 60 * 60) - (f * 60));
-                second --;
-             bk = '0'+h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
-               // bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+                var h = parseInt(second / 3600);
+               // var h = Math.floor(second / 3600);
+                var f = parseInt(second % 3600 / 60);
+               // var f = Math.floor((second - (h * 60 * 60)) / 60);
+                var s = parseInt(second % 60);
+              //  var s = (second - (h * 60 * 60) - (f * 60));
+              // second --;
+              bk = '0'+h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+              // bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
             } else {
                 bk = second.split(":");
                 bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
@@ -368,7 +369,7 @@ var MyMixin = {
         },
 
         format:function(dateStr) {  //格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
+           return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
         },
         diff:function (t) {  //根据时间差返回相隔时间
             return t > 0 ? {

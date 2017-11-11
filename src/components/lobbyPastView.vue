@@ -15,7 +15,6 @@
                         <ul class="panel">
                             <li class="prod cqssc" >
                                 <div class="play_th">
-                                    {{formatTimeUnlix(list.endTime,0)}}
                                     <div class="prd_num"><i class="prd"></i><span>{{list.lotteryName}}</span></div>
                                     <div class="prd_num02">第{{(list.lotteryId == '8')?list.issueAlias :list.pcode}}期</div>
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
@@ -164,7 +163,7 @@ export default {
                                 break ;
                         }
                     }
-                  console.log(this.sys_time)
+                   // console.log(this.sys_time)
                     $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime,0)).getTime() - this.format(this.formatTimeUnlix(this.sys_time,0)).getTime()) / 1000) ;
                 }
 
@@ -180,8 +179,8 @@ export default {
 
       lobbytimerBegin:function(){
           var that = this;
-          that.getSystemTime().then(sys_time=>{
-              that.sys_time = sys_time;
+          that.getSystemTime('0').then(sys_time=>{
+              that.sys_time = sys_time ;
               that.doubleCount('') ;
              // console.log(that.sys_time)
 
@@ -194,7 +193,7 @@ export default {
       gameTimer:function () {
               //倒计时定时器
               var that = this ;
-              this.gametimerInt = setInterval(function() {
+              this.gametimerInt = window.setInterval(function() {
                   var $obj_nav_span = $(".timerset");
                   for (var i = 0; i < $obj_nav_span.length; i++) {
                       var _times = "";
