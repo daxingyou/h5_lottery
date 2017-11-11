@@ -422,8 +422,14 @@ export default {
                   }
                 _self.banklist = res.data ;
               },
-              error: function (res) {
-
+              error: function (e) {
+                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                      _self.clearAllCookie() ;
+                      setTimeout(function () {
+                          window.location = '/login' ;
+                      },300)
+                      return false ;
+                  }
               }
           });
       },
@@ -440,8 +446,14 @@ export default {
               success: function(res){
                   _self.allbanklist = res.data ;
               },
-              error: function (res) {
-
+              error: function (e) {
+                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                      _self.clearAllCookie() ;
+                      setTimeout(function () {
+                          window.location = '/login' ;
+                      },300)
+                      return false ;
+                  }
               }
           });
       },
@@ -457,7 +469,7 @@ export default {
               realName : '' ,  // 真实姓名
               flowType : '3' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
-          if(type == '1'){
+          if(type == '1'){ // 线上付款
               var win = _self.openGame() ;
           }
           $.ajax({
@@ -469,7 +481,7 @@ export default {
               data: senddata ,
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
-                      if(type == '1'){
+                      if(type == '1'){ // 线上付款
                           var loadStr = res.data.html ;
                           win.document.write(loadStr) ;
                       }
@@ -504,8 +516,14 @@ export default {
                 _self.userInfo = res.data ;
                 console.log(_self.userInfo)
               },
-              error: function (res) {
-
+              error: function (e) {
+                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                      _self.clearAllCookie() ;
+                      setTimeout(function () {
+                          window.location = '/login' ;
+                      },300)
+                      return false ;
+                  }
               }
           });
       },

@@ -90,7 +90,7 @@ var MyMixin = {
                 },
                 error: function (e) {
                     if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                        _self.clearAllCookie() ;
+                        this.clearAllCookie() ;
                         setTimeout(function () {
                             window.location = '/login' ;
                         },300)
@@ -136,6 +136,7 @@ var MyMixin = {
 
         // 玩法树
         loadPlayTree:function(gameid) {
+            var _slef = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
@@ -165,12 +166,13 @@ var MyMixin = {
 
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
+            var _slef = this ;
             return new Promise((resolve, reject)=>{
                 // const res = this.testPriodDataNewlyData;
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken,
+                        "Authorization": "bearer  " + _self.getAccessToken,
                     },
                     url: this.action.forseti + 'api/priodDataNewly',
                     data: {lotteryId: gameid,},
@@ -201,6 +203,7 @@ var MyMixin = {
 
         // 获取用户余额
         getMemberBalance:function (lotteryid) {
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'GET',

@@ -154,31 +154,6 @@
 
                 /* })*/
             },
-            // 获取用户余额
-            getMemberBalance:function (lotteryid) {
-                return new Promise((resolve)=>{
-                    $.ajax({
-                        type: 'GET',
-                        headers: {
-                            "Authorization": "bearer  " + this.getAccessToken,
-                        },
-                        // dataType:'json',
-                        // contentType:"application/json; charset=utf-8",  // json格式传给后端
-                        url: this.action.hermes + 'api/balance/get',
-                        data: { lotteryId: lotteryid },
-                        success: (res) => {
-                            this.balanceData = res.data;
-                            var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
-                            this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
-                            resolve();
-                        },
-                        error: function () {
-
-                        }
-                    });
-
-                })
-            },
 
         },
 
