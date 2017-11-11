@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
@@ -280,7 +280,7 @@ export default {
         lotteryID: 2 ,
         allLottery:{} ,
         gameHref:{} ,
-        kinds:['两面', '1-5球', '前中后'],
+        kinds:['两面', '1-5球', '前中后']
 
     }
   },
@@ -318,7 +318,7 @@ export default {
     },
     frontCenterBackList:function(){
         return this.getListByParentID(23000);
-    },
+    }
   },
   methods:{
     switchTab:function(e){

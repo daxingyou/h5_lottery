@@ -29,7 +29,7 @@
                         </div>
 
                     </div>
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer"
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
