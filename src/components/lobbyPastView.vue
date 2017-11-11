@@ -41,7 +41,8 @@
                                 </ul>
 
                                 <div class="function_btn">
-                                    <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
+                                    <router-link class="bell btn btn_outline" to="publicTemplate/pastView" @click.native="setActionToView(list.lotteryId,gameName[list.lotteryId])"><i></i>往期开奖</router-link>
+                                   <!-- <a class="bell btn btn_outline" href="publicTemplate/pastView" @click="setActionToView(list.lotteryId,gameName[list.lotteryId])"><i></i>往期开奖</a>-->
                                     <router-link class="check btn btn_blue" :to="'/'+gameHref[list.lotteryId]"><i></i>立即投注</router-link>
                                 </div>
                             </li>
@@ -91,18 +92,28 @@ export default {
                 "2":"cqssc",
                 "12":"cqssc/tianJinIndex",
                 "14":"cqssc/xinJiangIndex",
-
                 "4":"jc11x5",     //江西11选5
                 "18":"jc11x5/sd11x5Index",  //山东11选5
                 "16":"jc11x5/gd11x5Index",  //广东11选5
-
                 "8":"pk10",
-
                 "6":"k3/",  //江苏快3
                 "20":"k3/anHuiK3Index",
                 "22":"k3/huBeiK3Index",
 
             }, // 对应彩种的id
+            gameName : {
+                "2":"重庆时时彩",
+                "12":"天津时时彩",
+                "14":"新疆时时彩",
+                "4":"江西11选5",     //江西11选5
+                "18":"山东11选5",  //山东11选5
+                "16":"广东11选5",  //广东11选5
+                "8":"北京PK10",
+                "6":"江苏快3",  // 江苏快3
+                "20":"安徽快3",
+                "22":"湖北快3",
+
+            }, // 对应彩种的名称
 
         }
     },
@@ -127,9 +138,17 @@ export default {
 
   },
   methods:{
-    /*
-    * 近期开奖数据，近期开奖页面
-    * */
+      /*
+       * 跳转往期开奖处理
+       *  */
+      setActionToView:function (lotteryid,name) {
+          this.setCookie('lt_lotteryid',lotteryid) ; // 彩种 id 设置
+          this.setCookie('lottery_name',name) ;
+      },
+
+      /*
+      * 近期开奖数据，近期开奖页面
+      * */
     doubleCount:function (maxtime) {
         var senddata ={
             sideType: '2' , // 1官彩，2双面彩

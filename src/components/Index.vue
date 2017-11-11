@@ -30,12 +30,7 @@
                           </a>
                       </li>
                   </ul>
-                <!--  <ul>
-                      <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>
-                  <ul>
-                      <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>-->
+
               </div>
               <div class="hd">
                   <ul>
@@ -177,12 +172,6 @@ export default {
            vis: 1,
            interTime: 50
        });*/
-
-
-
-
-
-
 
   },
   methods:{
