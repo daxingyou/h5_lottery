@@ -144,7 +144,7 @@
                                     <div>
                                         <h2>{{kind.name}}</h2>
                                         <div>
-                                            <BallItem v-for="subItem in continueNumberSubList" 
+                                            <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList" 
                                                 :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }" 
                                                 @selected="continueNumberSelect" 
                                                 @unSelected="continueNumberUnSelect" />
