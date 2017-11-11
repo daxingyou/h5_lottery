@@ -476,7 +476,7 @@ export default {
               paymentType: '' ,  // 支付方式/银行代码(对应payment_type_id和bank_code)
               paymentTypeName: '' ,  // 支付名称/银行名称(对应payment_type_name/bank_name)
               realName : '' ,  // 真实姓名
-              flowType : '3' ,  // 入款方式 3-银行第三方支付，4-快捷支付
+              flowType : '4' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
           if(type == '1'){ // 线上付款
               var win = _self.openGame() ;
