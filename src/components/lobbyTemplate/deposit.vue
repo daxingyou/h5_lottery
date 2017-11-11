@@ -86,37 +86,43 @@
                     <!-- 网银支付结束 -->
                     <!-- 扫码支付开始  -->
                     <div class="webbank_scan_all" style="display: none ;">
-                        <form class="form_deposit">
-                            <fieldset>
-                                <div class="form_g text money">
-                                    <legend>充值金额</legend>
-                                    <input type="tel" placeholder=" " v-model="paymount" readonly>
-                                    <!--  <i class="close"></i>-->
+                        <div class="before-scan">
+                            <form class="form_deposit">
+                                <fieldset>
+                                    <div class="form_g text money">
+                                        <legend>充值金额</legend>
+                                        <input type="tel" placeholder=" " v-model="paymount" readonly>
+                                        <!--  <i class="close"></i>-->
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <div class="step03 scan_qrcoder">
+                                <h5>支付方式</h5>
+                                <ul>
+                                    <li class="btn_pay wechat_q" v-for="list in banklist">
+                                        <a href="javascript:;" @click="submitOnlinePay(list.bankCode,'3')">
+                                            <img v-lazy="list.img" alt="">
+                                            <span>{{list.bankName}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="after-scan" style="display: none;">
+                            <div class="scan_code">
+                                <div class="qrcode_step">
+                                    <div class="qrcode qrode_success">
+                                       <!-- <img src="/static/images/qrcode.jpg" alt="">-->
+                                        <img v-lazy="scanImg" alt="">
+                                    </div>
+                                    <div class="step">
+                                        1.请截屏或长按保存页面上的二维码图片到手机<br/>
+                                        2.打开微信找到“扫一扫”进入<br/>
+                                        3.进入后点击右上角从"相册选取"选择最新的二维码图片<br/>
+                                        4.完成支付后回到网站内检查余额<br/>
+                                    </div>
                                 </div>
-                            </fieldset>
-                        </form>
-                        <div class="step03 scan_qrcoder">
-                            <h5>支付方式</h5>
-                            <ul>
-                                <li class="btn_pay wechat_q" v-for="list in banklist">
-                                    <a href="javascript:;" @click="submitOnlinePay(list.bankCode,'3')">
-                                        <img v-lazy="list.img" alt="">
-                                        <span>{{list.bankName}}</span>
-                                    </a>
-                                </li>
-                              <!--  <li class="btn_pay alipay_q">
-                                    <a href="javascript:;">
-                                        <img src="/static/images/info_bank_04.png" alt="">
-                                        <span>支付宝二维码</span>
-                                    </a>
-                                </li>
-                                <li class="btn_pay alipay">
-                                    <a href="javascript:;">
-                                        <img src="/static/images/info_bank_07.png" alt="">
-                                        <span>支付宝App</span>
-                                    </a>
-                                </li>-->
-                            </ul>
+                            </div>
                         </div>
                     </div>
                     <!-- 扫码支付结束  -->
@@ -141,6 +147,7 @@
                                     <div class="form_g text">
                                         <legend>选择银行</legend>
                                         <select name="" v-model="bankInfo.bankCode">
+                                            <option value="" >请选择</option>
                                             <option :value="bank.bankCode" v-for="bank in allbanklist">{{bank.bankName}}</option>
                                         </select>
                                     </div>
@@ -205,6 +212,7 @@
                                     <div class="form_g text">
                                         <legend id="bank">存款方式</legend>
                                         <select class="transparent" name="" v-model="bankval">   1网银存款,2支付宝支付,3微信支付,4柜员机现金存款,5柜员机转账,6银行柜台存款,7其他支付
+                                            <option value="">请选择</option>
                                             <option value="1">网银存款</option>
                                             <option value="2">支付宝电子支付</option>
                                             <option value="3">微信电子支付</option>
@@ -217,7 +225,7 @@
                                     </div>
                                 </fieldset>
                                 <div class="btn btn_blue">
-                                    <a href="javascript:;" @click="submitBankActtion()">确定充值</a>
+                                    <a class="bank-underline" href="javascript:;" @click="submitBankAction()">确定充值</a>
                                 </div>
                             </div>
                             <!-- 提交存款成功后 -->
@@ -317,6 +325,7 @@ export default {
             allbanklist: {} ,  // 所有银行列表
             userInfo: {} ,  // 收款帐号个人资料
             banksavename: '' ,  // 银行转账存款人
+            scanImg: '' ,  // 扫码支付二维码
             bankval: '' ,  // 银行转账方式
             bankInfo: {
                 bankCode: '', // 默认工商银行
@@ -484,9 +493,14 @@ export default {
                       if(type == '1'){ // 线上付款
                           var loadStr = res.data.html ;
                           win.document.write(loadStr) ;
+                      }else if(type == '3'){  // 扫码支付
+                          _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                          $('.after-scan').show() ;
+                          $('.before-scan').hide() ;
+                          scrollTo(0,0);
                       }
 
-                  }else{
+                  }else{  // 线上入款失败
                       win.close() ;
                   }
 
@@ -528,7 +542,7 @@ export default {
           });
       },
   // 银行转账提交
-      submitBankActtion:function () {
+      submitBankAction:function () {
           var _self = this ;
           if(!_self.bankInfo.bankCode){
               _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
@@ -563,11 +577,14 @@ export default {
               },
               url: _self.action.forseti + 'api/pay/offlineOrder',
               data: senddata ,
-              success: function(res){
-                  _self.$refs.autoCloseDialog.open('存款申请已提交，请牢记以下信息','','icon_check','d_check') ;
-                  $('.after_pay').show() ;
-                  $('.before_pay').hide() ;
-                  scrollTo(0,0);
+              success: function(res){ // bank-underline
+                  if(res.err == 'SUCCESS'){
+                      _self.$refs.autoCloseDialog.open('存款申请已提交，请牢记以下信息','','icon_check','d_check') ;
+                      $('.after_pay').show() ;
+                      $('.before_pay').hide() ;
+                      scrollTo(0,0);
+                  }
+
                   _self.$nextTick(function () { // 支付成功后
                       $('.bank-save-time').text($('#paydate').val()) ;
                       $('.bank-save-type').text($('.transparent').find('option:selected').text()) ;
