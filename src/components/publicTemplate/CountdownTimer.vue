@@ -60,7 +60,7 @@ export default {
             const theStart = start ? start : this.start;
             const theEnd = end ? end : this.end;
             const theOverend = overend ? overend : this.overend;
-            this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
+            let timeSpan = this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
@@ -73,12 +73,15 @@ export default {
                     this.$emit('spanArrived');
                 }
                 const lt_time_leave = this.lt_time_leave;
-                // console.log('--'+lt_time_leave)
-                if (lt_time_leave>60*8 && lt_time_leave % 10 == 0){
+                // console.log('timespan:'+ timeSpan +'; lt_time_leave:'+ lt_time_leave +'; --'+(timeSpan-lt_time_leave))
+                if (timeSpan-lt_time_leave<60*1 && lt_time_leave % 10 == 0){
+                    console.log('10')
                     spanSrrived();
-                } else if (lt_time_leave>60*7 && lt_time_leave % 20 == 0){
+                } else if (timeSpan-lt_time_leave<60*2 && lt_time_leave % 20 == 0){
+                    console.log('20')
                     spanSrrived();
-                } else if (lt_time_leave>60*3 && lt_time_leave % 30 == 0){
+                } else if (timeSpan-lt_time_leave<60*3 && lt_time_leave % 30 == 0){
+                    console.log('30')
                     spanSrrived();
                 }else if (lt_time_leave==30){
                     spanSrrived();
