@@ -33,7 +33,7 @@
                                                 </div>
                                             </div>
                                             <div class="lottery_t ssc">
-                                                <p>{{item.lotteryName || '-'}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{(statusConfig[item.state] && statusConfig[item.state].name)}}</label></p>
+                                                <p>{{tradeTypeConfigItemGet(item).name || '-'}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{(statusConfig[item.state] && statusConfig[item.state].name)}}</label></p>
                                                 <strong>充值: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
                                             </div>
                                         </div>
