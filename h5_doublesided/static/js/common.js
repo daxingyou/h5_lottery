@@ -438,11 +438,19 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 
         });
     }
-   alert('好两块')
-    document.addEventListener('visibilitychange', function () {
-        alert('辅导费');
 
-    })
+/*    document.addEventListener('visibilitychange', function () {
+       // alert('辅导费');
+        // 页面变为不可见时触发
+        if (document.visibilityState == 'hidden') {
+           // alert('隐藏');
+        }
+        // 页面变为可见时触发
+        if (document.visibilityState == 'visible') {
+            alert('显示');
+        }
+
+    }) ;*/
     var timerno = window.setInterval(function () {
 
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
