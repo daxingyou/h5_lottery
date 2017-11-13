@@ -49,14 +49,13 @@ export default {
 
     },
     mounted:function() {
-        $(document).on('visibilitychange', () => {
+        var that = this;
+        $(document).on('visibilitychange', (function() {
             // 页面变为可见时触发
             if (document.visibilityState == 'visible') {
-                this.$emit('spanArrived');
+                that.$emit('spanArrived');
             }
-
-        });
-        // document.addEventListener(, );
+        }).bind(this));
     },
     beforeDestroy:function(){
         clearInterval(this.timer);
