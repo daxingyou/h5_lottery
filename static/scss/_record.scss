@@ -51,7 +51,7 @@
     background-color: rgba(#0a1625, .85);
     //固定tab在上方
     position: fixed;
-    top: 1.5rem;
+    //top: 1.5rem;
     z-index: 5;
     width: 10rem;
     left: inherit;
@@ -402,7 +402,7 @@ i.prd{
         background-color: #0f1520;
         @include border-radius(.2rem);
         border: 1px solid #679edf;
-        box-shadow:0px 0px 15px rgba(#679edf, 0.9);
+        box-shadow:0px 0px 5px rgba(#679edf, 0.9);
         padding: .2rem .3rem .2rem;
         font-size: .4rem;
         >.prod{
@@ -659,10 +659,16 @@ i.prd{
     // -webkit-overflow-scrolling: touch;
     &.ac_detial_area{
         //margin-top: 3rem;
-        padding-top: .2rem;
+        //padding-top: .2rem;
     }
     .hd{
         height: 1rem;
+        position: relative;
+        z-index: 51;
+        top:0;
+        width: 10rem;
+        padding-bottom: .5rem;
+        margin-bottom: 0;
     }
     // .bd{
     //     margin-top: 2rem;

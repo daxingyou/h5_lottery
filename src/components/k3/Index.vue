@@ -20,10 +20,10 @@
                                     <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li> 
                                 </ul>
                             </div>
-                            <div class="last-open-k3dou">
-                                <ul class="k3_top_detail">
-                                    <li>{{lastTermStatic.sizer}}</li>
+                            <div class="last-open-k3dou last-open-dou">
+                                <ul class="k3_top_detail ">
                                     <li>{{lastTermStatic.total}}</li>
+                                    <li>{{lastTermStatic.sizer}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -312,7 +312,7 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                             that.next_pcode = res.data[0].pcode;  // 下期期数
                             that.now_pcode = res.data[1].pcode;  // 当前期数
-                            that.previous_pcode = res.data[2].pcode;  // 上期期数
+
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
                             // 当前期封盘时间
@@ -321,12 +321,19 @@
                             that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
                             let code = res.data[2].winNumber;
                             //code 上期开奖号码
+
                             if (!code) {
-                                code = '-,-,-,-,-';
+                                // code = '-,-,-,-,-';
+                                that.winNumber = res.data[3].winNumber;
+                                that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[3].pcode;  // 上期期数
+                            }else{
+                                that.winNumber = res.data[2].winNumber;
+                                that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[2].pcode;  // 上期期数
                             }
-                            that.winNumber = code;
-                            //上期开奖统计
-                            that.lastTermStatic = res.data[2].doubleData;
+                           // that.winNumber = code;
+
                             resolve();
                         });
                     }); 

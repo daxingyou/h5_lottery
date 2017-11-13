@@ -435,7 +435,7 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                             that.next_pcode = res.data[0].pcode;  // 下期期数
                             that.now_pcode = res.data[1].pcode;  // 当前期数
-                            that.previous_pcode = res.data[2].pcode;  // 上期期数
+
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
                             // 当前期封盘时间
@@ -445,11 +445,16 @@
                             let code = res.data[2].winNumber;
                             //code 上期开奖号码
                             if (!code) {
-                                code = '-,-,-,-,-';
+                                // code = '-,-,-,-,-';
+                                that.winNumber = res.data[3].winNumber;
+                                that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[3].pcode;  // 上期期数
+                            }else{
+                                that.winNumber = res.data[2].winNumber;
+                                that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[2].pcode;  // 上期期数
                             }
-                            that.winNumber = code;
-                            //上期开奖统计
-                            that.lastTermStatic = res.data[2].doubleData;
+
                             resolve();
                         });
                     }); 
@@ -495,7 +500,8 @@
                     this.betSelectedList.push(item);
                 }else{
                     callback(false);
-                    this.$refs.infoDialog.open('不允许超过'+max+'个选项', 'title_quantity');
+                    // 请选择1个选项
+                    this.$refs.infoDialog.open('请选择'+max+'个选项', 'title_quantity');
                 }
                 this.combineCountCaculate(item);
                 

@@ -291,8 +291,9 @@ input,select,button,a{
     margin-top: 1.5rem;
     position: relative;
     z-index: 2;
+    padding-top: .9rem;
     #road01{
-        margin-top: 2rem;
+        //margin-top: 2rem;
     }
     &.lobby_past_view{
         //margin-top: 2rem;
@@ -300,6 +301,12 @@ input,select,button,a{
         .play_th .prd_num > i{
             margin-left: -.9rem;
         }
+        #betting_record{
+            margin-top: auto;
+        }
+    }
+    #betting_record{
+        margin-top: -.9rem;
     }
 }
 // 中間區塊

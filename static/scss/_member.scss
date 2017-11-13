@@ -106,6 +106,7 @@ fieldset{
         z-index: 1000;
     }
     &.pay_password{
+        white-space: nowrap;
         >legend{
             background-image: none;
             width: 1.5rem;
@@ -120,20 +121,35 @@ fieldset{
                 border-right:1px solid $normalblue;
             }
         }
-        >select{
-            width: 1.54rem;
-            display: block;
-            border-right:1px solid $normalblue;
+        .select_inline{
+            display: inline-block;
             text-align: center;
-            text-align-last: center;
-            padding: 0 .3rem;
-            box-sizing: border-box;
-            height: .5rem;
+            border-right:1px solid $normalblue;
             margin: 0.25rem 0;
-            line-height: 0.3rem;
-            border-radius: 0;
-            &:last-child{
-                border-right: none;
+            width: 1.63rem;
+            height: 0.5rem;
+            &:first-of-type{
+                margin-left: -0.3rem;
+            }
+            &:last-of-type{
+                border-right: 0;
+                margin-right: -0.3rem;
+            }
+            >select{
+                // width: 1.54rem;
+                display: block;
+                width: auto;
+                margin: 0px auto;
+                text-align: center;
+                text-align-last: center;
+                padding: 0 .5rem;
+                box-sizing: border-box;
+                height: .5rem;
+                line-height: 0.5rem;
+                border-radius: 0;
+                appearance:none;
+                -moz-appearance:none;
+                -webkit-appearance:none;
             }
         }
     }

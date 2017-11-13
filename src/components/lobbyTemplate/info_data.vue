@@ -193,6 +193,7 @@
                         <fieldset>
                             <div class="form_g password text pay_password">
                                 <legend>原密码</legend>
+                                <div class="select_inline">
                                 <select v-model="oldPassword1">
                                     <option>-</option>
                                     <option>0</option>
@@ -206,6 +207,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model="oldPassword2">
                                     <option>-</option>
                                     <option>0</option>
@@ -219,6 +222,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model=" oldPassword3">
                                     <option>-</option>
                                     <option>0</option>
@@ -232,6 +237,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model=" oldPassword4">
                                     <option>-</option>
                                     <option>0</option>
@@ -245,12 +252,14 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
                         <fieldset>
                             <div class="form_g password text pay_password">
                                 <legend>新密码</legend>
+                                <div class="select_inline">
                                 <select v-model=" newPassword1">
                                     <option>-</option>
                                     <option>0</option>
@@ -264,6 +273,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model="newPassword2">
                                     <option>-</option>
                                     <option>0</option>
@@ -277,6 +288,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model=" newPassword3">
                                     <option>-</option>
                                     <option>0</option>
@@ -290,6 +303,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select  v-model=" newPassword4">
                                     <option>-</option>
                                     <option>0</option>
@@ -303,12 +318,14 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
                         <fieldset>
                             <div class="form_g password text pay_password">
                                 <legend>确认密码</legend>
+                                <div class="select_inline">
                                 <select v-model=" newPassword_confirm1">
                                     <option>-</option>
                                     <option>0</option>
@@ -322,6 +339,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model=" newPassword_confirm2">
                                     <option>-</option>
                                     <option>0</option>
@@ -335,6 +354,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model="newPassword_confirm3">
                                     <option>-</option>
                                     <option>0</option>
@@ -348,6 +369,8 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
+                                <div class="select_inline">
                                 <select v-model=" newPassword_confirm4">
                                     <option>-</option>
                                     <option>0</option>
@@ -361,6 +384,7 @@
                                     <option>8</option>
                                     <option>9</option>
                                 </select>
+                                </div>
                             </div>
                             <!--<label class="error-message "></label>-->
                         </fieldset>
