@@ -625,6 +625,10 @@ export default {
               url: _self.action.uaa + 'api/data/member/chgInfo',
               data: EditData,
               success: (res) => {
+                   if(res.err=='INPUT_ERR'){
+                       _self.$refs.autoCloseDialog.open('请输入按正确格式输入') ;
+                       return
+                   }
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;

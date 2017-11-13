@@ -25,7 +25,7 @@
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                       {{Money}}
+                                       {{fortMoney(roundAmt(Money), 2)}}
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,9 @@ export default {
     data: function() {
         return {
             haslogin:false ,
-            Money:this.getCookie('membalance')
+            Money:'',
+            acType:'',
+            memberId:''
         }
     },
     created:function () {
@@ -136,16 +138,56 @@ export default {
         if( !_self.haslogin){
             // _self.$refs.autoCloseDialog.open('请先登录！') ;
             window.location = '/login' ;
-        };
-
+        }
+        _self.getUserInfo();
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
-      this.getMemberBalance();
+
   },
   methods: {
+      //获取用户信息
+      getUserInfo: function () {
+          var _self = this;
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.uaa + 'api/data/member/info',
+              data: {},
+              success: (res) => {
+                  _self.memberId = res.data.memberId;
+                  _self.acType = res.data.acType;
+                  _self.getBalance(_self.memberId, _self.acType)
+              },
+              error: () => {
 
-}
+              }
+          })
+      },
+      //获取用户余额
+      getBalance: function (id,type) {
+          var _self = this;
+          console.log(_self.memberId);
+          var BaData = {
+              memberId:id ,
+              acType:type,
+          };
 
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.hermes + 'api/balance/get',
+              data: BaData,
+              success: (res) => {
+                  _self.Money = res.data.balance;
+              },
+              error: () => {
+
+              }
+          })
+      }
+  }
 }
 </script>
