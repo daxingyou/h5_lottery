@@ -425,7 +425,7 @@ export default {
               $src.parent('p').removeClass('active');
               this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
           }
-      },
+      }
 
 
   }
