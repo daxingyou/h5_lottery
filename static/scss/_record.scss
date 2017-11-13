@@ -51,7 +51,7 @@
     background-color: rgba(#0a1625, .85);
     //固定tab在上方
     position: fixed;
-    top: 1.5rem;
+    //top: 1.5rem;
     z-index: 5;
     width: 10rem;
     left: inherit;
@@ -663,6 +663,12 @@ i.prd{
     }
     .hd{
         height: 1rem;
+        position: relative;
+        z-index: 51;
+        top:0;
+        width: 10rem;
+        padding-bottom: .5rem;
+        margin-bottom: 0;
     }
     // .bd{
     //     margin-top: 2rem;

@@ -95,13 +95,15 @@ input, select, button, a { outline: none; }
 
 #pa_head > .right > a.guset > i { background-image: url("../../static/images/signs.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .5rem; height: .5rem; display: block; float: left; margin-right: .1rem; }
 
-#pa_content { margin-top: 1.5rem; position: relative; z-index: 2; }
-
-#pa_content #road01 { margin-top: 2rem; }
+#pa_content { margin-top: 1.5rem; position: relative; z-index: 2; padding-top: .9rem; }
 
 #pa_content.lobby_past_view { padding: .5rem 0 2rem 0; }
 
 #pa_content.lobby_past_view .play_th .prd_num > i { margin-left: -.9rem; }
+
+#pa_content.lobby_past_view #betting_record { margin-top: auto; }
+
+#pa_content #betting_record { margin-top: -.9rem; }
 
 .warp { position: relative; width: 100%; margin: 0 auto; height: auto; color: #d7e8f0; z-index: 2; }
 
@@ -552,7 +554,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-right ul > li { display: block; padding-top: 0.5rem; }
 
-.so-top-sum { display: block; height: .6rem; position: relative; top: .4rem; left: .68rem; z-index: 8; }
+.so-top-sum { display: block; height: .7rem; position: relative; top: .4rem; left: .68rem; z-index: 8; }
 
 .so-in-top-sum { color: #fdf19b; text-align: center; z-index: 2; display: block; margin-top: -0.04rem; font-size: .32rem; border: solid 0.02rem #2d3755; background: #1d2839; /* Old browsers */ background: -moz-linear-gradient(top, #1d2839 43%, #263651 100%); /* FF3.6-15 */ background: -webkit-linear-gradient(top, #1d2839 43%, #263651 100%); /* Chrome10-25,Safari5.1-6 */ background: -webkit-gradient(linear, left top, left bottom, color-stop(43%, #1d2839), to(#263651)); background: -o-linear-gradient(top, #1d2839 43%, #263651 100%); background: linear-gradient(to bottom, #1d2839 43%, #263651 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ border-left: hidden; border-radius: 0.1rem; padding-right: 0.1rem; position: relative; left: 1rem; padding: .05rem .1rem .05rem .4rem; top: -.1rem; width: 2.2rem; overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 
@@ -588,7 +590,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
-#so-item1 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem 0.07rem; }
+#so-item1 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem 0.05rem; }
 
 #so-item1 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("../images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; margin-left: -.2rem; }
 
@@ -877,7 +879,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .tab .item.active a, .tab .item:hover a, .tab .item:focus a { color: #ccc; }
 
-.tab_mid { color: #d7e8f0; background-color: rgba(10, 22, 37, 0.85); position: fixed; top: 1.5rem; z-index: 5; width: 10rem; left: inherit; }
+.tab_mid { color: #d7e8f0; background-color: rgba(10, 22, 37, 0.85); position: fixed; z-index: 5; width: 10rem; left: inherit; }
 
 .tab_mid > li { display: inline-block; width: 25%; text-align: center; vertical-align: middle; }
 
@@ -1069,7 +1071,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #betting_record.ac_detial_area { padding-top: .2rem; }
 
-#betting_record .hd { height: 1rem; }
+#betting_record .hd { height: 1rem; position: relative; z-index: 51; top: 0; width: 10rem; padding-bottom: .5rem; margin-bottom: 0; }
 
 .swiper-slide .tab_content { margin-top: 0; }
 
