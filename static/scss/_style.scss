@@ -483,7 +483,7 @@
             line-height: 0.9rem;
         }
         > div {
-            background: url('../images/content/panel_body.png') no-repeat;
+            background: url('../images/content/panel_body.png') repeat-y;
             background-size: 100% 100%;
             padding: 4% 0 3.5%;
             height: auto;
@@ -708,10 +708,10 @@
     }
 }
 #so-item0 ul li.first_ball, #so-item0 ul li.sec_ball {
-    height: 3.74rem;
+    //height: 3.74rem;
     > div {
         width: 7rem;
-        height: 3.74rem;
+        //height: 3.74rem;
         background-size: 8.4rem 3.74rem;
         background-position-x: -1.1rem;
         text-align: center;
@@ -1211,13 +1211,14 @@ img.bet_ok {
                 display: block;
                 background: url('../images/bottom_line.png') no-repeat;
                 background-size: 100% auto;
-                background-position-y: 0.7rem;
-                height: 1rem;
+                background-position-y: bottom;
+                min-height: 1rem;
+                height:auto;
                 line-height: 1rem;
                 color: $yellow;
                 font-size: 0.34rem;
                 &:last-child{
-                    background-position-y: 0.6rem;
+                    //background-position-y: 0.6rem;
                 }
             }
         }

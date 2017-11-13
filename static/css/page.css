@@ -554,7 +554,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item0 ul li > div > h2, #so-item0.jc115 ul li ul li > div > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; background: url("../images/content/panel_header.png") no-repeat; background-size: 100% 100%; line-height: 0.9rem; }
 
-#so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div { background: url("../images/content/panel_body.png") no-repeat; background-size: 100% 100%; padding: 4% 0 3.5%; height: auto; margin: 0px auto; overflow: hidden; }
+#so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div { background: url("../images/content/panel_body.png") repeat-y; background-size: 100% 100%; padding: 4% 0 3.5%; height: auto; margin: 0px auto; overflow: hidden; }
 
 #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 1px #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
 
@@ -608,9 +608,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item2 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("../images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; }
 
-#so-item0 ul li.first_ball, #so-item0 ul li.sec_ball { height: 3.74rem; }
-
-#so-item0 ul li.first_ball > div, #so-item0.jc115 ul li ul li.first_ball > div, #so-item0 ul li.sec_ball > div, #so-item0.jc115 ul li ul li.sec_ball > div { width: 7rem; height: 3.74rem; background-size: 8.4rem 3.74rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
+#so-item0 ul li.first_ball > div, #so-item0.jc115 ul li ul li.first_ball > div, #so-item0 ul li.sec_ball > div, #so-item0.jc115 ul li ul li.sec_ball > div { width: 7rem; background-size: 8.4rem 3.74rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
 
 #so-item0 ul li.first_ball > div > h2, #so-item0.jc115 ul li ul li.first_ball > div > h2, #so-item0 ul li.sec_ball > div > h2, #so-item0.jc115 ul li ul li.sec_ball > div > h2 { line-height: 1rem; }
 
@@ -762,9 +760,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .so-pop > div .boxlist { overflow: scroll; height: 3.1rem; }
 
-.so-pop > div .boxlist p { display: block; background: url("../images/bottom_line.png") no-repeat; background-size: 100% auto; background-position-y: 0.7rem; height: 1rem; line-height: 1rem; color: #ffbd00; font-size: 0.34rem; }
-
-.so-pop > div .boxlist p:last-child { background-position-y: 0.6rem; }
+.so-pop > div .boxlist p { display: block; background: url("../images/bottom_line.png") no-repeat; background-size: 100% auto; background-position-y: bottom; min-height: 1rem; height: auto; line-height: 1rem; color: #ffbd00; font-size: 0.34rem; }
 
 .so-pop .so-pop-sum { color: white; font-size: .34rem; line-height: 1rem; -ms-transform: rotate(-360deg); /* IE 9 */ -webkit-transform: rotate(-360deg); /* Chrome, Safari, Opera */ transform: rotate(-360deg); }
 
