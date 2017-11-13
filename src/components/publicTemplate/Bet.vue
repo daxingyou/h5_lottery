@@ -6,10 +6,6 @@
             <div>
                 <p>已选中<span class="bet-select-num">{{betCount}}</span>注</p>
             </div>
-            <!-- <div>
-                <input placeholder="输入金额" type="number">
-                <a>重置</a>
-            </div> -->
             <div>
                 <form>
                     <input placeholder="输入金额" type="tel" class="bet-amount" v-model="betAmount">
@@ -107,8 +103,8 @@ export default {
             // 余额不足提示充值
             // if (this.monAmt(total_mon) > this.monAmt(Number(returnMoney($('.so-in-top-sum').eq(0).text())))) {
             if (total_mon > this.balance) {
-                // initTipPop05(false,3,'您的余额不足<br/>请充值后继续进行！') ;
-//                console.log('您的余额不足<br/>请充值后继续进行！')
+                this.parentRefs.infoDialog.open('余额不足，请充值后继续进行！', 'title_bet_fail')
+                this.showList = false;
                 return false;
             }
             var resdata = {

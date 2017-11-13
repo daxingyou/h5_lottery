@@ -82,6 +82,9 @@ var MyMixin = {
     // getAccessToken   methods:{
 
     methods:{
+        goBack:function(){
+            this.$router.go(-1)
+        },
         dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
         },
@@ -603,8 +606,9 @@ var MyMixin = {
         },
         // 输入框清除数据,el当前元素class,cl是input的class
         ClearInput:function(el,cl){
-               $('.'+el).prev().val('');
-              this.clearVal(cl)
+             $('.'+el).prev().val('');
+              $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+              this.clearVal(cl) ;
         },
     }
 };
