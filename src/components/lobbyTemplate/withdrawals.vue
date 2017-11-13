@@ -98,8 +98,8 @@ export default {
         }
     },
     created: function() {
-        this.getUserInfo();
         this.getUserInfo1();
+        this.getUserInfo();
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
@@ -142,12 +142,52 @@ export default {
             })
 
       },
+      //获取用户信息
+      getUserInfo1: function () {
+          var _self = this;
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.uaa + 'api/data/member/info',
+              data: {},
+              success: (res) => {
+                  _self.memberId = res.data.memberId;
+                  _self.acType = res.data.acType;
+                  _self.getBalance(_self.memberId, _self.acType)
+              },
+              error: () => {
+
+              }
+          })
+      },
+      //获取用户余额
+      getBalance: function (id,type) {
+          var _self = this;
+          var BaData = {
+              memberId:id ,
+              acType:type,
+          };
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.hermes + 'api/balance/get',
+              data: BaData,
+              success: (res) => {
+                  _self.memBalance = res.data.balance;
+              },
+              error: () => {
+
+              }
+          })
+      },
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if(_self.userMoney>_self.memBalance){
+          if(_self.userMoney*100>_self.memBalance){
               _self.$refs.autoCloseDialog.open('提款余额不足');
-              return false
+              return
           }
           if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
@@ -193,46 +233,7 @@ export default {
 
           })
       },
-      //获取用户信息
-      getUserInfo1: function () {
-          var _self = this;
-          $.ajax({
-              type: 'get',
-              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
-              dataType: 'json',
-              url: _self.action.uaa + 'api/data/member/info',
-              data: {},
-              success: (res) => {
-                  _self.memberId = res.data.memberId;
-                  _self.acType = res.data.acType;
-                  _self.getBalance(_self.memberId, _self.acType)
-              },
-              error: () => {
 
-              }
-          })
-      },
-      //获取用户余额
-      getBalance: function (id,type) {
-          var _self = this;
-          var BaData = {
-              memberId:id ,
-              acType:type,
-          };
-          $.ajax({
-              type: 'get',
-              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
-              dataType: 'json',
-              url: _self.action.hermes + 'api/balance/get',
-              data: BaData,
-              success: (res) => {
-                  _self.memBalance = res.data.balance;
-              },
-              error: () => {
-
-              }
-          })
-      }
   }
 }
 </script>
