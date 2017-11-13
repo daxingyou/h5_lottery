@@ -34,7 +34,7 @@
                                             </div>
                                             <div class="lottery_t ssc">
                                                 <p>{{tradeTypeConfigItemGet(item).name || '-'}}<label :class="'sta '+ (statusConfig[item.state] && statusConfig[item.state].class)">{{(statusConfig[item.state] && statusConfig[item.state].name)}}</label></p>
-                                                <strong>充值: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
+                                                <strong>{{moneyType[item.chargeType] || '-'}}<!-- 充值 -->: {{(item && formatNumber(roundAmt(item.tradeAmount))) || '0.00'}}</strong>
                                             </div>
                                         </div>
                                     </router-link>
@@ -66,6 +66,10 @@ export default {
     },
     data: function() {
         return {
+            moneyType:{
+                '0':'充值', 
+                '1':'提款'
+            },
             tradeTypeConfig:{ 
                 '1':{ name:'公司入款', class:'ac03' }, 
                 '3':{ name:'线上入款', class:''}, 
