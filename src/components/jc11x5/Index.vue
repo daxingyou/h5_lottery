@@ -495,7 +495,8 @@
                     this.betSelectedList.push(item);
                 }else{
                     callback(false);
-                    this.$refs.infoDialog.open('不允许超过'+max+'个选项', 'title_quantity');
+                    // 请选择1个选项
+                    this.$refs.infoDialog.open('请选择'+max+'个选项', 'title_quantity');
                 }
                 this.combineCountCaculate(item);
                 
