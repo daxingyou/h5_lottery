@@ -53,7 +53,7 @@ export default {
         $(document).on('visibilitychange', (function() {
             // 页面变为可见时触发
             if (document.visibilityState == 'visible') {
-                that.$emit('spanArrived');
+                that.$emit('visibility');
             }
         }).bind(this));
     },
