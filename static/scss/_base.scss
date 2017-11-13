@@ -1,5 +1,29 @@
 @charset "utf-8";
 @import "variable";
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-size: 100%; */
+    /* font: inherit; */
+    vertical-align: baseline;
+    outline: 0;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu !important;
+}
+
+ol, ul {
+    list-style: none
+}
+
+li {
+    position: relative
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
 html,body{
     /* 解决弹窗 ios上 overhidden 失效的问题 */
     //  width: 100%;
@@ -355,13 +379,14 @@ footer.bot_nav{
             a{
                 margin-left: 15%;
                 padding: .48rem 0 .5rem;
+                position: relative;
                 &:before{
                     @include pseudo;
                     @include background-image ('icon.png',0,transparent);
                     width: .5rem;
                     height: .5rem;
                     top: .5rem;
-                    left: calc( 30% - .55rem);
+                    left: calc( 30% - 1rem);
                 }
                 &.index{
                     &:before{
