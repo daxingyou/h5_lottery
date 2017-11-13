@@ -164,6 +164,7 @@
             this.seadata.pdate = this.newpdate;
             this.setMenuAction();
             this.initView();
+            this.initDateMeun() ;
             var mySwiperRecode = new Swiper('#swiper1', {
                 // autoplay: 5000,//可选选项，自动滑动
                 onSlideChangeStart: (swiper) => {
@@ -429,12 +430,26 @@
             },
             // 日期标签
             initDateMeun:function () {
-              /*  $('.tab_content .slide_toggle').off().on('click',function (e) {
-                    e.preventDefault() ;
-                    console.log('回复返点的')
-                });*/
-
-                $('.tab_content .slide_toggle').each( (i, t) => {
+                var _self =this ;
+                $('.tab_content').on('click','.panel_title',function (e) {
+                    $('.bet-recode-all').find('li').remove();
+                    // var $src = $(this).parent('.slide_toggle ') ;
+                    var $src = $(this).parent('.slide_toggle ') ;
+                    _self.seadata.page = 1;
+                    var hsac = $src.hasClass('active') ;
+                    if (!hsac) { // false
+                        $src.addClass('active').siblings().removeClass('active');
+                        $src.find('ul').show();
+                        $src.siblings().find('ul').hide();
+                        _self.seadata.pdate = $src.data('val');
+                        _self.getBetRecord(); // 投注记录
+                        return false ;
+                    } else {
+                        $src.removeClass('active').find('ul').hide();
+                        return false ;
+                    }
+                }) ;
+              /*  $('.tab_content .slide_toggle').each( (i, t) => {
                     $(t).unbind('click');
                     $(t).click((e) => {
                         $('.bet-recode-all').find('li').remove();
@@ -458,7 +473,7 @@
                                 .hide();
                         }
                     });
-                });
+                });*/
             },
             //筛选下拉单
             setMenuAction:function () {
@@ -539,7 +554,7 @@
                     }
                 });
                 this.getBetRecord();
-                this.initDateMeun();
+               // this.initDateMeun();
             },
             getBetRecord:function () {
                 $('.so-zzjz').remove()
