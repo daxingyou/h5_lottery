@@ -56,7 +56,8 @@ export default {
     props:[
         'betSelectedList', 'parentRefs', 
         'lotteryID', 'balance', 'now_pcode', 'now_day', 'next_pcode', 'pk10_now_pcode',
-        'isCombine',    //是否组合玩法
+        // 'isCombine',    //是否组合玩法
+        'playType',     //玩法类型
         'combineCount', //组合玩法注数
     ],
     mixins:[Mixin],
@@ -70,17 +71,19 @@ export default {
     },
     computed:{
         betCount:function(){
-            if (!this.isCombine) {
-                return this.betSelectedList.length
-            }else{
+            if (this.playType == 'combine' || this.playType == 'grouped') {
                 return this.combineCount;
+            }else{
+                return this.betSelectedList.length
             }
         },
         totalAmount:function(){
-            if (!this.isCombine) {
-                return this.betSelectedList.length * this.betAmount
-            }else{
+            if (this.playType == 'grouped'){
+                return this.betCount * this.betAmount
+            }else if (this.playType == 'combine') {
                 return this.betAmount;
+            }else{
+                return this.betSelectedList.length * this.betAmount
             }
         }
     },
@@ -182,8 +185,21 @@ export default {
         * 表单提交数据处理
         * */
         doSubmitAction:function(list) {
-            // debugger;
-            if (!this.isCombine){
+            if (this.playType == 'combine' || this.playType == 'grouped'){
+                list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
+                    'betAmount': this.monAmt(Number(this.totalAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
+                    'betContent': this.betSelectedList.map((item)=>{ return item.name.toString().padStart(2, '0'); }).join(','),      //zuArr.toString(),//下注内容，如1,5,8,3,7
+                    'betCount': this.betCount, //注单数
+                    'betMode': 0, //下注模式(预留)
+                    'chaseCount': 1, //追号期数(含当期),默认1
+                    'ifChase': 0 , //是否追号,0不追号，1追号
+                    'moneyMode': 'y' ,//付款类型：元y，角j，分f
+                    'multiple': Number(this.betAmount),    //Number($('.each-mon').eq(0).text()), //倍数最少为1
+                    'payoff': 0, //派彩
+                    'playId': this.betSelectedList[0].cid , //玩法
+                    'remark': '无'//备注
+                });
+            }else{
                 this.betSelectedList.forEach((item, i)=>{
                     list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
                         'betAmount': this.monAmt(Number(this.betAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
@@ -198,20 +214,6 @@ export default {
                         'playId': item.cid,  //play_each, //玩法
                         'remark': '无'//备注
                     });
-                });
-            }else{
-                list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
-                    'betAmount': this.monAmt(Number(this.betAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    'betContent': this.betSelectedList.map((item)=>{ return item.name.toString().padStart(2, '0'); }).join(','),      //zuArr.toString(),//下注内容，如1,5,8,3,7
-                    'betCount': this.betCount, //注单数
-                    'betMode': 0, //下注模式(预留)
-                    'chaseCount': 1, //追号期数(含当期),默认1
-                    'ifChase': 0 , //是否追号,0不追号，1追号
-                    'moneyMode': 'y' ,//付款类型：元y，角j，分f
-                    'multiple': Number(this.betAmount),    //Number($('.each-mon').eq(0).text()), //倍数最少为1
-                    'payoff': 0, //派彩
-                    'playId': this.betSelectedList[0].cid , //玩法
-                    'remark': '无'//备注
                 });
             }
             return false;

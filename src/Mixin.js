@@ -1,5 +1,6 @@
 
 import $ from "jquery";
+import DateFormat from "dateformat";
 
 //mixin.js
 var MyMixin = {
@@ -81,7 +82,9 @@ var MyMixin = {
     // getAccessToken   methods:{
 
     methods:{
-
+        dateFormat:function(p0, p1, p2) {
+            return DateFormat(...arguments);
+        },
         ajax:function(userConfig){
             let config = {
                 type: 'get',

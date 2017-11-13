@@ -170,19 +170,25 @@
                 :lotteryID="lotteryID"  彩种id
                 :betSelectedList="betSelectedList"  用户选中的赌注
                 :parentRefs="$refs"   当前页面的引用
-                :isCombine="isCombine"  是否组合玩法
+                :playType="playType"    normal标准；combine连码；grouped组选
+                --:isCombine="isCombine"  是否组合玩法
                 :combineCount="combineCount"    组合玩法对应的注数
+                --:isGrouped="isGrouped"          是否是前2 或 前3组选
                 :balance="balanceData.balance"  帐单值
                 :now_pcode="now_pcode"   期次
                 :next_pcode="next_pcode"   下期期次
                 :now_day="now_day"    日期
             事件
                 @betSuccess="resetAction" 
+
+                :isCombine="isCombine" :isGrouped="isGrouped"
         -->
         <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
-            :isCombine="isCombine" :combineCount="combineCount"
+            :playType="playType"
+            :combineCount="combineCount" 
+            
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
 
         <!--封盘底部遮挡-->
@@ -297,7 +303,9 @@
             lotteryID:4,
             allLottery:{} ,
             gameHref:{} ,
-            isCombine:false, //是否组合玩法
+            playType:'normal', 
+            // isCombine:false, //是否组合玩法
+            // isGrouped:false, //是否是前2或前3组选
             combineCount:0, //组合玩法注数
             kinds:['两面', '1-5球', '连码'],
            // continueNumberSubList:[...Array(11).keys()],
@@ -369,6 +377,14 @@
                 //清除选中的球
                 this.betSelectedList = [];
                 this.combineCount = 0;
+                if ([43800, 43900].includes(kind.cid)){
+                    // this.isGrouped = true;
+                    this.playType = 'grouped'
+                }else{
+                    this.playType = 'combine'
+                    // this.isGrouped = false;
+                }
+                console.log(this.isGrouped )
                 $('.bd ul li p').removeClass('active');
             },
             switchTab:function(e){
@@ -382,12 +398,16 @@
                 if ($src.prop('class').indexOf('reset_bet')>=0){
                     $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
                     this.betSelectedList = [];
-                    this.isCombine = true;  //设置为组合玩法
+                    this.playType = 'combine';
+                    // this.isCombine = true;  //设置为组合玩法
                 }else{
                     $('#so-item2 ul li p').removeClass('active');
                     this.betSelectedList = [];
-                    this.isCombine = false;  //设置为非组合玩法
+                    this.playType = 'normal';
+                    // this.isCombine = false;  //设置为非组合玩法
                 }
+
+                this.isGrouped = false; //取消组选
             },
             getListByParentID:function(parentID){
                 return this.playTreeList.filter((item,i)=>{
@@ -480,7 +500,7 @@
                 this.combineCountCaculate(item);
                 
             },
-            //当用户选择球时（连码），保存相应数据
+            //当用户取消选择球时（连码），保存相应数据
             continueNumberUnSelect:function(e, item, parentItem){
                 const rule = this.selectRules[item.parentItem.cid];
                 this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.name != item.name; });
