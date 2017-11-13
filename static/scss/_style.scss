@@ -393,8 +393,8 @@
             //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
              ul {
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
+                // overflow-y: scroll;
+                // -webkit-overflow-scrolling: touch;
                 li {
                     display: block;
                     width: 100%;
@@ -422,7 +422,7 @@
             -webkit-overflow-scrolling: touch;
             //-webkit-overflow-scrolling: auto;
             > div {
-                padding-bottom: 2rem;
+                padding-bottom: 3rem;
             }
             > div.active {
                 display: block;
@@ -594,15 +594,15 @@
                 span:first-child {
                     background: url('../../static/images/content/qui02.png') no-repeat;
                     background-size: 1.2rem;
-                    background-position: 0.1rem 0.09rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.6rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.1rem;
+                    background-position: 0.11rem 0.07rem;
+                    // display: block;
+                    // width: 1.3rem;
+                    // height: 1.3rem;
+                    // color: #fffbe2;
+                    // font-size: 0.6rem;
+                    // text-align: center;
+                    // line-height: 1.3rem;
+                    // text-indent: 0.12rem;
                 }
             }
             &:after {
@@ -1409,15 +1409,15 @@ img.bet_ok {
                 span:first-child {
                     background: url('../../static/images/content/qui02.png') no-repeat;
                     background-size: 1.2rem;
-                    background-position: 0.1rem -1.22rem;
+                    background-position: 0.11rem -1.25rem;
                     display: block;
                     width: 1.3rem;
                     height: 1.3rem;
                     color: #fffbe2;
-                    font-size: 0.52rem;
+                    font-size: 0.6rem;
                     text-align: center;
                     line-height: 1.3rem;
-                    text-indent: 0.1rem;
+                    text-indent: 0.12rem;
                 }
                 span {
                     color: #fff;
@@ -1440,7 +1440,7 @@ img.bet_ok {
                     width: 1.3rem;
                     height: 1.3rem;
                     color: #fffbe2;
-                    font-size: 0.52rem;
+                    font-size: 0.6rem;
                     text-align: center;
                     line-height: 1.3rem;
                     text-indent: 0.1rem;

@@ -110,6 +110,7 @@
      }
 }
 #index_content{
+    box-sizing:border-box;
     &.content{
         //padding-top: .1rem;
         margin-top: 0;

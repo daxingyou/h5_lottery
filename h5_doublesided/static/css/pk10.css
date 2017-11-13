@@ -62,7 +62,7 @@
 
 #pk10 .tab_mid { white-space: nowrap; overflow-x: scroll; }
 
-.pk10_item ul li .pk10_panel { width: 7rem; height: 5rem; background: url(../images/content/kuang.png) no-repeat; background-size: 8.4rem 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
+.pk10_item ul li .pk10_panel { width: 7rem; height: 5rem; background-size: 8.4rem 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
 
 .pk10_item ul li .pk10_panel > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
 

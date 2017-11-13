@@ -391,9 +391,11 @@
             -webkit-overflow-scrolling: touch;
             //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
+            box-sizing:border-box;
              ul {
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
+                //overflow-y: scroll;
+                //-webkit-overflow-scrolling: touch;
+                
                 li {
                     display: block;
                     width: 100%;
@@ -751,7 +753,7 @@
         background: url(../../static/images/content/changkuang.png) no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
-        b // border: solid 0.01rem transparent;
+        // border: solid 0.01rem transparent;
         border-color: #42371c;
     }
 }

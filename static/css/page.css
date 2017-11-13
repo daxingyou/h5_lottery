@@ -534,15 +534,13 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: .8rem; }
 
-.so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
-
 .so-con .so-in-con .so-con-left ul li { display: block; width: 100%; height: 1.25rem; border-bottom: solid .02rem #293454; color: #ffffff; font-size: 0.4rem; line-height: 1.3rem; text-align: center; background-position-y: -1.5rem; }
 
 .so-con .so-in-con .so-con-left ul li.active { background: url(../images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
 
 .so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 
-.so-con .so-in-con .so-con-right > div { padding-bottom: 2rem; }
+.so-con .so-in-con .so-con-right > div { padding-bottom: 3rem; }
 
 .so-con .so-in-con .so-con-right > div.active { display: block; }
 
@@ -584,7 +582,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
-#so-item1 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item1 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem 0.07rem; }
 
 #so-item1 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("../images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; margin-left: -.2rem; }
 
@@ -818,13 +816,13 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; border: none; display: inline-block; margin-bottom: 0; margin-left: 0; }
 
-#so-item2.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem -1.22rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item2.jc115 ul li > div > div p span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; }
 
 #so-item2.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; float: none; padding: 0; }
 
 #so-item2.jc115 ul li > div > div p.active { background: none; border: none; }
 
-#so-item2.jc115 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.52rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
+#so-item2.jc115 ul li > div > div p.active span:first-child { background: url("../../static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.1rem 0.09rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.1rem; }
 
 #so-item2.jc115 ul li > div > div p.active span:last-child { color: #fffbe2; }
 
@@ -1197,6 +1195,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 .sys-notice ul li { list-style: none; display: inline-block; line-height: .7rem; height: .7rem; }
 
 .sys-notice ul li .create-time { list-style: none; margin-left: 20px; }
+
+#index_content { -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 #index_content.content { margin-top: 0; padding-bottom: .5rem; }
 
