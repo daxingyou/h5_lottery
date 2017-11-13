@@ -2,9 +2,9 @@
     <div id="pa_con">
         <header id="pa_head">
             <div class="left">
-                <router-link to="/lobbyTemplate/info" >
+                <a href="#" @click="goBack">
                     <img src="../../../static/images/back.png" alt="">
-                </router-link>
+                </a>
             </div>
             <h2 class="center">帐户明细</h2>
             <div class="right"></div>
@@ -90,11 +90,11 @@ export default {
             }
         }
     },
-    // computed:{
-    //     tabs:function(){
-    //         return this.$parent.$data.acDetail.tabs;
-    //     }
-    // },
+    computed:{
+        tabs:function(){
+            return this.$parent.$data.acDetail.tabs;
+        }
+    },
     mounted:function() {
         //1 为全部选项卡的值
         let tab = this.tabs.filter(tab=>{return tab.active})[0];

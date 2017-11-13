@@ -82,6 +82,9 @@ var MyMixin = {
     // getAccessToken   methods:{
 
     methods:{
+        goBack:function(){
+            this.$router.go(-1)
+        },
         dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
         },
