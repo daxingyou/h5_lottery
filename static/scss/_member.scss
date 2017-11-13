@@ -97,9 +97,13 @@ fieldset{
          @include background-image ('lock.svg',0,transparent);
     }
     >img{
-        float: right;
+        // float: right;
         margin-top: -.9rem;
         height: .8rem;
+        position: absolute;
+        top:100%;
+        right:2%;
+        z-index: 1000;
     }
     &.pay_password{
         white-space: nowrap;
