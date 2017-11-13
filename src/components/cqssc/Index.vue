@@ -113,8 +113,8 @@
                                         {{item.name}}
                                     </h2>
                                     <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
+                                            <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
@@ -398,19 +398,35 @@ export default {
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
-        if (this.entertainStatus){
-            return false;
-        }
-        var $src = $(e.currentTarget);
-        if ($src.prop('class').indexOf('active') < 0){
-            $src.addClass('active');
-            item.parentItem = parentItem;
-            this.betSelectedList.push(item);
-        }else{
-            $src.removeClass('active');
-            this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
-        }
-    }
+          if (this.entertainStatus){
+              return false;
+          }
+          var $src = $(e.currentTarget);
+          if ($src.prop('class').indexOf('active') < 0){
+              $src.addClass('active');
+              item.parentItem = parentItem;
+              this.betSelectedList.push(item);
+          }else{
+              $src.removeClass('active');
+              this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
+          }
+      },
+    //用户选择1-5球时，保存相应数据
+    OFSelect:function(e, item, parentItem){
+          if (this.entertainStatus){
+              return false;
+          }
+          var $src = $(e.currentTarget);
+          if ($src.parent('p').prop('class').indexOf('active') < 0){
+              $src.parent('p').addClass('active');
+              item.parentItem = parentItem;
+              this.betSelectedList.push(item);
+          }else{
+              $src.parent('p').removeClass('active');
+              this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
+          }
+      },
+
 
   }
 }
