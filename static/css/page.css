@@ -1069,8 +1069,6 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area ul > li.active { background-image: -webkit-gradient(linear, left top, left bottom, from(#1c4975), to(#3793cc)); background-image: -webkit-linear-gradient(#1c4975, #3793cc); background-image: -o-linear-gradient(#1c4975, #3793cc); background-image: linear-gradient(#1c4975, #3793cc); text-shadow: 0 2px 2px rgba(0, 0, 0, 0.9); }
 
-#betting_record.ac_detial_area { padding-top: .2rem; }
-
 #betting_record .hd { height: 1rem; position: relative; z-index: 51; top: 0; width: 10rem; padding-bottom: .5rem; margin-bottom: 0; }
 
 .swiper-slide .tab_content { margin-top: 0; }
