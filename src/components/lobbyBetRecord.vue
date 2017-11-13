@@ -166,6 +166,8 @@
             _self.seadata.pdate = this.newpdate;
             _self.setMenuAction();
             _self.initView();
+            _self.initDateMeun();
+
             var mySwiperRecode = new Swiper('#swiper1', {
                 // autoplay: 5000,//可选选项，自动滑动
                 onSlideChangeStart: (swiper) => {
@@ -231,7 +233,6 @@
                     case 1:
                         _self.seadata.statusType = 2
                         if (_self.seadata.searchType === 1) {
-                            console.log('好的')
                             mySwiperRecode.slideTo(1, 200, false);
                         } else {
                             mySwiperTrack.slideTo(1, 200, false);
@@ -433,7 +434,27 @@
             },
             // 日期标签
             initDateMeun:function () {
-                $('.tab_content .slide_toggle').each( (i, t) => {
+                var _self =this ;
+                $('.tab_content').on('click','.panel_title',function (e) {
+                    $('.bet-recode-all').find('li').remove();
+                   // var $src = $(this).parent('.slide_toggle ') ;
+                    var $src = $(this).parent('.slide_toggle ') ;
+                    _self.seadata.page = 1;
+                    var hsac = $src.hasClass('active') ;
+                    if (!hsac) { // false
+                        $src.addClass('active').siblings().removeClass('active');
+                        $src.find('ul').show();
+                        $src.siblings().find('ul').hide();
+                        _self.seadata.pdate = $src.data('val');
+                        _self.getBetRecord(); // 投注记录
+                        return false ;
+                    } else {
+                        $src.removeClass('active').find('ul').hide();
+                        return false ;
+                    }
+                }) ;
+             /*   $('.tab_content .slide_toggle').each( (i, t) => {
+                    console.log(t)
                     $(t).unbind('click');
                     $(t).click((e) => {
                         $('.bet-recode-all').find('li').remove();
@@ -456,8 +477,9 @@
                                 .hide();
                         }
                     });
-                });
+                });*/
             },
+
             //筛选下拉单
             setMenuAction:function () {
                 $(".dropdown_icon,.btn_outline").click(() => {
@@ -535,7 +557,7 @@
                     }
                 });
                 this.getBetRecord();
-                this.initDateMeun();
+               // this.initDateMeun();
             },
             getBetRecord:function () {
                 $('.so-zzjz').remove()
@@ -598,7 +620,7 @@
                                             break;
                                     }
                                     if (this.seadata.searchType === 1) {
-                                        li_html = '<li class="bet_data" data-status="not_open">' +
+                                        li_html = '<li class="bet_data" data-status="not_open" >' +
                                             '<a href="javascript:;"  data-val="' + encodeURI(JSON.stringify(v)) + '">' +  // 暂时不显示详情 onclick="showBetDetails(this,0)"
                                             '<div class="prd_num"><span>' + pcode + '</span>期</div>' +
                                             '<div class="item"> ' +

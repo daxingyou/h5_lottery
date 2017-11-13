@@ -86,11 +86,12 @@ export default {
             },
             activeTab:{ value:1, days:[] }, //当前选项卡
             statusConfig:{ 
-                '0':{ name:'未付款',class:'sta02'}, 
-                '2':{name:'已取消',class:'sta02'}, 
-                '3':{name:'已拒绝',class:'sta03'}, 
-                '4':{name:'已通过',class:'sta01'}, 
-                '5':{name:'已锁定',class:'sta03'} 
+                // { '0':'未处理', '2':'未处理', '3':'失败', '4':'成功', '5':'未处理' }
+                '0':{ name:'未处理',class:'sta02'}, 
+                '2':{name:'未处理',class:'sta02'}, 
+                '3':{name:'失败',class:'sta03'}, 
+                '4':{name:'成功',class:'sta01'}, 
+                '5':{name:'未处理',class:'sta02'} 
             }
         }
     },

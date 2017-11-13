@@ -7,7 +7,7 @@
                     <img src="/static/images/back.png" alt="">
                 </a>
             </div>
-            <h2 class="center">{{parentData.tradeTypeConfig[model.tradeType].name || '-'}}详情</h2>
+            <h2 class="center">{{parentData.moneyType[model.chargeType] || '-'}}详情</h2>
             <div class="right"></div>
         </header>
         <div class="content">
@@ -34,7 +34,7 @@
                                             <th>
                                                 <li>帐变方式</li>
                                             </th>
-                                            <td>{{model.actionTypeName || '-'}}<!-- 重庆时时彩 --></td>
+                                            <td>{{(parentData.tradeTypeConfig[model.tradeType] && parentData.tradeTypeConfig[model.tradeType].name) || '-'}}<!-- 重庆时时彩 --></td>
                                         </tr>
                                         <tr>
                                             <th>
