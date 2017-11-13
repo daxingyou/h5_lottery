@@ -2,7 +2,10 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
+                <a href="javascript:;" onclick="history.go(-1)" class="before-add">
+                    <img src="static/images/back.png" alt="">
+                </a>
+                <a href="javascript:;"  class="after-add" @click="lastAction()" style="display: none ;">
                     <img src="static/images/back.png" alt="">
                 </a>
             </div>
@@ -261,6 +264,12 @@
                 $('.after-add').show() ;
 
             },
+            // 返回上一步
+            lastAction:function () {
+                $('.before-add').show() ;
+                $('.after-add').hide() ;
+
+            },
 
             // 注册接口 ，除了推荐人，其他必填
             registerAction:function() {
@@ -345,9 +354,10 @@
                 if(this.confirmpassword == this.password){
                     $(el).parent('.form_g').next('.error-message').removeClass('red').text('');
                     return
-                }else {
-                    $(el).parent('.form_g').next('.error-message').addClass('red').text("两次密码输入不一致") ;
-
+                }else if((this.confirmpassword && !this.positiveEngNum(this.confirmpassword) ) || this.confirmpassword.length<6 || this.confirmpassword.length>20){
+                    $(el).parent('.form_g').next('.error-message').addClass('red').text('请输入6~20位英数密码') ;
+                }else{
+                    $(el).parent('.form_g').next('.error-message').addClass('red').text('两次密码输入不一致') ;
                 }
             },
             autoLogin :function () {
