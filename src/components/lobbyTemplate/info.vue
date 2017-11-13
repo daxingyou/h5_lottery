@@ -21,7 +21,7 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>{{getCookie('username')}}</strong>
+                                <strong>{{userLogin}}</strong>
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
@@ -129,7 +129,8 @@ export default {
             haslogin:false ,
             Money:'',
             acType:'',
-            memberId:''
+            memberId:'',
+            userLogin:''
         }
     },
     created:function () {
@@ -158,6 +159,7 @@ export default {
               success: (res) => {
                   _self.memberId = res.data.memberId;
                   _self.acType = res.data.acType;
+                  _self.userLogin=res.data.login;
                   _self.getBalance(_self.memberId, _self.acType)
               },
               error: () => {
@@ -168,12 +170,10 @@ export default {
       //获取用户余额
       getBalance: function (id,type) {
           var _self = this;
-          console.log(_self.memberId);
           var BaData = {
               memberId:id ,
               acType:type,
           };
-
           $.ajax({
               type: 'get',
               headers: {'Authorization': 'bearer ' + _self.getAccessToken,},

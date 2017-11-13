@@ -33,7 +33,7 @@
                             <th>
                                 <li>余额</li>
                             </th>
-                            <td>{{memBalance}}</td>
+                            <td>{{fortMoney(roundAmt(memBalance), 2)}}</td>
                         </tr>
                         </thead>
                     </table>
@@ -86,17 +86,20 @@ export default {
         return {
              userMoney:'',
              cashPassword:'',
-             memBalance:this.getCookie('membalance'),
+             memBalance:'',
              realName:'',
              bankName:'',
              bankCard:'',
              bankCode:'',
              bankId:'',
+             acType:'',
+             memberId:''
 
         }
     },
     created: function() {
         this.getUserInfo();
+        this.getUserInfo1();
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
@@ -189,8 +192,49 @@ export default {
               }
 
           })
-      }
+      },
+      //获取用户信息
+      getUserInfo1: function () {
+          var _self = this;
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.uaa + 'api/data/member/info',
+              data: {},
+              success: (res) => {
+                  _self.memberId = res.data.memberId;
+                  _self.acType = res.data.acType;
+                  _self.getBalance(_self.memberId, _self.acType)
+              },
+              error: () => {
 
+              }
+          })
+      },
+      //获取用户余额
+      getBalance: function (id,type) {
+          var _self = this;
+          console.log(_self.memberId);
+          var BaData = {
+              memberId:id ,
+              acType:type,
+          };
+
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.hermes + 'api/balance/get',
+              data: BaData,
+              success: (res) => {
+                  _self.memBalance = res.data.balance;
+              },
+              error: () => {
+
+              }
+          })
+      }
   }
 }
 </script>
