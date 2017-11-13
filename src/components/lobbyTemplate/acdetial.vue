@@ -95,9 +95,6 @@ export default {
             return this.$parent.$data.acDetail.tabs;
         }
     },
-    created:function(){
-        
-    },
     mounted:function() {
         //1 为全部选项卡的值
         let tab = this.tabs.filter(tab=>{return tab.active})[0];
