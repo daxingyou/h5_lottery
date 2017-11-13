@@ -215,12 +215,10 @@ export default {
       //获取用户余额
       getBalance: function (id,type) {
           var _self = this;
-          console.log(_self.memberId);
           var BaData = {
               memberId:id ,
               acType:type,
           };
-
           $.ajax({
               type: 'get',
               headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
