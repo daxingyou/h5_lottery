@@ -2,11 +2,13 @@
 <template>
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
-            <router-link to="/lobbyTemplate/acdetial" tag="div" class="left" >
+            <!-- <router-link to="/lobbyTemplate/acdetial" tag="div" class="left" > -->
+            <div class="left" @click="goBack">
                 <a href="#">
                     <img src="/static/images/back.png" alt="">
                 </a>
-            </router-link>
+            </div>
+            <!-- </router-link> -->
             <h2 class="center">{{parentData.tradeTypeConfig[model.tradeType].name || '-'}}详情</h2>
             <div class="right"></div>
         </header>
@@ -99,6 +101,11 @@ export default {
         this.parentData = this.$route.params.data;
         this.model = this.$route.params.model;
      
+    }, 
+    methods:{
+        goBack:function(){
+            this.$router.go(-1)
+        }
     }
 
 }
