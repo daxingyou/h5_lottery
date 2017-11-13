@@ -238,7 +238,7 @@
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
-.so-foot > div:last-child > div { position: relative; width: 2.2rem; height: 2.8rem; background: url(../images/foot/tj-pg.png) no-repeat; background-size: 100%; background-position-y: 0.3rem; }
+.so-foot > div:last-child > div { position: relative; width: 1.9rem; height: 2.8rem; background: url("../images/foot/tj-pg.png") no-repeat; background-size: 100%; background-position-y: 0.3rem; }
 
 .so-foot > div:last-child > div img { width: 1.2rem; position: relative; top: 0.8rem; }
 

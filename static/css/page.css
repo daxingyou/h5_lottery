@@ -32,7 +32,7 @@ input, select, button, a { outline: none; }
 :-moz-placeholder { /* Firefox 18- */ color: #3c5369; }
 
 #pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; background: url("../../static/images/bg.jpg"); background-size: 100%; min-height: 18rem; }
-.mbsc-fr-c{background: url("../../static/images/bg.jpg")}
+
 #pa_con .so-right > div:first-child img { right: 0.49rem; }
 
 #pa_con.cover_bg:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.48); width: 100%; height: 100%; background-size: cover; z-index: 1; }
@@ -279,7 +279,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/* CSS for the main interaction */
+/*
+ CSS for the main interaction
+*/
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -502,7 +504,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .lottery_t { margin-left: .3rem; font-size: .35rem; }
 
-.lottery_t > p {/* margin-top: .2rem; */font-size: .3rem; max-width: 5rem; word-break: break-all; }
+.lottery_t > p { /* margin-top: .2rem;*/ font-size: .4rem; max-width: 5rem; word-break: break-all; }
 
 .past_view { margin: .3rem 0; }
 
@@ -632,7 +634,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .lobby_past_view .prd_num { color: #fff; }
 
-.lobby_past_view .prd_num > span { font-size: .4rem; }
+.lobby_past_view .prd_num > span { font-size: .35rem; }
 
 .lobby_past_view .prd_num02 { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; margin-left: -.4rem; }
 
@@ -763,7 +765,7 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 #index_content.content ul { overflow: hidden; max-width: 95%; margin: 0 auto; font-size: 0; }
 
-#index_content.content ul > li { display: inline-block; font-size: .35rem; text-align: center; width: 30%; }
+#index_content.content ul > li { display: inline-block; font-size: .32rem; text-align: center; width: 30%; }
 
 #index_content.content > .hotgame_area ul { padding: .15rem 0rem; width: 100%; }
 
@@ -892,7 +894,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password > legend { background-image: url("../../static/images/lock.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.password > img { margin-top: -.9rem; height: .8rem; position: absolute; top: 100%;  right: 2%; z-index: 100;}
+.password > img { float: right; margin-top: -.9rem; height: .8rem; }
 
 .password.pay_password > legend { background-image: none; width: 1.5rem; }
 
@@ -1161,3 +1163,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */
