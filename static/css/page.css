@@ -985,7 +985,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .ds_long ul.lo_ball.two { width: auto; }
 
-.ds_long > .panel { background-color: #0f1520; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; border: 1px solid #679edf; -webkit-box-shadow: 0px 0px 15px rgba(103, 158, 223, 0.9); box-shadow: 0px 0px 15px rgba(103, 158, 223, 0.9); padding: .2rem .3rem .2rem; font-size: .4rem; }
+.ds_long > .panel { background-color: #0f1520; -webkit-border-radius: 0.2rem; -moz-border-radius: 0.2rem; -ms-border-radius: 0.2rem; border-radius: 0.2rem; border: 1px solid #679edf; -webkit-box-shadow: 0px 0px 5px rgba(103, 158, 223, 0.9); box-shadow: 0px 0px 5px rgba(103, 158, 223, 0.9); padding: .2rem .3rem .2rem; font-size: .4rem; }
 
 .ds_long > .panel > .prod { overflow: hidden; background: url("../../static/images/page/bottom_line.png") center 1.35rem no-repeat; background-size: 100%; padding: .1rem 0 .3rem; }
 
