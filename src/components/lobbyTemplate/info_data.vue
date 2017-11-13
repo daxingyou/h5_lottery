@@ -131,48 +131,48 @@
                     <form>
                         <fieldset v-if="show" >
                             <div class="form_g text">
-                                <legend>原密碼</legend>
-                                <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
+                                <legend>原密码</legend>
+                                <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword','请输入6~20位英数密码')">
                                 <i class="eye active eye1" @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!show" >
                             <div class="form_g text">
-                                <legend>原密碼</legend>
-                                <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
+                                <legend>原密码</legend>
+                                <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword','请输入6~20位英数密码')">
                                 <i class="eye act1" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="showC" >
                             <div class="form_g text">
-                                <legend>新密碼</legend>
-                                <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
+                                <legend>新密码</legend>
+                                <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkpassword(newPassword,'newPassword','请输入6~20位英数密码')">
                                 <i class="eye active eye2" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!showC" >
                             <div class="form_g text">
-                                <legend>新密碼</legend>
-                                <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
+                                <legend>新密码</legend>
+                                <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入6~20位英数密码')">
                                 <i class="eye act2" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="showB" >
                             <div class="form_g text">
-                                <legend>确认密碼</legend>
-                                <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <legend>确认密码</legend>
+                                <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm','请输入6~20位密码')">
                                 <i class="eye active eye3" @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!showB" >
                             <div class="form_g text">
-                                <legend>确认密碼</legend>
-                                <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
+                                <legend>确认密码</legend>
+                                <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm','请输入6~20位密码')">
                                 <i class="eye act3" @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>

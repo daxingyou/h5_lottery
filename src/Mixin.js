@@ -530,9 +530,20 @@ var MyMixin = {
             var re = /^[1-9][0-9]{4,}$/;
             return re.test(val);
         },
-        // 用户名，密码 验证 ，val输入框值，el 输入框class content 提示内容
+        // 用户名，验证 ，val输入框值，el 输入框class content 提示内容
         checkUserName:function (val,el,content) {
             if( (val && !this.positiveEngNum(val) ) || val.length<4 || val.length>15 ){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
+        // 密码
+        checkpassword:function (val,el,content) {
+            if( (val && !this.positiveEngNum(val) ) || val.length<6 || val.length>20 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
