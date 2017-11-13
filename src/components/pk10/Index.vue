@@ -1156,7 +1156,7 @@
     import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
 
     import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/cqssc/PlayDialog'
+    import PlayDialog from '@/components/pk10/PlayDialog'
     import Mixin from '@/Mixin'
 export default {
     name: 'pk10Index',
