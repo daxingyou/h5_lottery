@@ -195,6 +195,7 @@
                                 <legend>原密码</legend>
                                 <div class="select_inline">
                                 <select v-model="oldPassword1">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -209,6 +210,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model="oldPassword2">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -223,6 +225,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model=" oldPassword3">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -237,6 +240,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model=" oldPassword4">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -257,6 +261,7 @@
                                 <legend>新密码</legend>
                                 <div class="select_inline">
                                 <select v-model=" newPassword1">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -271,6 +276,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model="newPassword2">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -285,6 +291,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model=" newPassword3">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -299,6 +306,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select  v-model=" newPassword4">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -319,6 +327,7 @@
                                 <legend>确认密码</legend>
                                 <div class="select_inline">
                                 <select v-model=" newPassword_confirm1">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -333,6 +342,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model=" newPassword_confirm2">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -347,6 +357,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model="newPassword_confirm3">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -361,6 +372,7 @@
                                 </div>
                                 <div class="select_inline">
                                 <select v-model=" newPassword_confirm4">
+                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -553,7 +565,9 @@ export default {
             var newWord=_self.newPassword1+_self.newPassword2+_self.newPassword3+_self.newPassword4;
             var newWordC=_self.newPassword_confirm1+_self.newPassword_confirm2+_self.newPassword_confirm3+_self.newPassword_confirm4;
             if(_self.oldPassword1 ==''|| _self.oldPassword2 =='' ||
-              _self.oldPassword3 ==''|| _self.oldPassword4==''){
+            _self.oldPassword3 ==''|| _self.oldPassword4==''||
+                _self.oldPassword1 =='-'|| _self.oldPassword2 =='-' ||
+                _self.oldPassword3 =='-'|| _self.oldPassword4=='-'){
                   _self.$refs.autoCloseDialog.open('请输入原密码') ;
                    return false ;
               }else if(oldWord==newWord){
@@ -561,12 +575,16 @@ export default {
                 return false ;
             }
            if(_self.newPassword1 ==''|| _self. newPassword2 =='' ||
-              _self.newPassword3 ==''|| _self.newPassword4==''){
+              _self.newPassword3 ==''|| _self.newPassword4==''||
+               _self.newPassword1 =='-'|| _self. newPassword2 =='-' ||
+               _self.newPassword3 =='-'|| _self.newPassword4=='-'){
                  _self.$refs.autoCloseDialog.open('请输入新密码') ;
                  return false ;
               }
            if(_self.newPassword_confirm1 ==''|| _self.newPassword_confirm2 =='' ||
-              _self.newPassword_confirm3 ==''||_self.newPassword_confirm4==''){
+              _self.newPassword_confirm3 ==''||_self.newPassword_confirm4==''||
+               _self.newPassword_confirm1 =='-'|| _self.newPassword_confirm2 =='-' ||
+               _self.newPassword_confirm3 =='-'||_self.newPassword_confirm4=='-'){
               _self.$refs.autoCloseDialog.open('请再次输入新密码') ;
                   return false ;
               }else if(newWord!=newWordC){
@@ -631,6 +649,10 @@ export default {
               url: _self.action.uaa + 'api/data/member/chgInfo',
               data: EditData,
               success: (res) => {
+                   if(res.err=='INPUT_ERR'){
+                       _self.$refs.autoCloseDialog.open('请输入按正确格式输入') ;
+                       return
+                   }
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;

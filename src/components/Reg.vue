@@ -286,7 +286,14 @@
                     this.$refs.autoCloseDialog.open('请输入真实姓名') ;
                     return false ;
                 }
-                if(this.withpassword1 ==''|| !this.positiveNum(this.withpassword1)|| this.withpassword2 =='' || !this.positiveNum(this.withpassword2)|| this.withpassword3 ==''|| !this.positiveNum(this.withpassword3)|| this.withpassword4 =='' || !this.positiveNum(this.withpassword4) ){
+                if(this.withpassword1 ==''|| !this.positiveNum(this.withpassword1)
+                    ||this.withpassword2 =='' || !this.positiveNum(this.withpassword2)
+                    || this.withpassword3 ==''|| !this.positiveNum(this.withpassword3)
+                    || this.withpassword4 =='' || !this.positiveNum(this.withpassword4)
+                    ||this.withpassword1=='-'
+                    ||this.withpassword2=='-'
+                    ||this.withpassword3=='-'
+                    ||this.withpassword4=='-'){
                     this.$refs.autoCloseDialog.open('请输入取款密码') ;
                     return false ;
                 }
