@@ -1222,7 +1222,7 @@ export default {
                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                         that.now_pcode = res.data[1].issueAlias;  // 当前期数
                        // that.previous_pcode = res.data[2].pcode;  // 上期期数
-                        that.previous_pcode = res.data[2].issueAlias;  // 上期期数
+
                         // 当前期数时间
                         that.now_time = this.formatTimeUnlix(res.data[1].endTime);
                         // 当前期封盘时间
@@ -1232,11 +1232,19 @@ export default {
                         let code = res.data[2].winNumber;
                         //code 上期开奖号码
                         if (!code) {
-                            code='20,20,20,20,20,20,20,20,20,20';
+                           // code='20,20,20,20,20,20,20,20,20,20';
+                            code = res.data[3].winNumber;
                         }
                         that.winNumber = code;
                         //上期开奖统计
-                        that.lastTermStatic = res.data[2].doubleData;
+                            if(!res.data[2].doubleData){
+                                that.lastTermStatic = res.data[3].doubleData;
+                                that.previous_pcode = res.data[3].issueAlias;  // 上期期数
+                            }else{
+                                that.lastTermStatic = res.data[2].doubleData;
+                                that.previous_pcode = res.data[2].issueAlias;  // 上期期数
+                            }
+
                         resolve();
                         // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                     });

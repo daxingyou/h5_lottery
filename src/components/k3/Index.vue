@@ -20,8 +20,8 @@
                                     <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li> 
                                 </ul>
                             </div>
-                            <div class="last-open-k3dou">
-                                <ul class="k3_top_detail">
+                            <div class="last-open-k3dou last-open-dou">
+                                <ul class="k3_top_detail ">
                                     <li>{{lastTermStatic.sizer}}</li>
                                     <li>{{lastTermStatic.total}}</li>
                                 </ul>
@@ -312,7 +312,7 @@
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                             that.next_pcode = res.data[0].pcode;  // 下期期数
                             that.now_pcode = res.data[1].pcode;  // 当前期数
-                            that.previous_pcode = res.data[2].pcode;  // 上期期数
+
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
                             // 当前期封盘时间
@@ -322,11 +322,19 @@
                             let code = res.data[2].winNumber;
                             //code 上期开奖号码
                             if (!code) {
-                                code = '-,-,-,-,-';
+                                // code = '-,-,-,-,-';
+                                code = res.data[3].winNumber;
                             }
                             that.winNumber = code;
                             //上期开奖统计
-                            that.lastTermStatic = res.data[2].doubleData;
+                            if(!res.data[2].doubleData){
+                                that.lastTermStatic = res.data[3].doubleData;
+                                that.previous_pcode = res.data[3].pcode;  // 上期期数
+                            }else{
+                                that.lastTermStatic = res.data[2].doubleData;
+                                that.previous_pcode = res.data[2].pcode;  // 上期期数
+                            }
+
                             resolve();
                         });
                     }); 
