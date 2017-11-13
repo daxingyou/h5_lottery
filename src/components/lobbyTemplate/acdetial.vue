@@ -100,7 +100,7 @@ export default {
     },
     mounted:function() {
         //1 为全部选项卡的值
-        let tab = this.tabs[0]
+        let tab = this.tabs.filter(tab=>{return tab.active})[0];
         this.loadTab(tab);
     },
     methods: {
