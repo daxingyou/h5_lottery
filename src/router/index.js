@@ -37,6 +37,9 @@ import notification from '@/components/lobbyTemplate/notification'  //个人中�
 import join from '@/components/lobbyTemplate/join' //欢迎加入
 import withdrawals_bind from '@/components/lobbyTemplate/withdrawals_bind'
 
+import about from '@/components/lobbyTemplate/about'  // 大厅 關於我們
+import tutorial from '@/components/lobbyTemplate/tutorial'  // 大厅 關於我們
+
 Vue.use(Router)
 
 export default new Router({
@@ -123,6 +126,8 @@ export default new Router({
     { path: '/lobbyTemplate/info', name:'info', component: info },
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
+    { path: '/lobbyTemplate/about', name:'about', component: about },
+    { path: '/lobbyTemplate/tutorial', name:'tutorial', component: tutorial },
 
     // import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
     { path: '/lobbyTemplate/acDetailData', name:'acDetailData', component: acDetailData, props: (route) => ({ 

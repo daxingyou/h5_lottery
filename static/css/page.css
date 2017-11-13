@@ -344,7 +344,7 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 .last-open-dou { margin-left: -.1rem; }
 
-.about_area { text-align: left; width: 90%; margin: 0 auto; padding: .5rem 0; font-size: .35rem; }
+.about_area { text-align: left; width: 90%; margin: 0 auto; padding: 1.5rem 0; font-size: .35rem; }
 
 .about_area p { margin: .5rem 0; }
 
