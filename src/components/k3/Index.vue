@@ -22,8 +22,8 @@
                             </div>
                             <div class="last-open-k3dou last-open-dou">
                                 <ul class="k3_top_detail ">
-                                    <li>{{lastTermStatic.sizer}}</li>
                                     <li>{{lastTermStatic.total}}</li>
+                                    <li>{{lastTermStatic.sizer}}</li>
                                 </ul>
                             </div>
                         </div>

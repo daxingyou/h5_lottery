@@ -53,6 +53,7 @@
                               <li>
                               <marquee scrollamount="3">
                                 {{bulletins}}
+                                <!-- 123, 新增公告Adam测试2新增公告Adam测试新增公告3Adam测试新增公告4Adam测试新增公告5Adam测试6新增公告Adam测试-->
                               </marquee>
                               </li>
                                  <!-- <div >
@@ -66,9 +67,6 @@
 
                                       </vue-marquee>
                                   </div>-->
-
-
-
 
                           </ul>
                       </div>
@@ -212,7 +210,8 @@ export default {
               type:"GET",
               url:this.action.forseti + 'apis/cms/bulletins',
               data:{
-                  sideType:"2"
+                  sideType:"2",
+                  appid:"bcappid02",
               },
               success: (result) => {
                   for(let i=0;i<result.data.length;i++){
