@@ -22,7 +22,7 @@
                                             <th> 
                                                 <li>时间</li>
                                             </th>
-                                            <td>{{(model && dateFormat(model.createTime, 'yyyy/MM/dd HH:mm')) || '1990/1/1 00:00'}}<!-- 2017/07/04 10:22 --></td>
+                                            <td>{{(model && dateFormat(model.createTime, 'yyyy/mm/dd HH:mm')) || '1990/1/1 00:00'}}<!-- 2017/07/04 10:22 --></td>
                                         </tr>
                                         <tr>
                                             <th>
