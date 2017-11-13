@@ -15,7 +15,7 @@
               <router-link to="/login" v-show="!haslogin">登录</router-link>
               <router-link to="/reg" v-show="!haslogin" >注册</router-link>
               <a href="javascript:;" v-show="!haslogin" >试玩</a>
-              <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link> <!-- 普通用户 -->
+             <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
               <a class="guset" href="javascript:;" style="display: none"><i></i>游客</a>  <!--  试玩帐号 -->
               <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
           </div>
@@ -187,7 +187,7 @@ export default {
                   console.log(res);
                   if(res.err == 'SUCCESS'){
                       _self.clearAllCookie() ; // 清除全部 cookie
-                      this.$refs.autoCloseDialog.open("用户已退出");
+                      this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
                       },300)

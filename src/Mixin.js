@@ -531,7 +531,8 @@ var MyMixin = {
             return re.test(val);
         },
         // 用户名，验证 ，val输入框值，el 输入框class content 提示内容
-        checkUserName:function (val,el,content) {
+        checkUserName:function (val,el) {
+            var content = '请输入4~15位英数帐号' ;
             if( (val && !this.positiveEngNum(val) ) || val.length<4 || val.length>15 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -542,7 +543,8 @@ var MyMixin = {
             }
         },
         // 密码
-        checkpassword:function (val,el,content) {
+        checkpassword:function (val,el) {
+            var content = '请输入6~20位英数密码' ;
             if( (val && !this.positiveEngNum(val) ) || val.length<6 || val.length>20 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -553,7 +555,8 @@ var MyMixin = {
             }
         },
         // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
-        checkrealyName:function (val,el,content) {
+        checkrealyName:function (val,el) {
+            var content = '请输入真实姓名' ;
             if( (val && !this.trueName(val) ) || val.length<2 || val.length>8 ){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -564,8 +567,9 @@ var MyMixin = {
             }
 
         },
-        // 真实姓名 验证，val输入框值，el 输入框class content 提示内容
-        checktelphone :function(val,el,content) {
+        //电话号码 验证，val输入框值，el 输入框class content 提示内容
+        checktelphone :function(val,el) {
+            var content= '请输入正确的手机号码' ;
             if( (val && !this.phoneNum(val) ) || val.length != 11){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }else{
@@ -576,7 +580,8 @@ var MyMixin = {
             }
         },
         //验证开户行地址
-        checkBankAdd  :function(val,el,content){
+        checkBankAdd  :function(val,el){
+           var content = '请输入开户行地址（如:北京市海淀区xx分行' ;
              if(val==''){
                  $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
              }else{
@@ -584,7 +589,8 @@ var MyMixin = {
              }
              },
          //验证银行卡号
-        checkBankNum: function (val,el,content) {
+        checkBankNum: function (val,el) {
+            var content = '请输入正确银行卡' ;
             if(val &&!this.positiveNum(val)||val.length<=15||val.length>20){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }

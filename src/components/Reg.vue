@@ -17,7 +17,7 @@
                         <fieldset>
                             <div class="form_g account">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" autocomplete="off" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername','请输入4~15位英数帐号')">
+                                <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" autocomplete="off" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername')">
                                 <i class="close close1" @click="ClearInput('close1','tjrusername')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -25,7 +25,7 @@
                         <fieldset>
                             <div class="form_g account" >
                                 <legend></legend>
-                                <input type="text" placeholder="请输入帐号" v-model="username" autocomplete="off" class="username" @input="checkUserName(username,'username','请输入4~15位英数帐号')">
+                                <input type="text" placeholder="请输入帐号" v-model="username" autocomplete="off" class="username" @input="checkUserName(username,'username')">
                                 <i class="close close2" @click="ClearInput('close2','username')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -33,7 +33,7 @@
                         <fieldset  v-if="show">
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="password" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkpassword(password,'password','请输入6~20位英数密码')" >
+                                <input type="password" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkpassword(password,'password')" >
                                 <i class="eye active eye1"  @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -41,7 +41,7 @@
                         <fieldset v-if="!show">
                             <div class="form_g password">
                                 <legend></legend>
-                                <input type="text" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkpassword(password,'password','请输入6~20位英数密码')">
+                                <input type="text" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkpassword(password,'password')">
                                 <i class="eye act1" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -71,7 +71,7 @@
                     <fieldset>
                         <div class="form_g account">
                             <legend></legend>
-                            <input type="text" placeholder="请输入真实姓名" autocomplete="off" class="realyname" v-model="realyname" @input="checkrealyName(realyname,'realyname','请输入真实姓名')">
+                            <input type="text" placeholder="请输入真实姓名" autocomplete="off" class="realyname" v-model="realyname" @input="checkrealyName(realyname,'realyname')">
                             <i class="close close3" @click="ClearInput('close3','realyname')"></i>
                         </div>
                         <label class="error-message "></label>
@@ -138,7 +138,7 @@
                     <fieldset>
                         <div class="form_g phone">
                             <legend></legend>
-                            <input type="text" autocomplete="off" maxlength="11" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone','请输入正确的手机号码')">
+                            <input type="text" autocomplete="off" maxlength="11" placeholder="请输入手机号码" class="telephone" v-model="telephone" @input="checktelphone(telephone,'telephone')">
                             <i class="close close4" @click="ClearInput('close4','telephone')"></i>
                         </div>
                         <label class="error-message "></label>

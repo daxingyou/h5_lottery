@@ -15,7 +15,7 @@
                     <div class="form_g text">
                         <legend>真实姓名</legend>
                         <input type="text" name="real-name" v-model="realName" class="realName"   placeholder="请输入您的真实姓名"
-                               @input="checkrealyName(realName,'realName','请输入您的真实姓名')">
+                               @input="checkrealyName(realName,'realName')">
                         <i class="close close1" ></i>
                     </div>
                     <label class=" error-message"></label>
@@ -33,7 +33,7 @@
                     <div class="form_g text">
                         <legend>开户行地址</legend>
                         <input type="text" name="phone-number" v-model="bankAdd"  class="bankAdd" placeholder="请输入开户行地址（如:北京市海淀区xx分行"
-                        @input="checkBankAdd(bankAdd,'bankAdd','请输入开户行地址（如:北京市海淀区xx分行')">
+                        @input="checkBankAdd(bankAdd,'bankAdd')">
                         <i class="close close1" @click="ClearInput('close2','bankAdd')"></i>
                     </div>
                     <label class="error-message"></label>
@@ -42,7 +42,7 @@
                     <div class="form_g text">
                         <legend>银行卡号</legend>
                         <input type="text" name="phone-number" v-model="bankNum" class="bankNum" placeholder="请输入取款银行卡号"
-                        @input="checkBankNum(bankNum,'bankNum','请输入正确银行卡')">
+                        @input="checkBankNum(bankNum,'bankNum')">
                         <i class="close close3" @click="ClearInput('close3','bankNum')"></i>
                     </div>
                     <label class="error-message"></label>
@@ -51,7 +51,7 @@
                     <div class="form_g text">
                         <legend>手机号</legend>
                         <input type="text" name="phone-number" v-model="phoneNumber" class="phoneNumber"  placeholder="请输入11位手机号码" maxlength="11"
-                        @input="checktelphone(phoneNumber,'phoneNumber','请输入正确手机号码')">
+                        @input="checktelphone(phoneNumber,'phoneNumber')">
                         <i class="close close4" @click="ClearInput('close4','phoneNumber')"></i>
                     </div>
                     <label class="error-message"></label>

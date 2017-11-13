@@ -70,14 +70,14 @@
                                 帐户管理
                             </router-link>
                         </li>
-                        <li>
+                      <!--  <li>
                             <router-link class="btn_icon" :to="'/lobbyTemplate/notification'">
                                 <div class="icon">
                                     <div> <i class="info04"></i></div>
                                 </div>
                                 个人消息
                             </router-link>
-                        </li>
+                        </li>-->
                         <li>
                             <a class="btn_icon" href="javascript:;">
                                 <div class="icon">
