@@ -366,17 +366,16 @@ export default {
                     //code 上期开奖号码
                     if (!code) {
                        // code = '-,-,-,-,-';
-                        code = res.data[3].winNumber;
-                    }
-                    that.winNumber = code;
-                    //上期开奖统计
-                    if(!res.data[2].doubleData){
-                        that.lastTermStatic = res.data[3].doubleData;
+                        that.winNumber = res.data[3].winNumber;
+                        that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[3].pcode;  // 上期期数
                     }else{
-                        that.lastTermStatic = res.data[2].doubleData;
+                        that.winNumber = res.data[2].winNumber;
+                        that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[2].pcode;  // 上期期数
                     }
+                   // that.winNumber = code;
+
                     // :now_pcode="now_pcode" 
                     // :start="sys_time" :end="now_time" :overend="nowover_time"
                     resolve();

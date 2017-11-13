@@ -1232,18 +1232,15 @@ export default {
                         let code = res.data[2].winNumber;
                         //code 上期开奖号码
                         if (!code) {
-                           // code='20,20,20,20,20,20,20,20,20,20';
-                            code = res.data[3].winNumber;
+                            // code='20,20,20,20,20,20,20,20,20,20';
+                            that.winNumber = res.data[3].winNumber;
+                            that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[3].issueAlias;  // 上期期数
+                        }else{
+                            that.winNumber = res.data[2].winNumber;
+                            that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[2].issueAlias;  // 上期期数
                         }
-                        that.winNumber = code;
-                        //上期开奖统计
-                            if(!res.data[2].doubleData){
-                                that.lastTermStatic = res.data[3].doubleData;
-                                that.previous_pcode = res.data[3].issueAlias;  // 上期期数
-                            }else{
-                                that.lastTermStatic = res.data[2].doubleData;
-                                that.previous_pcode = res.data[2].issueAlias;  // 上期期数
-                            }
 
                         resolve();
                         // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
