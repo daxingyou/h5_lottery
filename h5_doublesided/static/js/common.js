@@ -386,6 +386,7 @@ function priodDataNewly(gameid,timer) {
         }
     });
 }
+
 //倒计时处理
 function lt_timer(start, end,overend) { // start服务器开始时间，end当前期开奖结束时间，overend 封盘结束时间
     var lt_time_leave ;
@@ -437,8 +438,13 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 
         });
     }
+   alert('好两块')
+    document.addEventListener('visibilitychange', function () {
+        alert('辅导费');
 
+    })
     var timerno = window.setInterval(function () {
+
         if (lt_time_leave > 0 && (lt_time_leave % 240 == 0 || lt_time_leave == 60 )) {   //每隔4分钟以及最后一分钟重新读取服务器时间
             _getSystemTime();
         }

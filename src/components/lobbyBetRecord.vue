@@ -627,7 +627,7 @@
                                             '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
                                            // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                           // '<p>'+ v.orderId +'</p>'+
+                                            '<p>'+ v.orderId +'</p>'+
                                             '<p><span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
                                             '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
