@@ -133,7 +133,7 @@
                             <div class="form_g text">
                                 <legend>原密碼</legend>
                                 <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
-                                <i class="eye eye1" @click="showPassword('eye1')"></i>
+                                <i class="eye active eye1" @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -141,7 +141,7 @@
                             <div class="form_g text">
                                 <legend>原密碼</legend>
                                 <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkUserName(oldPassword,'oldPassword','请输入4~15位密码')">
-                                <i class="eye active act1" @click="showPassword('act1')"></i>
+                                <i class="eye act1" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -149,7 +149,7 @@
                             <div class="form_g text">
                                 <legend>新密碼</legend>
                                 <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
-                                <i class="eye eye2" @click="showPassword('eye2')"></i>
+                                <i class="eye active eye2" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -157,7 +157,7 @@
                             <div class="form_g text">
                                 <legend>新密碼</legend>
                                 <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkUserName(newPassword,'newPassword','请输入4~15位密码')">
-                                <i class="eye active act2" @click="showPassword('act2')"></i>
+                                <i class="eye act2" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -165,7 +165,7 @@
                             <div class="form_g text">
                                 <legend>确认密碼</legend>
                                 <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
-                                <i class="eye eye3" @click="showPassword('eye3')"></i>
+                                <i class="eye active eye3" @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -173,7 +173,7 @@
                             <div class="form_g text">
                                 <legend>确认密碼</legend>
                                 <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkUserName(newPassword_confirm,'newPassword_confirm','请输入4~15位密码')">
-                                <i class="eye active act3" @click="showPassword('act3')"></i>
+                                <i class="eye act3" @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -194,7 +194,6 @@
                             <div class="form_g password text pay_password">
                                 <legend>原密码</legend>
                                 <select v-model="oldPassword1">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -207,7 +206,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model="oldPassword2">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -220,7 +218,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model=" oldPassword3">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -233,7 +230,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model=" oldPassword4">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -252,7 +248,6 @@
                             <div class="form_g password text pay_password">
                                 <legend>新密码</legend>
                                 <select v-model=" newPassword1">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -265,7 +260,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model="newPassword2">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -278,7 +272,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model=" newPassword3">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -291,7 +284,6 @@
                                     <option>9</option>
                                 </select>
                                 <select  v-model=" newPassword4">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -310,7 +302,6 @@
                             <div class="form_g password text pay_password">
                                 <legend>确认密码</legend>
                                 <select v-model=" newPassword_confirm1">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -323,7 +314,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model=" newPassword_confirm2">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -336,7 +326,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model="newPassword_confirm3">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -349,7 +338,6 @@
                                     <option>9</option>
                                 </select>
                                 <select v-model=" newPassword_confirm4">
-                                    <option>-</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>

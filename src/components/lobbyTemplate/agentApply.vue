@@ -41,7 +41,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="password" v-model="userPd" placeholder="请输入密码">
-                            <i class="eye eye1" @click="show('eye1')"></i>
+                            <i class="eye active eye1" @click="show('eye1')"></i>
                         </div>
                          <label class="red"></label>
                     </fieldset>
@@ -49,7 +49,7 @@
                         <div class="form_g password">
                             <legend></legend>
                             <input type="text" v-model="userPd" placeholder="请输入密码">
-                            <i class="eye active" @click="show('act')"></i>
+                            <i class="eye " @click="show('act')"></i>
                         </div>
                          <label class="red"></label>
                     </fieldset>

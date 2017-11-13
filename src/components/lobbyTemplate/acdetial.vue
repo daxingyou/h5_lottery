@@ -25,7 +25,7 @@
                             <ul class="panel">
                                 <li class="bet_data ac_data" data-status="not_open" v-for="item in day.list">
                                     <router-link :to="{ name:'acDetailData', params:{ model:item, data:$data} }">
-                                        <div class="prd_num"><span>{{item.createTime || '1990/1/1 00:00'}}</span></div>
+                                        <div class="prd_num"><span>{{dateFormat(item.createTime, 'yyyy/MM/dd HH:mm') || '1990/1/1 00:00'}}</span></div>
                                         <div class="item">
                                             <div class="icon">
                                                 <div>
@@ -66,7 +66,6 @@ export default {
     },
     data: function() {
         return {
-            // tabs:,
             tradeTypeConfig:{ 
                 '1':{ name:'公司入款', class:'ac03' }, 
                 '3':{ name:'线上入款', class:''}, 
@@ -89,32 +88,15 @@ export default {
                 '4':{name:'已通过',class:'sta01'}, 
                 '5':{name:'已锁定',class:'sta03'} 
             }
-            // statusConfig:{ '1':'公司入款', '3':'线上入款', '5':'人工入款', '7':'会员出款', '8':'人工提款' }
-
-            // {
-            //     '0':'sta02', //'未付款', 
-            //     '1':'sta02',    //'用户取消', 
-            //     '2':'sta03',    //'系统拒绝', 
-            //     '3':'sta03',        //'系统取消', 
-            //     '4':'sta01',        //'系统通过', //(已成功)
-            //     '5':'sta03',    //'异常订单'
-            //     //0-未付款，1-用户取消，2-系统拒绝，3，系统取消，4-系统通过(已成功)，5-异常订单
-            //     // '成功':'sta01', 
-            //     // '处理中':'sta02', 
-            //     // '失败':'sta03', 
-            // }
         }
     },
     computed:{
         tabs:function(){
             return this.$parent.$data.acDetail.tabs;
-            // return [
-            //     { title:'全部', value:'1', days:[], active:true },
-            //     { title:'资金派送', value:'', days:[], active:false },
-            //     { title:'充值', value:'2', days:[], active:false },
-            //     { title:'提款', value:'3', days:[], active:false },
-            // ]
         }
+    },
+    created:function(){
+        
     },
     mounted:function() {
         //1 为全部选项卡的值
@@ -141,9 +123,12 @@ export default {
                     return item;
                 });
                 const day = tab.days[0];
-                this.getList(tab.value, day.pdate).then(res=>{
-                    day.list = res.data;
-                });
+                if (day){
+                    this.getList(tab.value, day.pdate).then(res=>{
+                        day.list = res.data;
+                    });
+                    
+                }
             });
             this.activeTab = tab;
         },
@@ -159,7 +144,7 @@ export default {
             });
         },
         selectTab:function(e, tab){
-            if (tab.active){
+            if (tab.active || tab.value == 4){
                 return false;
             }
             this.tabs.forEach(item=>{item.active=false});

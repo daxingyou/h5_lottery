@@ -34,7 +34,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')" >
-                                <i class="eye eye1"  @click="showPassword('eye1')"></i>
+                                <i class="eye active eye1"  @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -42,7 +42,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入密码" v-model="password" autocomplete="off" class="password" @input="checkUserName(password,'password','请输入6~20位英数密码')">
-                                <i class="eye active act1" @click="showPassword('act1')"></i>
+                                <i class="eye act1" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -50,7 +50,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="password" placeholder="请输入确认密码" autocomplete="off" v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
-                                <i class="eye eye2" @click="showPassword('eye2')"></i>
+                                <i class="eye active eye2" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -58,7 +58,7 @@
                             <div class="form_g password">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入确认密码" autocomplete="off"  v-model="confirmpassword" class="confirmpassword" @input="checkIsEqual('.confirmpassword')">
-                                <i class="eye active" @click="showPassword('act2')"></i>
+                                <i class="eye " @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
