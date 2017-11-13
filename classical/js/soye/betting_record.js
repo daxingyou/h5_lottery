@@ -312,6 +312,25 @@ function touzhu(that, view) {
     }
     var data = $(that).data('val');
 
+    //撤单按钮初始化
+    var nowPdate = getCookie('now_pcode');//当前期数
+    var thisPdate = data.pcode;//本单期数
+    if (parseInt(thisPdate) <= parseInt(nowPdate)) {
+        $('#btn_bet_cancel').show()
+        $('#btn_bet_cancel_zhuihao').show()
+    } else {
+        $('#btn_bet_cancel').hide()
+        $('#btn_bet_cancel_zhuihao').hide()
+    }
+    //普通撤单
+    $('#btn_bet_cancel').click(function () {
+        var param = {
+            "ifChase": 0,  //是否追号 0为否，1为是
+            "lotteryId": getCookie('lt_lottid'),//彩种
+            "orderIds": data.orderId //投注记录方案号，如果是追号可以多个，多个时可用“,”隔开
+        }
+        cancelOrderFee(param);
+    });
     $('.body').hide();
     $('#page1').show();
     data = JSON.parse(decodeURI(data));
@@ -380,6 +399,25 @@ function zhuihao(that) {
     $('.body').hide();
     $('#page2').show();
     data = JSON.parse(decodeURI(data));
+    //撤单按钮初始化
+    var nowPdate = getCookie('now_pcode');//当前期数
+    var thisPdate = data.pcode;//本单期数
+    if (parseInt(thisPdate) <= parseInt(nowPdate)) {
+        $('#btn_bet_cancel').show()
+        $('#btn_bet_cancel_zhuihao').show()
+    } else {
+        $('#btn_bet_cancel').hide()
+        $('#btn_bet_cancel_zhuihao').hide()
+    }
+//追号撤单
+    $('#btn_bet_cancel_zhuihao').click(function () {
+        var param = {
+            "ifChase": 1,  //是否追号 0为否，1为是
+            "lotteryId": getCookie('lt_lottid'),//彩种
+            "orderIds": data.orderId //投注记录方案号，如果是追号可以多个，多个时可用“,”隔开
+        }
+        cancelOrderFee(param);
+    });
     chaseOrderDetailFun(data.lotteryId, data.parentOrderId, function (list) {
         $('#page2 .lottery_t')
             .html('<p>' + data.lotteryName + ' - <span>' + data.playName + '</span></p><p class="tra_info">' +
@@ -500,4 +538,79 @@ function initZhuihao() {
             })
         },
     })
+}
+
+/**
+ * 撤单
+ */
+function cancelOrderFee(param) {
+    var param = param
+    $.ajax({
+        type: 'post',
+        headers: {
+            'Authorization': 'bearer ' + access_token,
+        },
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8', // json格式传给后端
+        url: action.forseti + 'api/orders/cancelOrderFee',
+        data: JSON.stringify(param), // json格式
+        success: function (res) {
+            if (res.err == 'SUCCESS') {
+                layer.open({
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">' + res.data.toFixed(2) + '</span>元',
+                    btn: ['确定', '取消'],
+                    yes: function (index) {
+                        cancelOrder(param)
+                        layer.close(index);
+                    }
+                });
+            } else {
+                layer.open({
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: res.msg,
+                    btn: ['确定']
+                });
+            }
+        },
+        error: function (err) {
+            console.log(err.responseText);
+        },
+    });
+}
+
+function cancelOrder(param) {
+    var param = param
+    $.ajax({
+        type: 'post',
+        headers: {
+            'Authorization': 'bearer ' + access_token,
+        },
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8', // json格式传给后端
+        url: action.forseti + 'api/orders/cancelOrder',
+        data: JSON.stringify(param), // json格式
+        success: function (res) {
+            if (res.err == 'SUCCESS') {
+                layer.open({
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: '撤单成功<br />撤单返回<span class="ui_color_yellow">' + res.data.toFixed(2) + '</span>元',
+                    btn: ['确定']
+                });
+            } else {
+                layer.open({
+                    title: '温馨提示',
+                    className: 'layer_tip',
+                    content: res.msg,
+                    btn: ['确定']
+                });
+            }
+        },
+        error: function (err) {
+            console.log(err.responseText);
+        },
+    });
 }

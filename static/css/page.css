@@ -32,7 +32,7 @@ input, select, button, a { outline: none; }
 :-moz-placeholder { /* Firefox 18- */ color: #3c5369; }
 
 #pa_con { width: 10rem; height: 100%; text-align: center; margin: auto; background: url("../../static/images/bg.jpg"); background-size: 100%; min-height: 18rem; }
-
+.mbsc-fr-c{background: url("../../static/images/bg.jpg")}
 #pa_con .so-right > div:first-child img { right: 0.49rem; }
 
 #pa_con.cover_bg:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.48); width: 100%; height: 100%; background-size: cover; z-index: 1; }
@@ -279,9 +279,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/*
- CSS for the main interaction
-*/
+/* CSS for the main interaction */
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -486,25 +484,25 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .bet_data .status00 { padding-top: .3rem; }
 
-.bet_data .status00 > div { display: block; background-image: url("../../static/images/page/status00.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; }
+.bet_data .status00 > span { position: relative; top: 0.5rem; }
 
-.bet_data .status02 { color: #71c341; }
+.bet_data .status00 > div { display: block; background-image: url("../../static/images/page/status00.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
 
-.bet_data .status03 { color: #b91010; padding-top: .3rem; position: relative; margin-top: 0; }
+.bet_data .status02 { padding-top: .3rem; color: #71c341; }
 
-.bet_data .status03 > div { display: block; background-image: url("../../static/images/page/status03.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; }
+.bet_data .status03, .bet_data .status04 { color: #b91010; padding-top: .3rem; }
 
-.bet_data .status04 { color: #f00; padding-top: 2rem; position: relative; margin-top: 0; }
+.bet_data .status03 > span, .bet_data .status04 > span { position: relative; top: 0.5rem; }
 
-.bet_data .status04:before { content: ''; display: block; background-position: center; background-repeat: no-repeat; background-size: 100%; position: absolute; width: 1.429rem; height: 1.429rem; top: .3rem; left: 50%; margin-left: -0.7143rem; }
+.bet_data .status03 > div, .bet_data .status04 > div { display: block; background-image: url("../../static/images/page/status03.svg"); background-position: center center; background-repeat: no-repeat; background-size: 100%; text-align: center; margin: 0 auto; width: .5rem; height: .5rem; position: relative; top: -0.6rem; }
 
 .prd_num { float: none; vertical-align: top; line-height: 1; background-image: url("../../static/images/page/pn_lt_bg.png"); height: .4rem; background-size: 100%; width: 3.5rem; color: #8393ab; font-size: .35rem; padding: .2rem 0 .15rem .4rem; border-top-left-radius: .2rem; }
 
 .prd_num:after { content: ''; display: table; clear: both; }
 
-.lottery_t { margin-left: .4rem; font-size: .35rem; }
+.lottery_t { margin-left: .3rem; font-size: .35rem; }
 
-.lottery_t > p { margin-top: .2rem; font-size: .4rem; max-width: 5rem; word-break: break-all; }
+.lottery_t > p {/* margin-top: .2rem; */font-size: .3rem; max-width: 5rem; word-break: break-all; }
 
 .past_view { margin: .3rem 0; }
 
@@ -606,7 +604,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .dropdown_icon { font-size: .35rem; color: #256e93; line-height: 1.4rem; cursor: pointer; }
 
-.play_area { display: block; position: absolute; left: 0; top: 1.5rem; z-index: 15; background: #212838; width: 100%; border-top: 1px solid #383838; color: #d7e8f0; text-align: left; padding: .3rem 0; }
+.play_area { display: block; position: fixed; left: 0; top: 1.5rem; z-index: 15; background: #212838; width: 100%; border-top: 1px solid #383838; color: #d7e8f0; text-align: left; padding: .3rem 0; }
 
 .play_area .sort > h5 { margin-left: .6rem; margin-bottom: .2rem; color: #256e93; font-size: .35rem; }
 
@@ -894,7 +892,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password > legend { background-image: url("../../static/images/lock.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
-.password > img { float: right; margin-top: -.9rem; height: .8rem; }
+.password > img { margin-top: -.9rem; height: .8rem; position: absolute; top: 100%;  right: 2%; z-index: 100;}
 
 .password.pay_password > legend { background-image: none; width: 1.5rem; }
 
@@ -902,7 +900,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password.pay_password > input:last-child { border-right: none; border-right: 1px solid #256e93; }
 
-.password.pay_password > select { width: 16%; display: block; border-right: 1px solid #256e93; text-align: center; text-align-last: center; padding: 0 .1rem; height: .5rem; margin-top: .25rem; border-radius: 0; }
+.password.pay_password > select { width: 1.54rem; display: block; border-right: 1px solid #256e93; text-align: center; text-align-last: center; padding: 0 .3rem; -webkit-box-sizing: border-box; box-sizing: border-box; height: .5rem; margin: 0.25rem 0; line-height: 0.3rem; border-radius: 0; }
 
 .password.pay_password > select:last-child { border-right: none; }
 
@@ -1163,5 +1161,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */

@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="static/images/back.png" alt="">
-                </a>
+                <router-link :to="'/lobbyTemplate/info'">
+                    <img src="../../../static/images/back.png" alt="">
+                </router-link>
             </div>
             <h2 class="center">提款</h2>
             <div class="right"></div>
@@ -18,7 +18,7 @@
                             <th>
                                 <li>真实姓名</li>
                             </th>
-                            <td>大哥</td>
+                            <td>{{realName}}</td>
                         </tr>
                         <tr>
                             <th class="bank_card_num">
@@ -33,7 +33,7 @@
                             <th>
                                 <li>余额</li>
                             </th>
-                            <td>{{membalance}}</td>
+                            <td>{{memBalance}}</td>
                         </tr>
                         </thead>
                     </table>
@@ -41,14 +41,14 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>取款金额</legend>
-                        <input type="text" v-model="money"  class="money" placeholder="1.00~9999.00">
+                        <input type="text" v-model="userMoney"  class="money" placeholder="1.00~9999.00">
                         <i class="close close1" @click="ClearInput('close1','money')"></i>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
                         <legend>支付密码</legend>
-                        <input type="password" v-model="password" class="password" maxlength="4" placeholder="4位数字密码">
+                        <input type="text" v-model="cashPassword" class="password" onfocus="this.type='password'" maxlength="4" placeholder="4位数字密码">
                         <i class="close close2" @click="ClearInput('close1','password')"></i>
                     </div>
                 </fieldset>
@@ -84,12 +84,15 @@ export default {
   },
     data: function() {
         return {
-             money:'',
-             password:'',
-             membalance:this.getCookie('membalance'),
-             username:'',
+             userMoney:'',
+             cashPassword:'',
+             memBalance:this.getCookie('membalance'),
+             realName:'',
              bankName:'',
-             bankCard:''
+             bankCard:'',
+             bankCode:'',
+             bankId:'',
+
         }
     },
     created: function() {
@@ -105,9 +108,9 @@ export default {
       clearVal :function (cl) {
 
           if(cl=='money'){
-              this.money ='';}
+              this.userMoney ='';}
           if(cl=='password'){
-              this.password='';
+              this.cashPassword='';
           }
 
       },
@@ -121,36 +124,40 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: { },
               success: (res) => {
-                  if(res.data.bindType==null||res.data.bindType==2){
+                  if(res.data.bindType==null||res.data.bindType==1){
                       window.location = '/lobbyTemplate/withdrawals_bind' ;
                   }
-//                  _self.username=data.realName;
+                    _self.realName=res.data.realName;
                     _self.bankName=res.data.bankName;
                     _self.bankCard=res.data.bankCard;
-
+                    _self.bankCode=res.data.bankCode;
+                    _self.bankId  =res.data.bankId;
               },
               error: (err) =>{
-                  console.log(err)
-//                  _self.$refs.autoCloseDialog.open('返回错误') ;
-              }
-          })
-//
+
+             }
+            })
+
       },
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
-          if (_self.money == '' || !_self.checkNumber(_self.money)) {
+          if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
           }
-          if(_self.password==''||! _self.checkNumber(_self.password)){
-              _self.$refs.autoCloseDialog.open('请输入密码');
+          if(_self.cashPassword==''||! _self.positiveNum(_self.cashPassword)||_self.cashPassword.length!=4){
+              _self.$refs.autoCloseDialog.open('请输入4位数字密码');
                 return false
           }
+
           var Withdrawalsdata = {
-              applyAmount: _self.money,//金额
-              tradePassword: _self.password, //密码
-              remark :'会员提现'
+              applyAmount: _self.userMoney*100,//金额
+              tradePassword: _self.cashPassword, //密码
+              bankCode:_self.bankCode,//银行code
+              bankId:_self.bankId,  //银行Id
+              bankCard:_self.bankCard, //银行卡号
+              realName:_self.realName,//真实姓名
           };
           $.ajax({
               type: 'post',
@@ -159,6 +166,15 @@ export default {
               url: _self.action.forseti + 'api/pay/drawOrder',
               data: Withdrawalsdata,
               success: (res) => {
+                  //取款密码错误
+                  if(res.err=='password err'){
+                      _self.$refs.autoCloseDialog.open('支付密码错误');
+                      return
+                  }
+                  if(res.err=='update balance fail'){
+                      _self.$refs.autoCloseDialog.open('提款失败');
+                      return
+                  }
                   _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info' ;

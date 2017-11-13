@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <a href="../">
+                <router-link :to="'/lobbyTemplate/withdrawals'">
                     <img src="../../../static/images/back.png" alt="">
-                </a>
+                </router-link>
             </div>
             <h2 class="center">绑定银行</h2>
             <div class="right"></div>
@@ -14,17 +14,17 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>真实姓名</legend>
-                        <input type="text" name="real-name" v-model="realName" class="realName" placeholder="请输入您的真实姓名"
+                        <input type="text" name="real-name" v-model="realName" class="realName"   placeholder="请输入您的真实姓名"
                                @input="checkrealyName(realName,'realName','请输入您的真实姓名')">
-                        <i class="close close1" @click="ClearInput('close1','realName')"></i>
+                        <i class="close close1" ></i>
                     </div>
                     <label class=" error-message"></label>
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
                         <legend>选择银行</legend>
-                        <select name="" v-model="bankName">
-                            <option :value="bank.id" v-for="bank in bankList">{{bank.bankName}}</option>
+                        <select name="" v-model="bankId" class="bankselect">
+                            <option :value="bank.id" v-for="bank in bankList" :data-code="bank.bankCode" >{{bank.bankName}}</option>
                         </select>
                         <i class="input_select"></i>
                     </div>
@@ -84,23 +84,23 @@ export default {
     data: function() {
         return {
            realName:'',
-           bankName:'',
+           bankId:'',
            bankAdd :'',
            bankNum :'',
            phoneNumber:'',
-           bankList:[],
-           bankId:'',
-           bankCode:''
+           bankList:{},
+           bankCode:'',
         }
     },
     created:function (){
-        this.getBankList()
+        this.getBankList();
+        this.getUserInfo()
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
 
   },
-  methods: {
+    methods: {
       //清除model数据,cl元素class
       clearVal :function (cl) {
           if(cl=='realName'){
@@ -112,51 +112,73 @@ export default {
           if(cl=='phoneNumber'){
               this.phoneNumber='';}
            },
+      //获取用户信息
+      getUserInfo:function () {
+        var _self=this;
+        $.ajax({
+            type:'get',
+            headers: {"Authorization": "bearer  " + this.getAccessToken },
+            url: _self.action.forseti + 'api/payment/memberBank',
+            data:{},
+            success: function(res){
+                _self.phoneNumber=res.data.mobile;
+                _self.realName=res.data.realName
+            },
+            error: function (err) {
+
+            }
+        })
+      },
       //获取银行列表
       getBankList:function(){
           var _self=this;
           $.ajax({
               type:'get',
-              headers: {"Authorization": "bearer  " + this.getAccessToken },
-              url: _self.action.forseti + 'api/payment/banks',
+//              headers: {"Authorization": "bearer  " + this.getAccessToken },
+              url: _self.action.forseti + 'apis/payment/banks',
               data:{},
               success: function(res){
                   _self.bankList=res.data;
-
               },
               error: function (err) {
 
               }
-
           })
       },
-
       //修改银行账户信息
       ChangeInfo : function () {
           var _self=this;
           if(_self.realName==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
-          if(_self.bankName==""){
+          if(_self.bankId==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.bankAdd==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.bankNum==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
           if(_self.phoneNumber==""){
+              _self.$refs.autoCloseDialog.open('请按提示填写信息') ;
               return false
           }
+          //获取选中值Code
+          _self.bankCode=$('.bankselect').find("option:selected").data('code') ;
           var bankData={
               bankCode:_self.bankCode,
               bankId:_self.bankId,
-              bankCard:_self.bankCard,
+              bankCard:_self.bankNum,
               bankAddress:_self.bankAdd,
               mobile:_self.phoneNumber,
-              realName:_self.realname
+              realName:_self.realName
           };
+
           $.ajax({
               type:'post',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
@@ -164,11 +186,15 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: bankData,
               success: function(res){
-
-
+//                  console.log(res)
+                  _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
+                  setTimeout(function(){
+                      window.location = '/lobbyTemplate/withdrawals' ;
+                  },2000)
               },
               error: function (err) {
-
+                 console.log(err);
+                  _self.$refs.autoCloseDialog.open('绑定失败') ;
               }
           })
       }

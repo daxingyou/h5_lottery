@@ -362,7 +362,9 @@
             });
             //确定提交
             $('.btn_submit').on('click', (e) => {
-                this.lotteryid = lotterychooseid ;
+                if(lotterychooseid || lotterychooseid == '0'){
+                    this.lotteryid = lotterychooseid ;
+                }
                 var $src = $(e.currentTarget);
                 var lottery_name ;
                 $('.play_area').each(function () {

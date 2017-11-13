@@ -60,7 +60,7 @@
                             :lotteryID="lotteryID"
                             :start="sys_time" :end="now_time" :overend="nowover_time"
                     -->
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
@@ -144,7 +144,7 @@
                                     <div>
                                         <h2>{{kind.name}}</h2>
                                         <div>
-                                            <BallItem v-for="subItem in continueNumberSubList" 
+                                            <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList" 
                                                 :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }" 
                                                 @selected="continueNumberSelect" 
                                                 @unSelected="continueNumberUnSelect" />
@@ -328,7 +328,7 @@
         if (this.moduleLotteryID) {
             this.lotteryID = this.moduleLotteryID;
         } 
-        this.getMemberBalance().then(()=>{
+        this.getMemberBalance(this.lotteryID).then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });
       },
@@ -447,7 +447,7 @@
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
                 this.$refs.bet.betAmount = '' ;
-                this.getMemberBalance() ; // 更新余额
+                this.getMemberBalance(this.lotteryID) ; // 更新余额
             },
             combineCountCaculate:function(item){
                 const rule = this.selectRules[item.parentItem.cid];

@@ -20,7 +20,7 @@
                                    <!-- <div class="time timerset" :data-time=" (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 ">-->
                                     <div class="time timerset" :data-time="0">
                                        <!-- {{ (format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime()) / 1000 }}-->
-                                        {{ formatTime((format(formatTimeUnlix(list.endTime)).getTime() - format(formatTimeUnlix(sys_time)).getTime())/1000 ,0) }}
+                                        {{ formatTime((format(formatTimeUnlix(list.endTime,0)).getTime() - format(formatTimeUnlix(sys_time),0).getTime())/1000 ,0) }}
                                     </div>
 
                                 </div>
@@ -40,88 +40,15 @@
                                     <li v-for="listnum in list.winNumber.split(',')">{{listnum}}</li>
                                 </ul>
 
+                                <div class="function_btn">
+                                    <router-link class="bell btn btn_outline" to="publicTemplate/pastView" @click.native="setActionToView(list.lotteryId,gameName[list.lotteryId])"><i></i>往期开奖</router-link>
+                                   <!-- <a class="bell btn btn_outline" href="publicTemplate/pastView" @click="setActionToView(list.lotteryId,gameName[list.lotteryId])"><i></i>往期开奖</a>-->
+                                    <router-link class="check btn btn_blue" :to="'/'+gameHref[list.lotteryId]"><i></i>立即投注</router-link>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
 
-
-                                <div class="function_btn">
-                                    <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
-                                    <a class="check btn btn_blue" :href="'/'+gameHref[list.lotteryId]"><i></i>立即投注</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                  <!--  <li class="past_view">
-                        <ul class="panel">
-                            <li class="prod pk10">
-                                <div class="play_th">
-                                    <div class="prd_num"><i class="prd"></i><span>北京PK10</span></div>
-                                    <div class="prd_num02">第20170914057期</div>
-                                    <div class="time">00:00:00</div>
-                                </div>
-                                <ul class="pk10_top_number">
-                                    <li><span class="pk10_ball small_ball num_10"></span></li>
-                                    <li><span class="pk10_ball small_ball num_2"></span></li>
-                                    <li><span class="pk10_ball small_ball num_1"></span></li>
-                                    <li><span class="pk10_ball small_ball num_9"></span></li>
-                                    <li><span class="pk10_ball small_ball num_3"></span></li>
-                                    <li><span class="pk10_ball small_ball num_4"></span></li>
-                                    <li><span class="pk10_ball small_ball num_8"></span></li>
-                                    <li><span class="pk10_ball small_ball num_7"></span></li>
-                                    <li><span class="pk10_ball small_ball num_5"></span></li>
-                                    <li><span class="pk10_ball small_ball num_6"></span></li>
-                                </ul>
-                                <div class="function_btn">
-                                    <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
-                                    <a class="check btn btn_blue" href="javascript:;"><i></i>立即投注</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="past_view">
-                        <ul class="panel">
-                            <li class="prod hksixlo">
-                                <div class="play_th">
-                                    <div class="prd_num"><i class="prd"></i><span>香港六合彩</span></div>
-                                    <div class="prd_num02">第20170914057期</div>
-                                    <div class="time">00:00:00</div>
-                                </div>
-                                <ul class="lo_ball sixball">
-                                    <li>06</li>
-                                    <li>07</li>
-                                    <li>03</li>
-                                    <li>05</li>
-                                    <li>02</li>
-                                    <li>01</li>
-                                    <li>45</li>
-                                </ul>
-                                <div class="function_btn">
-                                    <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
-                                    <a class="check btn btn_blue" href="javascript:;"><i></i>立即投注</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="past_view">
-                        <ul class="panel">
-                            <li class="prod jc11x5">
-                                <div class="play_th">
-                                    <div class="prd_num"><i class="prd"></i><span>江西11选5</span></div>
-                                    <div class="prd_num02">第20170914057期</div>
-                                    <div class="time">00:00:00</div>
-                                </div>
-                                <ul class="lo_ball">
-                                    <li>06</li>
-                                    <li>07</li>
-                                    <li>03</li>
-                                    <li>05</li>
-                                    <li>02</li>
-                                </ul>
-                                <div class="function_btn">
-                                    <a class="bell btn btn_outline" href="javascript:;"><i></i>往期开奖</a>
-                                    <a class="check btn btn_blue" href="javascript:;"><i></i>立即投注</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>-->
                 </ul>
             </div>
         </div>
@@ -161,7 +88,32 @@ export default {
             cssid :{'8':'pk10','6':'k3'} ,
             ulclass :{'8':'pk10_top_number','6':'k3dice_top','20':'k3dice_top','22':'k3dice_top'} ,
             spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
-            gameHref : {"1":"c_cqssc","2":"cqssc","3":"jxsyxw","4":"jc11x5","6":"jsks","8":"pk10","12":"tjssc","14":"xjssc","18":"jc11x5/sd11x5Index", "16":"jc11x5/gd11x5Index" }, // 对应彩种的id
+            gameHref : {
+                "2":"cqssc",
+                "12":"cqssc/tianJinIndex",
+                "14":"cqssc/xinJiangIndex",
+                "4":"jc11x5",     //江西11选5
+                "18":"jc11x5/sd11x5Index",  //山东11选5
+                "16":"jc11x5/gd11x5Index",  //广东11选5
+                "8":"pk10",
+                "6":"k3/",  //江苏快3
+                "20":"k3/anHuiK3Index",
+                "22":"k3/huBeiK3Index",
+
+            }, // 对应彩种的id
+            gameName : {
+                "2":"重庆时时彩",
+                "12":"天津时时彩",
+                "14":"新疆时时彩",
+                "4":"江西11选5",     //江西11选5
+                "18":"山东11选5",  //山东11选5
+                "16":"广东11选5",  //广东11选5
+                "8":"北京PK10",
+                "6":"江苏快3",  // 江苏快3
+                "20":"安徽快3",
+                "22":"湖北快3",
+
+            }, // 对应彩种的名称
 
         }
     },
@@ -186,9 +138,17 @@ export default {
 
   },
   methods:{
-    /*
-    * 近期开奖数据，近期开奖页面
-    * */
+      /*
+       * 跳转往期开奖处理
+       *  */
+      setActionToView:function (lotteryid,name) {
+          this.setCookie('lt_lotteryid',lotteryid) ; // 彩种 id 设置
+          this.setCookie('lottery_name',name) ;
+      },
+
+      /*
+      * 近期开奖数据，近期开奖页面
+      * */
     doubleCount:function (maxtime) {
         var senddata ={
             sideType: '2' , // 1官彩，2双面彩
@@ -222,8 +182,8 @@ export default {
                                 break ;
                         }
                     }
-
-                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime)).getTime() - this.format(this.formatTimeUnlix(this.sys_time)).getTime()) / 1000) ;
+                   // console.log(this.sys_time)
+                    $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime,0)).getTime() - this.format(this.formatTimeUnlix(this.sys_time,0)).getTime()) / 1000) ;
                 }
 
                 this.pastView = data.data ;
@@ -238,8 +198,8 @@ export default {
 
       lobbytimerBegin:function(){
           var that = this;
-          that.getSystemTime().then(sys_time=>{
-              that.sys_time = sys_time;
+          that.getSystemTime('0').then(sys_time=>{
+              that.sys_time = sys_time ;
               that.doubleCount('') ;
              // console.log(that.sys_time)
 
@@ -252,7 +212,7 @@ export default {
       gameTimer:function () {
               //倒计时定时器
               var that = this ;
-              this.gametimerInt = setInterval(function() {
+              this.gametimerInt = window.setInterval(function() {
                   var $obj_nav_span = $(".timerset");
                   for (var i = 0; i < $obj_nav_span.length; i++) {
                       var _times = "";
@@ -279,5 +239,8 @@ export default {
 }
 </script>
 <style scoped>
-
+    .play_th .prd_num{ width: 4.5rem; }
+    #pa_content.lobby_past_view .play_th .prd_num > i {
+        margin-left: -0.3rem;
+    }
 </style>

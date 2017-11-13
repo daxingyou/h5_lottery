@@ -34,7 +34,7 @@
         <a class="btn_back" href="javascript:;" onclick="history.go(-1);" title="返回"></a>
         <h2>注单详情</h2>
         <!--撤单下一期再做-->
-        <!--<a class="right" id="btn_bet_cancel" href="javascript:;">撤单</a>-->
+        <a class="right" id="btn_bet_cancel" href="javascript:;" style="display: block">撤单</a>
     </header>
     <section class="wraper-page-inner">
         <div class="bet_dt_area">
@@ -101,18 +101,6 @@
 <!--<script type="text/javascript" src="../js/coreDesign.js"></script>-->
 <!--<script type="text/javascript" src="../js/res.js"></script>-->
 
-<!--<script>-->
-<!--$(function(){-->
-<!--$('#btn_bet_cancel').click(function() {-->
-<!--layer.open({-->
-<!--title: '温馨提示',-->
-<!--className: 'layer_tip',-->
-<!--content: '确定要进行撤单吗？<br />撤单手续费需收<span class="ui_color_yellow">1000.00</span>元',-->
-<!--btn: ['确定', '取消']-->
-<!--});-->
-<!--});-->
-<!--})-->
-<!--</script>-->
 <!--<script type="text/javascript" src="../js/pushservice.js"></script>-->
 <script>
     var access_token = getCookie('access_token');  // 取token
@@ -218,6 +206,8 @@
         }
         return param;
     }
+
+
 </script>
 </body>
 

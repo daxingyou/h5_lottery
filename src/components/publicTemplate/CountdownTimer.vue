@@ -55,13 +55,12 @@ export default {
         clearInterval(this.timer);
     },
     methods:{
-        
         timerInit:function(start, end, overend){
             const format = this.format;
             const theStart = start ? start : this.start;
             const theEnd = end ? end : this.end;
             const theOverend = overend ? overend : this.overend;
-            this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
+            let timeSpan = this.lt_time_leave = (this.format(theEnd).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
@@ -74,12 +73,11 @@ export default {
                     this.$emit('spanArrived');
                 }
                 const lt_time_leave = this.lt_time_leave;
-                // console.log('--'+lt_time_leave)
-                if (lt_time_leave>60*8 && lt_time_leave % 10 == 0){
+                if (timeSpan-lt_time_leave<60*1 && lt_time_leave % 10 == 0){
                     spanSrrived();
-                } else if (lt_time_leave>60*7 && lt_time_leave % 20 == 0){
+                } else if (timeSpan-lt_time_leave<60*2 && lt_time_leave % 20 == 0){
                     spanSrrived();
-                } else if (lt_time_leave>60*3 && lt_time_leave % 30 == 0){
+                } else if (timeSpan-lt_time_leave<60*3 && lt_time_leave % 30 == 0){
                     spanSrrived();
                 }else if (lt_time_leave==30){
                     spanSrrived();
@@ -107,22 +105,9 @@ export default {
                 this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
 
             }).bind(this), 1000);
-        },
-/*        fftime:function (n) {
-            return Number(n) < 10 ? '' + 0 + Number(n) : Number(n);
-        },
+        }
 
-        format:function(dateStr) {  //格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
-        }, 
-        diff:function(t) {  //根据时间差返回相隔时间
-            return t > 0 ? {
-                day: Math.floor(t / 86400),
-                hour: Math.floor(t % 86400 / 3600),
-                minute: Math.floor(t % 3600 / 60),
-                second: Math.floor(t % 60)
-            } : {day: 0, hour: 0, minute: 0, second: 0};
-        }*/
+
     }
 }
 </script>

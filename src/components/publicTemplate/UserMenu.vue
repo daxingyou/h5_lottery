@@ -44,7 +44,10 @@
                     <li class="r_today">
                         <!-- <img src="/static/images/right/6.png"> -->
                         <p>今日输赢</p>
-                        <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'-')}}{{fortMoney(roundAmt(payoff))}})</div>
+                       <!-- <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'')}}{{fortMoney(roundAmt(payoff))}})</div>-->
+                        <div class="today_payoff win_payoff" v-if="payoff>=0">+{{fortMoney(roundAmt(payoff))}}</div>
+                        <div class="today_payoff lose_payoff" v-else>-{{fortMoney(roundAmt(payoff).toString().replace(/-/g,''))}}</div>
+
                     </li>
                 </ul>
 

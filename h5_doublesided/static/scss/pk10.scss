@@ -184,7 +184,7 @@
             height: 3.1rem;
             p {
                 float: left;
-                border: solid 0.01rem #277ca5;
+                border: solid 1px #277ca5;
                 height: 0.85rem;
                 width: 2.96rem;
                 margin-bottom: 4%;
@@ -210,7 +210,7 @@
                 background: url(../images/content/changkuang.png) no-repeat;
                 background-size: 100% 100%;
                 background-position: -0.01rem;
-                border: solid 0.01rem #42371c;
+                border-color: #42371c;
                 >span {
                     &:first-child {
                         color: #010101;

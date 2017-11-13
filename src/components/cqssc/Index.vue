@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer" 
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
@@ -280,12 +280,15 @@ export default {
         lotteryID: 2 ,
         allLottery:{} ,
         gameHref:{} ,
-        kinds:['两面', '1-5球', '前中后'],
+        kinds:['两面', '1-5球', '前中后']
 
     }
   },
   created:function(){
-    this.getMemberBalance().then(()=>{
+      if (this.moduleLotteryID) {
+          this.lotteryID = this.moduleLotteryID;
+      }
+      this.getMemberBalance(this.lotteryID).then(()=>{
         this.loadPlayTree(this.lotteryID).catch(function () {
              console.log("Promise Rejected in method of create 2");
         });;  // 玩法树，彩种id 为2
@@ -295,7 +298,7 @@ export default {
   },
   mounted:function() {
     var lotteryid = this.lotteryID ; // 彩种id
-    var lotteryname = '重庆时时彩' ; // 彩种名称
+    var lotteryname = this.moduleName || '重庆时时彩' ; // 彩种名称
     this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
     this.setCookie('lottery_name',lotteryname) ; // 彩种名称
     this.allLottery = this.$refs.navone.getLotterys() ;
@@ -315,7 +318,7 @@ export default {
     },
     frontCenterBackList:function(){
         return this.getListByParentID(23000);
-    },
+    }
   },
   methods:{
     switchTab:function(e){
@@ -391,7 +394,7 @@ export default {
         this.betSelectedList = [];
         $(".so-con-right p").removeClass('active');
         this.$refs.bet.betAmount = '' ;
-        this.getMemberBalance() ; // 更新余额
+        this.getMemberBalance(this.lotteryID) ; // 更新余额
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){

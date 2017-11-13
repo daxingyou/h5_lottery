@@ -6,7 +6,7 @@
       <IndexNavigation el=".btn_leftside" ref="navone" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
-              <a class="btn_leftside" href="javascript:;">
+              <a class="btn_leftside" href="javascript:;" v-show="haslogin">
                   <img src="static/images/nav.png" alt="">
               </a>
           </div>
@@ -30,12 +30,7 @@
                           </a>
                       </li>
                   </ul>
-                <!--  <ul>
-                      <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>
-                  <ul>
-                      <li><a href="javascript:;"><img src="static/images/banner.jpg" /></a></li>
-                  </ul>-->
+
               </div>
               <div class="hd">
                   <ul>
@@ -54,10 +49,27 @@
               <div id="marquee_snp" class="bd news_text slideText">
                   <div class="sys-notice">
                       <div class="bd">
-                          <ul>
-                              <li><a href="javascript:;">01大厅最新消息最新消息最新消息</a></li>
-                              <li><a href="javascript:;">02大厅最新消息最新消息最新消息</a></li>
-                              <li><a href="javascript:;">03大厅最新消息最新消息最新消息</a></li>
+                          <ul >
+                              <li>
+                              <marquee scrollamount="3">
+                                {{bulletins}}
+                              </marquee>
+                              </li>
+                                 <!-- <div >
+                                      <vue-marquee :content="bulletins" class="two"  :showtwo="false" >
+                                      </vue-marquee>
+                                      <vue-marquee content=" 00" class="two"  :showtwo="false" >
+                                      </vue-marquee>
+                                  </div>-->
+                                 <!-- <div class="marquee-wrap" style="width:80%;">
+                                      <vue-marquee content="发动机咖啡大家开个会尽快发货更好的非结构化健康法规尽快发货股份共计花费对符合国家开发和国家开发" class="two"  :showtwo="false" >
+
+                                      </vue-marquee>
+                                  </div>-->
+
+
+
+
                           </ul>
                       </div>
                   </div>
@@ -79,7 +91,7 @@
                       </div>
                     </router-link>
                     <p>{{lottery.name}}</p>
-                    
+
                   </li>
 
               </ul>
@@ -96,6 +108,8 @@
           </section>
       </div>
       <FooterNav />
+      <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
+
   </div>
 </template>
 
@@ -106,6 +120,8 @@ import Mixin from '@/Mixin'
 //import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import FooterNav from '@/components/Footer'
+import VueMarquee from 'vue-marquee-ho';
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'Index',
@@ -113,7 +129,8 @@ export default {
   components: {
     // TouchSlide,
       FooterNav ,
-    IndexNavigation
+    IndexNavigation,
+      AutoCloseDialog,
 //    UserNavigation,
 
   },
@@ -123,6 +140,7 @@ export default {
             balanceData:{},
             allLottery:{} ,
             gameHref:{} ,
+            bulletins:'',
             banner:[
                 {'url':'http://admin.baochiapi.com/photo/pic/T1itJTBXJT1RCvBVdK/0'},
                 {'url':'http://admin.baochiapi.com/photo/pic/T1XtETBybT1RCvBVdK/0'},
@@ -135,6 +153,7 @@ export default {
 
     },
   mounted:function() {
+
     $('html,body').css('overflow-y','scroll' )  ;
     this.allLottery = this.$refs.navone.getLotterys() ;
     this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
@@ -144,17 +163,15 @@ export default {
       slideCell: "#focus",
       autoPlay:true,
     });
-      // $("#marquee_snp").slide({ // 文本滚动
-      //     mainCell: ".bd ul",
-      //     autoPage: true,
-      //     effect: "leftMarquee",
-      //     autoPlay: true,
-      //     vis: 1,
-      //     interTime: 50
-      // });
-      
-
-
+     this.getBulletinsContent ();
+      /* $("#marquee_snp").slide({ // 文本滚动
+           mainCell: ".bd ul",
+           autoPage: true,
+           effect: "leftMarquee",
+           autoPlay: true,
+           vis: 1,
+           interTime: 50
+       });*/
 
   },
   methods:{
@@ -167,7 +184,16 @@ export default {
               url: this.action.uaa + 'oauth/logout',
               data: {} ,
               success: (res) => {
-                  _self.clearAllCookie() ; // 清除全部 cookie
+                  console.log(res);
+                  if(res.err == 'SUCCESS'){
+                      _self.clearAllCookie() ; // 清除全部 cookie
+                      this.$refs.autoCloseDialog.open("用户已退出");
+                      setTimeout(function () {
+                          window.location = '/' ;
+                      },300)
+
+                  }
+
                   // console.log(res) ;
                   this.$nextTick(function () {
 
@@ -177,6 +203,24 @@ export default {
 
               }
           });
+      },
+
+      getBulletinsContent :function () {
+          let  self=this ;
+          let bulletinsArr=[];
+          $.ajax({
+              type:"GET",
+              url:this.action.forseti + 'apis/cms/bulletins',
+              data:{
+                  sideType:"2"
+              },
+              success: (result) => {
+                  for(let i=0;i<result.data.length;i++){
+                      bulletinsArr.push(result.data[i].content);
+                  }
+                  self.bulletins=bulletinsArr.toString();
+              }
+          })
       }
   },
 
@@ -185,6 +229,7 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
+
   /* .hotgame_area ul a {
     position: relative;
     display: inline-block;

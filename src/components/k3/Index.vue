@@ -29,7 +29,7 @@
                         </div>
 
                     </div>
-                    <CountdownTimer ref="countdownTimer" v-if="now_time && nowover_time" 
+                    <CountdownTimer ref="countdownTimer"
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
@@ -241,7 +241,7 @@
         if (this.moduleLotteryID) {
             this.lotteryID = this.moduleLotteryID;
         } 
-        this.getMemberBalance().then(()=>{
+        this.getMemberBalance(this.lotteryID).then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });
       },
@@ -344,7 +344,7 @@
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
                 this.$refs.bet.betAmount = '' ;
-                this.getMemberBalance() ; // 更新余额
+                this.getMemberBalance(this.lotteryID) ; // 更新余额
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){

@@ -104,8 +104,9 @@
                 restr: '', // 网页html缓存
                 lock: 0,
                 // access_token : this.getCookie('access_token'), // 取token
-                lotteryname : '投注记录' ,
+                lotteryname : '全部 投注记录' ,
                 lotteryid : '0' ,
+                lastlotteryid : '0' ,
                 nowDate: new Date(),
                 seadata: {
                     page: 1, // 页数，从1开始
@@ -239,7 +240,6 @@
                     case 2:
                         this.seadata.statusType = 3
                         if (this.seadata.searchType === 1) {
-                            console.log('返点')
                             mySwiperRecode.slideTo(2, 200, false);
                         } else {
                             mySwiperTrack.slideTo(2, 200, false);
@@ -476,13 +476,16 @@
                 });
                 //确定提交
                 $('.btn_submit').on('click', (e) => {
-                    this.lotteryid = lotterychooseid ;
+                    if(lotterychooseid || lotterychooseid == '0'){
+                        this.lotteryid = lotterychooseid ;
+                    }
+                    this.seadata.page = 1; // 还原页码
                     var $src = $(e.currentTarget);
                     var lottery_name ;
                     $('.play_area').each(function () {
                         var flag = $(this).find('li').hasClass('active') ;
                         if(flag){
-                            lottery_name = $(this).find('li.active').find('a').text()
+                            lottery_name = $(this).find('li.active').find('a').text() ;
                         }
                     }) ;
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
@@ -550,12 +553,15 @@
                     data: JSON.stringify(this.seadata), // json格式
                     success: (res) => {
                         // debugger;
+                        if(this.lastlotteryid != this.lotteryid){ // 是否切换，切换需要重置
+                            $('.bet-recode-all').html('') ;
+                        }
                         $('.so-zzjz').remove();
                         const dataList = res.data.rows;
                         // console.log(dataList)
                         if (dataList.length === 0) {
-                            $('.bet-recode-all')
-                                .append('<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>');
+                            var appstr = '<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>' ;
+                                $('.bet-recode-all').append(appstr);
                         } else {
                             this.lock = 0;
                         }
@@ -575,15 +581,15 @@
                                     var className = 'status00';
                                     var payoff = ''
                                     switch (parseInt(v.orderStatus)) {
-                                        case 32:
+                                        case 32: // 已中奖
                                             className = 'status02';
                                             payoff = this.fortMoney(this.roundAmt(v.payoff), 2) + '元'
                                             break;
-                                        case 4:
-                                        case 5:
-                                        case 6:
-                                        case 71:
-                                        case 81:
+                                        case 4: // 用户撤单
+                                        case 5:  // 系统撤单
+                                        case 6:  // 中奖停追
+                                        case 71: // 存在异常
+                                        case 81: // 异常注单
                                             className = 'status04';
                                             break;
                                         case 33: // 和局
@@ -597,7 +603,9 @@
                                             '<div class="item"> ' +
                                             '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
-                                            '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                           // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                            '<p>'+ v.orderId +'</p>'+
+                                            '<p><span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
                                             '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
                                             '</div>' +
@@ -609,6 +617,7 @@
                                 }
                             });
                         });
+                        this.lastlotteryid = this.lotteryid ;
                         this.seadata.page++;
                     },
                     error: () => {

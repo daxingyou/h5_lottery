@@ -87,9 +87,20 @@ var MyMixin = {
                 type: 'get',
                 headers: {
                     "Authorization": "bearer  " + this.getAccessToken,
+                },
+                error: function (e) {
+                    if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                        this.clearAllCookie() ;
+                        setTimeout(function () {
+                            window.location = '/login' ;
+                        },300)
+                        return false ;
+                    }
+                    reject(e);
                 }
             }
             config = Object.assign(config, userConfig);
+            $.ajax(config);
             // Object.assign()
             // $.ajax({
             //     type: 'get',
@@ -125,6 +136,7 @@ var MyMixin = {
 
         // 玩法树
         loadPlayTree:function(gameid) {
+            var _slef = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
@@ -154,12 +166,13 @@ var MyMixin = {
 
         // 最新开奖期数
         priodDataNewly:function(gameid, sys_time) {
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 // const res = this.testPriodDataNewlyData;
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken,
+                        "Authorization": "bearer  " + _self.getAccessToken,
                     },
                     url: this.action.forseti + 'api/priodDataNewly',
                     data: {lotteryId: gameid,},
@@ -190,6 +203,7 @@ var MyMixin = {
 
         // 获取用户余额
         getMemberBalance:function (lotteryid) {
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'GET',
@@ -207,6 +221,7 @@ var MyMixin = {
                         resolve();
                     },
                     error: function (e) {
+                        console.log(e)
                         if(e.responseJSON.error == 'invalid_token'){  // token 过期
                             _self.clearAllCookie() ;
                             setTimeout(function () {
@@ -227,7 +242,7 @@ var MyMixin = {
                     //代码
                 })
         */
-        getSystemTime:function() {
+        getSystemTime:function(nochange) {
             var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
@@ -238,7 +253,12 @@ var MyMixin = {
                     url: this.action.forseti + 'apis/serverCurrentTime',
                     data: {},
                     success: (res) => {
-                        const sys_time = _self.formatTimeUnlix(res.data);
+                        if(nochange =='0'){
+                            var sys_time = res.data;
+                        }else{
+                            var sys_time = _self.formatTimeUnlix(res.data);
+                        }
+
                         resolve(sys_time);
                     },
                     error: function (e) {
@@ -322,16 +342,22 @@ var MyMixin = {
             var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
             var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-            return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+           return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
         // 倒计时处理
         formatTime:function(second, type) {
             var bk;
             if (type == 0) {
                 var h = parseInt(second / 3600);
+               // var h = Math.floor(second / 3600);
                 var f = parseInt(second % 3600 / 60);
+               // var f = Math.floor((second - (h * 60 * 60)) / 60);
                 var s = parseInt(second % 60);
-                bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+              //  var s = (second - (h * 60 * 60) - (f * 60));
+              // second --;
+              bk = '0'+h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+              // bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
             } else {
                 bk = second.split(":");
                 bk = parseInt(bk[0] * 3600) + parseInt(bk[1] * 60) + parseInt(bk[2])
@@ -343,7 +369,7 @@ var MyMixin = {
         },
 
         format:function(dateStr) {  //格式化时间
-            return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
+           return new Date(dateStr.replace(/[\-\u4e00-\u9fa5]/g, '/'));
         },
         diff:function (t) {  //根据时间差返回相隔时间
             return t > 0 ? {
@@ -384,7 +410,14 @@ var MyMixin = {
             }
             return param;
         },
-
+        // 打开新窗口
+        openGame: function(url) {
+            if (url) {
+                return window.open(url,  "_blank", 'toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no, depended=no, width=600, height=800');
+            }
+           // return window.open('', 'game', 'width=1200, height=800');
+            return window.open(url,  "_blank", 'toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no, depended=no, width=600, height=800') ;
+        },
         // 设置cookie
         setCookie :function(name, value, expire, path) {
             var curdate = new Date();
@@ -469,10 +502,7 @@ var MyMixin = {
             var re = /^[0-9]*$/;
             return re.test(num);
         },
-        checkNumber :function(num) { // 验证数字，包含0
-            var re = /^[0-9]*$/;
-            return re.test(num);
-        },
+
         positiveEngNum:function (val) { // 验证英文与数字或者下划线，帐号验证和密码验证
             var re = /^[A-Za-z0-9|_|]+$/;
             return re.test(val);
@@ -541,7 +571,7 @@ var MyMixin = {
              },
          //验证银行卡号
         checkBankNum: function (val,el,content) {
-            if(val &&!this.checkNumber(val)||val.length<=15||val.length>20){
+            if(val &&!this.positiveNum(val)||val.length<=15||val.length>20){
                 $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
             }
             else{

@@ -25,7 +25,7 @@
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                          {{getCookie('membalance')}}
+                                       {{Money}}
                                     </div>
                                 </div>
                             </div>
@@ -55,12 +55,12 @@
                             </a>
                         </li>-->
                         <li>
-                            <a class="btn_icon" href="./acdetial">
+                            <router-link to="/lobbyTemplate/acdetial" class="btn_icon">
                                 <div class="icon">
                                     <div><i class="info02"></i></div>
                                 </div>
                                 帐户明细
-                            </a>
+                            </router-link>
                         </li>
                         <li>
                             <router-link class="btn_icon" :to="'/lobbyTemplate/info_data'">
@@ -127,7 +127,7 @@ export default {
     data: function() {
         return {
             haslogin:false ,
-            money:this.getCookie('membalance')
+            Money:this.getCookie('membalance')
         }
     },
     created:function () {
@@ -136,11 +136,12 @@ export default {
         if( !_self.haslogin){
             // _self.$refs.autoCloseDialog.open('请先登录！') ;
             window.location = '/login' ;
-        }
+        };
+
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
-
+      this.getMemberBalance();
   },
   methods: {
 

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import require from 'require';
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Reg from '@/components/Reg'
@@ -25,10 +26,12 @@ import DsLong from '@/components/publicTemplate/DsLong'
 import info from '@/components/lobbyTemplate/info'  // 大厅个人中心
 import analysis from '@/components/lobbyTemplate/analysis'  // 大厅个人中心 盈亏分析
 import acdetial from '@/components/lobbyTemplate/acdetial'  // 大厅个人中心 帐户明细
+import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
 import deposit from '@/components/lobbyTemplate/deposit'  // 大厅个人中心 充值
 
 import withdrawals from '@/components/lobbyTemplate/withdrawals'  // 大厅个人中心 提款
 import agent from '@/components/lobbyTemplate/agent'  // 大厅代理加盟
+import agentApply from '@/components/lobbyTemplate/agentApply'  // 大厅代理加盟注册页
 import info_data from '@/components/lobbyTemplate/info_data'  //个人中心-账户管理
 import notification from '@/components/lobbyTemplate/notification'  //个人中心-个人消息
 import join from '@/components/lobbyTemplate/join' //欢迎加入
@@ -120,9 +123,17 @@ export default new Router({
     { path: '/lobbyTemplate/info', name:'info', component: info },
     { path: '/lobbyTemplate/analysis', name:'analysis', component: analysis },
     { path: '/lobbyTemplate/acdetial', name:'acdetial', component: acdetial },
+
+    // import acDetailData from '@/components/lobbyTemplate/acDetailData'  // 大厅个人中心 帐户明细
+    { path: '/lobbyTemplate/acDetailData', name:'acDetailData', component: acDetailData, props: (route) => ({ 
+        
+        query: route.query.q 
+      })
+    },
     { path: '/lobbyTemplate/deposit', name:'deposit', component: deposit },
     { path: '/lobbyTemplate/withdrawals', name:'withdrawals', component: withdrawals },
     { path: '/lobbyTemplate/agent', name:'agent', component: agent },
+    { path: '/lobbyTemplate/agentApply', name:'agentApply', component: agentApply },
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
     { path: '/lobbyTemplate/notification', name:'notification', component:notification },
     { path: '/lobbyTemplate/join', name:'join', component:join },
