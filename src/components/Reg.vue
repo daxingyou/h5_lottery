@@ -245,6 +245,10 @@
                 if(this.confirmpassword ==''){
                     this.$refs.autoCloseDialog.open('请输入确认密码') ;
                     return false ;
+                }
+                if(this.username==this.tjrusername){
+                    this.$refs.autoCloseDialog.open('账号不能与推荐人账号相同') ;
+                    return false ;
                 }else if(this.confirmpassword !== this.password){
                     this.$refs.autoCloseDialog.open('两次密码输入不一致');
                     return false ;
