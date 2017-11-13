@@ -481,6 +481,7 @@
                         this.lotteryid = lotterychooseid ;
                     }
                     this.seadata.page = 1; // 还原页码
+                    $('.bet-recode-all').find('li').remove(); // 清空原来的数据
                     var $src = $(e.currentTarget);
                     var lottery_name ;
 
@@ -611,7 +612,7 @@
                                             '<div class="badge ssc_badge lottery_logo_' + v.lotteryId + '"></div>' +
                                             '<div class="lottery_t ssc">' +
                                           //  '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
-                                            '<p>'+ v.orderId +'</p>'+
+                                           // '<p>'+ v.orderId +'</p>'+
                                             '<p> <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
                                             '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
