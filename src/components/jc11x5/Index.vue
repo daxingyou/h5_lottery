@@ -352,7 +352,7 @@
                 this.timerBegin();
             }, 500) ;
             this.initViewHeight();
-          },
+        },
           computed:{
             doubleSideList:function(){
                 return this.getListByParentID(41000); 
