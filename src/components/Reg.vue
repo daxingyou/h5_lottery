@@ -82,6 +82,7 @@
                     <fieldset>
                         <div class="form_g password text pay_password">
                             <legend>取款密码</legend>
+                            <div class="select_inline">
                             <select autocomplete="off" v-model="withpassword1" class="withpassword1">
                                 <option>-</option>
                                 <option>0</option>
@@ -95,6 +96,8 @@
                                 <option>8</option>
                                 <option>9</option>
                             </select>
+                            </div>
+                            <div class="select_inline">
                             <select  v-model="withpassword2" class="withpassword2">
                                 <option>-</option>
                                 <option>0</option>
@@ -108,6 +111,8 @@
                                 <option>8</option>
                                 <option>9</option>
                             </select>
+                            </div>
+                            <div class="select_inline">
                             <select v-model="withpassword3" class="withpassword3">
                                 <option>-</option>
                                 <option>0</option>
@@ -121,6 +126,8 @@
                                 <option>8</option>
                                 <option>9</option>
                             </select>
+                            </div>
+                            <div class="select_inline">
                             <select v-model="withpassword4" class="withpassword4">
                                 <option>-</option>
                                 <option>0</option>
@@ -134,6 +141,7 @@
                                 <option>8</option>
                                 <option>9</option>
                             </select>
+                            </div>
                             <!-- <input type="text" maxlength="1" size="1" placeholder="_"> -->
                         </div>
                         <!-- <label class="red">请输入4~15位帐号</label> -->
