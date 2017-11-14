@@ -607,6 +607,10 @@ export default {
                       _self.$refs.autoCloseDialog.open('原密码输入错误') ;
                       return false ;
                   }
+                  if(res.err=='parameter error'||res.msg=='参数错误'){
+                      _self.$refs.autoCloseDialog.open('修改失败，请重新操作') ;
+                      return false ;
+                  }
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;

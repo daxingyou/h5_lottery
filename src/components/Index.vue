@@ -218,7 +218,7 @@ export default {
                   self.bulletins=bulletinsArr.toString();
                   var str = '<marquee align="left" behavior="scroll" direction="left" hspace="0" vspace="0" loop="-1" scrollamount="2" scrolldelay="30">'+
                             self.bulletins+ '</marquee>' ;
-                  $('.sys-notice .bd').html(str)
+                  $('.sys-notice>.bd').html(str)
               }
           })
       }
