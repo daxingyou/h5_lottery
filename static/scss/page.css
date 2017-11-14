@@ -327,7 +327,7 @@ footer.bot_nav {
         footer.bot_nav > ul > li.active a, footer.bot_nav > ul > li:hover a, footer.bot_nav > ul > li:focus a {
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); }
       footer.bot_nav > ul > li a {
-        margin-left: 21%;
+        margin-left: 15%;
         padding: .48rem 0 .5rem;
         position: relative; }
         footer.bot_nav > ul > li a:before {
@@ -343,8 +343,8 @@ footer.bot_nav {
           background-size: 100%;
           width: .5rem;
           height: .5rem;
-          top: .5rem;
-          left: calc( 35% - 1rem); }
+          top: .48rem;
+          left: inherit; }
         footer.bot_nav > ul > li a.index:before {
           background-position-y: 0.05rem; }
         footer.bot_nav > ul > li a.trend:before {
@@ -1636,7 +1636,7 @@ i.index_s {
     #so-item1 ul li > div > div p.active span:first-child {
       background: url("/static/images/content/qui02.png") no-repeat;
       background-size: 1.2rem;
-      background-position: 0.11rem 0.05rem; }
+      background-position: 0 0.05rem; }
     #so-item1 ul li > div > div:after {
       content: '';
       display: block;
