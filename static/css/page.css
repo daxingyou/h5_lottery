@@ -1549,8 +1549,6 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_mid .btn_blue:last-child { margin-left: .5rem; }
 
-.info_mid .btn_blue > a { line-height: .5rem; }
-
 .info_bot { text-align: center; padding: 2em 0; }
 
 .info_bot > .btn_blue { width: 90%; margin: .5rem auto; }
