@@ -79,7 +79,7 @@
                             </router-link>
                         </li>-->
                         <li>
-                            <a class="btn_icon" target="_blank" href="https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html">
+                            <a class="btn_icon" href="javascript:;"  @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
                                 <div class="icon">
                                     <div><i class="info05"></i></div>
                                 </div>
