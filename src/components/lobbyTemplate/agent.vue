@@ -14,10 +14,10 @@
                 <div class="agent">
                     <div class="tabset">
                         <!-- Tab 1 -->
-                        <input type="radio" name="tabset" id="tab1" aria-controls="agent" checked>
+                        <input type="radio" name="tabset" id="tab1" aria-controls="agent" checked @click="gotoTop">
                         <label for="tab1" class="tab1">代理加盟</label>
                         <!-- Tab 2 -->
-                        <input type="radio" name="tabset" id="tab2" aria-controls="commission">
+                        <input type="radio" name="tabset" id="tab2" aria-controls="commission" @click="gotoTop">
                         <label for="tab2" class="tab2">佣金方案</label>
 
                         <div class="tab-panels">
@@ -109,9 +109,9 @@
                             </section>
                         </div>
                     </div>
-                    <div class="btn btn_blue">
+                  <!--  <div class="btn btn_blue">
                         <router-link to="/lobbyTemplate/agentApply">立即申请</router-link>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -142,7 +142,10 @@ export default {
 
   },
   methods: {
-
+  // 回到顶部
+      gotoTop:function () {
+          scrollTo(0,0);
+      }
 }
 
 }
