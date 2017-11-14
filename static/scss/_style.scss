@@ -568,32 +568,32 @@
             height: auto;
             margin: 0px auto;
             overflow: hidden;
-            padding-left: .2rem;
+            //padding-left: .2rem;
             p {
                 float: left;
                 height: 1.65rem;
                 width: 25%;
                 padding-bottom: .2rem;
-                span:first-child {
-                    background: url('/static/images/content/qui02.png') no-repeat;
-                    background-size: 1.2rem;
-                    background-position: 0.11rem -1.25rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.6rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.12rem;
-                    margin: 0 auto;
-                }
                 span {
                     color: #fff;
                     font-size: 0.3rem;
                     display: block;
                     padding-right: 0;
                     line-height: 0.5rem;
+                    margin: 0 auto;
+                    text-align: center;
+                    &:first-child {
+                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background-size: 1.2rem;
+                        background-position: 0 -1.25rem;
+                        display: block;
+                        width: 1.2rem;
+                        height: 1.3rem;
+                        color: #fffbe2;
+                        font-size: 0.6rem;
+                        line-height: 1.3rem;
+                        //text-indent: 0.12rem;
+                    }
                 }
             }
             p.active {
@@ -623,7 +623,7 @@
                 height: 0.4rem;
                 margin-top: -0.4rem;
                 overflow: hidden;
-                margin-left: -.2rem;
+                //margin-left: -.2rem;
             }
         }
     }
@@ -1402,7 +1402,7 @@ img.bet_ok {
             line-height: 0.9rem;
         }
         > div {
-            padding: 0 3%;
+            //padding: 0 3%;
             p {
                 float: left;
                 height: 1.65rem;
@@ -1413,21 +1413,7 @@ img.bet_ok {
                 display: inline-block;
                 margin-bottom: 0;
                 margin-left: 0;
-                span:first-child {
-                    background: url('/static/images/content/qui02.png') no-repeat;
-                    background-size: 1.2rem;
-                    background-position: 0.11rem -1.25rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.6rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.12rem;
-                    margin: 0 auto;
-                }
-                span {
+                span{
                     color: #fff;
                     font-size: 0.3rem;
                     display: block;
@@ -1435,26 +1421,43 @@ img.bet_ok {
                     line-height: 0.5rem;
                     float: none;
                     padding: 0;
+                    margin: 0 auto;
+                    text-align: center;
+                    &:first-child {
+                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background-size: 1.2rem;
+                        background-position: 0 -1.25rem;
+                        display: block;
+                        width: 1.2rem;
+                        height: 1.3rem;
+                        color: #fffbe2;
+                        font-size: 0.6rem;
+                        line-height: 1.3rem;
+                        //text-indent: 0.12rem;
+
+                    }
                 }
             }
             p.active {
                 background: none;
                 border:none;
-                span:first-child {
-                    background: url('/static/images/content/qui02.png') no-repeat;
-                    background-size: 1.2rem;
-                    background-position: 0.1rem 0.09rem;
-                    display: block;
-                    width: 1.3rem;
-                    height: 1.3rem;
-                    color: #fffbe2;
-                    font-size: 0.6rem;
-                    text-align: center;
-                    line-height: 1.3rem;
-                    text-indent: 0.1rem;
-                }
-                span:last-child {
-                    color: #fffbe2;
+                span{
+                    &:first-child {
+                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background-size: 1.2rem;
+                        background-position: 0.1rem 0.09rem;
+                        display: block;
+                        width: 1.3rem;
+                        height: 1.3rem;
+                        color: #fffbe2;
+                        font-size: 0.6rem;
+                        text-align: center;
+                        line-height: 1.3rem;
+                        text-indent: 0.1rem;
+                    }
+                    &:last-child {
+                        color: #fffbe2;
+                    }
                 }
             }
             &:after{

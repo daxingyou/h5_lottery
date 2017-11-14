@@ -584,17 +584,17 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item1 ul li > div > h2 { color: #ffbd00; font-size: .4rem; line-height: 1.12rem; text-align: left; text-indent: 0.4rem; background: url("/static/images/content/panel_header_1.png") no-repeat; background-size: 100% 100%; line-height: 0.9rem; }
 
-#so-item1 ul li > div > div { background: url("/static/images/content/panel_body.png") no-repeat; background-size: 100% 100%; padding: 3% 0 3%; height: auto; margin: 0px auto; overflow: hidden; padding-left: .2rem; }
+#so-item1 ul li > div > div { background: url("/static/images/content/panel_body.png") no-repeat; background-size: 100% 100%; padding: 3% 0 3%; height: auto; margin: 0px auto; overflow: hidden; }
 
 #so-item1 ul li > div > div p { float: left; height: 1.65rem; width: 25%; padding-bottom: .2rem; }
 
-#so-item1 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; margin: 0 auto; }
+#so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; margin: 0 auto; text-align: center; }
 
-#so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
+#so-item1 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0 -1.25rem; display: block; width: 1.2rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; line-height: 1.3rem; }
 
 #so-item1 ul li > div > div p.active span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem 0.05rem; }
 
-#so-item1 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("/static/images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; margin-left: -.2rem; }
+#so-item1 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("/static/images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; }
 
 #so-item2 ul li > div { width: 7rem; text-align: center; margin: auto; }
 
@@ -816,13 +816,11 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > h2 { color: #ffbd00; font-size: .4rem; line-height: 1.12rem; text-align: left; text-indent: 0.15rem; background: url("/static/images/content/panel_header_1.png") no-repeat; background-size: 100% 100%; line-height: 0.9rem; }
 
-#so-item2.jc115 ul li > div > div { padding: 0 3%; }
-
 #so-item2.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 25%; display: none; padding-bottom: .2rem; border: none; display: inline-block; margin-bottom: 0; margin-left: 0; }
 
-#so-item2.jc115 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; margin: 0 auto; }
+#so-item2.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; float: none; padding: 0; margin: 0 auto; text-align: center; }
 
-#so-item2.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; float: none; padding: 0; }
+#so-item2.jc115 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0 -1.25rem; display: block; width: 1.2rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; line-height: 1.3rem; }
 
 #so-item2.jc115 ul li > div > div p.active { background: none; border: none; }
 
