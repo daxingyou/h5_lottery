@@ -493,7 +493,7 @@ export default {
                       if(type == '1'){ // 线上付款
                          // var loadStr = res.data.html ;
                           var loadurl = res.data.url ;
-                          console.log(loadurl)
+                         // console.log(loadurl)
                           win.location.href = loadurl ;
                          // win.document.write(loadStr) ;
                       }else if(type == '3'){  // 扫码支付
