@@ -379,13 +379,10 @@
                 this.betSelectedList = [];
                 this.combineCount = 0;
                 if ([43800, 43900].includes(kind.cid)){
-                    // this.isGrouped = true;
-                    this.playType = 'grouped'
+                    this.playType = 'grouped'   //设置为组选玩法
                 }else{
-                    this.playType = 'combine'
-                    // this.isGrouped = false;
+                    this.playType = 'combine'   //设置为普通连码玩法
                 }
-                console.log(this.isGrouped )
                 $('.bd ul li p').removeClass('active');
             },
             switchTab:function(e){
@@ -399,13 +396,10 @@
                 if ($src.prop('class').indexOf('reset_bet')>=0){
                     $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
                     this.betSelectedList = [];
-                    this.playType = 'combine';
-                    // this.isCombine = true;  //设置为组合玩法
+                    this.playType = 'combine';  //设置为连码玩法
                 }else{
                     $('#so-item2 ul li p').removeClass('active');
-                    this.betSelectedList = [];
-                    this.playType = 'normal';
-                    // this.isCombine = false;  //设置为非组合玩法
+                    this.playType = 'normal';   //设置为普通玩法
                 }
 
                 this.isGrouped = false; //取消组选

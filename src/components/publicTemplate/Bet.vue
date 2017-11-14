@@ -222,7 +222,8 @@ export default {
             var amount = this.betAmount;  // 获取金额
             var nums = this.betSelectedList.length;
             const closet = 4;
-            if(nums<1){ // 没有选择投注项目
+            // if(nums<1){ // 没有选择投注项目
+            if(this.betCount<1){ // 没有选择投注项目
                 this.parentRefs.autoCloseDialog.open('请选择投注项目')
                 return false;
             }

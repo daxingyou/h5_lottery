@@ -323,7 +323,6 @@
                     passwordPay: paypassword ,   //取款密码
                     code: this.yzmcode ,   // 验证码
                 }
-                console.log( this.client)
                 $.ajax({
                     type: 'post',
                     headers: {
@@ -337,10 +336,6 @@
                     success: (res) => {
                         if(res.err =='SUCCESS'){ // 注册成功
                             this.autoLogin() ; // 自动登录
-                          //  this.$refs.autoCloseDialog.open('注册成功，请登录','','icon_check','d_check') ;
-                            /* setTimeout(function(){
-                             window.location = '/login' ;
-                             },200)*/
                         }else{ //code 105 验证码无效
                               this.switchYzmcode() ; // 更新验证码
                               this.$refs.autoCloseDialog.open(res.cnMsg) ;

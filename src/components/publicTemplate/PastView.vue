@@ -41,7 +41,11 @@
                             <ul class="panel">
                                 <li class="prod" data-status="not_open" >
                                     <div class="play_th">
-                                        <div class="prd_num"><i class="prd"></i><span>{{(lotteryid == '8')? list.issueAlias:list.pcode}}</span> 期</div>
+                                        <div class="prd_num">
+                                            <i class="prd"></i>
+                                            <span>{{(lotteryid == '8')? list.issueAlias:list.pcode}}</span>
+                                           <span>期</span>
+                                        </div>
                                         <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
                                             <li>{{list.doubleData.top2_total}}</li>
                                             <li>{{list.doubleData.top2_sizer}}</li>
@@ -123,6 +127,7 @@ export default {
 this.setMenuAction() ;
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 近期开奖') ;
+    scrollTo(0,0); // 回到顶部
     this.doubleCount(this.lotteryid,this.count,'') ;
     $('html,body').css('overflow-y','scroll' )  ;
   },
@@ -148,8 +153,6 @@ this.setMenuAction() ;
             timeout: 600000,
             data: senddata ,
             success: (data) => {
-             // console.log(data.data) ;
-               // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
                         switch (this.lotteryid.toString()){

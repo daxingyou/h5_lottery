@@ -96,7 +96,6 @@ function getBetRecord() {
             } else {
                 lock = 0;
             }
-            console.log(seadata.pdate + '[' + seadata.page + ']');
             $('.new_bet_day').each(function (i, t) {
                 touzhuXQ = data;
                 $.each(data, function (j, v) {
@@ -334,7 +333,6 @@ function touzhu(that, view) {
     $('.body').hide();
     $('#page1').show();
     data = JSON.parse(decodeURI(data));
-    console.log(data);
     $('.periods')
         .html(data.pcode);
     $('.bet_status')
@@ -342,8 +340,6 @@ function touzhu(that, view) {
     $('.so-betTime')
         .html(formatTime(new Date(data.betTime)));
 
-    console.log(data.betTime);
-    console.log(new Date(data.betTime).toDateString());
     $('.so-orderId')
         .html(data.orderId);
     $('.so-betAmount')
