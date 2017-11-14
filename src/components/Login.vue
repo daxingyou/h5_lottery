@@ -94,7 +94,6 @@ export default {
             url: this.action.uaa + 'apis/member/login',
             data: logindata ,
             success: (res) => {
-               // console.log(res) ;
                 if(res.err == 'SUCCESS'){ // 登录成功
                     this.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
                     this.setCookie("username", this.username);  // 把登录用户名放在cookie里面

@@ -165,7 +165,6 @@ export default {
             timeout: 600000,
             data: senddata ,
             success: (data) => {
-             // console.log(data.data) ;
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber || data.data[i].winNumber==''){
                         switch (data.data[i].lotteryId){
@@ -182,7 +181,6 @@ export default {
                                 break ;
                         }
                     }
-                   // console.log(this.sys_time)
                     $('.timerset').eq(i).attr('data-time',(this.format(this.formatTimeUnlix(data.data[i].endTime,0)).getTime() - this.format(this.formatTimeUnlix(this.sys_time,0)).getTime()) / 1000) ;
                 }
 
@@ -201,7 +199,6 @@ export default {
           that.getSystemTime('0').then(sys_time=>{
               that.sys_time = sys_time ;
               that.doubleCount('') ;
-             // console.log(that.sys_time)
 
           });
 

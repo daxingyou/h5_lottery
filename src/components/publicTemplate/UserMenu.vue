@@ -78,31 +78,10 @@ export default {
       this.show = true;
     })
 
-    // $('.so-right').click(function () {
-    //     var className = $('.so-right').attr('class') || '';
-    //     $('.so-right > div:last-child > div').slideToggle(500, function () {
-    //         $('.so-right').attr('class', className.replace('active', 'close'));
-    //         $('.so-shade').hide();
-    //     });
-    // });
-    // $('.so-top-zoushi').click(function () {
-    //     var className = $('.so-right').attr('class') || '';
-    //     if (className.indexOf('close') >= 0) {
-    //         $('.so-right').attr('class', className.replace('close', 'active'));
-    //     } else {
-    //         $('.so-right').attr('class', className + ' active');
-    //     }
-    //     $('.so-shade').show();
-    //     $('.so-right > div:last-child > div').slideToggle(500, function () {
-    //     });
-    // });
-
   },
   methods:{
     play:function(e){
         this.$emit('play')
-        // debugger;
-        // console.log('play0')
     },
     close:function(e){
       this.show = false;

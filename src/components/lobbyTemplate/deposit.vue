@@ -491,11 +491,8 @@ export default {
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
                       if(type == '1'){ // 线上付款
-                         // var loadStr = res.data.html ;
                           var loadurl = res.data.url ;
-                         // console.log(loadurl)
                           win.location.href = loadurl ;
-                         // win.document.write(loadStr) ;
                       }else if(type == '3'){  // 扫码支付
                           _self.scanImg = _self.action.forseti+res.data.imageUrl ;
                           $('.after-scan').show() ;
@@ -530,7 +527,6 @@ export default {
               data: { },
               success: function(res){
                 _self.userInfo = res.data ;
-                console.log(_self.userInfo)
               },
               error: function (e) {
                   if(e.responseJSON.error == 'invalid_token'){  // token 过期

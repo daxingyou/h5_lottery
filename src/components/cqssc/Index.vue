@@ -363,7 +363,6 @@ export default {
                     // 当天日期
                     that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
                     let code = res.data[2].winNumber;
-                   // console.log(code)
                     //code 上期开奖号码
                     if (!code) {
                        // code = '-,-,-,-,-';
@@ -375,12 +374,7 @@ export default {
                         that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[2].pcode;  // 上期期数
                     }
-                   // that.winNumber = code;
-
-                    // :now_pcode="now_pcode" 
-                    // :start="sys_time" :end="now_time" :overend="nowover_time"
                     resolve();
-                    // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 }).catch(function () {
                      console.log("Promise Rejected in method of timeBegin");
                 });

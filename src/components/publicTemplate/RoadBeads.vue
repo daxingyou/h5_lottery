@@ -244,39 +244,7 @@
                 timeout: 600000,
                 data: senddata ,
                 success: (function(data) {
-                  // console.log(data.data.size_5) ;
                     this.dataResult = data.data;
-                    // this.roadDomAction(data.data.size_1,'road02_1 .dx_size') ;  // 第一球大小 (pk10 冠军)
-                    // this.roadDomAction(data.data.sd_1,'road02_1 .ds_dx') ;  // 第一球单双 (pk10 冠军)
-                    // this.roadDomAction(data.data.size_2,'road02_2 .dx_size') ;  // 第二球大小 (pk10 亚军)
-                    // this.roadDomAction(data.data.sd_2,'road02_2 .ds_dx') ;  // 第二球单双 (pk10 亚军)
-                    // this.roadDomAction(data.data.size_3,'road02_3 .dx_size') ;  // 第三球大小 (pk10 第三名)
-                    // this.roadDomAction(data.data.sd_3,'road02_3 .ds_dx') ;  // 第三球单双 (pk10 第三名)
-
-                    // switch (lotteryid){
-                    //     case '6' :   // 江苏K3
-                    //     case '20' :  // 安徽K3
-                    //     case '22' :  // 湖北K3
-                    //         // this.roadDomAction(data.data.total_size,'road01_1');
-                    //         break;
-                    //     case '4' :    // 江西11选5
-                    //     case '16' :    // 广东11选5 双面盘
-                    //     case '18' :    // 山东11选5 双面盘
-                    //         this.roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
-                    //         this.roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
-                    //         this.roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
-                    //         this.roadDomAction(data.data.totalEnd_size,'road01_4') ;  // 总和尾大小
-                    //         break;
-                    //     default :
-                    //         this.roadDomAction(data.data.total_size,'road01_1') ;  // 路珠总和大小
-                    //         this.roadDomAction(data.data.total_sd,'road01_2') ;  // 路珠总和单双
-                    //         this.roadDomAction(data.data.total_lhh,'road01_3') ;  // 路珠龙虎
-                    //         this.roadDomAction(data.data.size_4,'road02_4 .dx_size') ;  // 第四球大小
-                    //         this.roadDomAction(data.data.sd_4,'road02_4 .ds_dx') ;  // 第四球单双
-                    //         this.roadDomAction(data.data.size_5,'road02_5 .dx_size') ;  // 第五球大小
-                    //         this.roadDomAction(data.data.sd_5,'road02_5 .ds_dx') ;  // 第五球单双
-                    //         break;
-                    // }
                 }).bind(this),
                 error: function (data) {  // 错误提示
                     this.$refs.infoDialog.open('您的登录已过期，请重新登录', 'title_tip')
@@ -286,52 +254,6 @@
                 }
             });
         },
-
-        /*
-        *  路珠总和大小数据处理，resdata 数据，cid 选择器，color 球的颜色
-        *  和=蓝mid   龙=紅big  虎=绿tiger  大=紅big   小=绿tiger  单=紅big  双=绿tiger
-        * */
-        // roadDomAction:function (resdata,cid) {
-        //     var ts = '' ;
-        //     for(var i=0;i<resdata.length;i++){  // 总和大小
-        //         if(resdata[i].length>5){
-        //             ts +=' <li class="road road_left">'+
-        //                 '<ul>' ;
-        //         }else{
-        //             ts +=' <li class="road">'+
-        //                 '<ul>' ;
-        //         }
-        //         for(var ii=0;ii<resdata[i].length;ii++){
-        //             var rescon = resdata[i][ii] ;
-        //             var color = 'mid' ;
-        //             switch (rescon) {
-        //                 case '和':
-        //                     color = 'mid' ;
-        //                     break;
-        //                 case '龙':
-        //                 case '大':
-        //                 case '单':
-        //                     color = 'big' ;
-        //                     break;
-        //                 case '虎':
-        //                 case '小':
-        //                 case '双':
-        //                     color = 'tiger' ;
-        //                     break;
-        //                 default :
-        //                     color = 'mid' ;
-        //                     break;
-        //             }
-        //             ts += '<li class="'+color+'">'+resdata[i][ii]+'</li>' ;
-        //         }
-        //         ts += '</ul>'+
-        //             '</li>' ;
-        //     }
-        //     $('#'+cid).html(ts) ;
-
-        // },
-
-
         /*
         * 路珠标签切换
         * */
@@ -387,7 +309,3 @@
 
 }
 </script>
-
-<style scoped>
-    /*.hd>ul>li { width: 25%; }*/
-</style>
