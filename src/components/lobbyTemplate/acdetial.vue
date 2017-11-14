@@ -2,7 +2,7 @@
     <div id="pa_con">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" @click="goBack">
+                <a href="#" @click.prevent="goBack">
                     <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
