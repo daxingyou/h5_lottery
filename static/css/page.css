@@ -13,7 +13,7 @@ html, body { /* 解决弹窗 ios上 overhidden 失效的问题 */ }
 
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
-body { width: 100%; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 
@@ -115,7 +115,7 @@ footer.bot_nav:before { content: ''; position: absolute; display: block; top: 0;
 
 footer.bot_nav > ul { text-align: center; overflow: hidden; margin: 0 auto; font-size: 0; border-top: 1px solid #326087; }
 
-footer.bot_nav > ul > li { display: inline-block; font-size: .35rem; text-align: center; width: 25%; padding: .48rem 0 .5rem; height: 1.5rem; }
+footer.bot_nav > ul > li { display: inline-block; font-size: .33rem; text-align: center; width: 25%; padding: .48rem 0 .5rem; height: 1.5rem; }
 
 footer.bot_nav > ul > li:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: -webkit-gradient(linear, left top, left bottom, from(#172b3b), to(#365d82)); background-image: -webkit-linear-gradient(#172b3b, #365d82); background-image: -o-linear-gradient(#172b3b, #365d82); background-image: linear-gradient(#172b3b, #365d82); width: .03rem; height: 2.1rem; }
 
@@ -123,7 +123,7 @@ footer.bot_nav > ul > li.active, footer.bot_nav > ul > li:hover, footer.bot_nav 
 
 footer.bot_nav > ul > li.active a, footer.bot_nav > ul > li:hover a, footer.bot_nav > ul > li:focus a { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); }
 
-footer.bot_nav > ul > li a { margin-left: 15%; padding: .48rem 0 .5rem; position: relative; }
+footer.bot_nav > ul > li a { margin-left: 21%; padding: .48rem 0 .5rem; position: relative; }
 
 footer.bot_nav > ul > li a:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/icon.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .5rem; height: .5rem; top: .5rem; left: calc( 30% - 1rem); }
 
@@ -251,7 +251,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .modal > .m_content > .content > div.playtext h4 { font-size: .34rem; color: #66c3f2; margin-top: .4rem; margin-bottom: .1rem; text-align: left; }
 
-.modal > .m_content > .content > div.playtext p { margin-top: 0.15rem; }
+.modal > .m_content > .content > div.playtext p { margin-top: 0.15rem; text-align: justify; }
 
 .modal > .m_content > .content > p { text-align: left; }
 
@@ -544,6 +544,8 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: .8rem; }
 
+.so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+
 .so-con .so-in-con .so-con-left ul li { display: block; width: 100%; height: 1.25rem; border-bottom: solid .02rem #293454; color: #ffffff; font-size: 0.4rem; line-height: 1.3rem; text-align: center; background-position-y: -1.5rem; }
 
 .so-con .so-in-con .so-con-left ul li.active { background: url(/static/images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
@@ -556,7 +558,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-right ul > li { display: block; padding-top: 0.5rem; }
 
-.so-top-sum { display: block; height: .7rem; position: relative; top: .4rem; left: .68rem; z-index: 8; }
+.so-top-sum { display: block; height: .7rem; position: relative; top: .45rem; left: .68rem; z-index: 8; }
 
 .so-in-top-sum { color: #fdf19b; text-align: center; z-index: 2; display: block; margin-top: -0.04rem; font-size: .32rem; border: solid 0.02rem #2d3755; background: #1d2839; /* Old browsers */ background: -moz-linear-gradient(top, #1d2839 43%, #263651 100%); /* FF3.6-15 */ background: -webkit-linear-gradient(top, #1d2839 43%, #263651 100%); /* Chrome10-25,Safari5.1-6 */ background: -webkit-gradient(linear, left top, left bottom, color-stop(43%, #1d2839), to(#263651)); background: -o-linear-gradient(top, #1d2839 43%, #263651 100%); background: linear-gradient(to bottom, #1d2839 43%, #263651 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ border-left: hidden; border-radius: 0.1rem; padding-right: 0.1rem; position: relative; left: 1rem; padding: .05rem .1rem .05rem .4rem; top: -.1rem; width: 2.2rem; overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 

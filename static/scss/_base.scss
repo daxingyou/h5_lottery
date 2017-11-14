@@ -52,7 +52,7 @@ html {
 }
 body{
     width: 100%;
-    //min-height: 18rem;
+    min-height: 18rem;
     //padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
@@ -759,6 +759,7 @@ label{
                     }
                     p{
                          margin-top: 0.15rem;
+                         text-align: justify;
                     }
 
                 }

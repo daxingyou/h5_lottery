@@ -398,8 +398,8 @@
             //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
              ul {
-                // overflow-y: scroll;
-                // -webkit-overflow-scrolling: touch;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
                 li {
                     display: block;
                     width: 100%;
@@ -445,7 +445,7 @@
     display: block;
     height: .7rem;
     position: relative;
-    top: .4rem;
+    top: .45rem;
     left: .68rem;
     z-index: 8;
 }
