@@ -7,9 +7,12 @@ var MyMixin = {
     data:function(){
         return {
             action:{
-                forseti: 'http://121.58.234.210:19091/forseti/',
-                uaa: 'http://121.58.234.210:19091/uaa/',
-                hermes: 'http://121.58.234.210:19091/hermes/',
+               // forseti: 'http://121.58.234.210:19091/forseti/',  // 测试环境
+              //  uaa: 'http://121.58.234.210:19091/uaa/',   // 测试环境
+              //  hermes: 'http://121.58.234.210:19091/hermes/',   // 测试环境
+                forseti: 'http://cp.api.blr53889.com/forseti/',   // 线上环境
+                uaa: 'http://cp.api.blr53889.com/uaa/' ,  // 线上环境
+                hermes: 'http://cp.api.blr53889.com/hermes/',   // 线上环境
                 picurl: 'http://admin.baochiapi.com/photo/pic/',  // 图片地址
             },
             playTreeList:[], //玩法树
