@@ -1063,8 +1063,6 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .play_area .sort > div > .btn:last-child { margin-left: .5rem; }
 
-.play_area .sort > div > .btn > a { padding-top: .25rem; padding-bottom: .25rem; }
-
 .play_area ul { width: 90%; margin: 0 auto; }
 
 .play_area ul > li { display: inline-block; overflow: hidden; margin: .1rem; text-align: center; width: 30.5%; border: 1px solid #256e93; }
