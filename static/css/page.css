@@ -13,7 +13,7 @@ html, body { /* 解决弹窗 ios上 overhidden 失效的问题 */ }
 
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
-body { width: 100%; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 
@@ -543,6 +543,8 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 .so-con .so-in-con > div:after { content: ""; display: block; clear: both; }
 
 .so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: .8rem; }
+
+.so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 
 .so-con .so-in-con .so-con-left ul li { display: block; width: 100%; height: 1.25rem; border-bottom: solid .02rem #293454; color: #ffffff; font-size: 0.4rem; line-height: 1.3rem; text-align: center; background-position-y: -1.5rem; }
 
