@@ -31,6 +31,7 @@ html {
 
 body {
   width: 100%;
+  min-height: 18rem;
   font: 14px 'Microsoft YaHei', Helvetica,sans-serif;
   font: .35rem; }
 
@@ -289,7 +290,7 @@ footer.bot_nav {
     width: 100%;
     top: -.4rem;
     right: -30%;
-    left: inherit;
+    left: calc( 35% - 1rem);
     z-index: 1; }
   footer.bot_nav > ul {
     text-align: center;
@@ -671,7 +672,8 @@ label.red {
             margin-bottom: .1rem;
             text-align: left; }
           .modal > .m_content > .content > div.playtext p {
-            margin-top: 0.15rem; }
+            margin-top: 0.15rem;
+            text-align: justify; }
       .modal > .m_content > .content > p {
         text-align: left; }
       .modal > .m_content > .content > span {
@@ -1464,20 +1466,23 @@ i.index_s {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     padding-bottom: .8rem; }
-    .so-con .so-in-con .so-con-left ul li {
-      display: block;
-      width: 100%;
-      height: 1.25rem;
-      border-bottom: solid .02rem #293454;
-      color: #ffffff;
-      font-size: 0.4rem;
-      line-height: 1.3rem;
-      text-align: center;
-      background-position-y: -1.5rem; }
-    .so-con .so-in-con .so-con-left ul li.active {
-      background: url(/static/images/content/nav-active.png) no-repeat;
-      background-size: auto 1.7rem;
-      background-position-y: -0.2rem; }
+    .so-con .so-in-con .so-con-left ul {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; }
+      .so-con .so-in-con .so-con-left ul li {
+        display: block;
+        width: 100%;
+        height: 1.25rem;
+        border-bottom: solid .02rem #293454;
+        color: #ffffff;
+        font-size: 0.4rem;
+        line-height: 1.3rem;
+        text-align: center;
+        background-position-y: -1.5rem; }
+      .so-con .so-in-con .so-con-left ul li.active {
+        background: url(/static/images/content/nav-active.png) no-repeat;
+        background-size: auto 1.7rem;
+        background-position-y: -0.2rem; }
   .so-con .so-in-con .so-con-right {
     width: 7.5rem;
     float: left;
@@ -1496,7 +1501,7 @@ i.index_s {
   display: block;
   height: .7rem;
   position: relative;
-  top: .4rem;
+  top: .45rem;
   left: .68rem;
   z-index: 8; }
 
