@@ -327,7 +327,7 @@ footer.bot_nav {
         footer.bot_nav > ul > li.active a, footer.bot_nav > ul > li:hover a, footer.bot_nav > ul > li:focus a {
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); }
       footer.bot_nav > ul > li a {
-        margin-left: 20%;
+        margin-left: 21%;
         padding: .48rem 0 .5rem;
         position: relative; }
         footer.bot_nav > ul > li a:before {
