@@ -479,7 +479,7 @@ export default {
               flowType : '4' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
           if(type == '1'){ // 线上付款
-              var win = _self.openGame() ;
+              var win = window.open('about:blank') ;
           }
           $.ajax({
               type: 'post',
@@ -491,8 +491,11 @@ export default {
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
                       if(type == '1'){ // 线上付款
-                          var loadStr = res.data.html ;
-                          win.document.write(loadStr) ;
+                         // var loadStr = res.data.html ;
+                          var loadurl = res.data.url ;
+                          console.log(loadurl)
+                          win.location.href = loadurl ;
+                         // win.document.write(loadStr) ;
                       }else if(type == '3'){  // 扫码支付
                           _self.scanImg = _self.action.forseti+res.data.imageUrl ;
                           $('.after-scan').show() ;
