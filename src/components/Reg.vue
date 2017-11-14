@@ -28,7 +28,8 @@
                         <fieldset>
                             <div class="form_g account" >
                                 <legend></legend>
-                                <input type="text" placeholder="请输入帐号" v-model="username" autocomplete="off" class="username" @input="checkUserName(username,'username')">
+                                <input type="text" placeholder="请输入帐号" v-model="username" autocomplete="off"
+                                       class="username" @input="checkUserName(username,'username')" @blur="CheckAccount()">
                                 <i class="close close2" @click="ClearInput('close2','username')"></i>
                             </div>
                             <label class="error-message "></label>
@@ -278,7 +279,6 @@
                 $('.after-add').hide() ;
 
             },
-
             // 注册接口 ，除了推荐人，其他必填
             registerAction:function() {
                 var paypassword = this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4 ;
@@ -375,6 +375,7 @@
                     $(el).parent('.form_g').next('.error-message').addClass('red').text('两次密码输入不一致') ;
                 }
             },
+            //自动登录
             autoLogin :function () {
                 var _self = this ;
                 var logindata = {
@@ -407,6 +408,26 @@
 
                 }
             });
+            },
+            //验证账户是否存在
+            CheckAccount:function () {
+                let _self=this;
+                let AccData={
+                          appid:'bcappid02',
+                          login:_self.username
+                }
+                $.ajax({
+                    type: 'post',
+                    headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                    url: this.action.uaa + 'apis/data/member/check_account',
+                    data: AccData ,
+                    success:(res)=>{
+                        if(res.data==true){
+                            _self.$refs.autoCloseDialog.open('用户名已存在') ;
+                            return false
+                        }
+                    }
+                })
             }
 
         }

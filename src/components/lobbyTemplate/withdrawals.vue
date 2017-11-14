@@ -53,7 +53,7 @@
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
-                    <a href="javascript:;" @click="WithdrawalsAction()">確定</a>
+                    <a href="javascript:;" @click="WithdrawalsAction()">确定</a>
                 </div>
 
             </form>
