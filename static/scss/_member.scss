@@ -743,6 +743,9 @@ fieldset{
                     right: .5rem;
                 }
             }
+            &:last-child{
+                border-bottom:none;
+            }
         }
     }
 }

@@ -35,17 +35,17 @@
                 <div class="info_mid">
                     <div>
                         <div class="btn btn_blue btn_two">
-                            <a href="deposit.html">存款</a>
+                            <router-link v-bind:to="'/lobbyTemplate/deposit'">充值</router-link>
                         </div>
                         <div class="btn btn_blue btn_two">
-                            <a href="withdrawals.html">取款</a>
+                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">提款</router-link>
                         </div>
                     </div>
                 </div>
                 <div class="info_bot">
                     <ul>
                         <li>
-                            <a class="btn_icon" href="agent.html">
+                            <a class="btn_icon" href="/lobbyTemplate/agent">
                                 <div class="icon">
                                     <div>
                                         <i class="info07"></i>
@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="btn_icon" href="intro.html">
+                            <a class="btn_icon" href="/lobbyTemplate/tutorial">
                                 <div class="icon">
                                     <div><i class="info08"></i></div>
                                 </div>
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="btn_icon" href="about.html">
+                            <a class="btn_icon" href="/lobbyTemplate/about">
                                 <div class="icon">
                                     <div><i class="info09"></i></div>
                                 </div>

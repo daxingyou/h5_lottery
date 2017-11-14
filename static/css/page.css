@@ -1565,6 +1565,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .info_bot > ul > li > a:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("../../static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .2rem; height: 1.6rem; line-height: 1.2rem; left: initial; right: .5rem; }
 
+.info_bot > ul > li:last-child { border-bottom: none; }
+
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 
 .message_area { margin-top: 1.4rem; }
