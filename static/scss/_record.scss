@@ -70,7 +70,7 @@
         }
         &.on{
             transform:none;
-            background: url('../../static/images/page/tab_bot_line.png') center bottom no-repeat;
+            background: url('/static/images/page/tab_bot_line.png') center bottom no-repeat;
             height: 1rem;
             background-size: 100%;
         }
@@ -166,7 +166,7 @@
         }
         >div{
             display: block;
-            background-image: url('../../static/images/page/status00.svg');
+            background-image: url('/static/images/page/status00.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 100%;
@@ -193,7 +193,7 @@
         }
         >div{
             display: block;
-            background-image: url('../../static/images/page/status03.svg');
+            background-image: url('/static/images/page/status03.svg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 100%;
@@ -213,7 +213,7 @@
     float: none;
     vertical-align: top;
     line-height: 1;
-    background-image: url('../../static/images/page/pn_lt_bg.png');
+    background-image: url('/static/images/page/pn_lt_bg.png');
     height: .4rem;
     background-size: 100%;
     width: 3.5rem;
@@ -342,10 +342,10 @@ ul.lo_ball{
     //margin: 0 auto;
     margin-top: .29rem;
     >li{
-        background: url('../../static/images/content/qui02.png') no-repeat;
+        background: url('/static/images/content/qui02.png') no-repeat;
         background-size: 1.1rem;
         background-position: 0.05rem 0.01rem;
-        // background-image: url('../../static/images/content/qiu.png');
+        // background-image: url('/static/images/content/qiu.png');
         // background-repeat: no-repeat;
         // background-size: 1.1rem;
         display: inline-block;
@@ -365,7 +365,7 @@ ul.lo_ball{
 }
 ul.no_open{
     >li{
-        background-image: url('../../static/images/content/duankaung.png');
+        background-image: url('/static/images/content/duankaung.png');
         background-repeat: no-repeat;
         background-size: 100%;
         color: #000;
@@ -377,7 +377,7 @@ ul.no_open{
     }
 }
 i.prd{
-    background-image: url('../../static/images/page/icon_pn.png');
+    background-image: url('/static/images/page/icon_pn.png');
     background-position-y:.15rem;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -407,7 +407,7 @@ i.prd{
         font-size: .4rem;
         >.prod{
             overflow: hidden;
-            background: url('../../static/images/page/bottom_line.png') center 1.35rem no-repeat;
+            background: url('/static/images/page/bottom_line.png') center 1.35rem no-repeat;
             background-size: 100%;
             padding: .1rem 0 .3rem;
             &:last-child{
@@ -491,7 +491,7 @@ i.prd{
             content: '';
             display: block;
             position: absolute;
-            background: url('../../static/images/page/road.png') no-repeat;
+            background: url('/static/images/page/road.png') no-repeat;
             width: .85rem;
             top: -0.1rem;
             background-size: 100%;
@@ -528,7 +528,7 @@ i.prd{
         margin-top: .5rem;
         padding-top: .2rem;
         >li{
-            background: url('../../static/images/page/road.png') no-repeat center top;
+            background: url('/static/images/page/road.png') no-repeat center top;
             background-size: 100%;
             width: .8rem;
             height: .8rem;
@@ -782,7 +782,7 @@ i.prd{
 .pk10_ball{
     display: inline-block;
     vertical-align: middle;
-    background: url(../images/pk10/ball.png) no-repeat;
+    background: url(/static/images/pk10/ball.png) no-repeat;
     background-size: 8.8rem 1.6rem;
     width: 0.88rem;
     height: 0.8rem;

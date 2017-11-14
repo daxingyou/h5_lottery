@@ -171,7 +171,7 @@ $breakpoints: (
     }
 }
 //usage @include background-image("header.png", right, $black);
-$path--rel      : "../../static/images";
+$path--rel      : "/static/images";
 @mixin background-image($img, $background-position, $background-color) {
     background-image: url('#{$path--rel}/#{$img}');
     background-repeat: no-repeat;

@@ -229,7 +229,7 @@
                     div.icon{
                         width: 1.8rem;
                         height: 1.8rem;
-                        background-image: url('../../static/images/border_bg02.png');
+                        background-image: url('/static/images/border_bg02.png');
                         color: #fff;
                         width: 100%;
                         background-position-x: 50%;
@@ -335,7 +335,7 @@
         &:before{
             @include pseudo();
             @include background-image ('right_icon.png',0,transparent);
-            background-image: url('../../../static/images/right_icon.png');
+            background-image: url('/static/images/right_icon.png');
             width: .7rem;
             height: 1.38rem;
             line-height: 1.38rem;
