@@ -137,6 +137,8 @@
         }
         >.status{
             float: right;
+            max-width: 1.8rem;
+            width: auto;
         }
         >.badge{
             width: 1.5rem;
@@ -154,9 +156,15 @@
     .status{
         // float: right;
         min-width: 15%;
+        width: 1.8rem;
         text-align: center;
-        color: #acacac;
-        // margin-top: 0.3571rem;
+        color: #acacac; // margin-top: 0.3571rem;
+        >div {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     }
     .status00{
         padding-top: .3rem;
@@ -234,8 +242,8 @@
     font-size: .35rem;
     >p{
        /* margin-top: .2rem;*/
-        font-size: .4rem;
-        max-width: 6rem;
+        font-size: .38rem;
+        max-width: 5.4rem;
         word-break: break-all;
     }
 }

@@ -17,14 +17,14 @@
                 <div align="center">为了您的资金安全，请使用真实资料！</div>
                 <div class="before-add">
                     <form>
-                        <fieldset>
+                       <!-- <fieldset>
                             <div class="form_g account">
                                 <legend></legend>
                                 <input type="text" placeholder="请输入推荐人帐号" v-model="tjrusername" autocomplete="off" class="tjrusername" @input="checkUserName(tjrusername,'tjrusername')">
                                 <i class="close close1" @click="ClearInput('close1','tjrusername')"></i>
                             </div>
                             <label class="error-message "></label>
-                        </fieldset>
+                        </fieldset>-->
                         <fieldset>
                             <div class="form_g account" >
                                 <legend></legend>

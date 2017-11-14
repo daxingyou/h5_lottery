@@ -2,11 +2,9 @@
     <div id="pa_con">
         <header id="pa_head">
             <div class="left">
-                <router-link to="/lobbyTemplate/info">
-                <!-- <a href="#" @click="$router.back()"> -->
+                <a href="javascript:;" @click="goBack">
                     <img src="../../../static/images/back.png" alt="">
-                <!-- </a> -->
-                </router-link>
+                </a>
             </div>
             <h2 class="center">帐户明细</h2>
             <div class="right"></div>
@@ -109,6 +107,9 @@ export default {
         this.loadTab(tab);
     },
     methods: {
+        back1:function(){
+            this.$router.back();
+        },
         tradeTypeConfigItemGet:function(item){
             return this.tradeTypeConfig[item.tradeType] || {};
         },
