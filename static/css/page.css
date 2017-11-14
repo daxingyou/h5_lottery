@@ -289,9 +289,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/*
- CSS for the main interaction
-*/
+/* CSS for the main interaction */
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -919,7 +917,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .bet_data > a > .item > div { float: left; line-height: .6rem; }
 
-.bet_data > a > .item > .status { float: right; }
+.bet_data > a > .item > .status { float: right; max-width: 1.8rem; width: auto; }
 
 .bet_data > a > .item > .badge { width: 1.5rem; height: 1.5rem; }
 
@@ -927,7 +925,9 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .bet_data strong { color: #ffbd00; font-size: .35rem; font-weight: 300; }
 
-.bet_data .status { min-width: 15%; text-align: center; color: #acacac; }
+.bet_data .status { min-width: 15%; width: 1.8rem; text-align: center; color: #acacac; }
+
+.bet_data .status > div { max-width: 100%; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
 
 .bet_data .status00 { padding-top: .3rem; }
 
@@ -949,7 +949,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .lottery_t { margin-left: .3rem; font-size: .35rem; }
 
-.lottery_t > p { /* margin-top: .2rem;*/ font-size: .4rem; max-width: 6rem; word-break: break-all; }
+.lottery_t > p { /* margin-top: .2rem;*/ font-size: .38rem; max-width: 5.4rem; word-break: break-all; }
 
 .past_view { margin: .3rem 0; }
 
@@ -1612,5 +1612,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */
