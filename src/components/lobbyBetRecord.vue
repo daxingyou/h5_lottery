@@ -596,6 +596,8 @@
                                     var jsonStr = '';
                                     var li_html = '';
                                     // var pcode = ('' + v.pcode).substring(8, 11);
+                                    var pname = v.playName.substring(0, 2) ; // 筛选连码
+
                                     if(v.lotteryId =='8'){  // 北京pk10
                                         var pcode = ('' + v.issueAlias).substring(0, 11);
                                     }else{
@@ -628,7 +630,13 @@
                                             '<div class="lottery_t ssc">' +
                                            // '<p>' + v.lotteryName + ' - <span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<p>'+ v.orderId +'</p>'+
-                                            '<p><span>' + v.playName + '</span></p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
+                                            '<p>' ;
+                                            if(pname =='连码'){
+                                                li_html += '<span>' + v.playName + '-'+v.betContent+'</span>' ;
+                                            }else{
+                                                li_html += '<span>' + v.playName + '</span>' ;
+                                            }
+                                         li_html +=  '</p> <strong>' + this.fortMoney(this.roundAmt(v.betAmount), 2) + '</strong> </div>' +
                                             '<div class="status ' + className + '" >' +
                                             '<span>' + v.orderStatusName + '</span><div>' + payoff + '</div></div>' +
                                             '</div>' +
