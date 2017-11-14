@@ -79,7 +79,7 @@
                             </router-link>
                         </li>-->
                         <li>
-                            <a class="btn_icon" href="javascript:;">
+                            <a class="btn_icon" target="_blank" href="https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html">
                                 <div class="icon">
                                     <div><i class="info05"></i></div>
                                 </div>
@@ -106,6 +106,7 @@
 
     </div>
 </template>
+
 <style>
     .info_top .account >a{
          height:100%;

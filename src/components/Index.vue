@@ -106,7 +106,6 @@
       </div>
       <FooterNav />
       <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
-
   </div>
 </template>
 
