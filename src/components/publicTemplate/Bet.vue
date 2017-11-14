@@ -184,7 +184,7 @@ export default {
             if (this.playType == 'combine' || this.playType == 'grouped'){
                 list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
                     'betAmount': this.monAmt(Number(this.totalAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
-                    'betContent': this.betSelectedList.map((item)=>{ return item.name.toString().padStart(2, '0'); }).join(','),      //zuArr.toString(),//下注内容，如1,5,8,3,7
+                    'betContent': this.betSelectedList.map((item)=>{ return item.name; }).join(','),      //zuArr.toString(),//下注内容，如1,5,8,3,7
                     'betCount': this.betCount, //注单数
                     'betMode': 0, //下注模式(预留)
                     'chaseCount': 1, //追号期数(含当期),默认1
