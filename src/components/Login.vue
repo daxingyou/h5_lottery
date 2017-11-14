@@ -17,7 +17,7 @@
                     <fieldset>
                         <div class="form_g password">
                             <legend></legend>
-                            <input type="password" placeholder="请输入密码" v-model="password" autocomplete="off" class="pass-word"  @input="checkpassword(password,'pass-word')">
+                            <input type="text" placeholder="请输入密码" v-model="password" onfocus="this.type='password'" autocomplete="off" class="pass-word"  @input="checkpassword(password,'pass-word')">
                             <i class="close close2" @click="ClearInput('close2','pass-word')"></i>
                         </div>
                         <label class="error-message"> </label>
