@@ -7,6 +7,7 @@
 
 <script>
 // import FastClick from 'fastclick'
+import '../static/css/page.css'
 const FastClick = require('fastclick');
 
 export default {
