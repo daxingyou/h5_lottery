@@ -204,9 +204,9 @@ export default {
         }
     },
   mounted:function() {
-   // var lotteryid = this.getCookie('lt_lotteryid') ; // 彩种 id
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 双面长龙') ;
+    scrollTo(0,0); // 回到顶部
     this.setMenuAction() ;
     this.loadDoubleLong(this.lotteryid,'','open','clong_open') ; // 连续开奖
     this.loadDoubleLong(this.lotteryid,'','unopen','clong_notopen') ; // 连续未开奖

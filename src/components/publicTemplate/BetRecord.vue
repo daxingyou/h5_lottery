@@ -165,6 +165,7 @@
             this.setMenuAction();
             this.initView();
             this.initDateMeun() ;
+            scrollTo(0,0); // 回到顶部
             var mySwiperRecode = new Swiper('#swiper1', {
                 // autoplay: 5000,//可选选项，自动滑动
                 onSlideChangeStart: (swiper) => {
