@@ -64,6 +64,7 @@
                         @countdownOver="playLottery"
                         @entertainCountdownOver="entertain"
                         @spanArrived="lotteryDataFetch"
+                        @visibility="timerBegin"
                         :now_pcode="now_pcode" :lotteryID="lotteryID"
                         :start="sys_time" :end="now_time" :overend="nowover_time" />
 
@@ -352,7 +353,7 @@
                 this.timerBegin();
             }, 500) ;
             this.initViewHeight();
-          },
+        },
           computed:{
             doubleSideList:function(){
                 return this.getListByParentID(41000); 

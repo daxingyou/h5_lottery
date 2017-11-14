@@ -89,6 +89,7 @@ var MyMixin = {
             return DateFormat(...arguments);
         },
         ajax:function(userConfig){
+            var _self = this ;
             let config = {
                 type: 'get',
                 headers: {
@@ -96,7 +97,7 @@ var MyMixin = {
                 },
                 error: function (e) {
                     if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                        this.clearAllCookie() ;
+                        _self.clearAllCookie() ;
                         setTimeout(function () {
                             window.location = '/login' ;
                         },300)
@@ -337,7 +338,7 @@ var MyMixin = {
             return i
         } ,
         // 时间戳转换
-        formatTimeUnlix:function (v) {
+        formatTimeUnlix:function (v,type) {
             if (v == null) {
                 return '';
             }
@@ -348,8 +349,12 @@ var MyMixin = {
             var hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
             var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
             var seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
+            if(type =='0'){
+                return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes ;
+            }else{
+                return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+            }
 
-           return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
         },
         // 倒计时处理
         formatTime:function(second, type) {

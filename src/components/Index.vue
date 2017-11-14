@@ -49,13 +49,12 @@
               <div id="marquee_snp" class="bd news_text slideText">
                   <div class="sys-notice">
                       <div class="bd">
-                          <ul >
-                              <li>
-                              <marquee scrollamount="3">
-                                {{bulletins}}
-                                <!-- 123, 新增公告Adam测试2新增公告Adam测试新增公告3Adam测试新增公告4Adam测试新增公告5Adam测试6新增公告Adam测试-->
-                              </marquee>
-                              </li>
+
+                               <!-- <marquee scrollamount="3"> &lt;!&ndash;{{bulletins}}&ndash;&gt; 123,新增公告Adam测试2新增公告Adam测试新增公告3Adam测试新增公告4Adam测试新增公告5Adam测试6新增公告Adam测试 </marquee>-->
+                              <!--  <marquee align="left" behavior="scroll" direction="left" hspace="0" vspace="0" loop="-1" scrollamount="2" scrolldelay="30">
+                                    {{bulletins}}
+                                </marquee>-->
+
                                  <!-- <div >
                                       <vue-marquee :content="bulletins" class="two"  :showtwo="false" >
                                       </vue-marquee>
@@ -68,7 +67,7 @@
                                       </vue-marquee>
                                   </div>-->
 
-                          </ul>
+
                       </div>
                   </div>
               </div>
@@ -215,9 +214,12 @@ export default {
               },
               success: (result) => {
                   for(let i=0;i<result.data.length;i++){
-                      bulletinsArr.push(result.data[i].content);
+                      bulletinsArr.push('&nbsp;&nbsp;'+result.data[i].content+'&nbsp;&nbsp;');
                   }
                   self.bulletins=bulletinsArr.toString();
+                  var str = '<marquee align="left" behavior="scroll" direction="left" hspace="0" vspace="0" loop="-1" scrollamount="2" scrolldelay="30">'+
+                            self.bulletins+ '</marquee>' ;
+                  $('.sys-notice .bd').html(str)
               }
           })
       }

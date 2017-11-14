@@ -33,7 +33,7 @@
                             <th>
                                 <li>余额</li>
                             </th>
-                            <td>{{memBalance}}</td>
+                            <td>{{fortMoney(roundAmt(memBalance), 2)}}</td>
                         </tr>
                         </thead>
                     </table>
@@ -41,7 +41,7 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>取款金额</legend>
-                        <input type="text" v-model="userMoney"  class="money" placeholder="1.00~9999.00">
+                        <input type="text" v-model="userMoney"  class="money" placeholder="1.00~9999.00" maxlength="4">
                         <i class="close close1" @click="ClearInput('close1','money')"></i>
                     </div>
                 </fieldset>
@@ -53,7 +53,7 @@
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
-                    <a href="javascript:;" @click="WithdrawalsAction()">確定</a>
+                    <a href="javascript:;" @click="WithdrawalsAction()">确定</a>
                 </div>
 
             </form>
@@ -86,16 +86,19 @@ export default {
         return {
              userMoney:'',
              cashPassword:'',
-             memBalance:this.getCookie('membalance'),
+             memBalance:'',
              realName:'',
              bankName:'',
              bankCard:'',
              bankCode:'',
              bankId:'',
+             acType:'',
+             memberId:''
 
         }
     },
     created: function() {
+        this.getUserInfo1();
         this.getUserInfo();
     },
   mounted:function() {
@@ -139,9 +142,53 @@ export default {
             })
 
       },
+      //获取用户信息
+      getUserInfo1: function () {
+          var _self = this;
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.uaa + 'api/data/member/info',
+              data: {},
+              success: (res) => {
+                  _self.memberId = res.data.memberId;
+                  _self.acType = res.data.acType;
+                  _self.getBalance(_self.memberId, _self.acType)
+              },
+              error: () => {
+
+              }
+          })
+      },
+      //获取用户余额
+      getBalance: function (id,type) {
+          var _self = this;
+          var BaData = {
+              memberId:id ,
+              acType:type,
+          };
+          $.ajax({
+              type: 'get',
+              headers: {'Authorization': 'bearer ' + _self.getAccessToken,},
+              dataType: 'json',
+              url: _self.action.hermes + 'api/balance/get',
+              data: BaData,
+              success: (res) => {
+                  _self.memBalance = res.data.balance;
+              },
+              error: () => {
+
+              }
+          })
+      },
       //提款接口
       WithdrawalsAction: function () {
           var _self=this;
+          if(_self.userMoney*100>_self.memBalance){
+              _self.$refs.autoCloseDialog.open('提款余额不足');
+              return
+          }
           if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
               _self.$refs.autoCloseDialog.open('请输入正确金额');
                 return false
@@ -185,7 +232,7 @@ export default {
               }
 
           })
-      }
+      },
 
   }
 }
