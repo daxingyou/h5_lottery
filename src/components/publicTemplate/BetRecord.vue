@@ -272,11 +272,9 @@
                             return;
                         }
                         doc = doc[doc.length - 1];
-                        // console.log(thisHeight + ':' + thisX);
                         window.onscroll = () => {
                             var thisClientHeight = document.body.clientHeight;
                             var thisScrollHeight = document.body.scrollHeight;
-                            // console.log(thisScrollHeight + ':' + (thisClientHeight + that.getScrollTop()));
                             if (thisScrollHeight - 100 <= (thisClientHeight + that.getScrollTop())) {
                                 cb();
                             }
@@ -290,7 +288,6 @@
                         }
                         var thisHeight = doc.style.height;
                         var thisX = doc.getBoundingClientRect().left;
-                        // console.log(thisHeight + ':' + thisX);
                     }
                 };
                 this.getScrollTop = () => {
@@ -346,7 +343,6 @@
                 $('.body').hide();
                 $('#page1').show();
                 data = JSON.parse(decodeURI(data));
-                // console.log(data);
                 $('.periods')
                     .html(data.pcode);
                 $('.bet_status')
@@ -449,31 +445,6 @@
                         return false ;
                     }
                 }) ;
-              /*  $('.tab_content .slide_toggle').each( (i, t) => {
-                    $(t).unbind('click');
-                    $(t).click((e) => {
-                        $('.bet-recode-all').find('li').remove();
-                        var $src = $(e.currentTarget);
-                       // console.log($src)
-                        this.seadata.page = 1;
-                        if ($src.attr('class').indexOf('active') < 0) {
-                            $src.addClass('active')
-                                .siblings()
-                                .removeClass('active');
-                            $src.find('ul')
-                                .show();
-                            $src.siblings()
-                                .find('ul')
-                                .hide();
-                            this.seadata.pdate = $src.data('val');
-                            this.getBetRecord(); // 投注记录
-                        } else {
-                            $src.removeClass('active');
-                            $src.find('ul')
-                                .hide();
-                        }
-                    });
-                });*/
             },
             //筛选下拉单
             setMenuAction:function () {
@@ -505,7 +476,6 @@
                         if(flag){
                             lottery_name = $(this).find('li.active').find('a').text() ;
                             this.lotteryid = $(this).find('li.active').data('val') ;
-                           // console.log(lottery_name+'记得')
                         }
                     }) ;
                     $('.lottery_name').html(lottery_name + ' 投注记录'); // 彩种名称
@@ -572,14 +542,11 @@
                     url: this.action.forseti + 'api/orders/orderList',
                     data: JSON.stringify(this.seadata), // json格式
                     success: (res) => {
-                    //  console.log(this.lastlotteryid+'符合贷款')
                         if(this.lastlotteryid != this.lotteryid){ // 是否切换，切换需要重置
                             $('.bet-recode-all').html('') ;
                         }
-                        // debugger;
                         $('.so-zzjz').remove();
                         const dataList = res.data.rows;
-                        // console.log(dataList)
                         if (dataList.length === 0) {
                             var appstr = '<li style="margin: auto;text-align: center;height: 2rem;display: block;line-height: 2rem;" class="so-zzjz">没有数据了</li>' ;
                             $('.bet-recode-all').append(appstr);
@@ -587,7 +554,6 @@
                         } else {
                             this.lock = 0;
                         }
-                        // console.log(this.seadata.pdate + '[' + this.seadata.page + ']');
                         $('.new_bet_day').each((i, t) => {
                             this.touzhuXQ = dataList;
                             $.each(dataList,  (j, v) => {

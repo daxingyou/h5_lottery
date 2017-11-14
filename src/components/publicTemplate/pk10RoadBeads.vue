@@ -673,7 +673,6 @@
                 timeout: 600000,
                 data: senddata ,
                 success: (function(data) {
-                   // console.log(data.data.total_size) ;
                     this.roadDomAction(data.data.size_1,'road02_1 .dx_size') ;  // 第一球大小 (pk10 冠军)
                     this.roadDomAction(data.data.sd_1,'road02_1 .ds_dx') ;  // 第一球单双 (pk10 冠军)
                     this.roadDomAction(data.data.size_2,'road02_2 .dx_size') ;  // 第二球大小 (pk10 亚军)

@@ -543,7 +543,6 @@ export default {
                  url: _self.action.uaa + 'api/data/member/password',
                  data: ChangePasswordData,
                  success: (res) => {
-                     console.log(res)
                      if(res.err=='PASSWORD_INVALID'){
                          _self.$refs.autoCloseDialog.open('原密码输入错误')
                          return
@@ -602,7 +601,6 @@ export default {
               url: _self.action.forseti + 'api/pay/passwd',
               data:  ChangePayWordData,
               success: (res) => {
-//                  console.log(res)
                   if(res.msg=='原密码错误'){
                       _self.$refs.autoCloseDialog.open('原密码输入错误') ;
                       return false ;

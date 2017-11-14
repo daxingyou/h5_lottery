@@ -131,6 +131,7 @@ export default {
                 const day = tab.days[0];
                 if (day){
                     this.getList(tab.value, day.pdate).then(res=>{
+
                         day.list = res.data;
                     });
                     

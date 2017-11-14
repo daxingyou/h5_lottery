@@ -37,7 +37,6 @@ function initCount(type) {
                 var data = res.data[2];
                 if (type == 1) {
                     data = data.hotData;
-                    console.log(data);
                 } else if (type == 0) {
                     data = data.lackData;
                 }

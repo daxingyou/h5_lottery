@@ -236,7 +236,6 @@ export default {
             timeout: 600000,
             data: senddata ,
             success: (function (data) {
-             // console.log(data.data) ;
                 var str = '' ;
                 for(var i=0;i<data.data.length;i++){
                     var textcolor = 'text-red' ;

@@ -195,7 +195,6 @@ export default {
                   },2000)
               },
               error: function (err) {
-                 console.log(err);
                   _self.$refs.autoCloseDialog.open('绑定失败') ;
               }
           })

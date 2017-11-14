@@ -152,8 +152,6 @@ this.setMenuAction() ;
             timeout: 600000,
             data: senddata ,
             success: (data) => {
-             // console.log(data.data) ;
-               // var str ='';
                 for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
                         switch (this.lotteryid.toString()){
