@@ -2,7 +2,7 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left">
-                <a href="../">
+                <a href="javascript:;" @click="goBack">
                     <img src="../../../static/images/back.png" alt="">
                 </a>
             </div>
@@ -21,11 +21,11 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>Elsa001EDKoes2</strong>
+                                <strong>{{getCookie('username')}}</strong>
                                 <div class="purse">
                                     <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                        123456789
+                                        {{getCookie('membalance')}}
                                     </div>
                                 </div>
                             </div>
@@ -45,30 +45,30 @@
                 <div class="info_bot">
                     <ul>
                         <li>
-                            <a class="btn_icon" href="/lobbyTemplate/agent">
+                            <router-link class="btn_icon" to="/lobbyTemplate/agent">
                                 <div class="icon">
                                     <div>
                                         <i class="info07"></i>
                                     </div>
                                 </div>
                                 代理加盟
-                            </a>
+                            </router-link>
                         </li>
                         <li>
-                            <a class="btn_icon" href="/lobbyTemplate/tutorial">
+                            <router-link class="btn_icon" to="/lobbyTemplate/tutorial">
                                 <div class="icon">
                                     <div><i class="info08"></i></div>
                                 </div>
                                 新手教程
-                            </a>
+                            </router-link>
                         </li>
                         <li>
-                            <a class="btn_icon" href="/lobbyTemplate/about">
+                            <router-link class="btn_icon" to="/lobbyTemplate/about">
                                 <div class="icon">
                                     <div><i class="info09"></i></div>
                                 </div>
                                 关于我们
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
 
