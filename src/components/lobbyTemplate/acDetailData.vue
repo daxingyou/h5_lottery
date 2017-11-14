@@ -2,13 +2,11 @@
 <template>
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
-            <!-- <div class="left" @click="goBack"> -->
-            <router-link to="/lobbyTemplate/acdetial" class="left">
-                <a href="#">
+            <div class="left">
+                <a href="javascript:;" @click="goBack">
                     <img src="/static/images/back.png" alt="">
                 </a>
-            </router-link>
-            <!-- </div> -->
+            </div>
             <h2 class="center">{{parentData.moneyType[model.chargeType] || '-'}}详情</h2>
             <div class="right"></div>
         </header>
