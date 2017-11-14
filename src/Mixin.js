@@ -89,6 +89,7 @@ var MyMixin = {
             return DateFormat(...arguments);
         },
         ajax:function(userConfig){
+            var _self = this ;
             let config = {
                 type: 'get',
                 headers: {
@@ -96,7 +97,7 @@ var MyMixin = {
                 },
                 error: function (e) {
                     if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                        this.clearAllCookie() ;
+                        _self.clearAllCookie() ;
                         setTimeout(function () {
                             window.location = '/login' ;
                         },300)
