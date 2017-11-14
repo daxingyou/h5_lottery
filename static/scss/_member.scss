@@ -339,7 +339,7 @@ fieldset{
                 padding: 1em 0;
                 &:after{
                     content: '';
-                    background-image: url('../../static/images/btn_icon_right.png');
+                    background-image: url('/static/images/btn_icon_right.png');
                     width: .2rem;
                     height: 0.37rem;
                     background-size: 100%;
@@ -439,7 +439,7 @@ fieldset{
         &:after{
             content: '';
             display: block;
-            background: url('../../static/images/select_down.png') no-repeat;
+            background: url('/static/images/select_down.png') no-repeat;
             background-position: -6px 86%;
             background-size: 145%;
             width: 30px;
@@ -785,7 +785,7 @@ fieldset{
         &.read{
             color: #90a4b3;
             i.i_mail_status{
-                background:url('../../static/images/icon_money.png') no-repeat;
+                background:url('/static/images/icon_money.png') no-repeat;
                 background-size:  100%;
                 background-position-y:-4.65rem;
                 margin-top: .12rem;
@@ -878,7 +878,7 @@ fieldset{
 input.date{
     &:after{
         @include pseudo;
-        background: url('../../static/images/icon_member.png') no-repeat;
+        background: url('/static/images/icon_member.png') no-repeat;
         background-position: -.17rem 83.5%;
         background-size: 145%;
         width: 2em;

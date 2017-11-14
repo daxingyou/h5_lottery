@@ -58,13 +58,13 @@ div.icon{
     margin: 0 auto;
     border-radius: 100%;
     color: #000;
-    // background-image: url('../../static/images/border_bg.png');
+    // background-image: url('/static/images/border_bg.png');
     border: 1px solid #277ca5;
     background-position-x: 50%;
     background-size: 100% 100%;
     padding: 1px;
      >div{
-        background-image: url('../../static/images/border_bg02.png');
+        background-image: url('/static/images/border_bg02.png');
         color: #fff;
         width: 100%;
         background-position-x: 50%;
@@ -86,7 +86,7 @@ div.icon{
     }
 }
 i.i_webbank_pay{
-    background:url('../../static/images/icon_member.png') no-repeat;
+    background:url('/static/images/icon_member.png') no-repeat;
     background-size:  100%;
     background-position-y:0rem;
     width:100%;
@@ -167,7 +167,7 @@ i.icon_copy{
     }
 }
 i.icon-notification{
-    background:url('../../static/images/icon-notification.gif') no-repeat;
+    background:url('/static/images/icon-notification.gif') no-repeat;
     width: .5rem;
     height:.5rem;
     background-size: 100%;
@@ -176,7 +176,7 @@ i.icon-notification{
     vertical-align: middle;
 }
 i.i_mail_status{
-    background:url('../../static/images/icon_money.png') no-repeat;
+    background:url('/static/images/icon_money.png') no-repeat;
     background-size:  100%;
     background-position-y:-3.55rem;
     margin-top: .12rem;

@@ -118,7 +118,7 @@ input,select,button,a{
     //overflow-x: hidden;
     text-align: center;
     margin: auto;
-    background: url('../../static/images/bg.jpg');
+    background: url('/static/images/bg.jpg');
     background-size: 100%;
     min-height: 18rem;
     .so-right > div:first-child img {
@@ -452,10 +452,10 @@ h2{
         font-size: .4rem;
         height: .25rem;
         line-height: .25rem;
-        background: url('../../static/images/page/date_bar.png') no-repeat left top;
+        background: url('/static/images/page/date_bar.png') no-repeat left top;
         background-size: 100%;
         span{
-            background-image: url('../../static/images/arrow_up.png');
+            background-image: url('/static/images/arrow_up.png');
             background-size:0.7143rem 0.7143rem;
             // display: inline-block;
             width: 0.7rem;
@@ -491,7 +491,7 @@ h2{
             -o-transform: rotate(360deg);
             -ms-transform: rotate(360deg);
             transform: rotate(360deg);
-            // background-image: url('../images/icon_arrow_up.svg');
+            // background-image: url('/static/images/icon_arrow_up.svg');
         }
     }
 }
@@ -501,7 +501,7 @@ h2{
     height: 2rem;
     border-radius: 100%;
     margin-right: 0.5714rem;
-    background-image: url('../../static/images/page/logo_bg.png');
+    background-image: url('/static/images/page/logo_bg.png');
     background-size: 100%;
     overflow: hidden;
     margin: 0 auto;
@@ -607,7 +607,7 @@ h2{
 
 .bule_bg{
     display: block;
-    background: url('../images/bg.jpg') repeat-y;
+    background: url('/static/images/bg.jpg') repeat-y;
     width: 100%;
     background-size: 100%;
 }
