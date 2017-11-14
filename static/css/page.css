@@ -1296,6 +1296,8 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .countdown { line-height: .5rem; }
 
+.all_lottery > li.active p { color: #ff0 !important; }
+
 .all_lottery > li .badge { width: 2.5rem; height: 2.35rem; margin-top: 0; background: none; }
 
 .all_lottery > li .badge:before { display: none; }
