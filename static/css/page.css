@@ -1015,7 +1015,7 @@ i.prd { background-image: url("/static/images/page/icon_pn.png"); background-pos
 
 #road01 .tab_content_out.on, #road02 .tab_content_out.on { display: block; }
 
-.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; display: inline-block; display: -webkit-inline-flex; overflow: hidden; }
+.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; display: inline-block; display: -webkit-inline-flex; }
 
 .road:last-child { margin-right: .5rem; }
 
@@ -1024,10 +1024,6 @@ i.prd { background-image: url("/static/images/page/icon_pn.png"); background-pos
 .road.road_left { width: auto; margin-right: 2px; height: 4.6rem; }
 
 .road.road_left ul > li { margin-left: 0; }
-
-.road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -0.81rem; }
-
-.road.road_left ul > li:nth-child(n+7) { margin-top: -1rem; display: inline-block; position: relative; top: -0.81rem; }
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.05rem; -moz-border-radius: 0.05rem; -ms-border-radius: 0.05rem; border-radius: 0.05rem; margin-top: .5rem; padding-top: .2rem; }
 
@@ -1417,7 +1413,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_content .step03 .btn_bank a { display: block; line-height: 3em; text-align: center; }
 
-@media (max-width: 480px) { .pay_content .step03 .btn_bank a { line-height: 2em; height: 3em; padding: .5em 0; } }
+@media (max-width: 480px) { .pay_content .step03 .btn_bank a { line-height: 3em; height: 3em; padding: .5em 0; } }
 
 .pay_content .step03 .btn_bank a img { width: .7rem; vertical-align: middle; display: inline-block; }
 
@@ -1564,6 +1560,8 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 .info_bot > ul > li > a .icon div > i { width: .8rem; height: .8rem; }
 
 .info_bot > ul > li > a:after { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .2rem; height: 1.6rem; line-height: 1.2rem; left: initial; right: .5rem; }
+
+.info_bot > ul > li:last-child { border-bottom: none; }
 
 .withdrawals_area { width: 90%; margin: 0 auto; margin-top: 2rem; }
 

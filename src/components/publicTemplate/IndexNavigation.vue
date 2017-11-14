@@ -54,7 +54,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s04"></i>

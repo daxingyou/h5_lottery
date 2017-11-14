@@ -87,7 +87,7 @@
                             </a>
                         </li>
                         <li>
-                            <router-link class="btn_icon" :to="'/lobbyTemplate/agent'">
+                            <router-link class="btn_icon" :to="'/lobbyTemplate/join'">
                                 <div class="icon">
                                     <div> <i class="info06"></i></div>
                                 </div>

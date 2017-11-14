@@ -492,7 +492,7 @@ i.prd{
     // height: 4.6rem;
     display: inline-block;
     display: -webkit-inline-flex; //fix路珠ios問題
-    overflow: hidden;
+    //overflow: hidden;
     &:last-child{
         margin-right: .5rem;
         &:before{
@@ -513,19 +513,19 @@ i.prd{
         ul{
             >li{
                 margin-left: 0;
-                &:nth-child(6){
-                    margin-top: -1rem;
-                    margin-left: .8rem;
-                    display: inline-block;
-                    position: relative;
-                    top: -0.81rem;
-                }
-                &:nth-child(n+7){
-                    margin-top: -1rem;
-                    display: inline-block;
-                    position: relative;
-                    top: -0.81rem;
-                }
+                // &:nth-child(6){
+                //     margin-top: -1rem;
+                //     margin-left: .8rem;
+                //     display: inline-block;
+                //     position: relative;
+                //     top: -0.81rem;
+                // }
+                // &:nth-child(n+7){
+                //     margin-top: -1rem;
+                //     display: inline-block;
+                //     position: relative;
+                //     top: -0.81rem;
+                // }
             }
         }
 

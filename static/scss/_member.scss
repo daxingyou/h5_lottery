@@ -305,7 +305,7 @@ fieldset{
                 //padding: .5em 0;
                 text-align: center;
                 @include respond-to('xs') {
-                    line-height: 2em;
+                    line-height: 3em;
                     height: 3em;
                     padding: .5em 0;
                 }
@@ -742,6 +742,9 @@ fieldset{
                     left: initial;
                     right: .5rem;
                 }
+            }
+            &:last-child{
+                border-bottom:none;
             }
         }
     }

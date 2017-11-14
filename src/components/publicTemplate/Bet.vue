@@ -29,7 +29,10 @@
                    <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
                 </div>
             </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num">{{betCount}}</span> 总金额：<span class="total-bet-mon">{{totalAmount}}</span></p>
+            <p class="so-pop-sum">
+            【总计】总注数：<span class="total-bet-num">{{betCount}}</span> <br/>
+            总金额：<span class="total-bet-mon">{{totalAmount}}</span>
+            </p>
             <a class="cancle" @click="closeListDialog">取消</a>
             <a class="btn-submit ok" @click="submitAction(lotteryID)">确定</a>
         </div>
