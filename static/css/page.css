@@ -289,7 +289,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/* CSS for the main interaction */
+/*
+ CSS for the main interaction
+*/
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1011,9 +1013,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 #road01 .tab_content_out.on, #road02 .tab_content_out.on { display: block; }
 
-.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; 
-    // height: 4.6rem; 
-    display: inline-block; display: -webkit-inline-flex; overflow: hidden; }
+.road { -webkit-box-sizing: border-box; box-sizing: border-box; min-width: .85rem; width: auto; height: 4.6rem; display: inline-block; display: -webkit-inline-flex; overflow: hidden; }
 
 .road:last-child { margin-right: .5rem; }
 
@@ -1023,7 +1023,7 @@ i.prd { background-image: url("../../static/images/page/icon_pn.png"); backgroun
 
 .road.road_left ul > li { margin-left: 0; }
 
-// .road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -3.99rem; }
+.road.road_left ul > li:nth-child(6) { margin-top: -1rem; margin-left: .8rem; display: inline-block; position: relative; top: -3.99rem; }
 
 .road > ul { background-color: #0d1522; -webkit-border-radius: 0.05rem; -moz-border-radius: 0.05rem; -ms-border-radius: 0.05rem; border-radius: 0.05rem; margin-top: .5rem; padding-top: .2rem; }
 
@@ -1296,8 +1296,6 @@ ul.sixball > li:last-child:before { background-image: url("../../static/images/p
 
 .countdown { line-height: .5rem; }
 
-.all_lottery > li.active p { color: #ff0 !important; }
-
 .all_lottery > li .badge { width: 2.5rem; height: 2.35rem; margin-top: 0; background: none; }
 
 .all_lottery > li .badge:before { display: none; }
@@ -1415,7 +1413,7 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_content .step03 .btn_bank:last-child { float: left; margin-left: .7rem; }
 
-.pay_content .step03 .btn_bank a { display: block; line-height: 2em; text-align: center; }
+.pay_content .step03 .btn_bank a { display: block; line-height: 3em; text-align: center; }
 
 @media (max-width: 480px) { .pay_content .step03 .btn_bank a { line-height: 2em; height: 3em; padding: .5em 0; } }
 
@@ -1614,3 +1612,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("../../static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */
