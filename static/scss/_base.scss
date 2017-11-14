@@ -344,7 +344,7 @@ footer.bot_nav{
         width: 100%;
         top: -.4rem;
         right: -30%;
-        left: calc( 35% - 1rem);
+        left: inherit;
         z-index: 1;
     }
     >ul{
