@@ -586,9 +586,9 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item1 ul li > div > div { background: url("/static/images/content/panel_body.png") no-repeat; background-size: 100% 100%; padding: 3% 0 3%; height: auto; margin: 0px auto; overflow: hidden; padding-left: .2rem; }
 
-#so-item1 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; padding-bottom: .2rem; }
+#so-item1 ul li > div > div p { float: left; height: 1.65rem; width: 25%; padding-bottom: .2rem; }
 
-#so-item1 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; }
+#so-item1 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; margin: 0 auto; }
 
 #so-item1 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; }
 
@@ -648,11 +648,11 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item0 .so-con-span-short span, #so-item0.jc115 ul li .so-con-span-short span { padding-left: .15rem; padding-right: .1rem; }
 
-.so-foot { height: 2rem; width: 10rem; position: fixed; bottom: 0; background-color: #0e1a28; }
+.so-foot { height: 2rem; width: 10rem; position: fixed; bottom: -.3rem; background-color: #0e1a28; }
 
-.so-foot > div:first-child { height: 0.87rem; }
+.so-foot > div:first-child { height: 0.6rem; }
 
-.so-foot > div:first-child p { color: #ffffff; line-height: 0.87rem; font-size: .36rem; text-align: left; text-indent: 0.4rem; }
+.so-foot > div:first-child p { color: #ffffff; line-height: 0.6rem; font-size: .36rem; text-align: left; text-indent: 0.4rem; }
 
 .so-foot > div:first-child p span { color: #ffbd00; font-size: 0.34rem; padding: 0 .3rem; }
 
@@ -666,11 +666,11 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
-.so-foot > div:last-child > div { position: relative; width: 1.9rem; height: 2.6rem; background: url("/static/images/foot/tj-pg.png") no-repeat; background-size: 100%; background-position-y: 0.1rem; }
+.so-foot > div:last-child > div { position: relative; width: 1.9rem; height: 2.3rem; background: url("/static/images/foot/tj-pg.png") no-repeat; background-size: 100%; background-position-y: 0.1rem; }
 
 .so-foot > div:last-child > div img { width: 1.2rem; position: relative; top: 0.8rem; }
 
-.so-foot > div:last-child > div p { color: #fff; font-size: 0.42rem; position: relative; top: 1.9rem; font-weight: 700; }
+.so-foot > div:last-child > div p { color: #fff; font-size: 0.42rem; position: relative; top: 1.7rem; font-weight: 700; }
 
 .so-foot.close > div:first-child { background-color: #404040; }
 
@@ -682,7 +682,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot.close > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
-.so-foot.close > div:last-child > div { background: url(/static/images/foot/xiazhuhui.png) no-repeat; background-size: 84%; background-position: 0.17rem 0.5rem; }
+.so-foot.close > div:last-child > div { background: url("/static/images/foot/xiazhuhui.png") no-repeat; background-size: 84%; background-position: 0.17rem 0.5rem; }
 
 .so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.4rem; position: fixed; bottom: 0; z-index: 10; }
 
@@ -810,8 +810,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
 
-#so-item1.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; }
-
 #so-item2.jc115 ul li:first-child { margin-top: 0; }
 
 #so-item2.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
@@ -820,9 +818,9 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > div { padding: 0 3%; }
 
-#so-item2.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 1.3rem; display: none; padding-bottom: .2rem; border: none; display: inline-block; margin-bottom: 0; margin-left: 0; }
+#so-item2.jc115 ul li > div > div p { float: left; height: 1.65rem; width: 25%; display: none; padding-bottom: .2rem; border: none; display: inline-block; margin-bottom: 0; margin-left: 0; }
 
-#so-item2.jc115 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; }
+#so-item2.jc115 ul li > div > div p span:first-child { background: url("/static/images/content/qui02.png") no-repeat; background-size: 1.2rem; background-position: 0.11rem -1.25rem; display: block; width: 1.3rem; height: 1.3rem; color: #fffbe2; font-size: 0.6rem; text-align: center; line-height: 1.3rem; text-indent: 0.12rem; margin: 0 auto; }
 
 #so-item2.jc115 ul li > div > div p span { color: #fff; font-size: 0.3rem; display: block; padding-right: 0; line-height: 0.5rem; float: none; padding: 0; }
 
