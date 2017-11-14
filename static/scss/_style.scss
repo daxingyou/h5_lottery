@@ -141,12 +141,13 @@
                 li {
                     background: url("../images/left/left-kuang.jpg");
                     background-size: 100%;
-                    width: 3.33rem;
+                    width: 3.27rem;
                     height: 3.14rem;
                     display: block;
                     float: left;
                     //margin: 0.18rem;
                     margin: 0.21rem;
+                    //border: 1px solid transparent;
                     >.badge {
                         margin: 0 auto;
                         margin-top: .3rem;
@@ -154,6 +155,10 @@
                     p {
                         font-size: 0.34rem;
                         color: white;
+                    }
+                    &.active{
+                        box-shadow: 0 0 15px 4px rgba(0, 228, 255, 0.5) inset;
+                        //border: 1px solid #fff;
                     }
                 }
             }
