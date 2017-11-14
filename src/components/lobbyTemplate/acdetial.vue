@@ -2,9 +2,11 @@
     <div id="pa_con">
         <header id="pa_head">
             <div class="left">
-                <a href="#" @click="goBack">
+                <router-link to="/lobbyTemplate/info">
+                <!-- <a href="#" @click="$router.back()"> -->
                     <img src="../../../static/images/back.png" alt="">
-                </a>
+                <!-- </a> -->
+                </router-link>
             </div>
             <h2 class="center">帐户明细</h2>
             <div class="right"></div>

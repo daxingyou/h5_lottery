@@ -83,7 +83,7 @@ var MyMixin = {
 
     methods:{
         goBack:function(){
-            this.$router.go(-1)
+            this.$router.back();
         },
         dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
