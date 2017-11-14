@@ -881,7 +881,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .tab_mid { color: #d7e8f0; background-color: rgba(10, 22, 37, 0.85); position: fixed; z-index: 5; width: 10rem; left: inherit; }
 
-.tab_mid > li { display: inline-block; width: 25%; text-align: center; vertical-align: middle; }
+.tab_mid > li { display: inline-block; width: 24%; text-align: center; vertical-align: middle; }
 
 .tab_mid > li > a { display: block; color: #d7e8f0; font-size: 0.8571rem; height: 1rem; line-height: 1rem; font-size: .35rem; }
 
@@ -889,9 +889,9 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 .tab_mid.tab_three > li { width: 33%; }
 
-.tab_mid.tab_two > li { width: 50%; }
+.tab_mid.tab_two > li { width: 49%; }
 
-.tab_mid.tab_five > li { width: 20%; }
+.tab_mid.tab_five > li { width: 19%; }
 
 .hd { margin-bottom: .3rem; }
 

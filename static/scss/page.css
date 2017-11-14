@@ -2462,7 +2462,7 @@ img.bet_ok {
   left: inherit; }
   .tab_mid > li {
     display: inline-block;
-    width: 25%;
+    width: 24%;
     text-align: center;
     vertical-align: middle; }
     .tab_mid > li > a {
@@ -2482,7 +2482,7 @@ img.bet_ok {
   .tab_mid.tab_two > li {
     width: 50%; }
   .tab_mid.tab_five > li {
-    width: 20%; }
+    width: 19%; }
 
 .hd {
   margin-bottom: .3rem; }
