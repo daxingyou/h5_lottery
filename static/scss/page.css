@@ -343,7 +343,7 @@ footer.bot_nav {
           background-size: 100%;
           width: .5rem;
           height: .5rem;
-          top: .5rem;
+          top: .48rem;
           left: inherit; }
         footer.bot_nav > ul > li a.index:before {
           background-position-y: 0.05rem; }
