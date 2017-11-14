@@ -115,12 +115,13 @@ export default {
             return this.tradeTypeConfig[item.tradeType] || {};
         },
         loadTab:function(tab){
-            tab.days.length<=0 && this.getDays(tab.value).then(res=>{
+           /* tab.days.length<=0 && this.getDays(tab.value).then(res=>{*/
+             this.getDays(tab.value).then(res=>{
                 if (!res.data){
                     tab.days = [];
                     return false;
                 }
-                tab.days = res.data.map((item,index)=>{ 
+                tab.days = res.data.map((item,index)=>{
                     if (index == 0){
                         item.active = true; 
                     }else{

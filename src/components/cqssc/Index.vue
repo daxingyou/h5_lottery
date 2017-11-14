@@ -328,6 +328,7 @@ export default {
         const $tabs = $('.so-con-right > div');
         $tabs.hide();
         $tabs.eq(index).show();
+        $tabs.eq(index).
         $src.addClass('active').siblings().removeClass('active')
     },
     getListByParentID:function(parentID){

@@ -102,7 +102,7 @@ export default {
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
-
+      scrollTo(0,0); // 回到顶部
   },
   methods: {
 
