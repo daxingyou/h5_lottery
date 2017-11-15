@@ -73,7 +73,7 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
+                        <li :data-type="(index==2?'lineplay':'nomalplay')" :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
                             <a :href="'#so-item'+index">{{kind}}</a>
                         </li>
                         <!-- <li class="active " data-val="1">两面</li>
@@ -307,6 +307,7 @@
             allLottery:{} ,
             gameHref:{} ,
             playType:'normal', 
+            lasttyple:'nomalplay', // 上次的玩法类型
             // isCombine:false, //是否组合玩法
             // isGrouped:false, //是否是前2或前3组选
             combineCount:0, //组合玩法注数
@@ -394,15 +395,20 @@
                 $tabs.hide();
                 $tabs.eq(index).show();
                 $src.addClass('active').siblings().removeClass('active');
+
+                if( this.lasttyple !=$src.data('type') ){
+                    this.betSelectedList = [];
+                }
+                console.log($src.data('type'))
                 //清除选中的球
                 if ($src.prop('class').indexOf('reset_bet')>=0){
                     $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
-                    this.betSelectedList = [];
                     this.playType = 'combine';  //设置为连码玩法
                 }else{
                     $('#so-item2 ul li p').removeClass('active');
                     this.playType = 'normal';   //设置为普通玩法
                 }
+                this.lasttyple = $src.data('type') ;
 
                 this.isGrouped = false; //取消组选
             },
