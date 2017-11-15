@@ -120,7 +120,7 @@ export default {
         }
         $.ajax({
             type: 'post',
-            headers: {Authorization: 'Basic d2ViX2FwcDo='+this.client},
+            headers: {clientId:this.client,Authorization: 'Basic d2ViX2FwcDo='},
            // url: this.action.uaa + 'oauth/token',
             url: this.action.uaa + 'apis/member/login',
             data: logindata ,

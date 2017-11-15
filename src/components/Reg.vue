@@ -418,7 +418,7 @@
                     data: AccData ,
                     success:(res)=>{
                         if(res.data==true){
-                            _self.$refs.autoCloseDialog.open('用户名已存在') ;
+                            _self.$refs.autoCloseDialog.open('用户名重复') ;
                             return false
                         }
                     }
