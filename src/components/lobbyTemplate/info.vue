@@ -35,10 +35,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="btn btn_blue btn_two">
-                            <router-link v-bind:to="'/lobbyTemplate/deposit'">充值</router-link>
+                            <a class="CZ" href="javascript:;" @click="CheckDemoPlay('CZ')">充值</a>
                         </div>
                         <div class="btn btn_blue btn_two">
-                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">提款</router-link>
+                            <a class="TK" href="javascript:;" @click="CheckDemoPlay('TK')" >提款</a>
                         </div>
                     </div>
                 </div>
@@ -63,12 +63,12 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link class="btn_icon" :to="'/lobbyTemplate/info_data'">
+                            <a class="btn_icon ZH"  href="javascript:;" @click="CheckDemoPlay('ZH')">
                                 <div class="icon">
                                     <div><i class="info03"></i></div>
                                 </div>
                                 帐户管理
-                            </router-link>
+                            </a>
                         </li>
                       <!--  <li>
                             <router-link class="btn_icon" :to="'/lobbyTemplate/notification'">
@@ -103,7 +103,7 @@
         </div>
 
         <FooterNav />
-
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 </template>
 
@@ -115,14 +115,14 @@
 <script>
 import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
 
 export default {
   name: 'info',
   mixins:[Mixin],
   components: {
-   // AutoCloseDialog,
+    AutoCloseDialog,
       FooterNav ,
   },
     data: function() {
@@ -136,18 +136,19 @@ export default {
     },
     created:function () {
         var _self =this ;
-        _self.haslogin = this.ifLogined() ;
-        if( !_self.haslogin){
-            // _self.$refs.autoCloseDialog.open('请先登录！') ;
-            window.location = '/login' ;
-        }
-        _self.getUserInfo();
+            _self.haslogin = this.ifLogined();
+            if (!_self.haslogin) {
+                // _self.$refs.autoCloseDialog.open('请先登录！') ;
+                window.location = '/login';
+            }
+            _self.getUserInfo();
+
     },
-  mounted:function() {
+    mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
 
   },
-  methods: {
+    methods: {
       //获取用户信息
       getUserInfo: function () {
           var _self = this;
@@ -188,6 +189,24 @@ export default {
 
               }
           })
+      },
+      //判断是否为游客,cla为class
+      CheckDemoPlay:function (cla) {
+          var _self =this;
+          var acType=_self.getCookie('acType');
+          if(acType==2){
+             _self.$refs.autoCloseDialog.open('请注册账号') ;
+             return
+          }
+          if(cla=='CZ'){
+              window.location = '/lobbyTemplate/deposit' ;
+          }
+          if(cla=='TK'){
+              window.location = '/lobbyTemplate/Withdrawals' ;
+          }
+          if(cla=='ZH'){
+              window.location = '/lobbyTemplate/info_data' ;
+          }
       }
   }
 }

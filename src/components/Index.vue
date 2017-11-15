@@ -14,7 +14,7 @@
           <div class="right">
               <router-link to="/login" v-show="!haslogin">登录</router-link>
               <router-link to="/reg" v-show="!haslogin" >注册</router-link>
-              <a href="javascript:;" v-show="!haslogin" >试玩</a>
+              <a href="javascript:;" v-show="!haslogin"  @click="demoPlay()">试玩</a>
              <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
               <a class="guset" href="javascript:;" style="display: none"><i></i>游客</a>  <!--  试玩帐号 -->
               <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
@@ -229,7 +229,29 @@ export default {
               }
           })
       },
-
+     //试玩
+       demoPlay :function () {
+           $.ajax({
+               type: 'post',
+               headers: {Authorization: 'Basic d2ViX2FwcDo='},
+               url: this.action.uaa + 'apis/member/testLogin',
+               data:{},
+               success:(res)=>{
+                   console.log(res)
+                   if(res.err == 'SUCCESS'){ // 登录成功
+                       this.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                       this.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
+                       this.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
+                       this.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                       setTimeout(function () {
+                           window.location = '/' ;
+                       },300)
+                   }else{
+                       this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                   }
+               }
+            })
+       } 
 
   },
 
