@@ -148,9 +148,10 @@
                                         <h2>{{kind.name}}</h2>
                                         <div>
                                             <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList" 
-                                                :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }" 
-                                                @selected="continueNumberSelect" 
-                                                @unSelected="continueNumberUnSelect" />
+                                                :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
+                                                @selected="continueNumberSelect"
+                                                @unSelected="continueNumberUnSelect"
+                                            />
                                             
                                         </div>
                                     </div>
@@ -399,7 +400,7 @@
                 if( this.lasttyple !=$src.data('type') ){
                     this.betSelectedList = [];
                 }
-                console.log($src.data('type'))
+               // console.log($src.data('type'))
                 //清除选中的球
                 if ($src.prop('class').indexOf('reset_bet')>=0){
                     $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
@@ -496,19 +497,21 @@
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
-                if (this.entertainStatus){
+                if (this.entertainStatus){  // 封盘时，不能选择
                     return false;
-                }
-                const rule = this.selectRules[item.parentItem.cid];
-                const max = rule.max;
-                if (this.betSelectedList.length < max){
-                    this.betSelectedList.push(item);
                 }else{
-                    callback(false);
-                    // 请选择1个选项
-                    this.$refs.infoDialog.open('请选择'+max+'个选项', 'title_quantity');
+                    const rule = this.selectRules[item.parentItem.cid];
+                    const max = rule.max;
+                    if (this.betSelectedList.length < max){
+                        this.betSelectedList.push(item);
+                    }else{
+                        callback(false);
+                        // 请选择1个选项
+                        this.$refs.infoDialog.open('请选择'+max+'个选项', 'title_quantity');
+                    }
+                    this.combineCountCaculate(item);
                 }
-                this.combineCountCaculate(item);
+
                 
             },
             //当用户取消选择球时（连码），保存相应数据

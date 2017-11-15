@@ -1,5 +1,6 @@
 
 <template>
+    <!--<p @click="betSelect($event)">-->
     <p @click="betSelect($event)">
         <span>{{model.name}}</span>
         <span class="bet-times">{{payoffFormat(model.oddsData.payoff)}}</span>
@@ -17,6 +18,9 @@
           methods:{
             //当用户选择球时，保存相应数据
             betSelect:function(e){
+                if(this.$parent.entertainStatus){ // 封盘不可点击
+                    return false ;
+                }
                 var $src = $(e.currentTarget);
                 if ($src.prop('class').indexOf('active') < 0){
                     // const result = this.$emit('selected', e, this.model);
