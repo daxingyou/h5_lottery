@@ -186,7 +186,7 @@
 
                 :isCombine="isCombine" :isGrouped="isGrouped"
         -->
-        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction('1')" ref="bet"
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
             :playType="playType"
@@ -465,10 +465,12 @@
                 })
                 that.entertainStatus = false;
             },
-            resetAction:function(){
+            resetAction:function(success){
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
-                this.$refs.bet.betAmount = '' ;
+                if(success != '1'){
+                    this.$refs.bet.betAmount = '' ;
+                }
                 this.getMemberBalance(this.lotteryID) ; // 更新余额
             },
             combineCountCaculate:function(item){

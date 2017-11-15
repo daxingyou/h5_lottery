@@ -88,11 +88,13 @@ export default {
     },
     methods:{
         /*
-        * 重置投注页，提交表单后调用
+        * 重置投注页，提交表单后调用 success 1 投注成功
         * */
-        resetAction:function() {
+        resetAction:function(success) {
             this.$emit('betSuccess');
-            this.betAmount = '';
+            if(success != '1'){
+                this.betAmount = '';
+            }
             this.showList = false;
         },
 
@@ -149,7 +151,7 @@ export default {
                         // initTipPop05(true,3) ;
                         // this.parentRefs.autoCloseDialog.open('购买成功')
                         this.parentRefs.betSuccessfulDialog.open('购买成功')
-                        this.resetAction() ;
+                        this.resetAction('1') ;  // 下注成功不清空金额
                         // getMemberBalance() ; // 更新余额
                         return false;
                     } else {  //购买失败提示

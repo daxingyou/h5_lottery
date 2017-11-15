@@ -161,7 +161,7 @@
             事件
                 @betSuccess="resetAction" 
         -->
-        <Bet :lotteryID="lotteryID" @betSuccess="resetAction" ref="bet"
+        <Bet :lotteryID="lotteryID" @betSuccess="resetAction('1')" ref="bet"
             :betSelectedList="betSelectedList"
             :parentRefs="$refs"
             :balance="balanceData.balance" :now_pcode="now_pcode" :next_pcode="next_pcode" :now_day="now_day" />
@@ -394,10 +394,12 @@ export default {
         })
         that.entertainStatus = false;
     },
-    resetAction:function(){
+    resetAction:function(success){
         this.betSelectedList = [];
         $(".so-con-right p").removeClass('active');
-        this.$refs.bet.betAmount = '' ;
+        if(success != '1'){
+            this.$refs.bet.betAmount = '' ;
+        }
         this.getMemberBalance(this.lotteryID) ; // 更新余额
     },
     //当用户选择球时，保存相应数据
