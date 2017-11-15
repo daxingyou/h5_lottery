@@ -625,6 +625,19 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
+        //验证纯数字
+        checkNum: function (val,el) {
+            var content = '请输入4位数字支付密码' ;
+            if(val &&!this.positiveNum(val)){
+                $('.'+el).parent('.form_g').next('.error-message').addClass('red').text(content) ;
+            }
+            else{
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+            if(val ==''){
+                $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
+            }
+        },
         // 输入框清除数据,el当前元素class,cl是input的class
         ClearInput:function(el,cl){
              $('.'+el).prev().val('');

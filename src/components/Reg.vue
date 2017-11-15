@@ -80,72 +80,86 @@
                         </div>
                         <label class="error-message "></label>
                     </fieldset>
-                    <fieldset>
-                        <div class="form_g password text pay_password">
-                            <legend>取款密码</legend>
-                            <div class="select_inline">
-                            <select autocomplete="off" v-model="withpassword1" class="withpassword1">
-                                <option>-</option>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
-                            </div>
-                            <div class="select_inline">
-                            <select  v-model="withpassword2" class="withpassword2">
-                                <option>-</option>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
-                            </div>
-                            <div class="select_inline">
-                            <select v-model="withpassword3" class="withpassword3">
-                                <option>-</option>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
-                            </div>
-                            <div class="select_inline">
-                            <select v-model="withpassword4" class="withpassword4">
-                                <option>-</option>
-                                <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                            </select>
-                            </div>
-                            <!-- <input type="text" maxlength="1" size="1" placeholder="_"> -->
+                    <fieldset v-if="showB">
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="password" placeholder="请输入4位数字支付密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')">
+                            <i class="eye active eye3" @click="showPassword('eye3')"></i>
                         </div>
+                        <label class="error-message "></label>
+                        <!--<div class="form_g password text pay_password">-->
+                            <!--<legend>取款密码</legend>-->
+                            <!--<div class="select_inline">-->
+                            <!--<select autocomplete="off" v-model="withpassword1" class="withpassword1">-->
+                                <!--<option>-</option>-->
+                                <!--<option>0</option>-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                                <!--<option>6</option>-->
+                                <!--<option>7</option>-->
+                                <!--<option>8</option>-->
+                                <!--<option>9</option>-->
+                            <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="select_inline">-->
+                            <!--<select  v-model="withpassword2" class="withpassword2">-->
+                                <!--<option>-</option>-->
+                                <!--<option>0</option>-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                                <!--<option>6</option>-->
+                                <!--<option>7</option>-->
+                                <!--<option>8</option>-->
+                                <!--<option>9</option>-->
+                            <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="select_inline">-->
+                            <!--<select v-model="withpassword3" class="withpassword3">-->
+                                <!--<option>-</option>-->
+                                <!--<option>0</option>-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                                <!--<option>6</option>-->
+                                <!--<option>7</option>-->
+                                <!--<option>8</option>-->
+                                <!--<option>9</option>-->
+                            <!--</select>-->
+                            <!--</div>-->
+                            <!--<div class="select_inline">-->
+                            <!--<select v-model="withpassword4" class="withpassword4">-->
+                                <!--<option>-</option>-->
+                                <!--<option>0</option>-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                                <!--<option>6</option>-->
+                                <!--<option>7</option>-->
+                                <!--<option>8</option>-->
+                                <!--<option>9</option>-->
+                            <!--</select>-->
+                            <!--</div>-->
+                             <!--<input type="number" maxlength="4" size="1" placeholder="请输入4位数字密码"> -->
+                        <!--</div>-->
                         <!-- <label class="red">请输入4~15位帐号</label> -->
+                    </fieldset>
+                    <fieldset  v-if="!showB">
+                        <div class="form_g password">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入4位数字支付密码" maxlength="4" v-model="withPassword" class="withPassword" @input="checkNum(withPassword,'withPassword')">
+                            <i class="eye " @click="showPassword('act3')"></i>
+                        </div>
+                        <label class="error-message "></label>
                     </fieldset>
                     <fieldset>
                         <div class="form_g phone">
@@ -198,12 +212,10 @@
                 realyname :'',
                 telephone :'',
                 yzmcode :'',
-                withpassword1: '',
-                withpassword2: '',
-                withpassword3: '',
-                withpassword4: '',
+                withPassword: '',
                 show:true,
                 showC:true,
+                showB:true,
                 verImgCode:'',
                 client:'',
             }
@@ -218,10 +230,14 @@
                       this.show=false
                   }else if(cla=="eye2"){
                       this.showC=false
+                  }else if(cla=='eye3'){
+                      this.showB=false
                   }else if(cla=="act1"){
                       this.show=true;
                   }else if(cla=="act2"){
                       this.showC=true
+                  }else if(cla=='act3'){
+                      this.showB=true
                   }
                 },
             //清除model数据,cl元素class
@@ -281,20 +297,13 @@
             },
             // 注册接口 ，除了推荐人，其他必填
             registerAction:function() {
-                var paypassword = this.withpassword1+this.withpassword2+this.withpassword3+this.withpassword4 ;
+                var _self=this;
                 if(this.realyname ==''){
                     this.$refs.autoCloseDialog.open('请输入真实姓名') ;
                     return false ;
                 }
-                if(this.withpassword1 ==''|| !this.positiveNum(this.withpassword1)
-                    ||this.withpassword2 =='' || !this.positiveNum(this.withpassword2)
-                    || this.withpassword3 ==''|| !this.positiveNum(this.withpassword3)
-                    || this.withpassword4 =='' || !this.positiveNum(this.withpassword4)
-                    ||this.withpassword1=='-'
-                    ||this.withpassword2=='-'
-                    ||this.withpassword3=='-'
-                    ||this.withpassword4=='-'){
-                    this.$refs.autoCloseDialog.open('请输入取款密码') ;
+                if(this.withPassword ==''|| !this.positiveNum(this.withPassword)){
+                    this.$refs.autoCloseDialog.open('请输入4位数字支付密码') ;
                     return false ;
                 }
                 if(this.telephone ==''){
@@ -320,7 +329,7 @@
                     password: this.password ,  // 用户登录密码
                     realName: this.realyname ,  // 用户真实姓名
                     mobile: this.telephone , // 手机号码
-                    passwordPay: paypassword ,   //取款密码
+                    passwordPay: this.withPassword ,   //取款密码
                     code: this.yzmcode ,   // 验证码
                 }
                 $.ajax({
@@ -335,7 +344,10 @@
                     data: JSON.stringify(logindata) ,
                     success: (res) => {
                         if(res.err =='SUCCESS'){ // 注册成功
-                            this.autoLogin() ; // 自动登录
+                            _self.$refs.autoCloseDialog.open('注册成功','','icon_check','d_check') ;
+                            setTimeout(function () {
+                                window.location = '/Login' ;
+                            },2000)
                         }else{ //code 105 验证码无效
                               this.switchYzmcode() ; // 更新验证码
                               this.$refs.autoCloseDialog.open(res.cnMsg) ;
@@ -371,39 +383,41 @@
                 }
             },
             //自动登录
-            autoLogin :function () {
-                var _self = this ;
-                var logindata = {
-                    grant_type: 'password',
-                    username: 'bcappid02|'+_self.username ,
-                    password: _self.password ,
-                }
-                $.ajax({
-                        type: 'post',
-                        headers: {Authorization: 'Basic d2ViX2FwcDo='},
-                        url: this.action.uaa + 'apis/member/login',
-                        data: logindata ,
-                        success: function(res) {
-                        if(res.err == 'SUCCESS'){ // 登录成功
-                            _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
-                            _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
-                            _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
-                        setTimeout(function () {
-                            window.location = '/' ;
-                        },300)
-                    }else{
-                        _self.$refs.autoCloseDialog.open(res.cnMsg) ;
-                    }
-
-                this.$nextTick(function () {
-
-                })
-            },
-                error: function () {
-
-                }
-            });
-            },
+//            autoLogin :function () {
+//                var _self = this ;
+//                _self. switchYzmcode()
+//                var logindata = {
+//                    grant_type: 'password',
+//                    username: 'bcappid02|'+_self.username ,
+//                    password: _self.password ,
+//                    code:_self.code
+//                }
+//                $.ajax({
+//                        type: 'post',
+//                        headers: {Authorization: 'Basic d2ViX2FwcDo=',clientId: this.client},
+//                        url: this.action.uaa + 'apis/member/login',
+//                        data: logindata ,
+//                        success: function(res) {
+//                        if(res.err == 'SUCCESS'){ // 登录成功
+//                            _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+//                            _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
+//                            _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+//                        setTimeout(function () {
+//                            window.location = '/' ;
+//                        },300)
+//                    }else{
+//                        _self.$refs.autoCloseDialog.open(res.cnMsg) ;
+//                    }
+//
+//                this.$nextTick(function () {
+//
+//                })
+//            },
+//                error: function () {
+//
+//                }
+//            });
+//            },
             //验证账户是否存在
             CheckAccount:function () {
                 let _self=this;
