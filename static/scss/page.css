@@ -152,7 +152,7 @@ input, select, button, a {
       width: calc(100% - 3.2rem); }
   #pa_head > .left {
     float: left;
-    width: 1.5rem;
+    width: 1.8rem;
     height: 1.5rem; }
     #pa_head > .left a {
       display: inline-block;
@@ -344,7 +344,7 @@ footer.bot_nav {
           width: .5rem;
           height: .5rem;
           top: .48rem;
-          left: inherit; }
+          left: calc(30% - 1rem); }
         footer.bot_nav > ul > li a.index:before {
           background-position-y: 0.05rem; }
         footer.bot_nav > ul > li a.trend:before {
@@ -1413,6 +1413,12 @@ i.index_s {
         display: block;
         float: left;
         width: 3.33rem; }
+        @media (max-width: 359px) {
+          .so-con .so-in-main > div .so-main-down ul li:first-child {
+            width: 3.4rem; } }
+        @media (max-width: 359px) {
+          .so-con .so-in-main > div .so-main-down ul li {
+            width: 3.3rem; } }
         .so-con .so-in-main > div .so-main-down ul li > p {
           line-height: 0.79rem;
           font-size: .34rem;
@@ -1449,6 +1455,9 @@ i.index_s {
           text-align: center;
           margin-top: 0.12rem;
           color: #ffffff; }
+          @media (max-width: 359px) {
+            .so-con .so-in-main > div .so-main-down ul li > a {
+              width: 1.3rem; } }
 .so-con .so-in-con {
   width: 100%;
   background-color: #19222f;
@@ -1459,7 +1468,7 @@ i.index_s {
     display: block;
     clear: both; }
   .so-con .so-in-con .so-con-left {
-    width: 2.5rem;
+    width: 2.3rem;
     float: left;
     background-color: #19222f;
     height: 100%;
@@ -1484,7 +1493,7 @@ i.index_s {
         background-size: auto 1.7rem;
         background-position-y: -0.2rem; }
   .so-con .so-in-con .so-con-right {
-    width: 7.5rem;
+    width: 7.7rem;
     float: left;
     height: 100%;
     overflow-y: scroll;
@@ -1561,14 +1570,19 @@ i.index_s {
       display: none; }
       #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span {
         color: #d7e8f0;
-        font-size: .34rem;
+        font-size: .38rem;
         display: block;
         float: left;
         padding-left: .25rem;
         padding-right: .1rem;
         line-height: 0.9rem; }
+        @media (max-width: 359px) {
+          #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span {
+            font-size: .34rem;
+            padding-left: .1rem; } }
         #so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child {
-          float: right; }
+          float: right;
+          font-size: .3rem; }
     #so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active {
       background: url("/static/images/content/changkuang.png") no-repeat;
       background-size: 3.06rem 0.9rem;
@@ -1686,7 +1700,7 @@ i.index_s {
       margin-left: 3.5%; }
       #so-item2 ul li > div > div p > span {
         color: #d7e8f0;
-        font-size: .36rem;
+        font-size: .4rem;
         display: block;
         float: left;
         padding-left: .45rem;
@@ -1695,7 +1709,8 @@ i.index_s {
         #so-item2 ul li > div > div p > span:first-child {
           float: left; }
         #so-item2 ul li > div > div p > span:last-child {
-          float: right; }
+          float: right;
+          font-size: .3rem; }
     #so-item2 ul li > div > div:after {
       content: '';
       display: block;
@@ -2344,8 +2359,6 @@ img.bet_ok {
       text-indent: 0.1rem; }
     #so-item2.jc115 ul li > div > div p.active span:last-child {
       color: #fffbe2; }
-  #so-item2.jc115 ul li > div > div:after {
-    margin-left: -0.2rem; }
 
 #so-item2.jc115 > .hd {
   height: .9rem;
@@ -2480,7 +2493,7 @@ img.bet_ok {
   .tab_mid.tab_three > li {
     width: 33%; }
   .tab_mid.tab_two > li {
-    width: 50%; }
+    width: 49%; }
   .tab_mid.tab_five > li {
     width: 19%; }
 
@@ -2805,7 +2818,8 @@ i.prd {
     top: inherit;
     left: inherit; }
   #road01 .hd, #road02 .hd {
-    margin-bottom: .2rem; }
+    margin-bottom: .2rem;
+    overflow-x: hidden; }
   #road01 .bd, #road02 .bd {
     width: 100% !important;
     padding-right: 5rem; }
@@ -4167,7 +4181,9 @@ fieldset {
   right: .5rem;
   left: initial;
   line-height: 1.5rem;
-  top: 1.5rem; }
+  top: 1.65rem; }
+.ac_detial .ac_data .lottery_t {
+  margin-top: .2rem; }
 
 .sta {
   display: inline-block;
