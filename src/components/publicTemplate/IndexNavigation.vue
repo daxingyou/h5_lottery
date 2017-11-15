@@ -24,24 +24,24 @@
                 <div>
                     <ul>
                         <li>
-                            <router-link v-bind:to="'/lobbyTemplate/deposit'">
+                            <a href="javascript:;" @click="CheckDemoPlay('CZ')">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s01"></i>
                                     </div>
                                 </div>
                                 充值
-                            </router-link>
+                            </a>
                         </li>
                         <li>
-                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">
+                            <a href="javascript:;" @click="CheckDemoPlay('TK')">
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s02"></i>
                                     </div>
                                 </div>
                                 提款
-                            </router-link>
+                            </a>
                         </li>
                         <li>
                             <router-link v-bind:to="'/lobbyTemplate/acdetial'">
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-
+        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 
 </template>
@@ -77,14 +77,15 @@
     import Mixin from '@/Mixin'
     import $ from "jquery";
 //    import deposit from '@/components/lobbyTemplate/deposit'
-
+    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     export default {
         name: 'IndexNavigation',
         mixins:[Mixin],
         props:['el'],
-//        components: {
+        components: {
 //            deposit,
-//        },
+        AutoCloseDialog,
+        },
 
         data :function() {
             return {
@@ -154,7 +155,21 @@
 
                 /* })*/
             },
-
+            //判断是否为游客,cla为class
+            CheckDemoPlay:function (cla) {
+                var _self =this;
+                var acType=_self.getCookie('acType');
+                if(acType==2){
+                    _self.$refs.autoCloseDialog.open('请注册账号') ;
+                    return
+                }
+                if(cla=='CZ'){
+                    window.location = '/lobbyTemplate/deposit' ;
+                }
+                if(cla=='TK'){
+                    window.location = '/lobbyTemplate/Withdrawals' ;
+                }
+            }
         },
 
     }

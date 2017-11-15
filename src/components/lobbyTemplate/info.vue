@@ -35,10 +35,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="btn btn_blue btn_two">
-                            <a class="CZ" href="javascript:;" @click="CheckDemoPlay('CZ')">充值</a>
+                            <a  href="javascript:;" @click="CheckDemoPlay('CZ')">充值</a>
                         </div>
                         <div class="btn btn_blue btn_two">
-                            <a class="TK" href="javascript:;" @click="CheckDemoPlay('TK')" >提款</a>
+                            <a  href="javascript:;" @click="CheckDemoPlay('TK')" >提款</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a class="btn_icon ZH"  href="javascript:;" @click="CheckDemoPlay('ZH')">
+                            <a class="btn_icon "  href="javascript:;" @click="CheckDemoPlay('ZH')">
                                 <div class="icon">
                                     <div><i class="info03"></i></div>
                                 </div>
@@ -190,7 +190,7 @@ export default {
               }
           })
       },
-      //判断是否为游客,cla为class
+      //判断是否为游客,
       CheckDemoPlay:function (cla) {
           var _self =this;
           var acType=_self.getCookie('acType');
