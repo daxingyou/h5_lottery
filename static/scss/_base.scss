@@ -396,7 +396,7 @@ footer.bot_nav{
                     width: .5rem;
                     height: .5rem;
                     top: .48rem;
-                    left: inherit;
+                    left: calc(30% - 1rem);
                 }
                 &.index{
                     &:before{
