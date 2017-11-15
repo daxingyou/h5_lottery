@@ -10,7 +10,7 @@
                   <img src="static/images/nav.png" alt="">
               </a>
           </div>
-          <h2 class="center logo"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
+          <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
           <div class="right">
               <router-link to="/login" v-show="!haslogin">登录</router-link>
               <router-link to="/reg" v-show="!haslogin" >注册</router-link>

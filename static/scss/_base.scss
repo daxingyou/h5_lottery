@@ -188,6 +188,9 @@ input,select,button,a{
         &.logo{
             width: auto;
         }
+        &.logo_left{
+            margin-left: -1.5rem;
+        }
         &.lottery_name{
             width: calc(100% - 3.2rem);
         }
