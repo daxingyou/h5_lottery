@@ -73,7 +73,9 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+                        <li :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
+                            <a :href="'#so-item'+index">{{kind}}</a>
+                        </li>
                         <!-- <li class="active " data-val="1">两面</li>
                         <li class="" data-val="1">1-5球</li>
                         <li class="reset_bet" data-val="2">连码</li> -->

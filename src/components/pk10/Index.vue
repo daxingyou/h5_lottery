@@ -76,7 +76,9 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">
+                            <a :href="'#pk10-item'+index">{{kind}}</a>
+                        </li>
                       <!--  <li class="active">两面</li>
                         <li>冠亚和值</li>
                         <li>1-5名</li>

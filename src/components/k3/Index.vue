@@ -41,7 +41,9 @@
             <div class="so-in-con">
                 <div class="so-con-left">
                     <ul>
-                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">{{kind}}</li>
+                        <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">
+                            <a >{{kind}}</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="so-con-right bule_bg">
