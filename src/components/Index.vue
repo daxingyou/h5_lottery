@@ -231,18 +231,18 @@ export default {
       },
      //试玩
        demoPlay :function () {
+           var _self=this;
            $.ajax({
                type: 'post',
                headers: {Authorization: 'Basic d2ViX2FwcDo='},
-               url: this.action.uaa + 'apis/member/testLogin',
+               url: _self.action.uaa + 'apis/member/testLogin',
                data:{},
                success:(res)=>{
-                   console.log(res)
                    if(res.err == 'SUCCESS'){ // 登录成功
-                       this.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
-                       this.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
-                       this.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
-                       this.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                       _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                       _self.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
+                       _self.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
+                       _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
                        setTimeout(function () {
                            window.location = '/' ;
                        },300)

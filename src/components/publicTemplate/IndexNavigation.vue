@@ -23,8 +23,8 @@
             <div class="so-l-c-con indexside">
                 <div>
                     <ul>
-                        <li>
-                            <a href="javascript:;" @click="CheckDemoPlay('CZ')">
+                        <li @click="CheckDemoPlay('CZ')">
+                            <a>
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s01"></i>
@@ -33,8 +33,8 @@
                                 充值
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:;" @click="CheckDemoPlay('TK')">
+                        <li @click="CheckDemoPlay('TK')">
+                            <a>
                                 <div class="icon">
                                     <div>
                                         <i class="index_s index_s02"></i>

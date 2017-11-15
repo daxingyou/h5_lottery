@@ -510,7 +510,7 @@ var MyMixin = {
          ifLogined: function() { // 判断是否登录
             if (this.getCookie('username') && this.getCookie('access_token')) {
                 return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
-            } else {
+            }else {
                 return false;
             }
         },

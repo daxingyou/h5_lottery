@@ -2,7 +2,7 @@
     <div id="pa_con" class="so-con warp bule_bg">
         <header id="pa_head">
             <div class="left">
-                <router-link :to="'/lobbyTemplate/withdrawals'">
+                <router-link :to="'/lobbyTemplate/info'">
                     <img src="../../../static/images/back.png" alt="">
                 </router-link>
             </div>
