@@ -389,7 +389,7 @@
             clear: both;
         }
         .so-con-left {
-            width: 2.5rem;
+            width: 2.3rem;
             float: left;
             background-color: #19222f;
             height: 100%;
@@ -419,7 +419,7 @@
             }
         }
         .so-con-right {
-            width: 7.5rem;
+            width: 7.7rem;
             float: left;
             height: 100%;
             //overflow-y: auto;
@@ -504,7 +504,7 @@
                 display: none;
                 span {
                     color: $bluetext;
-                    font-size: .34rem;
+                    font-size: .4rem;
                     display: block;
                     float: left;
                     padding-left: .25rem;
@@ -512,6 +512,7 @@
                     line-height: 0.9rem;
                     &:last-child {
                         float: right;
+                        font-size: .3rem;
                     }
                 }
             }
