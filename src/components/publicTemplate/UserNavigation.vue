@@ -32,7 +32,7 @@
                 </div>
               <ul class="all_lottery">
                   <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
-                    <router-link v-bind:to="'/'+gameHref[lottery.cid]">
+                    <router-link  v-bind:to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                            <img :src="lottery.imgUrl" alt="">
                       </div>
@@ -43,7 +43,7 @@
           </div>
       </div>
     </div>
-
+       <!-- <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />-->
   </div>
 
 </template>
@@ -52,12 +52,15 @@
 <script>
 import Mixin from '@/Mixin'
 import $ from "jquery";
+//  import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'UserNavigation',
   mixins:[Mixin],
   props:['el'],
-
+  components: {
+     //  AutoCloseDialog,
+    },
  data :function() {
         return {
           balanceData: '' ,

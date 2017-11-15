@@ -85,9 +85,22 @@ var MyMixin = {
     // getAccessToken   methods:{
 
     methods:{
+        // 返回上一步
         goBack:function(){
             this.$router.back();
         },
+        // 打开游戏判断是否登录
+        gotoGame:function (has) {
+            var _self = this ;
+            if(!has){
+                _self.$refs.autoCloseDialog.open('请先登录！') ;
+                setTimeout(function () {
+                    _self.$router.push('/login') ;
+                },1000) ;
+                return false ;
+            }
+        },
+
         dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
         },

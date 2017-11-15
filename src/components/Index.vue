@@ -81,12 +81,16 @@
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
                   <li v-for="lottery in allLottery">
-
-                    <router-link class="to_lottery" v-bind:to="'/'+gameHref[lottery.cid]">
+                    <router-link class="to_lottery"  v-bind:to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                         <img v-lazy="lottery.imgUrl">
                       </div>
                     </router-link>
+                      <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
+                          <div :class="'badge'">
+                              <img v-lazy="lottery.imgUrl">
+                          </div>
+                      </a>
                     <p>{{lottery.name}}</p>
 
                   </li>
@@ -224,7 +228,9 @@ export default {
                   $('.sys-notice>.bd').html(str)
               }
           })
-      }
+      },
+
+
   },
 
 }
@@ -232,17 +238,5 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
-
-  /* .hotgame_area ul a {
-    position: relative;
-    display: inline-block;
-    z-index: 7;
-  } */
-  /* #pa_head > .left a.btn_leftside{
-      margin-left:.6rem;
-  } */
-  /* #pa_head > .center.logo{
-      margin-left: .6rem;
-  } */
 
 </style>
