@@ -530,6 +530,10 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-main > div .so-main-down ul li { display: block; float: left; width: 3.33rem; }
 
+@media (max-width: 359px) { .so-con .so-in-main > div .so-main-down ul li:first-child { width: 3.4rem; } }
+
+@media (max-width: 359px) { .so-con .so-in-main > div .so-main-down ul li { width: 3.3rem; } }
+
 .so-con .so-in-main > div .so-main-down ul li > p { line-height: 0.79rem; font-size: .34rem; color: #d7e8f0; text-align: right; }
 
 .so-con .so-in-main > div .so-main-down ul li > i { content: ""; display: block; background: url(/static/images/main/sj.png) no-repeat; background-size: 100%; width: .4rem; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.5rem; }
@@ -537,6 +541,8 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 .so-con .so-in-main > div .so-main-down ul li > span { display: block; color: #d7e8f0; height: .4rem; float: left; margin-top: 0.13rem; margin-left: 0.1rem; font-size: 0.32rem; }
 
 .so-con .so-in-main > div .so-main-down ul li > a { display: inline-block; background-color: #0b1723; width: 1.6rem; height: .45rem; border-radius: .19rem; border: solid .01rem #233044; line-height: 0.45rem; margin: auto; font-size: 0.32rem; text-align: center; margin-top: 0.12rem; color: #ffffff; }
+
+@media (max-width: 359px) { .so-con .so-in-main > div .so-main-down ul li > a { width: 1.3rem; } }
 
 .so-con .so-in-con { width: 100%; background-color: #19222f; position: fixed; top: 4.3rem; }
 
@@ -570,7 +576,9 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 1px #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
 
-#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .4rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
+#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .38rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
+
+@media (max-width: 359px) { #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { font-size: .34rem; padding-left: .1rem; } }
 
 #so-item0 ul li > div > div p span:last-child, #so-item0.jc115 ul li ul li > div > div p span:last-child { float: right; font-size: .3rem; }
 
@@ -612,11 +620,11 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item2 ul li > div > div p { float: left; border: solid 1px #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 3.5%; }
 
-#so-item2 ul li > div > div p > span { color: #d7e8f0; font-size: .36rem; display: block; float: left; padding-left: .45rem; line-height: 0.9rem; padding: 0 .25rem; }
+#so-item2 ul li > div > div p > span { color: #d7e8f0; font-size: .4rem; display: block; float: left; padding-left: .45rem; line-height: 0.9rem; padding: 0 .25rem; }
 
 #so-item2 ul li > div > div p > span:first-child { float: left; }
 
-#so-item2 ul li > div > div p > span:last-child { float: right; }
+#so-item2 ul li > div > div p > span:last-child { float: right; font-size: .3rem; }
 
 #so-item2 ul li > div > div:after { content: ''; display: block; position: absolute; width: 7rem; bottom: -3px; clear: both; background: url("/static/images/content/panel_footer.png") no-repeat; background-size: 100% 100%; height: 0.4rem; margin-top: -0.4rem; overflow: hidden; }
 
@@ -830,8 +838,6 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 ul li > div > div p.active span:last-child { color: #fffbe2; }
 
-#so-item2.jc115 ul li > div > div:after { margin-left: -.2rem; }
-
 #so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
 #so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem; }
@@ -1005,7 +1011,7 @@ i.prd { background-image: url("/static/images/page/icon_pn.png"); background-pos
 
 #road01 .tab_mid, #road02 .tab_mid { background-color: rgba(0, 0, 0, 0.15); position: relative; top: inherit; left: inherit; }
 
-#road01 .hd, #road02 .hd { margin-bottom: .2rem; }
+#road01 .hd, #road02 .hd { margin-bottom: .2rem; overflow-x: hidden; }
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
@@ -1589,7 +1595,9 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .password_area > div > .btn:last-child { margin-left: .5rem; }
 
-.ac_detial .ac_data > a:after { background-image: url("/static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.5rem; }
+.ac_detial .ac_data > a:after { background-image: url("/static/images/btn_icon_right.png"); background-repeat: no-repeat; background-position: center top; background-color: transparent; background-size: 100%; content: ''; position: absolute; display: block; top: 0; left: 0; width: .2rem; height: .5rem; right: .5rem; left: initial; line-height: 1.5rem; top: 1.65rem; }
+
+.ac_detial .ac_data .lottery_t { margin-top: .2rem; }
 
 .sta { display: inline-block; padding: 0 .2rem; -webkit-border-radius: 0.1rem; -moz-border-radius: 0.1rem; -ms-border-radius: 0.1rem; border-radius: 0.1rem; margin-left: .2rem; font-size: 0.29rem; height: .5rem; line-height: .5rem; vertical-align: text-bottom; }
 

@@ -331,6 +331,14 @@
                         display: block;
                         float: left;
                         width: 3.33rem;
+                        &:first-child{
+                            @include respond-to('ss'){
+                                width: 3.4rem;
+                            }
+                        }
+                        @include respond-to('ss'){
+                            width: 3.3rem;
+                        }
                         > p {
                             line-height: 0.79rem;
                             font-size: .34rem;
@@ -371,6 +379,9 @@
                             text-align: center;
                             margin-top: 0.12rem;
                             color: #ffffff;
+                            @include respond-to('ss'){
+                                width: 1.3rem;
+                            }
                         }
                     }
                 }
@@ -504,12 +515,16 @@
                 display: none;
                 span {
                     color: $bluetext;
-                    font-size: .4rem;
+                    font-size: .38rem;
                     display: block;
                     float: left;
                     padding-left: .25rem;
                     padding-right: .1rem;
                     line-height: 0.9rem;
+                    @include respond-to('ss'){
+                        font-size: .34rem;
+                        padding-left: .1rem;
+                    }
                     &:last-child {
                         float: right;
                         font-size: .3rem;
@@ -681,7 +696,7 @@
                // display: none;
                 >span {
                     color: $bluetext;
-                    font-size: .36rem;
+                    font-size: .4rem;
                     display: block;
                     float: left;
                     padding-left: .45rem;
@@ -692,6 +707,7 @@
                     }
                     &:last-child {
                         float: right;
+                        font-size: .3rem;
                     }
                 }
             }
@@ -1462,7 +1478,7 @@ img.bet_ok {
                 }
             }
             &:after{
-                margin-left: -.2rem
+               // margin-left: -.2rem
             }
         }
     }
