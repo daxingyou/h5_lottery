@@ -76,7 +76,10 @@
                                     </h2>
                                     <div>
                                         <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[0]"></span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[1]"></span></span>
+                                            <span>
+                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
+                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
+                                            </span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
                                     </div>
@@ -94,7 +97,11 @@
                                     </h2>
                                     <div>
                                         <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)" :class="item.cid == 63100 && 'so-con-span-short'">
-                                            <span v-if="itemChild.cid!=63107"><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[0]"></span><span :class="'k3_dice small_dice num_'+ itemChild.name.split('')[1]"></span><span v-if="(item.cid == 63100)" :class="'k3_dice small_dice num_'+ itemChild.name.split('')[2]"></span></span>
+                                            <span v-if="itemChild.cid!=63107">
+                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
+                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
+                                                <span v-if="(item.cid == 63100)" :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[2]"></span>
+                                            </span>
                                             <span v-if="itemChild.cid==63107">{{itemChild.name}}</span>
                                             <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
                                         </p>
