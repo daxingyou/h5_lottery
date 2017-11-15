@@ -578,7 +578,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p { float: left; border: solid 1px #277ca5; height: 0.85rem; width: 3rem; margin-bottom: 4%; margin-left: 4.5%; display: none; }
 
-#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .38rem; display: block; float: left; padding-left: .25rem; padding-right: .1rem; line-height: 0.9rem; }
+#so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { color: #d7e8f0; font-size: .38rem; display: block; float: left; padding-left: .2rem; padding-right: .1rem; line-height: 0.9rem; }
 
 @media (max-width: 359px) { #so-item0 ul li > div > div p span, #so-item0.jc115 ul li ul li > div > div p span { font-size: .34rem; padding-left: .1rem; } }
 
