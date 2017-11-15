@@ -6,7 +6,7 @@
                     <img src="../../../static/images/back.png" alt="">
                 </router-link>
             </div>
-            <h2 class="center">绑定银行</h2>
+            <h2 class="center">开户行</h2>
             <div class="right"></div>
         </header>
         <div class="content">
@@ -32,7 +32,7 @@
                 <fieldset>
                     <div class="form_g text">
                         <legend>开户行地址</legend>
-                        <input type="text" name="phone-number" v-model="bankAdd"  class="bankAdd" placeholder="请输入开户行地址（如:北京市海淀区xx分行"
+                        <input type="text" name="phone-number" v-model="bankAdd"  class="bankAdd" placeholder="如：北京市海淀区中关村支行"
                         @input="checkBankAdd(bankAdd,'bankAdd')">
                         <i class="close close1" @click="ClearInput('close2','bankAdd')"></i>
                     </div>
