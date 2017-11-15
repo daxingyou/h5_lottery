@@ -148,6 +148,8 @@ input, select, button, a {
       margin-top: -.25rem; }
     #pa_head > .center.logo {
       width: auto; }
+    #pa_head > .center.logo_left {
+      margin-left: -1.5rem; }
     #pa_head > .center.lottery_name {
       width: calc(100% - 3.2rem); }
   #pa_head > .left {
@@ -1573,7 +1575,7 @@ i.index_s {
         font-size: .38rem;
         display: block;
         float: left;
-        padding-left: .25rem;
+        padding-left: .2rem;
         padding-right: .1rem;
         line-height: 0.9rem; }
         @media (max-width: 359px) {

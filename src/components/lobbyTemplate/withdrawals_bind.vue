@@ -186,13 +186,15 @@ export default {
               url: _self.action.forseti + 'api/payment/memberBank',
               data: bankData,
               success: function(res){
-                  if(res.err=='UNKNOWN'){
-                  _self.$refs.autoCloseDialog.open('修改失败，请稍后再试');
+                  if(res.err=='SUCCESS'){
+                      _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
+                      setTimeout(function(){
+                          window.location = '/lobbyTemplate/withdrawals' ;
+                      },2000)
+                  }else {
+                      _self.$refs.autoCloseDialog.open(res.msg) ;
+                      return false
                   }
-                  _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
-                  setTimeout(function(){
-                      window.location = '/lobbyTemplate/withdrawals' ;
-                  },2000)
               },
               error: function (err) {
                   _self.$refs.autoCloseDialog.open('绑定失败') ;

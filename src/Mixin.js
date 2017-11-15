@@ -625,7 +625,7 @@ var MyMixin = {
                 $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
             }
         },
-        //验证纯数字
+        //验证支付密码
         checkNum: function (val,el) {
             var content = '请输入4位数字支付密码' ;
             if(val &&!this.positiveNum(val)){
