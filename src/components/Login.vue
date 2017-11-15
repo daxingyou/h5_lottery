@@ -22,6 +22,14 @@
                         </div>
                         <label class="error-message"> </label>
                     </fieldset>
+                    <fieldset>
+                        <div class="form_g password ">
+                            <legend></legend>
+                            <input type="text" placeholder="请输入验证码" autocomplete="off"  maxlength="4" v-model="yzmcode">
+                            <img :src="verImgCode" alt="" @click="switchYzmcode()">
+                        </div>
+                        <label class="error-message "></label>
+                    </fieldset>
                 </form>
                 <div class="btn btn_blue">
                     <a href="javascript:;" @click="LoginAction()">登录</a>
@@ -29,7 +37,7 @@
                 <div class="other_link">
                     <a href="/reg">马上注册</a>
                     <a href="javascript:;">免费试玩</a>
-                    <a href="javascript:;">联系客服</a>
+                    <a href="javascript:;" @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">联系客服</a>
                 </div>
             </div>
         </div>
@@ -52,8 +60,14 @@ export default {
         return {
             username :'',
             password :'',
+            verImgCode:'',
+            yzmcode:'',
+            client:''
         }
     },
+  created:function () {
+      this.switchYzmcode()
+  },
   mounted:function() {
        // this.username = 'admin' ;
 
@@ -67,6 +81,19 @@ export default {
               this.username ='';
           }
       },
+    //获取验证码；
+    switchYzmcode:function () {
+          let _self =this ;
+          let url= this.action.uaa + 'apis/member/code/get?time='+ Math.random();
+          $.ajax({
+              type:"GET",
+              url:url,
+              success: (data) => {
+                  _self.verImgCode = data.data && 'data:image/png;base64,' + data.data.code || '';
+                  _self.client = data.data && data.data.clientId || '';
+              }
+          })
+      },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
         if(this.username ==''){
@@ -77,6 +104,10 @@ export default {
             this.$refs.autoCloseDialog.open('请输入登录密码') ;
             return false ;
         }
+        if(this.yzmcode==''){
+            this.$refs.autoCloseDialog.open('请输入验证码') ;
+            return false ;
+        }
         var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
         if(falg){
             return false ;
@@ -85,11 +116,11 @@ export default {
             grant_type: 'password',
             username: 'bcappid02|'+this.username ,
             password: this.password ,
-           // code: this.code ,  // 验证码
+            code: this.yzmcode ,  // 验证码
         }
         $.ajax({
             type: 'post',
-            headers: {Authorization: 'Basic d2ViX2FwcDo='},
+            headers: {Authorization: 'Basic d2ViX2FwcDo='+this.client},
            // url: this.action.uaa + 'oauth/token',
             url: this.action.uaa + 'apis/member/login',
             data: logindata ,
