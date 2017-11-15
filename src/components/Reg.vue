@@ -158,7 +158,7 @@
                     <fieldset>
                         <div class="form_g password ">
                             <legend></legend>
-                            <input type="text" placeholder="请输入验证码" autocomplete="off"  v-model="yzmcode">
+                            <input type="text" placeholder="请输入验证码" autocomplete="off" maxlength="4"  v-model="yzmcode">
                             <img :src="verImgCode" alt="" @click="switchYzmcode()">
                         </div>
                         <label class="error-message "></label>
