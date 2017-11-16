@@ -2,9 +2,9 @@
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)" class="before-add">
+                <router-link :to="'/'" class="before-add">
                     <img src="static/images/back.png" alt="">
-                </a>
+                </router-link>
                 <a href="javascript:;"  class="after-add" @click="lastAction()" style="display: none ;">
                     <img src="static/images/back.png" alt="">
                 </a>

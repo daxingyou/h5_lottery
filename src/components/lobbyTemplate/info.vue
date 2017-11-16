@@ -142,7 +142,6 @@ export default {
                 window.location = '/login';
             }
             _self.getUserInfo();
-
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
