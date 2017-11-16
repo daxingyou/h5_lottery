@@ -13,7 +13,7 @@
             <div class="info_area">
                 <div class="info_top">
                     <div class="account">
-                        <router-link :to="'/lobbyTemplate/info_data'" >
+                        <a  href="javascript:;" @click="CheckDemoPlay('ZH')">
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </router-link>
+                        </a>
                     </div>
                 </div>
                 <div class="info_mid">
