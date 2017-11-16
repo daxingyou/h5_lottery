@@ -145,14 +145,13 @@ export default {
                 //  data:  $(form).serialize() + "&randomNum=" + randomNum ,
                 data: JSON.stringify(resdata),
                 success: (data) => {
-                    //解决瞬间提交2次的问题
 
                     if (data.length <= 0) {
                         return false;
                     }
 
                     if (data.err == 'SUCCESS') {  //购买成功
-                        this.ajaxSubmitAllow = false ;
+                        this.ajaxSubmitAllow = false ;     //解决瞬间提交2次的问题
                         // initTipPop05(true,3) ;
                         // this.parentRefs.autoCloseDialog.open('购买成功')
                         this.parentRefs.betSuccessfulDialog.open('购买成功')
