@@ -35,10 +35,10 @@
                 <div class="info_mid">
                     <div>
                         <div class="btn btn_blue btn_two">
-                            <router-link v-bind:to="'/lobbyTemplate/deposit'">充值</router-link>
+                            <a href="javascript:;" @click="CheckDemoPlay('CZ')">充值</a>
                         </div>
                         <div class="btn btn_blue btn_two">
-                            <router-link v-bind:to="'/lobbyTemplate/withdrawals'">提款</router-link>
+                            <a href="javascript:;" @click="CheckDemoPlay('TK')">提款</a>
                         </div>
                     </div>
                 </div>
@@ -77,8 +77,8 @@
 
 
         </div>
-
-        <FooterNav></FooterNav>
+        <Confirm ref="confirm" />
+        <FooterNav/>
     </div>
 </template>
 
@@ -87,6 +87,7 @@ import $ from "jquery";
 import Mixin from '@/Mixin'
 // import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
+import Confirm from '@/components/publicTemplate/Confirm'
 
 export default {
   name: 'join',
@@ -94,6 +95,7 @@ export default {
   components: {
    // AutoCloseDialog,
       FooterNav ,
+      Confirm
   },
     data: function() {
         return {
@@ -105,7 +107,21 @@ export default {
       scrollTo(0,0); // 回到顶部
   },
   methods: {
-
+      //判断是否为游客,
+      CheckDemoPlay:function (cla) {
+          var _self =this;
+          var acType=_self.getCookie('acType');
+          if(acType==2){
+              _self.$refs.confirm.open();
+              return
+          }
+          if(cla=='CZ'){
+              window.location = '/lobbyTemplate/deposit' ;
+          }
+          if(cla=='TK'){
+              window.location = '/lobbyTemplate/Withdrawals' ;
+          }
+      },
 }
 
 }
