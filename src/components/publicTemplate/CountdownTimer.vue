@@ -104,11 +104,13 @@ export default {
                 }
 
                 this.lt_time_leave = this.lt_time_leave - 1;
-                var oDate = this.diff(this.lt_time_leave);
+                // var oDate = this.diff(this.lt_time_leave);
                 this.lt_time_leave_over = this.lt_time_leave_over - 1;
-                var over_oDate = this.diff(this.lt_time_leave_over);
-                this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second);
-                this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
+                // var over_oDate = this.diff(this.lt_time_leave_over);
+                this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
+                this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
+                // this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second);
+                // this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
 
             }).bind(this), 1000);
         }
