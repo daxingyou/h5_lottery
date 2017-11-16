@@ -99,11 +99,10 @@
                 </div>
             </div>
 
-
         </div>
-
         <FooterNav />
-        <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
+        <Confirm ref="confirm" />
+        <!--<AutoCloseDialog ref="autoCloseDialog" text=" " type="" />-->
     </div>
 </template>
 
@@ -117,13 +116,14 @@ import $ from "jquery";
 import Mixin from '@/Mixin'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'
-
+import Confirm from '@/components/publicTemplate/Confirm'
 export default {
   name: 'info',
   mixins:[Mixin],
   components: {
     AutoCloseDialog,
       FooterNav ,
+      Confirm
   },
     data: function() {
         return {
@@ -142,7 +142,6 @@ export default {
                 window.location = '/login';
             }
             _self.getUserInfo();
-
     },
     mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
@@ -195,8 +194,8 @@ export default {
           var _self =this;
           var acType=_self.getCookie('acType');
           if(acType==2){
-             _self.$refs.autoCloseDialog.open('请注册账号') ;
-             return
+              _self.$refs.confirm.open();
+              return
           }
           if(cla=='CZ'){
               window.location = '/lobbyTemplate/deposit' ;

@@ -36,7 +36,7 @@
                 </div>
                 <div class="other_link">
                     <a href="/reg">马上注册</a>
-                    <a href="javascript:;">免费试玩</a>
+                    <a href="javascript:;" @click="demoPlay()">免费试玩</a>
                     <a href="javascript:;" @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">联系客服</a>
                 </div>
             </div>
@@ -147,7 +147,31 @@ export default {
             }
         });
     },
-}
+      //试玩
+    demoPlay :function () {
+          var _self=this;
+          $.ajax({
+              type: 'post',
+              headers: {Authorization: 'Basic d2ViX2FwcDo='},
+              url: _self.action.uaa + 'apis/member/testLogin',
+              data:{},
+              success:(res)=>{
+                  console.log(res)
+                  if(res.err == 'SUCCESS'){ // 登录成功
+                      _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                      _self.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
+                      _self.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
+                      _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                      setTimeout(function () {
+                          window.location = '/' ;
+                      },300)
+                  }else{
+                      this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                  }
+              }
+          })
+      }
+  }
 
 }
 </script>
