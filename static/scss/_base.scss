@@ -399,22 +399,22 @@ footer.bot_nav{
                     left: calc(30% - 1rem);
                 }
                 &.index{
-                    &:before{
+                    .Footer-icon{
                         background-position-y: 0.05rem;
                     }
                 }
                 &.trend{
-                    &:before{
+                    .Footer-icon{
                         background-position-y: -.66rem;
                     }
                 }
                 &.record{
-                    &:before{
+                    .Footer-icon{
                         background-position-y: -1.4rem;
                     }
                 }
                 &.member{
-                    &:before{
+                    .Footer-icon{
                         background-position-y: -2.05rem;
                     }
                 }

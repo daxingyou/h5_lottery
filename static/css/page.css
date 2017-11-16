@@ -127,15 +127,15 @@ footer.bot_nav > ul > li.active a, footer.bot_nav > ul > li:hover a, footer.bot_
 
 footer.bot_nav > ul > li a { margin-left: 15%; padding: .48rem 0 .5rem; position: relative; }
 
-footer.bot_nav > ul > li a:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/icon.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .5rem; height: .5rem; top: .48rem; left: calc(30% - 1rem); }
+footer.bot_nav > ul > li a > span.Footer-icon { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/icon.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; width: .5rem; height: .5rem; top: .48rem; left: calc(30% - 1rem); }
 
-footer.bot_nav > ul > li a.index:before { background-position-y: 0.05rem; }
+footer.bot_nav > ul > li a.index .Footer-icon { background-position-y: 0.05rem; }
 
-footer.bot_nav > ul > li a.trend:before { background-position-y: -.66rem; }
+footer.bot_nav > ul > li a.trend .Footer-icon { background-position-y: -.66rem; }
 
-footer.bot_nav > ul > li a.record:before { background-position-y: -1.4rem; }
+footer.bot_nav > ul > li a.record .Footer-icon { background-position-y: -1.4rem; }
 
-footer.bot_nav > ul > li a.member:before { background-position-y: -2.05rem; }
+footer.bot_nav > ul > li a.member .Footer-icon { background-position-y: -2.05rem; }
 
 .clearfix::after { display: block; clear: both; content: ""; }
 
@@ -291,7 +291,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/* CSS for the main interaction */
+/*
+ CSS for the main interaction
+*/
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1670,3 +1672,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */
