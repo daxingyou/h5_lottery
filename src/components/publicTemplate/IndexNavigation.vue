@@ -177,3 +177,9 @@
 
     }
 </script>
+<style scoped>
+.so-shade {
+    display: block;
+    z-index: 0;
+}
+</style>
