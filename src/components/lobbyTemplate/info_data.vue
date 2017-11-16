@@ -465,7 +465,7 @@ export default {
       AutoCloseDialog,
       FooterNav ,
   },
-    data: function() {
+    data:function() {
         return {
              // 修改登录密码
             oldPassword:'',
@@ -493,7 +493,7 @@ export default {
             showB:true
         }
     },
-    created: function() {
+    created:function() {
         var _self = this;
 //        _self.hasLogin = _self.ifLanded();
         _self.getUserBankInfo();
