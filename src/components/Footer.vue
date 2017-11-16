@@ -2,7 +2,10 @@
     <footer class="bot_nav">
         <ul>
             <li :class="menu.path == $route.path && 'active'" v-for="menu in menus">
-                <router-link :class="menu.className" :to="menu.path">{{menu.name}}</router-link>
+                <router-link :class="menu.className" :to="menu.path">
+                    <span class="Footer-icon"></span>
+                    <span>{{menu.name}}</span>
+                </router-link>
             </li>
 
             <!-- <li><a class="trend" href="/lobbyPastView">往期开奖</a></li>

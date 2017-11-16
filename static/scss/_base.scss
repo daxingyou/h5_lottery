@@ -390,7 +390,7 @@ footer.bot_nav{
                 margin-left: 15%;
                 padding: .48rem 0 .5rem;
                 position: relative;
-                &:before{
+                 >span.Footer-icon{
                     @include pseudo;
                     @include background-image ('icon.png',0,transparent);
                     width: .5rem;
