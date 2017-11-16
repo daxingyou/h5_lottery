@@ -116,6 +116,7 @@
     &.content{
         //padding-top: .1rem;
         margin-top: 0;
+        overflow-x: hidden;
         >section{
             h3{
                 text-align: left;

@@ -291,9 +291,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/*
- CSS for the main interaction
-*/
+/* CSS for the main interaction */
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1222,7 +1220,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 #index_content { -webkit-box-sizing: border-box; box-sizing: border-box; padding-bottom: 1.5rem; }
 
-#index_content.content { margin-top: 0; }
+#index_content.content { margin-top: 0; overflow-x: hidden; }
 
 #index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
 
@@ -1672,5 +1670,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */
