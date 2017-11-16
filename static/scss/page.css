@@ -2832,7 +2832,7 @@ i.prd {
     /* ios5+ */
     white-space: nowrap;
     width: 97.5% !important;
-    min-height: 4.3rem;
+    height: 8.3rem;
     padding: 0;
     display: block;
     text-align: right;
@@ -2861,8 +2861,7 @@ i.prd {
       height: .6rem; }
   .road.road_left {
     width: auto;
-    margin-right: 2px;
-    height: 4.6rem; }
+    margin-right: 2px; }
     .road.road_left ul > li {
       margin-left: 0; }
   .road > ul {

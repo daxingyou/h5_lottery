@@ -37,7 +37,7 @@
                 </div>
                 <div class="bd" :id="cssid[lotteryid]">
                     <ul class="tab_content double-all">
-                        <li class="past_view" v-for="(list,index) in pastView">
+                        <li class="past_view" v-for="(list,index) in pastView" v-if="list.winNumber !=''"> <!--  没有开奖号码不显示  -->
                             <ul class="panel">
                                 <li class="prod" data-status="not_open" >
                                     <div class="play_th">
@@ -153,7 +153,7 @@ this.setMenuAction() ;
             timeout: 600000,
             data: senddata ,
             success: (data) => {
-                for(var i=0;i<data.data.length;i++){
+               /* for(var i=0;i<data.data.length;i++){
                     if(!data.data[i].winNumber){
                         switch (this.lotteryid.toString()){
                             case '8': // 北京pk10
@@ -171,30 +171,7 @@ this.setMenuAction() ;
 
                     }
 
-                  //  var codeArr = data.data[i].winNumber.split(',') ;
-                   /* str +='<li class="past_view">'+
-                        '<ul class="panel">'+
-                       ' <li class="prod" data-status="not_open">'+
-                        '<div class="play_th">'+
-                        '<div class="prd_num"><i class="prd"></i><span>'+data.data[i].pcode+'</span> 期</div>'+
-                        '<ul class="double-count">'+
-                       ' <li>'+data.data[i].doubleData.total+'</li>'+
-                       ' <li>'+data.data[i].doubleData.sizer+'</li>'+
-                       ' <li>'+data.data[i].doubleData.longer+'</li>'+
-                       ' <li>'+data.data[i].doubleData.doubler+'</li>'+
-                       ' </ul>'+
-                       '</div>'+
-                       ' <ul class="lo_ball double-numbers">';
-                        for (var j = 0; j < codeArr.length; j++) {
-                            str += ' <li>'+codeArr[j]+'</li>' ;
-                        }
-
-                        str += '</ul>'+
-                                '</li>'+
-                                '</ul>'+
-                                '</li>' ;
-                    */
-                }
+                }*/
                 this.pastView = data.data ;
                // $('.double-all').html(str) ;
 
