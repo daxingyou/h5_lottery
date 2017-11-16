@@ -78,20 +78,20 @@
     <section class="account_area">
         <ul>
             <li>
-                <router-link to="/lobbyTemplate/deposit">
+                <a href="javascript:;" @click="CheckDemoPlay('CZ')">
                     <div class="icon">
                         <span class="icon_deposit"></span>
                     </div>
                     <p>充值</p>
-                </router-link>
+                </a>
             </li>
             <li>
-                <router-link to="/lobbyTemplate/withdrawals">
+                <a href="javascript:;" @click="CheckDemoPlay('TK')">
                     <div class="icon">
                         <span class="icon_withdrawals"></span>
                     </div>
                     <p>提款</p>
-                </router-link>
+                </a>
             </li>
             <li>
                 <router-link to="/lobbyTemplate/promo">
@@ -102,12 +102,12 @@
                 </router-link>
             </li>
             <li>
-                <router-link to="javascript:;">
+                <a href="javascript:;"  @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
                     <div class="icon">
                         <span class="icon_service"></span>
                     </div>
                     <p>在线客服</p>
-                </router-link>
+                </a>
             </li>
         </ul>
     </section>
@@ -324,6 +324,12 @@ export default {
           if(acType==2){
               _self.$refs.confirm.open();
               return
+          }
+          if(cla=='CZ'){
+              window.location = '/lobbyTemplate/deposit' ;
+          }
+          if(cla=='TK'){
+              window.location = '/lobbyTemplate/Withdrawals' ;
           }
       },
   },
