@@ -347,13 +347,13 @@ footer.bot_nav {
           height: .5rem;
           top: .48rem;
           left: calc(30% - 1rem); }
-        footer.bot_nav > ul > li a.index:before {
+        footer.bot_nav > ul > li a.index .Footer-icon {
           background-position-y: 0.05rem; }
-        footer.bot_nav > ul > li a.trend:before {
+        footer.bot_nav > ul > li a.trend .Footer-icon {
           background-position-y: -.66rem; }
-        footer.bot_nav > ul > li a.record:before {
+        footer.bot_nav > ul > li a.record .Footer-icon {
           background-position-y: -1.4rem; }
-        footer.bot_nav > ul > li a.member:before {
+        footer.bot_nav > ul > li a.member .Footer-icon {
           background-position-y: -2.05rem; }
 
 .clearfix::after {
