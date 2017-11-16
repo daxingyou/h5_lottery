@@ -239,15 +239,14 @@ export default {
                url: _self.action.uaa + 'apis/member/testLogin',
                data:{},
                success:(res)=>{
-                   console.log(res)
                    if(res.err == 'SUCCESS'){ // 登录成功
                        _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
                        _self.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
                        _self.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
                        _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
-//                       setTimeout(function () {
-//                           window.location = '/' ;
-//                       },300)
+                       setTimeout(function () {
+                           window.location = '/' ;
+                       },300)
                    }else{
                        this.$refs.autoCloseDialog.open(res.cnMsg) ;
                    }
