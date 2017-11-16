@@ -65,7 +65,8 @@ export default {
             betAmount:'', //投注金额
             betGoList:[],
             // shadeStatus:false,
-            showList:false
+            showList:false ,
+            ajaxSubmitAllow :false ,  // 解决重复提交的问题
         }
     },
     computed:{
@@ -103,6 +104,9 @@ export default {
         * */
 
         submitAction:function(lotteryid) {
+            if(this.ajaxSubmitAllow){
+                return false ;
+            }
             // var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
             const total_mon = this.monAmt(this.totalAmount);
             // 余额不足提示充值
@@ -125,6 +129,7 @@ export default {
                 'sourceType':'2', // 1是pc端，2是h5
 
             };
+            this.ajaxSubmitAllow = true ;
             this.doSubmitAction(resdata.list) ;
             $.ajax({
                 type: 'POST',
@@ -141,13 +146,12 @@ export default {
                 data: JSON.stringify(resdata),
                 success: (data) => {
 
-                    //解决瞬间提交2次的问题
-                   // ajaxSubmitAllow = true;
                     if (data.length <= 0) {
                         return false;
                     }
 
                     if (data.err == 'SUCCESS') {  //购买成功
+                        this.ajaxSubmitAllow = false ;     //解决瞬间提交2次的问题
                         // initTipPop05(true,3) ;
                         // this.parentRefs.autoCloseDialog.open('购买成功')
                         this.parentRefs.betSuccessfulDialog.open('购买成功')
@@ -174,11 +178,11 @@ export default {
                 error: function (res) {  // 错误提示
                     // initTipPop05(false,3,'投注失败，请稍后再试') ;
                     this.parentRefs.autoCloseDialog.open('投注失败，请稍后再试','title_bet_fail')
-                   // ajaxSubmitAllow = true;
+                    this.ajaxSubmitAllow = false;
 
                 }
             });
-            
+
 
         },
 

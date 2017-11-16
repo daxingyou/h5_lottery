@@ -204,7 +204,7 @@
         </div>
 
         <!--请输入投注金额-->
-        <div class="modal m08">
+      <!--  <div class="modal m08">
             <div class="m_content">
                 <h2 class="noclose"><a></a></h2>
                 <div class="content danger">
@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-        <!--本期投注已结束-->
+        &lt;!&ndash;本期投注已结束&ndash;&gt;
         <div class="modal m12">
             <div class="m_content">
                 <h2 class="noclose"><a></a></h2>
@@ -229,7 +229,7 @@
                 </div>
             </div>
         </div>
-        <!--下注弹窗_成功-->
+        &lt;!&ndash;下注弹窗_成功&ndash;&gt;
         <div class="modal m09">
             <div class="m_content">
                 <img class="bet_ok" src="/static/images/pop/ok_light.png">
@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <!--下注弹窗_失败-->
+        &lt;!&ndash;下注弹窗_失败&ndash;&gt;
         <div class="modal m10">
             <div class="m_content">
                 <h2 class="noclose"><a></a></h2>
@@ -255,7 +255,7 @@
                     <span class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</span>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- 确认对话框API
                        text  对话框提示内容
                    -->
@@ -386,11 +386,12 @@ export default {
         },
         //开奖倒计时结束后处理
         playLottery:function(){
-            this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+           // this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
             this.timerBegin();
         },
         //封盘倒计时结束后处理
         entertain:function(){
+            this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
             this.entertainStatus = true;
             this.resetAction();
         },

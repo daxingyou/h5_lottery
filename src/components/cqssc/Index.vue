@@ -172,14 +172,14 @@
         </div> 
 
         <!--请输入投注金额-->
-        <div class="popup so-tip-pop so-tip-pop-04">
+      <!--  <div class="popup so-tip-pop so-tip-pop-04">
             <div>
                 <img src="/static/images/pop/title_tip.png">
                 <img src="/static/images/page/status03.svg">
                 <p class="bet-error-content">请输入投注金额</p>
             </div>
         </div>
-        <!--本期投注已结束-->
+        &lt;!&ndash;本期投注已结束&ndash;&gt;
         <div class="popup so-fengpan-pop so-bet-end-pop">
             <div>
                 <img src="/static/images/pop/title_end.png">
@@ -188,7 +188,7 @@
             </div>
         </div>
 
-        <!--下注弹窗_成功-->
+        &lt;!&ndash;下注弹窗_成功&ndash;&gt;
         <div class="popup so-tip-pop so-tip-pop-05 bet_ok_area">
             <img class=" bet_ok" src="/static/images/pop/ok_light.png">
             <div>
@@ -196,14 +196,14 @@
                 <p>您已成功支付<br/>请随时关注开奖信息！</p>
             </div>
         </div>
-        <!--下注弹窗_失敗-->
+        &lt;!&ndash;下注弹窗_失敗&ndash;&gt;
         <div class="popup so-tip-pop so-tip-pop-06">
             <div>
                 <img src="/static/images/pop/title_bet_fail.png">
                 <img src="/static/images/page/status03.svg">
                 <p class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</p>
             </div>
-        </div>
+        </div>-->
 
         <!-- 确认对话框API
             text  对话框提示内容
@@ -341,11 +341,12 @@ export default {
     },
     //开奖倒计时结束后处理
     playLottery:function(){
-        this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+      //  this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
         this.timerBegin();
     },
     //封盘倒计时结束后处理
     entertain:function(){
+        this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
         this.entertainStatus = true;
         this.resetAction();
     },

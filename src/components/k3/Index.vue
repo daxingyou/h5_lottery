@@ -304,11 +304,12 @@
             },
             //开奖倒计时结束后处理
             playLottery:function(){
-                this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
+               // this.$refs.infoDialog.open('请至下期继续投注', 'title_end') ;
                 this.timerBegin();
             },
             //封盘倒计时结束后处理
             entertain:function(){
+                this.$refs.infoDialog.open('请至下期继续投注', 'title_end') ;
                 this.entertainStatus = true;
                 this.resetAction();
             },

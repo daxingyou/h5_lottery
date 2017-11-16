@@ -574,7 +574,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-right { width: 7.7rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 
-.so-con .so-in-con .so-con-right > div { padding-bottom: 3rem; }
+.so-con .so-in-con .so-con-right > div { padding-bottom: 2.4rem; }
 
 .so-con .so-in-con .so-con-right > div.active { display: block; }
 
