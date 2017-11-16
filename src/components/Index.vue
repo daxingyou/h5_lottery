@@ -74,6 +74,45 @@
 
           </div>
       </div>
+    <!--20171116 新增會員連結區塊-->
+    <section class="account_area">
+        <ul>
+            <li>
+                <router-link to="/lobbyTemplate/deposit">
+                    <div class="icon">
+                        <span class="icon_deposit"></span>
+                    </div>
+                    <p>充值</p>
+                </router-link>
+            </li>
+            <li>
+                <router-link to="/lobbyTemplate/withdrawals">
+                    <div class="icon">
+                        <span class="icon_withdrawals"></span>
+                    </div>
+                    <p>提款</p>
+                </router-link>
+            </li>
+            <li>
+                <router-link to="/lobbyTemplate/promo">
+                    <div class="icon">
+                        <span class="icon_promo"></span>
+                    </div>
+                    <p>优惠活动</p>
+                </router-link>
+            </li>
+            <li>
+                <router-link to="javascript:;">
+                    <div class="icon">
+                        <span class="icon_service"></span>
+                    </div>
+                    <p>在线客服</p>
+                </router-link>
+            </li>
+        </ul>
+    </section>
+    <!--end 20171116 新增會員連結區塊-->
+
       <div id="index_content" class="content">
           <section class="hotgame_area">
               <h3><img src="static/images/title_hotgame.png" alt="热门游戏"></h3>
@@ -94,6 +133,24 @@
                     <p>{{lottery.name}}</p>
 
                   </li>
+                    <!--20171116 新增選單-->
+                    <li>
+                        <a href="javascript:;">
+                            <div class="badge">
+                                <img src="/static/images/logo/more.png" lazy="loaded">
+                            </div>
+                        </a>
+                        <p>更多游戏</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="badge">
+                                <img src="/static/images/logo/download.png" lazy="loaded">
+                            </div>
+                        </a>
+                        <p>APP下载</p>
+                    </li>
+                    <!--end 20171116 新增選單-->
 
               </ul>
           </section>
@@ -113,6 +170,14 @@
                   </ul>
               </div>
           </section>
+            <!--20171116 新增優惠活動-->
+            <section class="promoindex_area">
+                <h4><span></span>优惠活动<a href="/lobbyTemplate/promo">更多>></a></h4>
+                <a href="/lobbyTemplate/promo">
+                    <img src="/static/images/banner/promo-1.jpg">
+                </a>
+            </section>
+            <!--end 20171116 新增優惠活動-->
       </div>
       <FooterNav />
       <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />

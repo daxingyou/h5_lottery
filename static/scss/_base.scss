@@ -1039,3 +1039,38 @@ img.fixbot{
         color: #fdf19b;
     }
 }
+.promo_area {
+    text-align: left;
+    width: 9.4rem;
+    margin: 0 auto;
+    padding: 1.7rem 0;
+    font-size: .35rem;
+    line-height: 1.7em;
+    li{
+        margin-bottom: 0.3rem;
+        &.active{
+            .promo_detail{
+                display: block;
+            }
+        }
+    }
+    .promo_detail{
+        display: none;
+        padding: 0.3rem;
+    }
+    img{
+        display: block;
+        width: calc( 100% - 2px );
+        border: 1px solid rgba(#27405c, 0.65);
+    }
+    p {
+        margin: .2rem 0;
+    }
+    h3 {
+        margin: .3rem 0;
+        color: #fdf19b;
+    }
+    strong{
+        color: #fdf19b;
+    }
+}
