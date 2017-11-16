@@ -14,7 +14,7 @@
                     <div class="so-main-top">
                         <HistoryTerm :previous_pcode="previous_pcode" />
 
-                        <div class="so-m-t-right">
+                        <div class="so-m-t-right" v-show="ishwowpriod">
                             <div class="last-open-num">
                                 <ul class="k3_top_number">
                                     <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li> 
@@ -231,7 +231,7 @@
             winNumber:'',    //上期开奖号
             lastTermStatic:'',  //上期开奖数据统计
             entertainStatus:false,
-
+            ishwowpriod : false ,
             now_time:'',  // 当前期数销售截止时间
             nowover_time:'',  // 当前期数封盘时间
             next_pcode:'',  // 下一期数销售截止时间
@@ -320,6 +320,7 @@
                         // sys_time = '2017-10-30 19:39:16';   //封盘状态所需时间，5秒后开奖 
                         that.sys_time = sys_time;
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
+                            that.ishwowpriod = true ;
                             that.next_pcode = res.data[0].pcode;  // 下期期数
                             that.now_pcode = res.data[1].pcode;  // 当前期数
 

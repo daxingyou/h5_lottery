@@ -204,7 +204,7 @@ var MyMixin = {
                             setTimeout(()=>{
                                 resolve(res);
 
-                            },500)
+                            },200)
 
                         }
                     }).bind(this),

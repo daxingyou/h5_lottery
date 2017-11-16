@@ -38,7 +38,7 @@
                     <div class="so-main-top">
                         <HistoryTerm :previous_pcode="previous_pcode" />
 
-                        <div class="so-m-t-right">
+                        <div class="so-m-t-right" v-show="ishwowpriod">
                             <div class="last-open-num">
                                 <ul class="pk10_top_number">
                                     <li v-for="item in winNumber.split(',')"><span class="pk10_ball small_ball" :class="'ball num_'+item"> </span></li>
@@ -329,6 +329,7 @@ export default {
             now_day:'',  // 当前日期
             balanceData:{},
             entertainStatus:false,
+            ishwowpriod:false,
             betSelectedList:[],   //用户选中的注数
             playTreeList:[], //玩法树
             lotteryID: 8 ,
@@ -399,6 +400,7 @@ export default {
                 that.getSystemTime().then((sys_time)=>{
                     that.sys_time = sys_time;
                     that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+                        that.ishwowpriod = true ;
                         that.next_pcode = res.data[0].pcode;  // 下期期数
                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                         that.now_pcode = res.data[1].issueAlias;  // 当前期数
