@@ -327,6 +327,8 @@ export default {
             userInfo: {} ,  // 收款帐号个人资料
             banksavename: '' ,  // 银行转账存款人
             scanImg: '' ,  // 扫码支付二维码
+            scanid: '' ,  // 扫码支付订单二维码
+            scanint: {} ,  // 扫码支付定时器
             bankval: '' ,  // 银行转账方式
             bankInfo: {
                 bankCode: '', // 默认工商银行
@@ -495,6 +497,10 @@ export default {
                           win.location.href = loadurl ;
                       }else if(type == '3'){  // 扫码支付
                           _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                          _self.scanid = res.data.orderId ;
+                          _self.scanint = setInterval(function () {
+                              _self.getScanStatus(_self.scanid) ;
+                          },10000) ;
                           $('.after-scan').show() ;
                           $('.before-scan').hide() ;
                           scrollTo(0,0);
@@ -515,6 +521,37 @@ export default {
           });
 
       },
+      // 扫码支付轮询接口
+      getScanStatus:function (id) {
+          var _self = this ;
+          $.ajax({
+              type: 'get',
+              headers: {
+                  "Authorization": "bearer  " + _self.getAccessToken ,
+              },
+              url: _self.action.forseti + 'api/pay/checkPayStatus',
+              data: { orderId: id ,} ,
+              success: function(res){ // dataType 1 线上入款 , 3 二维码
+                  if(res.err == 'SUCCESS'){
+                    if(res.data == true){ // 支付成功
+                        clearInterval(_self.scanint) ;
+                        _self.$refs.autoCloseDialog.open('支付成功！','','icon_check','d_check') ;
+                        setTimeout(function () {
+                           // window.location.reload() ;
+                            _self.$router.go('/lobbyTemplate/deposit') ;
+                        },2000)
+
+                    }
+
+                  }
+
+              },
+              error: function (res) {
+
+              }
+          });
+      },
+
       // 银行转账 个人信息
       getBankInfo:function () {
           var _self = this ;
