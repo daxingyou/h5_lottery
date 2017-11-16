@@ -13,7 +13,7 @@
             <div class="info_area">
                 <div class="info_top">
                     <div class="account">
-                        <a href="info_data.html">
+                        <a href="javascript:;">
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
