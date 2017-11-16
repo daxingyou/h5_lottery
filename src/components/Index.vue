@@ -310,7 +310,7 @@ export default {
                        _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
                        setTimeout(function () {
                            window.location = '/' ;
-                       },300)
+                       },1000)
                    }else{
                        this.$refs.autoCloseDialog.open(res.cnMsg) ;
                    }
@@ -323,6 +323,13 @@ export default {
           var acType=_self.getCookie('acType');
           if(acType==2){
               _self.$refs.confirm.open();
+              return
+          }
+          if(!this.haslogin){
+              this.$refs.autoCloseDialog.open('登录后才可以操作')
+              setTimeout(function () {
+                  window.location = '/Login' ;
+              },1000)
               return
           }
           if(cla=='CZ'){
