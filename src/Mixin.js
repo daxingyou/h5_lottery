@@ -508,16 +508,11 @@ var MyMixin = {
             return t.split("").reverse().join("") + "." + r;
         },
          ifLogined: function() { // 判断是否登录
-            var acType=this.getCookie('acType');
-            console.log(acType);
             if (this.getCookie('username') && this.getCookie('access_token')) {
                 return /\S/g.test(this.getCookie('username')) && /\S/g.test(this.getCookie('access_token'));
             }
-            if(acType==1){
-                return  false
-             }else {
-                return false;
-            }
+            return false;
+
         },
         /*
          *  正整数判断，不包含零
