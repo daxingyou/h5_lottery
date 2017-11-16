@@ -16,7 +16,7 @@
               <router-link to="/reg" v-show="!haslogin" >注册</router-link>
               <a href="javascript:;" v-show="!haslogin"  @click="demoPlay()">试玩</a>
              <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
-              <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'"><i></i>游客</a>  <!--  试玩帐号 -->
+              <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'" @click="CheckDemoPlay()"><i></i>游客</a>  <!--  试玩帐号 -->
               <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
           </div>
       </header>
@@ -114,6 +114,7 @@
               </div>
           </section>
       </div>
+      <Confirm ref="confirm" />
       <FooterNav />
       <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
   </div>
@@ -123,22 +124,20 @@
 import $ from 'jquery'
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
-//import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import FooterNav from '@/components/Footer'
 import VueMarquee from 'vue-marquee-ho';
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import Confirm from '@/components/publicTemplate/Confirm'
 
 export default {
   name: 'Index',
   mixins:[Mixin],
   components: {
-    // TouchSlide,
       FooterNav ,
     IndexNavigation,
       AutoCloseDialog,
-//    UserNavigation,
-
+      Confirm
   },
   data :function() {
         return {
@@ -231,7 +230,7 @@ export default {
           })
       },
      //试玩
-       demoPlay :function () {
+      demoPlay :function () {
            var _self=this;
            $.ajax({
                type: 'post',
@@ -252,8 +251,16 @@ export default {
                    }
                }
             })
-       } 
-
+       },
+      //判断是否为游客,
+      CheckDemoPlay:function (cla) {
+          var _self =this;
+          var acType=_self.getCookie('acType');
+          if(acType==2){
+              _self.$refs.confirm.open();
+              return
+          }
+      },
   },
 
 }
