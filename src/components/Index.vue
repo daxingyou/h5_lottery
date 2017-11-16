@@ -134,7 +134,7 @@
 
                   </li>
                     <!--20171116 新增選單-->
-                    <!--<li>
+                    <li>
                         <a href="javascript:;">
                             <div class="badge">
                                 <img src="/static/images/logo/more.png" lazy="loaded">
@@ -149,7 +149,7 @@
                             </div>
                         </a>
                         <p>APP下载</p>
-                    </li>-->
+                    </li>
                     <!--end 20171116 新增選單-->
 
               </ul>
