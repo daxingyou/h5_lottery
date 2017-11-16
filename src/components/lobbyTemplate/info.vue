@@ -21,7 +21,8 @@
                                 </div>
                             </h2>
                             <div class="user_name">
-                                <strong>{{userLogin}}</strong>
+                                <strong v-if="!demoName">{{userLogin}}</strong>
+                                <strong v-if="demoName">{{getCookie('username')}}</strong>
                                 <div class="purse">
                                     <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
@@ -127,6 +128,7 @@ export default {
   },
     data: function() {
         return {
+            demoName:false,
             haslogin:false ,
             Money:'',
             acType:'',
@@ -136,6 +138,7 @@ export default {
     },
     created:function () {
         var _self =this ;
+            _self.ShowDemo();
             _self.haslogin = this.ifLogined();
             if (!_self.haslogin) {
                 // _self.$refs.autoCloseDialog.open('请先登录！') ;
@@ -205,6 +208,16 @@ export default {
           }
           if(cla=='ZH'){
               window.location = '/lobbyTemplate/info_data' ;
+          }
+      },
+      //游客显示
+      ShowDemo:function () {
+          var _self=this;
+          var acType=_self.getCookie('acType');
+          if(acType==1){
+              _self.demoName=false;
+          }else{
+              _self.demoName=true;
           }
       }
   }
