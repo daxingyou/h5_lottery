@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+        <Confirm ref="confirm" />
         <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
     </div>
 
@@ -78,6 +79,7 @@
     import $ from "jquery";
 //    import deposit from '@/components/lobbyTemplate/deposit'
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+    import Confirm from '@/components/publicTemplate/Confirm'
     export default {
         name: 'IndexNavigation',
         mixins:[Mixin],
@@ -85,6 +87,7 @@
         components: {
 //            deposit,
         AutoCloseDialog,
+            Confirm
         },
 
         data :function() {
@@ -160,7 +163,7 @@
                 var _self =this;
                 var acType=_self.getCookie('acType');
                 if(acType==2){
-                    _self.$refs.autoCloseDialog.open('请注册账号') ;
+                    _self.$refs.confirm.open();
                     return
                 }
                 if(cla=='CZ'){
