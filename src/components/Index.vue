@@ -213,9 +213,9 @@ export default {
             gameHref:{} ,
             bulletins:'',
             banner:[
-                {'url':'http://admin.baochiapi.com/photo/pic/T1itJTBXJT1RCvBVdK/0'},
-                {'url':'http://admin.baochiapi.com/photo/pic/T1XtETBybT1RCvBVdK/0'},
-                {'url':'http://admin.baochiapi.com/photo/pic/T1vyJTBXxT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1uRxTByJT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T15tETByAT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1kyhTByDT1RCvBVdK/0'},
             ] ,
 
         }
