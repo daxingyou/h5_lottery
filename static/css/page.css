@@ -291,7 +291,9 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/* CSS for the main interaction */
+/*
+ CSS for the main interaction
+*/
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -1015,7 +1017,7 @@ i.prd { background-image: url("/static/images/page/icon_pn.png"); background-pos
 
 #road01 .bd, #road02 .bd { width: 100% !important; padding-right: 5rem; }
 
-#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 97.5% !important; min-height: 4.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
+#road01 .tab_content, #road02 .tab_content { overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ white-space: nowrap; width: 97.5% !important; height: 8.3rem; padding: 0; display: block; text-align: right; margin-top: 0; }
 
 #road01 .tab_content_out, #road02 .tab_content_out { display: none; }
 
@@ -1027,7 +1029,7 @@ i.prd { background-image: url("/static/images/page/icon_pn.png"); background-pos
 
 .road:last-child:before { content: ''; display: block; position: absolute; background: url("/static/images/page/road.png") no-repeat; width: .85rem; top: -0.1rem; background-size: 100%; height: .6rem; }
 
-.road.road_left { width: auto; margin-right: 2px; height: 4.6rem; }
+.road.road_left { width: auto; margin-right: 2px; }
 
 .road.road_left ul > li { margin-left: 0; }
 
@@ -1618,3 +1620,5 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
+
+/*# sourceMappingURL=page.css.map */
