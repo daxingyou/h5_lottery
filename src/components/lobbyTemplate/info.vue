@@ -142,7 +142,7 @@ export default {
             _self.haslogin = this.ifLogined();
             if (!_self.haslogin) {
                 // _self.$refs.autoCloseDialog.open('请先登录！') ;
-                window.location = '/login';
+                _self.$router.push('/login')  ;
             }
             _self.getUserInfo();
     },
