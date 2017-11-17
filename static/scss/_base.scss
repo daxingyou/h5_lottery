@@ -1049,16 +1049,29 @@ img.fixbot{
     padding: 1.7rem 0;
     font-size: .35rem;
     line-height: 1.7em;
-    li{
-        margin-bottom: 0.3rem;
-        &.active{
-            .promo_detail{
-                display: block;
+    .promo_list{
+        li{
+            background-color: rgba(21, 39, 58, 0.7);
+            h3{
+                margin: 0;
+                padding: 0.1rem 0.3rem;
+                border-bottom: 1px solid #27405c;
+                font-size: 0.34rem;
+            }
+            p{
+                padding: 0.2rem 0.3rem;
+                text-align: right;
+                margin: 0px;
+            }
+            a{
+                padding: 0.1rem 0.3rem;
             }
         }
     }
+    li{
+        margin-bottom: 0.3rem;
+    }
     .promo_detail{
-        display: none;
         padding: 0.3rem;
     }
     img{
@@ -1070,8 +1083,9 @@ img.fixbot{
         margin: .2rem 0;
     }
     h3 {
-        margin: .3rem 0;
+        margin: .2rem 0 0.3rem;
         color: #fdf19b;
+        font-size: 0.43rem;
     }
     strong{
         color: #fdf19b;
