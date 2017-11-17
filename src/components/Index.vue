@@ -2,8 +2,8 @@
   <div id="pa_con" class="so-con warp ">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
-      <!--<UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>-->
-      <IndexNavigation el=".btn_leftside" ref="navone" > </IndexNavigation>
+      <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
+      <IndexNavigation el=".btn_leftside" ref="navtwo" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
               <a class="btn_leftside" href="javascript:;" v-show="haslogin">
@@ -193,6 +193,7 @@ import $ from 'jquery'
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
+import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
 import VueMarquee from 'vue-marquee-ho';
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
@@ -203,7 +204,8 @@ export default {
   mixins:[Mixin],
   components: {
       FooterNav ,
-    IndexNavigation,
+      IndexNavigation,
+      UserNavigation ,
       AutoCloseDialog,
       Confirm
   },
