@@ -16,7 +16,7 @@
                   <img src="/static/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum" >
                     <!--  {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}-->
-                      {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : 0), 2)}}
+                      {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : getCookie('membalance') ), 2)}}
                   </div>
               </div>
           </div>
@@ -34,7 +34,8 @@
                   <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
                     <router-link  v-bind:to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
-                           <img :src="lottery.imgUrl" alt="">
+                          <!-- <img :src="lottery.imgUrl" alt="">-->
+                          <img v-lazy="'../static/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
                       <p>{{lottery.name}}</p>
                     </router-link>
@@ -67,6 +68,7 @@ export default {
           haslogin :false ,
           showNavigation:false ,
           allLottery:{},
+          gamelist:[] ,
           gameHref : {
             "2":"cqssc",
             "12":"cqssc/tianJinIndex",
@@ -94,7 +96,6 @@ export default {
       this.showNavigation = true;
     }) ;
 
-
   },
   methods:{
       // 关闭侧滑栏
@@ -104,25 +105,33 @@ export default {
       // 获取彩种
       getLotterys:function() {
          /* return new Promise((resolve)=>{*/
+         var _self = this ;
          var resdata  ;
-              $.ajax({
-                  type: 'GET',
-                  async:false,
-                  url: this.action.forseti + 'apis/lotterys',
-                  data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
-                  dataType: 'json',
-                  success:(res)=> {
-                      this.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
-                      resdata = res.data ;
+          _self.gamelist = sessionStorage.gamelist ;
+          if(!_self.gamelist){
+                  $.ajax({
+                      type: 'GET',
+                      async:false,
+                      url: _self.action.forseti + 'apis/lotterys',
+                      data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
+                      dataType: 'json',
+                      success:(res)=> {
+                      _self.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
+                  resdata = res.data ;
+                  sessionStorage.gamelist= JSON.stringify(res.data) ; // 把彩种放在session 里
 
-
-                  },
+              },
                   error: function () {
 
                   }
 
               });
-              return resdata ;
+          }else{
+              _self.allLottery =  JSON.parse(_self.gamelist) ;
+              resdata =  JSON.parse(_self.gamelist) ;
+          }
+
+        return resdata ;
 
          /* })*/
       },

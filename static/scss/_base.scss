@@ -58,6 +58,9 @@ body{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
     //height: calc(100% + 1px);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 input,select,option{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;

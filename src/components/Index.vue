@@ -2,8 +2,8 @@
   <div id="pa_con" class="so-con warp ">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
-      <!--<UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>-->
-      <IndexNavigation el=".btn_leftside" ref="navone" > </IndexNavigation>
+      <UserNavigation el=".more-games" ref="navone" > </UserNavigation>
+      <IndexNavigation el=".btn_leftside" ref="navtwo" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
               <a class="btn_leftside" href="javascript:;" v-show="haslogin">
@@ -94,12 +94,13 @@
                 </a>
             </li>
             <li>
-                <router-link to="/lobbyTemplate/promo">
+              <!--  <router-link to="/lobbyTemplate/promo">-->
+                <a href="javascript:;"  @click="Continued()">
                     <div class="icon">
                         <span class="icon_promo"></span>
                     </div>
                     <p>优惠活动</p>
-                </router-link>
+                </a>
             </li>
             <li>
                 <a href="javascript:;"  @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
@@ -119,7 +120,7 @@
               <ul>
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
-                  <li v-for="lottery in allLottery">
+                  <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
                     <router-link class="to_lottery"  v-bind:to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                        <!-- <img v-lazy="lottery.imgUrl">-->
@@ -137,15 +138,15 @@
                   </li>
                     <!--20171116 新增選單-->
                     <li>
-                        <a href="javascript:;">
+                        <a href="javascript:;" class="more-games">
                             <div class="badge">
                                 <img src="/static/images/logo/more.png" lazy="loaded">
                             </div>
                         </a>
                         <p>更多游戏</p>
                     </li>
-                    <li>
-                        <a href="javascript:;">
+                    <li >
+                        <a href="javascript:;" @click="Continued()">
                             <div class="badge">
                                 <img src="/static/images/logo/download.png" lazy="loaded">
                             </div>
@@ -193,6 +194,7 @@ import $ from 'jquery'
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
+import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
 import VueMarquee from 'vue-marquee-ho';
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
@@ -203,7 +205,8 @@ export default {
   mixins:[Mixin],
   components: {
       FooterNav ,
-    IndexNavigation,
+      IndexNavigation,
+      UserNavigation ,
       AutoCloseDialog,
       Confirm
   },
@@ -211,7 +214,7 @@ export default {
         return {
             haslogin:false ,
             logintype: this.getCookie('acType') || 1 ,
-            balanceData:{},
+            balanceData:{ },
             allLottery:{} ,
             gameHref:{} ,
             bulletins:'',
@@ -227,11 +230,14 @@ export default {
 
     },
   mounted:function() {
-    // alert('gg') ;
-    $('html,body').css('overflow-y','scroll' )  ;
-    this.allLottery = this.$refs.navone.getLotterys() ;
-    this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
-    this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+      $('html,body').css('overflow-y','scroll' )  ;
+      this.allLottery = this.$refs.navone.getLotterys() ;
+      this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+      this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+
+     if(this.haslogin){  // 只有登录状态才需要调余额
+          this.getMemberBalance() ;
+      }
 
     TouchSlide({
       slideCell: "#focus",
@@ -342,6 +348,11 @@ export default {
               window.location = '/lobbyTemplate/Withdrawals' ;
           }
       },
+      // 敬请期待
+        Continued:function () {
+            this.$refs.autoCloseDialog.open('敬请期待！') ;
+        }
+
   },
 
 }

@@ -15,7 +15,7 @@
                     <div class="purse"  v-if="haslogin">
                         <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum" >
-                            {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}
+                            {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : 0), 2)}}
                         </div>
                     </div>
                 </div>
@@ -92,40 +92,21 @@
 
         data :function() {
             return {
-                balanceData:null,
+                balanceData:'',
                 haslogin :false ,
                 showNavigation:false ,
                 allLottery:{},
-                gameHref : {
-                    "2":"cqssc",
-                    "12":"cqssc/tianJinIndex",
-                    "14":"cqssc/xinJiangIndex",
-
-                    "4":"jc11x5",     //江西11选5
-                    "18":"jc11x5/sd11x5Index",  //山东11选5
-                    "16":"jc11x5/gd11x5Index",  //广东11选5
-                    
-                    "8":"pk10",
-                    
-                    "6":"k3/",  //江苏快3
-                    "20":"k3/anHuiK3Index",  
-                    "22":"k3/huBeiK3Index",  
-                    
-                }, // 对应彩种的id
             }
         },
         created:function () {
+            this.haslogin = this.ifLogined() ;
 
         } ,
         mounted:function() {
-            this.haslogin = this.ifLogined() ;
-            if(this.haslogin){  // 只有登录状态才需要调余额
-                this.getMemberBalance() ;
-            }
+
             $(this.el).on('click', ()=>{
                 this.showNavigation = true;
             }) ;
-
 
         },
         methods:{
@@ -133,31 +114,7 @@
             close:function(e){
                 this.showNavigation = false;
             },
-            // 获取彩种
-            getLotterys:function() {
-                /* return new Promise((resolve)=>{*/
-                var resdata  ;
-                $.ajax({
-                    type: 'GET',
-                    async:false,
-                    url: this.action.forseti + 'apis/lotterys',
-                    data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
-                    dataType: 'json',
-                    success:(res)=> {
-                        this.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
-                        resdata = res.data ;
 
-
-                    },
-                    error: function () {
-
-                    }
-
-                });
-                return resdata ;
-
-                /* })*/
-            },
             //判断是否为游客,cla为class
             CheckDemoPlay:function (cla) {
                 var _self =this;
