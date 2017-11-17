@@ -27,7 +27,7 @@ export default {
   },
   mounted:function(){
     FastClick.attach(document.body);
-
+      $('html, body').height($(window).height());
   },
 
 }
