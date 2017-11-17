@@ -1,7 +1,7 @@
 <template>
     <div  v-if="show" class="so-pop-wanfa modal publicDialog">
         <div class="m_content">
-            <h2>{{moduleName || '江西'}}11选5游戏玩法<a @click="close"></a></h2>
+            <h2>{{moduleName || '江西11选5'}}游戏玩法<a @click="close"></a></h2>
             <div class="content">
                 <div class="playtext">
                     <h3>一、开奖与结束时间</h3>
