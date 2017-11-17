@@ -632,7 +632,7 @@
 <script>
     import "../../../static/css/pk10.css"
     import Mixin from '@/Mixin'
-    import $ from "jquery";
+    // import $ from "jquery";
     
     export default {
         name: 'pk10RoadBeads',

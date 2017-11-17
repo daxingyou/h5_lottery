@@ -113,7 +113,7 @@
     }
 </style>
 <script>
-import $ from "jquery";
+// import $ from "jquery";
 import Mixin from '@/Mixin'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import FooterNav from '@/components/Footer'

@@ -302,7 +302,7 @@
 
 <script>
 
-// import $ from "jquery";
+// // import $ from "jquery";
 import Mixin from '@/Mixin'
 import Clipboard from 'clipboard'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'

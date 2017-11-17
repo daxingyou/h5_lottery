@@ -22,7 +22,7 @@
 
 <script>
 import Mixin from '@/Mixin'
-import $ from "jquery";
+// import $ from "jquery";
 
 export default {
     name: 'Confirm',
