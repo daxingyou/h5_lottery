@@ -316,7 +316,17 @@ var MyMixin = {
             $('.so-l-c-con').height((viewHeight - leftTopHeight) + 'px');
         },
 
-
+        //禁止遮罩层以下屏幕滑动
+        touchmove :function(){
+            $(document).on("touchmove", function (e) {
+                var e = e || event,
+                    target = e.target || e.srcElement;
+                if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+                    e.preventDefault();
+                }
+            });
+        },
+        
         //格式化赔率
         payoffFormat:function(val){
             return (Number(val)/10000).toFixed(3);
