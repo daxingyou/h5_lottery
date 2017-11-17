@@ -31,9 +31,11 @@ html {
 
 body {
   width: 100%;
-  min-height: 18rem;
   font: 14px 'Microsoft YaHei', Helvetica,sans-serif;
-  font: .35rem; }
+  font: .35rem;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none; }
 
 input, select, option {
   font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
@@ -1902,7 +1904,7 @@ i.index_s {
   display: block;
   background-color: rgba(0, 0, 0, 0.6);
   width: 10rem;
-  height: 2.4rem;
+  height: 2.1rem;
   position: fixed;
   bottom: 0;
   z-index: 10; }

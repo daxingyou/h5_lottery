@@ -1,25 +1,25 @@
 <template>
-  <div id="pa_con" class="so-con warp ">
+     <div id="pa_con" class="so-con warp ">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
       <UserNavigation el=".more-games" ref="navone" > </UserNavigation>
       <IndexNavigation el=".btn_leftside" ref="navtwo" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
-          <div class="left index_side">
-              <a class="btn_leftside" href="javascript:;" v-show="haslogin">
-                  <img src="static/images/nav.png" alt="">
-              </a>
-          </div>
-          <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
-          <div class="right">
-              <router-link to="/login" v-show="!haslogin">登录</router-link>
-              <router-link to="/reg" v-show="!haslogin" >注册</router-link>
-              <a href="javascript:;" v-show="!haslogin"  @click="demoPlay()">试玩</a>
-             <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
-              <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'" @click="CheckDemoPlay()"><i></i>游客</a>  <!--  试玩帐号 -->
-              <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
-          </div>
-      </header>
+             <div class="left index_side">
+                 <a class="btn_leftside" href="javascript:;" v-show="haslogin">
+                     <img src="static/images/nav.png" alt="">
+                 </a>
+             </div>
+             <h2 class="center logo" v-bind:class="[haslogin ? '' : 'logo_left']"><img src="static/images/nav_top_logo.png" alt="宝池彩票"></h2>
+             <div class="right">
+                 <router-link to="/login" v-show="!haslogin">登录</router-link>
+                 <router-link to="/reg" v-show="!haslogin" >注册</router-link>
+                 <a href="javascript:;" v-show="!haslogin"  @click="demoPlay()">试玩</a>
+                 <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
+                 <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'" @click="CheckDemoPlay()"><i></i>游客</a>  <!--  试玩帐号 -->
+                 <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
+             </div>
+         </header>
       <div class="news">
           <div id="focus" class="focus">
               <div class="bd">
