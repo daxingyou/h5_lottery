@@ -84,7 +84,7 @@
                                 <div class="icon">
                                     <div><i class="info05"></i></div>
                                 </div>
-                                联络客服
+                                在线客服
                             </a>
                         </li>
                         <li>
