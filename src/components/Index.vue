@@ -94,12 +94,13 @@
                 </a>
             </li>
             <li>
-                <router-link to="/lobbyTemplate/promo">
+              <!--  <router-link to="/lobbyTemplate/promo">-->
+                <a href="javascript:;"  @click="Continued()">
                     <div class="icon">
                         <span class="icon_promo"></span>
                     </div>
                     <p>优惠活动</p>
-                </router-link>
+                </a>
             </li>
             <li>
                 <a href="javascript:;"  @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
@@ -119,7 +120,7 @@
               <ul>
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
-                  <li v-for="lottery in allLottery">
+                  <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
                     <router-link class="to_lottery"  v-bind:to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                        <!-- <img v-lazy="lottery.imgUrl">-->
@@ -144,8 +145,8 @@
                         </a>
                         <p>更多游戏</p>
                     </li>
-                    <li>
-                        <a href="javascript:;">
+                    <li >
+                        <a href="javascript:;" @click="Continued()">
                             <div class="badge">
                                 <img src="/static/images/logo/download.png" lazy="loaded">
                             </div>
@@ -344,6 +345,11 @@ export default {
               window.location = '/lobbyTemplate/Withdrawals' ;
           }
       },
+      // 敬请期待
+        Continued:function () {
+            this.$refs.autoCloseDialog.open('敬请期待！') ;
+        }
+
   },
 
 }
