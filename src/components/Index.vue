@@ -122,12 +122,14 @@
                   <li v-for="lottery in allLottery">
                     <router-link class="to_lottery"  v-bind:to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
-                        <img v-lazy="lottery.imgUrl">
+                       <!-- <img v-lazy="lottery.imgUrl">-->
+                          <img v-lazy="'static/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
                     </router-link>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
-                              <img v-lazy="lottery.imgUrl">
+                            <!--  <img v-lazy="lottery.imgUrl">-->
+                              <img v-lazy="'static/images/lotteryicon/cp'+lottery.cid+'.png'">
                           </div>
                       </a>
                     <p>{{lottery.name}}</p>
