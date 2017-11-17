@@ -365,7 +365,7 @@ footer.bot_nav{
             font-size: .33rem;
             text-align: center;
             width: 25%;
-            padding: .48rem 0 .5rem;
+            //padding: .48rem 0 .5rem;
             height: 1.5rem;
             &:after{
                 @include pseudo;
@@ -384,22 +384,30 @@ footer.bot_nav{
                 background: -moz-linear-gradient(top, #162538 0%, #165c85 92%, #165c85 92%, #49bed8 100%); /* FF3.6-15 */
                 background: -webkit-linear-gradient(top, #162538 0%,#165c85 92%,#165c85 92%,#49bed8 100%); /* Chrome10-25,Safari5.1-6 */
                 background: linear-gradient(to bottom, #162538 0%,#165c85 92%,#165c85 92%,#49bed8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                height: 0.55rem;
+                //height: 0.55rem;
                 a{
                     text-shadow: 0 2px 10px rgba(0,0,0,.9);
                 }
             }
             a{
-                margin-left: 15%;
-                padding: .48rem 0 .5rem;
+                //margin-left: 15%;
+                //padding: .48rem 0 .5rem;
                 position: relative;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
                  >span.Footer-icon{
                     @include pseudo;
                     @include background-image ('icon.png',0,transparent);
                     width: .5rem;
                     height: .5rem;
                     top: .48rem;
-                    left: calc(30% - 1rem);
+                    left: calc(55% - 1rem);
+                }
+                >span.Footer-font{
+                    position: absolute;
+                    top: .48rem;
+                    left: .9rem;
                 }
                 &.index{
                     .Footer-icon{

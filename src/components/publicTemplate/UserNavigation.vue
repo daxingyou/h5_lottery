@@ -21,16 +21,16 @@
               </div>
           </div>
       </div>
-      <div class="so-l-c-con">
+      <div class="so-l-c-con" style="position: relative;z-index: 1000">
 
-          <div>
-                <div class="back_home">
+          <div style="position: relative;z-index: 2000">
+                <div class="back_home" >
                   <router-link v-bind:to="'/'">
                     <span><img src="/static/images/left/icon_home.png"></span>
                         <span>返回竞彩大厅</span>
                   </router-link>
                 </div>
-              <ul class="all_lottery">
+                <ul class="all_lottery">
                   <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
                     <router-link  v-bind:to="'/'+gameHref[lottery.cid]" >
                       <div class="badge">

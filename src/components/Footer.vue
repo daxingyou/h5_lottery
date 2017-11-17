@@ -4,7 +4,7 @@
             <li :class="menu.path == $route.path && 'active'" v-for="menu in menus">
                 <router-link :class="menu.className" :to="menu.path">
                     <span class="Footer-icon"></span>
-                    <span>{{menu.name}}</span>
+                    <span class="Footer-font">{{menu.name}}</span>
                 </router-link>
             </li>
 
