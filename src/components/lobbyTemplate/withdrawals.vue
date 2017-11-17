@@ -53,7 +53,7 @@
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
-                    <a href="javascript:;" @click="WithdrawalsAction()">确定</a>
+                    <a href="javascript:;" @click="WithdrawalsAction()" >确定</a>
                 </div>
 
             </form>
@@ -94,7 +94,7 @@ export default {
              bankId:'',
              acType:'',
              memberId:'',
-             submitPay:false //重复提交
+             PaySubmit:false //重复提交
 
         }
     },
@@ -186,9 +186,10 @@ export default {
       //提款接口
       WithdrawalsAction: function () {
                   var _self=this;
-                  if(_self.submitPay){
-                       return false ;
+                  if(_self.PaySubmit){
+                       return  false;
                   }
+
                   if(_self.userMoney*100>_self.memBalance){
                       _self.$refs.autoCloseDialog.open('提款余额不足');
                       return
@@ -201,7 +202,7 @@ export default {
                       _self.$refs.autoCloseDialog.open('请输入4位数字密码');
                       return false
                   }
-                  _self.submitPay = true ;
+                  _self.PaySubmit = true ;
                   var Withdrawalsdata = {
                       applyAmount: _self.userMoney*100,//金额
                       tradePassword: _self.cashPassword, //密码
@@ -216,22 +217,23 @@ export default {
                       dataType: 'json',
                       url: _self.action.forseti + 'api/pay/drawOrder',
                       data: Withdrawalsdata,
-                      success: (res) => {
-                          _self.submitPay = false ;
+                      success: (res) => {;
                           //取款密码错误
                           if(res.err=='SUCCESS'){
+                              _self.PaySubmit = false
                               _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                               setTimeout(function(){
                                   window.location = '/lobbyTemplate/info' ;
-                              },2000)
+                              },100)
                           }else {
+                              _self.PaySubmit = false ;
                               _self.$refs.autoCloseDialog.open(res.msg) ;
                               return false
                           }
 
                       },
                       error: (err) =>{
-                          _self.submitPay = false ;
+                          _self.PaySubmit = false ;
                           _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
                       }
 
