@@ -234,7 +234,6 @@ export default {
       this.allLottery = this.$refs.navone.getLotterys() ;
       this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
       this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
-
      if(this.haslogin){  // 只有登录状态才需要调余额
           this.getMemberBalance() ;
       }

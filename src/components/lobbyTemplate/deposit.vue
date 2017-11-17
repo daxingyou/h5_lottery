@@ -330,6 +330,8 @@ export default {
             scanid: '' ,  // 扫码支付订单二维码
             scanint: {} ,  // 扫码支付定时器
             bankval: '' ,  // 银行转账方式
+            submitpayflag: false ,  // 表单重复提交问题
+            submitpayunflag: false ,  // 线下存款表单重复提交问题
             bankInfo: {
                 bankCode: '', // 默认工商银行
             },
@@ -471,6 +473,9 @@ export default {
       // 网银支付确定提交 type 1 线上入款 ，3 二维码
       submitOnlinePay:function (code,type) {
           var _self = this ;
+          if(_self.submitpayflag){
+              return false ;
+          }
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
               source: '2' , //   来源类型   1,PC, 2,H5
@@ -480,6 +485,7 @@ export default {
               realName : '' ,  // 真实姓名
               flowType : '4' ,  // 入款方式 3-银行第三方支付，4-快捷支付
           }
+          _self.submitpayflag = true ;
           if(type == '1'){ // 线上付款
               var win = window.open('about:blank') ;
           }
@@ -492,6 +498,7 @@ export default {
               data: senddata ,
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
+                      _self.submitpayflag = false ;
                       if(type == '1'){ // 线上付款
                           var loadurl = res.data.url ;
                           win.location.href = loadurl ;
@@ -507,6 +514,7 @@ export default {
                       }
 
                   }else{
+                      _self.submitpayflag = false ;
                       if(type == '1'){  // 线上入款失败
                           win.close() ;
                       }
@@ -515,6 +523,7 @@ export default {
 
               },
               error: function (res) {
+                  _self.submitpayflag = false ;
                   win.close() ;
                   _self.$refs.autoCloseDialog.open('支付失败') ;
               }
@@ -579,7 +588,12 @@ export default {
   // 银行转账提交
       submitBankAction:function () {
           var _self = this ;
-          var submitsure = false ;
+          if( _self.submitpayunflag){
+              console.log('发货的')
+              return false ;
+          }
+          console.log('和积分抵扣')
+
           if(!_self.bankInfo.bankCode){
               _self.$refs.autoCloseDialog.open('请选择存款银行！') ;
               return false ;
@@ -592,6 +606,7 @@ export default {
               _self.$refs.autoCloseDialog.open('请选择存款方式！') ;
               return false ;
           }
+          _self.submitpayunflag = true ;
           var userInfo = _self.userInfo ;
           var senddata ={
               chargeAmount: _self.paymount*100 , //  入款金额
@@ -606,9 +621,7 @@ export default {
               cardOwnerName : userInfo.cardOwnerName ,  // 收款人名字
               flowType : '1' ,  // 入款方式 1-公司转账，2-钱包快充
           }
-          if(submitsure){
-              return false ;
-          }
+
           $.ajax({
               type: 'post',
               headers: {
@@ -617,8 +630,8 @@ export default {
               url: _self.action.forseti + 'api/pay/offlineOrder',
               data: senddata ,
               success: function(res){
-                  submitsure = true ; // 禁止重复提交
                   if(res.err == 'SUCCESS'){
+                      _self.submitpayunflag = false ;
                       _self.$refs.autoCloseDialog.open('存款申请已提交，请牢记以下信息','','icon_check','d_check') ;
                       $('.after_pay').show() ;
                       $('.before_pay').hide() ;
@@ -633,6 +646,7 @@ export default {
 
               },
               error: function (res) {
+                  _self.submitpayunflag = false ;
                   _self.$refs.autoCloseDialog.open('存款失败') ;
               }
           });
