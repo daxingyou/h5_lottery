@@ -2,7 +2,7 @@
   <div id="pa_con" class="so-con warp ">
       <!--left siderbar  -->
       <!--用户导航 so-left -->
-      <UserNavigation el=".btn_leftside" ref="navone" > </UserNavigation>
+      <UserNavigation el=".more-games" ref="navone" > </UserNavigation>
       <IndexNavigation el=".btn_leftside" ref="navtwo" > </IndexNavigation>
       <header id="pa_head" class="index_nav_top">
           <div class="left index_side">
@@ -138,7 +138,7 @@
                   </li>
                     <!--20171116 新增選單-->
                     <li>
-                        <a href="javascript:;">
+                        <a href="javascript:;" class="more-games">
                             <div class="badge">
                                 <img src="/static/images/logo/more.png" lazy="loaded">
                             </div>
@@ -214,7 +214,7 @@ export default {
         return {
             haslogin:false ,
             logintype: this.getCookie('acType') || 1 ,
-            balanceData:{},
+            balanceData:{ },
             allLottery:{} ,
             gameHref:{} ,
             bulletins:'',
@@ -230,11 +230,14 @@ export default {
 
     },
   mounted:function() {
-    // alert('gg') ;
-    $('html,body').css('overflow-y','scroll' )  ;
-    this.allLottery = this.$refs.navone.getLotterys() ;
-    this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
-    this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+      $('html,body').css('overflow-y','scroll' )  ;
+      this.allLottery = this.$refs.navone.getLotterys() ;
+      this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
+      this.haslogin = this.$refs.navone.haslogin ; // 拿子组件的值
+
+     if(this.haslogin){  // 只有登录状态才需要调余额
+          this.getMemberBalance() ;
+      }
 
     TouchSlide({
       slideCell: "#focus",

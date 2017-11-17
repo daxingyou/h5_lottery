@@ -15,7 +15,7 @@
                     <div class="purse"  v-if="haslogin">
                         <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum" >
-                            {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}
+                            {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : 0), 2)}}
                         </div>
                     </div>
                 </div>
@@ -92,24 +92,21 @@
 
         data :function() {
             return {
-                balanceData:null,
+                balanceData:'',
                 haslogin :false ,
                 showNavigation:false ,
                 allLottery:{},
             }
         },
         created:function () {
+            this.haslogin = this.ifLogined() ;
 
         } ,
         mounted:function() {
-            this.haslogin = this.ifLogined() ;
-            if(this.haslogin){  // 只有登录状态才需要调余额
-                this.getMemberBalance() ;
-            }
+
             $(this.el).on('click', ()=>{
                 this.showNavigation = true;
             }) ;
-
 
         },
         methods:{
