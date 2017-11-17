@@ -63,6 +63,7 @@ export default {
             verImgCode:'',
             yzmcode:'',
             client:'',
+            submitflage: false ,
         }
     },
   created:function () {
@@ -96,6 +97,10 @@ export default {
       },
     // 登录接口 moved to 主页/index.vue
     LoginAction:function() {
+          var _self = this ;
+          if(_self.submitflage){
+              return false ;
+          }
         if(this.username ==''){
             this.$refs.autoCloseDialog.open('请输入用户名') ;
             return false ;
@@ -112,6 +117,7 @@ export default {
         if(falg){
             return false ;
         }
+        _self.submitflage = true ;
         var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
             grant_type: 'password',
             username: 'bcappid02|'+this.username ,
@@ -126,6 +132,7 @@ export default {
             data: logindata ,
             success: (res) => {
                 if(res.err == 'SUCCESS'){ // 登录成功
+                    _self.submitflage = false ;
                     this.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
                     this.setCookie("username", this.username);  // 把登录用户名放在cookie里面
                     this.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
@@ -134,6 +141,7 @@ export default {
                           window.location = '/' ;
                        },300)
                 }else{
+                    _self.submitflage = false ;
                     this.$refs.autoCloseDialog.open(res.cnMsg) ;
                     this.switchYzmcode()
                 }
@@ -143,7 +151,7 @@ export default {
                })
             },
             error: function () {
-
+                _self.submitflage = false ;
             }
         });
     },

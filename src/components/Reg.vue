@@ -218,6 +218,7 @@
                 showB:true,
                 verImgCode:'',
                 client:'',
+                regsubmitflage:false ,
             }
         },
         created:function(){
@@ -298,6 +299,9 @@
             // 注册接口 ，除了推荐人，其他必填
             registerAction:function() {
                 var _self=this;
+                if(_self.regsubmitflage){
+                    return false ;
+                }
                 if(this.realyname ==''){
                     this.$refs.autoCloseDialog.open('请输入真实姓名') ;
                     return false ;
@@ -318,6 +322,7 @@
                 if(falg){
                     return false ;
                 }
+                _self.regsubmitflage = true ;
                 var logindata = {
                     acType: '1',   //1真钱玩家，2试玩玩家
                     appid: 'bcappid02',    //平台商id，bcappid01 或 bcappid02
@@ -344,11 +349,13 @@
                     data: JSON.stringify(logindata) ,
                     success: (res) => {
                         if(res.err =='SUCCESS'){ // 注册成功
+                            _self.regsubmitflage = false ;
                             _self.$refs.autoCloseDialog.open('注册成功','','icon_check','d_check') ;
                             setTimeout(function () {
                                 window.location = '/Login' ;
                             },2000)
                         }else{ //code 105 验证码无效
+                            _self.regsubmitflage = false ;
                               this.switchYzmcode() ; // 更新验证码
                               this.$refs.autoCloseDialog.open(res.cnMsg) ;
 
@@ -356,7 +363,7 @@
 
                     },
                     error: function () {
-
+                        _self.regsubmitflage = false ;
                     }
                 });
             },
