@@ -93,7 +93,8 @@ export default {
              bankCode:'',
              bankId:'',
              acType:'',
-             memberId:''
+             memberId:'',
+             submitPay:false //重复提交
 
         }
     },
@@ -184,52 +185,58 @@ export default {
       },
       //提款接口
       WithdrawalsAction: function () {
-          var _self=this;
-          if(_self.userMoney*100>_self.memBalance){
-              _self.$refs.autoCloseDialog.open('提款余额不足');
-              return
-          }
-          if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
-              _self.$refs.autoCloseDialog.open('请输入正确金额');
-                return false
-          }
-          if(_self.cashPassword==''||! _self.positiveNum(_self.cashPassword)||_self.cashPassword.length!=4){
-              _self.$refs.autoCloseDialog.open('请输入4位数字密码');
-                return false
-          }
-
-          var Withdrawalsdata = {
-              applyAmount: _self.userMoney*100,//金额
-              tradePassword: _self.cashPassword, //密码
-              bankCode:_self.bankCode,//银行code
-              bankId:_self.bankId,  //银行Id
-              bankCard:_self.bankCard, //银行卡号
-              realName:_self.realName,//真实姓名
-          };
-          $.ajax({
-              type: 'post',
-              headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
-              dataType: 'json',
-              url: _self.action.forseti + 'api/pay/drawOrder',
-              data: Withdrawalsdata,
-              success: (res) => {
-                  //取款密码错误
-                  if(res.err=='SUCCESS'){
-                      _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
-                      setTimeout(function(){
-                          window.location = '/lobbyTemplate/info' ;
-                      },2000)
-                  }else {
-                      _self.$refs.autoCloseDialog.open(res.msg) ;
+                  var _self=this;
+                  if(_self.submitPay){
+                       return false ;
+                  }
+                  if(_self.userMoney*100>_self.memBalance){
+                      _self.$refs.autoCloseDialog.open('提款余额不足');
+                      return
+                  }
+                  if (_self.userMoney == '' || !_self.positiveNum(_self.userMoney)||_self.userMoney == 0) {
+                      _self.$refs.autoCloseDialog.open('请输入正确金额');
                       return false
                   }
+                  if(_self.cashPassword==''||! _self.positiveNum(_self.cashPassword)||_self.cashPassword.length!=4){
+                      _self.$refs.autoCloseDialog.open('请输入4位数字密码');
+                      return false
+                  }
+                  _self.submitPay = true ;
+                  var Withdrawalsdata = {
+                      applyAmount: _self.userMoney*100,//金额
+                      tradePassword: _self.cashPassword, //密码
+                      bankCode:_self.bankCode,//银行code
+                      bankId:_self.bankId,  //银行Id
+                      bankCard:_self.bankCard, //银行卡号
+                      realName:_self.realName,//真实姓名
+                  };
+                  $.ajax({
+                      type: 'post',
+                      headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
+                      dataType: 'json',
+                      url: _self.action.forseti + 'api/pay/drawOrder',
+                      data: Withdrawalsdata,
+                      success: (res) => {
+                          _self.submitPay = false ;
+                          //取款密码错误
+                          if(res.err=='SUCCESS'){
+                              _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
+                              setTimeout(function(){
+                                  window.location = '/lobbyTemplate/info' ;
+                              },2000)
+                          }else {
+                              _self.$refs.autoCloseDialog.open(res.msg) ;
+                              return false
+                          }
 
-              },
-              error: (err) =>{
-                  _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
-              }
+                      },
+                      error: (err) =>{
+                          _self.submitPay = false ;
+                          _self.$refs.autoCloseDialog.open('请输入正确提款信息') ;
+                      }
 
-          })
+                  })
+
       },
 
   }
