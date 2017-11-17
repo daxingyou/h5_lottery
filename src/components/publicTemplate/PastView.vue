@@ -95,7 +95,7 @@
 
 <script>
 import Mixin from '@/Mixin'
-import $ from "jquery";
+// import $ from "jquery";
 import "../../../static/css/pk10.css"
 
 export default {

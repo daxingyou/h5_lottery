@@ -85,7 +85,7 @@
 
 
 <script>
-    import $ from "jquery";
+    // import $ from "jquery";
     import FooterNav from '@/components/Footer'
     import Mixin from '@/Mixin'
     import 'swiper'

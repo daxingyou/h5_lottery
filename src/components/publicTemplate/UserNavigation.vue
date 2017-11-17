@@ -52,7 +52,7 @@
 
 <script>
 import Mixin from '@/Mixin'
-import $ from "jquery";
+// import $ from "jquery";
 //  import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 
 export default {

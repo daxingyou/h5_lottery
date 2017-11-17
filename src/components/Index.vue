@@ -190,7 +190,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from "jquery"
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'

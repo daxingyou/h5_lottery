@@ -76,7 +76,7 @@
 
 <script>
     import Mixin from '@/Mixin'
-    import $ from "jquery";
+    // import $ from "jquery";
 //    import deposit from '@/components/lobbyTemplate/deposit'
     import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
     import Confirm from '@/components/publicTemplate/Confirm'

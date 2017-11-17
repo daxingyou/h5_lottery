@@ -257,7 +257,7 @@
 
 
 <script>
-    import $ from "jquery";
+    // import $ from "jquery";
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
     import UserMenu from '@/components/publicTemplate/UserMenu'
     import InfoDialog from '@/components/publicTemplate/InfoDialog'
