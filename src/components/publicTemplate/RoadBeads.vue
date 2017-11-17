@@ -182,7 +182,7 @@
 
 <script>
     import Mixin from '@/Mixin'
-    import $ from "jquery";
+    // import $ from "jquery";
     import InfoDialog from '@/components/publicTemplate/InfoDialog'
     import RoadBeadItem from '@/components/publicTemplate/RoadBeadItem'
 

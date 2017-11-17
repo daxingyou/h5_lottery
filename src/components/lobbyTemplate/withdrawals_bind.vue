@@ -69,7 +69,7 @@
 
 </style>
 <script>
-import $ from "jquery";
+// import $ from "jquery";
 import Mixin from '@/Mixin'
 import FooterNav from '@/components/Footer'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'

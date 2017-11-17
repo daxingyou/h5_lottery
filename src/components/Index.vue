@@ -176,8 +176,8 @@
           </section>
             <!--20171116 新增優惠活動-->
             <section class="promoindex_area">
-                <h4><span></span>优惠活动<a href="/lobbyTemplate/promo">更多>></a></h4>
-                <a href="/lobbyTemplate/promo">
+                <h4><span></span>优惠活动<a  @click="Continued()">更多>></a></h4>
+                <a  @click="Continued()">
                     <img src="/static/images/banner/promo-1.jpg">
                 </a>
             </section>
@@ -190,7 +190,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+// import $ from "jquery"
 import '../../static/js/touchslide.1.1.js'
 import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'

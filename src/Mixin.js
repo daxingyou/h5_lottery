@@ -1,6 +1,6 @@
 
-import $ from "jquery";
-import DateFormat from "dateformat";
+// import $ from "jquery";
+// import DateFormat from "dateformat";
 
 //mixin.js
 var MyMixin = {
@@ -101,9 +101,9 @@ var MyMixin = {
             }
         },
 
-        dateFormat:function(p0, p1, p2) {
+    /*    dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
-        },
+        },*/
         ajax:function(userConfig){
             var _self = this ;
             let config = {

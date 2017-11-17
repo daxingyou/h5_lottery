@@ -97,8 +97,8 @@
 <script>
     import Mixin from '@/Mixin'
    // import 'swiper'
-    import '../../../static/js/swiper-3.4.2.jquery.min.js'
-    import $ from "jquery";
+  //  import '../../../static/js/swiper-3.4.2.jquery.min.js'
+    // import $ from "jquery";
     
     export default {
         name: 'betRecord',

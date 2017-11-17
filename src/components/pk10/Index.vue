@@ -288,7 +288,7 @@
 
 
 <script>
-    import $ from "jquery";
+    // import $ from "jquery";
     import "../../../static/css/pk10.css"
     import UserNavigation from '@/components/publicTemplate/UserNavigation'
     import UserMenu from '@/components/publicTemplate/UserMenu'

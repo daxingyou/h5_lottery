@@ -27,7 +27,7 @@ export default {
   },
   mounted:function(){
     FastClick.attach(document.body);
-      $('html, body').height($(window).height());
+      $('html, body').height($(window).height()); // 防止浏览器全屏显示
   },
 
 }
