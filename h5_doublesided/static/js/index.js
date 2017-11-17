@@ -17,6 +17,7 @@ $(function () {
     betActionSubmit() ; // 表单提交
     initNavChoice() ; // 右边nav 切换处理
     resetBtnAction() ;
+    touchmove();
 });
 
 // 重置按钮
@@ -103,13 +104,16 @@ function initLeftViewEve() {
 }
 
 //禁止遮罩层以下屏幕滑动
-$(document).on("touchmove", function (e) {
-    var e = e || event,
-        target = e.target || e.srcElement;
-    if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
-        e.preventDefault();
-    }
-})
+function touchmove(){
+    $(document).on("touchmove", function (e) {
+        var e = e || event,
+            target = e.target || e.srcElement;
+        if (e.target.className.indexOf("so-shade") >= 0) { //className為弹窗的蒙层的类名
+            e.preventDefault();
+        }
+    });
+}
+
 
 // 此方法弹出遊戲說明
 function initPopWafa() {

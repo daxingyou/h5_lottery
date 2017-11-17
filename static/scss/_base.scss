@@ -27,7 +27,6 @@ a {
 html,body{
     /* 解决弹窗 ios上 overhidden 失效的问题 */
     //  width: 100%;
-    // height: 100%;
     //  overflow: hidden;
     // -webkit-overflow-scrolling: touch;
 }
@@ -52,12 +51,16 @@ html {
 }
 body{
     width: 100%;
-    min-height: 18rem;
+    //min-height: 18rem; //控制body卷軸 收合網址列
+    //height: 100%; 
     //padding: 50px;
     //font: 14px "Lucida Grande",Helvetica,Arial,sans-serif;
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;
     font: .35rem;
-    //height: calc(100% + 1px);
+    ////height: calc(100% + 1px);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 input,select,option{
     font:14px 'Microsoft YaHei', Helvetica,sans-serif;

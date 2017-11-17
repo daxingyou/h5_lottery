@@ -5,7 +5,7 @@
             <div class="content danger">
                 <div>
                     <img src="../../../static/images/page/status03.svg">
-                </div>游客不能访问该功能，是否需要注册会员？
+                </div>游客不能访问该功能，是否注册会员？
             </div>
             <div class="action">
                 <a class="cancle" href="javascript:;" @click="close()">取消</a><a class="ok" href="javascript:;"  @click="goReg()">确定</a>

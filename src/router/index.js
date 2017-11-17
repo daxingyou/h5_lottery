@@ -39,7 +39,7 @@ import withdrawals_bind from '@/components/lobbyTemplate/withdrawals_bind'
 
 import about from '@/components/lobbyTemplate/about'  // 大厅 關於我們
 import tutorial from '@/components/lobbyTemplate/tutorial'  // 大厅 關於我們
-
+import promo from '@/components/lobbyTemplate/promo'  // 大厅 优惠活动
 Vue.use(Router)
 
 export default new Router({
@@ -142,6 +142,7 @@ export default new Router({
     { path: '/lobbyTemplate/info_data', name:'info_data', component: info_data },
     { path: '/lobbyTemplate/notification', name:'notification', component:notification },
     { path: '/lobbyTemplate/join', name:'join', component:join },
-    { path: '/lobbyTemplate/withdrawals_bind', name:'withdrawals_bind', component:withdrawals_bind }
+    { path: '/lobbyTemplate/withdrawals_bind', name:'withdrawals_bind', component:withdrawals_bind },
+    { path: '/lobbyTemplate/promo', name:'promo', component:promo}
   ]
 })

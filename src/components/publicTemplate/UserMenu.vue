@@ -19,7 +19,7 @@
                     </li>
                     <li class="r_pastview">
                         <router-link to="/publicTemplate/pastView">
-                            <p>近期开奖</p>
+                            <p>往期开奖</p>
                         </router-link>
                     </li>
                     <!--<li class="r_roadbeads" v-if="lotteryid =='8'"> &lt;!&ndash; 北京pk10 &ndash;&gt;

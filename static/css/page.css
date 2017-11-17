@@ -13,7 +13,7 @@ html, body { /* 解决弹窗 ios上 overhidden 失效的问题 */ }
 
 html { -webkit-text-size-adjust: none; background-color: #19222f !important; }
 
-body { width: 100%; min-height: 18rem; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; }
+body { width: 100%; font: 14px 'Microsoft YaHei', Helvetica,sans-serif; font: .35rem; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
 
 input, select, option { font: 14px 'Microsoft YaHei', Helvetica,sans-serif; }
 
@@ -712,7 +712,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot.close > div:last-child > div { background: url("/static/images/foot/xiazhuhui.png") no-repeat; background-size: 84%; background-position: 0.17rem 0.5rem; }
 
-.so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.4rem; position: fixed; bottom: 0; z-index: 10; }
+.so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.1rem; position: fixed; bottom: 0; z-index: 10; }
 
 .so-fengpan a { color: #fff; line-height: 2.3rem; font-size: 0.4rem; }
 
@@ -1222,7 +1222,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 #index_content { -webkit-box-sizing: border-box; box-sizing: border-box; padding-bottom: 1.5rem; }
 
-#index_content.content { margin-top: 0; }
+#index_content.content { margin-top: 0; overflow-x: hidden; }
 
 #index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
 
