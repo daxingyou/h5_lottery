@@ -31,7 +31,7 @@
                 </fieldset>
                 <fieldset>
                     <div class="form_g text">
-                        <legend>开户行地址</legend>
+                        <legend>开户行</legend>
                         <input type="text" name="phone-number" v-model="bankAdd"  class="bankAdd" placeholder="如:北京市海淀区中关村支行"
                         @input="checkBankAdd(bankAdd,'bankAdd')">
                         <i class="close close1" @click="ClearInput('close2','bankAdd')"></i>
