@@ -9,7 +9,8 @@
             <div>
                 <form>
                     <input placeholder="输入金额" type="tel" class="bet-amount" v-model="betAmount">
-                    <input type="reset" @click="$parent.resetAction()" value="重置" >
+                    <!--<input type="reset" @click="$parent.resetAction()" value="重置" >-->
+                    <a class="submit" href="javascript:;" @click="$parent.resetAction()">重置</a>
                 </form>
             </div>
             <div>
@@ -251,4 +252,20 @@ export default {
 
 <style scoped>
     .so-pop, .so-shade { display: block; }
+    .so-foot .submit{
+        width: 1.63rem;
+        display: block;
+        height: 1.6rem;
+        float: left;
+        line-height: 0.64rem;
+        position: relative;
+        top: 0.2rem;
+        left: 0.4rem;
+        text-align: center;
+        background: url(/static/images/foot/chongzhi.png) no-repeat;
+        background-size: 100% 0.68rem;
+        color: white;
+        font-size: 0.34rem;
+        padding-right: .15rem;
+    }
 </style>
