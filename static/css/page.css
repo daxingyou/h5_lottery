@@ -291,9 +291,7 @@ label.red { color: #d43939; text-align: left; display: block; margin-top: .2rem;
 
 .data th, .agent table th { color: #66c3f2; }
 
-/*
- CSS for the main interaction
-*/
+/* CSS for the main interaction */
 .tabset { text-align: center; }
 
 .tabset > input[type="radio"] { position: absolute; left: -200vw; }
@@ -356,17 +354,23 @@ img.fixbot { position: fixed; bottom: 0; margin: 0 auto; width: 100%; left: 0; m
 
 .promo_area { text-align: left; width: 9.4rem; margin: 0 auto; padding: 1.7rem 0; font-size: .35rem; line-height: 1.7em; }
 
+.promo_area .promo_list li { background-color: rgba(21, 39, 58, 0.7); }
+
+.promo_area .promo_list li h3 { margin: 0; padding: 0.1rem 0.3rem; border-bottom: 1px solid #27405c; font-size: 0.34rem; }
+
+.promo_area .promo_list li p { padding: 0.2rem 0.3rem; text-align: right; margin: 0px; }
+
+.promo_area .promo_list li a { padding: 0.1rem 0.3rem; }
+
 .promo_area li { margin-bottom: 0.3rem; }
 
-.promo_area li.active .promo_detail { display: block; }
-
-.promo_area .promo_detail { display: none; padding: 0.3rem; }
+.promo_area .promo_detail { padding: 0.3rem; }
 
 .promo_area img { display: block; width: calc( 100% - 2px); border: 1px solid rgba(39, 64, 92, 0.65); }
 
 .promo_area p { margin: .2rem 0; }
 
-.promo_area h3 { margin: .3rem 0; color: #fdf19b; }
+.promo_area h3 { margin: .2rem 0 0.3rem; color: #fdf19b; font-size: 0.43rem; }
 
 .promo_area strong { color: #fdf19b; }
 
@@ -1672,5 +1676,3 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
-
-/*# sourceMappingURL=page.css.map */
