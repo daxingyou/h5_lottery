@@ -14,7 +14,6 @@
             </div>
             <div>
                 <div class="so-add" @click="startBet($event)">
-
                     <p>下注</p>
                 </div>
             </div>
@@ -104,9 +103,6 @@ export default {
         * */
 
         submitAction:function(lotteryid) {
-            if(this.ajaxSubmitAllow){
-                return false ;
-            }
             // var total_mon = Number($('.total-bet-mon').text()) ; // 总投注金额
             const total_mon = this.monAmt(this.totalAmount);
             // 余额不足提示充值
@@ -116,6 +112,11 @@ export default {
                 this.showList = false;
                 return false;
             }
+
+            if(this.ajaxSubmitAllow){
+                return false ;
+            }      
+
             var resdata = {
                 'list': [ ],
                 'amount': total_mon,  //总金额，此金额=所有注单总金额
