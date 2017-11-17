@@ -712,7 +712,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot.close > div:last-child > div { background: url("/static/images/foot/xiazhuhui.png") no-repeat; background-size: 84%; background-position: 0.17rem 0.5rem; }
 
-.so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.4rem; position: fixed; bottom: 0; z-index: 10; }
+.so-fengpan { display: block; background-color: rgba(0, 0, 0, 0.6); width: 10rem; height: 2.1rem; position: fixed; bottom: 0; z-index: 10; }
 
 .so-fengpan a { color: #fff; line-height: 2.3rem; font-size: 0.4rem; }
 
