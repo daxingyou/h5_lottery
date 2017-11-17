@@ -41,7 +41,7 @@
 
 </style>
 <script>
-import $ from "jquery";
+ // import $ from "jquery";
 import Mixin from '@/Mixin'
 
 
