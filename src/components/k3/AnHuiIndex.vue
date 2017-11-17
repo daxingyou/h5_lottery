@@ -1,5 +1,5 @@
 <template>
-    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" />
+    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" :moduleplay="moduleplay"/>
 
 </template>
 
@@ -14,7 +14,8 @@
       data: function() {
         return {
             lotteryID:20,
-            moduleName:'安徽快3'
+            moduleName:'安徽快3',
+            moduleplay:'每日08:40-22:00，10分钟一期，每天开奖80期。',
         }
       }
 

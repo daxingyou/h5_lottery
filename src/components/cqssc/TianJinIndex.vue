@@ -1,5 +1,5 @@
 <template>
-    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" />
+    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" :moduleplay="moduleplay"/>
 </template>
 
 <script>
@@ -13,7 +13,8 @@
       data: function() {
         return {
             lotteryID:12,
-            moduleName:'天津时时彩'
+            moduleName:'天津时时彩',
+            moduleplay: '每日09:30-22:00，10分钟一期，每天开奖84期。',
         }
       }
 
