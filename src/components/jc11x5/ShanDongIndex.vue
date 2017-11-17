@@ -1,5 +1,5 @@
 <template>
-    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" />
+    <Index v-bind:moduleLotteryID="lotteryID" :moduleName="moduleName" :moduleplay="moduleplay"/>
 
 </template>
 
@@ -14,7 +14,8 @@
       data: function() {
         return {
             lotteryID:18,
-            moduleName:'山东11选5'
+            moduleName:'山东11选5',
+            moduleplay: '每日08:33-22:53，10分钟一期，全天共87期。',
         }
       }
 

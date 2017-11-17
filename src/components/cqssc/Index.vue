@@ -228,7 +228,7 @@
                 open 打开对话框
                 close 关闭对话框
         -->
-        <PlayDialog ref="playDialog" />
+        <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" />
     </div>
   
 </template>
@@ -264,7 +264,7 @@ export default {
     AutoCloseDialog,
     PlayDialog
   }, 
-  props:['moduleName', 'moduleLotteryID'],
+  props:['moduleName', 'moduleLotteryID','moduleplay'],
   data:function () {
     return {
         now_time:'',  // 当前期数销售截止时间

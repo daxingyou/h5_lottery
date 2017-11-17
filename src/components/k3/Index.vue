@@ -181,7 +181,7 @@
         <BetSuccessfulDialog ref="betSuccessfulDialog" />
 
         <!--玩法说明-->
-        <PlayDialog ref="playDialog" />
+        <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" />
   </div>
 
 
@@ -223,7 +223,7 @@
         AutoCloseDialog,
         PlayDialog
       },
-      props:['moduleName', 'moduleLotteryID'],
+      props:['moduleName', 'moduleLotteryID','moduleplay'],
       data: function() {
         return {
             now_pcode:0,  // 当前期数
@@ -245,12 +245,13 @@
             allLottery:{} ,
             gameHref:{} ,
             kinds:['单骰', '不同号', '同号', '总和'],
+
         }
       },
       created:function(){
         if (this.moduleLotteryID) {
             this.lotteryID = this.moduleLotteryID;
-        } 
+        }
         this.getMemberBalance(this.lotteryID).then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });

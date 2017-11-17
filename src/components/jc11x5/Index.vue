@@ -248,7 +248,7 @@
         <BetSuccessfulDialog ref="betSuccessfulDialog" />
 
         <!--玩法说明-->
-        <PlayDialog ref="playDialog" />
+        <PlayDialog ref="playDialog" :moduleName="moduleName" :moduleplay="moduleplay" />
   </div>
 
 
@@ -286,7 +286,7 @@
         AutoCloseDialog,
         PlayDialog
       },
-      props:['moduleName', 'moduleLotteryID'],
+      props:['moduleName', 'moduleLotteryID','moduleplay'],
       data: function() {
         return {
             now_pcode:0,  // 当前期数
