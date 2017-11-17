@@ -196,7 +196,7 @@ import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
-import VueMarquee from 'vue-marquee-ho';
+// import VueMarquee from 'vue-marquee-ho';
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import Confirm from '@/components/publicTemplate/Confirm'
 
