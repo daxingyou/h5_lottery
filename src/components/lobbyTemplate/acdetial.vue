@@ -105,7 +105,8 @@ export default {
         //1 为全部选项卡的值
         let tab = this.tabs.filter(tab=>{return tab.active})[0];
         this.loadTab(tab);
-        scrollTo(0,0); // 回到顶部
+        //scrollTo(0,0); // 回到顶部
+        document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
     },
     methods: {
         back1:function(){

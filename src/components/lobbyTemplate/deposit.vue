@@ -510,7 +510,8 @@ export default {
                           },10000) ;
                           $('.after-scan').show() ;
                           $('.before-scan').hide() ;
-                          scrollTo(0,0);
+                          //scrollTo(0,0);
+                          document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                       }
 
                   }else{

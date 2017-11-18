@@ -131,6 +131,8 @@ export default {
   mounted:function() {
       var _self = this ;
       $('html,body').css('overflow-y','scroll' )  ;
+      document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+
       _self.lobbytimerBegin();
       setTimeout(function(){
           _self.gameTimer() ;

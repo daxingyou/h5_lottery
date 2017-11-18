@@ -224,6 +224,9 @@
         created:function(){
            this.switchYzmcode() ;
         },
+        mounted:function(){
+            document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+        },
         methods:{
             //点击显示密码
             showPassword:function(cla){

@@ -23,6 +23,7 @@
         mixins:[Mixin],
         mounted:function(){
             scrollTo(0,0); // 解决投注记录页面重复加载问题
+            document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
         },
         data :function() {
             return {

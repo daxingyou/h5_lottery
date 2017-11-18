@@ -139,13 +139,16 @@ export default {
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' )  ;
-      scrollTo(0,0); // 回到顶部
+      //scrollTo(0,0); // 回到顶部
+     document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+
 
   },
   methods: {
   // 回到顶部
       gotoTop:function () {
-          scrollTo(0,0);
+          //scrollTo(0,0);
+          document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
       }
 }
 

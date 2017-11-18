@@ -219,7 +219,8 @@
     mounted:function() {
         this.loadRoadAction(this.lotteryid,'') ;
         this.setMenuAction() ;
-        scrollTo(0,0); // 回到顶部
+        //scrollTo(0,0); // 回到顶部
+        document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
         // 标签切换
         this.roadChangeTab() ;
 

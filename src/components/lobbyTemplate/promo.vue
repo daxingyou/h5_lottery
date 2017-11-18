@@ -68,6 +68,7 @@ export default {
     },
   mounted:function() {
       $('html,body').css('overflow-y','scroll' );
+      document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
       $(function(){
           $('.promo_area > ul > li').on('click',function(){
               $(this).toggleClass('active').siblings().removeClass('active');

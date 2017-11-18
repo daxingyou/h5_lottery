@@ -147,7 +147,9 @@
                 _self.$router.push('/login')  ;
             }
         },
+
         computed:{
+
             year: function(){
                 return this.nowDate.getYear() + 1900;
             },
@@ -160,6 +162,7 @@
             newpdate: function(){
                 return '' + this.year + this.mon + this.day;
             },
+
         },
         mounted: function () {
             var _self = this ;

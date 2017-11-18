@@ -127,7 +127,8 @@ export default {
 this.setMenuAction() ;
     var lotteryname = this.getCookie('lottery_name') ; // 彩种 名称
     $('.lottery_name').html(lotteryname+' 往期开奖') ;
-    scrollTo(0,0); // 回到顶部
+    //scrollTo(0,0); // 回到顶部
+      document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
     this.doubleCount(this.lotteryid,this.count,'') ;
     $('html,body').css('overflow-y','scroll' )  ;
   },
