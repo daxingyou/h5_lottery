@@ -178,7 +178,10 @@ export default {
               mobile:_self.phoneNumber,
               realName:_self.realName
           };
-
+          var falg = $('.error-message').hasClass('red') ;  // 验证不通过，不允许提交
+          if(falg){
+              return false ;
+          }
           $.ajax({
               type:'post',
               headers: { 'Authorization': 'bearer ' + _self.getAccessToken ,},
