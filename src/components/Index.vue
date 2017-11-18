@@ -161,7 +161,7 @@
           <section class="promoindex_area">
               <h3>
                   <img src="static/images/title_promos.png" alt="优惠活动">
-                  <a  @click="Continued()" style="float: right;">更多>></a>
+                  <a  @click="Continued()" style="float: right;">更多</a>
               </h3>
               <a  @click="Continued()">
                   <img src="/static/images/banner/promo-1.jpg">
