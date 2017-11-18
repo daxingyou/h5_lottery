@@ -122,12 +122,12 @@
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
                   <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
-                    <router-link class="to_lottery"  v-bind:to="'/'+gameHref[lottery.cid]" v-if="haslogin">
+                    <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                        <!-- <img v-lazy="lottery.imgUrl">-->
                           <img v-lazy="'static/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
-                    </router-link>
+                    </a>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
                             <!--  <img v-lazy="lottery.imgUrl">-->
