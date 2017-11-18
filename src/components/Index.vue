@@ -361,5 +361,5 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
-  .memberaccount{ display: inline-block;font-size: 0.35rem;position: absolute;right: 1.8rem;top: .5rem; }
+  .memberaccount{ display: inline-block;font-size: 0.35rem;position: absolute;right: 1.8rem;top: .53rem; }
 </style>
