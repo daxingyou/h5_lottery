@@ -202,60 +202,10 @@
         <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
         </div>
-
-        <!--请输入投注金额-->
-      <!--  <div class="modal m08">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_tip.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div >
-                    <span class="bet-error-content"> 请输入整数的投注金额，金额不能为0 </span>
-                </div>
-            </div>
+        <!--未开盘底部遮挡-->
+        <div v-if="notopen" class="so-fengpan">
+            <a>未开盘</a>
         </div>
-        &lt;!&ndash;本期投注已结束&ndash;&gt;
-        <div class="modal m12">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_end.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div>
-                    请至下期继续投注
-                </div>
-            </div>
-        </div>
-        &lt;!&ndash;下注弹窗_成功&ndash;&gt;
-        <div class="modal m09">
-            <div class="m_content">
-                <img class="bet_ok" src="/static/images/pop/ok_light.png">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content check">
-                    <div>
-                        <img src="/static/images/pop/title_bet_ok.png">
-                        <img src="/static/images/icon_check.svg">
-                    </div>
-                    您已成功支付<br/>请随时关注开奖信息！
-                </div>
-            </div>
-        </div>
-        &lt;!&ndash;下注弹窗_失败&ndash;&gt;
-        <div class="modal m10">
-            <div class="m_content">
-                <h2 class="noclose"><a></a></h2>
-                <div class="content danger">
-                    <div>
-                        <img src="/static/images/pop/title_bet_fail.png">
-                        <img src="/static/images/page/status03.svg">
-                    </div>
-                    <span class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</span>
-                </div>
-            </div>
-        </div>-->
         <!-- 确认对话框API
                        text  对话框提示内容
                    -->
@@ -329,6 +279,7 @@ export default {
             now_day:'',  // 当前日期
             balanceData:{},
             entertainStatus:false,
+            notopen:false,
             ishwowpriod:false,
             betSelectedList:[],   //用户选中的注数
             playTreeList:[], //玩法树
@@ -399,8 +350,9 @@ export default {
             const that = this;
             return new Promise((resolve)=>{
                 that.getSystemTime().then((sys_time)=>{
-                    that.sys_time = sys_time;
-                    that.priodDataNewly(this.lotteryID, sys_time).then(res=>{
+
+                    that.sys_time = that.formatTimeUnlix(sys_time) ;
+                    that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                         that.ishwowpriod = true ;
                         that.next_pcode = res.data[0].pcode;  // 下期期数
                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
@@ -408,9 +360,16 @@ export default {
                        // that.previous_pcode = res.data[2].pcode;  // 上期期数
                         var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
                         if(firstpcode =='001'){  //  白天第一期
+                            if( res.data[0].startTime - sys_time >0){  // 未开盘状态
+                                that.notopen = true ;
+                            }else{
+                                that.notopen = false ;
+                            }
                             that.now_pcode = res.data[0].issueAlias;  // 当前期数
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                            // 当前期封盘时间
+                            that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);
                             that.winNumber = res.data[1].winNumber;
                             that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                             that.previous_pcode = res.data[1].issueAlias;  // 上期期数
@@ -418,6 +377,8 @@ export default {
                             that.now_pcode = res.data[1].issueAlias;  // 当前期数
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                            // 当前期封盘时间
+                            that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);
                             //code 上期开奖号码
                             if (!code) {
                                 // code='20,20,20,20,20,20,20,20,20,20';
@@ -432,8 +393,7 @@ export default {
 
                         }
 
-                        // 当前期封盘时间
-                        that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
+
                         // 当天日期
                         that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
 
@@ -447,10 +407,11 @@ export default {
 
         timerBegin:function(){
             var that = this ;
-            this.lotteryDataFetch().then(()=>{
+            that.lotteryDataFetch().then(()=>{
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
             })
-            this.entertainStatus = false;
+            that.entertainStatus = false;
+            that.notopen = false;
         },
         resetAction:function(success){
             this.betSelectedList = [];
@@ -462,7 +423,7 @@ export default {
         },
         //当用户选择球时，保存相应数据
         betSelect:function(e, item, parentItem){
-            if (this.entertainStatus){
+            if (this.entertainStatus || this.notopen){
                 return false;
             }
             var $src = $(e.currentTarget);

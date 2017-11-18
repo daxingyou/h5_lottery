@@ -89,6 +89,7 @@ export default {
                     spanSrrived();
                 }
             }
+
             clearInterval(this.timer);
             this.timer = window.setInterval((function() {
                 counter();
@@ -97,7 +98,7 @@ export default {
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                 }
-
+               //  console.log(this.lt_time_leave_over)
                 // 封盘倒计时结束
                 if(this.lt_time_leave_over == 0){ 
                     this.$emit('entertainCountdownOver');

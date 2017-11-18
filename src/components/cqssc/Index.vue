@@ -169,45 +169,14 @@
         <!--封盘底部遮挡-->
         <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
-        </div> 
-
-        <!--请输入投注金额-->
-      <!--  <div class="popup so-tip-pop so-tip-pop-04">
-            <div>
-                <img src="/static/images/pop/title_tip.png">
-                <img src="/static/images/page/status03.svg">
-                <p class="bet-error-content">请输入投注金额</p>
-            </div>
         </div>
-        &lt;!&ndash;本期投注已结束&ndash;&gt;
-        <div class="popup so-fengpan-pop so-bet-end-pop">
-            <div>
-                <img src="/static/images/pop/title_end.png">
-                <img src="/static/images/page/status03.svg">
-                <p>请至下期继续投注</p>
-            </div>
-        </div>
-
-        &lt;!&ndash;下注弹窗_成功&ndash;&gt;
-        <div class="popup so-tip-pop so-tip-pop-05 bet_ok_area">
-            <img class=" bet_ok" src="/static/images/pop/ok_light.png">
-            <div>
-                <img src="/static/images/pop/title_bet_ok.png">
-                <p>您已成功支付<br/>请随时关注开奖信息！</p>
-            </div>
-        </div>
-        &lt;!&ndash;下注弹窗_失敗&ndash;&gt;
-        <div class="popup so-tip-pop so-tip-pop-06">
-            <div>
-                <img src="/static/images/pop/title_bet_fail.png">
-                <img src="/static/images/page/status03.svg">
-                <p class="submit-error-content">您的余额不足 <br/>请充值后继续进行！</p>
-            </div>
-        </div>-->
-
-        <!-- 确认对话框API
-            text  对话框提示内容
-        -->
+         <!-- 未开盘 -->
+          <div v-if="notopen" class="so-fengpan">
+              <a>未开盘</a>
+          </div>
+          <!-- 确认对话框API
+              text  对话框提示内容
+          -->
         <InfoDialog ref="infoDialog" text="请您继续投注" />
 
         <!--自动关闭（闪屏）对话框API
@@ -278,6 +247,7 @@ export default {
         now_day:'',  // 当前日期
         balanceData:{},
         entertainStatus:false,
+        notopen:false,
         ishwowpriod:false,
         betSelectedList:[],   //用户选中的注数
         // playTreeList:[], //玩法树
@@ -356,7 +326,7 @@ export default {
         return new Promise((resolve)=>{
             
             that.getSystemTime().then(sys_time=>{
-                that.sys_time = sys_time;
+                that.sys_time = that.formatTimeUnlix(sys_time) ;
                 that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                     that.ishwowpriod = true ;
                     that.next_pcode = res.data[0].pcode;  // 下期期数
@@ -364,16 +334,30 @@ export default {
                     var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
                     let code = res.data[2].winNumber;
                     if(firstpcode =='024' && that.lotteryID == '2'){  // 重庆时时彩 白天第一期
+                      if( res.data[0].startTime - sys_time >0){  // 未开盘状态
+                          that.notopen = true ;
+                      }else{
+                          that.notopen = false ;
+                      }
                         that.now_pcode = res.data[0].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                        // 当前期封盘时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);
                         that.winNumber = res.data[1].winNumber;
                         that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[1].pcode;  // 上期期数
                     }else if(firstpcode =='001'){ // 天津，新疆 时时彩 白天第一期
+                        if( res.data[0].startTime - sys_time >0){  // 未开盘状态
+                            that.notopen = true ;
+                        }else{
+                            that.notopen = false ;
+                        }
                         that.now_pcode = res.data[0].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                        // 当前期封盘时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);
                         that.winNumber = res.data[1].winNumber;
                         that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[1].pcode;  // 上期期数
@@ -381,6 +365,9 @@ export default {
                         that.now_pcode = res.data[1].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                        // 当前期封盘时间
+                        that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);
+
                         //code 上期开奖号码
                         if (!code) {
                             // code = '-,-,-,-,-';
@@ -394,8 +381,7 @@ export default {
                         }
                     }
 
-                    // 当前期封盘时间
-                    that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
+
                     // 当天日期
                     that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
 
@@ -415,6 +401,7 @@ export default {
             that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
         })
         that.entertainStatus = false;
+        that.notopen = false;
     },
     resetAction:function(success){
         this.betSelectedList = [];
@@ -426,7 +413,7 @@ export default {
     },
     //当用户选择球时，保存相应数据
     betSelect:function(e, item, parentItem){
-          if (this.entertainStatus){
+          if (this.entertainStatus || this.notopen){
               return false;
           }
           var $src = $(e.currentTarget);
@@ -441,7 +428,7 @@ export default {
       },
     //用户选择1-5球时，保存相应数据
     OFSelect:function(e, item, parentItem){
-          if (this.entertainStatus){
+          if (this.entertainStatus || this.notopen){
               return false;
           }
           var $src = $(e.currentTarget);

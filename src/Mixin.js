@@ -279,7 +279,8 @@ var MyMixin = {
                         if(nochange =='0'){
                             var sys_time = res.data;
                         }else{
-                            var sys_time = _self.formatTimeUnlix(res.data);
+                           // var sys_time = _self.formatTimeUnlix(res.data);
+                            var sys_time = res.data ;
                         }
 
                         resolve(sys_time);

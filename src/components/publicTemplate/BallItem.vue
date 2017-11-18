@@ -18,7 +18,7 @@
           methods:{
             //当用户选择球时，保存相应数据
             betSelect:function(e){
-                if(this.$parent.entertainStatus){ // 封盘不可点击
+                if(this.$parent.entertainStatus || this.$parent.notopen){ // 封盘不可点击
                     return false ;
                 }
                 var $src = $(e.currentTarget);
