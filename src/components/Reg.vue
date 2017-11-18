@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <router-link :to="'/'" class="before-add">
-                    <img src="static/images/back.png" alt="">
+                    <img src="static/images/back.png" alt="" >
                 </router-link>
                 <a href="javascript:;"  class="after-add" @click="lastAction()" style="display: none ;">
                     <img src="static/images/back.png" alt="">
@@ -266,6 +266,7 @@
             },
             // 下一步
             nextAction:function () {
+                document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                 if(this.username ==''){
                     this.$refs.autoCloseDialog.open('请输入帐号') ;
                     return false ;
@@ -293,10 +294,12 @@
                 $('.after-add').show() ;
 
             },
+
             // 返回上一步
             lastAction:function () {
                 $('.before-add').show() ;
                 $('.after-add').hide() ;
+                document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
 
             },
             // 注册接口 ，除了推荐人，其他必填
