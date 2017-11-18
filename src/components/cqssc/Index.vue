@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="so-in-con">
-                <div class="so-con-left">
+                <div class="so-con-left" >
                     <ul>
                         <li :class="(index == 0 && 'active')"  v-for="(kind,index) in kinds" @click="switchTab">
                             <a :href="'#so-item'+index">{{kind}}</a>
