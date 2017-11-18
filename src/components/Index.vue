@@ -270,7 +270,7 @@ export default {
                       this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
-                      },300)
+                      },500)
 
                   }
                   this.$nextTick(function () {
