@@ -3865,9 +3865,9 @@ fieldset {
         border: 1px solid #00B7FF; }
         .pay_content .step03 .btn_bank:active a, .pay_content .step03 .btn_bank:focus a {
           color: #fff; }
-      .pay_content .step03 .btn_bank:last-child {
+      /*.pay_content .step03 .btn_bank:last-child {
         float: left;
-        margin-left: .7rem; }
+        margin-left: .7rem; }*/
       .pay_content .step03 .btn_bank a {
         display: block;
         line-height: 3em;
