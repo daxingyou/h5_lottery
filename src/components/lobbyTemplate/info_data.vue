@@ -133,7 +133,7 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="password"  placeholder="请输入密码" v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword')">
-                                <i class="eye eye1" @click="showPassword('eye1')"></i>
+                                <i class="eye active" @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -141,7 +141,7 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="text"  placeholder="请输入密码"  v-model="oldPassword" class="oldPassword" @input="checkpassword(oldPassword,'oldPassword')">
-                                <i class="eye active  act1" @click="showPassword('act1')"></i>
+                                <i class="eye" @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -149,7 +149,7 @@
                             <div class="form_g text">
                                 <legend>新密码</legend>
                                 <input type="password" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkpassword(newPassword,'newPassword')">
-                                <i class="eye eye2" @click="showPassword('eye2')"></i>
+                                <i class="eye active" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -157,7 +157,7 @@
                             <div class="form_g text">
                                 <legend>新密码</legend>
                                 <input type="text" placeholder="请输入新密码" v-model="newPassword"  class="newPassword" @input="checkpassword(newPassword,'newPassword')">
-                                <i class="eye active act2" @click="showPassword('act2')"></i>
+                                <i class="eye" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -165,7 +165,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="password" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm')">
-                                <i class="eye eye3" @click="showPassword('eye3')"></i>
+                                <i class="eye active" @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -173,7 +173,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="text" placeholder="请再次输入新密码" v-model="newPassword_confirm"  class="newPassword_confirm" @input="checkpassword(newPassword_confirm,'newPassword_confirm')">
-                                <i class="eye active act3" @click="showPassword('act3')"></i>
+                                <i class="eye " @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -194,7 +194,7 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="password"  placeholder="请输入支付密码" v-model="oldPayPassword" maxlength="4" class="oldPayPassword" @input="checkNum(oldPayPassword,'oldPayPassword')">
-                                <i class="eye eye1" @click="showPassword('eye1')"></i>
+                                <i class="eye active" @click="showPassword('eye1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -202,23 +202,23 @@
                             <div class="form_g text">
                                 <legend>原密码</legend>
                                 <input type="text"  placeholder="请输入支付密码"  v-model="oldPayPassword" class="oldPayPassword" maxlength="4" @input="checkNum(oldPayPassword,'oldPayPassword')">
-                                <i class="eye active  act1" @click="showPassword('act1')"></i>
+                                <i class="eye " @click="showPassword('act1')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="showC" >
                             <div class="form_g text">
                                 <legend>新密码</legend>
-                                <input type="password" placeholder="请输入支付新密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
-                                <i class="eye eye2" @click="showPassword('eye2')"></i>
+                                <input type="password" placeholder="请输入新支付密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
+                                <i class="eye active" @click="showPassword('eye2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
                         <fieldset v-if="!showC" >
                             <div class="form_g text">
                                 <legend>新密码</legend>
-                                <input type="text" placeholder="请输入支付新密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
-                                <i class="eye active act2" @click="showPassword('act2')"></i>
+                                <input type="text" placeholder="请输入新支付密码" v-model="newPayPassword"  class="newPayPassword" maxlength="4" @input="checkNum(newPayPassword,'newPayPassword')">
+                                <i class="eye" @click="showPassword('act2')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -226,7 +226,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="password" placeholder="请再次输入新支付密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
-                                <i class="eye eye3" @click="showPassword('eye3')"></i>
+                                <i class="eye active" @click="showPassword('eye3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -234,7 +234,7 @@
                             <div class="form_g text">
                                 <legend>确认密码</legend>
                                 <input type="text" placeholder="请再次输入新支付密码" v-model="newPayPassword_confirm"  class="newPayPassword_confirm" maxlength="4" @input="checkNum(newPayPassword_confirm,'newPayPassword_confirm')">
-                                <i class="eye active act3" @click="showPassword('act3')"></i>
+                                <i class="eye" @click="showPassword('act3')"></i>
                             </div>
                             <label class="error-message "></label>
                         </fieldset>
@@ -687,7 +687,7 @@ export default {
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
                   setTimeout(function(){
                       window.location = '/lobbyTemplate/info_data' ;
-                  },2000)
+                  },1000)
 
               },
               error: (err) =>{
