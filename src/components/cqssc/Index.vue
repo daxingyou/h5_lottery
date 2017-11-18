@@ -360,35 +360,45 @@ export default {
                 that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                     that.ishwowpriod = true ;
                     that.next_pcode = res.data[0].pcode;  // 下期期数
-                    that.now_pcode = res.data[1].pcode;  // 当前期数
+
                     var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
+                    let code = res.data[2].winNumber;
                     if(firstpcode =='024' && that.lotteryID == '2'){  // 重庆时时彩 白天第一期
+                        that.now_pcode = res.data[0].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                        that.winNumber = res.data[1].winNumber;
+                        that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                        that.previous_pcode = res.data[1].pcode;  // 上期期数
                     }else if(firstpcode =='001'){ // 天津，新疆 时时彩 白天第一期
+                        that.now_pcode = res.data[0].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                        that.winNumber = res.data[1].winNumber;
+                        that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                        that.previous_pcode = res.data[1].pcode;  // 上期期数
                     }else{
+                        that.now_pcode = res.data[1].pcode;  // 当前期数
                         // 当前期数时间
                         that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                        //code 上期开奖号码
+                        if (!code) {
+                            // code = '-,-,-,-,-';
+                            that.winNumber = res.data[3].winNumber;
+                            that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[3].pcode;  // 上期期数
+                        }else{
+                            that.winNumber = res.data[2].winNumber;
+                            that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[2].pcode;  // 上期期数
+                        }
                     }
 
                     // 当前期封盘时间
                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
                     // 当天日期
                     that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
-                    let code = res.data[2].winNumber;
-                    //code 上期开奖号码
-                    if (!code) {
-                       // code = '-,-,-,-,-';
-                        that.winNumber = res.data[3].winNumber;
-                        that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
-                        that.previous_pcode = res.data[3].pcode;  // 上期期数
-                    }else{
-                        that.winNumber = res.data[2].winNumber;
-                        that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
-                        that.previous_pcode = res.data[2].pcode;  // 上期期数
-                    }
+
                     resolve();
                 }).catch(function () {
                      console.log("Promise Rejected in method of timeBegin");

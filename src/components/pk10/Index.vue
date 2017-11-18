@@ -404,33 +404,38 @@ export default {
                         that.ishwowpriod = true ;
                         that.next_pcode = res.data[0].pcode;  // 下期期数
                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
-                        that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                        let code = res.data[2].winNumber;
                        // that.previous_pcode = res.data[2].pcode;  // 上期期数
                         var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
                         if(firstpcode =='001'){  //  白天第一期
+                            that.now_pcode = res.data[0].issueAlias;  // 当前期数
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                            that.winNumber = res.data[1].winNumber;
+                            that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
+                            that.previous_pcode = res.data[1].issueAlias;  // 上期期数
                         }else{
+                            that.now_pcode = res.data[1].issueAlias;  // 当前期数
                             // 当前期数时间
                             that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                            //code 上期开奖号码
+                            if (!code) {
+                                // code='20,20,20,20,20,20,20,20,20,20';
+                                that.winNumber = res.data[3].winNumber;
+                                that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[3].issueAlias;  // 上期期数
+                            }else{
+                                that.winNumber = res.data[2].winNumber;
+                                that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[2].issueAlias;  // 上期期数
+                            }
+
                         }
 
                         // 当前期封盘时间
                         that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
                         // 当天日期
                         that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
-                        let code = res.data[2].winNumber;
-                        //code 上期开奖号码
-                        if (!code) {
-                            // code='20,20,20,20,20,20,20,20,20,20';
-                            that.winNumber = res.data[3].winNumber;
-                            that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
-                            that.previous_pcode = res.data[3].issueAlias;  // 上期期数
-                        }else{
-                            that.winNumber = res.data[2].winNumber;
-                            that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
-                            that.previous_pcode = res.data[2].issueAlias;  // 上期期数
-                        }
 
                         resolve();
                         // that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
