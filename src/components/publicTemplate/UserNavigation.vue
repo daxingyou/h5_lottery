@@ -32,13 +32,13 @@
                 </div>
                 <ul class="all_lottery">
                   <li :class="$route.path =='/'+gameHref[lottery.cid] ?'active':''" v-for="lottery in allLottery">
-                    <router-link  v-bind:to="'/'+gameHref[lottery.cid]" >
+                    <a :href="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                           <!-- <img :src="lottery.imgUrl" alt="">-->
                           <img v-lazy="'../static/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
                       <p>{{lottery.name}}</p>
-                    </router-link>
+                    </a>
                   </li>
               </ul>
           </div>
