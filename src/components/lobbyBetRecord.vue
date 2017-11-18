@@ -149,7 +149,6 @@
         },
 
         computed:{
-
             year: function(){
                 return this.nowDate.getYear() + 1900;
             },
@@ -162,7 +161,6 @@
             newpdate: function(){
                 return '' + this.year + this.mon + this.day;
             },
-
         },
         mounted: function () {
             var _self = this ;
@@ -171,7 +169,7 @@
             _self.setMenuAction();
             _self.initView();
             _self.initDateMeun();
-
+            document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
             var mySwiperRecode = new Swiper('#swiper1', {
                 // autoplay: 5000,//可选选项，自动滑动
                 onSlideChangeStart: (swiper) => {

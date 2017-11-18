@@ -191,6 +191,8 @@ this.setMenuAction() ;
             this.count = $(e.currentTarget).data('val') ;
             $(e.currentTarget).addClass('on').siblings().removeClass('on') ;
             this.doubleCount(this.lotteryid,this.count,'') ;
+           document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+
     },
 
       //筛选下拉单
