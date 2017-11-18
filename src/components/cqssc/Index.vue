@@ -361,9 +361,18 @@ export default {
                     that.ishwowpriod = true ;
                     that.next_pcode = res.data[0].pcode;  // 下期期数
                     that.now_pcode = res.data[1].pcode;  // 当前期数
+                    var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
+                    if(firstpcode =='024' && that.lotteryID == '2'){  // 重庆时时彩 白天第一期
+                        // 当前期数时间
+                        that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                    }else if(firstpcode =='001'){ // 天津，新疆 时时彩 白天第一期
+                        // 当前期数时间
+                        that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                    }else{
+                        // 当前期数时间
+                        that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                    }
 
-                    // 当前期数时间
-                    that.now_time = that.formatTimeUnlix(res.data[1].endTime);  
                     // 当前期封盘时间
                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
                     // 当天日期

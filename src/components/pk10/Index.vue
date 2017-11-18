@@ -406,9 +406,15 @@ export default {
                         that.pk10_now_pcode = res.data[1].pcode;  // 当前期数
                         that.now_pcode = res.data[1].issueAlias;  // 当前期数
                        // that.previous_pcode = res.data[2].pcode;  // 上期期数
+                        var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
+                        if(firstpcode =='001'){  //  白天第一期
+                            // 当前期数时间
+                            that.now_time = that.formatTimeUnlix(res.data[0].endTime);
+                        }else{
+                            // 当前期数时间
+                            that.now_time = that.formatTimeUnlix(res.data[1].endTime);
+                        }
 
-                        // 当前期数时间
-                        that.now_time = this.formatTimeUnlix(res.data[1].endTime);
                         // 当前期封盘时间
                         that.nowover_time = this.formatTimeUnlix(res.data[1].prizeCloseTime);
                         // 当天日期
