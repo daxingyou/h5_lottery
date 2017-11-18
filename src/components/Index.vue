@@ -17,6 +17,7 @@
                  <a href="javascript:;" v-show="!haslogin"  @click="demoPlay()">试玩</a>
                  <!-- <router-link class="login" to="/lobbyTemplate/info" v-show="haslogin" ><i></i><b></b></router-link>--> <!-- 普通用户 -->
                  <a class="guset" href="javascript:;" v-show="haslogin && logintype=='2'" @click="CheckDemoPlay()"><i></i>游客</a>  <!--  试玩帐号 -->
+                 <span class="memberaccount" v-show="haslogin && logintype=='1'">{{getCookie('username')}}</span>
                  <a href="javascript:;" v-show="haslogin" @click="loginOut()">退出</a>
              </div>
          </header>
@@ -158,6 +159,14 @@
 
               </ul>
           </section>
+          <!--20171116 新增優惠活動-->
+          <section class="promoindex_area">
+              <h4><span></span>优惠活动<a  @click="Continued()">更多>></a></h4>
+              <a  @click="Continued()">
+                  <img src="/static/images/banner/promo-1.jpg">
+              </a>
+          </section>
+          <!--end 20171116 新增優惠活動-->
           <section class="cooper_area">
               <div class="cooper">
                   <h3><img src="static/images/title_cooperation.png" alt="合作加盟"></h3>
@@ -174,14 +183,7 @@
                   </ul>
               </div>
           </section>
-            <!--20171116 新增優惠活動-->
-            <section class="promoindex_area">
-                <h4><span></span>优惠活动<a  @click="Continued()">更多>></a></h4>
-                <a  @click="Continued()">
-                    <img src="/static/images/banner/promo-1.jpg">
-                </a>
-            </section>
-            <!--end 20171116 新增優惠活動-->
+
       </div>
       <Confirm ref="confirm" />
       <FooterNav />
@@ -359,5 +361,5 @@ export default {
 
 <style scoped>
   .to_lottery { display: block; position: relative; z-index: 7; }
-
+  .memberaccount{ display: inline-block;font-size: 0.35rem;position: absolute;right: 1.8rem;top: .5rem; }
 </style>
