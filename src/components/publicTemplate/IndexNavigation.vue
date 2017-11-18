@@ -5,7 +5,7 @@
         <div class="so-left-close" @click="close">
             <img src="../../../static/images/left/left808.png">
         </div>
-        <div class="so-left-con">
+        <div class="so-left-con" >
             <div class="so-l-c-top">
                 <div>
                     <img src="../../../static/images/left/user.png">

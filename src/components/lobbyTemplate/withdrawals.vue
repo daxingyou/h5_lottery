@@ -220,7 +220,7 @@ export default {
                       success: (res) => {;
                           //取款密码错误
                           if(res.err=='SUCCESS'){
-                              _self.PaySubmit = false
+                              _self.PaySubmit = true
                               _self.$refs.autoCloseDialog.open('提款成功','','icon_check','d_check') ;
                               setTimeout(function(){
                                   window.location = '/lobbyTemplate/info' ;
