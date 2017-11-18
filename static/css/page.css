@@ -1506,6 +1506,7 @@ i.index_s {
   width: 100%;
   background-color: #19222f;
   position: fixed;
+  cursor: pointer;
   top: 4.3rem; }
   .so-con .so-in-con > div:after {
     content: "";
