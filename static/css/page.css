@@ -162,7 +162,7 @@ input, select, button, a {
       display: inline-block;
       height: 1.5rem; }
       #pa_head > .left a img {
-        width: 100%;
+        width: 150%;
         margin: 0; }
       #pa_head > .left a.btn_leftside {
         width: 100%; }
