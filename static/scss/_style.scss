@@ -421,6 +421,7 @@
                     line-height: 1.3rem;
                     text-align: center;
                     background-position-y: -1.5rem;
+                    cursor: pointer;
                 }
                 li.active {
                     background: url(/static/images/content/nav-active.png) no-repeat;
@@ -512,12 +513,14 @@
                 width: 3rem;
                 margin-bottom: 4%;
                 margin-left: 4.5%;
+                cursor: pointer;
                 display: none;
                 span {
                     color: $bluetext;
                     font-size: .38rem;
                     display: block;
                     float: left;
+                    cursor:pointer;
                     padding-left: .2rem;
                     padding-right: .1rem;
                     line-height: 0.9rem;
@@ -590,6 +593,7 @@
                 height: 1.65rem;
                 width: 25%;
                 padding-bottom: .2rem;
+                cursor: pointer;
                 span {
                     color: #fff;
                     font-size: 0.3rem;
@@ -693,6 +697,7 @@
                 width: 3rem;
                 margin-bottom: 4%;
                 margin-left: 3.5%;
+                cursor: pointer;
                // display: none;
                 >span {
                     color: $bluetext;

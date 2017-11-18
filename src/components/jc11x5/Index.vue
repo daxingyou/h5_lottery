@@ -198,38 +198,11 @@
         <!--封盘底部遮挡-->
         <div v-if="entertainStatus" class="so-fengpan">
             <a>已封盘</a>
-        </div> 
-        <!-- <div class="so-foot">
-            <div>
-                <p>已选中<span class="bet-select-num">0</span>注</p>
-            </div>
-            <div>
-                <form>
-                    <input placeholder="输入金额" type="number" class="bet-amount">
-                    <input type="reset" value="重置">
-                </form>
-            </div>
-            <div>
-                <div class="so-add">
-                    <img src="/static/images/foot/foot-jia.png">
-                    <p>下注</p>
-                </div>
-            </div>
         </div>
-        <div class="so-shade"></div>
-        <div class="so-pop">
-            <h2>下注清单<a></a></h2>
-            <p class="grey_text">请核对您的下注信息</p>
-            <div>
-                <div  class="boxlist bet-go-list">
-
-                </div>
-            </div>
-            <p class="so-pop-sum">【总计】总注数：<span class="total-bet-num"> </span> 总金额：<span class="total-bet-mon"> </span></p>
-            <a><img style="width: 2rem;" src="/static/images/pop/hui.png"></a>
-            <a class="btn-submit"><img style="width: 2rem;" src="/static/images/pop/lan_text.png"></a>
-        </div> -->
-
+        <!--未开盘底部遮挡-->
+        <div v-if="notopen" class="so-fengpan">
+            <a>未开盘</a>
+        </div>
 
         <!-- 确认对话框API
             text  对话框提示内容
@@ -294,6 +267,7 @@
             winNumber:'',    //上期开奖号
             lastTermStatic:'',  //上期开奖数据统计
             entertainStatus:false,
+            notopen:false,
             ishwowpriod :false,
             now_time:'',  // 当前期数销售截止时间
             nowover_time:'',  // 当前期数封盘时间
@@ -436,17 +410,23 @@
                     that.getSystemTime().then(sys_time=>{
                         // sys_time = '2017-10-30 19:39:10';    //5秒后封盘所需时间，然后5秒后开奖
                         // sys_time = '2017-10-30 19:39:16';   //封盘状态所需时间，5秒后开奖 
-                        that.sys_time = sys_time;
+                        that.sys_time = that.formatTimeUnlix(sys_time) ;
                         that.priodDataNewly(that.lotteryID, sys_time).then(res=>{
                             that.ishwowpriod = true ;
                             that.next_pcode = res.data[0].pcode;  // 下期期数
                             let code = res.data[2].winNumber;
                             var firstpcode = res.data[0].pcode.toString().substr(8, 11) ;
                             if(firstpcode =='001'){  //  白天第一期
+                                if( res.data[0].startTime - sys_time >0){  // 未开盘状态
+                                    that.notopen = true ;
+                                }else{
+                                    that.notopen = false ;
+                                }
                                 that.now_pcode = res.data[0].pcode;  // 当前期数
                                 // 当前期数时间
                                 that.now_time = that.formatTimeUnlix(res.data[0].endTime);
-
+                                // 当前期封盘时间
+                                that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);
                                 that.winNumber = res.data[1].winNumber;
                                 that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[1].pcode;  // 上期期数
@@ -454,7 +434,8 @@
                                 that.now_pcode = res.data[1].pcode;  // 当前期数
                                 // 当前期数时间
                                 that.now_time = that.formatTimeUnlix(res.data[1].endTime);
-
+                                // 当前期封盘时间
+                                that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);
                                 //code 上期开奖号码
                                 if (!code) {
                                     // code = '-,-,-,-,-';
@@ -468,8 +449,7 @@
                                 }
                             }
 
-                            // 当前期封盘时间
-                            that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  
+
                             // 当天日期
                             that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
 
@@ -485,6 +465,7 @@
                     that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
                 })
                 that.entertainStatus = false;
+                that.notopen = false;
             },
             resetAction:function(success){
                 this.betSelectedList = [];
@@ -511,7 +492,7 @@
             },
             //当用户选择球时（连码），保存相应数据
             continueNumberSelect:function(e, item, callback){
-                if (this.entertainStatus){  // 封盘时，不能选择
+                if (this.entertainStatus || this.notopen){  // 封盘时，不能选择
                     return false;
                 }else{
                     const rule = this.selectRules[item.parentItem.cid];
@@ -541,7 +522,7 @@
             },
             //当用户选择球时（普通），保存相应数据
             betSelect:function(e, item, parentItem){
-                if (this.entertainStatus){
+                if (this.entertainStatus || this.notopen){
                     return false;
                 }
                 var $src = $(e.currentTarget);
@@ -556,7 +537,7 @@
             },
               //用户选择1-5球时，保存相应数据
             OFSelect:function(e, item, parentItem){
-                  if (this.entertainStatus){
+                  if (this.entertainStatus || this.notopen){
                       return false;
                   }
                   var $src = $(e.currentTarget);
