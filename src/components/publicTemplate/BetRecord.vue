@@ -215,6 +215,7 @@
             // 二级标签
             /*(function () {*/
             $('.tab_mid > li').click((e) => {
+                document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                 const $src = $(e.currentTarget);
                 $src.addClass('on')
                     .siblings()

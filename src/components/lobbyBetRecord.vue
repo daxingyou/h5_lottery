@@ -219,6 +219,7 @@
             /*(function () {*/
             $('.tab_mid > li').click((e) => {
                 const $src = $(e.currentTarget);
+                document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                 $src.addClass('on')
                     .siblings()
                     .removeClass('on');
