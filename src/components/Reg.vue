@@ -330,8 +330,8 @@
                     acType: '1',   //1真钱玩家，2试玩玩家
                     appid: 'bcappid02',    //平台商id，bcappid01 或 bcappid02
                     curType: 'CNY',  //币种，如：CNY
-                    referrals: this.tjrusername ,   // 推荐人
-                    login: this.username ,   // 帐号
+                    referrals: _self.tjrusername ,   // 推荐人
+                    login: _self.username ,   // 帐号
                     method: 'mc',   //方法：mc创建会员
                     oddType: 'a',  //盘口，1位字符，预留
                     password: this.password ,  // 用户登录密码
@@ -354,9 +354,12 @@
                         if(res.err =='SUCCESS'){ // 注册成功
                             _self.regsubmitflage = false ;
                             _self.$refs.autoCloseDialog.open('注册成功','','icon_check','d_check') ;
+                            _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                            _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
                             setTimeout(function () {
-                                window.location = '/Login' ;
-                            },2000)
+                               // window.location = '/Login' ;
+                                window.location = '/' ;
+                            },500)
                         }else{ //code 105 验证码无效
                             _self.regsubmitflage = false ;
                               this.switchYzmcode() ; // 更新验证码
