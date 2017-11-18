@@ -154,14 +154,15 @@
                         </a>
                         <p>APP下载</p>
                     </li>
-
                     <!--end 20171116 新增選單-->
-
               </ul>
           </section>
           <!--20171116 新增優惠活動-->
           <section class="promoindex_area">
-              <h4><span></span>优惠活动<a  @click="Continued()">更多>></a></h4>
+              <h3>
+                  <img src="static/images/title_promos.png" alt="优惠活动">
+                  <a  @click="Continued()" style="float: right;">更多>></a>
+              </h3>
               <a  @click="Continued()">
                   <img src="/static/images/banner/promo-1.jpg">
               </a>
@@ -198,7 +199,7 @@ import Mixin from '@/Mixin'
 import IndexNavigation from '@/components/publicTemplate/IndexNavigation'
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import FooterNav from '@/components/Footer'
-// import VueMarquee from 'vue-marquee-ho';
+
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 import Confirm from '@/components/publicTemplate/Confirm'
 
@@ -270,7 +271,7 @@ export default {
                       this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
-                      },300)
+                      },500)
 
                   }
                   this.$nextTick(function () {
