@@ -60,7 +60,7 @@
                 </div>
               <!--  <div id="wrapper">-->
 
-                        <div class="so-con-right bule_bg" >
+                        <div class="so-con-right bule_bg scroll-content" id="content_wrapper">
 
                          <!--   <div id="wrapper">-->
                               <!--  <div id="scroller" class="scroller">-->
@@ -258,7 +258,7 @@ export default {
       this.getMemberBalance(this.lotteryID).then(()=>{
         this.loadPlayTree(this.lotteryID).catch(function () {
              console.log("Promise Rejected in method of create 2");
-        });;  // 玩法树，彩种id 为2
+        });  // 玩法树，彩种id 为2
     }).catch(function () {
         console.log("Promise Rejected in method of create 1");
     });
@@ -276,13 +276,14 @@ export default {
 
     }, 500) ;
 
-      $('.so-con-left').on('touchstart touchmove',function (e) {
-         // $('.so-con-right').click() ;
-          $('.alert-show').show() ;
-      })
-      $('.so-con-left').on('touchend',function (e) {
-          $('.alert-show').hide() ;
-      })
+    /*  var contentScroll = new IScroll('#content_wrapper', {
+          mouseWheel: true,
+          click: true,
+          probeType: 3
+      });*/
+/*      $('.so-con-left').on('touchstart touchmove',function () {
+
+      })*/
 
   },
   computed:{
@@ -453,13 +454,18 @@ export default {
     #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
         display: block;
     }
-/*    .loading{ line-height: 40px;
-        height: 0;
-        text-align: center;
-        transition: height .25s, border-bottom-width .25s;
-        background-color: #eee;
-        font-size: 14px;
-        overflow: hidden;}
-    #wrapper {position:absolute;top:0 ; bottom:48px;left:0;width:100%; }*/
+/*    .scroll-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        margin-top: -1px;
+        padding-top: 1px;
+        margin-bottom: -1px;
+        width: auto;
+        height: auto;
+    }*/
 
 </style>

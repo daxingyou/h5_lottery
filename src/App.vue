@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view />
-    <div class="alert-show"></div>
+
   </div>
 </template>
 
@@ -33,19 +33,12 @@ export default {
    /* setTimeout(function () {
         $('.so-con-right').css('height','100%') ;
     },500)*/
-   $('.alert-show').css('height',$(window).height()+'px')
+
 
   },
 
 }
 </script>
 <style scoped>
-  .alert-show {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0);
-    position: relative;
-    z-index: 500;
-  }
+
 </style>

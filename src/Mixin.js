@@ -308,10 +308,11 @@ var MyMixin = {
             var rightConHeight = 0;
             var leftConHeight = 0;
             rightConHeight = viewHeight - topHeight - mainHeight;
-            $('.so-con-right').height(rightConHeight + 'px');
+           // $('.so-con-right').height(rightConHeight + 'px');
+            // $('.so-con-left').height(leftConHeight + 'px');
+
             // 六合彩左側選單高度
             leftConHeight = viewHeight - topHeight - mainHeight;
-            $('.so-con-left').height(leftConHeight + 'px');
             // 左边菜单玩法框高度初始化
             var leftTopHeight = $('.so-l-c-top').height();
             $('.so-l-c-con').height((viewHeight - leftTopHeight) + 'px');

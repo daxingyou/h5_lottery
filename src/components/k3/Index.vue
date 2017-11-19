@@ -7,35 +7,37 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
         
         <div class="so-index">
-            <MenuBar :moduleName="moduleName" :balance="balanceData.balance" />
+            <div class="so-top-all">
+                <MenuBar :moduleName="moduleName" :balance="balanceData.balance" />
 
-            <div class="so-in-main">
-                <div>
-                    <div class="so-main-top">
-                        <HistoryTerm :previous_pcode="previous_pcode" />
+                <div class="so-in-main">
+                    <div>
+                        <div class="so-main-top">
+                            <HistoryTerm :previous_pcode="previous_pcode" />
 
-                        <div class="so-m-t-right" v-show="ishwowpriod">
-                            <div class="last-open-num">
-                                <ul class="k3_top_number">
-                                    <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li> 
-                                </ul>
+                            <div class="so-m-t-right" v-show="ishwowpriod">
+                                <div class="last-open-num">
+                                    <ul class="k3_top_number">
+                                        <li v-for="item in (winNumber || '20, 20, 20').split(',')"><span :class="'k3_dice num_'+ item"></span></li>
+                                    </ul>
+                                </div>
+                                <div class="last-open-k3dou last-open-dou">
+                                    <ul class="k3_top_detail ">
+                                        <li>{{lastTermStatic.total}}</li>
+                                        <li>{{lastTermStatic.sizer}}</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="last-open-k3dou last-open-dou">
-                                <ul class="k3_top_detail ">
-                                    <li>{{lastTermStatic.total}}</li>
-                                    <li>{{lastTermStatic.sizer}}</li>
-                                </ul>
-                            </div>
+
                         </div>
-
+                        <CountdownTimer ref="countdownTimer"
+                            @countdownOver="playLottery"
+                            @entertainCountdownOver="entertain"
+                            @spanArrived="lotteryDataFetch"
+                            @visibility="timerBegin"
+                            :now_pcode="now_pcode" :lotteryID="lotteryID"
+                            :start="sys_time" :end="now_time" :overend="nowover_time" />
                     </div>
-                    <CountdownTimer ref="countdownTimer"
-                        @countdownOver="playLottery"
-                        @entertainCountdownOver="entertain"
-                        @spanArrived="lotteryDataFetch"
-                        @visibility="timerBegin"
-                        :now_pcode="now_pcode" :lotteryID="lotteryID"
-                        :start="sys_time" :end="now_time" :overend="nowover_time" />
                 </div>
             </div>
             <div class="so-in-con">
