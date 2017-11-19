@@ -470,7 +470,8 @@ i.prd{
     }
     .tab_content{
         overflow:auto;/* winphone8和android4+ */
-        -webkit-overflow-scrolling: touch; /* ios5+ */
+        -webkit-overflow-scrolling: touch;
+        z-index:10;
         white-space: nowrap;
         width: 97.5% !important;
         height: 8.3rem;
@@ -667,7 +668,6 @@ i.prd{
 #betting_record{
     //margin-top: 1.5rem;
     // overflow-y: scroll;
-    // -webkit-overflow-scrolling: touch;
     &.ac_detial_area{
         //margin-top: 3rem;
         //padding-top: .2rem;

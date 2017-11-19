@@ -75,75 +75,78 @@
                         </li>
                     </ul>
                 </div>
-                <div class="so-con-right bule_bg">
-                    <!--以下为盘面不同样式，根据ID区分-->
-                    <div id="so-item0" class="active">
-                        <!--总和&龙虎-->
-                        <ul>
-                            <li class="select-li" v-for="item in doubleSideList.filter((temp)=>{return temp.cid==21600})">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid" :class="([21605,21606,21607].includes(itemChild.cid) && 'so-con-span-short')" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li :class="'select-li' + ({'0':' first_ball', '1':' sec_ball'}[index] || ' sec_ball')" v-for="(item,index) in doubleSideList.filter((temp)=>{return temp.cid<21600})">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="so-item1" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in oneToFiveList">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
-                                            <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <div id="so-item2"  style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in frontCenterBackList">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                <div class="so-con-right bule_bg" tabindex="1">
 
-                        </ul>
-                    </div>
+                        <!--以下为盘面不同样式，根据ID区分-->
+                        <div id="so-item0" class="active">
+                            <!--总和&龙虎-->
+                            <ul>
+                                <li class="select-li" v-for="item in doubleSideList.filter((temp)=>{return temp.cid==21600})">
+                                    <div>
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p :data-id="itemChild.cid" :class="([21605,21606,21607].includes(itemChild.cid) && 'so-con-span-short')" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span>{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li :class="'select-li' + ({'0':' first_ball', '1':' sec_ball'}[index] || ' sec_ball')" v-for="(item,index) in doubleSideList.filter((temp)=>{return temp.cid<21600})">
+                                    <div>
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span>{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="so-item1" style="display:none;">
+                            <ul>
+                                <li class="select-li" v-for="item in oneToFiveList">
+                                    <div>
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
+                                                <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div id="so-item2"  style="display:none;">
+                            <ul>
+                                <li class="select-li" v-for="item in frontCenterBackList">
+                                    <div>
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span>{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
                 </div>
                 <div class="so-clear"></div>
             </div>
@@ -213,7 +216,6 @@ import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog
 import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
 import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
 import MenuBar from '@/components/publicTemplate/MenuBar'
-
 import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
@@ -280,8 +282,17 @@ export default {
     this.initViewHeight() ;
     setTimeout(() => {
         this.timerBegin();
+
     }, 500) ;
 
+     // var myScroll = new IScroll('#wrapper');
+      $('.so-con-left').on('touchstart ',function (e) {
+          $('.so-con-right').click() ;
+
+      })
+     /*  $('.so-con-right').on('click',function () {
+         alert('fgfvfcf')
+       })*/
 
   },
   computed:{
@@ -296,6 +307,7 @@ export default {
     }
   },
   methods:{
+
     switchTab:function(e){
         const $src = $(e.currentTarget);
         const index = $src.index();
@@ -451,4 +463,6 @@ export default {
     #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
         display: block;
     }
+
+
 </style>

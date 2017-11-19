@@ -1301,6 +1301,7 @@ i.index_s {
         height: 100%;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+          z-index:10;
         padding-bottom: 2rem; }
         .so-con .so-left .so-left-con .so-l-c-con ul:after {
           content: "";
@@ -1517,12 +1518,11 @@ i.index_s {
     float: left;
     background-color: #19222f;
     height: 100%;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     padding-bottom: .8rem; }
     .so-con .so-in-con .so-con-left ul {
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
+      z-index:10;
       cursor: pointer; }
       .so-con .so-in-con .so-con-left ul li {
         display: block;
@@ -1541,10 +1541,13 @@ i.index_s {
         background-position-y: -0.2rem; }
   .so-con .so-in-con .so-con-right {
     width: 7.7rem;
-    float: left;
+    position: relative;
+    right: 0;
     height: 100%;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; }
+   /* -webkit-overflow-scrolling: touch;*/
+    z-index:20;
+  }
     .so-con .so-in-con .so-con-right > div {
       padding-bottom: 2.4rem; }
     .so-con .so-in-con .so-con-right > div.active {
@@ -2430,6 +2433,7 @@ img.bet_ok {
     overflow: auto;
     /* winphone8和android4+ */
     -webkit-overflow-scrolling: touch;
+    z-index:10;
     /* ios5+ */
     position: relative;
     top: inherit;
@@ -2878,6 +2882,7 @@ i.prd {
     overflow: auto;
     /* winphone8和android4+ */
     -webkit-overflow-scrolling: touch;
+    z-index:10;
     /* ios5+ */
     white-space: nowrap;
     width: 97.5% !important;

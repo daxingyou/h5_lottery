@@ -38,7 +38,7 @@
 
 .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-in-top-sum { left: .3rem; top: .05rem; }
 
-.so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
+.so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch;z-index:10; padding-bottom: 2rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con ul:after { content: ""; display: block; clear: both; }
 
@@ -110,15 +110,15 @@
 
 .so-con .so-in-con > div:after { content: ""; display: block; clear: both; }
 
-.so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: .8rem; }
+.so-con .so-in-con .so-con-left { width: 2.5rem; float: left; background-color: #19222f; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch;z-index:10; padding-bottom: .8rem; }
 
-.so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+.so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch;z-index:10; }
 
 .so-con .so-in-con .so-con-left ul li { display: block; width: 100%; height: 1.25rem; border-bottom: solid .02rem #293454; color: #ffffff; font-size: 0.4rem; line-height: 1.3rem; text-align: center; background-position-y: -1.5rem; }
 
 .so-con .so-in-con .so-con-left ul li.active { background: url(../images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
 
-.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+.so-con .so-in-con .so-con-right { width: 7.5rem; float: left; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch;z-index:10; }
 
 .so-con .so-in-con .so-con-right > div { padding-bottom: 2rem; }
 
@@ -410,7 +410,7 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item2.jc115 > .hd { height: .9rem; width: 95%; background-size: 100%; overflow: hidden; margin: 0 auto; border-radius: 100px; border-left: 1px solid rgba(69, 109, 139, 0.6); border-right: 1px solid rgba(69, 109, 139, 0.6); border-bottom: 1px solid rgba(69, 109, 139, 0.4); -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2); margin-top: 0.2rem; background-color: rgba(15, 16, 18, 0.6); }
 
-#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem; }
+#so-item2.jc115 > .hd ul { white-space: nowrap; width: 100% !important; overflow: auto; /* winphone8和android4+ */ -webkit-overflow-scrolling: touch;z-index:10; /* ios5+ */ position: relative; top: inherit; left: inherit; height: .9rem; }
 
 #so-item2.jc115 > .hd ul.tab_mid { background-color: transparent; border-radius: 100px; }
 

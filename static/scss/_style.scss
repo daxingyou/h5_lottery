@@ -124,14 +124,11 @@
                 height: 100%;
                 overflow-y: scroll;
                 -webkit-overflow-scrolling: touch;
+                z-index:10;
                 padding-bottom: 2rem;
                 >div{
-                    // overflow-y: scroll;
-                    // -webkit-overflow-scrolling: touch;
                 }
                 ul{
-                    // overflow-y: scroll;
-                    // -webkit-overflow-scrolling: touch;
                     &:after {
                         content: "";
                         display: block;
@@ -405,13 +402,11 @@
             float: left;
             background-color: #19222f;
             height: 100%;
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-            //-webkit-overflow-scrolling: auto;
             padding-bottom: .8rem;
              ul {
                 overflow-y: scroll;
                 -webkit-overflow-scrolling: touch;
+                 z-index:10;
                  cursor: pointer;
                 li {
                     display: block;
@@ -434,12 +429,12 @@
         }
         .so-con-right {
             width: 7.7rem;
-            float: left;
+            position: relative;
+            right: 0;
             height: 100%;
-            //overflow-y: auto;
             overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-            //-webkit-overflow-scrolling: auto;
+           /* -webkit-overflow-scrolling: touch;*/
+            z-index:20;
             > div {
                 padding-bottom: 2.4rem;
             }
@@ -1508,7 +1503,8 @@ img.bet_ok {
             white-space: nowrap;
             width: 100% !important;
             overflow:auto;/* winphone8和android4+ */
-            -webkit-overflow-scrolling: touch; /* ios5+ */
+            -webkit-overflow-scrolling: touch;
+            z-index:10;
             position: relative;
             top:inherit;
             left: inherit;
