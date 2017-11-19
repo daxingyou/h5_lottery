@@ -14,63 +14,65 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
         <div class="so-index">
-            <div class="so-in-top">
-                <ul>
-                    <li class="so-menu">
-                        <img src="/static/images/top/icon-menu.png" class="so-top-menu">
-                    </li>
-                    <li class="left_top_logo">
-                        北京PK10
-                    </li>
-                    <li class="purse">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                        <div class="so-in-top-sum">
-                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
-                        </div>
-                    </li>
-                    <li class="so-top-zoushi">
-                        <img src="/static/images/top/zoushi.png">
-                    </li>
-                </ul>
-            </div>
-            <div class="so-in-main">
-                <div>
-                    <div class="so-main-top">
-                        <HistoryTerm :previous_pcode="previous_pcode" />
-
-                        <div class="so-m-t-right" v-show="ishwowpriod">
-                            <div class="last-open-num">
-                                <ul class="pk10_top_number">
-                                    <li v-for="item in winNumber.split(',')"><span class="pk10_ball small_ball" :class="'ball num_'+item"> </span></li>
-                                    <!-- <li><span class="pk10_ball small_ball num_10"></span></li> -->
-
-                                </ul>
+            <div class="so-top-all">
+                <div class="so-in-top">
+                    <ul>
+                        <li class="so-menu">
+                            <img src="/static/images/top/icon-menu.png" class="so-top-menu">
+                        </li>
+                        <li class="left_top_logo">
+                            北京PK10
+                        </li>
+                        <li class="purse">
+                            <img src="/static/images/top/sjinbi.png" class="so-top-sum">
+                            <div class="so-in-top-sum">
+                                {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                             </div>
-                            <div class="last-open-dou">
-                                <ul class="pk10_top_detail">
-                                    <li>{{lastTermStatic.top2_total}}</li>
-                                    <li>{{lastTermStatic.top2_sizer}}</li>
-                                    <li>{{lastTermStatic.top2_doubler}}</li>
-                                    <li>{{lastTermStatic.lh_5}}</li>
-                                    <li>{{lastTermStatic.lh_4}}</li>
-                                    <li>{{lastTermStatic.lh_3}}</li>
-                                    <li>{{lastTermStatic.lh_2}}</li>
-                                    <li>{{lastTermStatic.lh_1}}</li>
+                        </li>
+                        <li class="so-top-zoushi">
+                            <img src="/static/images/top/zoushi.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="so-in-main">
+                    <div>
+                        <div class="so-main-top">
+                            <HistoryTerm :previous_pcode="previous_pcode" />
 
-                                </ul>
+                            <div class="so-m-t-right" v-show="ishwowpriod">
+                                <div class="last-open-num">
+                                    <ul class="pk10_top_number">
+                                        <li v-for="item in winNumber.split(',')"><span class="pk10_ball small_ball" :class="'ball num_'+item"> </span></li>
+                                        <!-- <li><span class="pk10_ball small_ball num_10"></span></li> -->
+
+                                    </ul>
+                                </div>
+                                <div class="last-open-dou">
+                                    <ul class="pk10_top_detail">
+                                        <li>{{lastTermStatic.top2_total}}</li>
+                                        <li>{{lastTermStatic.top2_sizer}}</li>
+                                        <li>{{lastTermStatic.top2_doubler}}</li>
+                                        <li>{{lastTermStatic.lh_5}}</li>
+                                        <li>{{lastTermStatic.lh_4}}</li>
+                                        <li>{{lastTermStatic.lh_3}}</li>
+                                        <li>{{lastTermStatic.lh_2}}</li>
+                                        <li>{{lastTermStatic.lh_1}}</li>
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+
+                        <CountdownTimer ref="countdownTimer"
+                                        @countdownOver="playLottery"
+                                        @entertainCountdownOver="entertain"
+                                        @spanArrived="lotteryDataFetch"
+                                        @visibility="timerBegin"
+                                        :lotteryID="lotteryID"
+                                        :now_pcode="now_pcode"
+                                        :start="sys_time" :end="now_time" :overend="nowover_time" />
+
                     </div>
-
-                    <CountdownTimer ref="countdownTimer"
-                                    @countdownOver="playLottery"
-                                    @entertainCountdownOver="entertain"
-                                    @spanArrived="lotteryDataFetch"
-                                    @visibility="timerBegin"
-                                    :lotteryID="lotteryID"
-                                    :now_pcode="now_pcode"
-                                    :start="sys_time" :end="now_time" :overend="nowover_time" />
-
                 </div>
             </div>
             <div class="so-in-con">

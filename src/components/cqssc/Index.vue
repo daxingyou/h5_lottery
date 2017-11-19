@@ -15,56 +15,39 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
 
         <div class="so-index">
-            <MenuBar :moduleName="moduleName || '重庆时时彩'" :balance="balanceData.balance" />
-            <!-- <div class="so-in-top">
-                <ul>
-                    <li class="so-menu">
-                          <img src="/static/images/top/icon-menu.png" class="so-top-menu">
-                      </li>
-                    <li class="left_top_logo">
-                        重庆时时彩
-                    </li>
-                    <li class="purse">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                        <div class="so-in-top-sum">
-                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
-                        </div>
-                    </li>
-                    <li class="so-top-zoushi">
-                        <img src="/static/images/top/zoushi.png">
-                    </li>
-                </ul>
-            </div> -->
-            <div class="so-in-main">
-                <div>
-                    <div class="so-main-top">
-                        <HistoryTerm :previous_pcode="previous_pcode" />
+            <div class="so-top-all">
+                <MenuBar :moduleName="moduleName || '重庆时时彩'" :balance="balanceData.balance" />
+                <div class="so-in-main">
+                    <div>
+                        <div class="so-main-top">
+                            <HistoryTerm :previous_pcode="previous_pcode" />
 
-                        <div class="so-m-t-right" v-show="ishwowpriod">
-                            <div class="last-open-num">
-                                <ul>
-                                    <li v-for="item in winNumber.split(',')">{{item}}</li>
-                                </ul>
-                            </div>
-                            <div class="last-open-dou">
-                                <ul>
-                                    <li>{{lastTermStatic.total}}</li>
-                                    <li>{{lastTermStatic.sizer}}</li>
-                                    <li>{{lastTermStatic.doubler}}</li>
-                                    <li>{{lastTermStatic.longer}}</li>
+                            <div class="so-m-t-right" v-show="ishwowpriod">
+                                <div class="last-open-num">
+                                    <ul>
+                                        <li v-for="item in winNumber.split(',')">{{item}}</li>
+                                    </ul>
+                                </div>
+                                <div class="last-open-dou">
+                                    <ul>
+                                        <li>{{lastTermStatic.total}}</li>
+                                        <li>{{lastTermStatic.sizer}}</li>
+                                        <li>{{lastTermStatic.doubler}}</li>
+                                        <li>{{lastTermStatic.longer}}</li>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                        <CountdownTimer ref="countdownTimer"
+                            @countdownOver="playLottery"
+                            @entertainCountdownOver="entertain"
+                            @spanArrived="lotteryDataFetch"
+                            @visibility="timerBegin"
+                            :now_pcode="now_pcode" :lotteryID="lotteryID"
+                            :start="sys_time" :end="now_time" :overend="nowover_time" />
+
                     </div>
-                    <CountdownTimer ref="countdownTimer" 
-                        @countdownOver="playLottery"
-                        @entertainCountdownOver="entertain"
-                        @spanArrived="lotteryDataFetch"
-                        @visibility="timerBegin"
-                        :now_pcode="now_pcode" :lotteryID="lotteryID"
-                        :start="sys_time" :end="now_time" :overend="nowover_time" />
-
                 </div>
             </div>
             <div class="so-in-con">
@@ -75,79 +58,87 @@
                         </li>
                     </ul>
                 </div>
-                <div class="so-con-right bule_bg" tabindex="1">
+              <!--  <div id="wrapper">-->
 
-                        <!--以下为盘面不同样式，根据ID区分-->
-                        <div id="so-item0" class="active">
-                            <!--总和&龙虎-->
-                            <ul>
-                                <li class="select-li" v-for="item in doubleSideList.filter((temp)=>{return temp.cid==21600})">
-                                    <div>
-                                        <h2>
-                                            {{item.name}}
-                                        </h2>
-                                        <div>
-                                            <p :data-id="itemChild.cid" :class="([21605,21606,21607].includes(itemChild.cid) && 'so-con-span-short')" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                                <span>{{itemChild.name}}</span>
-                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                            </p>
-                                        </div>
+                        <div class="so-con-right bule_bg" >
+
+                         <!--   <div id="wrapper">-->
+                              <!--  <div id="scroller" class="scroller">-->
+                                    <!--以下为盘面不同样式，根据ID区分-->
+                                    <div id="so-item0" class="content-right active" >
+                                        <!--总和&龙虎-->
+                                        <ul>
+                                            <li class="select-li" v-for="item in doubleSideList.filter((temp)=>{return temp.cid==21600})">
+                                                <div>
+                                                    <h2>
+                                                        {{item.name}}
+                                                    </h2>
+                                                    <div>
+                                                        <p :data-id="itemChild.cid" :class="([21605,21606,21607].includes(itemChild.cid) && 'so-con-span-short')" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                            <span>{{itemChild.name}}</span>
+                                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li :class="'select-li' + ({'0':' first_ball', '1':' sec_ball'}[index] || ' sec_ball')" v-for="(item,index) in doubleSideList.filter((temp)=>{return temp.cid<21600})">
+                                                <div>
+                                                    <h2>
+                                                        {{item.name}}
+                                                    </h2>
+                                                    <div>
+                                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                            <span>{{itemChild.name}}</span>
+                                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </li>
-                                <li :class="'select-li' + ({'0':' first_ball', '1':' sec_ball'}[index] || ' sec_ball')" v-for="(item,index) in doubleSideList.filter((temp)=>{return temp.cid<21600})">
-                                    <div>
-                                        <h2>
-                                            {{item.name}}
-                                        </h2>
-                                        <div>
-                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                                <span>{{itemChild.name}}</span>
-                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                            </p>
-                                        </div>
+                                    <div id="so-item1"class="content-right" style="display:none;">
+                                        <ul>
+                                            <li class="select-li" v-for="item in oneToFiveList">
+                                                <div>
+                                                    <h2>
+                                                        {{item.name}}
+                                                    </h2>
+                                                    <div>
+                                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
+                                                            <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
+                                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
                                     </div>
-                                </li>
-                            </ul>
+                                    <div id="so-item2" class="content-right" style="display:none;">
+                                        <ul>
+                                            <li class="select-li" v-for="item in frontCenterBackList">
+                                                <div>
+                                                    <h2>
+                                                        {{item.name}}
+                                                    </h2>
+                                                    <div>
+                                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                            <span>{{itemChild.name}}</span>
+                                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                             <!--   </div>-->
+
+                           <!-- </div>-->
                         </div>
-                        <div id="so-item1" style="display:none;">
-                            <ul>
-                                <li class="select-li" v-for="item in oneToFiveList">
-                                    <div>
-                                        <h2>
-                                            {{item.name}}
-                                        </h2>
-                                        <div>
-                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
-                                                <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
-                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
+               <!-- </div>-->
 
-                            </ul>
-                        </div>
-                        <div id="so-item2"  style="display:none;">
-                            <ul>
-                                <li class="select-li" v-for="item in frontCenterBackList">
-                                    <div>
-                                        <h2>
-                                            {{item.name}}
-                                        </h2>
-                                        <div>
-                                            <p :data-id="itemChild.cid" v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                                <span>{{itemChild.name}}</span>
-                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
-
-                </div>
                 <div class="so-clear"></div>
             </div>
         </div>
@@ -285,14 +276,13 @@ export default {
 
     }, 500) ;
 
-     // var myScroll = new IScroll('#wrapper');
-      $('.so-con-left').on('touchstart ',function (e) {
-          $('.so-con-right').click() ;
-
+      $('.so-con-left').on('touchstart touchmove',function (e) {
+         // $('.so-con-right').click() ;
+          $('.alert-show').show() ;
       })
-     /*  $('.so-con-right').on('click',function () {
-         alert('fgfvfcf')
-       })*/
+      $('.so-con-left').on('touchend',function (e) {
+          $('.alert-show').hide() ;
+      })
 
   },
   computed:{
@@ -311,7 +301,7 @@ export default {
     switchTab:function(e){
         const $src = $(e.currentTarget);
         const index = $src.index();
-        const $tabs = $('.so-con-right > div');
+        const $tabs = $('.so-con-right .content-right');
         $tabs.hide();
         $tabs.eq(index).show();
         $src.addClass('active').siblings().removeClass('active')
@@ -463,6 +453,13 @@ export default {
     #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
         display: block;
     }
-
+/*    .loading{ line-height: 40px;
+        height: 0;
+        text-align: center;
+        transition: height .25s, border-bottom-width .25s;
+        background-color: #eee;
+        font-size: 14px;
+        overflow: hidden;}
+    #wrapper {position:absolute;top:0 ; bottom:48px;left:0;width:100%; }*/
 
 </style>
