@@ -575,7 +575,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con > div:after { content: ""; display: block; clear: both; }
 
-.so-con .so-in-con .so-con-left { width: 2.3rem; float: left; background-color: #19222f; height: 100%; /*overflow-y: scroll; -webkit-overflow-scrolling: touch; */padding-bottom: .8rem;    position: relative;  z-index: 5; }
+.so-con .so-in-con .so-con-left { width: 2.3rem; float: left; background-color: #19222f; height: 100%; /*overflow-y: scroll; -webkit-overflow-scrolling: touch; */padding-bottom: .8rem;    position: fixed;  z-index: 5; }
 
 .so-con .so-in-con .so-con-left ul { overflow-y: scroll; -webkit-overflow-scrolling: touch; cursor: pointer; }
 
@@ -583,7 +583,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-in-con .so-con-left ul li.active { background: url(/static/images/content/nav-active.png) no-repeat; background-size: auto 1.7rem; background-position-y: -0.2rem; }
 
-.so-con .so-in-con .so-con-right {  position: relative;width: 7.7rem; height: 100%;overflow-y: auto; /*overflow-y: scroll;*/  -webkit-overflow-scrolling: touch;  /* left: 23% !important; */ }
+.so-con .so-in-con .so-con-right {  position: absolute;right:0%; width: 7.7rem; height: 100%;overflow-y: auto; /*overflow-y: scroll;*/  -webkit-overflow-scrolling: touch;  /* left: 23% !important; */ }
 
 .so-con .so-in-con .so-con-right > div { padding-bottom: 2.4rem; }
 
@@ -699,7 +699,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot > div:nth-child(2) input::-webkit-input-placeholder { color: white; }
 
-.so-foot > div:nth-child(2) input[type=reset] { width: 1.63rem; display: block; height: 0.68rem; float: left; line-height: 0.64rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("/static/images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem; padding-right: .15rem; }
+.so-foot > div:nth-child(2) a.submit{ width: 2.1rem; display: block; height: 1.7rem; float: left; line-height: 0.68rem; position: relative; top: 0.2rem; left: 0.4rem; text-align: center; background: url("/static/images/foot/chongzhi.png") no-repeat; background-size: 100% 0.68rem; color: white; font-size: 0.34rem;  }
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 

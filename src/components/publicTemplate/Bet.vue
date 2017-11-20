@@ -250,22 +250,3 @@ export default {
 }
 </script>
 
-<style scoped>
-    .so-pop, .so-shade { display: block; }
-    .so-foot .submit{
-        width: 1.63rem;
-        display: block;
-        height: 1.6rem;
-        float: left;
-        line-height: 0.64rem;
-        position: relative;
-        top: 0.2rem;
-        left: 0.4rem;
-        text-align: center;
-        background: url(/static/images/foot/chongzhi.png) no-repeat;
-        background-size: 100% 0.68rem;
-        color: white;
-        font-size: 0.34rem;
-        padding-right: .15rem;
-    }
-</style>
