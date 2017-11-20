@@ -220,9 +220,9 @@
             $('.tab_mid > li').click((e) => {
                 const $src = $(e.currentTarget);
                 document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
-                $src.addClass('on')
-                    .siblings()
-                    .removeClass('on');
+                $src.addClass('on').siblings().removeClass('on');
+                var dateval = $('.tab_content').find('.slide_toggle:first-child').data('val') ;
+                this.seadata.pdate = dateval ;  // 切换时默认第一天
                 var num = parseInt($src.index(), 10);
                 switch (num) {
                     case 0:

@@ -217,9 +217,9 @@
             $('.tab_mid > li').click((e) => {
                 document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                 const $src = $(e.currentTarget);
-                $src.addClass('on')
-                    .siblings()
-                    .removeClass('on');
+                var dateval = $('.tab_content').find('.slide_toggle:first-child').data('val') ;
+                this.seadata.pdate = dateval ;  // 切换时默认第一天
+                $src.addClass('on').siblings().removeClass('on');
                 var num = parseInt($src.index(), 10);
                 switch (num) {
                     case 0:
