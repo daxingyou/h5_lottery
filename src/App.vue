@@ -29,7 +29,23 @@ export default {
   mounted:function(){
     FastClick.attach(document.body);
       document.documentElement.scrollTop = document.body.scrollTop=0;
-    // $('html, body').height($(window).height()); // 防止浏览器全屏显示
+      window.onload=function () { // ios 禁止用户双击放大，缩放等
+          document.addEventListener('touchstart',function (event) {
+              if(event.touches.length>1){
+                  event.preventDefault();
+              }
+          })
+          var lastTouchEnd=0;
+          document.addEventListener('touchend',function (event) {
+              var now=(new Date()).getTime();
+              if(now-lastTouchEnd<=300){
+                  event.preventDefault();
+              }
+              lastTouchEnd=now;
+          },false)
+      }
+
+      // $('html, body').height($(window).height()); // 防止浏览器全屏显示
    /* setTimeout(function () {
         $('.so-con-right').css('height','100%') ;
     },500)*/
