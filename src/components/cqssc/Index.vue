@@ -58,10 +58,10 @@
                         </li>
                     </ul>
                 </div>
-                <div id="wrapper"  >
+                <!--<div id="wrapper"  style="position: relative">-->
 
 
-                        <div class="so-con-right bule_bg " id="awrapper" >
+                <div class="so-con-right bule_bg " id="awrapper" >
 
                          <!--   <div id="wrapper">-->
                               <!--  <div id="scroller" class="scroller">-->
@@ -138,7 +138,7 @@
 
                            <!-- </div>-->
                         </div>
-                </div>
+                <!--</div>-->
 
                 <div class="so-clear"></div>
             </div>
@@ -279,20 +279,8 @@ export default {
 
     }, 500) ;
 
-//      var myScroll = new IScroll('#wrapper', {
-//          mouseWheel: true,
-//          scrollbars: true,
-//          probeType: 3
-//      });
-//      var myScroll =    new IScroll('#wrapper', {scrollX: false, scrollY: true, mouseWheel: true, bounce: false})
-      /*  var contentScroll = new IScroll('#content_wrapper', {
-            mouseWheel: true,
-            click: true,
-            probeType: 3
-        });*/
-/*      $('.so-con-left').on('touchstart touchmove',function () {
 
-      })*/
+//      var myScroll =    new IScroll('#wrapper', {scrollX: false, scrollY: true, mouseWheel: true, bounce: false})
 
   },
   computed:{
