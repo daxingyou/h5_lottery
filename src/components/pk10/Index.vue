@@ -395,6 +395,9 @@ export default {
 
                         }
 
+                        if(res.data[1].status >1){ // 异常情况，如提前开盘 2
+                            that.entertainStatus = true;
+                        }
 
                         // 当天日期
                         that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
