@@ -250,3 +250,6 @@ export default {
 }
 </script>
 
+<style scoped>
+    .so-pop, .so-shade { display: block; }
+</style>
