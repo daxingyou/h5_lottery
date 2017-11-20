@@ -161,7 +161,7 @@ export default {
                         // getMemberBalance() ; // 更新余额
                         return false;
                     } else {  //购买失败提示
-
+                        this.ajaxSubmitAllow = false ;
                         if(data.data =='' || data.data ==null){ // 平台商不存在
                             this.parentRefs.autoCloseDialog.open(data.msg,'title_bet_fail')
                             // initTipPop05(false,3,data.msg) ;
@@ -177,7 +177,7 @@ export default {
 
                     }
                 },
-                error: function (res) {  // 错误提示
+                error: function (e) {  // 错误提示
                     // initTipPop05(false,3,'投注失败，请稍后再试') ;
                     this.parentRefs.autoCloseDialog.open('投注失败，请稍后再试','title_bet_fail')
                     this.ajaxSubmitAllow = false;
