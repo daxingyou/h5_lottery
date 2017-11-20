@@ -71,10 +71,9 @@ export default {
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
 
-           /* if (this.lt_time_leave_over <0){ // 开奖倒计时结束
-               // this.$emit('entertainCountdownOver');
-                this.$emit('countdownOver');
-            }*/
+            if (this.lt_time_leave_over <0){ // 封盘倒计时结束
+               this.$emit('entertainCountdownOver');
+            }
 
             //计数器，计算间隔时间触发
             const counter = () => {
