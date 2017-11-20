@@ -70,8 +70,10 @@ export default {
             this.lt_time_leave_over = (this.format(theOverend).getTime() - this.format(theStart).getTime()) / 1000;//总秒数
             // const lt_time_leave = this.lt_time_leave;
             // const lt_time_leave_over = this.lt_time_leave_over;
-            if (this.lt_time_leave_over <0){
-                this.$emit('entertainCountdownOver');
+
+            if (this.lt_time_leave_over <0){ // 开奖倒计时结束
+               // this.$emit('entertainCountdownOver');
+                this.$emit('countdownOver');
             }
             //计数器，计算间隔时间触发
             const counter = () => {
@@ -93,14 +95,14 @@ export default {
             clearInterval(this.timer);
             this.timer = window.setInterval((function() {
                 counter();
-                // 开奖倒计时结束
-                if (this.lt_time_leave == 0) { 
+               // console.log(this.lt_time_leave)
+                if (this.lt_time_leave == 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                 }
                //  console.log(this.lt_time_leave_over)
-                // 封盘倒计时结束
-                if(this.lt_time_leave_over == 0){ 
+
+                if(this.lt_time_leave_over == 0){  // 封盘倒计时结束
                     this.$emit('entertainCountdownOver');
                 }
 
