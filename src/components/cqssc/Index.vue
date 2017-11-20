@@ -60,7 +60,7 @@
                 </div>
               <!--  <div id="wrapper">-->
 
-                        <div class="so-con-right bule_bg scroll-content" id="content_wrapper">
+                        <div class="so-con-right bule_bg " id="wrapper" style="transform: translate3d(0px, -500px, 0px) scale(1);">
 
                          <!--   <div id="wrapper">-->
                               <!--  <div id="scroller" class="scroller">-->
@@ -133,7 +133,7 @@
                                         </ul>
                                     </div>
 
-                             <!--   </div>-->
+                                <!--</div>-->
 
                            <!-- </div>-->
                         </div>
@@ -252,6 +252,7 @@ export default {
     }
   },
   created:function(){
+
       if (this.moduleLotteryID) {
           this.lotteryID = this.moduleLotteryID;
       }
@@ -262,11 +263,6 @@ export default {
     }).catch(function () {
         console.log("Promise Rejected in method of create 1");
     });
-
-      var myScroll = new IScroll('#content_wrapper', {
-          mouseWheel: true,
-          scrollbars: true
-      });
 
   },
   mounted:function() {
@@ -282,11 +278,16 @@ export default {
 
     }, 500) ;
 
-    /*  var contentScroll = new IScroll('#content_wrapper', {
+      var myScroll = new IScroll('#wrapper', {
           mouseWheel: true,
-          click: true,
-          probeType: 3
-      });*/
+          scrollbars: true
+      });
+      
+      /*  var contentScroll = new IScroll('#content_wrapper', {
+            mouseWheel: true,
+            click: true,
+            probeType: 3
+        });*/
 /*      $('.so-con-left').on('touchstart touchmove',function () {
 
       })*/
