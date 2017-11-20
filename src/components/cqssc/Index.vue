@@ -60,6 +60,7 @@
                 </div>
                 <div id="wrapper"  >
 
+
                         <div class="so-con-right bule_bg " id="awrapper" >
 
                          <!--   <div id="wrapper">-->
@@ -358,7 +359,7 @@ export default {
                         that.winNumber = res.data[1].winNumber;
                         that.lastTermStatic = res.data[1].doubleData;    //上期开奖统计
                         that.previous_pcode = res.data[1].pcode;  // 上期期数
-                    }else if(firstpcode =='001'){ // 天津，新疆 时时彩 白天第一期
+                    }else if(firstpcode =='001' && that.lotteryID != '2'){ // 天津，新疆 时时彩 白天第一期
                         if( res.data[0].startTime - sys_time >0){  // 未开盘状态
                             that.notopen = true ;
                         }else{
