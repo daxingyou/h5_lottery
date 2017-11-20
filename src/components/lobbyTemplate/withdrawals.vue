@@ -178,8 +178,8 @@ export default {
               success: (res) => {
                   _self.memBalance = res.data.balance;
               },
-              error: () => {
-
+              error: (e) => {
+              _self.errorAction(e) ;
               }
           })
       },

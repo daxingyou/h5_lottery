@@ -436,13 +436,7 @@ export default {
                 _self.banklist = res.data ;
               },
               error: function (e) {
-                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                      _self.clearAllCookie() ;
-                      setTimeout(function () {
-                          window.location = '/login' ;
-                      },300)
-                      return false ;
-                  }
+                  _self.errorAction(e) ;
               }
           });
       },
@@ -460,13 +454,7 @@ export default {
                   _self.allbanklist = res.data ;
               },
               error: function (e) {
-                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                      _self.clearAllCookie() ;
-                      setTimeout(function () {
-                          window.location = '/login' ;
-                      },300)
-                      return false ;
-                  }
+                  _self.errorAction(e) ;
               }
           });
       },
@@ -576,13 +564,7 @@ export default {
                 _self.userInfo = res.data ;
               },
               error: function (e) {
-                  if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                      _self.clearAllCookie() ;
-                      setTimeout(function () {
-                          window.location = '/login' ;
-                      },300)
-                      return false ;
-                  }
+                  _self.errorAction(e) ;
               }
           });
       },

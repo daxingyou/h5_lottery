@@ -187,8 +187,8 @@ export default {
               success: (res) => {
                   _self.Money = res.data.balance;
               },
-              error: () => {
-
+              error: (e) => {
+              _self.errorAction(e) ;
               }
           })
       },

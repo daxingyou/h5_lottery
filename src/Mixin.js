@@ -112,13 +112,7 @@ var MyMixin = {
                     "Authorization": "bearer  " + this.getAccessToken,
                 },
                 error: function (e) {
-                    if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                        _self.clearAllCookie() ;
-                        setTimeout(function () {
-                            window.location = '/login' ;
-                        },300)
-                        return false ;
-                    }
+                    _self.errorAction(e) ;
                     reject(e);
                 }
             }
@@ -154,8 +148,24 @@ var MyMixin = {
             //     }
             // });
         },
-
-
+        // 接口异常处理
+        errorAction:function (e) {
+            var _self = this ;
+            if(e.responseJSON.error == 'Conflict' || e.responseJSON.error == 'Unauthorized'){ // 帐号重复登录   帐号注销
+                _self.$refs.autoCloseDialog.open(e.responseJSON.message) ;
+                _self.clearAllCookie() ;
+                setTimeout(function () {
+                    window.location = '/login' ;
+                },300)
+                return false ;
+            }else  if(e.responseJSON.error == 'invalid_token'){  // token 过期
+                _self.clearAllCookie() ;
+                setTimeout(function () {
+                    window.location = '/login' ;
+                },300)
+                return false ;
+            }
+        },
 
         // 玩法树
         loadPlayTree:function(gameid) {
@@ -173,13 +183,7 @@ var MyMixin = {
                         resolve(this.playTreeList);
                     },
                     error: function (e) {
-                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                            _self.clearAllCookie() ;
-                            setTimeout(function () {
-                                window.location = '/login' ;
-                            },300)
-                            return false ;
-                        }
+                        _self.errorAction(e) ;
                         reject(e);
                     }
                 });
@@ -209,20 +213,13 @@ var MyMixin = {
                         }
                     }).bind(this),
                     error: function (e) {
-                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                            _self.clearAllCookie() ;
-                            setTimeout(function () {
-                                window.location = '/login' ;
-                            },300)
-                            return false ;
-                        }
+                        _self.errorAction(e) ;
                         reject(e);
                     }
                 });
             });
 
         },
-
 
         // 获取用户余额
         getMemberBalance:function (lotteryid) {
@@ -244,14 +241,8 @@ var MyMixin = {
                         resolve();
                     },
                     error: function (e) {
-                        console.log(e)
-                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                            _self.clearAllCookie() ;
-                            setTimeout(function () {
-                                window.location = '/login' ;
-                            },300)
-                            return false ;
-                        }
+                        console.log(e) ;
+                        _self.errorAction(e) ;
                         reject(e);
                     }
                 });
@@ -286,13 +277,7 @@ var MyMixin = {
                         resolve(sys_time);
                     },
                     error: function (e) {
-                        if(e.responseJSON.error == 'invalid_token'){  // token 过期
-                            _self.clearAllCookie() ;
-                            setTimeout(function () {
-                                window.location = '/login' ;
-                            },300)
-                            return false ;
-                        }
+                        _self.errorAction(e) ;
                         reject(e);
                     }
                 });
