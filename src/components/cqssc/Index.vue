@@ -211,6 +211,7 @@ import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
 
+
 export default {
   name: 'Index',
   mixins:[Mixin],
