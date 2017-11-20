@@ -60,7 +60,7 @@
                 </div>
               <!--  <div id="wrapper">-->
 
-                        <div class="so-con-right bule_bg " id="wrapper" style="transform: translate3d(0px, -500px, 0px) scale(1);">
+                        <div class="so-con-right bule_bg " id="wrapper" >
 
                          <!--   <div id="wrapper">-->
                               <!--  <div id="scroller" class="scroller">-->
