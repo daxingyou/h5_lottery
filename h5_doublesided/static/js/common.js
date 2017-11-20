@@ -476,9 +476,12 @@ function lt_timer(start, end,overend) { // start服务器开始时间，end当�
 
         var oDate = diff(lt_time_leave--);
         var over_oDate = diff(lt_time_leave_over--);
+       // console.log(fftime(oDate.minute))
+       // console.log(fftime(oDate.hour)=='00')
 
         // 开奖倒计时
         $('.open-time').html( fftime(oDate.minute) + ':' + fftime(oDate.second) );
+
         if(lt_time_leave_over <= 0){ // 封盘倒计时结束
             $('.close-time').html('已封盘') ;
             $('.so-fengpan').show() ;

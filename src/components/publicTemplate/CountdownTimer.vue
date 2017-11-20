@@ -105,13 +105,21 @@ export default {
                 }
 
                 this.lt_time_leave = this.lt_time_leave - 1;
-                // var oDate = this.diff(this.lt_time_leave);
+                var oDate = this.diff(this.lt_time_leave);  // 开奖倒计时
                 this.lt_time_leave_over = this.lt_time_leave_over - 1;
-                // var over_oDate = this.diff(this.lt_time_leave_over);
-                this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
-                this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
-                // this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second);
-                // this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second);
+                var over_oDate = this.diff(this.lt_time_leave_over);  // 封盘倒计时
+               // this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
+               // this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
+               // console.log(oDate.hour)
+                if(oDate.hour =='00'){  // 平常时间没有小时
+                    this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
+                    this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
+                }else{   // 跨天时间有小时
+                    this.timeSpanStr = this.fftime(oDate.hour)+':'+this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
+                    this.overTimeSpanStr = this.fftime(over_oDate.hour)+':'+this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
+                }
+
+
 
             }).bind(this), 1000);
         }
