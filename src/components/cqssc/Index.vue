@@ -211,7 +211,6 @@ import Bet from '@/components/publicTemplate/Bet'
 import PlayDialog from '@/components/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
 
-
 export default {
   name: 'Index',
   mixins:[Mixin],
@@ -263,6 +262,12 @@ export default {
     }).catch(function () {
         console.log("Promise Rejected in method of create 1");
     });
+
+      var myScroll = new IScroll('#content_wrapper', {
+          mouseWheel: true,
+          scrollbars: true
+      });
+
   },
   mounted:function() {
     var lotteryid = this.lotteryID ; // 彩种id
