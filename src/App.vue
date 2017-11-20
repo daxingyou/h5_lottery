@@ -2,6 +2,7 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view />
+
   </div>
 </template>
 
@@ -29,8 +30,15 @@ export default {
     FastClick.attach(document.body);
       document.documentElement.scrollTop = document.body.scrollTop=0;
     // $('html, body').height($(window).height()); // 防止浏览器全屏显示
+   /* setTimeout(function () {
+        $('.so-con-right').css('height','100%') ;
+    },500)*/
+
 
   },
 
 }
 </script>
+<style scoped>
+
+</style>

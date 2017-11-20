@@ -25,7 +25,7 @@
                                 <div class="purse">
                                     <img src="../../../static/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
-                                        123456789
+
                                     </div>
                                 </div>
                             </div>

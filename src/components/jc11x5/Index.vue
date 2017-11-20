@@ -7,67 +7,69 @@
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
         
         <div class="so-index">
-            <div class="so-in-top">
-                <ul>
-                    <li class="so-menu">
-                        <img src="/static/images/top/icon-menu.png" class="so-top-menu">
-                    </li>
-                    <li class="left_top_logo">
-                        {{moduleName || '江西11选5'}}
-                    </li>
-                    <li class="purse">
-                        <img src="/static/images/top/sjinbi.png" class="so-top-sum">
-                        <div class="so-in-top-sum">
-                            {{ fortMoney(roundAmt(balanceData.balance), 2)}}
-                        </div>
-                    </li>
-                    <li class="so-top-zoushi">
-                        <img src="/static/images/top/zoushi.png">
-                    </li>
-                </ul>
-            </div>
-            <div class="so-in-main">
-                <div>
-                    <div class="so-main-top">
-                        <HistoryTerm :previous_pcode="previous_pcode" />
-
-                        <div class="so-m-t-right" v-show="ishwowpriod">
-                            <div class="last-open-num">
-                                <ul>
-                                    <li v-for="item in winNumber.split(',')">{{item}}</li>
-                                </ul>
+            <div class="so-top-all">
+                <div class="so-in-top">
+                    <ul>
+                        <li class="so-menu">
+                            <img src="/static/images/top/icon-menu.png" class="so-top-menu">
+                        </li>
+                        <li class="left_top_logo">
+                            {{moduleName || '江西11选5'}}
+                        </li>
+                        <li class="purse">
+                            <img src="/static/images/top/sjinbi.png" class="so-top-sum">
+                            <div class="so-in-top-sum">
+                                {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                             </div>
-                            <div class="last-open-dou">
-                                <ul>
-                                    <li>{{lastTermStatic.total}}</li>
-                                    <li>{{lastTermStatic.sizer}}</li>
-                                    <li>{{lastTermStatic.doubler}}</li>
-                                    <li>{{lastTermStatic.sizerEnd}}</li>
-                                    <li>{{lastTermStatic.longer}}</li>
+                        </li>
+                        <li class="so-top-zoushi">
+                            <img src="/static/images/top/zoushi.png">
+                        </li>
+                    </ul>
+                </div>
+                <div class="so-in-main">
+                    <div>
+                        <div class="so-main-top">
+                            <HistoryTerm :previous_pcode="previous_pcode" />
 
-                                </ul>
+                            <div class="so-m-t-right" v-show="ishwowpriod">
+                                <div class="last-open-num">
+                                    <ul>
+                                        <li v-for="item in winNumber.split(',')">{{item}}</li>
+                                    </ul>
+                                </div>
+                                <div class="last-open-dou">
+                                    <ul>
+                                        <li>{{lastTermStatic.total}}</li>
+                                        <li>{{lastTermStatic.sizer}}</li>
+                                        <li>{{lastTermStatic.doubler}}</li>
+                                        <li>{{lastTermStatic.sizerEnd}}</li>
+                                        <li>{{lastTermStatic.longer}}</li>
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                        <!--
+                        计数器插件
+                            事件
+                                @countdownOver="playLottery"    倒计时结束时
+                                @entertainCountdownOver="entertain"     封盘倒计时结束时
+                                @spanArrived="lotteryDataFetch"     倒计时达到预定时间间隔时
+                            属性
+                                :now_pcode="now_pcode"
+                                :lotteryID="lotteryID"
+                                :start="sys_time" :end="now_time" :overend="nowover_time"
+                        -->
+                        <CountdownTimer ref="countdownTimer"
+                            @countdownOver="playLottery"
+                            @entertainCountdownOver="entertain"
+                            @spanArrived="lotteryDataFetch"
+                            @visibility="timerBegin"
+                            :now_pcode="now_pcode" :lotteryID="lotteryID"
+                            :start="sys_time" :end="now_time" :overend="nowover_time" />
+
                     </div>
-                    <!--
-                    计数器插件
-                        事件
-                            @countdownOver="playLottery"    倒计时结束时
-                            @entertainCountdownOver="entertain"     封盘倒计时结束时
-                            @spanArrived="lotteryDataFetch"     倒计时达到预定时间间隔时
-                        属性
-                            :now_pcode="now_pcode" 
-                            :lotteryID="lotteryID"
-                            :start="sys_time" :end="now_time" :overend="nowover_time"
-                    -->
-                    <CountdownTimer ref="countdownTimer" 
-                        @countdownOver="playLottery"
-                        @entertainCountdownOver="entertain"
-                        @spanArrived="lotteryDataFetch"
-                        @visibility="timerBegin"
-                        :now_pcode="now_pcode" :lotteryID="lotteryID"
-                        :start="sys_time" :end="now_time" :overend="nowover_time" />
-
                 </div>
             </div>
             <div class="so-in-con">
