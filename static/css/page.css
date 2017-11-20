@@ -1233,7 +1233,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 #index_content.content { margin-top: 0; overflow-x: hidden; }
 
-#index_content.content > section h3 { text-align: left; margin-left: .5rem; margin-top: .35rem; }
+#index_content.content > section h3 { text-align: left; margin-left: .4rem; margin-top: .2rem; }
 
 #index_content.content > section h3 > img { width: 3.25rem; }
 
@@ -1255,7 +1255,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 #index_content.content > .hotgame_area:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/bottom_line.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; height: .5rem; width: 100%; -ms-transform: rotate(-180deg); -webkit-transform: rotate(-180deg); transform: rotate(-180deg); top: 0rem; left: 30%; }
 
-#index_content.content .cooper { width: 100%; margin: 0 auto; height: 4.5rem; padding: .3rem 0; position: relative; }
+#index_content.content .cooper { width: 100%; margin: 0 auto; height: 4.5rem; padding: .2rem 0; position: relative; }
 
 #index_content.content .cooper:before { content: ''; position: absolute; display: block; top: 0; left: 0; background-image: url("/static/images/bottom_line.png"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; height: .5rem; width: 100%; -ms-transform: rotate(-180deg); -webkit-transform: rotate(-180deg); transform: rotate(-180deg); top: -.15rem; left: -30%; }
 
@@ -1283,7 +1283,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 #index_content.content .cooper > ul > li a.icon_about::after { content: '关于我们'; }
 
-.account_area { padding: 0.3rem 0; }
+.account_area { padding: 0.3rem 0 0.2rem; }
 
 .account_area ul a { display: block; margin: 0px auto; }
 
@@ -1305,13 +1305,13 @@ ul.sixball > li:last-child:before { background-image: url("/static/images/plus.s
 
 .account_area ul:after { content: ''; display: table; clear: both; }
 
-.promoindex_area { position: relative; padding: 0.1rem 0 0.3rem; }
+.promoindex_area { position: relative; padding: 0.1rem 0 0.2rem; }
 
-.promoindex_area h3 { text-align: left; padding-right: 0.3rem; line-height: 0.6rem; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.34); }
+.promoindex_area h3 { text-align: left; padding-right: 0.4rem; line-height: 0.6rem; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.34); }
 
 .promoindex_area h3 a { float: right; text-decoration: underline !important; }
 
-.promoindex_area > a { margin: 0.3rem; display: block; border: 1px solid rgba(39, 64, 92, 0.65); }
+.promoindex_area > a { margin: 0.2rem 0.4rem; display: block; border: 1px solid rgba(39, 64, 92, 0.65); }
 
 .promoindex_area > a img { display: block; width: 100%; }
 
