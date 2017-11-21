@@ -61,10 +61,9 @@
                 <!--<div id="wrapper"  style="position: relative">-->
 
 
-                <div class="so-con-right bule_bg " id="awrapper" >
-
-                         <!--   <div id="wrapper">-->
-                              <!--  <div id="scroller" class="scroller">-->
+                     <div class="so-con-right bule_bg " id="wrapper" >
+                               <div id="scroller" style="min-height: 150%" >
+                                   <!--<div>-->
                                     <!--以下为盘面不同样式，根据ID区分-->
                                     <div id="so-item0" class="content-right active" >
                                         <!--总和&龙虎-->
@@ -133,10 +132,8 @@
 
                                         </ul>
                                     </div>
-
-                                <!--</div>-->
-
-                           <!-- </div>-->
+                                   <!--</div>-->
+                            </div>
                         </div>
                 <!--</div>-->
 
@@ -278,10 +275,19 @@ export default {
         this.timerBegin();
 
     }, 500) ;
-
-
-//      var myScroll =    new IScroll('#wrapper', {scrollX: false, scrollY: true, mouseWheel: true, bounce: false})
-
+      var  myScroll = new iScroll("wrapper",{
+          /*  hScrollbar:false,
+           vScrollbar:false,
+           fixedScrollbar:true,*/
+          vScroll:true,
+          mouseWheel: true
+      });
+      myScroll.on("scrollEnd",function(e){
+          if(myScroll.maxScrollY == myScroll.y){
+              alert("我已滚动到底部");
+          }
+          alert("111");
+      });
   },
   computed:{
     doubleSideList:function(){
@@ -480,6 +486,9 @@ export default {
 
     }
 
+     #scroller{
+
+     }
 /*    .scroll-content {
         position: absolute;
         top: 0;

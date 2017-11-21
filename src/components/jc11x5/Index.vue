@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="so-in-con" >
+            <div class="so-in-con">
                     <div class="so-con-left " id="nav_wrapper">
                         <ul>
                             <li :data-type="(index==2?'lineplay':'nomalplay')" :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
@@ -84,12 +84,11 @@
 
                 <div  id="wrapper">
                     <div class="so-con-right bule_bg ">
-
-                         <div id="scroller" class="scroller">
-
-                            <!--以下为盘面不同样式，根据ID+class区分-->
-                            <!-- jc115 双面 -->
-                            <div id="so-item0" class="active jc115">
+                         <div id="scroller"  class="scroller">
+                           <div>
+                              <!--以下为盘面不同样式，根据ID+class区分-->
+                              <!-- jc115 双面 -->
+                              <div id="so-item0" class="active jc115">
                                 <ul>
                                     <li class="select-li" v-for="item in doubleSideList">
                                         <div>
@@ -109,9 +108,8 @@
                                 </ul>
                                 <div class="bottom-item0"></div>
                             </div>
-
-                            <!-- jc115 1-5球 -->
-                            <div id="so-item1" class="jc115" style="display:none;">
+                              <!-- jc115 1-5球 -->
+                              <div id="so-item1" class="jc115" style="display:none;">
                                 <ul>
                                     <li class="select-li" v-for="item in oneToFiveList">
                                         <div>
@@ -130,9 +128,9 @@
 
                                 </ul>
                             </div>
-                            <!-- jc115 连码 -->
-                            <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
-                                <div class="hd jx11_tab">
+                              <!-- jc115 连码 -->
+                              <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;" >
+                                <div class="hd jx11_tab" id="lwrapper">
                                     <ul class="tab tab_mid tab_two">
                                         <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
 
@@ -167,9 +165,9 @@
 
                                 </div>
                             </div>
-                    </div>
-
-                </div>
+                           </div>
+                        </div>
+                   </div>
                 </div>
 
 
@@ -347,10 +345,17 @@
 
             });
             var  myscroll = new iScroll("wrapper",{
-                /*  hScrollbar:false,
-                 vScrollbar:false,
-                 fixedScrollbar:true,*/
-                vScroll:true
+
+                vScroll:true,
+                mouseWheel: true,
+                scroll:true
+            });
+
+            var  lmyscroll = new iScroll("lwrapper",{
+
+                vScroll:false,
+                mouseWheel: true,
+                lwrapper:true
 
             });
            /* console.log($('#wrapper').height()+'fhdj') ;
