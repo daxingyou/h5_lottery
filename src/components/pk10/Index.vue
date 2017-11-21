@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="so-in-con">
-                <div class="so-con-left">
+                <div class="so-con-left" id="nav-wrapper">
                     <ul>
                         <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">
                             <a :href="'#pk10-item'+index">{{kind}}</a>
@@ -87,93 +87,98 @@
                         <li>6-10名</li>-->
                     </ul>
                 </div>
-                <div class="so-con-right bule_bg">
-                    <!--以下为盘面不同样式，根据ID+class区分-->
-                    <!-- pk10 双面 -->
-                    <div id="pk10-item0" class="active pk10_item">
-                        <ul>
-                            <li class="select-li" v-for="item in doubleSideList">
-                                <div class="pk10_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span :data-val="itemChild.name">{{itemChild.name}}</span>
-                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                <div class="bule_bg"></div>
+                <div  id="content-wrapper">
+                      <div class="so-con-right">
+                          <div id="scroller"  class="scroller" >
+                                <!--以下为盘面不同样式，根据ID+class区分-->
+                                <!-- pk10 双面 -->
+                                <div id="pk10-item0" class="active pk10_item item_one">
+                                    <ul>
+                                        <li class="select-li" v-for="item in doubleSideList">
+                                            <div class="pk10_panel">
+                                                <h2>
+                                                    {{item.name}}
+                                                </h2>
+                                                <div>
+                                                    <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                        <span :data-val="itemChild.name">{{itemChild.name}}</span>
+                                                        <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                    </p>
 
-                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
                                 </div>
-                            </li>
+                                <!-- pk10 冠亚和值 -->
+                                <div id="pk10-item1" class="pk10_item" style="display:none;">
+                                    <ul>
+                                        <li class="select-li" v-for="item in oneToFiveList">
+                                            <div class="pk10_panel">
+                                                <h2>
+                                                    {{item.name}}
+                                                </h2>
+                                                <div>
+                                                    <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                        <span :data-val="itemChild.name">{{itemChild.name}}</span>
+                                                        <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                    </p>
 
-                        </ul>
-                    </div>
-                    <!-- pk10 冠亚和值 -->
-                    <div id="pk10-item1" class="pk10_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in oneToFiveList">
-                                <div class="pk10_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span :data-val="itemChild.name">{{itemChild.name}}</span>
-                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-
-                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- pk10 1-5名-->
-                    <div id="pk10-item2" class="pk10_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in frontCenterBackList">
-                                <div class="pk10_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span class="pk10_num_bg" :data-val="itemChild.name">
-                                                <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
-                                                <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
-                                            </span>
-                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                                <!-- pk10 1-5名-->
+                                <div id="pk10-item2" class="pk10_item" style="display:none;">
+                                    <ul>
+                                        <li class="select-li" v-for="item in frontCenterBackList">
+                                            <div class="pk10_panel">
+                                                <h2>
+                                                    {{item.name}}
+                                                </h2>
+                                                <div>
+                                                    <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                        <span class="pk10_num_bg" :data-val="itemChild.name">
+                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
+                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                                        </span>
+                                                        <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                    </p>
 
-                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
                                 </div>
-                            </li>
+                                <!-- pk10 6-10名-->
+                                <div id="pk10-item3" class="pk10_item" style="display:none;">
+                                    <ul>
+                                        <li class="select-li" v-for="item in frontLastBackList">
+                                            <div class="pk10_panel">
+                                                <h2>
+                                                    {{item.name}}
+                                                </h2>
+                                                <div>
+                                                    <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                        <span class="pk10_num_bg" :data-val="itemChild.name">
+                                                            <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
+                                                            <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
+                                                        </span>
+                                                        <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                    </p>
 
-                        </ul>
-                    </div>
-                    <!-- pk10 6-10名-->
-                    <div id="pk10-item3" class="pk10_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in frontLastBackList">
-                                <div class="pk10_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid"  v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span class="pk10_num_bg" :data-val="itemChild.name">
-                                                <span class="pk10_ball" :class="'num_0'+itemChild.name" v-if="itemChild.name<10"></span>
-                                                <span class="pk10_ball" :class="'num_'+itemChild.name" v-else></span>
-                                            </span>
-                                            <span class="bet-times"> {{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                                                </div>
+                                            </div>
+                                        </li>
 
-                                    </div>
+                                    </ul>
                                 </div>
-                            </li>
-
-                        </ul>
-                    </div>
+                          </div>
+                </div>
                 </div>
                 <div class="so-clear"></div>
             </div>
@@ -325,12 +330,19 @@ export default {
     },
     methods:{
         switchTab:function(e){
+            var _self = this ;
             const $src = $(e.currentTarget);
             const index = $src.index();
-            const $tabs = $('.so-con-right > div');
+            const $tabs = $('.so-con-right .pk10_item');
             $tabs.hide();
             $tabs.eq(index).show();
-            $src.addClass('active').siblings().removeClass('active')
+            $src.addClass('active').siblings().removeClass('active') ;
+
+            var conth = $tabs.eq(index).height()-300 ;
+            $('.so-con-right').css('height',conth+'px') ;
+            //  _self.$parent.setScroll() ;
+            _self.$parent.conScroll.refresh() ;
+
         },
         getListByParentID:function(parentID){
             return this.playTreeList.filter((item,i)=>{

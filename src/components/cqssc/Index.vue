@@ -51,21 +51,20 @@
                 </div>
             </div>
             <div class="so-in-con">
-                <div class="so-con-left" >
+                <div class="so-con-left" id="nav-wrapper">
                     <ul>
                         <li :class="(index == 0 && 'active')"  v-for="(kind,index) in kinds" @click="switchTab">
                             <a :href="'#so-item'+index">{{kind}}</a>
                         </li>
                     </ul>
                 </div>
-                <!--<div id="wrapper"  style="position: relative">-->
-
-
-                     <div class="so-con-right bule_bg " id="wrapper" >
-                               <div id="scroller" style="min-height: 150%" >
+                <div class="bule_bg"></div>
+                <div  id="content-wrapper">
+                     <div class="so-con-right  " >
+                               <div id="scroller" > <!-- style="min-height: 180%"  -->
                                    <!--<div>-->
                                     <!--以下为盘面不同样式，根据ID区分-->
-                                    <div id="so-item0" class="content-right active" >
+                                    <div id="so-item0" class="content-right active item_one" >
                                         <!--总和&龙虎-->
                                         <ul>
                                             <li class="select-li" v-for="item in doubleSideList.filter((temp)=>{return temp.cid==21600})">
@@ -135,8 +134,8 @@
                                    <!--</div>-->
                             </div>
                         </div>
-                <!--</div>-->
 
+                </div>
                 <div class="so-clear"></div>
             </div>
         </div>
@@ -258,6 +257,7 @@ export default {
         this.loadPlayTree(this.lotteryID).catch(function () {
              console.log("Promise Rejected in method of create 2");
         });  // 玩法树，彩种id 为2
+
     }).catch(function () {
         console.log("Promise Rejected in method of create 1");
     });
@@ -275,19 +275,8 @@ export default {
         this.timerBegin();
 
     }, 500) ;
-      var  myScroll = new iScroll("wrapper",{
-          /*  hScrollbar:false,
-           vScrollbar:false,
-           fixedScrollbar:true,*/
-          vScroll:true,
-          mouseWheel: true
-      });
-      myScroll.on("scrollEnd",function(e){
-          if(myScroll.maxScrollY == myScroll.y){
-              alert("我已滚动到底部");
-          }
-          alert("111");
-      });
+
+
   },
   computed:{
     doubleSideList:function(){
@@ -303,12 +292,18 @@ export default {
   methods:{
 
     switchTab:function(e){
+        var _self = this ;
         const $src = $(e.currentTarget);
         const index = $src.index();
         const $tabs = $('.so-con-right .content-right');
         $tabs.hide();
         $tabs.eq(index).show();
-        $src.addClass('active').siblings().removeClass('active')
+        $src.addClass('active').siblings().removeClass('active') ;
+        var conth = $tabs.eq(index).height()-300 ;
+        $('.so-con-right').css('height',conth+'px') ;
+
+        //  _self.$parent.setScroll() ;
+        _self.$parent.conScroll.refresh() ;
     },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
@@ -486,9 +481,7 @@ export default {
 
     }
 
-     #scroller{
 
-     }
 /*    .scroll-content {
         position: absolute;
         top: 0;

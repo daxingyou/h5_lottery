@@ -23,10 +23,13 @@ export default {
                 { title:'充值', value:'2', days:[], active:false },
                 { title:'提款', value:'3', days:[], active:false },
             ] 
-        }
+        },
+        navScroll:{}, // 左侧选单
+        conScroll:{}, // 右侧选单
     }
   },
   mounted:function(){
+      var _self = this ;
     FastClick.attach(document.body);
       document.documentElement.scrollTop = document.body.scrollTop=0;
       window.onload=function () { // ios 禁止用户双击放大，缩放等
@@ -45,13 +48,31 @@ export default {
           },false)
       }
 
-      // $('html, body').height($(window).height()); // 防止浏览器全屏显示
-   /* setTimeout(function () {
-        $('.so-con-right').css('height','100%') ;
-    },500)*/
+      this.navScroll = new iScroll("nav-wrapper",{
 
+      });
+      _self.setScroll() ;
+      setTimeout(function () {
+          var conth = $('.so-con-right .item_one').height()-300 ;
+          $('.so-con-right').css('height',conth+'px') ;
+      },800) ;
+      // $('html, body').height($(window).height()); // 防止浏览器全屏显示
 
   },
+    methods: {
+        setScroll: function() {
+
+            this.conScroll = new iScroll("content-wrapper",{
+                onScrollEnd: function(){
+                  this.refresh() ;
+                },
+                click: true,
+                vScroll:true,
+                mouseWheel: true
+            });
+        },
+
+    }
 
 }
 </script>

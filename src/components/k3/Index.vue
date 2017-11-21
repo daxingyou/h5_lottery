@@ -41,97 +41,101 @@
                 </div>
             </div>
             <div class="so-in-con">
-                <div class="so-con-left">
+                <div class="so-con-left" id="nav-wrapper">
                     <ul>
                         <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">
                             <a >{{kind}}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="so-con-right bule_bg">
-                    <!--以下为盘面不同样式，根据ID+class区分-->
-                    <!-- k3 单骰 -->
-                    <div id="k3-item0" class="active k3_item">
-                        <ul>
-                            <li class="select-li" v-for="item in singleDiceList">
-                                <div class="k3_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span><span :class="'k3_dice num_' + (index+1)"></span></span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                <div class="bule_bg"></div>
+                <div  id="content-wrapper">
+                     <div class="so-con-right ">
+                      <div id="scroller"  class="scroller" >
+                        <!--以下为盘面不同样式，根据ID+class区分-->
+                        <!-- k3 单骰 -->
+                        <div id="k3-item0" class="active k3_item item_one">
+                            <ul>
+                                <li class="select-li" v-for="item in singleDiceList">
+                                    <div class="k3_panel">
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span><span :class="'k3_dice num_' + (index+1)"></span></span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- k3 不同号 -->
-                    <div id="k3-item1" class="k3_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in doubleDifferenceList">
-                                <div class="k3_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>
-                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
-                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
-                                            </span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- k3 不同号 -->
+                        <div id="k3-item1" class="k3_item" style="display:none;">
+                            <ul>
+                                <li class="select-li" v-for="item in doubleDifferenceList">
+                                    <div class="k3_panel">
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span>
+                                                    <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
+                                                    <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
+                                                </span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- k3 同号-->
-                    <div id="k3-item2" class="k3_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in sameNumberList">
-                                <div class="k3_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)" :class="item.cid == 63100 && 'so-con-span-short'">
-                                            <span v-if="itemChild.cid!=63107">
-                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
-                                                <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
-                                                <span v-if="(item.cid == 63100)" :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[2]"></span>
-                                            </span>
-                                            <span v-if="itemChild.cid==63107">{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- k3 同号-->
+                        <div id="k3-item2" class="k3_item" style="display:none;">
+                            <ul>
+                                <li class="select-li" v-for="item in sameNumberList">
+                                    <div class="k3_panel">
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)" :class="item.cid == 63100 && 'so-con-span-short'">
+                                                <span v-if="itemChild.cid!=63107">
+                                                    <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[0]"></span>
+                                                    <span :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[1]"></span>
+                                                    <span v-if="(item.cid == 63100)" :class="'k3_dice small_dice num_'+ itemChild.name.split(',')[2]"></span>
+                                                </span>
+                                                <span v-if="itemChild.cid==63107">{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <!-- k3 总和-->
-                    <div id="k3-item3" class="k3_item" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in harmoniousList">
-                                <div class="k3_panel">
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                                </li>
 
+                            </ul>
+                        </div>
+                        <!-- k3 总和-->
+                        <div id="k3-item3" class="k3_item" style="display:none;">
+                            <ul>
+                                <li class="select-li" v-for="item in harmoniousList">
+                                    <div class="k3_panel">
+                                        <h2>
+                                            {{item.name}}
+                                        </h2>
+                                        <div>
+                                            <p v-for="(itemChild,index) in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                <span>{{itemChild.name}}</span>
+                                                <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <div class="so-clear"></div>
             </div>
@@ -299,10 +303,14 @@
             switchTab:function(e){
                 const $src = $(e.currentTarget);
                 const index = $src.index();
-                const $tabs = $('.so-con-right > div');
+                const $tabs = $('.so-con-right .k3_item');
                 $tabs.hide();
                 $tabs.eq(index).show();
                 $src.addClass('active').siblings().removeClass('active');
+                var conth = $tabs.eq(index).height()-300 ;
+                $('.so-con-right').css('height',conth+'px') ;
+                //  _self.$parent.setScroll() ;
+                _self.$parent.conScroll.refresh() ;
             },
             getListByParentID:function(parentID){
                 return this.playTreeList.filter((item,i)=>{
