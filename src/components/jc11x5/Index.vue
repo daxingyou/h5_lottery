@@ -6,7 +6,7 @@
         <!--right menu  -->
         <UserMenu el=".so-top-zoushi" @play="$refs.playDialog.open()" :payoff="balanceData.payoff" />
         
-        <div class="so-index">
+        <div class="so-index" >
             <div class="so-top-all">
                 <div class="so-in-top">
                     <ul>
@@ -72,103 +72,112 @@
                     </div>
                 </div>
             </div>
-            <div class="so-in-con">
-                <div class="so-con-left">
-                    <ul>
-                        <li :data-type="(index==2?'lineplay':'nomalplay')" :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
-                            <a :href="'#so-item'+index">{{kind}}</a>
-                        </li>
-                        <!-- <li class="active " data-val="1">两面</li>
-                        <li class="" data-val="1">1-5球</li>
-                        <li class="reset_bet" data-val="2">连码</li> -->
-                    </ul>
-                </div>
-                <div class="so-con-right bule_bg">
-                    <!--以下为盘面不同样式，根据ID+class区分-->
-                    <!-- jc115 双面 -->
-                    <div id="so-item0" class="active jc115">
+            <div class="so-in-con" >
+                    <div class="so-con-left " id="nav_wrapper">
                         <ul>
-                            <li class="select-li" v-for="item in doubleSideList">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                         <!-- :data-id="itemChild.cid" -->
-                                        <p v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
-                                            <span>{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
+                            <li :data-type="(index==2?'lineplay':'nomalplay')" :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
+                                <a :href="'#so-item'+index">{{kind}}</a>
                             </li>
-                            
-                        </ul>
-                    </div>
-                    <!-- jc115 1-5球 -->
-                    <div id="so-item1" class="jc115" style="display:none;">
-                        <ul>
-                            <li class="select-li" v-for="item in oneToFiveList">
-                                <div>
-                                    <h2>
-                                        {{item.name}}
-                                    </h2>
-                                    <div>
-                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
-                                            <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
-                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-
 
                         </ul>
                     </div>
-                    <!-- jc115 连码 -->
-                    <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
-                        <div class="hd jx11_tab">
-                            <ul class="tab tab_mid tab_two">
-                                <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
-                                
-                                <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
-                                <li data-tab="2"><a href="javascript:;">二中二</a></li>
-                                <li data-tab="3"><a href="javascript:;">三中三</a></li>
-                                <li data-tab="4"><a href="javascript:;">四中四</a></li>
-                                <li data-tab="5"><a href="javascript:;">五中五</a></li>
-                                <li data-tab="6"><a href="javascript:;">六中五</a></li>
-                                <li data-tab="7"><a href="javascript:;">七中五</a></li>
-                                <li data-tab="8"><a href="javascript:;">八中五</a></li>
-                                <li data-tab="9"><a href="javascript:;">前二组选</a></li>
-                                <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
-                            </ul>
-                        </div>
-                        <div class="bd">
-                            <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
-                                <li class="select-li">
-                                    <div>
-                                        <h2>{{kind.name}}</h2>
+
+                <div  id="wrapper">
+                    <div class="so-con-right bule_bg ">
+
+                         <div id="scroller" class="scroller">
+
+                            <!--以下为盘面不同样式，根据ID+class区分-->
+                            <!-- jc115 双面 -->
+                            <div id="so-item0" class="active jc115">
+                                <ul>
+                                    <li class="select-li" v-for="item in doubleSideList">
                                         <div>
-                                            <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList" 
-                                                :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
-                                                @selected="continueNumberSelect"
-                                                @unSelected="continueNumberUnSelect"
-                                            />
-                                            
+                                            <h2>
+                                                {{item.name}}
+                                            </h2>
+                                            <div>
+                                                 <!-- :data-id="itemChild.cid" -->
+                                                <p v-for="itemChild in item.childrens" @click="betSelect($event, itemChild, item)">
+                                                    <span>{{itemChild.name}}</span>
+                                                    <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
 
-                        </div>
+                                </ul>
+                                <div class="bottom-item0"></div>
+                            </div>
+
+                            <!-- jc115 1-5球 -->
+                            <div id="so-item1" class="jc115" style="display:none;">
+                                <ul>
+                                    <li class="select-li" v-for="item in oneToFiveList">
+                                        <div>
+                                            <h2>
+                                                {{item.name}}
+                                            </h2>
+                                            <div>
+                                                <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
+                                                    <span @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
+                                                    <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <!-- jc115 连码 -->
+                            <div id="so-item2" class="jc115 tab_container tabBox" style="display:none;">
+                                <div class="hd jx11_tab">
+                                    <ul class="tab tab_mid tab_two">
+                                        <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
+
+                                        <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
+                                        <li data-tab="2"><a href="javascript:;">二中二</a></li>
+                                        <li data-tab="3"><a href="javascript:;">三中三</a></li>
+                                        <li data-tab="4"><a href="javascript:;">四中四</a></li>
+                                        <li data-tab="5"><a href="javascript:;">五中五</a></li>
+                                        <li data-tab="6"><a href="javascript:;">六中五</a></li>
+                                        <li data-tab="7"><a href="javascript:;">七中五</a></li>
+                                        <li data-tab="8"><a href="javascript:;">八中五</a></li>
+                                        <li data-tab="9"><a href="javascript:;">前二组选</a></li>
+                                        <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
+                                    </ul>
+                                </div>
+                                <div class="bd">
+                                    <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
+                                        <li class="select-li">
+                                            <div>
+                                                <h2>{{kind.name}}</h2>
+                                                <div>
+                                                    <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList"
+                                                        :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
+                                                        @selected="continueNumberSelect"
+                                                        @unSelected="continueNumberUnSelect"
+                                                    />
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
                     </div>
+
                 </div>
+                </div>
+
+
                 <div class="so-clear"></div>
             </div>
         </div>
         <!--封盘时给foot加上class:close-->
         <!--<div class="so-foot close">-->
-
 
         <!--
         下注组件
@@ -329,6 +338,25 @@
             this.allLottery = this.$refs.navone.getLotterys() ;
             this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
 
+         /*  var contentScroll = new IScroll('#content_wrapper', {
+                mouseWheel: true,
+                click: true,
+                probeType: 3
+            });*/
+            var  navmyscroll = new iScroll("nav_wrapper",{
+
+            });
+            var  myscroll = new iScroll("wrapper",{
+                /*  hScrollbar:false,
+                 vScrollbar:false,
+                 fixedScrollbar:true,*/
+                vScroll:true
+
+            });
+           /* console.log($('#wrapper').height()+'fhdj') ;
+            console.log($('.so-con-right').height()) ;
+            $('.so-con-right').css('height',$('.so-con-right').height()+$('#wrapper').height()+'px') ;*/
+
             setTimeout(() => {
                 this.timerBegin();
             }, 500) ;
@@ -368,7 +396,7 @@
             switchTab:function(e){
                 const $src = $(e.currentTarget);
                 const index = $src.index();
-                const $tabs = $('.so-con-right > div');
+                const $tabs = $('.so-con-right .jc115');
                 $tabs.hide();
                 $tabs.eq(index).show();
                 $src.addClass('active').siblings().removeClass('active');
@@ -582,4 +610,16 @@
     #so-item1.jc115 ul li > div > div p {
         display: block;
     }
+   /* #wrapper{
+      !*  z-index: 1; touch-action: none;*!
+        top: 0;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        position: absolute;
+    }*/
+
+    #wrapper { position:absolute;top:0 ; bottom: 0 ;left:0;width:100%}
+    /*.jc115{  width: 7.7rem; padding-bottom: .8rem;  position: fixed;  z-index: 5;left: 23% ; }*/
+
 </style>
