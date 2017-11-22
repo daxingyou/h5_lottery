@@ -62,6 +62,7 @@ export default {
     },
     methods:{
         timerInit:function(start, end, overend){
+            console.log('好地方是分开')
             const format = this.format;
             const theStart = start ? start : this.start;
             const theEnd = end ? end : this.end;
@@ -74,7 +75,7 @@ export default {
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                this.$emit('entertainCountdownOver');
             }
-
+            console.log(this.lt_time_leave_over)
             //计数器，计算间隔时间触发
             const counter = () => {
                 const spanSrrived = () => {
@@ -94,9 +95,10 @@ export default {
 
             clearInterval(this.timer);
             this.timer = window.setInterval((function() {
+                console.log('蒂ff冈你')
                 counter();
                // console.log(this.lt_time_leave)
-                if (this.lt_time_leave == 0) {   // 开奖倒计时结束
+                if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                 }
