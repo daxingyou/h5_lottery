@@ -18,19 +18,19 @@
                 <div class="so-in-top">
                     <ul>
                         <li class="so-menu">
-                            <img src="/static/frist/images/top/icon-menu.png" class="so-top-menu">
+                            <img src="/static/white/images/top/icon-menu.png" class="so-top-menu">
                         </li>
                         <li class="left_top_logo">
                             北京PK10
                         </li>
                         <li class="purse">
-                            <img src="/static/frist/images/top/sjinbi.png" class="so-top-sum">
+                            <img src="/static/white/images/top/sjinbi.png" class="so-top-sum">
                             <div class="so-in-top-sum">
                                 {{ fortMoney(roundAmt(balanceData.balance), 2)}}
                             </div>
                         </li>
                         <li class="so-top-zoushi">
-                            <img src="/static/frist/images/top/zoushi.png">
+                            <img src="/static/white/images/top/zoushi.png">
                         </li>
                     </ul>
                 </div>
@@ -221,7 +221,7 @@
         <!--自动关闭（闪屏）对话框API
             属性
                 text  对话框提示内容
-                type  对话框类型，可以是 static/frist/images/pop/ 目录下任意图片，像title_quantity、title_tip
+                type  对话框类型，可以是 static/white/images/pop/ 目录下任意图片，像title_quantity、title_tip
             方法
                 open(text, type)
         -->
@@ -246,17 +246,17 @@
 
 <script>
     // import $ from "jquery";
-    import "../../../static/frist/css/pk10.css"
-    import UserNavigation from '@/components/publicTemplate/UserNavigation'
-    import UserMenu from '@/components/publicTemplate/UserMenu'
-    import InfoDialog from '@/components/publicTemplate/InfoDialog'
-    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-    import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
-    import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
-    import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
+    import "../../../static/white/css/pk10.css"
+    import UserNavigation from '@/whitecomponents/publicTemplate/UserNavigation'
+    import UserMenu from '@/whitecomponents/publicTemplate/UserMenu'
+    import InfoDialog from '@/whitecomponents/publicTemplate/InfoDialog'
+    import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+    import BetSuccessfulDialog from '@/whitecomponents/publicTemplate/BetSuccessfulDialog'
+    import CountdownTimer from '@/whitecomponents/publicTemplate/CountdownTimer'
+    import HistoryTerm from '@/whitecomponents/publicTemplate/HistoryTerm'
 
-    import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/pk10/PlayDialog'
+    import Bet from '@/whitecomponents/publicTemplate/Bet'
+    import PlayDialog from '@/whitecomponents/pk10/PlayDialog'
     import Mixin from '@/Mixin'
 export default {
     name: 'pk10Index',

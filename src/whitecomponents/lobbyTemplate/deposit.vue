@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">充值</h2>
@@ -74,7 +74,7 @@
                             <ul>
                                 <li class="btn_bank bank01" v-for="list in banklist">
                                     <a href="javascript:;" title="list.bankName" @click="submitOnlinePay(list.bankCode,'1')">
-                                     <!--   <img src="/static/frist/images/info_bank_10.png" alt="">-->
+                                     <!--   <img src="/static/white/images/info_bank_10.png" alt="">-->
                                         <img v-lazy="list.img" alt="">
                                         <span>{{list.bankName}}</span>
                                     </a>
@@ -112,7 +112,7 @@
                             <div class="scan_code">
                                 <div class="qrcode_step">
                                     <div class="qrcode qrode_success">
-                                       <!-- <img src="/static/frist/images/qrcode.jpg" alt="">-->
+                                       <!-- <img src="/static/white/images/qrcode.jpg" alt="">-->
                                         <img v-lazy="scanImg" alt="">
                                     </div>
                                     <div class="step">
@@ -305,11 +305,11 @@
 // // import $ from "jquery";
 import Mixin from '@/Mixin'
 import Clipboard from 'clipboard'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
-// import deposit_bank_transfer from '@/components/lobbyTemplate/deposit_bank_transfer'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
+// import deposit_bank_transfer from '@/whitecomponents/lobbyTemplate/deposit_bank_transfer'
  // import '../../../static/js/mobiscroll.js'
- // import '../../../static/frist/css/mobiscroll.css'
+ // import '../../../static/white/css/mobiscroll.css'
 
 export default {
   name: 'deposit',

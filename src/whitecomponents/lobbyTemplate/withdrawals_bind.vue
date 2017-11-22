@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <router-link :to="'/lobbyTemplate/info'">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </router-link>
             </div>
             <h2 class="center">开户行</h2>
@@ -71,8 +71,8 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-import FooterNav from '@/components/Footer'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'withdrawals_bind',

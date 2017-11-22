@@ -4,7 +4,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="/static/frist/images/back.png" alt="">
+                    <img src="/static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center lottery_name">{{lotteryName}} 路珠</h2>
@@ -183,8 +183,8 @@
 <script>
     import Mixin from '@/Mixin'
     // import $ from "jquery";
-    import InfoDialog from '@/components/publicTemplate/InfoDialog'
-    import RoadBeadItem from '@/components/publicTemplate/RoadBeadItem'
+    import InfoDialog from '@/whitecomponents/publicTemplate/InfoDialog'
+    import RoadBeadItem from '@/whitecomponents/publicTemplate/RoadBeadItem'
 
     export default {
         name: 'RoadBeads',

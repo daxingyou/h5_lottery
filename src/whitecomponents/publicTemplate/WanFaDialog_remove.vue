@@ -37,8 +37,8 @@
 
     <!-- <div class="popup so-tip-pop so-tip-pop-01 publicDialog" @click="$emit('close')">
         <div>
-            <img :src="'/static/frist/images/pop/'+ (type||'title_tip') +'.png'">
-            <img src="/static/frist/images/page/status03.svg">
+            <img :src="'/static/white/images/pop/'+ (type||'title_tip') +'.png'">
+            <img src="/static/white/images/page/status03.svg">
             <p>{{text}}</p>
         </div>
     </div> -->

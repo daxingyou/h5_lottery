@@ -17,14 +17,14 @@
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
-                                    <div class="user_portrait" style="background-image: url('../../../static/frist/images/left/user.png');"></div>
+                                    <div class="user_portrait" style="background-image: url('../../../static/white/images/left/user.png');"></div>
                                 </div>
                             </h2>
                             <div class="user_name">
                                 <strong v-if="!demoName">{{userLogin}}</strong>
                                 <strong v-if="demoName">{{getCookie('username')}}</strong>
                                 <div class="purse">
-                                    <img src="/static/frist/images/top/sjinbi.png" class="so-top-sum">
+                                    <img src="/static/white/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
                                        {{fortMoney(roundAmt(Money), 2)}}
                                     </div>
@@ -115,9 +115,9 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
-import Confirm from '@/components/publicTemplate/Confirm'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
+import Confirm from '@/whitecomponents/publicTemplate/Confirm'
 export default {
   name: 'info',
   mixins:[Mixin],

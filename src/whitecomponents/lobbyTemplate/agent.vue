@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">代理申请</h2>
@@ -122,8 +122,8 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
+// import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
 
 export default {
   name: 'agent',

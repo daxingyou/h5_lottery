@@ -4,7 +4,7 @@
 </template>
 
 <script>
-    import Index from '@/components/jc11x5/Index'
+    import Index from '@/whitecomponents/jc11x5/Index'
 
     export default {
       name: 'jc11x5Index',

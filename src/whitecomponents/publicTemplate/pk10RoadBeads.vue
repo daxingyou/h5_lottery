@@ -4,7 +4,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="/static/frist/images/back.png" alt="">
+                    <img src="/static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">北京PK10 路珠</h2>
@@ -630,7 +630,7 @@
 
 
 <script>
-    import "../../../static/frist/css/pk10.css"
+    import "../../../static/white/css/pk10.css"
     import Mixin from '@/Mixin'
     // import $ from "jquery";
     

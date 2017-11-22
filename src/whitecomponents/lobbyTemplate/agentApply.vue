@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">代理注册</h2>
@@ -103,7 +103,7 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+// import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
 
 
 export default {

@@ -173,7 +173,7 @@
         <!--自动关闭（闪屏）对话框API
             属性
                 text  对话框提示内容
-                type  对话框类型，可以是 static/frist/images/pop/ 目录下任意图片，像title_quantity、title_tip
+                type  对话框类型，可以是 static/white/images/pop/ 目录下任意图片，像title_quantity、title_tip
             方法
                 open(text, type)
         -->
@@ -196,16 +196,16 @@
 <script>
 // import $ from "jquery";
 
-import UserNavigation from '@/components/publicTemplate/UserNavigation'
-import UserMenu from '@/components/publicTemplate/UserMenu'
-import InfoDialog from '@/components/publicTemplate/InfoDialog'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
-import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
-import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
-import MenuBar from '@/components/publicTemplate/MenuBar'
-import Bet from '@/components/publicTemplate/Bet'
-import PlayDialog from '@/components/cqssc/PlayDialog'
+import UserNavigation from '@/whitecomponents/publicTemplate/UserNavigation'
+import UserMenu from '@/whitecomponents/publicTemplate/UserMenu'
+import InfoDialog from '@/whitecomponents/publicTemplate/InfoDialog'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import BetSuccessfulDialog from '@/whitecomponents/publicTemplate/BetSuccessfulDialog'
+import CountdownTimer from '@/whitecomponents/publicTemplate/CountdownTimer'
+import HistoryTerm from '@/whitecomponents/publicTemplate/HistoryTerm'
+import MenuBar from '@/whitecomponents/publicTemplate/MenuBar'
+import Bet from '@/whitecomponents/publicTemplate/Bet'
+import PlayDialog from '@/whitecomponents/cqssc/PlayDialog'
 import Mixin from '@/Mixin'
 
 export default {

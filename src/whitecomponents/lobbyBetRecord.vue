@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" >
-                   <!-- <img src="/static/frist/images/back.png" alt="">-->
+                   <!-- <img src="/static/white/images/back.png" alt="">-->
                 </a>
             </div>
             <h2 class="center lottery_name">{{lotteryname}}</h2>
@@ -86,11 +86,11 @@
 
 <script>
     // import $ from "jquery";
-    import FooterNav from '@/components/Footer'
+    import FooterNav from '@/whitecomponents/Footer'
     import Mixin from '@/Mixin'
    // import 'swiper'
     import '../../static/js/swiper-3.4.2.jquery.min.js'
-    import '../../static/frist/css/swiper-3.4.2.min.css'
+    import '../../static/white/css/swiper-3.4.2.min.css'
     
     export default {
         name: 'betRecord',

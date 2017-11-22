@@ -4,7 +4,7 @@
             <h2>提示<a href="javascript:;" @click="close()"></a></h2>
             <div class="content danger">
                 <div>
-                    <img src="../../../static/frist/images/page/status03.svg">
+                    <img src="../../../static/white/images/page/status03.svg">
                 </div>游客不能访问该功能，是否注册会员？
             </div>
             <div class="action">

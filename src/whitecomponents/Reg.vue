@@ -3,10 +3,10 @@
         <header id="pa_head">
             <div class="left">
                 <router-link :to="'/'" class="before-add">
-                    <img src="static/frist/images/back.png" alt="" >
+                    <img src="static/white/images/back.png" alt="" >
                 </router-link>
                 <a href="javascript:;"  class="after-add" @click="lastAction()" style="display: none ;">
-                    <img src="static/frist/images/back.png" alt="">
+                    <img src="static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">注册</h2>
@@ -195,7 +195,7 @@
 <script>
     // import $ from "jquery";
     import Mixin from '@/Mixin'
-    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+    import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
 
     export default {
         name: 'Reg',

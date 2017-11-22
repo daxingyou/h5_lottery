@@ -2,17 +2,17 @@
 <div>
     <div class="so-left">
         <div class="so-left-close">
-            <img src="static/frist/images/left/left808.png">
+            <img src="static/white/images/left/left808.png">
         </div>
         <div class="so-left-con">
             <div class="so-l-c-top">
                 <div>
-                    <img src="static/frist/images/left/user.png">
+                    <img src="static/white/images/left/user.png">
                 </div>
                  <div>
                     <p>KWHRBFHQEWBH</p>
                     <div class="purse">
-                        <img src="static/frist/images/top/sjinbi.png" class="so-top-sum">
+                        <img src="static/white/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum">
                             821406.00
                         </div>
@@ -25,55 +25,55 @@
                     <ul>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_hljssc.svg" alt="">
+                                 <img src="static/white/images/logo_hljssc.svg" alt="">
                             </div>
-                            <!-- <img src="static/frist/images/left/ball.png"> -->
+                            <!-- <img src="static/white/images/left/ball.png"> -->
                             <p>黑龙江时时彩</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_xjssc.svg">
+                                 <img src="static/white/images/logo_xjssc.svg">
                             </div>
                             <p>新疆时时彩</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_tjssc.svg">
+                                 <img src="static/white/images/logo_tjssc.svg">
                             </div>
                             <p>天津时时彩</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_cqssc.svg">
+                                 <img src="static/white/images/logo_cqssc.svg">
                             </div>
                             <p>重庆时时彩</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_gd11x5.svg">
+                                 <img src="static/white/images/logo_gd11x5.svg">
                             </div>
                             <p>广东11选5</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_sd11x5.svg">
+                                 <img src="static/white/images/logo_sd11x5.svg">
                             </div>
                             <p>山东11选5</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_sixlottery.svg">
+                                 <img src="static/white/images/logo_sixlottery.svg">
                             </div>
                             <p>六合彩</p>
                         </li>
                         <li>
                             <div class="badge">
-                                 <img src="static/frist/images/logo_jxk3.svg">
+                                 <img src="static/white/images/logo_jxk3.svg">
                             </div>
                             <p>江苏快3</p>
                         </li>
                         <!-- <li>
-                             <img src="static/frist/images/left/ball.png">
+                             <img src="static/white/images/left/ball.png">
                             <p>黑龙江时时彩</p>
                         </li>  -->
                     </ul>
@@ -84,41 +84,41 @@
     <!--right menu  -->
     <div class="so-right">
         <div>
-            <img src="static/frist/images/top/zoushi.png">
+            <img src="static/white/images/top/zoushi.png">
         </div>
         <div>
             <div>
                 <ul>
                     <li>
                         <a href="bet_record.html">
-                            <img src="static/frist/images/right/1.png">
+                            <img src="static/white/images/right/1.png">
                             <p>投注记录</p>
                         </a>
                     </li>
                     <li>
                         <a href="past_view.html">
-                            <img src="static/frist/images/right/2.png">
+                            <img src="static/white/images/right/2.png">
                             <p>近期开奖</p>
                         </a>
                     </li>
                     <li>
                         <a href="road_beads.html">
-                            <img src="static/frist/images/right/3.png">
+                            <img src="static/white/images/right/3.png">
                             <p>路珠</p>
                         </a>
                     </li>
                     <li>
                         <a href="ds_long.html">
-                            <img src="static/frist/images/right/4.png">
+                            <img src="static/white/images/right/4.png">
                             <p>双面长龙</p>
                         </a>
                     </li>
                     <li class="play">
-                        <img src="static/frist/images/right/5.png">
+                        <img src="static/white/images/right/5.png">
                         <p>玩法说明</p>
                     </li>
                     <li>
-                        <img src="static/frist/images/right/6.png">
+                        <img src="static/white/images/right/6.png">
                         <p>今日输赢</p>
                         <div class="so-color">(+11.65)</div>
                     </li>
@@ -130,19 +130,19 @@
         <div class="so-in-top">
             <ul>
                 <li class="so-menu">
-                    <img src="static/frist/images/top/icon-menu.png" class="so-top-menu">
+                    <img src="static/white/images/top/icon-menu.png" class="so-top-menu">
                 </li>
                 <li>
-                    <img src="static/frist/images/top/logo_jc11x5.png" class="so-top-logo">
+                    <img src="static/white/images/top/logo_jc11x5.png" class="so-top-logo">
                 </li>
                 <li class="purse">
-                    <img src="static/frist/images/top/sjinbi.png" class="so-top-sum">
+                    <img src="static/white/images/top/sjinbi.png" class="so-top-sum">
                     <div class="so-in-top-sum">
                         821406.00
                     </div>
                 </li>
                 <li class="so-top-zoushi">
-                    <img src="static/frist/images/top/zoushi.png">
+                    <img src="static/white/images/top/zoushi.png">
                 </li>
             </ul>
         </div>

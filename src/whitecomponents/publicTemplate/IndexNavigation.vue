@@ -3,17 +3,17 @@
     <div v-if="showNavigation" :class="'so-left '+ (showNavigation?'active':'')">
         <div class="so-shade" @click="close"></div>
         <div class="so-left-close" @click="close">
-            <img src="../../../static/frist/images/left/left808.png">
+            <img src="../../../static/white/images/left/left808.png">
         </div>
         <div class="so-left-con" >
             <div class="so-l-c-top">
                 <div>
-                    <img src="../../../static/frist/images/left/user.png">
+                    <img src="../../../static/white/images/left/user.png">
                 </div>
                 <div>
                     <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
                     <div class="purse"  v-if="haslogin">
-                        <img src="../../../static/frist/images/top/sjinbi.png" class="so-top-sum">
+                        <img src="../../../static/white/images/top/sjinbi.png" class="so-top-sum">
                         <div class="so-in-top-sum" >
                             {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : 0), 2)}}
                         </div>
@@ -77,9 +77,9 @@
 <script>
     import Mixin from '@/Mixin'
     // import $ from "jquery";
-//    import deposit from '@/components/lobbyTemplate/deposit'
-    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-    import Confirm from '@/components/publicTemplate/Confirm'
+//    import deposit from '@/whitecomponents/lobbyTemplate/deposit'
+    import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+    import Confirm from '@/whitecomponents/publicTemplate/Confirm'
     export default {
         name: 'IndexNavigation',
         mixins:[Mixin],

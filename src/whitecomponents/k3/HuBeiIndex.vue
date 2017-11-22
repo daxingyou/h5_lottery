@@ -4,7 +4,7 @@
 </template>
 
 <script>
-    import Index from '@/components/k3/Index'
+    import Index from '@/whitecomponents/k3/Index'
 
     export default {
       name: 'huBeiK3Index',

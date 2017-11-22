@@ -4,7 +4,7 @@
   <!-- <div v-if="show" :class="'so-right '+ (show?'active':'')"> -->
     <div v-if="show" :class="'so-right '+ (show?'active':'')">
         <div>
-            <img src="/static/frist/images/top/zoushi.png">
+            <img src="/static/white/images/top/zoushi.png">
         </div>
         <div class="so-shade" @click="close"></div>
         <div>
@@ -38,11 +38,11 @@
                         </router-link>
                     </li>
                     <li class="play " @click="play">
-                        <!-- <img src="/static/frist/images/right/5.png"> -->
+                        <!-- <img src="/static/white/images/right/5.png"> -->
                         <p>玩法说明</p>
                     </li>
                     <li class="r_today">
-                        <!-- <img src="/static/frist/images/right/6.png"> -->
+                        <!-- <img src="/static/white/images/right/6.png"> -->
                         <p>今日输赢</p>
                        <!-- <div :class="'today_payoff '+ (payoff>=0?' win_payoff':'lose_payoff')">({{(payoff>=0?'+':'')}}{{fortMoney(roundAmt(payoff))}})</div>-->
                         <div class="today_payoff win_payoff" v-if="payoff>=0">+{{fortMoney(roundAmt(payoff))}}</div>

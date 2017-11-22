@@ -67,8 +67,8 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-import FooterNav from '@/components/Footer'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
 export default {
   name: 'Index',
   mixins:[Mixin],

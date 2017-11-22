@@ -4,7 +4,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="/static/frist/images/back.png" alt="">
+                    <img src="/static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">个人中心</h2>
@@ -76,8 +76,8 @@
             <!--<h2 class="noclose"><a></a></h2>-->
             <!--<div class="content check">-->
                 <!--<div>-->
-                    <!--<img src="../../../static/frist/images/pop/title_public.png">-->
-                    <!--<img src="../../../static/frist/images/icon_check.svg">-->
+                    <!--<img src="../../../static/white/images/pop/title_public.png">-->
+                    <!--<img src="../../../static/white/images/icon_check.svg">-->
                 <!--</div>-->
                 <!--恭喜 ! 您已注册成功 , 祝您游戏愉快！-->
             <!--</div>-->
@@ -92,8 +92,8 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
+// import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
 
 export default {
   name: 'notification',

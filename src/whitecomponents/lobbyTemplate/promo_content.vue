@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="/" @click.prevent="goBack">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">优惠活动</h2>
@@ -13,7 +13,7 @@
             <div class="promo_area">
                 <ul>
                     <li>
-                        <img src="../../../static/frist/images/banner/promo-1.jpg">
+                        <img src="../../../static/white/images/banner/promo-1.jpg">
                         <div class="promo_detail">
                             <h3>更多热门彩种 即将上线</h3>
                             <p><strong>活动详情</strong></p>

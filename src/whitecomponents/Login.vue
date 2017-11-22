@@ -1,7 +1,7 @@
 <template>
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head" class="login">
-            <img src="static/frist/images/login_logo.png" alt="">
+            <img src="static/white/images/login_logo.png" alt="">
         </header>
         <div class="content">
             <div class="login_area">
@@ -48,7 +48,7 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
+import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
 
 export default {
   name: 'Login',

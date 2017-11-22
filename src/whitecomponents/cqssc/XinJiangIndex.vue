@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Index from '@/components/cqssc/Index'
+    import Index from '@/whitecomponents/cqssc/Index'
 
     export default {
       name: 'xjsscIndex',

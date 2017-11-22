@@ -246,17 +246,17 @@
 
 <script>
     // import $ from "jquery";
-    import "../../../static/frist/css/pk10.css"
-    import UserNavigation from '@/components/publicTemplate/UserNavigation'
-    import UserMenu from '@/components/publicTemplate/UserMenu'
-    import InfoDialog from '@/components/publicTemplate/InfoDialog'
-    import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-    import BetSuccessfulDialog from '@/components/publicTemplate/BetSuccessfulDialog'
-    import CountdownTimer from '@/components/publicTemplate/CountdownTimer'
-    import HistoryTerm from '@/components/publicTemplate/HistoryTerm'
+    import "../../../static/white/css/pk10.css"
+    import UserNavigation from '@/whitecomponents/publicTemplate/UserNavigation'
+    import UserMenu from '@/whitecomponents/publicTemplate/UserMenu'
+    import InfoDialog from '@/whitecomponents/publicTemplate/InfoDialog'
+    import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+    import BetSuccessfulDialog from '@/whitecomponents/publicTemplate/BetSuccessfulDialog'
+    import CountdownTimer from '@/whitecomponents/publicTemplate/CountdownTimer'
+    import HistoryTerm from '@/whitecomponents/publicTemplate/HistoryTerm'
 
-    import Bet from '@/components/publicTemplate/Bet'
-    import PlayDialog from '@/components/pk10/PlayDialog'
+    import Bet from '@/whitecomponents/publicTemplate/Bet'
+    import PlayDialog from '@/whitecomponents/pk10/PlayDialog'
     import Mixin from '@/Mixin'
 export default {
     name: 'pk10Index',

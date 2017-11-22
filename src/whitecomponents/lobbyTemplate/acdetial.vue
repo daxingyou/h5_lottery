@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="#" @click.prevent="goBack">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">帐户明细</h2>
@@ -57,7 +57,7 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-import FooterNav from '@/components/Footer'
+import FooterNav from '@/whitecomponents/Footer'
 
 export default {
     name: 'acdetial',

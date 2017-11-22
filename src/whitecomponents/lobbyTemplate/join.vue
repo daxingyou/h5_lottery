@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" @click="goBack">
-                    <img src="../../../static/frist/images/back.png" alt="">
+                    <img src="../../../static/white/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">欢迎加入</h2>
@@ -17,13 +17,13 @@
                             <h2 class="ui header center aligned">
                                 <div class="portrait">
                                     <!-- <div class="portrait_outline"></div> -->
-                                    <div class="user_portrait" style="background-image: url('../../../static/frist/images/left/user.png');"></div>
+                                    <div class="user_portrait" style="background-image: url('../../../static/white/images/left/user.png');"></div>
                                 </div>
                             </h2>
                             <div class="user_name">
                                 <strong>{{getCookie('username')}}</strong>
                                 <div class="purse">
-                                    <img src="../../../static/frist/images/top/sjinbi.png" class="so-top-sum">
+                                    <img src="../../../static/white/images/top/sjinbi.png" class="so-top-sum">
                                     <div class="so-in-top-sum">
                                         {{getCookie('membalance')}}
                                     </div>
@@ -85,9 +85,9 @@
 <script>
 // import $ from "jquery";
 import Mixin from '@/Mixin'
-// import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
-import FooterNav from '@/components/Footer'
-import Confirm from '@/components/publicTemplate/Confirm'
+// import AutoCloseDialog from '@/whitecomponents/publicTemplate/AutoCloseDialog'
+import FooterNav from '@/whitecomponents/Footer'
+import Confirm from '@/whitecomponents/publicTemplate/Confirm'
 
 export default {
   name: 'join',
