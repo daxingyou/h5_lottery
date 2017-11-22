@@ -13,9 +13,14 @@ import AnHuiK3Index from '@/components/k3/AnHuiIndex'  // 安徽快3
 import HuBeiK3Index from '@/components/k3/HuBeiIndex'  // 湖北快3
 
 import Pk10Index from '@/components/pk10/Index'  // 北京 pk10
+import SecondPk10 from '@/components/pk10/SecondPk10'  // 北京 pk10
+
 import CqsscIndex from '@/components/cqssc/Index'  // 重庆时时彩
 import TjsscIndex from '@/components/cqssc/TianJinIndex'  // 天津时时彩
 import XjsscIndex from '@/components/cqssc/XinJiangIndex'  // 新疆时时彩
+import SecondSsc from '@/components/cqssc/SecondSsc'  // 秒速时时彩
+
+
 import PastView from '@/components/publicTemplate/PastView'
 import lobbyPastView from '@/components/lobbyPastView'  // 大厅往期开奖
 import BetRecord from '@/components/publicTemplate/BetRecord'
@@ -90,17 +95,20 @@ export default new Router({
       name: 'AnHuiK3Index',
       component: AnHuiK3Index
     },
-
     {
       path: '/k3/huBeiK3Index',
       name: 'HuBeiK3Index',
       component: HuBeiK3Index
     },
-
     {
       path: '/pk10/',
       name: 'pk10Index',
       component: Pk10Index
+    },
+    {
+      path: '/pk10/SecondPk10',
+      name: 'SecondPk10',
+      component: SecondPk10
     },
     { //重庆时时彩
       path: '/cqssc/',
@@ -112,11 +120,19 @@ export default new Router({
       name: 'tjsscIndex',
       component: TjsscIndex
     },
-    {  // 新疆时时彩
+    {  // 秒速时时彩
         path: '/cqssc/xinJiangIndex',
         name: 'xjsscIndex',
         component: XjsscIndex
     },
+     {  // 新疆时时彩
+        path: '/cqssc/SecondSscIndex',
+        name: 'SecondSsc',
+        component: SecondSsc
+    },
+
+
+
     { path: '/publicTemplate/pastView', name:'pastView', component: PastView },
     { path: '/lobbyPastView', name:'lobbyPastView', component: lobbyPastView },
     { path: '/publicTemplate/betRecord', name:'betRecord', component: BetRecord },
