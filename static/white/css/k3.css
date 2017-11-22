@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+.k3_clear:after { content: ''; display: table; clear: both; }
+
+#k3 .so-m-t-left { width: 3.33rem; }
+
+#k3 .so-m-t-left div:first-child { white-space: nowrap; margin-right: 0; width: 3.33rem; }
+
+#k3 .so-m-t-right > div { float: none; }
+
+#k3 .last-open-num { float: none; }
+
+#k3 .k3_top_number { text-align: right; margin-right: 0.2rem; }
+
+#k3 .k3_top_number li { background: none; float: none; display: inline-block; width: auto; height: auto; margin-right: 0.07rem; }
+
+#k3 .k3_top_detail { margin-left: 0.1rem; text-align: right; }
+
+#k3 .k3_top_detail li { font-size: 0.3rem; width: 0.66rem; margin-top: 0.07rem; float: none; display: inline-block; }
+
+#k3 .so-main-down li { white-space: nowrap; }
+
+#k3 .select-li { height: auto; padding-top: 0.3rem; }
+
+#k3 .k3_panel { background: none; height: auto; position: relative; }
+
+#k3 .k3_panel h2 { line-height: 0.9rem; }
+
+#k3 .k3_panel > div { padding: 3% 3% 3.5%; height: auto; margin: 0px auto; }
+
+#k3 .k3_panel > div p { margin: 2% 1.8% 2% 2.2%; }
+
+#k3 .k3_panel > div p span:last-child { padding-left: 0rem; }
+
+#k3 .k3_panel > div:after { content: ''; display: table; clear: both; }
+
+#k3 .k3_panel:after { content: ''; display: block; position: absolute; width: 100%; bottom: 0px; clear: both; height: 0.4rem; margin-top: -0.4rem; }
+
+#k3 .play_th ul { margin-top: 0.05rem; float: right; }
+
+#k3 .lo_ball { margin-left: 0; margin-top: 0.4rem; }
+
+#k3 .lo_ball li { background: none; width: 1rem; height: 1rem; margin: 0px 0.3rem; }
+
+#k3 .lo_ball li span { display: block; }
+
+#k3 .ds_long .prod > div { width: 4rem; }
+
+#k3 .ds_long .prod > div:last-child { width: auto; }
+
+#k3 .ds_long .lo_ball { margin: 0px; }
+
+#k3 .ds_long .lo_ball li { font-size: 0.5rem; width: auto; }
+
+#k3 .ds_long .lo_ball .k3_dice { margin-top: 0.25rem; }
+
+#k3 .tab_mid { white-space: nowrap; overflow-x: scroll; }
+
+.k3_item ul li .k3_panel { width: 7rem; height: 5rem; background-position-x: -1.1rem; text-align: center; margin: auto; }
+
+.k3_item ul li .k3_panel > h2 { color: #ffffff; font-size: .4rem; line-height: 1.12rem; }
+
+.k3_item ul li .k3_panel > div { padding: 3%; width: 94%; height: 3.1rem; }
+
+.k3_item ul li .k3_panel > div p { float: left; border: solid 0.01rem #277ca5; width: 2.96rem; margin-bottom: 4%; margin-left: 3.5%; }
+
+.k3_item ul li .k3_panel > div p > span { color: #d7e8f0; font-size: .34rem; display: block; float: left; padding: 0.15rem 0.2rem; line-height: 0.5rem; }
+
+.k3_item ul li .k3_panel > div p > span:first-child { margin-top: -0.02rem; }
+
+.k3_item ul li .k3_panel > div p > span:last-child { float: right; }
+
+.k3_item ul li .k3_panel > div p .k3_dice { border: 0.01rem solid transparent; margin-left: 0.06rem; }
+
+.k3_item ul li .k3_panel > div p.active { background: url(/static/images/content/changkuang.png) no-repeat; background-size: 100% 100%; background-position: -0.01rem; border: solid 0.01rem #42371c; }
+
+.k3_item ul li .k3_panel > div p.active > span:first-child { color: #010101; }
+
+.k3_item ul li .k3_panel > div p.active > span:last-child { color: #ab0000; }
+
+.k3_item ul li .k3_panel > div p.active .k3_dice { border-color: #403720; }
+
+.k3_item ul li .so-con-span-short { width: 2.96rem !important; background-size: 3.06rem 0.9rem; }
+
+#k3-item0 .select-li p > span:first-child { -webkit-transform: scale(0.9); -ms-transform: scale(0.9); transform: scale(0.9); margin-top: 0.01rem; }
+
+#k3-item0 .select-li p > span:last-child { padding-top: 0.4rem; }
+
+#k3-item2 .select-li:first-child p > span { float: none; padding: 0.2rem 0.2rem 0; }
+
+#k3-item2 .select-li:first-child p > span:last-child { padding: 0.05rem 0.2rem 0.15rem; }
+
+.k3_dice { display: inline-block; vertical-align: middle; -webkit-box-sizing: border-box; box-sizing: border-box; background: url(/static/images/k3/dice.png) no-repeat; background-size: 6rem 1rem; width: 1rem; height: 1rem; border-radius: 0.1rem; }
+
+.k3_dice.num_20 { background: url(/static/images/k3/dice_0.png) no-repeat center center; background-size: 1rem 1rem; }
+
+.k3_dice.num_1 { background-position-x: 0; }
+
+.k3_dice.num_2 { background-position-x: -1rem; }
+
+.k3_dice.num_3 { background-position-x: -2rem; }
+
+.k3_dice.num_4 { background-position-x: -3rem; }
+
+.k3_dice.num_5 { background-position-x: -4rem; }
+
+.k3_dice.num_6 { background-position-x: -5rem; }
+
+.k3_dice.small_dice { background-size: 3rem 0.5rem; width: 0.5rem; height: 0.5rem; border-radius: 0.05rem; }
+
+.k3_dice.small_dice.num_20 { background: url(/static/images/k3/dice_0.png) no-repeat center center; background-size: 0.5rem 0.5rem; }
+
+.k3_dice.small_dice.num_1 { background-position-x: 0; }
+
+.k3_dice.small_dice.num_2 { background-position-x: -0.5rem; }
+
+.k3_dice.small_dice.num_3 { background-position-x: -1rem; }
+
+.k3_dice.small_dice.num_4 { background-position-x: -1.5rem; }
+
+.k3_dice.small_dice.num_5 { background-position-x: -2rem; }
+
+.k3_dice.small_dice.num_6 { background-position-x: -2.5rem; }

@@ -1,0 +1,777 @@
+@charset "utf-8";
+@import "variable";
+// tab
+.tab{
+    font-size: 0;
+    .item{
+        display: inline-block;
+        text-align: left;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        font-size: 1rem;
+        &:first-child{
+            border-right: 1px solid #F1F1F1;
+        }
+        a{
+            color: #808080;
+            display: block;
+            padding: 1rem 0.5rem 0.7rem;
+            text-align: center;
+            @include respond-to(ss){
+                padding: 1rem .5rem ;
+            }
+            >*{
+                display: inline-block;
+            }
+            p{
+                text-align: left;
+                line-height: 1.429rem;
+            }
+            small{
+                color: #ACACAC;
+                display: block;
+                font-size: 0.7143rem;
+                line-height: 1rem;
+            }
+            span{
+                font-size: 1.071rem;
+            }
+        }
+        &.active,&:hover,&:focus{
+            transform:none;
+            a{
+                color: #ccc;
+            }
+        }
+    }
+}
+.tab_mid{
+    background-color: #fff;
+    //固定tab在上方
+    position: fixed;
+    top: $headerHeight;
+    z-index: 5;
+    width: 10rem;
+    left: inherit;
+    >li{
+        display: inline-block;
+        width: 25%;
+        text-align: center;
+        vertical-align: middle;
+        >a{
+            display: block;
+            font-size: 0.8571rem;
+            height: 1rem;
+            line-height: 1rem;
+            font-size: .35rem;
+        }
+        &.on{
+            transform:none;
+            a{
+                color: $colorMain;
+                height: calc( 1rem - 3px );
+                border-bottom: 3px solid $colorMain;
+            }
+        }
+    }
+    &.tab_three{
+        >li{
+            width: 33%;
+        }
+    }
+    &.tab_two{
+        >li{
+            width: 50%;
+        }
+    }
+    &.tab_five{
+        >li{
+            width: 20%;
+        }
+    }
+}
+.hd{
+    margin-bottom: .3rem;
+}
+.tab_content{
+    margin:0.24rem;
+    background-color: #fff;
+    //margin-top: 1.5rem;
+    &.sliding-box{
+        margin-bottom: 2.2rem;
+    }
+}
+.bet_day{
+    &:last-child{
+    }
+    .date{
+        font-size: 1rem;
+    }
+}
+.bet_data{
+    border-bottom: 1px solid $borderLight;
+    &:first-child{
+        border-top:none;
+    }
+    &:last-child{
+        border-bottom:none;
+    }
+    > a{
+        display: block;
+        // padding:.5rem;
+        &:after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+    > a >.item{
+        padding: .3rem;
+        overflow: hidden;
+        > div{
+                float: left;
+                line-height: .6rem;
+        }
+        >.status{
+            float: right;
+            max-width: 1.8rem;
+            width: auto;
+        }
+        >.badge{
+            width: 1.5rem;
+            height: 1.5rem;
+            >img{
+                margin-left: 0.2rem;
+            }
+        }
+    }
+    strong{
+        color: $yellow;
+        font-size: .35rem;
+        font-weight: 300;
+    }
+    .status {
+        // float: right;
+        min-width: 15%;
+        width: 1.8rem;
+        text-align: center;
+        color: #acacac; // margin-top: 0.3571rem;
+        >div {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .status00{
+        padding-top: .3rem;
+        >span{
+            position: relative;
+            top: 0.5rem;
+        }
+        >div{
+            display: block;
+            background-image: url('/static/images/page/status00.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            text-align: center;
+            margin: 0 auto;
+            width: .5rem;
+            height: .5rem;
+            position: relative;
+            top: -0.6rem;
+        }
+    }
+    // .status01{
+    // }
+    .status02{
+        color: $green;
+        padding-top: .3rem;
+    }
+    .status03{
+        color: #b91010;
+        padding-top: .3rem;
+        // padding-top: 2rem;
+        // position: relative;
+        // margin-top: 0;
+        >span {
+            position: relative;
+            top: 0.5rem;
+        }
+        >div{
+            display: block;
+            background-image: url('/static/images/page/status03.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            text-align: center;
+            margin: 0 auto;
+            width: .5rem;
+            height: .5rem;
+            position: relative;
+            top: -0.6rem;
+        }
+    }
+    .status04{
+        @extend .status03;
+    }
+}
+.prd_num{
+    float: none;
+    vertical-align: top;
+    line-height: 1;
+    height: .4rem;
+    width: 3rem;
+    background-color: $colorMain;
+    color: #fff;
+    font-size: .35rem;
+    padding: .2rem 0 .15rem .4rem;
+    position: relative;
+    &:after{
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: -0.75rem;
+        top: 0px;
+        border-style: solid;
+        border-width: 0.75rem 0.75rem 0 0;
+        border-color: $colorMain transparent transparent transparent;
+    }
+}
+
+.lottery_t {
+    margin-left: .3rem; // margin-top: 0.3571rem;
+    font-size: .34rem;
+    >p {
+        /* margin-top: .2rem;*/
+        font-size: .34rem;
+        max-width: 5.1rem;
+        word-break: break-all;
+    }
+}
+//查看往期
+.past_view{
+    border: 1px solid $borderLight;
+    border-top: 0;
+    &:nth-child(even){
+        background-color: #fafafa;
+    }
+    >.panel{
+        >li{
+            position: relative;
+            min-height: 2.4rem;
+            height:auto;
+            overflow: hidden;
+            z-index: 3;
+        }
+    }
+}
+.play_th{
+    overflow: hidden;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    >*{
+        display: inline-block;
+    }
+    .prd_num{
+        padding: 0rem 0 .3rem 0;
+        line-height: .3rem;
+        // margin-left: -2rem;
+        //margin-left: -1.3rem;
+        float: left;
+        width: 4rem;
+        >span{
+            font-size: .3rem;
+            padding-top: .2rem;
+            display: inline-block;
+        }
+        >i{
+            margin-left: -.5rem;
+            margin-right: .1rem;
+        }
+    }
+    ul{
+        >li{
+            display: block;
+            float: left;
+            width: .8rem;
+            height: .35rem;
+            border: solid .01rem #ffffff;
+            background-color: $yellow;
+            -webkit-border-radius: .19rem;
+            -moz-border-radius: .19rem;
+            border-radius: .19rem;
+            text-align: center;
+            margin-top: 0.14rem;
+            margin-right: 0.23rem;
+            font-size: 0.34rem;
+            line-height: 0.35rem;
+        }
+    }
+}
+ul.lo_ball{
+    //margin-left: -1rem;
+    // width: 2.5rem;
+    text-align: center;
+    //margin: 0 auto;
+    margin-top: .29rem;
+    >li{
+        background: url('/static/images/content/qui02.png') no-repeat;
+        background-size: 1.1rem;
+        background-position: 0.05rem 0.01rem;
+        // background-image: url('/static/images/content/qiu.png');
+        // background-repeat: no-repeat;
+        // background-size: 1.1rem;
+        display: inline-block;
+        width: 1.1rem;
+        height: 1.1rem;
+        color: #fffbe2;
+        font-size: 0.5rem;
+        text-align: center;
+        line-height: 1.1rem;
+        text-indent: 0.1rem;
+        margin: 0 .05rem;
+        //background-position: 0.05rem;
+    }
+    &.double-numbers{
+        margin-left: -2rem;
+    }
+}
+ul.no_open{
+    >li{
+        background-image: url('/static/images/content/duankaung.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: #000;
+        width: auto;
+        font-size: 0.4rem;
+        min-width: 2rem;
+        height: 1rem;
+        line-height: .95rem;
+    }
+}
+i.prd{
+    height: .6rem;
+    width: .5rem;
+    display: inline-block;
+    line-height: .3rem;
+    vertical-align: inherit;
+}
+//ds_long 雙面長龍
+.ds_long{
+    padding: .2rem 0;
+    color: #fff;
+    //margin-top: 1.5rem;
+    ul.lo_ball{
+        width: 2.5rem;
+        &.two{ //寫js去判斷內容物數量超過1增加這個class
+            width: auto;
+        }
+    }
+    >.panel{
+        background-color: #0f1520;
+        @include border-radius(.2rem);
+        border: 1px solid #679edf;
+        box-shadow:0px 0px 15px rgba(#679edf, 0.9);
+        padding: .2rem .3rem .2rem;
+        font-size: .4rem;
+        >.prod{
+            overflow: hidden;
+            background: url('/static/images/page/bottom_line.png') center 1.35rem no-repeat;
+            background-size: 100%;
+            padding: .1rem 0 .3rem;
+            &:last-child{
+                background: none;
+            }
+            >*{
+                display: block;
+                float: left;
+                line-height: 1.3rem;
+                height: 1.3rem;
+                margin: 0 .2rem;
+            }
+            i{
+                margin-top: .25rem;
+                height: .6rem;
+            }
+            >div.periods{
+                float: right;
+                width: auto;
+                margin-right: .2rem;
+            }
+            >div{
+                width: 3rem;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+        }
+    }
+}
+#road01,#road02{
+    background-color: #191f2d;
+    @include border-radius(.15rem);
+    border: 1px solid #679edf;
+    box-shadow:0px 0px 15px rgba(#679edf, 0.9);
+    margin: .2rem;
+    font-size: .4rem;
+    overflow: hidden;
+    .tab_mid{
+        background-color: rgba(0, 0, 0, 0.15);
+        position: relative;
+        top:inherit;
+        left: inherit;
+    }
+    .hd{
+        margin-bottom: .2rem;
+    }
+    .bd{
+        width: 100% !important;
+        padding-right: 5rem;
+    }
+    .tab_content{
+        overflow:auto;/* winphone8和android4+ */
+        -webkit-overflow-scrolling: touch; /* ios5+ */
+        white-space: nowrap;
+        width: 97.5% !important;
+        min-height: 4.3rem;
+        padding: 0;
+        display: block;
+        text-align: right;
+        margin-top: 0;
+    }
+    .tab_content_out{
+        display: none;
+        &.on{
+            display: block;
+        }
+    }
+}
+.road{
+    box-sizing: border-box;
+    min-width: .85rem;
+    width: auto;
+    height: 4.6rem;
+    display: inline-block;
+    display: -webkit-inline-flex; //fix路珠ios問題
+    overflow: hidden;
+    &:last-child{
+        margin-right: .5rem;
+        &:before{
+            content: '';
+            display: block;
+            position: absolute;
+            background: url('/static/images/page/road.png') no-repeat;
+            width: .85rem;
+            top: -0.1rem;
+            background-size: 100%;
+            height: .6rem;
+        }
+    }
+    &.road_left{
+        width: auto;
+        ul{
+            >li{
+                margin-left: 0;
+                &:nth-child(6){
+                    margin-top: -1rem;
+                    margin-left: .8rem;
+                    display: inline-block;
+                    position: relative;
+                    top: -3.99rem;
+                }
+                // &:nth-child(n+7){
+                //     margin-top: -1rem;
+                //     display: inline-block;
+                //     position: relative;
+                //     top: -3.99rem;
+                // }
+            }
+        }
+
+    }
+    >ul{
+        background-color: #0d1522;
+        @include border-radius(.05rem);
+        margin-top: .5rem;
+        padding-top: .2rem;
+        >li{
+            background: url('/static/images/page/road.png') no-repeat center top;
+            background-size: 100%;
+            width: .8rem;
+            height: .8rem;
+            margin: 0 auto;
+            text-align: center;
+            background-position-y: 0;
+            color: #fff;
+            font-size: 0.35rem;
+            line-height: .6rem;
+            &.tiger{
+                background-position-y: 14%;
+            }
+            &.dragon{
+                background-position-y: 33.3%;
+            }
+            &.mid{
+                background-position-y: 53%;
+            }
+            &.big{
+                background-position-y: 72.5%;
+            }
+            &.small{
+                background-position-y: 92.7%;
+            }
+        }
+    }
+}
+#road02_1,#road02_2,#road02_3,#road02_4,#road02_5{
+    >ul{
+        position: relative;
+        &:first-child{
+            &:before{
+                content: '大 / 小';
+                display: block;
+                position: absolute;
+                color: #666;
+                top:0;
+                left: 1%;
+                font-size: .25rem;
+            }
+        }
+        &:last-child{
+            &:before{
+                content: '单 / 双';
+                display: block;
+                position: absolute;
+                color: #666;
+                //top:50%;
+                top:0;
+                left: 1%;
+                font-size: .25rem;
+            }
+        }
+    }
+}
+.grey_text{
+    padding: .1rem 0;
+}
+//下拉選單
+.dropdown_icon{
+    font-size: .35rem;
+    line-height: $headerHeight;
+    //padding-right: .3rem;
+    cursor: pointer;
+    i{
+        display: none;
+    }
+}
+.play_area{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: $headerHeight;
+    z-index: 15;
+    background: #fff;
+    width: 100%;
+    color: $bluetext;
+    text-align: left;
+    padding: .3rem 0;
+    .sort{
+        >h5{
+            margin-left: .6rem;
+            margin-bottom: .2rem;
+            color: $normalblue;
+            font-size: .35rem;
+        }
+        >div{
+            margin: 0 auto;
+            width: 90%;
+            margin-top: .5rem;
+            padding-bottom: .5rem;
+            text-align: center;
+            >.btn{
+                width: 45%;
+                &:last-child{
+                    margin-left: .5rem;
+                }
+                >a{
+                    padding-top: .25rem;
+                    padding-bottom: .25rem;
+                }
+            }
+
+        }
+    }
+    ul{
+        width: 90%;
+        margin: 0 auto;
+        >li{
+            display: inline-block;
+            overflow: hidden;
+            margin: .1rem;
+            text-align: center;
+            width: 30.5%;;
+            border: 1px solid $normalblue;
+            a{
+                padding: .2rem .3rem;
+                display: block;
+                font-size: .35rem;
+            }
+            &.active{
+                color: #fff;
+                background-color: $colorMain;
+            }
+        }
+    }
+}
+#betting_record{
+    //margin-top: 1.5rem;
+    // overflow-y: scroll;
+    // -webkit-overflow-scrolling: touch;
+    &.ac_detial_area{
+        //margin-top: 3rem;
+        padding-top: .2rem;
+    }
+    .hd{
+        height: 1rem;
+    }
+    // .bd{
+    //     margin-top: 2rem;
+    // }
+}
+.swiper-slide{
+    .tab_content{
+        margin-top: 0;
+    }
+}
+.lobby_past_view{
+    .prd_num{
+        >span{
+            font-size: .4rem;
+        }
+    }
+    .prd_num02{
+        line-height: 0.79rem;
+        font-size: .34rem;
+        text-align: right;
+        margin-left: -.4rem;
+    }
+    .time{
+        display: inline-block;
+        width: 1.6rem;
+        height: .45rem;
+        border-radius: .19rem;
+        border: solid 1px #233044;
+        line-height: 0.45rem;
+        margin: auto;
+        font-size: 0.32rem;
+        text-align: center;
+        margin-top: 0.12rem;
+    }
+    .panel{
+        ul{
+            text-align: center;
+            margin: .5rem auto .2rem;
+            height: 1.1rem;
+            &.k3dice_top{
+                li{
+                    width: 1rem;
+                    height: 1rem;
+                    display: inline-block;
+                    margin: 0 .1rem;
+                }
+            }
+        }
+    }
+    ul.pk10_top_number{
+        margin: .7rem auto 0 !important;
+        height: .8rem;
+    }
+}
+.function_btn{
+    position: relative;
+    >a{
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        @include border-radius(.4rem);
+        padding: .1rem .1rem .15rem;
+        margin: .3rem auto;
+        >i{
+            width: .4rem;
+            height: .5rem;
+            display: inline-block;
+            vertical-align: bottom;
+            line-height: .5rem;
+            margin-right: .1rem;
+        }
+        &.bell{
+            border: 1px solid #66c3f2;
+            color: #66c3f2;
+            >i{
+                @include background-image ('bell.svg',0,transparent);
+            }
+        }
+        &.check{
+            color: #fff;
+            border: 1px solid #488ab9;
+            >i{
+                @include background-image ('check_w.svg',0,transparent);
+            }
+        }
+    }
+}
+
+
+.pk10_top_number{
+    li{
+        background: none;
+        //float: left;
+        display: inline-block;
+        width: 0.65rem;
+        height: auto;
+        margin-right: 0.07rem;
+        &:last-child{
+            margin-right: 0px;
+        }
+    }
+}
+
+
+//香港六合彩
+ul.sixball{
+    >li{
+        @include background-image ('hksix.png',0,transparent);
+        background-size: 300%;
+        width: 1.1rem;
+        height: 1.1rem;
+        background-position-x: -1.05rem;
+        &:nth-child(3){
+            background-position-x: .1rem;
+        }
+        &:nth-child(5){
+            background-position-x: .1rem;
+        }
+        &:last-child{
+            background-position-x: -2.2rem;
+            margin-left: .5rem;
+            position: relative;
+            &:before{
+                @include background-image ('plus.svg',0,transparent);
+                @include pseudo;
+                width: .5rem;
+                height: 1.1rem;
+                right: 1.1rem;
+                left: inherit;
+            }
+        }
+    }
+
+}
+.double-all{
+    //margin-top: 3rem;
+}

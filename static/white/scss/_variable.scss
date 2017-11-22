@@ -1,0 +1,216 @@
+@charset "utf-8";
+//color
+$lightblue:#00B7FF;
+$yellow:#ffbd00;
+$bluetext:#d7e8f0;
+$green:#71c341;
+$red:#c93030;
+$normalblue:#256e93;
+
+$mainblack:#10061f;
+$maingreen:#279e13;
+$mainred:#c83e3e;
+$white:#fff;
+$pale_yellow:#e4ad6c;
+$input_bg_color:#10061f;
+$input_bd_color:#8a6b39;
+$purple:#201934;
+$basetext:#c79a50;
+$tiptext:#fcc43e;
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #bcbbb7 !default;
+$gray-600: #7b7b7b !default;
+$gray-700: #5e5a60 !default;
+$gray-800: #2b2f35 !default;
+$gray-900: #212529 !default;
+$black: #181e2a !default;
+$grays: ( 100: $gray-100,
+200: $gray-200,
+300: $gray-300,
+400: $gray-400,
+500: $gray-500,
+600: $gray-600,
+700: $gray-700,
+800: $gray-800,
+900: $gray-900) !default;
+$link-color:$gray-700;
+
+// font
+$font-stack:'Microsoft YaHei', Helvetica,
+sans-serif;
+$font-ss: 12px;
+$font-xs: 13px;
+$font-sm: 0.35rem;
+$font-md: 16px;
+$font-lg: 18px;
+$font-pad: 21px;
+$font-pad-md: 23px;
+
+// other
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//transition
+@mixin transition-duration($duration) {
+    -webkit-border-radius: $duration;
+    -moz-border-radius: $duration;
+    -ms-border-radius: $duration;
+    border-radius: $duration;
+}
+
+//transform
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+//animation
+@mixin animation($value) {
+    -webkit-animation: $value;
+    -moz-animation: $value;
+    -ms-animation: $value;
+    -o-animation: $value;
+    animation: $value;
+}
+
+//keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content
+    }
+    @-moz-keyframes #{$name} {
+        @content
+    }
+    @-ms-keyframes #{$name} {
+        @content
+    }
+    @-o-keyframes #{$name} {
+        @content
+    }
+    @keyframes #{$name} {
+        @content
+    }
+}
+
+// rotate
+@mixin rotate ($deg) {
+    @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+// translate
+@mixin translate ($x,
+$y) {
+    @include transform(translate($x, $y));
+}
+
+// skew
+@mixin skew ($x,
+$y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//compass
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+    -webkit-box-shadow:$top $left $blur $color #{$inset};
+    -moz-box-shadow:$top $left $blur $color #{$inset};
+    box-shadow:$top $left $blur $color #{$inset};
+}
+
+@mixin appearance($appearance) {
+    // There is no caniuse tracking for appearance.
+    $appearance: unquote($appearance);
+    @include with-prefix(-moz) {
+        -moz-appearance: $appearance;
+    }
+    @include with-prefix(-webkit) {
+        -webkit-appearance: $appearance;
+    }
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+/* 用法 @include respond-to('尺寸(ex:sm,xs..)')*/
+$breakpoints: (
+'ss': ( max-width: 359px),
+'xs': ( max-width: 480px),
+'sm': ( max-width: 576px),
+'md': ( max-width: 768px),
+'lg': ( max-width: 992px),
+'xl': ( max-width: 1200px)) !default;
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints,
+    $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+//usage @include background-image("header.png", right, $black);
+$path--rel      : "../../static/images";
+@mixin background-image($img, $background-position, $background-color) {
+    background-image: url('#{$path--rel}/#{$img}');
+    background-repeat: no-repeat;
+    background-position: $background-position;
+    background-color: $background-color ;
+    background-size: 100%;
+}
+
+@mixin pseudo() {
+    content: '';
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+}
+
+$colorPale:#c9dde2;
+$colorMain: #52acd3;
+$colorMainDeep: #4086bb;
+
+$textDefault: #5f5f5f;
+$textDeep: #3f3f3f;
+$textDark: #333333;
+$textPlaceholder: #ccc;
+
+$borderLight: #e8e8e8;
+$borderBright: #cbcbcb;
+
+$bgPale: #f4f4f4;
+$bgFooter: #4f4f4f;
+$bgBall: #ad1e1e;
+$bgBall-n: #bababa;
+
+$headerHeight: 1.13rem;
+$footerHeight: 1.4rem;
+
+@mixin gdMain() {
+    background: rgb(82,172,211); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(82,172,211,1) 0%, rgba(64,134,187,1) 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(82,172,211,1) 0%,rgba(64,134,187,1) 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(82,172,211,1) 0%,rgba(64,134,187,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

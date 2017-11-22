@@ -1,0 +1,224 @@
+@charset "utf-8";
+@import "variable";
+i{
+    display: inline-block;
+}
+i.icon{
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+// i.filter{
+//     @include background-image ('filter.png',0,transparent);
+// }
+i.close{
+    // display: block;
+    // @include background-image ('close.svg',0,transparent);
+    // width: .25rem;
+    // height: .25rem;
+    // position: absolute;
+    // right:.3rem;
+    // top:.4rem;
+    // cursor: pointer;
+    width: .57rem;
+    display: block;
+    position: relative;
+    height: 1rem;
+    right: 0;
+    left: .2rem;
+    &:after{
+        content: '';
+        display: block;
+        @include background-image ('close.svg',0,transparent);
+        width: .25rem;
+        height: .25rem;
+        position: absolute;
+        right:.15rem;
+        top:.35rem;
+        cursor: pointer;
+    }
+}
+i.eye{
+    display: block;
+    @include background-image ('eye_view.svg',0,transparent);
+    width: .4rem;
+    height: 1.1rem;
+    position: absolute;
+    right:.3rem;
+    top:0;
+    cursor: pointer;
+    &.active{
+        @include background-image ('eye_hide.svg',0,transparent);
+    }
+}
+div.icon{
+    width: 1.266rem;
+    height: 1.266rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: $colorMain;
+    margin: 0px auto;
+     >div{
+        color: #fff;
+        width: 100%;
+        line-height: 1.5rem;
+        border-radius: 100%;
+        height: 1.5rem;
+        margin: 0 auto;
+        text-align: center;
+        >i{
+            line-height: 1.5rem;
+            //margin: 0 auto;
+            text-align: center;
+            width: 1rem;
+            height:1rem;
+        }
+    }
+}
+i.i_webbank_pay{
+    background:url('/static/images/icon_member.png') no-repeat;
+    background-size:  100%;
+    background-position-y:0rem;
+    width:100%;
+    margin-top: .2rem;
+}
+i.i_scan_qrcode{
+    @extend .i_webbank_pay;
+    background-position-y:-1rem;
+    margin-top: .15rem;
+}
+i.i_bank_transfer{
+    @extend .i_webbank_pay;
+    background-position-y:-2.15rem;
+}
+i.i_help{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    background-position: 0 -10.79rem;
+    width: 1rem;
+    //margin-top: .2rem;
+    height: .5rem;
+    line-height: .5rem;
+    vertical-align: text-bottom;
+}
+i.icon_copy{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    background-position: 0 -10.12rem;
+    width: 1rem;
+    height: .5rem;
+    margin-top: 0;
+    vertical-align: middle;
+}
+.info_bot i{
+    @extend .i_webbank_pay;
+    background-size: 100%;
+    width: 1rem;
+    height: .5rem;
+    //盈虧分析
+    &.info01{
+        background-position-y: -2.45rem;
+        margin-top: 0;
+    }
+    //帳戶管理
+    &.info02{
+        background-position-y: -3.3rem;
+        margin-top: .2rem;
+    }
+    //帳戶明細
+    &.info03{
+        background-position-y: -4.1rem;
+        margin-top: .15rem;
+    }
+    //個人消息
+    &.info04{
+        background-position-y: -4.95rem;
+        margin-top: 0;
+    }
+    //聯絡客服
+    &.info05{
+        background-position-y: -5.83rem;
+    }
+    //歡迎加入
+    &.info06{
+        background-position-y: -6.5rem;
+    }
+    &.info07{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y: -4.7rem;
+    }
+    &.info08{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -5.55rem;
+    }
+    &.info09{
+        @include background-image ('icon_money.png',0,transparent);
+        background-position-y:  -6.35rem;
+    }
+}
+i.icon-notification{
+    background:url('/static/images/icon-notification.gif') no-repeat;
+    width: .5rem;
+    height:.5rem;
+    background-size: 100%;
+    margin: -1px 6px 0 0;
+    padding: 0;
+    vertical-align: middle;
+}
+i.i_mail_status{
+    background:url('/static/images/icon_money.png') no-repeat;
+    background-size:  100%;
+    background-position-y:-3.55rem;
+    margin-top: .12rem;
+}
+i.write{
+    @include background-image ('icon_money.png',0,transparent);
+    background-position-y:-5.9rem;
+    width:.65rem;
+    height:.3rem;
+}
+i.i_save{
+    @extend .write;
+    background-position-y:-6.3rem;
+}
+i.triangle{
+    @extend .write;
+    background-position-y:-6.77rem;
+}
+i.ac{
+    @extend .write;
+    &.ac01{
+        background-position-y:.1rem;
+        height: 1.2rem;
+    }
+    &.ac02{
+        background-position-y:-1.1rem;
+        height: 1.2rem;
+    }
+    &.ac03{
+        background-position-y:-2.35rem;
+        height: 1.2rem;
+    }
+}
+i.index_s{
+    @include background-image ('icon_money.png',0,transparent);
+    &.index_s01{
+        background-position-y:.1rem;
+        height: 1.2rem;
+    }
+    &.index_s02{
+        background-position-y:-1.1rem;
+        height: 1.2rem;
+    }
+    &.index_s03{
+        @include background-image ('icon_member.png',0,transparent);
+        background-position-y: -4.1rem;
+        margin-top: .2rem;
+    }
+    &.index_s04{
+        @extend .index_s03;
+        background-position-y: -7.2rem;
+        margin-top: .2rem;
+    }
+}
