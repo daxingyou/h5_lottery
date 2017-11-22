@@ -301,6 +301,7 @@
             },
             
             switchTab:function(e){
+                var _self = this ;
                 const $src = $(e.currentTarget);
                 const index = $src.index();
                 const $tabs = $('.so-con-right .k3_item');
