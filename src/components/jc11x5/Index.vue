@@ -392,7 +392,7 @@
                     this.betSelectedList = [];
                 }
                 var conth = $tabs.eq(index).height()-300 ;
-                console.log(conth) ;
+//                console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
                 //  _self.$parent.setScroll() ;
                 _self.$parent.conScroll.refresh() ;
