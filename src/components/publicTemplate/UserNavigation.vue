@@ -72,13 +72,15 @@ export default {
           gameHref : {
             "2":"cqssc",
             "12":"cqssc/tianJinIndex",
-            "14":"cqssc/xinJiangIndex",
+            "14":"cqssc/xinJiangIndex",//新疆时时彩
+            "102":"cqssc/SecondSscIndex", 
 
             "4":"jc11x5",     //江西11选5
             "18":"jc11x5/sd11x5Index",  //山东11选5
             "16":"jc11x5/gd11x5Index",  //广东11选5
             
             "8":"pk10",
+            "108":"pk10/SecondPk10",//赛车
             
             "6":"k3/",  //江苏快3
             "20":"k3/anHuiK3Index",  
@@ -118,6 +120,7 @@ export default {
                       success:(res)=> {
                       _self.allLottery = res && res.data ;  // 全部彩种,通过 v.cid 跳转到每个彩种
                   resdata = res.data ;
+                  console.log(res.data)
                   sessionStorage.gamelist= JSON.stringify(res.data) ; // 把彩种放在session 里
 
               },
