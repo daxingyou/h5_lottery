@@ -437,7 +437,7 @@ export default {
         timerBegin:function(){
             var that = this ;
             that.lotteryDataFetch().then(()=>{
-                console.log(that.nowover_time+'dsf')
+
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
             })
             that.entertainStatus = false;
