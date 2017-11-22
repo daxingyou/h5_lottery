@@ -74,7 +74,7 @@ export default {
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                this.$emit('entertainCountdownOver');
             }
-
+            console.log(this.lt_time_leave_over)
             //计数器，计算间隔时间触发
             const counter = () => {
                 const spanSrrived = () => {
@@ -94,9 +94,10 @@ export default {
 
             clearInterval(this.timer);
             this.timer = window.setInterval((function() {
+               // console.log('蒂ff冈你')
                 counter();
                // console.log(this.lt_time_leave)
-                if (this.lt_time_leave == 0) {   // 开奖倒计时结束
+                if (this.lt_time_leave <= 0) {   // 开奖倒计时结束
                     clearInterval(this.timer);
                     this.$emit('countdownOver');
                 }
@@ -120,7 +121,6 @@ export default {
                     this.timeSpanStr = this.fftime(oDate.hour)+':'+this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
                     this.overTimeSpanStr = this.fftime(over_oDate.hour)+':'+this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时
                 }
-
 
 
             }).bind(this), 1000);
