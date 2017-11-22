@@ -8,10 +8,10 @@ import Reg from '@/components/Reg'
 import Jc11x5Index from '@/components/jc11x5/Index'  // 江西11选5
 import SD11x5Index from '@/components/jc11x5/ShanDongIndex'  // 山东11选5
 import GD11x5Index from '@/components/jc11x5/GuangDongIndex'  // 广东11选5
+import MS11x5Index from '@/components/jc11x5/MiaoSuIndex'  // 秒速11选5
 import K3Index from '@/components/k3/Index'  // 广东11选5
 import AnHuiK3Index from '@/components/k3/AnHuiIndex'  // 安徽快3
-import HuBeiK3Index from '@/components/k3/HuBeiIndex'  // 湖北快3
-
+import HuBeiK3Index from '@/components/k3/HuBeiIndex'  // 湖北快
 import Pk10Index from '@/components/pk10/Index'  // 北京 pk10
 import SecondPk10 from '@/components/pk10/SecondPk10'  // 北京 pk10
 
@@ -19,7 +19,7 @@ import CqsscIndex from '@/components/cqssc/Index'  // 重庆时时彩
 import TjsscIndex from '@/components/cqssc/TianJinIndex'  // 天津时时彩
 import XjsscIndex from '@/components/cqssc/XinJiangIndex'  // 新疆时时彩
 import SecondSsc from '@/components/cqssc/SecondSsc'  // 秒速时时彩
-
+import MiaoSuK3Index from '@/components/k3/MiaoSuIndex'  // 秒速快3
 
 import PastView from '@/components/publicTemplate/PastView'
 import lobbyPastView from '@/components/lobbyPastView'  // 大厅往期开奖
@@ -85,6 +85,11 @@ export default new Router({
       name: 'gd11x5Index',
       component: GD11x5Index
     },
+   {
+       path: '/jc11x5/ms11x5Index',
+       name: 'ms11x5Index',
+       component: MS11x5Index
+   },
     {
       path: '/k3/',
       name: 'k3Index',
@@ -99,6 +104,11 @@ export default new Router({
       path: '/k3/huBeiK3Index',
       name: 'HuBeiK3Index',
       component: HuBeiK3Index
+    },
+   {//秒速快3
+       path: '/k3/miaoSuK3Index',
+       name: 'MiaoSuK3Index',
+       component: MiaoSuK3Index
     },
     {
       path: '/pk10/',
