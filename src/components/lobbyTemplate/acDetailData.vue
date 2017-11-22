@@ -4,7 +4,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="#" @click.prevent="goBack">
-                    <img src="/static/images/back.png" alt="">
+                    <img src="/static/frist/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">{{parentData.moneyType[model.chargeType] || '-'}}详情</h2>

@@ -4,8 +4,8 @@
           <h2 class="noclose"><a></a></h2>
           <div class="content danger">
               <div>
-                  <img :src="'/static/images/pop/'+ (typeStr || 'title_end') +'.png'">
-                  <img src="/static/images/page/status03.svg">
+                  <img :src="'/static/frist/images/pop/'+ (typeStr || 'title_end') +'.png'">
+                  <img src="/static/frist/images/page/status03.svg">
               </div>
               {{content}}
           </div>

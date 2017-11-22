@@ -3,17 +3,17 @@
     <div v-if="showNavigation" :class="'so-left '+ (showNavigation?'active':'')">
     <div class="so-shade" @click="close"></div>
     <div class="so-left-close" @click="close">
-        <img src="/static/images/left/left808.png">
+        <img src="/static/frist/images/left/left808.png">
     </div>
     <div class="so-left-con">
       <div class="so-l-c-top">
           <div>
-              <img src="/static/images/left/user.png">
+              <img src="/static/frist/images/left/user.png">
           </div>
            <div>
               <p class="user_name" v-if="haslogin">{{getCookie('username')}}</p>
               <div class="purse"  v-if="haslogin">
-                  <img src="/static/images/top/sjinbi.png" class="so-top-sum">
+                  <img src="/static/frist/images/top/sjinbi.png" class="so-top-sum">
                   <div class="so-in-top-sum" >
                     <!--  {{ fortMoney(roundAmt(balanceData ? balanceData.balance : 0), 2)}}-->
                       {{ fortMoney(roundAmt($parent.balanceData ? $parent.balanceData.balance : getCookie('membalance') ), 2)}}
@@ -26,7 +26,7 @@
           <div style="position: relative;z-index: 2000">
                 <div class="back_home" >
                   <router-link v-bind:to="'/'">
-                    <span><img src="/static/images/left/icon_home.png"></span>
+                    <span><img src="/static/frist/images/left/icon_home.png"></span>
                         <span>返回竞彩大厅</span>
                   </router-link>
                 </div>
@@ -35,7 +35,7 @@
                     <a :href="'/'+gameHref[lottery.cid]" >
                       <div class="badge">
                           <!-- <img :src="lottery.imgUrl" alt="">-->
-                          <img v-lazy="'../static/images/lotteryicon/cp'+lottery.cid+'.png'">
+                          <img v-lazy="'../static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
                       <p>{{lottery.name}}</p>
                     </a>

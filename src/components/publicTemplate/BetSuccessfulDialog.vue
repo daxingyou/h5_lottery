@@ -2,12 +2,12 @@
 <template>
     <div v-if="show" class="modal m09 publicDialog" @click="close">
         <div class="m_content">
-            <img class="bet_ok" src="/static/images/pop/ok_light.png">
+            <img class="bet_ok" src="/static/frist/images/pop/ok_light.png">
             <h2 class="noclose"><a></a></h2>
             <div class="content check">
                 <div>
-                    <img src="/static/images/pop/title_bet_ok.png">
-                    <img src="/static/images/icon_check.svg">
+                    <img src="/static/frist/images/pop/title_bet_ok.png">
+                    <img src="/static/frist/images/icon_check.svg">
                 </div>
                 您已成功支付<br/>请随时关注开奖信息！
                 

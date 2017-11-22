@@ -3,10 +3,10 @@
         <header id="pa_head">
             <div class="left">
                 <router-link :to="'/'" class="before-add">
-                    <img src="static/images/back.png" alt="" >
+                    <img src="static/frist/images/back.png" alt="" >
                 </router-link>
                 <a href="javascript:;"  class="after-add" @click="lastAction()" style="display: none ;">
-                    <img src="static/images/back.png" alt="">
+                    <img src="static/frist/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center">注册</h2>

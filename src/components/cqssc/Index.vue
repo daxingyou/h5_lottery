@@ -173,7 +173,7 @@
         <!--自动关闭（闪屏）对话框API
             属性
                 text  对话框提示内容
-                type  对话框类型，可以是 static/images/pop/ 目录下任意图片，像title_quantity、title_tip
+                type  对话框类型，可以是 static/frist/images/pop/ 目录下任意图片，像title_quantity、title_tip
             方法
                 open(text, type)
         -->

@@ -3,7 +3,7 @@
         <header id="pa_head">
             <div class="left">
                 <a href="javascript:;" onclick="history.go(-1)">
-                    <img src="/static/images/back.png" alt="">
+                    <img src="/static/frist/images/back.png" alt="">
                 </a>
             </div>
             <h2 class="center lottery_name"> </h2>
@@ -96,7 +96,7 @@
 <script>
 import Mixin from '@/Mixin'
 // import $ from "jquery";
-import "../../../static/css/pk10.css"
+import "../../../static/frist/css/pk10.css"
 
 export default {
   name: 'PastView',

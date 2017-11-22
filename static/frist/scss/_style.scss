@@ -139,7 +139,7 @@
                     }
                 }
                 li {
-                    background: url("/static/images/left/left-kuang.jpg");
+                    background: url("/static/frist/images/left/left-kuang.jpg");
                     background-size: 100%;
                     width: 3.27rem;
                     height: 3.14rem;
@@ -189,13 +189,13 @@
             font-size: .4rem;
             margin-top: .45rem;
             width: 2.5rem;
-            // background-image: url('/static/images/top/logobg.png');
+            // background-image: url('/static/frist/images/top/logobg.png');
             background-size: 100%;
             height: 1rem;
             background-position-y: -.9rem;
         }
         &.k3bg{
-            background-image: url(/static/images/k3/bg_top.jpg);
+            background-image: url(/static/frist/images/k3/bg_top.jpg);
             background-size: auto 100%;
         }
         ul {
@@ -235,7 +235,7 @@
     }
     .so-in-main {
         height: 2.78rem;
-        background: url("/static/images/bg.jpg");
+        background: url("/static/frist/images/bg.jpg");
         background-size: 100%;
         position: fixed;
         top:1.5rem;
@@ -246,7 +246,7 @@
             .so-main-top {
                 width: 100%;
                 height: 1.99rem;
-                background: url(/static/images/main/main-bg.png) no-repeat 1rem 1.45rem;
+                background: url(/static/frist/images/main/main-bg.png) no-repeat 1rem 1.45rem;
                 background-size: auto 0.5rem;
                 div {
                     float: left;
@@ -267,7 +267,7 @@
                     div:last-child {
                         p {
                             display: block;
-                            background: url(/static/images/main/ckwq.png);
+                            background: url(/static/frist/images/main/ckwq.png);
                             background-size: 1.64rem 0.5rem;
                             width: 1.64rem;
                             height: 0.5rem;
@@ -287,7 +287,7 @@
                     div:first-child {
                         ul li {
                             float: left;
-                            background: url('/static/images/content/qui02.png') no-repeat;
+                            background: url('/static/frist/images/content/qui02.png') no-repeat;
                             background-size: 1.2rem;
                             background-position: 0.1rem 0.09rem;
                             display: block;
@@ -348,7 +348,7 @@
                         > i {
                             content: "";
                             display: block;
-                            background: url(/static/images/main/sj.png) no-repeat;
+                            background: url(/static/frist/images/main/sj.png) no-repeat;
                             background-size: 100%;
                             width: .4rem;
                             height: .4rem;
@@ -427,7 +427,7 @@
                     cursor: pointer;
                 }
                 li.active {
-                    background: url(/static/images/content/nav-active.png) no-repeat;
+                    background: url(/static/frist/images/content/nav-active.png) no-repeat;
                     background-size: auto 1.7rem;
                     background-position-y: -0.2rem;
                 }
@@ -498,12 +498,12 @@
             color: #ffffff;
             font-size: .4rem;
             line-height: 1.12rem;
-            background: url('/static/images/content/panel_header.png') no-repeat;
+            background: url('/static/frist/images/content/panel_header.png') no-repeat;
             background-size: 100% 100%;
             line-height: 0.9rem;
         }
         > div {
-            background: url('/static/images/content/panel_body.png') repeat-y;
+            background: url('/static/frist/images/content/panel_body.png') repeat-y;
             background-size: 100% 100%;
             padding: 4% 0 3.5%;
             height: auto;
@@ -538,7 +538,7 @@
                 }
             }
             p.active {
-                background: url('/static/images/content/changkuang.png') no-repeat;
+                background: url('/static/frist/images/content/changkuang.png') no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
                 // border: solid 0.01rem transparent;
@@ -559,7 +559,7 @@
                 width: 7rem;
                 bottom: -.07rem;
                 clear: both;
-                background: url('/static/images/content/panel_footer.png') no-repeat;
+                background: url('/static/frist/images/content/panel_footer.png') no-repeat;
                 background-size: 100% 100%;
                 height: 0.4rem;
                 margin-top: -0.4rem;
@@ -579,12 +579,12 @@
             line-height: 1.12rem;
             text-align: left;
             text-indent: 0.4rem;
-            background: url('/static/images/content/panel_header_1.png') no-repeat;
+            background: url('/static/frist/images/content/panel_header_1.png') no-repeat;
             background-size: 100% 100%;
             line-height: 0.9rem;
         }
         > div {
-            background: url('/static/images/content/panel_body.png') no-repeat;
+            background: url('/static/frist/images/content/panel_body.png') no-repeat;
             background-size: 100% 100%;
             padding: 3% 0 3%;
             height: auto;
@@ -606,7 +606,7 @@
                     margin: 0 auto;
                     text-align: center;
                     &:first-child {
-                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background: url('/static/frist/images/content/qui02.png') no-repeat;
                         background-size: 1.2rem;
                         background-position: 0 -1.25rem;
                         display: block;
@@ -621,7 +621,7 @@
             }
             p.active {
                 span:first-child {
-                    background: url('/static/images/content/qui02.png') no-repeat;
+                    background: url('/static/frist/images/content/qui02.png') no-repeat;
                     background-size: 1.2rem;
                     background-position: 0 0.05rem;
                     // display: block;
@@ -641,7 +641,7 @@
                 width: 7rem;
                 bottom: -3px;
                 clear: both;
-                background: url('/static/images/content/panel_footer.png') no-repeat;
+                background: url('/static/frist/images/content/panel_footer.png') no-repeat;
                 background-size: 100% 100%;
                 height: 0.4rem;
                 margin-top: -0.4rem;
@@ -655,7 +655,7 @@
     > div {
         width: 7rem;
         //height: 4.74rem;
-       // background: url(/static/images/content/kuang.png) no-repeat;
+       // background: url(/static/frist/images/content/kuang.png) no-repeat;
         // background-size: 8.4rem 4.84rem;
         // background-position-x: -1.1rem;
         text-align: center;
@@ -664,7 +664,7 @@
             color: #ffffff;
             font-size: .4rem;
             line-height: 1.12rem;
-            background: url('/static/images/content/panel_header.png') no-repeat;
+            background: url('/static/frist/images/content/panel_header.png') no-repeat;
             background-size: 100% 100%;
             line-height: 0.9rem;
         }
@@ -672,14 +672,14 @@
             //padding: 3%;
             //width: 94%;
             //height: 3.1rem;
-            background: url('/static/images/content/panel_body.png') no-repeat;
+            background: url('/static/frist/images/content/panel_body.png') no-repeat;
             background-size: 100% 100%;
             padding: 3% 0 3%;
             height: auto;
             margin: 0px auto;
             overflow: hidden;
             p.active {
-                background: url('/static/images/content/changkuang.png') no-repeat;
+                background: url('/static/frist/images/content/changkuang.png') no-repeat;
                 background-size: 3.06rem 0.9rem;
                 background-position: -0.01rem;
                 // border: solid 0.01rem transparent;
@@ -729,7 +729,7 @@
                 width: 7rem;
                 bottom: -3px;
                 clear: both;
-                background: url('/static/images/content/panel_footer.png') no-repeat;
+                background: url('/static/frist/images/content/panel_footer.png') no-repeat;
                 background-size: 100% 100%;
                 height: 0.4rem;
                 margin-top: -0.4rem;
@@ -764,7 +764,7 @@
         }
     }
     &.active {
-        background: url(/static/images/content/changkuang.png) no-repeat;
+        background: url(/static/frist/images/content/changkuang.png) no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
         // border: solid 0.01rem transparent;
@@ -783,7 +783,7 @@
         }
     }
     &.active {
-        background: url(/static/images/content/changkuang.png) no-repeat;
+        background: url(/static/frist/images/content/changkuang.png) no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
         // border: solid 0.01rem transparent;
@@ -791,7 +791,7 @@
     }
 }
 #so-item0 .so-con-span-short.active {
-    background: url(/static/images/content/duankaung.png) no-repeat;
+    background: url(/static/frist/images/content/duankaung.png) no-repeat;
     background-size: 1.96rem .9rem;
     background-position: -0.01rem;
 }
@@ -826,13 +826,13 @@
     }
     > div:nth-child(2) {
         height: 100%;
-        background: url("/static/images/foot/foot-bg.png") no-repeat;
+        background: url("/static/frist/images/foot/foot-bg.png") no-repeat;
         background-size: 100%;
         input {
             display: block;
             width: 3.88rem;
             height: .65rem;
-            background: url(/static/images/foot/shurukuang.png) no-repeat;
+            background: url(/static/frist/images/foot/shurukuang.png) no-repeat;
             background-size: 100%;
             border: solid .01rem #0b1723;
             position: relative;
@@ -856,7 +856,7 @@
             top: 0.2rem;
             left: 0.4rem;
             text-align: center;
-            background: url("/static/images/foot/chongzhi.png") no-repeat;
+            background: url("/static/frist/images/foot/chongzhi.png") no-repeat;
             background-size: 100% 0.68rem;
             color: white;
             font-size: 0.34rem;
@@ -872,7 +872,7 @@
             position: relative;
             width: 1.9rem;
             height: 2.3rem;
-            background: url('/static/images/foot/tj-pg.png') no-repeat;
+            background: url('/static/frist/images/foot/tj-pg.png') no-repeat;
             background-size: 100%;
             background-position-y: 0.1rem;
             img {
@@ -895,14 +895,14 @@
         background-color: #404040;
     }
     > div:nth-child(2) {
-        background: url("/static/images/foot/feng.png") no-repeat;
+        background: url("/static/frist/images/foot/feng.png") no-repeat;
         background-size: 100%;
         input {
             background: #404040;
             border: none;
         }
         a {
-            background: url("/static/images/foot/chongzhihui.png") no-repeat;
+            background: url("/static/frist/images/foot/chongzhihui.png") no-repeat;
             background-size: 100% 0.68rem;
             border: none;
         }
@@ -913,7 +913,7 @@
         bottom: 0;
         right: -2rem;
         > div {
-            background: url('/static/images/foot/xiazhuhui.png') no-repeat;
+            background: url('/static/frist/images/foot/xiazhuhui.png') no-repeat;
             background-size: 84%;
             background-position: 0.17rem 0.5rem;
         }
@@ -1049,7 +1049,7 @@
     height: 100%;
     z-index: 13;
     > div {
-        //background: url("/static/images/pop/popkuang2.png") no-repeat;
+        //background: url("/static/frist/images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.14rem;
         height: 4.53rem;
@@ -1112,7 +1112,7 @@
     > div {
         background-color: rgba(#0f1015,0.8);
         border: 2px solid #277ca5;
-        //background: url("/static/images/pop/popkuang2.png") no-repeat;
+        //background: url("/static/frist/images/pop/popkuang2.png") no-repeat;
         background-size: 100%;
         width: 8.5rem;
         height: 5rem;
@@ -1240,7 +1240,7 @@ img.bet_ok {
             height: 3.1rem;
             p {
                 display: block;
-                background: url('/static/images/bottom_line.png') no-repeat;
+                background: url('/static/frist/images/bottom_line.png') no-repeat;
                 background-size: 100% auto;
                 background-position-y: bottom;
                 min-height: 1rem;
@@ -1268,7 +1268,7 @@ img.bet_ok {
         }
         &:before{
             @include pseudo;
-            background: url('/static/images/bottom_line.png') no-repeat;
+            background: url('/static/frist/images/bottom_line.png') no-repeat;
             background-size: 100% auto;
             background-position-y: -0.25rem;
             -ms-transform: rotate(360deg); /* IE 9 */
@@ -1347,7 +1347,7 @@ img.bet_ok {
         }
     }
     &.active {
-        background: url('/static/images/content/changkuang.png') no-repeat;
+        background: url('/static/frist/images/content/changkuang.png') no-repeat;
         background-size: 3.06rem 0.9rem;
         background-position: -0.01rem;
         // border: solid 0.01rem transparent;
@@ -1370,7 +1370,7 @@ img.bet_ok {
                 // display: none;
                 // padding-bottom: .2rem;
                 // span:first-child {
-                //     background: url('/static/images/content/qui02.png') no-repeat;
+                //     background: url('/static/frist/images/content/qui02.png') no-repeat;
                 //     background-size: 1.2rem;
                 //     background-position: 0.1rem -1.22rem;
                 //     display: block;
@@ -1392,7 +1392,7 @@ img.bet_ok {
             }
             // p.active {
             //     span:first-child {
-            //         background: url('/static/images/content/qui02.png') no-repeat;
+            //         background: url('/static/frist/images/content/qui02.png') no-repeat;
             //         background-size: 1.2rem;
             //         background-position: 0.1rem 0.09rem;
             //         display: block;
@@ -1422,7 +1422,7 @@ img.bet_ok {
             line-height: 1.12rem;
             text-align: left;
             text-indent: 0.15rem;
-            background: url('/static/images/content/panel_header_1.png') no-repeat;
+            background: url('/static/frist/images/content/panel_header_1.png') no-repeat;
             background-size: 100% 100%;
             line-height: 0.9rem;
         }
@@ -1449,7 +1449,7 @@ img.bet_ok {
                     margin: 0 auto;
                     text-align: center;
                     &:first-child {
-                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background: url('/static/frist/images/content/qui02.png') no-repeat;
                         background-size: 1.2rem;
                         background-position: 0 -1.25rem;
                         display: block;
@@ -1468,7 +1468,7 @@ img.bet_ok {
                 border:none;
                 span{
                     &:first-child {
-                        background: url('/static/images/content/qui02.png') no-repeat;
+                        background: url('/static/frist/images/content/qui02.png') no-repeat;
                         background-size: 1.2rem;
                         background-position: 0.1rem 0.09rem;
                         display: block;
@@ -1524,7 +1524,7 @@ img.bet_ok {
                 width: 2rem;
                 padding-top: 0;
                 &.on{
-                    background: url('/static/images/withcode_select_tab.png') no-repeat;
+                    background: url('/static/frist/images/withcode_select_tab.png') no-repeat;
                     background-size: 100%;
                     width: 2rem;
                     background-position-y: 0.03rem;
@@ -1556,7 +1556,7 @@ img.bet_ok {
         font-size: 0.34rem;
         padding: 0.1rem 0.4rem;
         margin-top: 0.2rem;
-        background: url(/static/images/left/left-kuang.jpg);
+        background: url(/static/frist/images/left/left-kuang.jpg);
         background-size: 100% 100%;
         border-left: 0.03rem solid #424a71;
         border-right: 0.03rem solid #424a71;

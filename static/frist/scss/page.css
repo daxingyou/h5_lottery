@@ -90,7 +90,7 @@ input, select, button, a {
   height: 100%;
   text-align: center;
   margin: auto;
-  background: url("/static/images/bg.jpg");
+  background: url("/static/frist/images/bg.jpg");
   background-size: 100%;
   min-height: 18rem; }
   #pa_con .so-right > div:first-child img {
@@ -203,7 +203,7 @@ input, select, button, a {
         box-shadow: inherit;
         position: relative; }
         #pa_head > .right > a.login > i {
-          background-image: url("/static/images/icon.png");
+          background-image: url("/static/frist/images/icon.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -229,7 +229,7 @@ input, select, button, a {
         box-shadow: inherit;
         line-height: .5rem; }
         #pa_head > .right > a.guset > i {
-          background-image: url("/static/images/signs.svg");
+          background-image: url("/static/frist/images/signs.svg");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -270,7 +270,7 @@ footer.bot_nav {
   position: fixed;
   bottom: 0;
   width: 10rem;
-  background-image: url("/static/images/bot_nav.jpg");
+  background-image: url("/static/frist/images/bot_nav.jpg");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: #102634;
@@ -285,7 +285,7 @@ footer.bot_nav {
     display: block;
     top: 0;
     left: 0;
-    background-image: url("/static/images/bottom_line.png");
+    background-image: url("/static/frist/images/bottom_line.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -339,7 +339,7 @@ footer.bot_nav {
           display: block;
           top: 0;
           left: 0;
-          background-image: url("/static/images/icon.png");
+          background-image: url("/static/frist/images/icon.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -393,10 +393,10 @@ h2 {
     font-size: .4rem;
     height: .25rem;
     line-height: .25rem;
-    background: url("/static/images/page/date_bar.png") no-repeat left top;
+    background: url("/static/frist/images/page/date_bar.png") no-repeat left top;
     background-size: 100%; }
     .slide_toggle .panel_title span {
-      background-image: url("/static/images/arrow_up.png");
+      background-image: url("/static/frist/images/arrow_up.png");
       background-size: 0.7143rem 0.7143rem;
       width: 0.7rem;
       height: 0.7rem;
@@ -432,7 +432,7 @@ h2 {
   height: 2rem;
   border-radius: 100%;
   margin-right: 0.5714rem;
-  background-image: url("/static/images/page/logo_bg.png");
+  background-image: url("/static/frist/images/page/logo_bg.png");
   background-size: 100%;
   overflow: hidden;
   margin: 0 auto;
@@ -453,67 +453,67 @@ h2 {
     width: 75%;
     padding-top: .35rem; }
   .badge.lottery_logo_2:before {
-    background-image: url("/static/images/logo_cqssc.svg");
+    background-image: url("/static/frist/images/logo_cqssc.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_4:before {
-    background-image: url("/static/images/logo_jc11x5.svg");
+    background-image: url("/static/frist/images/logo_jc11x5.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_6:before {
-    background-image: url("/static/images/logo_jsk3.svg");
+    background-image: url("/static/frist/images/logo_jsk3.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_8:before {
-    background-image: url("/static/images/logo_bjpk10.svg");
+    background-image: url("/static/frist/images/logo_bjpk10.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_10:before {
-    background-image: url("/static/images/logo_sixlottery.svg");
+    background-image: url("/static/frist/images/logo_sixlottery.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_12:before {
-    background-image: url("/static/images/logo_tjssc.svg");
+    background-image: url("/static/frist/images/logo_tjssc.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_14:before {
-    background-image: url("/static/images/logo_xjssc.svg");
+    background-image: url("/static/frist/images/logo_xjssc.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_16:before {
-    background-image: url("/static/images/logo_gd11x5.svg");
+    background-image: url("/static/frist/images/logo_gd11x5.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_18:before {
-    background-image: url("/static/images/logo_sd11x5.svg");
+    background-image: url("/static/frist/images/logo_sd11x5.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_20:before {
-    background-image: url("/static/images/logo_ahks.svg");
+    background-image: url("/static/frist/images/logo_ahks.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%; }
   .badge.lottery_logo_22:before {
-    background-image: url("/static/images/logo_hbk3.svg");
+    background-image: url("/static/frist/images/logo_hbk3.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -536,7 +536,7 @@ h2 {
 
 .bule_bg {
   display: block;
-  background: url("/static/images/bg.jpg") repeat-y;
+  background: url("/static/frist/images/bg.jpg") repeat-y;
   width: 100%;
   background-size: 100%; }
 
@@ -614,7 +614,7 @@ label.red {
     .modal > .m_content.tiny {
       width: 70%; }
     .modal > .m_content > h2 {
-      background-image: url("/static/images/m_top.png");
+      background-image: url("/static/frist/images/m_top.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -632,7 +632,7 @@ label.red {
         right: 0;
         top: 0; }
       .modal > .m_content > h2.noclose {
-        background-image: url("/static/images/m_top_noclose.png");
+        background-image: url("/static/frist/images/m_top_noclose.png");
         background-repeat: no-repeat;
         background-position: 0;
         background-color: transparent;
@@ -702,14 +702,14 @@ label.red {
         color: #fff;
         font-size: .37rem; }
         .modal > .m_content > .action > a.ok {
-          background-image: url("/static/images/btn_ok.png");
+          background-image: url("/static/frist/images/btn_ok.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
           background-size: 100%;
           background-size: 100% 100%; }
         .modal > .m_content > .action > a.cancle {
-          background-image: url("/static/images/btn_cancle.png");
+          background-image: url("/static/frist/images/btn_cancle.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -721,7 +721,7 @@ label.red {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/m_bot.png");
+      background-image: url("/static/frist/images/m_bot.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -842,7 +842,7 @@ label.red {
   color: #c93030; }
 
 .notfound {
-  background-image: url("/static/images/status.jpg");
+  background-image: url("/static/frist/images/status.jpg");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -858,7 +858,7 @@ label.red {
   .notfound i {
     margin-left: 6px; }
   .notfound h1 {
-    background-image: url("/static/images/404_light.svg");
+    background-image: url("/static/frist/images/404_light.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -971,7 +971,7 @@ i.icon {
   vertical-align: middle; }
 
 i.filter {
-  background-image: url("/static/images/filter.png");
+  background-image: url("/static/frist/images/filter.png");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -987,7 +987,7 @@ i.close {
   i.close:after {
     content: '';
     display: block;
-    background-image: url("/static/images/close.svg");
+    background-image: url("/static/frist/images/close.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -1001,7 +1001,7 @@ i.close {
 
 i.eye {
   display: block;
-  background-image: url("/static/images/eye_view.svg");
+  background-image: url("/static/frist/images/eye_view.svg");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -1013,7 +1013,7 @@ i.eye {
   top: 0;
   cursor: pointer; }
   i.eye.active {
-    background-image: url("/static/images/eye_hide.svg");
+    background-image: url("/static/frist/images/eye_hide.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -1030,7 +1030,7 @@ div.icon {
   background-size: 100% 100%;
   padding: 1px; }
   div.icon > div {
-    background-image: url("/static/images/border_bg02.png");
+    background-image: url("/static/frist/images/border_bg02.png");
     color: #fff;
     width: 100%;
     background-position-x: 50%;
@@ -1049,7 +1049,7 @@ div.icon {
       height: 1rem; }
 
 i.i_webbank_pay, i.i_scan_qrcode, i.i_bank_transfer, i.i_help, i.icon_copy, .info_bot i {
-  background: url("/static/images/icon_member.png") no-repeat;
+  background: url("/static/frist/images/icon_member.png") no-repeat;
   background-size: 100%;
   background-position-y: 0rem;
   width: 100%;
@@ -1099,21 +1099,21 @@ i.icon_copy {
   .info_bot i.info06 {
     background-position-y: -6.5rem; }
   .info_bot i.info07 {
-    background-image: url("/static/images/icon_money.png");
+    background-image: url("/static/frist/images/icon_money.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%;
     background-position-y: -4.7rem; }
   .info_bot i.info08 {
-    background-image: url("/static/images/icon_money.png");
+    background-image: url("/static/frist/images/icon_money.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
     background-size: 100%;
     background-position-y: -5.55rem; }
   .info_bot i.info09 {
-    background-image: url("/static/images/icon_money.png");
+    background-image: url("/static/frist/images/icon_money.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -1121,7 +1121,7 @@ i.icon_copy {
     background-position-y: -6.35rem; }
 
 i.icon-notification {
-  background: url("/static/images/icon-notification.gif") no-repeat;
+  background: url("/static/frist/images/icon-notification.gif") no-repeat;
   width: .5rem;
   height: .5rem;
   background-size: 100%;
@@ -1130,13 +1130,13 @@ i.icon-notification {
   vertical-align: middle; }
 
 i.i_mail_status {
-  background: url("/static/images/icon_money.png") no-repeat;
+  background: url("/static/frist/images/icon_money.png") no-repeat;
   background-size: 100%;
   background-position-y: -3.55rem;
   margin-top: .12rem; }
 
 i.write, i.i_save, i.triangle, i.ac {
-  background-image: url("/static/images/icon_money.png");
+  background-image: url("/static/frist/images/icon_money.png");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -1162,7 +1162,7 @@ i.ac.ac03 {
   height: 1.2rem; }
 
 i.index_s {
-  background-image: url("/static/images/icon_money.png");
+  background-image: url("/static/frist/images/icon_money.png");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -1174,7 +1174,7 @@ i.index_s {
     background-position-y: -1.1rem;
     height: 1.2rem; }
   i.index_s.index_s03, i.index_s.index_s04 {
-    background-image: url("/static/images/icon_member.png");
+    background-image: url("/static/frist/images/icon_member.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -1238,7 +1238,7 @@ i.index_s {
           display: block;
           top: 0;
           left: 0;
-          background-image: url("/static/images/past_bg.png");
+          background-image: url("/static/frist/images/past_bg.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -1307,7 +1307,7 @@ i.index_s {
           display: block;
           clear: both; }
         .so-con .so-left .so-left-con .so-l-c-con li {
-          background: url("/static/images/left/left-kuang.jpg");
+          background: url("/static/frist/images/left/left-kuang.jpg");
           background-size: 100%;
           width: 3.27rem;
           height: 3.14rem;
@@ -1347,7 +1347,7 @@ i.index_s {
     height: 1rem;
     background-position-y: -.9rem; }
   .so-con .so-in-top.k3bg {
-    background-image: url(/static/images/k3/bg_top.jpg);
+    background-image: url(/static/frist/images/k3/bg_top.jpg);
     background-size: auto 100%; }
   .so-con .so-in-top ul > li {
     height: 100%;
@@ -1377,7 +1377,7 @@ i.index_s {
         left: -0.1rem; }
 .so-con .so-in-main {
   height: 2.78rem;
-  background: url("/static/images/bg.jpg");
+  background: url("/static/frist/images/bg.jpg");
   background-size: 100%;
   position: fixed;
   top: 1.5rem; }
@@ -1388,7 +1388,7 @@ i.index_s {
     .so-con .so-in-main > div .so-main-top {
       width: 100%;
       height: 1.99rem;
-      background: url(/static/images/main/main-bg.png) no-repeat 1rem 1.45rem;
+      background: url(/static/frist/images/main/main-bg.png) no-repeat 1rem 1.45rem;
       background-size: auto 0.5rem; }
       .so-con .so-in-main > div .so-main-top div {
         float: left; }
@@ -1406,7 +1406,7 @@ i.index_s {
           white-space: nowrap; }
         .so-con .so-in-main > div .so-main-top .so-m-t-left div:last-child p {
           display: block;
-          background: url(/static/images/main/ckwq.png);
+          background: url(/static/frist/images/main/ckwq.png);
           background-size: 1.64rem 0.5rem;
           width: 1.64rem;
           height: 0.5rem;
@@ -1422,7 +1422,7 @@ i.index_s {
         height: 100%; }
         .so-con .so-in-main > div .so-main-top .so-m-t-right div:first-child ul li {
           float: left;
-          background: url("/static/images/content/qui02.png") no-repeat;
+          background: url("/static/frist/images/content/qui02.png") no-repeat;
           background-size: 1.2rem;
           background-position: 0.1rem 0.09rem;
           display: block;
@@ -1471,7 +1471,7 @@ i.index_s {
         .so-con .so-in-main > div .so-main-down ul li > i {
           content: "";
           display: block;
-          background: url(/static/images/main/sj.png) no-repeat;
+          background: url(/static/frist/images/main/sj.png) no-repeat;
           background-size: 100%;
           width: .4rem;
           height: .4rem;
@@ -1536,7 +1536,7 @@ i.index_s {
         background-position-y: -1.5rem;
         cursor: pointer; }
       .so-con .so-in-con .so-con-left ul li.active {
-        background: url(/static/images/content/nav-active.png) no-repeat;
+        background: url(/static/frist/images/content/nav-active.png) no-repeat;
         background-size: auto 1.7rem;
         background-position-y: -0.2rem; }
   .so-con .so-in-con .so-con-right {
@@ -1597,11 +1597,11 @@ i.index_s {
     color: #ffffff;
     font-size: .4rem;
     line-height: 1.12rem;
-    background: url("/static/images/content/panel_header.png") no-repeat;
+    background: url("/static/frist/images/content/panel_header.png") no-repeat;
     background-size: 100% 100%;
     line-height: 0.9rem; }
   #so-item0 ul li > div > div, #so-item0.jc115 ul li ul li > div > div {
-    background: url("/static/images/content/panel_body.png") repeat-y;
+    background: url("/static/frist/images/content/panel_body.png") repeat-y;
     background-size: 100% 100%;
     padding: 4% 0 3.5%;
     height: auto;
@@ -1633,7 +1633,7 @@ i.index_s {
           float: right;
           font-size: .3rem; }
     #so-item0 ul li > div > div p.active, #so-item0.jc115 ul li ul li > div > div p.active {
-      background: url("/static/images/content/changkuang.png") no-repeat;
+      background: url("/static/frist/images/content/changkuang.png") no-repeat;
       background-size: 3.06rem 0.9rem;
       background-position: -0.01rem;
       border-color: #42371c; }
@@ -1648,7 +1648,7 @@ i.index_s {
       width: 7rem;
       bottom: -.07rem;
       clear: both;
-      background: url("/static/images/content/panel_footer.png") no-repeat;
+      background: url("/static/frist/images/content/panel_footer.png") no-repeat;
       background-size: 100% 100%;
       height: 0.4rem;
       margin-top: -0.4rem; }
@@ -1663,11 +1663,11 @@ i.index_s {
     line-height: 1.12rem;
     text-align: left;
     text-indent: 0.4rem;
-    background: url("/static/images/content/panel_header_1.png") no-repeat;
+    background: url("/static/frist/images/content/panel_header_1.png") no-repeat;
     background-size: 100% 100%;
     line-height: 0.9rem; }
   #so-item1 ul li > div > div {
-    background: url("/static/images/content/panel_body.png") no-repeat;
+    background: url("/static/frist/images/content/panel_body.png") no-repeat;
     background-size: 100% 100%;
     padding: 3% 0 3%;
     height: auto;
@@ -1688,7 +1688,7 @@ i.index_s {
         margin: 0 auto;
         text-align: center; }
         #so-item1 ul li > div > div p span:first-child {
-          background: url("/static/images/content/qui02.png") no-repeat;
+          background: url("/static/frist/images/content/qui02.png") no-repeat;
           background-size: 1.2rem;
           background-position: 0 -1.25rem;
           display: block;
@@ -1698,7 +1698,7 @@ i.index_s {
           font-size: 0.6rem;
           line-height: 1.3rem; }
     #so-item1 ul li > div > div p.active span:first-child {
-      background: url("/static/images/content/qui02.png") no-repeat;
+      background: url("/static/frist/images/content/qui02.png") no-repeat;
       background-size: 1.2rem;
       background-position: 0 0.05rem; }
     #so-item1 ul li > div > div:after {
@@ -1708,7 +1708,7 @@ i.index_s {
       width: 7rem;
       bottom: -3px;
       clear: both;
-      background: url("/static/images/content/panel_footer.png") no-repeat;
+      background: url("/static/frist/images/content/panel_footer.png") no-repeat;
       background-size: 100% 100%;
       height: 0.4rem;
       margin-top: -0.4rem;
@@ -1722,18 +1722,18 @@ i.index_s {
     color: #ffffff;
     font-size: .4rem;
     line-height: 1.12rem;
-    background: url("/static/images/content/panel_header.png") no-repeat;
+    background: url("/static/frist/images/content/panel_header.png") no-repeat;
     background-size: 100% 100%;
     line-height: 0.9rem; }
   #so-item2 ul li > div > div {
-    background: url("/static/images/content/panel_body.png") no-repeat;
+    background: url("/static/frist/images/content/panel_body.png") no-repeat;
     background-size: 100% 100%;
     padding: 3% 0 3%;
     height: auto;
     margin: 0px auto;
     overflow: hidden; }
     #so-item2 ul li > div > div p.active {
-      background: url("/static/images/content/changkuang.png") no-repeat;
+      background: url("/static/frist/images/content/changkuang.png") no-repeat;
       background-size: 3.06rem 0.9rem;
       background-position: -0.01rem;
       border-color: #42371c; }
@@ -1769,7 +1769,7 @@ i.index_s {
       width: 7rem;
       bottom: -3px;
       clear: both;
-      background: url("/static/images/content/panel_footer.png") no-repeat;
+      background: url("/static/frist/images/content/panel_footer.png") no-repeat;
       background-size: 100% 100%;
       height: 0.4rem;
       margin-top: -0.4rem;
@@ -1793,7 +1793,7 @@ i.index_s {
     #so-item0 ul li.first_ball .so-con-span-short > span:last-child {
       float: right; }
   #so-item0 ul li.first_ball .so-con-span-short.active {
-    background: url(/static/images/content/changkuang.png) no-repeat;
+    background: url(/static/frist/images/content/changkuang.png) no-repeat;
     background-size: 3.06rem 0.9rem;
     background-position: -0.01rem;
     border-color: #42371c; }
@@ -1807,13 +1807,13 @@ i.index_s {
     #so-item0 ul li.sec_ball .so-con-span-short > span:last-child {
       float: right; }
   #so-item0 ul li.sec_ball .so-con-span-short.active {
-    background: url(/static/images/content/changkuang.png) no-repeat;
+    background: url(/static/frist/images/content/changkuang.png) no-repeat;
     background-size: 3.06rem 0.9rem;
     background-position: -0.01rem;
     border-color: #42371c; }
 
 #so-item0 .so-con-span-short.active {
-  background: url(/static/images/content/duankaung.png) no-repeat;
+  background: url(/static/frist/images/content/duankaung.png) no-repeat;
   background-size: 1.96rem .9rem;
   background-position: -0.01rem; }
 
@@ -1843,13 +1843,13 @@ i.index_s {
         padding: 0 .3rem; }
   .so-foot > div:nth-child(2) {
     height: 100%;
-    background: url("/static/images/foot/foot-bg.png") no-repeat;
+    background: url("/static/frist/images/foot/foot-bg.png") no-repeat;
     background-size: 100%; }
     .so-foot > div:nth-child(2) input {
       display: block;
       width: 3.88rem;
       height: .65rem;
-      background: url(/static/images/foot/shurukuang.png) no-repeat;
+      background: url(/static/frist/images/foot/shurukuang.png) no-repeat;
       background-size: 100%;
       border: solid .01rem #0b1723;
       position: relative;
@@ -1871,7 +1871,7 @@ i.index_s {
       top: 0.2rem;
       left: 0.4rem;
       text-align: center;
-      background: url("/static/images/foot/chongzhi.png") no-repeat;
+      background: url("/static/frist/images/foot/chongzhi.png") no-repeat;
       background-size: 100% 0.68rem;
       color: white;
       font-size: 0.34rem;
@@ -1885,7 +1885,7 @@ i.index_s {
       position: relative;
       width: 1.9rem;
       height: 2.3rem;
-      background: url("/static/images/foot/tj-pg.png") no-repeat;
+      background: url("/static/frist/images/foot/tj-pg.png") no-repeat;
       background-size: 100%;
       background-position-y: 0.1rem; }
       .so-foot > div:last-child > div img {
@@ -1902,13 +1902,13 @@ i.index_s {
 .so-foot.close > div:first-child {
   background-color: #404040; }
 .so-foot.close > div:nth-child(2) {
-  background: url("/static/images/foot/feng.png") no-repeat;
+  background: url("/static/frist/images/foot/feng.png") no-repeat;
   background-size: 100%; }
   .so-foot.close > div:nth-child(2) input {
     background: #404040;
     border: none; }
   .so-foot.close > div:nth-child(2) a {
-    background: url("/static/images/foot/chongzhihui.png") no-repeat;
+    background: url("/static/frist/images/foot/chongzhihui.png") no-repeat;
     background-size: 100% 0.68rem;
     border: none; }
 .so-foot.close > div:last-child {
@@ -1917,7 +1917,7 @@ i.index_s {
   bottom: 0;
   right: -2rem; }
   .so-foot.close > div:last-child > div {
-    background: url("/static/images/foot/xiazhuhui.png") no-repeat;
+    background: url("/static/frist/images/foot/xiazhuhui.png") no-repeat;
     background-size: 84%;
     background-position: 0.17rem 0.5rem; }
 
@@ -2050,7 +2050,7 @@ i.index_s {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/m_top_noclose.png");
+      background-image: url("/static/frist/images/m_top_noclose.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2066,7 +2066,7 @@ i.index_s {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/m_bot.png");
+      background-image: url("/static/frist/images/m_bot.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2119,7 +2119,7 @@ i.index_s {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/m_top_noclose.png");
+      background-image: url("/static/frist/images/m_top_noclose.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2135,7 +2135,7 @@ i.index_s {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/m_bot.png");
+      background-image: url("/static/frist/images/m_bot.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2194,7 +2194,7 @@ img.bet_ok {
     display: block;
     top: 0;
     left: 0;
-    background-image: url("/static/images/m_bot.png");
+    background-image: url("/static/frist/images/m_bot.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -2207,7 +2207,7 @@ img.bet_ok {
     left: 50%;
     margin-left: -50%; }
   .so-pop > h2 {
-    background-image: url("/static/images/m_top.png");
+    background-image: url("/static/frist/images/m_top.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -2225,7 +2225,7 @@ img.bet_ok {
       right: 0;
       top: 0; }
     .so-pop > h2.noclose {
-      background-image: url("/static/images/m_top_noclose.png");
+      background-image: url("/static/frist/images/m_top_noclose.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2247,7 +2247,7 @@ img.bet_ok {
       height: 3.1rem; }
       .so-pop > div .boxlist p {
         display: block;
-        background: url("/static/images/bottom_line.png") no-repeat;
+        background: url("/static/frist/images/bottom_line.png") no-repeat;
         background-size: 100% auto;
         background-position-y: bottom;
         min-height: 1rem;
@@ -2272,7 +2272,7 @@ img.bet_ok {
       display: block;
       top: 0;
       left: 0;
-      background: url("/static/images/bottom_line.png") no-repeat;
+      background: url("/static/frist/images/bottom_line.png") no-repeat;
       background-size: 100% auto;
       background-position-y: -0.25rem;
       -ms-transform: rotate(360deg);
@@ -2290,14 +2290,14 @@ img.bet_ok {
     line-height: .7rem;
     margin-bottom: .5rem; }
     .so-pop a.ok {
-      background-image: url("/static/images/btn_ok.png");
+      background-image: url("/static/frist/images/btn_ok.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
       background-size: 100%;
       background-size: 100% 100%; }
     .so-pop a.cancle {
-      background-image: url("/static/images/btn_cancle.png");
+      background-image: url("/static/frist/images/btn_cancle.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2336,7 +2336,7 @@ img.bet_ok {
     #so-item0.jc115 ul li .so-con-span-short > span:last-child, #so-item0.jc115 ul li.jc115 ul li .so-con-span-short > span:last-child {
       float: right; }
   #so-item0.jc115 ul li .so-con-span-short.active {
-    background: url("/static/images/content/changkuang.png") no-repeat;
+    background: url("/static/frist/images/content/changkuang.png") no-repeat;
     background-size: 3.06rem 0.9rem;
     background-position: -0.01rem;
     border-color: #42371c; }
@@ -2360,7 +2360,7 @@ img.bet_ok {
     line-height: 1.12rem;
     text-align: left;
     text-indent: 0.15rem;
-    background: url("/static/images/content/panel_header_1.png") no-repeat;
+    background: url("/static/frist/images/content/panel_header_1.png") no-repeat;
     background-size: 100% 100%;
     line-height: 0.9rem; }
   #so-item2.jc115 ul li > div > div p {
@@ -2384,7 +2384,7 @@ img.bet_ok {
       margin: 0 auto;
       text-align: center; }
       #so-item2.jc115 ul li > div > div p span:first-child {
-        background: url("/static/images/content/qui02.png") no-repeat;
+        background: url("/static/frist/images/content/qui02.png") no-repeat;
         background-size: 1.2rem;
         background-position: 0 -1.25rem;
         display: block;
@@ -2397,7 +2397,7 @@ img.bet_ok {
     background: none;
     border: none; }
     #so-item2.jc115 ul li > div > div p.active span:first-child {
-      background: url("/static/images/content/qui02.png") no-repeat;
+      background: url("/static/frist/images/content/qui02.png") no-repeat;
       background-size: 1.2rem;
       background-position: 0.1rem 0.09rem;
       display: block;
@@ -2444,7 +2444,7 @@ img.bet_ok {
       width: 2rem;
       padding-top: 0; }
       .jx11_tab.hd ul > li.on {
-        background: url("/static/images/withcode_select_tab.png") no-repeat;
+        background: url("/static/frist/images/withcode_select_tab.png") no-repeat;
         background-size: 100%;
         width: 2rem;
         background-position-y: 0.03rem;
@@ -2465,7 +2465,7 @@ img.bet_ok {
     font-size: 0.34rem;
     padding: 0.1rem 0.4rem;
     margin-top: 0.2rem;
-    background: url(/static/images/left/left-kuang.jpg);
+    background: url(/static/frist/images/left/left-kuang.jpg);
     background-size: 100% 100%;
     border-left: 0.03rem solid #424a71;
     border-right: 0.03rem solid #424a71;
@@ -2538,7 +2538,7 @@ img.bet_ok {
       font-size: .35rem; }
     .tab_mid > li.on {
       transform: none;
-      background: url("/static/images/page/tab_bot_line.png") center bottom no-repeat;
+      background: url("/static/frist/images/page/tab_bot_line.png") center bottom no-repeat;
       height: 1rem;
       background-size: 100%; }
   .tab_mid.tab_three > li {
@@ -2611,7 +2611,7 @@ img.bet_ok {
       top: 0.5rem; }
     .bet_data .status00 > div {
       display: block;
-      background-image: url("/static/images/page/status00.svg");
+      background-image: url("/static/frist/images/page/status00.svg");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 100%;
@@ -2632,7 +2632,7 @@ img.bet_ok {
       top: 0.5rem; }
     .bet_data .status03 > div, .bet_data .status04 > div {
       display: block;
-      background-image: url("/static/images/page/status03.svg");
+      background-image: url("/static/frist/images/page/status03.svg");
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 100%;
@@ -2647,7 +2647,7 @@ img.bet_ok {
   float: none;
   vertical-align: top;
   line-height: 1;
-  background-image: url("/static/images/page/pn_lt_bg.png");
+  background-image: url("/static/frist/images/page/pn_lt_bg.png");
   height: .4rem;
   background-size: 100%;
   width: 3.5rem;
@@ -2721,7 +2721,7 @@ img.bet_ok {
       display: block;
       top: 0;
       left: 0;
-      background-image: url("/static/images/past_bg.png");
+      background-image: url("/static/frist/images/past_bg.png");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -2773,7 +2773,7 @@ ul.lo_ball {
   text-align: center;
   margin-top: .29rem; }
   ul.lo_ball > li {
-    background: url("/static/images/content/qui02.png") no-repeat;
+    background: url("/static/frist/images/content/qui02.png") no-repeat;
     background-size: 1.1rem;
     background-position: 0.05rem 0.01rem;
     display: inline-block;
@@ -2789,7 +2789,7 @@ ul.lo_ball {
     margin-left: -2rem; }
 
 ul.no_open > li {
-  background-image: url("/static/images/content/duankaung.png");
+  background-image: url("/static/frist/images/content/duankaung.png");
   background-repeat: no-repeat;
   background-size: 100%;
   color: #000;
@@ -2800,7 +2800,7 @@ ul.no_open > li {
   line-height: .95rem; }
 
 i.prd {
-  background-image: url("/static/images/page/icon_pn.png");
+  background-image: url("/static/frist/images/page/icon_pn.png");
   background-position-y: .15rem;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -2829,7 +2829,7 @@ i.prd {
     font-size: .4rem; }
     .ds_long > .panel > .prod {
       overflow: hidden;
-      background: url("/static/images/page/bottom_line.png") center 1.35rem no-repeat;
+      background: url("/static/frist/images/page/bottom_line.png") center 1.35rem no-repeat;
       background-size: 100%;
       padding: .1rem 0 .3rem; }
       .ds_long > .panel > .prod:last-child {
@@ -2903,7 +2903,7 @@ i.prd {
       content: '';
       display: block;
       position: absolute;
-      background: url("/static/images/page/road.png") no-repeat;
+      background: url("/static/frist/images/page/road.png") no-repeat;
       width: .85rem;
       top: -0.1rem;
       background-size: 100%;
@@ -2922,7 +2922,7 @@ i.prd {
     margin-top: .5rem;
     padding-top: .2rem; }
     .road > ul > li {
-      background: url("/static/images/page/road.png") no-repeat center top;
+      background: url("/static/frist/images/page/road.png") no-repeat center top;
       background-size: 100%;
       width: .8rem;
       height: .8rem;
@@ -3087,7 +3087,7 @@ i.prd {
       border: .014rem solid #66c3f2;
       color: #66c3f2; }
       .function_btn > a.bell > i {
-        background-image: url("/static/images/bell.svg");
+        background-image: url("/static/frist/images/bell.svg");
         background-repeat: no-repeat;
         background-position: 0;
         background-color: transparent;
@@ -3097,7 +3097,7 @@ i.prd {
       background-image: linear-gradient(#1c4975, #3793cc);
       border: .014rem solid #488ab9; }
       .function_btn > a.check > i {
-        background-image: url("/static/images/check_w.svg");
+        background-image: url("/static/frist/images/check_w.svg");
         background-repeat: no-repeat;
         background-position: 0;
         background-color: transparent;
@@ -3115,7 +3115,7 @@ i.prd {
 .pk10_ball {
   display: inline-block;
   vertical-align: middle;
-  background: url(/static/images/pk10/ball.png) no-repeat;
+  background: url(/static/frist/images/pk10/ball.png) no-repeat;
   background-size: 8.8rem 1.6rem;
   width: 0.88rem;
   height: 0.8rem; }
@@ -3169,7 +3169,7 @@ i.prd {
     background-position-x: -5.85rem; }
 
 ul.sixball > li {
-  background-image: url("/static/images/hksix.png");
+  background-image: url("/static/frist/images/hksix.png");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -3187,7 +3187,7 @@ ul.sixball > li {
     margin-left: .5rem;
     position: relative; }
     ul.sixball > li:last-child:before {
-      background-image: url("/static/images/plus.svg");
+      background-image: url("/static/frist/images/plus.svg");
       background-repeat: no-repeat;
       background-position: 0;
       background-color: transparent;
@@ -3360,7 +3360,7 @@ ul.sixball > li {
         display: block;
         top: 0;
         left: 0;
-        background-image: url("/static/images/bottom_line.png");
+        background-image: url("/static/frist/images/bottom_line.png");
         background-repeat: no-repeat;
         background-position: 0;
         background-color: transparent;
@@ -3384,7 +3384,7 @@ ul.sixball > li {
         display: block;
         top: 0;
         left: 0;
-        background-image: url("/static/images/bottom_line.png");
+        background-image: url("/static/frist/images/bottom_line.png");
         background-repeat: no-repeat;
         background-position: 0;
         background-color: transparent;
@@ -3411,14 +3411,14 @@ ul.sixball > li {
           #index_content.content .cooper > ul > li div.icon {
             width: 1.8rem;
             height: 1.8rem;
-            background-image: url("/static/images/border_bg02.png");
+            background-image: url("/static/frist/images/border_bg02.png");
             color: #fff;
             background-position-x: 50%;
             background-size: 150% 100%;
             -webkit-box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4);
             box-shadow: inset 0px 2px 1px 0px rgba(0, 0, 0, 0.4); }
           #index_content.content .cooper > ul > li a {
-            background-image: url("/static/images/other_link.png");
+            background-image: url("/static/frist/images/other_link.png");
             background-repeat: no-repeat;
             background-position: 0;
             background-color: transparent;
@@ -3457,13 +3457,13 @@ ul.sixball > li {
     display: block;
     margin: 0px auto; }
     .account_area ul a .icon {
-      background-image: url(/static/images/border_bg02.png);
+      background-image: url(/static/frist/images/border_bg02.png);
       background-size: 150% 100%; }
       .account_area ul a .icon span {
         display: block;
         width: 1.5rem;
         height: 1.5rem;
-        background-image: url(/static/images/icon_account.png);
+        background-image: url(/static/frist/images/icon_account.png);
         background-size: auto 1.5rem; }
         .account_area ul a .icon span.icon_deposit {
           background-position-x: 0rem; }
@@ -3507,7 +3507,7 @@ ul.sixball > li {
     display: block;
     top: 0;
     left: 0;
-    background-image: url("/static/images/bottom_line.png");
+    background-image: url("/static/frist/images/bottom_line.png");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -3567,12 +3567,12 @@ ul.sixball > li {
   display: block;
   top: 0;
   left: 0;
-  background-image: url("/static/images/right_icon.png");
+  background-image: url("/static/frist/images/right_icon.png");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
   background-size: 100%;
-  background-image: url("/static/images/right_icon.png");
+  background-image: url("/static/frist/images/right_icon.png");
   width: .7rem;
   height: 1.38rem;
   line-height: 1.38rem;
@@ -3699,7 +3699,7 @@ fieldset {
     color: #ffbd00; }
 
 .account > legend {
-  background-image: url("/static/images/account.svg");
+  background-image: url("/static/frist/images/account.svg");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -3708,7 +3708,7 @@ fieldset {
 .password {
   overflow: hidden; }
   .password > legend {
-    background-image: url("/static/images/lock.svg");
+    background-image: url("/static/frist/images/lock.svg");
     background-repeat: no-repeat;
     background-position: 0;
     background-color: transparent;
@@ -3761,7 +3761,7 @@ fieldset {
         -webkit-appearance: none; }
 
 .phone > legend {
-  background-image: url("/static/images/phone.svg");
+  background-image: url("/static/frist/images/phone.svg");
   background-repeat: no-repeat;
   background-position: 0;
   background-color: transparent;
@@ -3905,7 +3905,7 @@ fieldset {
     padding: 1em 0; }
     .pay_way > ul > li > a:after {
       content: '';
-      background-image: url("/static/images/btn_icon_right.png");
+      background-image: url("/static/frist/images/btn_icon_right.png");
       width: .2rem;
       height: 0.37rem;
       background-size: 100%;
@@ -3992,7 +3992,7 @@ fieldset {
   .bank_transfer select:after {
     content: '';
     display: block;
-    background: url("/static/images/select_down.png") no-repeat;
+    background: url("/static/frist/images/select_down.png") no-repeat;
     background-position: -6px 86%;
     background-size: 145%;
     width: 30px;
@@ -4015,7 +4015,7 @@ fieldset {
   color: #66c3f2; }
 
 .info_area {
-  background-image: url("/static/images/info_topbg.jpg");
+  background-image: url("/static/frist/images/info_topbg.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-color: transparent;
@@ -4236,7 +4236,7 @@ fieldset {
           display: block;
           top: 0;
           left: 0;
-          background-image: url("/static/images/btn_icon_right.png");
+          background-image: url("/static/frist/images/btn_icon_right.png");
           background-repeat: no-repeat;
           background-position: 0;
           background-color: transparent;
@@ -4282,7 +4282,7 @@ fieldset {
     .message_area > .item.read {
       color: #90a4b3; }
       .message_area > .item.read i.i_mail_status {
-        background: url("/static/images/icon_money.png") no-repeat;
+        background: url("/static/frist/images/icon_money.png") no-repeat;
         background-size: 100%;
         background-position-y: -4.65rem;
         margin-top: .12rem; }
@@ -4300,7 +4300,7 @@ fieldset {
       margin-left: .5rem; }
 
 .ac_detial .ac_data > a:after {
-  background-image: url("/static/images/btn_icon_right.png");
+  background-image: url("/static/frist/images/btn_icon_right.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-color: transparent;
@@ -4366,7 +4366,7 @@ input.date:after {
   display: block;
   top: 0;
   left: 0;
-  background: url("/static/images/icon_member.png") no-repeat;
+  background: url("/static/frist/images/icon_member.png") no-repeat;
   background-position: -.17rem 83.5%;
   background-size: 145%;
   width: 2em;

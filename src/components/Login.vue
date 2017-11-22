@@ -1,7 +1,7 @@
 <template>
     <div id="pa_con" class="so-con warp ">
         <header id="pa_head" class="login">
-            <img src="static/images/login_logo.png" alt="">
+            <img src="static/frist/images/login_logo.png" alt="">
         </header>
         <div class="content">
             <div class="login_area">
