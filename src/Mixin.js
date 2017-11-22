@@ -670,6 +670,7 @@ var MyMixin = {
               $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
               this.clearVal(cl) ;
         },
+
     }
 };
 export default MyMixin;

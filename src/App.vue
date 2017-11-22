@@ -47,15 +47,12 @@ export default {
               lastTouchEnd=now;
           },false)
       }
-
-
-      _self.setScroll() ;
       setTimeout(function () {
           var conth = $('.so-con-right .item_one').height()-300 ;
           $('.so-con-right').css('height',conth+'px') ;
       },800) ;
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
-
+      _self.setScroll() ;
   },
     methods: {
         setScroll: function() {

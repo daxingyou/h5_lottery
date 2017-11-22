@@ -2,7 +2,7 @@
     <div id="pa_con"  class="body">
         <header id="pa_head">
             <div class="left">
-                <a href="javascript:;" onclick="history.go(-1)">
+                <a href="javascript:;" onclick="history.go(-1) ">
                     <img src="/static/frist/images/back.png" alt="">
                 </a>
             </div>
@@ -636,9 +636,6 @@
                     },
                 });
             }
-
-
-
         },
 
     }
