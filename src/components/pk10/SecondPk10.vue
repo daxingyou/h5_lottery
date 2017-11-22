@@ -290,7 +290,7 @@ export default {
             ishwowpriod:false,
             betSelectedList:[],   //用户选中的注数
             playTreeList:[], //玩法树
-            lotteryID: 8 ,
+            lotteryID: 108 ,
             allLottery:{} ,
             gameHref:{} ,
             kinds:['两面', '冠亚和值', '1-5名','6-10名'],
