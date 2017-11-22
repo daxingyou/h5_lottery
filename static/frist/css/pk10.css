@@ -30,7 +30,10 @@
     margin-top: 0.07rem; }
 #pk10 .so-main-down li:first-child p {
   width: 3.3rem;
-  margin-right: 0.12rem; }
+  margin-right: 0.12rem; 
+  text-align: left;
+  padding-right: 0.144928rem;
+}
 #pk10 .select-li {
   height: auto;
   padding-top: 0.3rem; }
