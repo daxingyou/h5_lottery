@@ -73,6 +73,16 @@ export default {
                 hScrollbar:false,
                 vScrollbar:false
             });
+//            this.ulScroll  =new  iScroll('ul-wrapper',{
+//                onScrollEnd: function(){
+//                    this.refresh()
+//                },
+//                vScroll:false,
+//                hScroll:true,
+//                mouseWheel: true,
+//                hScrollbar:false,
+//                vScrollbar:false
+//            })
         },
 
     }

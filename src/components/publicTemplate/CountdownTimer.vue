@@ -116,7 +116,7 @@ export default {
                     this.timeSpanStr ='正在开奖';
                     setTimeout(function () {
                         window.location.reload() ;
-                    },100)
+                    },1000)
 
                 }else if(oDate.hour =='00'){  // 平常时间没有小时
                     this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
