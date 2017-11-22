@@ -55,7 +55,7 @@ export default {
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
 
   },
-    methods: {
+  methods: {
 
 
     }

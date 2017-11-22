@@ -345,6 +345,7 @@
             }, 500) ;
             this.initViewHeight();
             this.setScroll() // 下拉回弹
+//            this.$parent.conScroll.refresh()
         },
           computed:{
             doubleSideList:function(){
@@ -365,7 +366,7 @@
             subTabChange:function(e, kind,index){
                 var $src = $(e.currentTarget);
                 $src.addClass('on').siblings().removeClass('on');
-                $src.closest('.so-in-con').find('.bd ul').eq(index).addClass('show')
+                $src.closest('.so-con-right').find('.bd ul').eq(index).addClass('show')
                     .siblings().removeClass('show');
                 //清除选中的球
                 this.betSelectedList = [];
@@ -394,7 +395,7 @@
                     this.betSelectedList = [];
                 }
                 var conth = $tabs.eq(index).height()-300 ;
-//                console.log(conth) ;
+                console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
                 //  _self.setScroll() ;
                _self.conScroll.refresh() ;
@@ -620,16 +621,5 @@
     #so-item1.jc115 ul li > div > div p {
         display: block;
     }
-   /* #wrapper{
-      !*  z-index: 1; touch-action: none;*!
-        top: 0;
-        bottom: 20px;
-        left: 0;
-        width: 100%;
-        position: absolute;
-    }*/
-
-   /* #wrapper { position:absolute;top:0 ; bottom: 0 ;left:0;width:100%}*/
-
    #so-item1,#so-item2 { display: none ;}
 </style>
