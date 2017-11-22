@@ -235,7 +235,7 @@
             open 打开对话框
             close 关闭对话框
     -->
-    <PlayDialog ref="playDialog" />
+    <PlayDialog ref="playDialog"    :rewardTime='rewardTime' />
 
 
     </div>
@@ -294,6 +294,8 @@ export default {
             allLottery:{} ,
             gameHref:{} ,
             kinds:['两面', '冠亚和值', '1-5名','6-10名'],
+            rewardTime:'每日09:02-23:55 5分钟一期，全天共179期。',
+
         }
     },
     created:function(){
