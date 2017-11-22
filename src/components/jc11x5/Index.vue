@@ -330,6 +330,7 @@
 
       },
         mounted:function() {
+
             var lotteryid = this.lotteryID ; // 彩种id
             var lotteryname = this.moduleName || '江西11选5' ; // 彩种名称
             this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
@@ -343,6 +344,7 @@
                 this.timerBegin();
             }, 500) ;
             this.initViewHeight();
+            this.setScroll() // 下拉回弹
         },
           computed:{
             doubleSideList:function(){
@@ -394,8 +396,8 @@
                 var conth = $tabs.eq(index).height()-300 ;
 //                console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
-                //  _self.$parent.setScroll() ;
-                _self.$parent.conScroll.refresh() ;
+                //  _self.setScroll() ;
+               _self.conScroll.refresh() ;
 
                // console.log($src.data('type'))
                 //清除选中的球

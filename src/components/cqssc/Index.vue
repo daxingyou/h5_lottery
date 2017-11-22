@@ -264,6 +264,7 @@ export default {
 
   },
   mounted:function() {
+      var _self = this ;
     var lotteryid = this.lotteryID ; // 彩种id
     var lotteryname = this.moduleName || '重庆时时彩' ; // 彩种名称
     this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
@@ -275,7 +276,7 @@ export default {
         this.timerBegin();
 
     }, 500) ;
-
+      _self.setScroll() ; // 下拉回弹
 
   },
   computed:{
@@ -302,8 +303,8 @@ export default {
         var conth = $tabs.eq(index).height()-300 ;
         $('.so-con-right').css('height',conth+'px') ;
 
-        //  _self.$parent.setScroll() ;
-        _self.$parent.conScroll.refresh() ;
+        //  _self.setScroll() ;
+       _self.conScroll.refresh() ;
     },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
