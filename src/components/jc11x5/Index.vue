@@ -394,8 +394,8 @@
                 var conth = $tabs.eq(index).height()-300 ;
 //                console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
-                //  _self.$parent.setScroll() ;
-                _self.$parent.conScroll.refresh() ;
+                //  _self.setScroll() ;
+               _self.conScroll.refresh() ;
 
                // console.log($src.data('type'))
                 //清除选中的球

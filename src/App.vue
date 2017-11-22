@@ -49,7 +49,6 @@ export default {
       }
 
 
-      _self.setScroll() ;
       setTimeout(function () {
           var conth = $('.so-con-right .item_one').height()-300 ;
           $('.so-con-right').css('height',conth+'px') ;
@@ -58,23 +57,7 @@ export default {
 
   },
     methods: {
-        setScroll: function() {
-            this.navScroll = new iScroll("nav-wrapper",{ // 侧边栏
-                hScrollbar:false,
-                vScrollbar:false
-            });
-            this.conScroll = new iScroll("content-wrapper",{  // 投注区域
-                onScrollEnd: function(){
-                  this.refresh() ;
-                },
-                click: true,
-                vScroll:true,
-                mouseWheel: true,
-                hScrollbar:false,
-                vScrollbar:false
-            });
 
-        },
 
     }
 

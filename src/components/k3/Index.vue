@@ -310,8 +310,8 @@
                 $src.addClass('active').siblings().removeClass('active');
                 var conth = $tabs.eq(index).height()-300 ;
                 $('.so-con-right').css('height',conth+'px') ;
-                //  _self.$parent.setScroll() ;
-                _self.$parent.conScroll.refresh() ;
+                //  _self.setScroll() ;
+               _self.conScroll.refresh() ;
             },
             getListByParentID:function(parentID){
                 return this.playTreeList.filter((item,i)=>{

@@ -100,7 +100,24 @@ var MyMixin = {
                 return false ;
             }
         },
+          //  下拉回弹效果
+        setScroll: function() {
+            this.navScroll = new iScroll("nav-wrapper",{ // 侧边栏
+                hScrollbar:false,
+                vScrollbar:false
+            });
+            this.conScroll = new iScroll("content-wrapper",{  // 投注区域
+                onScrollEnd: function(){
+                    this.refresh() ;
+                },
+                click: true,
+                vScroll:true,
+                mouseWheel: true,
+                hScrollbar:false,
+                vScrollbar:false
+            });
 
+        },
     /*    dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
         },*/
