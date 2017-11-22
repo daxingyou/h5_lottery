@@ -13,7 +13,7 @@
       data: function() {
         return {
             lotteryID:102,
-            moduleName:'马得时时彩分分彩',
+            moduleName:'秒速时时彩',
             moduleplay: '每日09:30-22:00，10分钟一期，每天开奖84期。',
         }
       }
