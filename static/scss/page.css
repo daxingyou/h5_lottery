@@ -2411,7 +2411,7 @@ img.bet_ok {
     #so-item2.jc115 ul li > div > div p.active span:last-child {
       color: #fffbe2; }
 
-#so-item2.jc115 > .hd {
+.jx11_tab.hd {
   height: .9rem;
   width: 95%;
   background-size: 100%;
@@ -2424,7 +2424,7 @@ img.bet_ok {
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
   margin-top: 0.2rem;
   background-color: rgba(15, 16, 18, 0.6); }
-  #so-item2.jc115 > .hd ul {
+  .jx11_tab.hd ul {
     white-space: nowrap;
     width: 100% !important;
     overflow: auto;
@@ -2435,21 +2435,21 @@ img.bet_ok {
     top: inherit;
     left: inherit;
     height: .9rem; }
-    #so-item2.jc115 > .hd ul.tab_mid {
+    .jx11_tab.hd ul.tab_mid {
       background-color: transparent;
       border-radius: 100px; }
-    #so-item2.jc115 > .hd ul > li {
+    .jx11_tab.hd ul > li {
       display: inline-block;
       height: .9rem;
       width: 2rem;
       padding-top: 0; }
-      #so-item2.jc115 > .hd ul > li.on {
+      .jx11_tab.hd ul > li.on {
         background: url("/static/images/withcode_select_tab.png") no-repeat;
         background-size: 100%;
         width: 2rem;
         background-position-y: 0.03rem;
         margin-left: 0.03rem; }
-      #so-item2.jc115 > .hd ul > li > a {
+      .jx11_tab.hd ul > li > a {
         height: .9rem;
         line-height: 0.9rem; }
 #so-item2.jc115 .bd .tab_content {

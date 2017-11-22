@@ -115,6 +115,13 @@ export default {
                // this.timeSpanStr = this.fftimeWithHour(this.lt_time_leave);
                // this.overTimeSpanStr = this.fftimeWithHour(this.lt_time_leave_over);
 
+                if(oDate.hour =='0'&&oDate.minute =='0'&&oDate.second=="0") {
+                    this.timeSpanStr = '正在开奖';
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000)
+
+                }
                 if(oDate.hour =='00'){  // 平常时间没有小时
                     this.timeSpanStr = this.fftime(oDate.minute) + ':' + this.fftime(oDate.second); // 开奖倒计时
                     this.overTimeSpanStr = this.fftime(over_oDate.minute) + ':' + this.fftime(over_oDate.second); // 封盘倒计时

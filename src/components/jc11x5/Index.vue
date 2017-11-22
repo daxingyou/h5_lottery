@@ -130,22 +130,6 @@
                                </div>
                                <!-- jc115 连码 -->
                                <div id="so-item2" class="jc115 tab_container tabBox"  >
-                                   <div class="hd jx11_tab" id="lwrapper">
-                                       <ul class="tab tab_mid tab_two">
-                                           <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
-
-                                           <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
-                                           <li data-tab="2"><a href="javascript:;">二中二</a></li>
-                                           <li data-tab="3"><a href="javascript:;">三中三</a></li>
-                                           <li data-tab="4"><a href="javascript:;">四中四</a></li>
-                                           <li data-tab="5"><a href="javascript:;">五中五</a></li>
-                                           <li data-tab="6"><a href="javascript:;">六中五</a></li>
-                                           <li data-tab="7"><a href="javascript:;">七中五</a></li>
-                                           <li data-tab="8"><a href="javascript:;">八中五</a></li>
-                                           <li data-tab="9"><a href="javascript:;">前二组选</a></li>
-                                           <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
-                                       </ul>
-                                   </div>
                                    <div class="bd">
                                        <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
                                            <li class="select-li">
@@ -169,7 +153,22 @@
                         </div>
                    </div>
                 </div>
+                <div class="hd jx11_tab" >
+                    <ul class="tab tab_mid tab_two">
+                        <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
 
+                        <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
+                        <li data-tab="2"><a href="javascript:;">二中二</a></li>
+                        <li data-tab="3"><a href="javascript:;">三中三</a></li>
+                        <li data-tab="4"><a href="javascript:;">四中四</a></li>
+                        <li data-tab="5"><a href="javascript:;">五中五</a></li>
+                        <li data-tab="6"><a href="javascript:;">六中五</a></li>
+                        <li data-tab="7"><a href="javascript:;">七中五</a></li>
+                        <li data-tab="8"><a href="javascript:;">八中五</a></li>
+                        <li data-tab="9"><a href="javascript:;">前二组选</a></li>
+                        <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
+                    </ul>
+                </div>
                 <div class="so-clear"></div>
             </div>
         </div>
@@ -338,29 +337,6 @@
             this.allLottery = this.$refs.navone.getLotterys() ;
             this.gameHref = this.$refs.navone.gameHref ; // 拿子组件的值
 
-         /*  var contentScroll = new IScroll('#content_wrapper', {
-                mouseWheel: true,
-                click: true,
-                probeType: 3
-            });*/
-           /* var  navmyscroll = new iScroll("nav_wrapper",{
-
-            });
-            var  myscroll = new iScroll("wrapper",{
-
-                vScroll:true,
-                mouseWheel: true,
-                scroll:true
-            });
-
-            var  lmyscroll = new iScroll("lwrapper",{
-                vScroll:false,
-                mouseWheel: true,
-                lwrapper:true
-
-            });*/
-
-           // $('.so-con-right').css('height',$('.so-con-right').height()+$('#nav-wrapper').height()+'px') ;
 
 
             setTimeout(() => {
@@ -387,7 +363,7 @@
             subTabChange:function(e, kind,index){
                 var $src = $(e.currentTarget);
                 $src.addClass('on').siblings().removeClass('on');
-                $src.closest('.tab_container').find('.bd ul').eq(index).addClass('show')
+                $src.closest('.so-in-con').find('.bd ul').eq(index).addClass('show')
                     .siblings().removeClass('show');
                 //清除选中的球
                 this.betSelectedList = [];
@@ -406,12 +382,17 @@
                 const $tabs = $('.so-con-right .jc115');
                 $tabs.hide();
                 $tabs.eq(index).show();
+               if(index=='2'){
+                   $('.jx11_tab').show()
+               }else {
+                   $('.jx11_tab').hide()
+               }
                 $src.addClass('active').siblings().removeClass('active');
                 if( this.lasttyple !=$src.data('type') ){
                     this.betSelectedList = [];
                 }
                 var conth = $tabs.eq(index).height()-300 ;
-                console.log(conth) ;
+//                console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
                 //  _self.$parent.setScroll() ;
                 _self.$parent.conScroll.refresh() ;
@@ -616,6 +597,9 @@
     .show { display: block !important; }
     .bd .tab_content { display: none; }
     .tab_content:nth-child(n+2){ display: none; }
+    .content-all .tab_container{
+       margin-top: 1.4rem;
+   }
     #so-item0 ul li > div > div p, #so-item0.jc115 ul li ul li > div > div p {
         display: block;
     }
