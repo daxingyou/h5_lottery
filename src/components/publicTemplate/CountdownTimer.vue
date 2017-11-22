@@ -74,7 +74,7 @@ export default {
             if (this.lt_time_leave_over <0){ // 封盘倒计时结束
                this.$emit('entertainCountdownOver');
             }
-           // console.log(this.lt_time_leave_over)
+            console.log(this.lt_time_leave_over)
             //计数器，计算间隔时间触发
             const counter = () => {
                 const spanSrrived = () => {
