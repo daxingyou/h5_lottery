@@ -120,9 +120,9 @@ export default {
             return false ;
         }
         _self.submitflage = true ;
-        var logindata = {  // grant_type: 'password', username: 'bcappid02|admin', password: 'admin'
+        var logindata = {  // grant_type: 'password', username: 'owner_plat_test|admin', password: 'admin'
             grant_type: 'password',
-            username: 'bcappid02|'+this.username ,
+            username: 'owner_plat_test|'+this.username ,
             password: this.password ,
             code: this.yzmcode ,  // 验证码
         }

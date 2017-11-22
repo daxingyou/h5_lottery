@@ -292,7 +292,7 @@ export default {
               url:this.action.forseti + 'apis/cms/bulletins',
               data:{
                   sideType:"2",
-                  appid:"bcappid02",
+                  appid:"owner_plat_test",
               },
               success: (result) => {
                   for(let i=0;i<result.data.length;i++){

@@ -331,7 +331,7 @@
                 _self.regsubmitflage = true ;
                 var logindata = {
                     acType: '1',   //1真钱玩家，2试玩玩家
-                    appid: 'bcappid02',    //平台商id，bcappid01 或 bcappid02
+                    appid: 'owner_plat_test',    //平台商id，bcappid01 或 owner_plat_test
                     curType: 'CNY',  //币种，如：CNY
                     referrals: _self.tjrusername ,   // 推荐人
                     login: _self.username ,   // 帐号
@@ -404,7 +404,7 @@
 //                _self. switchYzmcode()
 //                var logindata = {
 //                    grant_type: 'password',
-//                    username: 'bcappid02|'+_self.username ,
+//                    username: 'owner_plat_test|'+_self.username ,
 //                    password: _self.password ,
 //                    code:_self.code
 //                }
@@ -438,7 +438,7 @@
             CheckAccount:function () {
                 let _self=this;
                 let AccData={
-                          appid:'bcappid02',
+                          appid:'owner_plat_test',
                           login:_self.username
                 }
                 $.ajax({
