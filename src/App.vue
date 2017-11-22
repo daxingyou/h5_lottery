@@ -53,7 +53,7 @@ export default {
           $('.so-con-right').css('height',conth+'px') ;
       },800) ;
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
-      _self.setScroll() ;
+
   },
     methods: {
 
