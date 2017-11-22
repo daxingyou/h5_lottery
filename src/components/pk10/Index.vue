@@ -360,7 +360,7 @@ export default {
             this.entertainStatus = true;
             this.resetAction();
         },
-        lotteryDataFetch:function(){
+        lotteryDataFetch:function(needIn){
             const that = this;
             return new Promise((resolve)=>{
                 that.getSystemTime().then((sys_time)=>{
@@ -422,7 +422,9 @@ export default {
                         if(res.data[1].status >1){ // 异常情况，如提前开盘 2
                             that.entertainStatus = true;
                         }
-
+                        if(needIn =='1'){ // 倒计时结束后
+                            that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
+                        }
                         // 当天日期
                         that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
 
@@ -436,10 +438,11 @@ export default {
 
         timerBegin:function(){
             var that = this ;
-            that.lotteryDataFetch().then(()=>{
+            that.lotteryDataFetch('1') ;
+           /* that.lotteryDataFetch().then(()=>{
 
                 that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
-            })
+            })*/
             that.entertainStatus = false;
             that.notopen = false;
         },

@@ -321,8 +321,8 @@ export default {
         this.entertainStatus = true;
         this.resetAction();
     },
-    //获取开奖更据
-    lotteryDataFetch:function(){
+    //获取开奖更据 needIn 是否需要再次调用倒计时定时器
+    lotteryDataFetch:function(needIn){
         const that = this;
         return new Promise((resolve)=>{
             
@@ -411,7 +411,12 @@ export default {
                     }
 
                     // 当天日期
-                    that.now_day = ( res.data[1].pcode).toString().substr(0, 8);  
+                    that.now_day = ( res.data[1].pcode).toString().substr(0, 8);
+
+                    if(needIn =='1'){ // 倒计时结束后
+                        that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
+                    }
+
 
                     resolve();
                 }).catch(function () {
@@ -425,9 +430,10 @@ export default {
 
     timerBegin:function(){
         var that = this;
-        this.lotteryDataFetch().then(()=>{
-            that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);
-        })
+        that.lotteryDataFetch('1') ;
+    /*    this.lotteryDataFetch().then(()=>{
+                that.$refs.countdownTimer && that.$refs.countdownTimer.timerInit(that.sys_time, that.now_time, that.nowover_time);  // 重新倒计时
+        })*/
         that.entertainStatus = false;
         that.notopen = false;
     },
