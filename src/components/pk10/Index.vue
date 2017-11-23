@@ -21,8 +21,9 @@
                             <img src="/static/frist/images/top/icon-menu.png" class="so-top-menu">
                         </li>
                         <li class="left_top_logo">
-                            北京PK10
+                            {{moduleName || '北京PK10'}}
                         </li>
+
                         <li class="purse">
                             <img src="/static/frist/images/top/sjinbi.png" class="so-top-sum">
                             <div class="so-in-top-sum">
@@ -233,7 +234,7 @@
             open 打开对话框
             close 关闭对话框
     -->
-    <PlayDialog ref="playDialog"    :rewardTime='rewardTime' />
+    <PlayDialog ref="playDialog"  :moduleName="moduleName" :moduleplay="moduleplay" />
 
 
     </div>
@@ -270,6 +271,7 @@ export default {
         AutoCloseDialog,
         PlayDialog
     },
+    props:['moduleName', 'moduleLotteryID','moduleplay'],
     data :function() {
         return {
             now_time:'',  // 当前期数销售截止时间
@@ -292,18 +294,20 @@ export default {
             allLottery:{} ,
             gameHref:{} ,
             kinds:['两面', '冠亚和值', '1-5名','6-10名'],
-            rewardTime:'每日09:02-23:55 5分钟一期，全天共179期。',
 
         }
     },
     created:function(){
+        if (this.moduleLotteryID) {
+            this.lotteryID = this.moduleLotteryID;
+        }
         this.getMemberBalance(this.lotteryID).then(()=>{
             this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
         });
     },
     mounted:function() {
         var lotteryid = this.lotteryID ; // 彩种id
-        var lotteryname = '北京PK10' ; // 彩种名称
+        var lotteryname = this.moduleName || '北京PK10' ; // 彩种名称
         this.setCookie('lt_lotteryid',lotteryid) ; // 彩种id
         this.setCookie('lottery_name',lotteryname) ; // 彩种名称
         this.allLottery = this.$refs.navone.getLotterys() ;

@@ -1,11 +1,11 @@
 <template>
     <div  v-if="show" class="so-pop-wanfa modal publicDialog">
         <div class="m_content">
-            <h2>北京PK10游戏玩法<a @click="close"></a></h2>
+            <h2>{{moduleName || '北京PK10'}}游戏玩法<a @click="close"></a></h2>
             <div class="content">
                 <div class="playtext">
                     <h3>一、开奖与结束时间</h3>
-                    <p>{{rewardTime}}</p>
+                    <p>{{moduleplay|| '每日09:02-23:55，5 分钟一期，全天共179期。'}}</p>
                     <h3>二、两面玩法</h3>
                     <h4>冠亚和：冠军车号＋亚军车号＝冠亚和值（为3~19)</h4>
                     <p>冠亚和大：“冠亚和值”大于或等于12时投注“大”的注单视为中奖，其余视为不中奖。</p>
@@ -44,7 +44,7 @@
 <script>
 export default {
   name: 'InfoDialog',
-  props:['rewardTime'],
+  props:['moduleName', 'moduleplay'],
   methods:{
     //打开弹窗
     open:function(e){
@@ -57,6 +57,7 @@ export default {
   },
   //程序加载完闭时
   mounted:function() {
+
   },
   data () {
     return {
