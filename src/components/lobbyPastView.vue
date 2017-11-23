@@ -197,10 +197,11 @@ export default {
 
       lobbytimerBegin:function(){
           var that = this;
+         // console.log('方法')
           that.getSystemTime('0').then(sys_time=>{
               that.sys_time = sys_time ;
               that.doubleCount('') ;
-
+     // console.log('发货的')
           });
 
 

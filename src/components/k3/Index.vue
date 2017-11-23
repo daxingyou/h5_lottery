@@ -348,12 +348,13 @@
                                     if(res.data[1].endTime < sys_time ) { // 如果当期结束时间小于系统时间
                                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);   // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                                        that.now_pcode = res.data[0].pcode;  // 当前期数
                                     }else{
                                         that.now_time = that.formatTimeUnlix(res.data[1].endTime);   // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+                                        that.now_pcode = res.data[1].pcode;  // 当前期数
                                     }
 
-                                    that.now_pcode = res.data[1].pcode;  // 当前期数
                                     that.winNumber = res.data[2].winNumber;
                                     that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                     that.previous_pcode = res.data[2].pcode;  // 上期期数
@@ -377,12 +378,13 @@
                                 if(res.data[1].endTime < sys_time ) { // 如果当期结束时间小于系统时间
                                     that.now_time = that.formatTimeUnlix(res.data[0].endTime);   // 当前期数时间
                                     that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);   // 当前期封盘时间
+                                    that.now_pcode = res.data[0].pcode;  // 当前期数
                                 }else{
                                     that.now_time = that.formatTimeUnlix(res.data[1].endTime);   // 当前期数时间
                                     that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);   // 当前期封盘时间
+                                    that.now_pcode = res.data[1].pcode;  // 当前期数
                                 }
 
-                                that.now_pcode = res.data[1].pcode;  // 当前期数
                                 //code 上期开奖号码
                                 if (!code) {
                                     // code = '-,-,-,-,-';

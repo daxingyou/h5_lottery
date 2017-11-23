@@ -381,11 +381,13 @@ export default {
                                     if(res.data[1].endTime < sys_time ){ // 如果当期结束时间小于系统时间
                                         that.now_time = that.formatTimeUnlix(res.data[0].endTime);  // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                                        that.now_pcode = res.data[0].issueAlias;  // 当前期数
                                     }else{
                                         that.now_time = that.formatTimeUnlix(res.data[1].endTime);  // 当前期数时间
                                         that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);  // 当前期封盘时间
+                                        that.now_pcode = res.data[1].issueAlias;  // 当前期数
                                     }
-                                that.now_pcode = res.data[1].issueAlias;  // 当前期数
+
                                 that.winNumber = res.data[2].winNumber;
                                 that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
                                 that.previous_pcode = res.data[2].issueAlias;  // 上期期数
@@ -411,20 +413,21 @@ export default {
                             if(res.data[1].endTime < sys_time ){  // 如果当期结束时间小于系统时间
                                 that.now_time = that.formatTimeUnlix(res.data[0].endTime); // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[0].prizeCloseTime);  // 当前期封盘时间
+                                that.now_pcode = res.data[0].issueAlias;  // 当前期数
                             }else{
-                                that.now_pcode = res.data[1].issueAlias;  // 当前期数
                                 that.now_time = that.formatTimeUnlix(res.data[1].endTime);    // 当前期数时间
                                 that.nowover_time = that.formatTimeUnlix(res.data[1].prizeCloseTime);
-                                if (!code) {  //code 上期开奖号码
-                                    // code='20,20,20,20,20,20,20,20,20,20';
-                                    that.winNumber = res.data[3].winNumber;
-                                    that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
-                                    that.previous_pcode = res.data[3].issueAlias;  // 上期期数
-                                }else{
-                                    that.winNumber = res.data[2].winNumber;
-                                    that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
-                                    that.previous_pcode = res.data[2].issueAlias;  // 上期期数
-                                }
+                                that.now_pcode = res.data[1].issueAlias;  // 当前期数
+                            }
+                            if (!code) {  //code 上期开奖号码
+                                // code='20,20,20,20,20,20,20,20,20,20';
+                                that.winNumber = res.data[3].winNumber;
+                                that.lastTermStatic = res.data[3].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[3].issueAlias;  // 上期期数
+                            }else{
+                                that.winNumber = res.data[2].winNumber;
+                                that.lastTermStatic = res.data[2].doubleData;    //上期开奖统计
+                                that.previous_pcode = res.data[2].issueAlias;  // 上期期数
                             }
 
 
