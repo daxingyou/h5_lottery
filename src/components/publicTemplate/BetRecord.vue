@@ -129,6 +129,7 @@
                 mySwiperTrack: null,
                 gamechoose :[
                     {id:'0','name':'全部'} ,
+                    {id:'102','name':'秒速时时彩'} ,
                     {id:'2','name':'重庆时时彩'} ,
                     {id:'12','name':'天津时时彩'} ,
                     {id:'14','name':'新疆时时彩'} ,
@@ -139,6 +140,8 @@
                     {id:'20','name':'安徽快3'} ,
                     {id:'22','name':'湖北快3'} ,
                     {id:'8','name':'北京PK10'} ,
+                    {id:'108','name':'秒速赛车'} ,
+
                 ],
                 ajaxSubmitAllow:false ,
             }

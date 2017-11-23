@@ -46,7 +46,7 @@
                                             <span>{{(lotteryid == '8')? list.issueAlias:list.pcode}}</span>
                                            <span>期</span>
                                         </div>
-                                        <ul class="double-count" v-if="lotteryid == '8'"> <!-- 上面一排数据 -->
+                                        <ul class="double-count" v-if="  (lotteryid == '8')|| (lotteryid == '108') "> <!-- 上面一排数据 -->
                                             <li>{{list.doubleData.top2_total}}</li>
                                             <li>{{list.doubleData.top2_sizer}}</li>
                                             <li>{{list.doubleData.top2_doubler}}</li>
@@ -68,7 +68,7 @@
                                     </div>
                                     <!-- 北京pk10  -->
                                   <!--  <ul class="lo_ball double-numbers" v-if="lotteryid == '8'"> -->
-                                    <ul  :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
+                                    <ul  :class="ulclass[list.lotteryId]" v-if="(list.lotteryId == '8') || (list.lotteryId == '108') || (list.lotteryId == '6') || (list.lotteryId == '20') || (list.lotteryId == '22')">
                                         <li v-for="listnum in list.winNumber.split(',')" >
                                            <!-- <span class="pk10_ball" :class="'num_'+listnum"></span>-->
                                             <span :class="[spanclass[list.lotteryId],'num_'+listnum]"></span>
@@ -110,6 +110,7 @@ export default {
             count :'30' , // 每次请求数量
             cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
             gamechoose :[
+                {id:'102','name':'秒速时时彩'} ,
                 {id:'2','name':'重庆时时彩'} ,
                 {id:'12','name':'天津时时彩'} ,
                 {id:'14','name':'新疆时时彩'} ,
@@ -120,6 +121,8 @@ export default {
                 {id:'20','name':'安徽快3'} ,
                 {id:'22','name':'湖北快3'} ,
                 {id:'8','name':'北京PK10'} ,
+                {id:'108','name':'秒速赛车'} ,
+
             ],
         }
     },
