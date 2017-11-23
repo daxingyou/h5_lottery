@@ -104,17 +104,18 @@ var MyMixin = {
         setScroll: function() {
             this.navScroll = new iScroll("nav-wrapper",{ // 侧边栏
                 hScrollbar:false,
-                vScrollbar:false
+                vScrollbar:false,
+                click: true ,
             });
             this.conScroll = new iScroll("content-wrapper",{  // 投注区域
                 onScrollEnd: function(){
                     this.refresh() ;
                 },
-                click: true,
                 vScroll:true,
-                mouseWheel: true,
-                hScrollbar:false,
-                vScrollbar:false
+                mouseWheel: true ,
+                hScrollbar:false ,
+                vScrollbar:false ,
+                click: true ,
             });
 
         },

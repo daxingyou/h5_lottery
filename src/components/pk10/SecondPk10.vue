@@ -343,7 +343,7 @@ export default {
             var conth = $tabs.eq(index).height()-300 ;
             $('.so-con-right').css('height',conth+'px') ;
             //  _self.setScroll() ;
-           _self.conScroll.refresh() ;
+           _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
 
         },
         getListByParentID:function(parentID){

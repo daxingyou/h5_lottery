@@ -79,12 +79,10 @@
                 <div class="so-con-left" id="nav-wrapper">
                     <ul>
                         <li :class="(index == 0 && 'active')" v-for="(kind,index) in kinds" @click="switchTab">
-                            <a :href="'#pk10-item'+index">{{kind}}</a>
+                            <!--<a :href="'#pk10-item'+index">{{kind}}</a>-->
+                            <a >{{kind}}</a>
                         </li>
-                      <!--  <li class="active">两面</li>
-                        <li>冠亚和值</li>
-                        <li>1-5名</li>
-                        <li>6-10名</li>-->
+
                     </ul>
                 </div>
                 <div class="bule_bg"></div>
@@ -342,8 +340,9 @@ export default {
 
             var conth = $tabs.eq(index).height()-300 ;
             $('.so-con-right').css('height',conth+'px') ;
-            //  _self.setScroll() ;
-           _self.conScroll.refresh() ;
+          //  _self.setScroll() ;
+            _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)   ;
+
 
         },
         getListByParentID:function(parentID){

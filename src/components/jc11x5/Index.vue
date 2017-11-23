@@ -76,7 +76,8 @@
                     <div class="so-con-left " id="nav-wrapper">
                         <ul>
                             <li :data-type="(index==2?'lineplay':'nomalplay')" :class="(index == 0 && 'active') + (index==2 ? ' reset_bet' : '')" v-for="(kind,index) in kinds" @click="switchTab">
-                                <a :href="'#so-item'+index">{{kind}}</a>
+                               <!-- <a :href="'#so-item'+index">{{kind}}</a>-->
+                                <a >{{kind}}</a>
                             </li>
 
                         </ul>
@@ -398,7 +399,7 @@
                 console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
                 //  _self.setScroll() ;
-               _self.conScroll.refresh() ;
+               _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
 
                // console.log($src.data('type'))
                 //清除选中的球

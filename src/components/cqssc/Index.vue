@@ -54,7 +54,8 @@
                 <div class="so-con-left" id="nav-wrapper">
                     <ul>
                         <li :class="(index == 0 && 'active')"  v-for="(kind,index) in kinds" @click="switchTab">
-                            <a :href="'#so-item'+index">{{kind}}</a>
+                            <!--<a :href="'#so-item'+index">{{kind}}</a>-->
+                            <a>{{kind}}</a>
                         </li>
                     </ul>
                 </div>
@@ -304,7 +305,7 @@ export default {
         $('.so-con-right').css('height',conth+'px') ;
 
         //  _self.setScroll() ;
-       _self.conScroll.refresh() ;
+       _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
     },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
