@@ -282,7 +282,7 @@ var MyMixin = {
                     headers: {
                         "Authorization": "bearer  " + _self.getAccessToken,
                     },
-                    url: this.action.forseti + 'apis/serverCurrentTime',
+                    url: this.action.forseti + 'apid/serverCurrentTime',
                     data: {},
                     success: (res) => {
                         if(nochange =='0'){

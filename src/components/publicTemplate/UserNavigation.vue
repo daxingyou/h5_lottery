@@ -116,7 +116,7 @@ export default {
                   $.ajax({
                       type: 'GET',
                       async:false,
-                      url: _self.action.forseti + 'apis/lotterys',
+                      url: _self.action.forseti + 'apid/lotterys',
                       data: { sideType :2 }, // sideType， 1官彩，2双面彩，为空默认为1，即官彩
                       dataType: 'json',
                       success:(res)=> {
