@@ -87,7 +87,7 @@ export default {
     //获取验证码；
     switchYzmcode:function () {
           let _self =this ;
-          let url= this.action.uaa + 'apis/member/code/get?time='+ Math.random();
+          let url= this.action.uaa + 'apid/member/code/get?time='+ Math.random();
           $.ajax({
               type:"GET",
               url:url,
@@ -130,7 +130,7 @@ export default {
             type: 'post',
             headers: {clientId:this.client,Authorization: 'Basic d2ViX2FwcDo='},
            // url: this.action.uaa + 'oauth/token',
-            url: this.action.uaa + 'apis/member/login',
+            url: this.action.uaa + 'apid/member/login',
             data: logindata ,
             success: (res) => {
                 if(res.err == 'SUCCESS'){ // 登录成功

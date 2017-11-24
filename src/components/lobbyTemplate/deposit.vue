@@ -448,7 +448,7 @@ export default {
              /* headers: {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },*/
-              url: _self.action.forseti + 'apis/payment/banks',
+              url: _self.action.forseti + 'apid/payment/banks',
               data: { },
               success: function(res){
                   _self.allbanklist = res.data ;

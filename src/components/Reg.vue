@@ -378,7 +378,7 @@
             },
             switchYzmcode:function () {  //获取验证码；
                 let _self =this ;
-                let url= this.action.uaa + 'apis/member/code/get?time='+ Math.random();
+                let url= this.action.uaa + 'apid/member/code/get?time='+ Math.random();
                 $.ajax({
                 type:"GET",
                 url:url,
@@ -444,7 +444,7 @@
                 $.ajax({
                     type: 'post',
                     headers: {Authorization: 'Basic d2ViX2FwcDo='},
-                    url: this.action.uaa + 'apis/data/member/check_account',
+                    url: this.action.uaa + 'apid/data/member/check_account',
                     data: AccData ,
                     success:(res)=>{
                         if(res.data==true){
