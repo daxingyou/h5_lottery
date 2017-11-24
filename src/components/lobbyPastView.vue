@@ -78,6 +78,7 @@ export default {
     data :function() {
         return {
             haslogin:false ,
+            hasaction:false , // 阻止重复提交
             gametimerInt:'' ,
             now_time:'',  // 当前期数销售截止时间
             sys_time :'',  // 当前系统时间
@@ -211,10 +212,17 @@ export default {
     },
 
       lobbytimerBegin:function(){
-          var that = this;
-          that.getSystemTime('0').then(sys_time=>{
-              that.sys_time = sys_time ;
-              that.doubleCount('') ;
+          var _self = this;
+          if(_self.hasaction){
+              return false ;
+          }
+          _self.hasaction = true ;
+          _self.getSystemTime('0').then(sys_time=>{
+              _self.sys_time = sys_time ;
+              _self.doubleCount('') ;
+              setTimeout(function () {
+                  _self.hasaction = false ;
+              },500)
           });
 
 
