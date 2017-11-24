@@ -104,11 +104,11 @@ export default {
     data :function() {
         return {
             pastView:{} ,
-            ulclass :{'8':'lo_ball double-numbers','6':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
-            spanclass :{'8':'pk10_ball small_ball','6':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
+            ulclass :{'8':'lo_ball double-numbers','108':'lo_ball double-numbers','6':'lo_ball double-numbers','106':'lo_ball double-numbers','20':'lo_ball double-numbers','22':'lo_ball double-numbers'} ,
+            spanclass :{'8':'pk10_ball small_ball','108':'pk10_ball small_ball','6':'k3_dice','106':'k3_dice','20':'k3_dice','22':'k3_dice'} ,
             lotteryid :this.getCookie('lt_lotteryid') , // 彩种 id
             count :'30' , // 每次请求数量
-            cssid :{'8':'pk10','6':'k3','20':'k3','22':'k3'} ,
+            cssid :{'8':'pk10','108':'pk10','6':'k3','106':'k3','20':'k3','22':'k3'} ,
             gamechoose :[
                
                 {id:'2','name':'重庆时时彩'} ,
