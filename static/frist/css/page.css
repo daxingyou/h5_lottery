@@ -193,6 +193,11 @@ h2 { font-weight: 300; }
 
 .badge.lottery_logo_22:before { background-image: url("/static/frist/images/logo_hbk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
 
+.badge.lottery_logo_102:before { background-image: url("/static/frist/images/logo_msssc.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.badge.lottery_logo_104:before { background-image: url("/static/frist/images/logo_ms11x5.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.badge.lottery_logo_106:before { background-image: url("/static/frist/images/logo_msk3.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+.badge.lottery_logo_108:before { background-image: url("/static/frist/images/logo_mspk10.svg"); background-repeat: no-repeat; background-position: 0; background-color: transparent; background-size: 100%; }
+
 .boxlist::-webkit-scrollbar { width: .5em; border-radius: .2rem; }
 
 .boxlist::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
