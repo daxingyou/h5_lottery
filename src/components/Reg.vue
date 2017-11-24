@@ -351,7 +351,7 @@
                     },
                     dataType: 'json',
                     contentType: 'application/json; charset=utf-8',
-                    url: this.action.uaa + 'apis/data/member/checkOrCreateMemberBcbaochi',
+                    url: this.action.uaa + 'apid/data/member/checkOrCreateMemberBcbaochi',
                     data: JSON.stringify(logindata) ,
                     success: (res) => {
                         if(res.err =='SUCCESS'){ // 注册成功
