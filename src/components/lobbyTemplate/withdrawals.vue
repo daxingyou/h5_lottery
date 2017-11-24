@@ -157,8 +157,8 @@ export default {
                   _self.acType = res.data.acType;
                   _self.getBalance(_self.memberId, _self.acType)
               },
-              error: () => {
-
+              error: (e) => {
+                  _self.errorAction(e) ;
               }
           })
       },

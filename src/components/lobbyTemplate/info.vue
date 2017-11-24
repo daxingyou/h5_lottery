@@ -166,8 +166,8 @@ export default {
                   _self.userLogin=res.data.login;
                   _self.getBalance(_self.memberId, _self.acType)
               },
-              error: () => {
-
+              error: (e) => {
+              _self.errorAction(e) ;
               }
           })
       },
