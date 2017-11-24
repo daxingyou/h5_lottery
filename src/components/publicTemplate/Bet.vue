@@ -124,7 +124,7 @@ export default {
                 'lotteryId': this.lotteryID ,  //彩种id
                 'operType': 0, //下注类型，1下注
                 // 'pcode': $('.now-date ').eq(0).text(), //期次20170925013
-                'pcode':(this.lotteryID =='8')? this.pk10_now_pcode:this.now_pcode,
+                'pcode':(this.lotteryID =='8' || this.lotteryID =='108' )? this.pk10_now_pcode:this.now_pcode,
                 'pdate': this.now_day, //日期20170925
                 'remark': '无',//备注，可用于测试
                 'source': 'h5', //来源：h5
