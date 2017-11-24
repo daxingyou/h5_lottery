@@ -18,7 +18,6 @@
                     <h5>游戏筛选</h5>
                     <ul>
                         <li :class="{'active':lotteryid== list.id}" :data-val="list.id" v-for="list in gamechoose"><a href="javascript:void(0);"> {{list.name}} </a></li>
-
                     </ul>
                     <div>
                         <div class="btn btn_two round btn_outline"><a href="javascript:;">取消</a></div>
@@ -33,18 +32,18 @@
                     <ul class="tab tab01 tab_mid" :class="ulclass[lotteryid]">
                         <!-- pk10 -->
                         <li class="on" data-tab="road01_1" data-val="1" v-if="( lotteryid=='8' || lotteryid=='108'  )  "><a href="javascript:;">冠亚和大小</a></li>
-                        <li data-tab="road01_2" data-val="1" v-if="lotteryid=='8'"><a href="javascript:;">冠亚和单双</a></li>
+                        <li data-tab="road01_2" data-val="1" v-if=" (lotteryid=='8')||(lotteryid=='108') "><a href="javascript:;">冠亚和单双</a></li>
 
-                        <li class="on" data-tab="road01_1" data-val="1" v-if="lotteryid !='8'"><a href="javascript:;">总和大小</a></li>
+                        <li class="on" data-tab="road01_1" data-val="1" v-if="(lotteryid !='8')||(lotteryid !='108')  "><a href="javascript:;">总和大小</a></li>
                         <!-- 快3 pk10 没有 -->
-                        <li data-tab="road01_2" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+                        <li data-tab="road01_2" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='104') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
                             <a href="javascript:;">总和单双</a>
                         </li>
                         <!-- 11 选5才有-->
-                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="(lotteryid =='4') || (lotteryid =='16') || (lotteryid =='18')">
+                        <li data-tab="road01_4" data-val="1" class="jxsyxw_tab"  v-if="(lotteryid =='4') || (lotteryid =='104')|| (lotteryid =='16') || (lotteryid =='18')">
                             <a href="javascript:;">总和尾大小</a>
                         </li>
-                        <li data-tab="road01_3" data-val="1" v-if="(lotteryid =='2')  || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+                        <li data-tab="road01_3" data-val="1" v-if="(lotteryid =='2')  || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='104') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
                             <a href="javascript:;" >龙 虎</a>
                         </li>
 
@@ -52,23 +51,24 @@
                 </div>
                 <div class="bd">
                     <!-- 总和大小 -->
-                    <RoadBeadItem id="road01_1" :dataResult="dataResult.top2_size" class="tab_content_out on" v-if="lotteryid=='8'"/>
+                    <RoadBeadItem id="road01_1" :dataResult="dataResult.top2_size" class="tab_content_out on" v-if="(lotteryid=='8')||(lotteryid=='108')"/>
                     <RoadBeadItem id="road01_1" :dataResult="dataResult.total_size" class="tab_content_out on" v-else />
 
                     <!-- 总和单双 v-if="!(['6','20','22'].includes(lotteryid))" -->
-                    <RoadBeadItem id="road01_2"  :dataResult="dataResult.top2_sd" class="tab_content_out" v-if="lotteryid =='8'"/>
+                    <RoadBeadItem id="road01_2"  :dataResult="dataResult.top2_sd" class="tab_content_out" v-if="(lotteryid =='8')||(lotteryid=='108')"/>
                     <RoadBeadItem id="road01_2" :dataResult="dataResult.total_sd" class="tab_content_out" v-else />
 
                     <!-- 总和尾大小 11 选5 才有 -->
-                    <RoadBeadItem id="road01_4" v-if="!(['2', '6','20','22'].includes(lotteryid))" :dataResult="dataResult.totalEnd_size" class="tab_content_out" />
+                    <RoadBeadItem id="road01_4" v-if="!(['2','102', '6','106','20','22'].includes(lotteryid))" :dataResult="dataResult.totalEnd_size" class="tab_content_out" />
 
                     <!-- 龙虎 -->
-                    <RoadBeadItem id="road01_3" v-if="!(['6','20','22'].includes(lotteryid))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
+                    <RoadBeadItem id="road01_3" v-if="!(['6','20','22','106'].includes(lotteryid))" :dataResult="dataResult.total_lhh" class="tab_content_out" />
                 </div>
             </div>
-            <div id="road02" class="tab_container tabBox" v-if="(lotteryid =='2')  || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='8') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+            <div id="road02" class="tab_container tabBox" v-if="(lotteryid =='2')  || (lotteryid =='102') || (lotteryid =='4')|| (lotteryid =='104') || (lotteryid =='8')||(lotteryid == '108') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
+                
                 <div class="hd">
-                    <ul class="tab tab02 tab_mid tab_five" v-if="lotteryid == '8'">
+                    <ul class="tab tab02 tab_mid tab_five" v-if="(lotteryid == '8')||(lotteryid == '108') ">
                         <li data-tab="road02_1" class="on" data-val="2"><a href="javascript:;">冠军</a></li>
                         <li data-tab="road02_2" data-val="2"><a href="javascript:;">亚军</a></li>
                         <li data-tab="road02_3" data-val="2"><a href="javascript:;">第三名</a></li>
@@ -191,27 +191,33 @@
         mixins:[Mixin],
         data :function() {
             return {
-                gameshowid:{'8':'pk10'},
+                gameshowid:{ 
+                    '8':'pk10',
+                    '108':'pk10',
+                },
                 lotteryid:this.getCookie('lt_lotteryid'),
                 lotteryName:this.getCookie('lottery_name'),
                 dataResult:{},
                // roadbeads:{} ,
                 gamechoose :[
+
                     {id:'2','name':'重庆时时彩'} ,
                     {id:'102','name':'秒速时时彩'} ,
-                    {id:'12','name':'天津时时彩'} ,
                     {id:'14','name':'新疆时时彩'} ,
+                    {id:'108','name':'秒速赛车'},
+                    {id:'8','name':'北京PK10'} ,
+                    {id:'12','name':'天津时时彩'} ,
                     {id:'4','name':'江西11选5'} ,
+                    {id:'104','name':'秒速11选5'} ,
                     {id:'16','name':'广东11选5'} ,
                     {id:'18','name':'山东11选5'} ,
+                    {id:'106','name':'秒速快3'} ,
                     {id:'6','name':'江苏快3'} ,
-                    {id:'20','name':'安徽快3'} ,
                     {id:'22','name':'湖北快3'} ,
-                    {id:'8','name':'北京PK10'} ,
-                    {id:'108','name':'秒速赛车'},
+                    {id:'20','name':'安徽快3'} ,
 
                 ],
-                ulclass:{'2':'tab_three','12':'tab_three','14':'tab_three','6':'tab_two','20':'tab_two','22':'tab_two'}
+                ulclass:{'2':'tab_three', '102':'tab_three',  '12':'tab_three','14':'tab_three','6':'tab_two','106':'tab_two','20':'tab_two','22':'tab_two'}
 
             }
         },

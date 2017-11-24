@@ -129,18 +129,20 @@
                 mySwiperTrack: null,
                 gamechoose :[
                     {id:'0','name':'全部'} ,
-                    {id:'102','name':'秒速时时彩'} ,
                     {id:'2','name':'重庆时时彩'} ,
-                    {id:'12','name':'天津时时彩'} ,
+                    {id:'102','name':'秒速时时彩'} ,
                     {id:'14','name':'新疆时时彩'} ,
+                    {id:'108','name':'秒速赛车'},
+                    {id:'8','name':'北京PK10'} ,
+                    {id:'12','name':'天津时时彩'} ,
                     {id:'4','name':'江西11选5'} ,
+                    {id:'104','name':'秒速11选5'} ,
                     {id:'16','name':'广东11选5'} ,
                     {id:'18','name':'山东11选5'} ,
+                    {id:'106','name':'秒速快3'} ,
                     {id:'6','name':'江苏快3'} ,
-                    {id:'20','name':'安徽快3'} ,
                     {id:'22','name':'湖北快3'} ,
-                    {id:'8','name':'北京PK10'} ,
-                    {id:'108','name':'秒速赛车'} ,
+                    {id:'20','name':'安徽快3'} ,
 
                 ],
                 ajaxSubmitAllow:false ,
@@ -576,7 +578,7 @@
                         var li_html = '';
                         // var pcode = ('' + v.pcode).substring(8, 11);
                         var pname = v.playName.substring(0, 2) ; // 筛选连码
-                        if(_self.lotteryid =='8'){  // 北京pk10
+                        if( (_self.lotteryid =='8')||(_self.lotteryid =='108')  ){  // 北京pk10
                             var pcode = ('' + v.issueAlias).substring(0, 11);
                         }else{
                             var pcode = ('' + v.pcode).substring(0, 11);
