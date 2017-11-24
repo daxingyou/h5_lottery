@@ -164,9 +164,11 @@ this.setMenuAction() ;
                     if(!data.data[i].winNumber){
                         switch (this.lotteryid.toString()){
                             case '8': // 北京pk10
+                            case '108': // 秒pk10
                                 data.data[i].winNumber ='20,20,20,20,20,20,20,20,20,20' ;
                                 break;
                             case '6': // 江苏快 3
+                            case '106': // 秒快 3
                             case '20': // 快 3
                             case '22': // 快 3
                                 data.data[i].winNumber ='20,20,20' ;
