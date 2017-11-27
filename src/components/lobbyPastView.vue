@@ -91,17 +91,17 @@ export default {
                 "2":"cqssc",
                 "12":"cqssc/tianJinIndex",
                 "14":"cqssc/xinJiangIndex",
-                "102":"cqssc/SecondSsc",
+                "102":"cqssc/SecondSscIndex",
                 "4":"jc11x5",     //江西11选5
                 "18":"jc11x5/sd11x5Index",  //山东11选5
-                "104":"jc11x5/MiaoSuIndex",  // 秒速11选5
+                "104":"jc11x5/ms11x5Index",  // 秒速11选5
                 "16":"jc11x5/gd11x5Index",  //广东11选5
                 "8":"pk10",
-                "108":"SecondPk10",  // 秒速 赛车
+                "108":"pk10/SecondPk10",  // 秒速 赛车
                 "6":"k3/",  //江苏快3
                 "20":"k3/anHuiK3Index",
                 "22":"k3/huBeiK3Index",
-                "106":"k3/MiaoSuIndex",  // 秒速k3
+                "106":"k3/miaoSuK3Index",  // 秒速k3
 
             }, // 对应彩种的id
             gameName : {
