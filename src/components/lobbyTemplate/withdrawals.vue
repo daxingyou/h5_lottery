@@ -176,6 +176,12 @@ export default {
               url: _self.action.hermes + 'api/balance/get',
               data: BaData,
               success: (res) => {
+                  if(!res.data){ // 没有数据返回
+                      res.data = {
+                          balance:0 ,
+                          payoff:0 ,
+                      }
+                  }
                   _self.memBalance = res.data.balance;
               },
               error: (e) => {

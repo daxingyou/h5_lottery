@@ -253,7 +253,14 @@ var MyMixin = {
                     url: this.action.hermes + 'api/balance/get',
                     data: { lotteryId: lotteryid },
                     success: (res) => {
-                        this.balanceData = res.data;
+                       // console.log(res)
+                        if(!res.data){ // 没有数据返回
+                            res.data = {
+                                balance:0 ,
+                                payoff:0 ,
+                            }
+                        }
+                        this.balanceData = res.data ;
                         var mom = this.fortMoney(this.roundAmt(res.data.balance), 2);  // 用户余额
                         this.setCookie("membalance", mom);  // 把登录余额放在cookie里面
                         resolve();
