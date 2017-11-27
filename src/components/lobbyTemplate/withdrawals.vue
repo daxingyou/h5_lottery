@@ -49,7 +49,7 @@
                     <div class="form_g text">
                         <legend>支付密码</legend>
                         <input type="text" v-model="cashPassword" class="password" onfocus="this.type='password'" maxlength="4" placeholder="4位数字密码">
-                        <i class="close close2" @click="ClearInput('close1','password')"></i>
+                        <i class="close close2" @click="ClearInput('close2','password')"></i>
                     </div>
                 </fieldset>
                 <div class="btn btn_blue">
