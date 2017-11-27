@@ -130,26 +130,7 @@
                                    </ul>
                                </div>
                                <!-- jc115 连码 -->
-                               <div id="so-item2" class="jc115 tab_container tabBox"  >
-                                   <div class="bd">
-                                       <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
-                                           <li class="select-li">
-                                               <div>
-                                                   <h2>{{kind.name}}</h2>
-                                                   <div>
-                                                       <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList"
-                                                                 :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
-                                                                 @selected="continueNumberSelect"
-                                                                 @unSelected="continueNumberUnSelect"
-                                                       />
 
-                                                   </div>
-                                               </div>
-                                           </li>
-                                       </ul>
-
-                                   </div>
-                               </div>
                            </div>
                         </div>
                    </div>
@@ -169,6 +150,26 @@
                         <li data-tab="9"><a href="javascript:;">前二组选</a></li>
                         <li data-tab="10"><a href="javascript:;">前三组选</a></li> -->
                     </ul>
+                </div>
+                <div id="so-item2" class="jc115 tab_container tabBox"  >
+                    <div class="bd">
+                        <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
+                            <li class="select-li">
+                                <div>
+                                    <h2>{{kind.name}}</h2>
+                                    <div>
+                                        <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList"
+                                                  :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
+                                                  @selected="continueNumberSelect"
+                                                  @unSelected="continueNumberUnSelect"
+                                        />
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
                 <div class="so-clear"></div>
             </div>
@@ -367,7 +368,7 @@
             subTabChange:function(e, kind,index){
                 var $src = $(e.currentTarget);
                 $src.addClass('on').siblings().removeClass('on');
-                $src.closest('.so-con-right').find('.bd ul').eq(index).addClass('show')
+                $src.closest('.so-in-con').find('.bd ul').eq(index).addClass('show')
                     .siblings().removeClass('show');
                 //清除选中的球
                 this.betSelectedList = [];
@@ -388,8 +389,10 @@
                 $tabs.eq(index).show();
                if(index=='2'){
                    $('.jx11_tab').show()
+                   $('#so-item2').show()
                }else {
                    $('.jx11_tab').hide()
+                   $('#so-item2').hide()
                }
                 $src.addClass('active').siblings().removeClass('active');
                 if( this.lasttyple !=$src.data('type') ){

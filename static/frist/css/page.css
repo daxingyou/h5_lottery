@@ -856,6 +856,8 @@ img.bet_ok { position: absolute; width: 100%; top: -2rem; left: 0; z-index: 1; }
 
 #so-item1.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
 
+#so-item2{position: absolute;  top: 1rem;  right: 0.35rem;}
+
 #so-item2.jc115 ul li:first-child { margin-top: 0; }
 
 #so-item2.jc115 ul li > div { width: 7rem; text-align: center; margin: auto; }
