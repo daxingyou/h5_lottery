@@ -14,7 +14,7 @@
         return {
             lotteryID:102,
             moduleName:'秒速时时彩',
-            moduleplay: '每日09:30-22:00，10分钟一期，每天开奖84期。',
+            moduleplay: '每日00:01-隔日00:00，60秒一期，每天开奖1440期。',
         }
       }
 

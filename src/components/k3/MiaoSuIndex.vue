@@ -15,7 +15,7 @@
             return {
                 lotteryID:106,
                 moduleName:'秒速快3',
-                moduleplay:'每日00:01-隔日00:00，60秒一期，每天开奖1140期',
+                moduleplay:'每日00:01-隔日00:00，60秒一期，每天开奖1440期',
             }
         }
 
