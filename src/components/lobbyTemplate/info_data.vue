@@ -681,7 +681,7 @@ export default {
               data: EditData,
               success: (res) => {
                    if(res.err=='INPUT_ERR'){
-                       _self.$refs.autoCloseDialog.open('请输入正确信息') ;
+                       _self.$refs.autoCloseDialog.open(res.msg) ;
                        return
                    }
                   _self.$refs.autoCloseDialog.open('修改成功','','icon_check','d_check') ;
