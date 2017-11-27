@@ -150,7 +150,7 @@
                     </ul>
                 </div>
                 <!-- jc115 连码 -->
-                <div id="so-item2" class="jc115 tab_container tabBox"  >
+                <div id="so-item2" class="jc115 tab_container tabBox lianMa"  >
                     <div class="bd">
                         <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
                             <li class="select-li">
