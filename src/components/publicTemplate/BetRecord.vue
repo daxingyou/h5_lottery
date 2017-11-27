@@ -579,9 +579,9 @@
                         // var pcode = ('' + v.pcode).substring(8, 11);
                         var pname = v.playName.substring(0, 2) ; // 筛选连码
                         if( (_self.lotteryid =='8')||(_self.lotteryid =='108')  ){  // 北京pk10
-                            var pcode = ('' + v.issueAlias).substring(0, 11);
+                            var pcode = ('' + v.issueAlias);
                         }else{
-                            var pcode = ('' + v.pcode).substring(0, 11);
+                            var pcode = ('' + v.pcode) ;
                         }
 
                         var className = 'status00';
