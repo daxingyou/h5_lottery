@@ -21,9 +21,8 @@
               </div>
           </div>
       </div>
-      <div class="so-l-c-con" style="position: relative;z-index: 1000">
-
-          <div style="position: relative;z-index: 2000">
+      <div class="so-l-c-con" >
+          <div style="position: relative;z-index: 2000"  >
                 <div class="back_home" >
                   <router-link v-bind:to="'/'">
                     <span><img src="/static/frist/images/left/icon_home.png"></span>
@@ -73,32 +72,33 @@ export default {
             "2":"cqssc",
             "12":"cqssc/tianJinIndex",
             "14":"cqssc/xinJiangIndex",//新疆时时彩
-            "102":"cqssc/SecondSscIndex", 
-
+            "102":"cqssc/SecondSscIndex",
             "4":"jc11x5",     //江西11选5
             "18":"jc11x5/sd11x5Index",  //山东11选5
             "16":"jc11x5/gd11x5Index",  //广东11选5
              "104":"jc11x5/ms11x5Index",//秒速11选5
-            
             "8":"pk10",
             "108":"pk10/SecondPk10",//赛车
-            
             "6":"k3/",  //江苏快3
             "20":"k3/anHuiK3Index",  
             "22":"k3/huBeiK3Index",
             "106":'k3/miaoSuK3Index'
             
           }, // 对应彩种的id
+            leftnavScroll:{}, // 侧边栏
         }
     },
   created:function () {
 
   } ,
   mounted:function() {
-      this.haslogin = this.ifLogined() ;
-     $(this.el).on('click', ()=>{
-      this.showNavigation = true;
+      var _self = this ;
+      _self.haslogin = _self.ifLogined() ;
+     $(_self.el).on('click', ()=>{
+         _self.showNavigation = true;
     }) ;
+
+       // _self.setLeftNav() ;
 
   },
   methods:{
@@ -106,6 +106,14 @@ export default {
     close:function(e){
       this.showNavigation = false;
     },
+      // 侧边栏
+      setLeftNav:function(){
+          this.leftnavScroll = new iScroll("left-wrapper",{ // 侧边栏
+              hScrollbar:false,
+              vScrollbar:false,
+              click: true ,
+          });
+      },
       // 获取彩种
       getLotterys:function() {
          /* return new Promise((resolve)=>{*/

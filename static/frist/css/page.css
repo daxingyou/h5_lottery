@@ -497,7 +497,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-con .so-left .so-left-con .so-l-c-top > div:last-child .purse .so-in-top-sum { left: .3rem; top: .05rem; }
 
-.so-con .so-left .so-left-con .so-l-c-con { width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
+.so-con .so-left .so-left-con .so-l-c-con { position: relative; z-index: 1000;width: 100%; height: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding-bottom: 2rem; }
 
 .so-con .so-left .so-left-con .so-l-c-con ul:after { content: ""; display: block; clear: both; }
 
