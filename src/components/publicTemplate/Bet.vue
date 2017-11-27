@@ -75,6 +75,7 @@ export default {
             // shadeStatus:false,
             showList:false ,
             ajaxSubmitAllow :false ,  // 解决重复提交的问题
+
         }
     },
     computed:{
@@ -82,7 +83,7 @@ export default {
             if (this.playType == 'combine' || this.playType == 'grouped') {
                 return this.combineCount;
             }else{
-                return this.betSelectedList.length
+                return this.betSelectedList.length;
             }
         },
         totalAmount:function(){

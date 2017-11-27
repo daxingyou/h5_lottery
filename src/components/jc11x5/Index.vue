@@ -528,7 +528,7 @@
             resetAction:function(success){
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
-                $('#so-item2 p').removeClass('active');
+                $("#so-item2 p").removeClass('active');
                 if(success != '1'){
                     this.$refs.bet.betAmount = '' ;
                 }
