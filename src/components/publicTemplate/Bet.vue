@@ -25,20 +25,23 @@
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                    <p :data-id="item.cid" data-type=""  v-for="(item,index) in betSelectedList" v-if="playType == 'combine' || playType == 'grouped'" v-show="index =='0'">
-                        【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
-                        <span class="each-content">{{betSelectedList.map((item)=>{ return item.name; }).join(',')}}</span>】 @
-                        <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
-                        <span class="each-mon">{{betAmount}}</span>
-                    </p>
+                    <template v-if="playType == 'combine' || playType == 'grouped'">
+                        <p :data-id="item.cid" data-type=""  v-for="(item,index) in betSelectedList"  v-show="index =='0'" >
+                            【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
+                            <span class="each-content">{{betSelectedList.map((item)=>{ return item.name; }).join(',')}}</span>】 @
+                            <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
+                            <span class="each-mon">{{betAmount}}</span>
+                        </p>
+                    </template>
 
-                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList" v-else >
-                        【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
-                        <span class="each-content">{{item.name}}</span>】 @
-                        <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
-                        <span class="each-mon">{{betAmount}}</span>
-                    </p>
-
+                    <template v-else>
+                        <p :data-id="item.cid" data-type="" v-for="item in betSelectedList"  >
+                            【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
+                            <span class="each-content">{{item.name}}</span>】 @
+                            <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
+                            <span class="each-mon">{{betAmount}}</span>
+                        </p>
+                    </template>
                 </div>
             </div>
             <p class="so-pop-sum">
