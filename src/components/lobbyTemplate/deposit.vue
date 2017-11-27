@@ -493,9 +493,14 @@ export default {
                       }else if(type == '3'){  // 扫码支付
                           if(!res.data){
                               _self.$refs.autoCloseDialog.open('请重试！') ;
+                             setTimeout(function () {
+                                 window.location = '/lobbyTemplate/deposit' ;
+                             },300)
                               return false ;
                           }else{
-                              _self.submitpayflag = false ;
+                             setTimeout(function () {
+                                 _self.submitpayflag = false ;
+                             },1000)
                               _self.scanImg = _self.action.forseti+res.data.imageUrl ;
                               _self.scanid = res.data.orderId ;
                               _self.scanint = setInterval(function () {
