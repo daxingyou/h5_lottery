@@ -25,8 +25,20 @@
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList">【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-<span class="each-content">{{item.name}}</span>】 @ <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x <span class="each-mon">{{betAmount}}</span></p>
-                   <!-- <p>【第一球-单】 @ 1.995 x 10</p>-->
+                    <p :data-id="item.cid" data-type=""  v-for="(item,index) in betSelectedList" v-if="playType == 'combine' || playType == 'grouped'" v-show="index =='0'">
+                        【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
+                        <span class="each-content">{{betSelectedList.map((item)=>{ return item.name; }).join(',')}}</span>】 @
+                        <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
+                        <span class="each-mon">{{betAmount}}</span>
+                    </p>
+
+                    <p :data-id="item.cid" data-type="" v-for="item in betSelectedList" v-else >
+                        【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
+                        <span class="each-content">{{item.name}}</span>】 @
+                        <span class="each-times">{{payoffFormat(item.oddsData.payoff)}}</span> x
+                        <span class="each-mon">{{betAmount}}</span>
+                    </p>
+
                 </div>
             </div>
             <p class="so-pop-sum">
@@ -36,10 +48,6 @@
             <a class="cancle" @click="closeListDialog">取消</a>
             <a class="btn-submit ok" @click="submitAction(lotteryID)">确定</a>
         </div>
-        <!--封盘底部遮挡-->
-         <!-- <div class="so-fengpan">
-            <a>已封盘</a>
-        </div>  -->
 
     </div>
 </template>
