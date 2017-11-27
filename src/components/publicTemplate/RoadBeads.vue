@@ -33,8 +33,11 @@
                         <!-- pk10 -->
                         <li class="on" data-tab="road01_1" data-val="1" v-if="( lotteryid=='8' || lotteryid=='108'  )  "><a href="javascript:;">冠亚和大小</a></li>
                         <li data-tab="road01_2" data-val="1" v-if=" (lotteryid=='8')||(lotteryid=='108') "><a href="javascript:;">冠亚和单双</a></li>
-
-                        <li class="on" data-tab="road01_1" data-val="1" v-if="(lotteryid !='8')||(lotteryid !='108')  "><a href="javascript:;">总和大小</a></li>
+                        <!-- pk10 赛车没有 -->
+                        <li class="on" data-tab="road01_1" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='4') || (lotteryid =='6')||(lotteryid =='12')||(lotteryid =='14')||(lotteryid =='16')||(lotteryid =='18')||(lotteryid =='20') ||(lotteryid =='22')|| (lotteryid =='102') || (lotteryid =='104')|| (lotteryid =='106') ">
+                            <a href="javascript:;">
+                            总和大小</a>
+                        </li>
                         <!-- 快3 pk10 没有 -->
                         <li data-tab="road01_2" data-val="1" v-if="(lotteryid =='2') || (lotteryid =='102') || (lotteryid =='4') || (lotteryid =='104') || (lotteryid =='12') || (lotteryid =='14') ||(lotteryid =='16') || (lotteryid =='18')">
                             <a href="javascript:;">总和单双</a>
