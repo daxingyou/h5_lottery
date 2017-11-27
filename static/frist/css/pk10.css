@@ -29,10 +29,11 @@
     width: 0.64rem;
     margin-top: 0.07rem; }
 #pk10 .so-main-down li:first-child p {
-  width: 3.3rem;
+  width: 2.3rem;
   margin-right: 0.12rem; 
   text-align: right;
   /*padding-right: 0.144928rem;*/
+  white-space: nowrap;
 }
 #pk10 .select-li {
   height: auto;
