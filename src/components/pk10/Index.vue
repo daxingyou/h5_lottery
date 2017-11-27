@@ -470,6 +470,7 @@ export default {
                 this.$refs.bet.betAmount = '' ;
             }
             this.getMemberBalance(this.lotteryID) ; // 更新余额
+            this.$refs.bet.showList = false ; // 关闭下注弹窗
         },
         //当用户选择球时，保存相应数据
         betSelect:function(e, item, parentItem){
