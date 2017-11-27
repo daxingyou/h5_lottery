@@ -277,8 +277,8 @@ export default {
             now_time:'',  // 当前期数销售截止时间
             nowover_time:'',  // 当前期数封盘时间
             next_pcode:'',  // 下一期数
-            now_pcode:0,  // 当前期数
-            pk10_now_pcode:0,  // 当前期数
+            now_pcode:'',  // 当前期数
+            pk10_now_pcode:'',  // 当前期数
             previous_pcode:'',// 上一期期数
             winNumber:'',    // 上期开奖号
             lastTermStatic:'',  // 上期开奖数据统计

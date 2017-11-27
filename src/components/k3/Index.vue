@@ -235,7 +235,7 @@
       props:['moduleName', 'moduleLotteryID','moduleplay'],
       data: function() {
         return {
-            now_pcode:0,  // 当前期数
+            now_pcode:'',  // 当前期数
             previous_pcode:'',//上一期期数
             winNumber:'',    //上期开奖号
             lastTermStatic:'',  //上期开奖数据统计
