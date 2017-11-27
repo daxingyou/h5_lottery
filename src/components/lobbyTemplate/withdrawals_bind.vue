@@ -20,7 +20,7 @@
                     </div>
                     <label class=" error-message"></label>
                 </fieldset>
-                <fieldset>
+                <fieldset>/9
                     <div class="form_g text">
                         <legend>选择银行</legend>
                         <select name="" v-model="bankId" class="bankselect">

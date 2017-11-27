@@ -330,7 +330,7 @@
           this.loadPlayTree(this.lotteryID);  // 玩法树，彩种id 为2
 
       },
-        mounted:function() {
+      mounted:function() {
 
             var lotteryid = this.lotteryID ; // 彩种id
             var lotteryname = this.moduleName || '江西11选5' ; // 彩种名称
@@ -528,6 +528,7 @@
             resetAction:function(success){
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
+                $('#so-item2 p').removeClass('active');
                 if(success != '1'){
                     this.$refs.bet.betAmount = '' ;
                 }
