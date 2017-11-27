@@ -486,20 +486,27 @@ export default {
               data: senddata ,
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
-                      _self.submitpayflag = false ;
                       if(type == '1'){ // 线上付款
+                          _self.submitpayflag = false ;
                           var loadurl = res.data.url ;
                           win.location.href = loadurl ;
                       }else if(type == '3'){  // 扫码支付
-                          _self.scanImg = _self.action.forseti+res.data.imageUrl ;
-                          _self.scanid = res.data.orderId ;
-                          _self.scanint = setInterval(function () {
-                              _self.getScanStatus(_self.scanid) ;
-                          },10000) ;
-                          $('.after-scan').show() ;
-                          $('.before-scan').hide() ;
-                          //scrollTo(0,0);
-                          document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+                          if(!res.data){
+                              _self.$refs.autoCloseDialog.open('请重试！') ;
+                              return false ;
+                          }else{
+                              _self.submitpayflag = false ;
+                              _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                              _self.scanid = res.data.orderId ;
+                              _self.scanint = setInterval(function () {
+                                  _self.getScanStatus(_self.scanid) ;
+                              },10000) ;
+                              $('.after-scan').show() ;
+                              $('.before-scan').hide() ;
+                              //scrollTo(0,0);
+                              document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
+                          }
+
                       }
 
                   }else{
