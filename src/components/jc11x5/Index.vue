@@ -525,15 +525,16 @@
                 that.entertainStatus = false;
                 that.notopen = false;
             },
-            resetAction:function(success){
+            resetAction:function(success) {
                 this.betSelectedList = [];
                 $(".so-con-right p").removeClass('active');
                 $("#so-item2 p").removeClass('active');
-                if(success != '1'){
-                    this.$refs.bet.betAmount = '' ;
+                if (success != '1') {
+                    this.$refs.bet.betAmount = '';
                 }
-                this.getMemberBalance(this.lotteryID) ; // 更新余额
-                this.$refs.bet.showList = false ; // 关闭下注弹窗
+                this.getMemberBalance(this.lotteryID); // 更新余额
+                this.$refs.bet.showList = false; // 关闭下注弹窗
+                this.combineCount=0
             },
             combineCountCaculate:function(item){
                 const rule = this.selectRules[item.parentItem.cid];

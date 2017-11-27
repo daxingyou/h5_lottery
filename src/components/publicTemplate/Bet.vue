@@ -67,7 +67,6 @@ export default {
             // shadeStatus:false,
             showList:false ,
             ajaxSubmitAllow :false ,  // 解决重复提交的问题
-
         }
     },
     computed:{
