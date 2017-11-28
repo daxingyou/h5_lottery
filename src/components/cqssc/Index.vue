@@ -305,7 +305,8 @@ export default {
         $('.so-con-right').css('height',conth+'px') ;
 
 //         _self.setScroll() ;
-       _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
+        _self.conScroll.scrollTo(0, 300);
+        _self.conScroll.refresh() ;
     },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{

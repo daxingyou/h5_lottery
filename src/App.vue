@@ -29,8 +29,8 @@ export default {
     }
   },
   mounted:function(){
-      var _self = this ;
-    FastClick.attach(document.body);
+      var  _self = this ;
+      FastClick.attach(document.body);
       document.documentElement.scrollTop = document.body.scrollTop=0;
       window.onload=function () { // ios 禁止用户双击放大，缩放等
           document.addEventListener('touchstart',function (event) {
@@ -51,7 +51,7 @@ export default {
       setTimeout(function () {
           var conth = $('.so-con-right .item_one').height()-300 ;
           $('.so-con-right').css('height',conth+'px') ;
-      },800) ;
+      },300) ;
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
 
   },
