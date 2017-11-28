@@ -301,10 +301,10 @@ export default {
         $tabs.hide();
         $tabs.eq(index).show();
         $src.addClass('active').siblings().removeClass('active') ;
-        var conth = $tabs.eq(index).height()-300 ;
+        var conth = $tabs.eq(index).height()-350 ;
         $('.so-con-right').css('height',conth+'px') ;
 
-        //  _self.setScroll() ;
+//         _self.setScroll() ;
        _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
     },
     getListByParentID:function(parentID){
