@@ -119,9 +119,12 @@ var MyMixin = {
             });
 
         },
+        // 初始化滚动高度
         setInitHeight:function () {
             var conth = $('.so-con-right .item_one').height()-310 ;
             $('.so-con-right').css('height',conth+'px') ;
+            window.PointerEvent = undefined ;
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         },
     /*    dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);

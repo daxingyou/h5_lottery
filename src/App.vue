@@ -48,8 +48,7 @@ export default {
               lastTouchEnd=now;
           },false)
       }
-      window.PointerEvent = undefined ;
-      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
 
   },
