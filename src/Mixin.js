@@ -119,6 +119,10 @@ var MyMixin = {
             });
 
         },
+        setInitHeight:function () {
+            var conth = $('.so-con-right .item_one').height()-310 ;
+            $('.so-con-right').css('height',conth+'px') ;
+        },
     /*    dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
         },*/
@@ -187,17 +191,20 @@ var MyMixin = {
 
         // 玩法树
         loadPlayTree:function(gameid) {
-            var _slef = this ;
+            var _self = this ;
             return new Promise((resolve, reject)=>{
                 $.ajax({
                     type: 'get',
                     headers: {
-                        "Authorization": "bearer  " + this.getAccessToken,
+                        "Authorization": "bearer  " + _self.getAccessToken,
                     },
                     url: this.action.forseti + 'api/playsTree',
                     data: {lotteryId: gameid,}, // 当前彩种id
                     success: (res) => {
                         this.playTreeList = res.data ? res.data.childrens :[];
+                     setTimeout(function () {
+                         _self.setInitHeight() ;
+                     },200) ;
                         resolve(this.playTreeList);
                     },
                     error: function (e) {

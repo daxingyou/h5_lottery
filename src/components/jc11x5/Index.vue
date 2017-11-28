@@ -392,7 +392,7 @@
                 if( this.lasttyple !=$src.data('type') ){
                     this.betSelectedList = [];
                 }
-                var conth = $tabs.eq(index).height()-300 ;
+                var conth = $tabs.eq(index).height()-310 ;
                 console.log(conth) ;
                 $('.so-con-right').css('height',conth+'px') ;
                 //  _self.setScroll() ;

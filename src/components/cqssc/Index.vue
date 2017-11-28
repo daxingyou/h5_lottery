@@ -60,10 +60,9 @@
                     </ul>
                 </div>
                 <div class="bule_bg"></div>
-                <div  id="content-wrapper">
+                <div  id="content-wrapper" >
                      <div class="so-con-right  " >
-                               <div id="scroller" > <!-- style="min-height: 180%"  -->
-                                   <!--<div>-->
+                               <div id="scroller" >
                                     <!--以下为盘面不同样式，根据ID区分-->
                                     <div id="so-item0" class="content-right active item_one" >
                                         <!--总和&龙虎-->
@@ -132,7 +131,7 @@
 
                                         </ul>
                                     </div>
-                                   <!--</div>-->
+
                             </div>
                         </div>
 
@@ -301,7 +300,7 @@ export default {
         $tabs.hide();
         $tabs.eq(index).show();
         $src.addClass('active').siblings().removeClass('active') ;
-        var conth = $tabs.eq(index).height()-350 ;
+        var conth = $tabs.eq(index).height()-310 ;
         $('.so-con-right').css('height',conth+'px') ;
 
 //         _self.setScroll() ;
