@@ -712,7 +712,7 @@ i.index_s.index_s04 { background-position-y: -7.2rem; margin-top: .2rem; }
 
 .so-foot > div:last-child { width: 5rem; position: fixed; bottom: 0; right: -2rem; }
 
-.so-foot > div:last-child > div { position: relative; width: 1.9rem; height: 2.3rem; background: url("/static/frist/images/tj-p.png") no-repeat; background-size: 100%; background-position-y: 0.1rem; }
+.so-foot > div:last-child > div { position: relative; width: 1.9rem; height: 2.3rem; background: url("/static/frist/images/foot/tj-pg.png") no-repeat; background-size: 100%; background-position-y: 0.1rem; }
 
 .so-foot > div:last-child > div img { width: 1.2rem; position: relative; top: 0.8rem; }
 
