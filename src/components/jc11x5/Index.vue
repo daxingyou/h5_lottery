@@ -136,7 +136,6 @@
                 <div class="hd jx11_tab" >
                     <ul class="tab tab_mid tab_two">
                         <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
-
                         <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
                         <li data-tab="2"><a href="javascript:;">二中二</a></li>
                         <li data-tab="3"><a href="javascript:;">三中三</a></li>
@@ -173,8 +172,6 @@
                 <div class="so-clear"></div>
             </div>
         </div>
-        <!--封盘时给foot加上class:close-->
-        <!--<div class="so-foot close">-->
 
         <!--
         下注组件
@@ -234,8 +231,6 @@
 
 
 </template>
-
-
 
 <script>
     // import $ from "jquery";
