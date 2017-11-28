@@ -260,7 +260,7 @@ export default {
         });  // 玩法树，彩种id 为2
 
     }).catch(function () {
-        console.log("Promise Rejected in method of create 1");
+//        console.log("Promise Rejected in method of create 1");
     });
 
   },
@@ -305,8 +305,9 @@ export default {
         $('.so-con-right').css('height',conth+'px') ;
 
 //         _self.setScroll() ;
-        _self.conScroll.scrollTo(0, 300);
         _self.conScroll.refresh() ;
+        _self.conScroll.scrollTo(0, 300);
+
     },
     getListByParentID:function(parentID){
         return this.playTreeList.filter((item,i)=>{
