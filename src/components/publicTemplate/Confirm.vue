@@ -17,6 +17,7 @@
 <style>
     .modal{
         display: block;
+        z-index: 1000;
     }
 </style>
 
