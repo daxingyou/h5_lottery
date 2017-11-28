@@ -195,7 +195,6 @@
 
 <script>
 // import $ from "jquery";
-
 import UserNavigation from '@/components/publicTemplate/UserNavigation'
 import UserMenu from '@/components/publicTemplate/UserMenu'
 import InfoDialog from '@/components/publicTemplate/InfoDialog'
@@ -259,7 +258,7 @@ export default {
         });  // 玩法树，彩种id 为2
 
     }).catch(function () {
-//        console.log("Promise Rejected in method of create 1");
+
     });
 
   },
@@ -274,7 +273,6 @@ export default {
     this.initViewHeight() ;
     setTimeout(() => {
         this.timerBegin();
-
     }, 500) ;
       _self.setScroll() ; // 下拉回弹
 
@@ -303,9 +301,9 @@ export default {
         var conth = $tabs.eq(index).height()-310 ;
         $('.so-con-right').css('height',conth+'px') ;
 
-//         _self.setScroll() ;
-        _self.conScroll.refresh() ;
-        _self.conScroll.scrollTo(0, 300);
+        // _self.setScroll() ;
+         _self.conScroll.refresh() ;
+         _self.conScroll.scrollTo(0, 300);
 
     },
     getListByParentID:function(parentID){
@@ -315,7 +313,6 @@ export default {
     },
     //开奖倒计时结束后处理
     playLottery:function(){
-      //  this.$refs.infoDialog.open('请至下期继续投注', 'title_end')
         this.timerBegin();
     },
     //封盘倒计时结束后处理
@@ -500,20 +497,5 @@ export default {
         display: block;
 
     }
-
-
-/*    .scroll-content {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;
-        margin-top: -1px;
-        padding-top: 1px;
-        margin-bottom: -1px;
-        width: auto;
-        height: auto;
-    }*/
 
 </style>

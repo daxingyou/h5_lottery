@@ -111,6 +111,9 @@ var MyMixin = {
                 onScrollEnd: function(){
                     this.refresh() ;
                 },
+               /* onBeforeScrollMove:function(e){
+                    e.preventDefault();
+                },*/
                 vScroll:true,
                 mouseWheel: true ,
                 hScrollbar:false ,
@@ -123,8 +126,8 @@ var MyMixin = {
         setInitHeight:function () {
             var conth = $('.so-con-right .item_one').height()-310 ;
             $('.so-con-right').css('height',conth+'px') ;
-            window.PointerEvent = undefined ;
-            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+           /* window.PointerEvent = undefined ;
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); //会引起页面不能滑动    */
         },
     /*    dateFormat:function(p0, p1, p2) {
             return DateFormat(...arguments);
@@ -143,35 +146,7 @@ var MyMixin = {
             }
             config = Object.assign(config, userConfig);
             $.ajax(config);
-            // Object.assign()
-            // $.ajax({
-            //     type: 'get',
-            //     headers: {
-            //         "Authorization": "bearer  " + this.getAccessToken,
-            //     },
-            //     url: this.action.forseti + 'api/priodDataNewly',
-            //     data: { lotteryId: lotteryid },
-            //     success: (res) => {  //成功
-            //         console.log('拉取期数成功');
-            //         // 开奖数据处理
-            //         this.processCode(
-            //             res.data[1].pcode,
-            //             res.data[2].pcode,
-            //             res.data[2].winNumber,
-            //             res.data[2].doubleData
-            //         ) ;
-            //         this.getSystemTime(lotteryid);  // 获取当前系统时间
 
-            //         if (res == 'empty') {   //未到销售时间
-            //             return false;
-            //         }
-
-            //     },
-            //     error: function () {  //失败
-
-            //         return false;
-            //     }
-            // });
         },
         // 接口异常处理
         errorAction:function (e) {
