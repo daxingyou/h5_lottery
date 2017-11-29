@@ -409,7 +409,7 @@ var MyMixin = {
                 var s = parseInt(second % 60);
               //  var s = (second - (h * 60 * 60) - (f * 60));
               // second --;
-              bk = '0'+h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
+              bk = (h < 10 ? "0" + h : h)+ ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
               // bk = h + ":" + (f < 10 ? "0" + f : f) + ":" + (s < 10 ? "0" + s : s)
             } else {
                 bk = second.split(":");
