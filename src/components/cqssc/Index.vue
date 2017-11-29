@@ -301,7 +301,6 @@ export default {
         $src.addClass('active').siblings().removeClass('active') ;
         var conth = $tabs.eq(index).height()-310 ;
         $('.so-con-right').css('height',conth+'px') ;
-
         // _self.setScroll() ;
          _self.conScroll.refresh() ;
          _self.conScroll.scrollTo(0, 300);
