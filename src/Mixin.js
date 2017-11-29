@@ -656,7 +656,8 @@ var MyMixin = {
              $('.'+el).prev().val('');
               $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
               this.clearVal(cl) ;
-        },
+        }
+
 
     }
 };
