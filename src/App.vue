@@ -8,7 +8,7 @@
 
 <script>
 // import FastClick from 'fastclick'
-import $ from "jquery";
+//import $ from "jquery";
 import '../static/frist/css/page.css'
 import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 const FastClick = require('fastclick');
