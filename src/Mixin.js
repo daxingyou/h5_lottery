@@ -118,6 +118,9 @@ var MyMixin = {
                 hScrollbar:false ,
                 vScrollbar:false ,
                 click: true ,
+               // momentum: false ,
+                useTransform: false ,
+                useTransition: false ,
             });
            // $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
 
