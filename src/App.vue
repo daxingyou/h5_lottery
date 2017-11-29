@@ -2,17 +2,22 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view />
-
+    <AutoCloseDialog ref="autoCloseDialog" text=" " type="" />
   </div>
 </template>
 
 <script>
 // import FastClick from 'fastclick'
+import $ from "jquery";
 import '../static/frist/css/page.css'
+import AutoCloseDialog from '@/components/publicTemplate/AutoCloseDialog'
 const FastClick = require('fastclick');
 
 export default {
-  name: 'app', 
+  name: 'app',
+  components: {
+        AutoCloseDialog,
+    },
   data:function(){
     return {
         //帐户明细
@@ -28,6 +33,9 @@ export default {
         conScroll:{}, // 右侧选单
     }
   },
+    created:function () {
+
+    },
   mounted:function(){
       var  _self = this ;
       FastClick.attach(document.body);
@@ -48,13 +56,23 @@ export default {
               lastTouchEnd=now;
           },false)
       }
-
       // $('html, body').height($(window).height()); // 防止浏览器全屏显示
-
+      // 强制横屏提示
+      _self.PandhP()
   },
   methods: {
+      //判断是否横屏
+      PandhP : function () {
+          var _self=this
+          $(window).on('orientationchange',function(){
 
-
+               var orientation=window.orientation;
+               console.log(orientation)
+               if(orientation==90||orientation==-90){
+                   _self.$refs.autoCloseDialog.open('请禁止横屏浏览') ;
+               }
+          });
+      }
     }
 
 }
