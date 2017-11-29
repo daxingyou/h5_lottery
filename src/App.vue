@@ -33,9 +33,7 @@ export default {
         conScroll:{}, // 右侧选单
     }
   },
-    created:function () {
 
-    },
   mounted:function(){
       var  _self = this ;
       FastClick.attach(document.body);
