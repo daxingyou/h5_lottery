@@ -57,6 +57,7 @@
                             <!--<a :href="'#so-item'+index">{{kind}}</a>-->
                             <a>{{kind}}</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="bule_bg"></div>

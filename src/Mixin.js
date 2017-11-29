@@ -82,7 +82,6 @@ var MyMixin = {
             return this.getCookie("access_token");
         },
     },
-    // getAccessToken   methods:{
 
     methods:{
         // 返回上一步
@@ -123,15 +122,17 @@ var MyMixin = {
 
         },
         // 初始化滚动高度
-        setInitHeight:function () {
+        setInitHeight:function (lotteryid) {
             var conth = $('.so-con-right .item_one').height()-310 ;
+            if(lotteryid == '6'){
+               // $('.so-con-right').css('height',$('.so-con-right .item_one').height()+'px') ;
+                $('.so-con-right').css('transform','translate(0px, 0px) scale(1) translateZ(0px)') ;
+            }
             $('.so-con-right').css('height',conth+'px') ;
-           /* window.PointerEvent = undefined ;
-            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false); //会引起页面不能滑动    */
+            window.PointerEvent = undefined ;
+
         },
-    /*    dateFormat:function(p0, p1, p2) {
-            return DateFormat(...arguments);
-        },*/
+
         ajax:function(userConfig){
             var _self = this ;
             let config = {
@@ -181,7 +182,7 @@ var MyMixin = {
                     success: (res) => {
                         this.playTreeList = res.data ? res.data.childrens :[];
                      setTimeout(function () {
-                         _self.setInitHeight() ;
+                         _self.setInitHeight(gameid) ;
                      },200) ;
                         resolve(this.playTreeList);
                     },
