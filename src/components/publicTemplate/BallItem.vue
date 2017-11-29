@@ -28,7 +28,7 @@
                         if (!result){
                             setTimeout(function(){
                                 $src.removeClass('active');
-                            },200)
+                            },50)
                         } 
                     });
                     $src.addClass('active');

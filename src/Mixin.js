@@ -119,16 +119,29 @@ var MyMixin = {
                 vScrollbar:false ,
                 click: true ,
             });
+           // $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
 
         },
         // 初始化滚动高度
         setInitHeight:function (lotteryid) {
             var conth = $('.so-con-right .item_one').height()-310 ;
             if(lotteryid == '6'){
-               // $('.so-con-right').css('height',$('.so-con-right .item_one').height()+'px') ;
-                $('.so-con-right').css('transform','translate(0px, 0px) scale(1) translateZ(0px)') ;
+                /* var div = document.getElementById("k3-item0");
+                div.ontouchmove = function(e){
+                    //事件的touches属性是一个数组，其中一个元素代表同一时刻的一个触控点，从而可以通过touches获取多点触控的每个触控点
+                    //由于我们只有一点触控，所以直接指向[0]
+                  //  var touch = e.touches[0];
+                    //获取当前触控点的坐标，等同于MouseEvent事件的clientX/clientY
+                  /!*  var x = touch.clientX;
+                    var y = touch.clientY;*!/
+               var csstr =  $('.so-con-right').css('transform').replace(/[^0-9\-,]/g,'').split(',')[5] ;
+               if(-csstr>30){
+
+               }
+
+                };*/
             }
-            $('.so-con-right').css('height',conth+'px') ;
+           $('.so-con-right').css('height',conth+'px') ;
             window.PointerEvent = undefined ;
 
         },
@@ -184,6 +197,8 @@ var MyMixin = {
                      setTimeout(function () {
                          _self.setInitHeight(gameid) ;
                      },200) ;
+                    $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
+
                         resolve(this.playTreeList);
                     },
                     error: function (e) {
@@ -199,7 +214,6 @@ var MyMixin = {
         priodDataNewly:function(gameid, sys_time) {
             var _self = this ;
             return new Promise((resolve, reject)=>{
-                // const res = this.testPriodDataNewlyData;
                 $.ajax({
                     type: 'get',
                     headers: {

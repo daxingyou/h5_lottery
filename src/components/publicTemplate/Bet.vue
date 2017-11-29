@@ -25,7 +25,7 @@
             <p class="grey_text">请核对您的下注信息</p>
             <div>
                 <div class="boxlist bet-go-list">
-                    <template v-if="playType == 'combine' || playType == 'grouped'">
+                    <template v-if="playType == 'combine' || playType == 'grouped' || playType=='yzycombine' ">
                         <p :data-id="item.cid" data-type=""  v-for="(item,index) in betSelectedList"  v-show="index =='0'" >
                             【<span class="each-title">{{item.parentItem && item.parentItem.name}}</span>-
                             <span class="each-content">{{betSelectedList.map((item)=>{ return item.name; }).join(',')}}</span>】 @
@@ -92,6 +92,8 @@ export default {
             if (this.playType == 'grouped'){
                 return this.betCount * this.betAmount
             }else if (this.playType == 'combine') {
+                return this.betAmount;
+            }else if(this.playType == 'yzycombine'){
                 return this.betAmount;
             }else{
                 return this.betSelectedList.length * this.betAmount
@@ -203,7 +205,7 @@ export default {
         * 表单提交数据处理
         * */
         doSubmitAction:function(list) {
-            if (this.playType == 'combine' || this.playType == 'grouped'){
+            if (this.playType == 'combine' || this.playType == 'grouped' || this.playType=='yzycombine'){
                 list.push({  // 一条数据就是一个方案，一个方案可以有多条下注
                     'betAmount': this.monAmt(Number(this.totalAmount)), //下注金额，元的模式下需要 x100传值，角的模式下 x10
                     'betContent': this.betSelectedList.map((item)=>{ return item.name; }).join(','),      //zuArr.toString(),//下注内容，如1,5,8,3,7

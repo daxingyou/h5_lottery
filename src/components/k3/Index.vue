@@ -70,6 +70,7 @@
                                     </div>
                                 </li>
                             </ul>
+
                         </div>
                         <!-- k3 不同号 -->
                         <div id="k3-item1" class="k3_item" style="display:none;">
@@ -280,6 +281,7 @@
             this.initViewHeight();
             // $('body').attr('id', 'k3')
             this.setScroll() // 下拉回弹
+
           },
           computed:{
             singleDiceList:function(){
