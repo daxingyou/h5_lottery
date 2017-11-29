@@ -135,7 +135,9 @@
                 </div>
                 <div class="hd jx11_tab" >
                     <ul class="tab tab_mid tab_two">
-                        <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)"><a href="javascript:;">{{kind.name}}</a></li>
+                        <li :class="(index==0 && 'on')" :data-tab="index" v-for="(kind,index) in continuedNumberList" @click="subTabChange($event, kind, index)">
+                            <a href="javascript:;"  >{{kind.name}}</a>
+                        </li>
                         <!-- <li class="on" data-tab="1"><a href="javascript:;">一中一</a></li>
                         <li data-tab="2"><a href="javascript:;">二中二</a></li>
                         <li data-tab="3"><a href="javascript:;">三中三</a></li>
@@ -151,12 +153,30 @@
                 <!-- jc115 连码 -->
                 <div id="so-item2" class="jc115 tab_container tabBox lianMa"  >
                     <div class="bd">
-                        <ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">
+                        <!-- 连码一中一 -->
+                        <ul class="tab_content tab_content_1 show" v-for="(item,key) in continuedNumberList" v-if="key=='0'">
+                            <li class="select-li" >
+                                <div>
+                                    <h2>
+                                        {{item.name}}
+                                    </h2>
+                                    <div>
+                                        <p :data-id="itemChild.cid" v-for="itemChild in item.childrens">
+                                            <span  @click="OFSelect($event, itemChild, item)">{{itemChild.name}}</span>
+                                            <span class="bet-times">{{payoffFormat(itemChild.oddsData.payoff)}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!--<ul :class="'tab_content tab_content_'+ (index+1) + (index==0 ? ' show' : '')" v-for="(kind,index) in continuedNumberList">-->
+                        <ul :class="'tab_content tab_content_'+ (index+1)" v-for="(kind,index) in continuedNumberList" v-if="index !=0">
                             <li class="select-li">
                                 <div>
                                     <h2>{{kind.name}}</h2>
-                                    <div>
-                                        <BallItem :key="index" v-for="(subItem,index) in continueNumberSubList"
+                                    <div >
+                                        <BallItem ref="ballitem" :key="index" v-for="(subItem,index) in continueNumberSubList"
                                                   :model="{ cid:kind.childrens[0].cid, name:++subItem, oddsData:{payoff:kind.childrens[0].oddsData.payoff}, parentItem:kind }"
                                                   @selected="continueNumberSelect"
                                                   @unSelected="continueNumberUnSelect"
@@ -350,12 +370,35 @@
             oneToFiveList:function(){
                 return this.getListByParentID(42000); 
             },
+              // 连码
             continuedNumberList:function(){
                 return this.getListByParentID(43000);
             },
+
           },
           methods:{
-
+              //当用户选择球时，保存相应数据 ,一中一 连码
+             /* lmYiZhong:function(e){
+                  var _self = this ;
+                  console.log('连码一中一')
+                  if(_self.entertainStatus || _self.notopen){ // 封盘不可点击
+                      return false ;
+                  }
+                  var $src = $(e.currentTarget);
+                  if ($src.prop('class').indexOf('active') < 0){
+                      const result = _self.continueNumberSelect( e, _self.model, function(result){
+                          if (!result){
+                              setTimeout(function(){
+                                  $src.removeClass('active');
+                              },50)
+                          }
+                      });
+                      $src.addClass('active');
+                  }else{
+                      $src.removeClass('active');
+                      _self.continueNumberUnSelect(e, _self.model);
+                  }
+              },*/
             betCountStat:function(xslen, xlen){
                 return  xslen*((xslen-1)/xlen);
             },
@@ -369,6 +412,8 @@
                 this.combineCount = 0;
                 if ([43800, 43900].includes(kind.cid)){
                     this.playType = 'grouped'   //设置为组选玩法
+                }else if([42600].includes(kind.cid)){ //  设置为普通 一中一 连码玩法
+                    this.playType = 'yzycombine'   //设置为普通连码玩法
                 }else{
                     this.playType = 'combine'   //设置为普通连码玩法
                 }
@@ -378,15 +423,17 @@
                 var _self = this ;
                 const $src = $(e.currentTarget);
                 const index = $src.index();
+
                 const $tabs = $('.so-con-right .jc115');
                 $tabs.hide();
                 $tabs.eq(index).show();
                if(index=='2'){
-                   $('.jx11_tab').show()
-                   $('#so-item2').show()
+                   $('.jx11_tab').show() ;
+                   $('#so-item2').show();
+                   $('.tab_two').find('li:first-child').click() ; // 切换时初始化为 一中一
                }else {
-                   $('.jx11_tab').hide()
-                   $('#so-item2').hide()
+                   $('.jx11_tab').hide();
+                   $('#so-item2').hide();
                }
                 $src.addClass('active').siblings().removeClass('active');
                 if( this.lasttyple !=$src.data('type') ){
@@ -402,7 +449,8 @@
                 //清除选中的球
                 if ($src.prop('class').indexOf('reset_bet')>=0){
                     $('#so-item0 ul li p, #so-item1 ul li p').removeClass('active');
-                    this.playType = 'combine';  //设置为连码玩法
+                   // this.playType = 'combine';  //设置为连码玩法
+                    this.playType = 'yzycombine';  //设置为一中一连码玩法
                 }else{
                     $('#so-item2 ul li p').removeClass('active');
                     this.playType = 'normal';   //设置为普通玩法
@@ -412,9 +460,11 @@
                 this.isGrouped = false; //取消组选
             },
             getListByParentID:function(parentID){
-                return this.playTreeList.filter((item,i)=>{
-                    return item.parentId == parentID;
+               return this.playTreeList.filter((item,i)=>{
+                  return item.parentId == parentID;
                 });
+
+
             },
             //开奖倒计时结束后处理
             playLottery:function(){
@@ -593,14 +643,29 @@
             },
               //用户选择1-5球时，保存相应数据
             OFSelect:function(e, item, parentItem){
+               // console.log(this.playType)
                   if (this.entertainStatus || this.notopen){
                       return false;
                   }
+
                   var $src = $(e.currentTarget);
                   if ($src.parent('p').prop('class').indexOf('active') < 0){
                       $src.parent('p').addClass('active');
                       item.parentItem = parentItem;
-                      this.betSelectedList.push(item);
+
+                      if(this.playType =='yzycombine'){ // 连码一中一
+                          if(this.betSelectedList.length<1){
+                              this.betSelectedList.push(item);
+                          }else{
+                              setTimeout(function(){
+                                  $src.parent('p').removeClass('active');
+                              },50)
+                              this.$refs.infoDialog.open('请选择1个选项', 'title_quantity');
+                          }
+                      }else{
+                          this.betSelectedList.push(item);
+                      }
+                     // console.log(this.betSelectedList) ;
                   }else{
                       $src.parent('p').removeClass('active');
                       this.betSelectedList = this.betSelectedList.filter((selected)=>{ return selected.cid != item.cid; });
