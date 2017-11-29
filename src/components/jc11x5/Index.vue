@@ -440,12 +440,7 @@
                     this.betSelectedList = [];
                 }
                 var conth = $tabs.eq(index).height() ;
-                var winw = window.screen.width || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取屏幕宽度
-                if(winw >413){
-                    $('.so-con-right').css('height',(conth-380)+'px') ;
-                }else{
-                    $('.so-con-right').css('height',(conth-310)+'px') ;
-                }
+                _self.setClickHeight(conth) ;
                 //  _self.setScroll() ;
                _self.conScroll.refresh() ; _self.conScroll.scrollTo(0, 300)  ;
 
