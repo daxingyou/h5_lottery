@@ -124,7 +124,8 @@ var MyMixin = {
         },
         // 初始化滚动高度
         setInitHeight:function (lotteryid) {
-            var conth = $('.so-con-right .item_one').height()-310 ;
+            var conth = $('.so-con-right .item_one').height() ;
+            var winw = window.screen.width || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取屏幕宽度
             if(lotteryid == '6'){
                 /* var div = document.getElementById("k3-item0");
                 div.ontouchmove = function(e){
@@ -141,7 +142,12 @@ var MyMixin = {
 
                 };*/
             }
-           $('.so-con-right').css('height',conth+'px') ;
+            if(winw >413){
+                $('.so-con-right').css('height',(conth-380)+'px') ;
+            }else{
+                $('.so-con-right').css('height',(conth-310)+'px') ;
+            }
+
             window.PointerEvent = undefined ;
 
         },
