@@ -475,7 +475,8 @@ export default {
           }
           _self.submitpayflag = true ;
           if(type == '1'){ // 线上付款
-              var win = window.open('about:blank') ;
+             // var win = window.open('about:blank') ;
+              var win = _self.openGame() ;
           }
           $.ajax({
               type: 'post',
@@ -488,8 +489,15 @@ export default {
                   if(res.err == 'SUCCESS'){
                       if(type == '1'){ // 线上付款
                           _self.submitpayflag = false ;
-                          var loadurl = res.data.url ;
-                          win.location.href = loadurl ;
+                          if(res.data.dataType=='1'){ // 页面html
+                              var loadStr = res.data.html ;
+                             // console.log(loadStr) ;
+                              win.document.write(loadStr) ;
+                          }else if(res.data.dataType=='2'){ // 链接跳转
+                              var loadurl = res.data.url ;
+                              win.location.href = loadurl ;
+                          }
+
                       }else if(type == '3'){  // 扫码支付
                           if(!res.data){
                               _self.$refs.autoCloseDialog.open('请重试！') ;
@@ -500,8 +508,13 @@ export default {
                           }else{
                              setTimeout(function () {
                                  _self.submitpayflag = false ;
-                             },1000)
-                              _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                             },1000) ;
+                             if(res.data.dataType == '3'){ // 返回的是二维码
+                                 _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                             }else if(res.data.dataType == '5'){  // 直接返回的是图片
+                                 _self.scanImg = res.data.url ;
+                             }
+
                               _self.scanid = res.data.orderId ;
                               _self.scanint = setInterval(function () {
                                   _self.getScanStatus(_self.scanid) ;
