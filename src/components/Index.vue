@@ -257,32 +257,6 @@ export default {
 
   },
   methods:{
-  // 退出函数
-      loginOut:function () {
-          var _self = this ;
-          $.ajax({
-              type: 'get',
-             // headers: {Authorization: 'Basic d2ViX2FwcDo='},
-              url: this.action.uaa + 'oauth/logout',
-              data: {} ,
-              success: (res) => {
-                  if(res.err == 'SUCCESS'){
-                      _self.clearAllCookie() ; // 清除全部 cookie
-                      this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
-                      setTimeout(function () {
-                          window.location = '/' ;
-                      },1000)
-
-                  }
-                  this.$nextTick(function () {
-
-                  })
-              },
-              error: function () {
-
-              }
-          });
-      },
 
       getBulletinsContent :function () {
           let  self=this ;

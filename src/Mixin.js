@@ -84,6 +84,37 @@ var MyMixin = {
     },
 
     methods:{
+        // 退出函数
+        loginOut:function (type) {
+            var _self = this ;
+            var actoken =  _self.getCookie('access_token') ; // token
+            $.ajax({
+                type: 'get',
+                headers: {
+                    "Authorization": "bearer  "+actoken ,
+                },
+                url: _self.action.uaa + 'oauth/logout',
+                data: {} ,
+                success: (res) => {
+                    if(res.err == 'SUCCESS'){
+                        _self.clearAllCookie() ; // 清除全部 cookie
+                        if(!type){ // 普通退出需要跳转
+                            _self.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
+                            setTimeout(function () {
+                                window.location = '/' ;
+                            },1000)
+                        }
+
+                    }
+                    _self.$nextTick(function () {
+
+                    })
+                },
+                error: function () {
+
+                }
+            });
+        },
         // 返回上一步
         goBack:function(){
             this.$router.back();
