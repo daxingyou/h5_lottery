@@ -121,8 +121,10 @@ var MyMixin = {
                // momentum: false ,
                 useTransform: false ,
                 useTransition: false ,
+                // snapThreshold:0.5
             });
            // $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
+            
 
         },
         // 初始化滚动高度
