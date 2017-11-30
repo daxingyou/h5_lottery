@@ -119,12 +119,12 @@ var MyMixin = {
                 vScrollbar:false ,
                 click: true ,
                // momentum: false ,
+
                 useTransform: false ,
                 useTransition: false ,
                 // snapThreshold:0.5
             });
            // $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
-            
 
         },
         // 初始化滚动高度
@@ -154,8 +154,10 @@ var MyMixin = {
         // 点击切换 设置球区域高度
         setClickHeight:function (val) {
             var winw = window.screen.width || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // 获取屏幕宽度
-            if(winw >413){
+            if(winw >413){ // 大屏幕
                 $('.so-con-right').css('height',(val-380)+'px') ;
+            }else if(winw>300 && winw<375){ // 小屏幕
+                $('.so-con-right').css('height',(val-270)+'px') ;
             }else{
                 $('.so-con-right').css('height',(val-310)+'px') ;
             }
@@ -212,7 +214,7 @@ var MyMixin = {
                      setTimeout(function () {
                          _self.setInitHeight(gameid) ;
                      },200) ;
-                    $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
+                   // $('.so-con-left').find('ul li:first-child').click() ; // 解决k3 滑动问题
 
                         resolve(this.playTreeList);
                     },
