@@ -266,8 +266,8 @@ export default {
               url: this.action.uaa + 'oauth/logout',
               data: {} ,
               success: (res) => {
-                  _self.clearAllCookie() ; // 清除全部 cookie
                   if(res.err == 'SUCCESS'){
+                      _self.clearAllCookie() ; // 清除全部 cookie
                       this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
