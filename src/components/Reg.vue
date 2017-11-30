@@ -362,7 +362,7 @@
                             _self.setCookie("username", _self.username);  // 把登录用户名放在cookie里面
                             setTimeout(function () {
                                 window.location = '/' ;
-                            },500) ;
+                            },1000) ;
                         }else{ //code 105 验证码无效
                             _self.regsubmitflage = false ;
                               this.switchYzmcode() ; // 更新验证码

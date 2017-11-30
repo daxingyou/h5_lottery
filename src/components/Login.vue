@@ -176,9 +176,13 @@ export default {
                           window.location = '/' ;
                       },300)
                   }else{
-                      this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                      _self.$refs.autoCloseDialog.open(res.cnMsg) ;
                   }
-              }
+              },
+            error: function () {
+                _self.$refs.autoCloseDialog.open('登录失败') ;
+            }
+
           })
       }
   }

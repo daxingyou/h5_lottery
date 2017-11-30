@@ -271,7 +271,7 @@ export default {
                       this.$refs.autoCloseDialog.open('用户已退出','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
-                      },500)
+                      },1000)
 
                   }
                   this.$nextTick(function () {
@@ -305,7 +305,7 @@ export default {
               }
           })
       },
-     //试玩
+     // 试玩
       demoPlay :function () {
            var _self=this;
            $.ajax({
@@ -323,9 +323,12 @@ export default {
                            window.location = '/' ;
                        },1000)
                    }else{
-                       this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                    _self.$refs.autoCloseDialog.open(res.cnMsg) ;
                    }
-               }
+               },
+          error:function () {
+              _self.$refs.autoCloseDialog.open('登录失败') ;
+          }
             })
        },
       //判断是否为游客,
