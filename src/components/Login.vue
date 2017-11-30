@@ -141,7 +141,7 @@ export default {
                     this.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
-                       },300)
+                       },1000)
                 }else{
                     _self.submitflage = false ;
                     this.$refs.autoCloseDialog.open(res.cnMsg) ;
@@ -174,7 +174,7 @@ export default {
                       _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
                       setTimeout(function () {
                           window.location = '/' ;
-                      },300)
+                      },1000)
                   }else{
                       _self.$refs.autoCloseDialog.open(res.cnMsg) ;
                   }
