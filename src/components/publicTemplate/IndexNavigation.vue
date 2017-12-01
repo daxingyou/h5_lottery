@@ -106,6 +106,8 @@
 
             $(this.el).on('click', ()=>{
                 this.showNavigation = true;
+                $('html,body').css({'height':'100%','overflow-y':'hidden'}) ; // 禁止页面滚动
+
             }) ;
 
         },
@@ -113,6 +115,7 @@
             // 关闭侧滑栏
             close:function(e){
                 this.showNavigation = false;
+                $('html,body').css({'height':'auto','overflow-y':'scroll'}) ;
             },
 
             //判断是否为游客,cla为class
