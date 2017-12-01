@@ -484,6 +484,7 @@ export default {
                   "Authorization": "bearer  " + this.getAccessToken ,
               },
               url: _self.action.forseti + 'api/pay/onlineOrder',
+              async: false,
               data: senddata ,
               success: function(res){ // dataType 1 线上入款 , 3 二维码
                   if(res.err == 'SUCCESS'){
@@ -511,17 +512,26 @@ export default {
                              },1000) ;
                              if(res.data.dataType == '3'){ // 返回的是二维码
                                  _self.scanImg = _self.action.forseti+res.data.imageUrl ;
+                                 _self.scanid = res.data.orderId ;
+                                 _self.scanint = setInterval(function () {
+                                     _self.getScanStatus(_self.scanid) ;
+                                 },10000) ;
+                                 $('.after-scan').show() ;
+                                 $('.before-scan').hide() ;
                              }else if(res.data.dataType == '5'){  // 直接返回的是图片
                                  _self.scanImg = res.data.url ;
+                                 _self.scanid = res.data.orderId ;
+                                 _self.scanint = setInterval(function () {
+                                     _self.getScanStatus(_self.scanid) ;
+                                 },10000) ;
+                                 $('.after-scan').show() ;
+                                 $('.before-scan').hide() ;
+                             }else if(res.data.dataType == '2'){ // 返回链接跳转
+                                 var sanurl = res.data.url ;
+                                // window.location.href = sanurl ;
+                                 window.open(sanurl) ;
                              }
 
-                              _self.scanid = res.data.orderId ;
-                              _self.scanint = setInterval(function () {
-                                  _self.getScanStatus(_self.scanid) ;
-                              },10000) ;
-                              $('.after-scan').show() ;
-                              $('.before-scan').hide() ;
-                              //scrollTo(0,0);
                               document.documentElement.scrollTop = document.body.scrollTop=0; // 回到顶部
                           }
 
