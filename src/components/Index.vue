@@ -263,7 +263,7 @@ export default {
           let bulletinsArr=[];
           $.ajax({
               type:"GET",
-              url:this.action.forseti + 'apid/cms/bulletins',
+              url:this.action.forseti + 'apid/cms/notices',
               data:{
                   sideType:"2",
                   appid:"owner_plat_test",
