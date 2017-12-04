@@ -57,7 +57,7 @@
                     <label class="error-message"></label>
                 </fieldset>
                 <div class="btn btn_blue bind">
-                    <a href="javascript:;" @click="ChangeInfo()">確定</a>
+                    <a href="javascript:;" @click="ChangeInfo()">确定</a>
                 </div>
             </form>
         </div>
