@@ -29,7 +29,7 @@ var zhuihaoXQ = {};
 
 initView();
 
-
+//
 function initView() {
     $('.tab_content').html('');
     var nowDate = new Date();
