@@ -441,7 +441,7 @@ export default {
                   success: (res) => {
                       sessionStorage.propActivityList = JSON.stringify(res.data.rows);
                       if (res.data.rows) {
-                          _self.picture = _self.action.picurl + res.data.rows[1].titlePic + '/0';
+                          _self.picture = _self.action.picurl + res.data.rows[0].titlePic + '/0';
                           _self.cid = res.data.rows[0].cid
                       }
                   },
@@ -453,7 +453,7 @@ export default {
           } else {
               var activity_prop = JSON.parse(sessionStorage.propActivityList)
               if (activity_prop) {
-                  _self.picture = _self.action.picurl + activity_prop[1].titlePic + '/0';
+                  _self.picture = _self.action.picurl + activity_prop[0].titlePic + '/0';
                   _self.cid = activity_prop[0].cid
               }
           }
