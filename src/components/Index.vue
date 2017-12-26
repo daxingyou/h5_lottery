@@ -22,7 +22,7 @@
              </div>
          </header>
       <div class="news">
-   <!--        <div id="focus" class="focus">
+          <div id="focus" class="focus">
               <div class="bd">
                   <ul v-for="list in banner">
                       <li>
@@ -40,9 +40,9 @@
                   </ul>
               </div>
 
-          </div> -->
+          </div>
 
-          <div id="focus" class="focus" >
+       <!--    <div id="focus" class="focus" >
               <div class="bd">
                   <ul v-for="list in banner">
                       <li>
@@ -58,7 +58,7 @@
                       
                   </ul>
               </div>
-          </div>
+          </div> -->
 
 
           <div class="marquee">
@@ -263,9 +263,9 @@ export default {
             gameHref:{} ,
             bulletins:'',
             banner:[
-                // {'url':'http://admin.baochiapi.com/photo/pic/T1uRxTByJT1RCvBVdK/0'},
-                // {'url':'http://admin.baochiapi.com/photo/pic/T15tETByAT1RCvBVdK/0'},
-                // {'url':'http://admin.baochiapi.com/photo/pic/T1kyhTByDT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1uRxTByJT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T15tETByAT1RCvBVdK/0'},
+                {'url':'http://admin.baochiapi.com/photo/pic/T1kyhTByDT1RCvBVdK/0'},
             ] ,
             picture:'',
             cid:'',
@@ -294,7 +294,12 @@ export default {
 
    
      this.getBulletinsContent ();
-      this.carouselImg();
+      // this.carouselImg();
+        TouchSlide({
+            slideCell: "#focus",
+            autoPlay: true,
+        });
+      
       this.getActivity();
       this.getCustom()
 
@@ -436,7 +441,7 @@ export default {
                   success: (res) => {
                       sessionStorage.propActivityList = JSON.stringify(res.data.rows);
                       if (res.data.rows) {
-                          _self.picture = _self.action.picurl + res.data.rows[0].titlePic + '/0';
+                          _self.picture = _self.action.picurl + res.data.rows[1].titlePic + '/0';
                           _self.cid = res.data.rows[0].cid
                       }
                   },
@@ -448,7 +453,7 @@ export default {
           } else {
               var activity_prop = JSON.parse(sessionStorage.propActivityList)
               if (activity_prop) {
-                  _self.picture = _self.action.picurl + activity_prop[0].titlePic + '/0';
+                  _self.picture = _self.action.picurl + activity_prop[1].titlePic + '/0';
                   _self.cid = activity_prop[0].cid
               }
           }
