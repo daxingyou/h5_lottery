@@ -22,7 +22,7 @@
              </div>
          </header>
       <div class="news">
-          <div id="focus" class="focus">
+   <!--        <div id="focus" class="focus">
               <div class="bd">
                   <ul v-for="list in banner">
                       <li>
@@ -31,7 +31,6 @@
                           </a>
                       </li>
                   </ul>
-
               </div>
               <div class="hd">
                   <ul>
@@ -41,7 +40,27 @@
                   </ul>
               </div>
 
+          </div> -->
+
+          <div id="focus" class="focus" >
+              <div class="bd">
+                  <ul v-for="list in banner">
+                      <li>
+                          <a :href="list.link" target="_blank">
+                            <img :src="list.titlePic" />
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="hd"  style="display: none;">
+                  <ul>
+                       <li  v-for="(item,index) in banner" :data-val="index"></li>
+                      
+                  </ul>
+              </div>
           </div>
+
+
           <div class="marquee">
               <div class="news_title">
                   <i data-v-1f83ba94="" class="icon-notification"></i>
@@ -94,22 +113,25 @@
                     <p>提款</p>
                 </a>
             </li>
-            <li>
-              <!--  <router-link to="/lobbyTemplate/promo">-->
-                <a href="javascript:;"  @click="Continued()">
-                    <div class="icon">
-                        <span class="icon_promo"></span>
-                    </div>
-                    <p>优惠活动</p>
-                </a>
+
+            <li>            
+                  <router-link :to="'/lobbyTemplate/promo'">
+
+                      <div class="icon">
+                          <span class="icon_promo"></span>
+                      </div>
+                      <p>优惠活动</p>
+                  </router-link>                    
             </li>
+
             <li>
-                <a href="javascript:;"  @click="openGame('https://messenger.providesupport.com/messenger/1sppddzqo56sf08wzrnuxiv6yt.html')">
+                <a :href="custUrl"  >
                     <div class="icon">
                         <span class="icon_service"></span>
                     </div>
                     <p>在线客服</p>
                 </a>
+
             </li>
         </ul>
     </section>
@@ -121,7 +143,7 @@
               <ul>
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
-                  <li v-for="(lottery,index) in allLottery" v-if="index<7"> <!-- 只展示前面7个 -->
+                  <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面7个 -->
                     <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                        <!-- <img v-lazy="lottery.imgUrl">-->
@@ -157,14 +179,27 @@
                     <!--end 20171116 新增選單-->
               </ul>
           </section>
+
           <!--20171116 新增優惠活動-->
-          <section class="promoindex_area">
+        <!--   <section class="promoindex_area">
               <h3>
                   <img src="static/frist/images/title_promos.png" alt="优惠活动">
                   <a  @click="Continued()" style="float: right;">更多</a>
               </h3>
               <a  @click="Continued()">
                   <img src="/static/frist/images/banner/promo-1.jpg">
+              </a>
+          </section> -->
+
+
+           <section class="promoindex_area">
+              <h3>
+                  <img src="static/frist/images/title_promos.png" alt="优惠活动">
+                  <!-- <img src="../../static/frist/images/sale/yhhd_04_07.png" alt="优惠活动"> -->
+                  <router-link :to="'/lobbyTemplate/promo'" style="float: right;">更多>></router-link>
+              </h3>
+              <a href="javascript:;" @click="setCid($event)" :data-val="cid">
+                  <img :src="picture">
               </a>
           </section>
           <!--end 20171116 新增優惠活動-->
@@ -174,12 +209,18 @@
                   <ul>
                       <li>
                           <div class="icon">
-                          <router-link class="icon_intro" to="/lobbyTemplate/tutorial"></router-link>
-                      </div>
+                              <router-link class="icon_intro" to="/lobbyTemplate/tutorial"></router-link>
+                          </div>
                       </li>
-                      <li><div class="icon"><router-link class="icon_agent" v-bind:to="'/lobbyTemplate/agent'"></router-link></div></li>
-                      <li><div class="icon">
-                          <router-link class="icon_about" to="/lobbyTemplate/about"></router-link></div>
+                      <li>
+                        <div class="icon">
+                          <router-link class="icon_agent" v-bind:to="'/lobbyTemplate/agent'"></router-link>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="icon">
+                          <router-link class="icon_about" to="/lobbyTemplate/about"></router-link>
+                        </div>
                       </li>
                   </ul>
               </div>
@@ -222,10 +263,20 @@ export default {
             gameHref:{} ,
             bulletins:'',
             banner:[
-                {'url':'http://admin.baochiapi.com/photo/pic/T1uRxTByJT1RCvBVdK/0'},
-                {'url':'http://admin.baochiapi.com/photo/pic/T15tETByAT1RCvBVdK/0'},
-                {'url':'http://admin.baochiapi.com/photo/pic/T1kyhTByDT1RCvBVdK/0'},
+                // {'url':'http://admin.baochiapi.com/photo/pic/T1uRxTByJT1RCvBVdK/0'},
+                // {'url':'http://admin.baochiapi.com/photo/pic/T15tETByAT1RCvBVdK/0'},
+                // {'url':'http://admin.baochiapi.com/photo/pic/T1kyhTByDT1RCvBVdK/0'},
             ] ,
+            picture:'',
+            cid:'',
+            custUrl: '',
+            corroleDataList: [],
+            popMsgTitle:'',
+            popMsgContent:"",
+            offFlag:false,
+            popMsgCid:[],
+            currPopMsgCid:"",
+
 
         }
     },
@@ -241,19 +292,13 @@ export default {
           this.getMemberBalance() ;
       }
 
-    TouchSlide({
-      slideCell: "#focus",
-      autoPlay:true,
-    });
+   
      this.getBulletinsContent ();
-      /* $("#marquee_snp").slide({ // 文本滚动
-           mainCell: ".bd ul",
-           autoPage: true,
-           effect: "leftMarquee",
-           autoPlay: true,
-           vis: 1,
-           interTime: 50
-       });*/
+      this.carouselImg();
+      this.getActivity();
+      this.getCustom()
+
+     
 
   },
   methods:{
@@ -285,7 +330,7 @@ export default {
            $.ajax({
                type: 'post',
                headers: {Authorization: 'Basic d2ViX2FwcDo='},
-               url: _self.action.uaa + 'apis/member/testLogin',
+               url: _self.action.uaa + 'apid/member/testLogin',
                data:{},
                success:(res)=>{
                    if(res.err == 'SUCCESS'){ // 登录成功
@@ -327,10 +372,99 @@ export default {
               window.location = '/lobbyTemplate/Withdrawals' ;
           }
       },
+
+
+      carouselImg:function () {
+           var _self=this;
+          if (!sessionStorage.carouselList) {
+          // if (true) {
+              $.ajax({
+                  type: 'get',
+                  url: _self.action.forseti + 'apid/cms/carousel',
+                  data: {},
+                  success: (res) => {
+                      sessionStorage.carouselList = JSON.stringify(res.data.itemPO)
+                      if (res.data.itemPO) {
+                          var len = res.data.itemPO.length;
+                          for (var i = 0; i < len; i++) {
+                              res.data.itemPO[i].titlePic = _self.action.picurl + res.data.itemPO[i].titlePic + '/0';
+                          }
+                          _self.banner = res.data.itemPO;
+                          _self.$nextTick(function () {
+                              TouchSlide({
+                                  slideCell: "#focus",
+                                  autoPlay: true,
+                              });
+                          });
+                      }
+                  },
+                  err: (res) => {
+                  }
+              })
+
+          } else {
+              _self.corroleDataList = JSON.parse(sessionStorage.carouselList);
+              // console.log(  _self.corroleDataList , 'img')
+              var len = _self.corroleDataList.length;
+              for (var i = 0; i < len; i++) {
+                  _self.corroleDataList[i].titlePic = _self.action.picurl + _self.corroleDataList[i].titlePic + '/0';
+              }
+              _self.banner = _self.corroleDataList;
+              _self.$nextTick(function () {
+                  TouchSlide({
+                      slideCell: "#focus",
+                      autoPlay: true,
+                  });
+              });
+          }
+
+       },
+
       // 敬请期待
         Continued:function () {
             this.$refs.autoCloseDialog.open('敬请期待！') ;
-        }
+        },
+            //获得优惠活动接口
+      getActivity : function () {
+
+          var _self=this;
+          if (!sessionStorage.propActivityList) {
+              $.ajax({
+                  type: 'get',
+                  url: _self.action.forseti + 'apid/cms/activity',
+                  data: {},
+                  success: (res) => {
+                      sessionStorage.propActivityList = JSON.stringify(res.data.rows);
+                      if (res.data.rows) {
+                          _self.picture = _self.action.picurl + res.data.rows[0].titlePic + '/0';
+                          _self.cid = res.data.rows[0].cid
+                      }
+                  },
+                  err: (res) => {
+
+                  }
+              })
+
+          } else {
+              var activity_prop = JSON.parse(sessionStorage.propActivityList)
+              if (activity_prop) {
+                  _self.picture = _self.action.picurl + activity_prop[0].titlePic + '/0';
+                  _self.cid = activity_prop[0].cid
+              }
+          }
+      },
+
+       setCid:function (e) {
+          var _self = this;
+          var $src = $(e.currentTarget);
+          var val = $src.data('val');
+          if(val){
+              localStorage.setItem('Cid',val);
+              _self.$router.push('/lobbyTemplate/promo')
+
+            }
+        },
+
 
   },
 

@@ -6,14 +6,26 @@
 var MyMixin = {
     data:function(){
         return {
+            // action:{
+            //    forseti: 'http://121.58.234.210:19091/forseti/',  // 测试环境
+            //    uaa: 'http://121.58.234.210:19091/uaa/',   // 测试环境
+            //    hermes: 'http://121.58.234.210:19091/hermes/',   // 测试环境
+            //     // forseti: 'http://api.88bccp.com/forseti/',   // 线上环境
+            //     // uaa: 'http://api.88bccp.com/uaa/' ,  // 线上环境
+            //     // hermes: 'http://api.88bccp.com/hermes/',   // 线上环境
+            //     picurl: 'http://admin.baochiapi.com/photo/pic/',  // 图片地址
+            // },
             action:{
-               forseti: 'http://121.58.234.210:19091/forseti/',  // 测试环境
-               uaa: 'http://121.58.234.210:19091/uaa/',   // 测试环境
-               hermes: 'http://121.58.234.210:19091/hermes/',   // 测试环境
-                // forseti: 'http://api.88bccp.com/forseti/',   // 线上环境
-                // uaa: 'http://api.88bccp.com/uaa/' ,  // 线上环境
-                // hermes: 'http://api.88bccp.com/hermes/',   // 线上环境
-                picurl: 'http://admin.baochiapi.com/photo/pic/',  // 图片地址
+                // picurl: 'https://img.will888.cn/photo/pic/',  // 图片地址
+                picurl: 'http://admin.baochiapi.com/photo/pic/',
+                //
+                forseti: 'http://121.58.234.210:19093/forseti/',  // 测试环境
+                uaa:  'http://121.58.234.210:19093/uaa/',   // 测试环境
+                hermes:  'http://121.58.234.210:19093/hermes/', // 测试环境
+
+                // forseti: 'https://api.88bccp.com/forseti/',   // 线上环境
+                // uaa:'https://api.88bccp.com/uaa/',  // 线上环境
+                // hermes:'https://api.88bccp.com/hermes/',   // 线上环境
             },
             playTreeList:[], //玩法树
             testPriodDataNewlyData:{
@@ -729,7 +741,167 @@ var MyMixin = {
              $('.'+el).prev().val('');
               $('.'+el).parent('.form_g').next('.error-message').removeClass('red').text('') ;
               this.clearVal(cl) ;
-        }
+        },
+          //客服接口
+        getCustom:function () {
+            var _self=this;
+
+            if (!sessionStorage.customLink) {
+                $.ajax({
+                    type: 'get',
+                    url: _self.action.forseti + 'apid/config/custConfig',
+                    data: {},
+                    success: (res) => {
+                        sessionStorage.customLink = res.data.h5CustUrl;
+                        if (res.data) {
+                            _self.custUrl = res.data.h5CustUrl;
+                            localStorage.setItem('Url', _self.custUrl)
+                        }
+                    },
+                    err: (res) => {
+
+                    }
+                })
+            } else {
+                _self.custUrl = sessionStorage.customLink;
+                localStorage.setItem('Url', _self.custUrl)
+            }
+        },
+          demoPlay :function () {
+            var _self=this;
+            $.ajax({
+                type: 'post',
+                headers: {Authorization: 'Basic d2ViX2FwcDo='},
+                url: _self.action.uaa + 'apid/member/testLogin',
+                data:{},
+                success:(res)=>{
+                    if(res.err == 'SUCCESS'){ // 登录成功
+                        _self.setCookie("access_token", res.data.access_token);  // 把登录token放在cookie里面
+                        _self.setCookie("username", res.data.username);  // 把登录用户名放在cookie里面
+                        _self.setCookie('acType',res.data.acType);   //把玩家类型放在cookie里面
+                        _self.$refs.autoCloseDialog.open('登录成功','','icon_check','d_check') ;
+                        setTimeout(function () {
+                            window.location = '/' ;
+                        },1000)
+                    }else{
+                        this.$refs.autoCloseDialog.open(res.cnMsg) ;
+                    }
+                }
+            })
+        },
+         //获取银行列表
+        getBankList:function(){
+            var _self=this;
+            $.ajax({
+                type:'get',
+//              headers: {"Authorization": "bearer  " + this.getAccessToken },
+                url: _self.action.forseti + 'apid/payment/banks',
+                data:{},
+                success: function(res){
+                    _self.bankList=res.data;
+                },
+                error: function (err) {
+
+                }
+            })
+        },
+           //注册配置
+        getReglist (type) {
+            var _self=this;
+            $.ajax({
+                type: 'GET',
+                url:  _self.action.forseti + 'apid/config/registerConfig?regType='+type,
+                data:{},
+                success:(res)=>{
+                    //console.log(res)
+                    if(!res.data){
+                        return false
+                    }
+                    for(let i=0;i<res.data.length;i++){
+                        switch (res.data[i].item) {
+                            case "帐号" :
+                                _self.accountObj=res.data[i];
+                                break;
+                            case "登录密码" :
+                                _self.passwordObj=res.data[i];
+                                break;
+                            case "确认密码" :
+                                _self.confirmpasswordObj=res.data[i];
+                                break;
+                            case "真实名称" :
+                                _self.realynameObj=res.data[i];
+                                break;
+                            case "支付密码" :
+                                _self.withPasswordObj=res.data[i];
+                                break;
+                            case "手机号码" :
+                                _self.phoneObj=res.data[i];
+                                break;
+                            case "选择银行" :
+                                _self.bankselectObj=res.data[i];
+                                break;
+                            case "开户行" :
+                                _self.bankAddObj=res.data[i];
+                                break;
+                            case "银行卡号" :
+                                _self.bankNumObj=res.data[i];
+                                break;
+                            case "电子邮箱" :
+                                _self.eMailObj=res.data[i];
+                                break;
+                            case "QQ" :
+                                _self.QQObj=res.data[i];
+                                break;
+                            case "微信" :
+                                _self.weiChatObj=res.data[i];
+                                break;
+
+                        }
+                    }
+
+
+                }
+            })
+
+
+        },
+
+         //验证确认密码
+        checkIsEqual:function (el) {
+            if(this.confirmpassword != this.userPd){
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('两次密码输入不一致') ;
+
+            }else if((this.confirmpassword && !this.positiveEngNum(this.confirmpassword) ) || this.confirmpassword.length<6 || this.confirmpassword.length>20){
+                $(el).parent('.form_g').next('.error-message').addClass('red').text('请输入6~20位英数密码') ;
+            }else{
+                $(el).parent('.form_g').next('.error-message').removeClass('red').text('');
+            }
+        },
+
+        getCopyright:function (type,code) {
+            var _self=this;
+            var senddata={
+                type:type,
+                code:code};
+            $.ajax({
+                type: 'get',
+                url: _self.action.forseti + 'apid/cms/copyright',
+                data: senddata ,
+                success: function(res){
+                    if(res.data){
+                        if(res.err=="SUCCESS"){
+                            _self.copyTitle=res.data[0].title;
+                            _self.copyContent=res.data[0].content;
+                        }
+                    }
+                },
+                error: function (res) {
+
+                }
+            })
+        },
+
+
 
 
     }
