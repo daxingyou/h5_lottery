@@ -943,15 +943,20 @@
     .bModal > .m_content > .content > div > img:last-child { height: 0.8rem; margin: .2rem auto; }
 
 
+
 .arrow_list_dark { position: relative;}
 .arrow_list_dark li{ float: left; width: 50%; }
 .arrow_list_dark::after{ content: ''; display: table; clear: both;}
-.arrow_list_dark .badge{ background: url(/static/frist/images/logo_bg.png) no-repeat;background-size: 100% 100%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
+
+.arrow_list_dark .badge{ 
+    /*background: url(/static/frist/images/logo_bg.png) no-repeat;*/
+    background-size: 100% 100%;width: 1.5rem;height: 1.5rem; margin-right: 0.2rem; }
+
 .arrow_list_dark .icon{ /*float: right;*/ margin-top: 0.45rem; display: none; position: absolute; top: 50%; margin-top: -0.32rem; right: 0;}
 
 .deposit_area { padding: 0 0.3rem; }
 .pay_content {  }
-.pay_content .step03 { color: #ffc388; margin: 0 auto; text-align: left;}
+.pay_content .step03 { color: #ffc388; margin: 0 auto; text-align: left; padding-left: 0.72rem;}
 
 
 .pay_content .step03.pay_way { max-width: 100%; }
@@ -988,46 +993,7 @@
 
 
 
-.icon_account  { display: inline-block; vertical-align: middle; width: 1.5rem;  height: 1.5rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png);    background-size: 7.5rem auto; background-position: 0 -4.5rem;}
 
-
-/*.icon_deposit_net1 {background-image: url(../images/icon_deposit_1.png); background-size: 0.722222rem auto;  background-repeat: no-repeat;    background-position: center center; }*/
-/*.icon_deposit_net2 {background-image: url(../images/icon_deposit_2.png); background-size: 0.722222rem auto;  background-repeat: no-repeat;    background-position: center center; }*/
-/*.icon_deposit_net3 {background-image: url(../images/icon_deposit_3.png); background-size: 0.722222rem auto;  background-repeat: no-repeat;    background-position: center center; }*/
-/*.icon_deposit_net4 {background-image: url(../images/icon_deposit_4.png); background-size: 0.722222rem auto;  background-repeat: no-repeat;    background-position: center center; }*/
-/*.icon_deposit_net8 {background-image: url(../images/icon_deposit_5.png); background-size: 1.111111rem auto;  background-repeat: no-repeat;    background-position: center center; }*/
-
-.icon_account.icon_deposit { background-position: 0rem 0; }
-.icon_account.icon_withdrawals { background-position: -1.5rem 0; }
-.icon_account.icon_promo { background-position: -3rem 0; }
-.icon_account.icon_service { background-position: -4.5rem 0; }
-.icon_account.icon_info_1 { background-position: 0rem -1.5rem; }
-.icon_account.icon_info_2 { background-position: -1.5rem -1.5rem; }
-.icon_account.icon_info_3 { background-position: -3rem -1.5rem; }
-.icon_account.icon_info_4 { background-position: -4.5rem -1.5rem; }
-.icon_account.icon_join_1 { background-position: 0rem -3rem; }
-.icon_account.icon_join_2 { background-position: -1.5rem -3rem; }
-.icon_account.icon_join_3 { background-position: -3rem -3rem; }
-.icon_account.icon_deposit_1 { background-position: 0rem -4.5rem; } /* 网银支付 */
-.icon_account.icon_deposit_13 { background-position: 3rem 1.5rem; }
-.icon_account.icon_deposit_2 { background-position: -1.5rem -4.5rem; } /* 扫码支付 */
-.icon_account.icon_deposit_3 { background-position: -3rem -4.5rem; } /* 银行支付 */
-.icon_account.icon_deposit_4 { background-position: -4.5rem -4.5rem; }
-.icon_account.icon_deposit_5 { background-position: -3rem -6rem; }
-.icon_account.icon_deposit_6 { background-position: -4.5rem -6rem; }
-.icon_account.icon_deposit_7 { background-position: -4.5rem -3rem; }
-.icon_account.icon_deposit_net1{ background-position: -4.5rem -3rem;} /* 微信支付 */
-.icon_account.icon_deposit_net2{ background-position: -4.5rem -4.5rem;} /* 支付宝支付 */
-.icon_account.icon_deposit_net3{ background-position: -3rem -6rem;}/* QQ钱包 */
-.icon_account.icon_deposit_net4{ background-position: -4.5rem -6rem;}/* 京东支付 */
-.icon_account.icon_deposit_net8{ background-position: -6rem -4.5rem;}/* 银联扫码 */
-.icon_account.icon_deposit_net9 {background-position: -3rem -4.5rem;} /* 银行转帐 */
-.icon_account.icon_deposit_net10 { background-position: 3rem 1.5rem; } /* 网银支付(扫码) */
-.icon_account.icon_notice_1 { background-position: 0rem -6rem; } /* 个人消息(未读) */
-.icon_account.icon_notice_2 { background-position: -1.5rem -6rem; } /* 个人消息(已读) */
-.icon_account.icon_ac01 { background-position: 0rem -7.5rem; }
-.icon_account.icon_ac02 { background-position: -1.5rem -7.5rem; }
-.icon_account.icon_ac03 { background-position: -3rem -7.5rem; }
 
 
 </style>

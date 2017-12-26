@@ -1296,7 +1296,7 @@ ul.sixball > li:last-child:before { background-image: url("/static/frist/images/
 
 .account_area ul a .icon { background-image: url(/static/frist/images/border_bg02.png); background-size: 150% 100%; }
 
-.account_area ul a .icon span { display: block; width: 1.5rem; height: 1.5rem; background-image: url(/static/frist/images/icon_account.png); background-size: auto 1.5rem; }
+.account_area ul a .icon span { display: block; width: 1.5rem; height: 1.5rem; background-image: url(/static/frist/images/icon_account_index.png); background-size: auto 1.5rem; }
 
 .account_area ul a .icon span.icon_deposit { background-position-x: 0rem; }
 
@@ -1497,11 +1497,11 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 
 .pay_way > ul > li > a { color: #fff; display: inline-block; width: 100%; padding: 1em 0; }
 
-.pay_way > ul > li > a:after { content: ''; background-image: url("/static/frist/images/btn_icon_right.png"); width: .2rem; height: 0.37rem; background-size: 100%; position: absolute; right: 3em; top: 3em; }
+/*.pay_way > ul > li > a:after { content: ''; background-image: url("/static/frist/images/btn_icon_right.png"); width: .2rem; height: 0.37rem; background-size: 100%; position: absolute; right: 3em; top: 3em; }*/
 
 .pay_way > ul > li > a > div.icon { display: inline-block; margin: 0 1em 0 2.2em; float: left; }
 
-.pay_way > ul > li > a span { vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; font-size: 0.35rem; }
+.pay_way > ul > li > a span {    color: #d7e8f0; vertical-align: -webkit-baseline-middle; vertical-align: -moz-middle-with-baseline; line-height: 1.5rem; float: left; font-size: 0.35rem; }
 
 .print_data { background: rgba(255, 255, 255, 0.08); -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; margin: 1em auto; overflow: hidden; border-radius: .1rem; padding: .3rem 0; }
 
@@ -1686,3 +1686,74 @@ fieldset { display: block; margin: .5rem 0 !important; font-size: .35rem; }
 input.date:after { content: ''; position: absolute; display: block; top: 0; left: 0; background: url("/static/frist/images/icon_member.png") no-repeat; background-position: -.17rem 83.5%; background-size: 145%; width: 2em; height: 1rem; position: absolute; right: 0; left: inherit; top: .1rem; cursor: pointer; }
 
 /*# sourceMappingURL=all.css.map */
+/*icon*/
+
+.icon { width: 0.64rem; height: 0.64rem; margin-top: -0.05rem; display: inline-block; vertical-align: middle; background:url('/static/frist/images/icon_sprite.png') no-repeat; background-size: 6.4rem auto; }
+.icon.icon_nav{ background-position: 0 0; }
+.icon.icon_trend{ background-position: -0.64rem 0;}
+.icon.icon_money{ background-position: 0 -0.64rem;}
+.icon.icon_money2{background-position: -2.56rem -1.92rem }
+.icon.icon_user{ background-position: -1.28rem -0.64rem;}
+.icon.icon_user2{background-position: -1.92rem -1.92rem }
+.icon.icon_index{ background-position: -1.92rem -0.64rem;}
+.icon.icon_history{ background-position: -2.56rem -0.64rem;}
+.icon.icon_record{ background-position: -3.2rem -0.64rem;}
+.icon.icon_member{ background-position: -3.84rem -0.64rem;}
+.icon.icon_r_record{ background-position: -1.28rem 0; }
+.icon.icon_w_record{ background-position: -4.45rem 0;}
+.icon.icon_r_pastview{ background-position: -1.92rem 0; }
+.icon.icon_r_roadbeads{ background-position: -2.56rem 0; }
+.icon.icon_r_long { background-position: -3.2rem 0; }
+.icon.icon_r_play { background-position: -3.84rem 0; }
+.icon.icon_r_today{ background-position: -4.48rem 0; }
+.icon.icon_back{ width: 1rem; height: 1rem; background-position: -5.12rem 0; }
+.icon.icon_arrow_dark{background-position: 0 -1.28rem; }
+.icon.icon_arrow_light{background-position: -0.64rem -1.28rem; }
+.icon.icon_info{background-position: -4.48rem -1.28rem; }
+.icon.icon_question{background-position: -5.12rem -1.28rem; }
+.icon.icon_copy{background-position: -5.76rem -1.28rem; }
+.icon.icon_edit{background-position: -1.28rem -1.28rem; }
+.icon.icon_arrow_down{background-position: 0 -1.92rem }
+.icon.icon_filter{background-position: -1.28rem -1.92rem }
+.icon.icon_check{background-position: -0.64rem -1.92rem }
+
+.icon_account  { display: inline-block; vertical-align: middle; width: 1.5rem; 	height: 1.5rem; margin: 0 auto; background-image: url(/static/frist/images/icon_account.png);	 background-size: 7.5rem auto; background-position: 0 -4.5rem;}
+
+
+/*.icon_deposit_net1 {background-image: url(../images/icon_deposit_1.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}*/
+/*.icon_deposit_net2 {background-image: url(../images/icon_deposit_2.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}*/
+/*.icon_deposit_net3 {background-image: url(../images/icon_deposit_3.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}*/
+/*.icon_deposit_net4 {background-image: url(../images/icon_deposit_4.png); background-size: 0.722222rem auto;  background-repeat: no-repeat; 	background-position: center center;	}*/
+/*.icon_deposit_net8 {background-image: url(../images/icon_deposit_5.png); background-size: 1.111111rem auto;  background-repeat: no-repeat; 	background-position: center center;	}*/
+
+.icon_account.icon_deposit { background-position: 0rem 0; }
+.icon_account.icon_withdrawals { background-position: -1.5rem 0; }
+.icon_account.icon_promo { background-position: -3rem 0; }
+.icon_account.icon_service { background-position: -4.5rem 0; }
+.icon_account.icon_info_1 { background-position: 0rem -1.5rem; }
+.icon_account.icon_info_2 { background-position: -1.5rem -1.5rem; }
+.icon_account.icon_info_3 { background-position: -3rem -1.5rem; }
+.icon_account.icon_info_4 { background-position: -4.5rem -1.5rem; }
+.icon_account.icon_join_1 { background-position: 0rem -3rem; }
+.icon_account.icon_join_2 { background-position: -1.5rem -3rem; }
+.icon_account.icon_join_3 { background-position: -3rem -3rem; }
+.icon_account.icon_deposit_1 { background-position: 0rem -4.5rem; } /* 网银支付 */
+.icon_account.icon_deposit_13 { background-position: 3rem 1.5rem; }
+.icon_account.icon_deposit_2 { background-position: -1.5rem -4.5rem; } /* 扫码支付 */
+.icon_account.icon_deposit_3 { background-position: -3rem -4.5rem; } /* 银行支付 */
+.icon_account.icon_deposit_4 { background-position: -4.5rem -4.5rem; }
+.icon_account.icon_deposit_5 { background-position: -3rem -6rem; }
+.icon_account.icon_deposit_6 { background-position: -4.5rem -6rem; }
+.icon_account.icon_deposit_7 { background-position: -4.5rem -3rem; }
+.icon_account.icon_deposit_net1{ background-position: -4.5rem -3rem;} /* 微信支付 */
+.icon_account.icon_deposit_net2{ background-position: -4.5rem -4.5rem;} /* 支付宝支付 */
+.icon_account.icon_deposit_net3{ background-position: -3rem -6rem;}/* QQ钱包 */
+.icon_account.icon_deposit_net4{ background-position: -4.5rem -6rem;}/* 京东支付 */
+.icon_account.icon_deposit_net8{ background-position: -6rem -4.5rem;}/* 银联扫码 */
+.icon_account.icon_deposit_net9 {background-position: -3rem -4.5rem;} /* 银行转帐 */
+.icon_account.icon_deposit_net10 { background-position: 3rem 1.5rem; } /* 网银支付(扫码) */
+.icon_account.icon_notice_1 { background-position: 0rem -6rem; } /* 个人消息(未读) */
+.icon_account.icon_notice_2 { background-position: -1.5rem -6rem; } /* 个人消息(已读) */
+.icon_account.icon_ac01 { background-position: 0rem -7.5rem; }
+.icon_account.icon_ac02 { background-position: -1.5rem -7.5rem; }
+.icon_account.icon_ac03 { background-position: -3rem -7.5rem; }
