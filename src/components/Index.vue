@@ -144,12 +144,12 @@
 
                  <!-- <li v-for="lottery in allLottery" v-if="lottery.ifHot==1">-->
                   <li v-for="(lottery,index) in allLottery" v-if="index<10"> <!-- 只展示前面7个 -->
-                    <a class="to_lottery" :href="'/'+gameHref[lottery.cid]" v-if="haslogin">
+                    <router-link class="to_lottery" :to="'/'+gameHref[lottery.cid]" v-if="haslogin">
                       <div :class="'badge'">
                        <!-- <img v-lazy="lottery.imgUrl">-->
                           <img v-lazy="'static/frist/images/lotteryicon/cp'+lottery.cid+'.png'">
                       </div>
-                    </a>
+                    </router-link>
                       <a class="to_lottery" @click="gotoGame(haslogin)"  v-else>
                           <div :class="'badge'">
                             <!--  <img v-lazy="lottery.imgUrl">-->
